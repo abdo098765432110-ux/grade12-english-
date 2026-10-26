@@ -433,7 +433,7 @@ def student_pages_in_preview(page, base):
     # --- Practice: unreviewed wording, retry, reviewed wording, short answer, results
     page.goto(base + "practice.html?topic=renamed-lesson")
     record("practice topic is preselected from the link", page.input_value("#practice-topic") == "renamed-lesson")
-    expect(page.locator("label[for='practice-count-all']")).to_have_text("All (3)")
+    expect(page.locator("label[for='practice-count-all']")).to_have_text("All questions (3)")
     audit(page, "practice setup")
     page.click("button:has-text('Start practice')")
     seen = set()

@@ -75,10 +75,163 @@
     ])];
   }
 
+  /* A quick double-click on a button (for example "Submit answer" or "Check
+     my answers") must not also press the button that appears in its place
+     a moment later. The second click of a double-click is ignored on every
+     button inside the container. Keyboard presses report no click count, so
+     they are never affected. */
+  G12.ignoreDoubleClicks = function (container) {
+    container.addEventListener('click', function (event) {
+      if (event.detail > 1 && event.target.closest && event.target.closest('button')) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+    }, true);
+    return container;
+  };
+
+  /* ==========================================================================
+     "How many questions would you like to solve?" — shared by the lesson
+     page and Grammar Practice.
+
+     var choice = G12.countChoice({
+       id: 'lesson-count',          // ids and radio name start with this
+       available: 158,              // questions to choose from
+       presets: [20, 30, 50],       // shown only when smaller than available
+       value: 'all' | 20 | 'custom' | null,   // null: nothing chosen yet
+       custom: '',                  // text in the custom box
+       hint: 'Questions are chosen at random.',
+       onChange: function (state) {}          // { value, custom }
+     });
+     choice.element   the fieldset to put in a form
+     choice.read()    { count: null (all) or a number } — or { error } after
+                      showing the problem next to the field and focusing it
+     ========================================================================== */
+  G12.countChoice = function (config) {
+    var available = config.available;
+    var name = config.id;
+    var presets = (config.presets || []).filter(function (n) { return n < available; });
+    var values = ['all'].concat(presets.map(String), ['custom']);
+    var current = config.value === null || config.value === undefined ? null : String(config.value);
+    if (values.indexOf(current) === -1) current = null;
+
+    var radios = {};
+    var options = values.map(function (value) {
+      var id = name + '-' + value;
+      var input = el('input', { type: 'radio', id: id, name: name, value: value, checked: value === current });
+      radios[value] = input;
+      var text = value === 'all' ? t('All questions ({count})', { count: available })
+        : value === 'custom' ? t('Custom number')
+          : G12.plural(Number(value), 'question');
+      return el('label', { for: id, className: 'count-option' }, [input, el('span', { text: text })]);
+    });
+
+    var groupError = el('p', { className: 'field-error', id: name + '-error', hidden: true });
+    var customId = name + '-number';  // (the radio button is name + '-custom')
+    var customHintId = customId + '-hint';
+    var customErrorId = customId + '-error';
+    var customError = el('p', { className: 'field-error', id: customErrorId, hidden: true });
+    var customInput = el('input', {
+      type: 'text', id: customId, inputmode: 'numeric', autocomplete: 'off', maxlength: '6',
+      className: 'count-custom-input', 'aria-describedby': customHintId
+    });
+    customInput.value = config.custom || '';
+
+    var fieldset = el('fieldset', { className: 'form-row count-choice', 'aria-describedby': name + '-error' }, [
+      el('legend', { text: t('How many questions would you like to solve?') }),
+      groupError,
+      el('div', { className: 'count-options' }, options),
+      el('div', { className: 'count-custom' }, [
+        el('label', { for: customId, text: t('Custom number of questions') }),
+        el('p', { className: 'hint', id: customHintId, text: t('A whole number from 1 to {max}.', { max: available }) }),
+        customInput,
+        customError
+      ]),
+      config.hint ? el('p', { className: 'hint', text: config.hint }) : null
+    ]);
+
+    function chosen() {
+      return values.filter(function (value) { return radios[value].checked; })[0] || null;
+    }
+
+    function state() {
+      return { value: chosen() === null ? null : (/^\d+$/.test(chosen()) ? Number(chosen()) : chosen()), custom: customInput.value };
+    }
+
+    function hide(error) {
+      error.hidden = true;
+      error.textContent = '';
+    }
+
+    function clearErrors() {
+      hide(groupError);
+      hide(customError);
+      customInput.removeAttribute('aria-invalid');
+      customInput.setAttribute('aria-describedby', customHintId);
+    }
+
+    function changed() {
+      if (config.onChange) config.onChange(state());
+    }
+
+    /* Typing a number chooses "Custom number". */
+    customInput.addEventListener('focus', function () {
+      if (!radios.custom.checked) {
+        radios.custom.checked = true;
+        clearErrors();
+        changed();
+      }
+    });
+    customInput.addEventListener('input', function () {
+      radios.custom.checked = true;
+      clearErrors();
+      changed();
+    });
+    fieldset.addEventListener('change', function (event) {
+      if (event.target !== customInput) clearErrors();
+      changed();
+    });
+
+    /* What is wrong with the typed number, in the interface language. */
+    function problem(error) {
+      var params = { max: available, questions: G12.plural(available, 'question') };
+      if (error === 'empty') return t('Enter how many questions you want, from 1 to {max}.', params);
+      if (error === 'too-small') return t('Choose at least 1 question (a number from 1 to {max}).', params);
+      if (error === 'too-big') return t('There are only {questions}. Enter a number from 1 to {max}.', params);
+      return t('Enter a whole number from 1 to {max}.', params);
+    }
+
+    function read() {
+      clearErrors();
+      var value = chosen();
+      if (value === null) {
+        groupError.textContent = t('Choose how many questions you want to solve.');
+        groupError.hidden = false;
+        radios[values[0]].focus();
+        return { error: 'none' };
+      }
+      if (value === 'all') return { count: null };
+      if (value !== 'custom') return { count: Number(value) };
+      var parsed = G12.QuizEngine.parseCount(customInput.value, available);
+      if (parsed.error) {
+        customError.textContent = problem(parsed.error);
+        customError.hidden = false;
+        customInput.setAttribute('aria-invalid', 'true');
+        customInput.setAttribute('aria-describedby', customHintId + ' ' + customErrorId);
+        customInput.focus();
+        return { error: parsed.error };
+      }
+      return { count: parsed.count >= available ? null : parsed.count };
+    }
+
+    return { element: fieldset, read: read, state: state };
+  };
+
   G12.renderQuiz = function (container, questions, options) {
     options = options || {};
     var quiz = new G12.QuizEngine.Quiz(questions, { shuffle: options.shuffle !== false });
     var root = el('section', { className: 'quiz', 'aria-label': options.label || t('Quiz') });
+    G12.ignoreDoubleClicks(root);
     G12.clear(container).appendChild(root);
     showQuestion(false);
 
@@ -321,7 +474,14 @@
             text: allReviewed
               ? t('questions answered correctly on the first try ({percent}%).', { percent: results.percent })
               : t('answers matched the suggested answer on the first try ({percent}%).', { percent: results.percent })
-          })
+          }),
+          el('ul', { className: 'score-breakdown' }, [
+            el('li', { text: allReviewed ? t('Correct: {n}', { n: results.firstTryMatches }) : t('Matched: {n}', { n: results.firstTryMatches }) }),
+            el('li', { text: allReviewed
+              ? t('Not correct: {n}', { n: results.scoredCount - results.firstTryMatches - results.unansweredCount })
+              : t('Different: {n}', { n: results.scoredCount - results.firstTryMatches - results.unansweredCount }) }),
+            results.unansweredCount ? el('li', { text: t('Not answered: {n}', { n: results.unansweredCount }) }) : null
+          ])
         ]));
         if (results.provisional) {
           root.appendChild(el('div', { className: 'notice notice--demo', role: 'note' }, [
@@ -420,6 +580,7 @@
   G12.renderWorksheet = function (container, questions, options) {
     options = options || {};
     var root = el('section', { className: 'quiz worksheet', 'aria-label': options.label || t('Questions') });
+    G12.ignoreDoubleClicks(root);
     G12.clear(container).appendChild(root);
     draw(questions, false, false);
 

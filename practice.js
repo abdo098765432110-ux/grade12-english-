@@ -12,7 +12,8 @@
   var root = document.getElementById('page-root');
   var OTHER_UNIT = '__other__';   // questions with no unit (or an unknown unit)
   var NO_TOPIC = '__none__';      // questions with no topic (or an unknown topic)
-  var COUNT_CHOICES = [5, 10, 20];
+  /* "How many questions?" — the bigger numbers only appear when there are more questions. */
+  var COUNT_PRESETS = [5, 10, 20, 30, 38, 50, 60, 80, 100, 120];
   function modes() {
     return [
       { value: 'one', label: t('One at a time — feedback after each answer') },
@@ -22,10 +23,15 @@
 
   var content = null;
   var loadError = null;
-  var settings = { unit: '', topic: '', count: null, mode: 'one' };
+  /* count: the choice on the settings screen ('all', a number, 'custom' or null for the default);
+     custom: the number typed for 'custom'; pick: how many questions to use (null: all). */
+  var settings = { unit: '', topic: '', count: null, custom: '', pick: null, mode: 'one' };
+  var countChoice = null;  // the "How many questions?" field on the settings screen
   var running = null;  // the questions of the practice in progress (null: settings screen)
   var setupArea = el('div');
   var quizArea = el('div', { id: 'quiz-area' });
+  G12.ignoreDoubleClicks(setupArea);
+  G12.ignoreDoubleClicks(quizArea);
 
   G12.loadContent(['units', 'lessons', 'questions']).then(function (loaded) {
     content = loaded;
@@ -59,11 +65,14 @@
     if (!form || setupArea.hidden) return;
     var unit = form.querySelector('#practice-unit');
     var topic = form.querySelector('#practice-topic');
-    var count = form.querySelector('input[name="count"]:checked');
     var mode = form.querySelector('input[name="mode"]:checked');
     if (unit) settings.unit = unit.value || '';
     if (topic) settings.topic = topic.value;
-    if (count) settings.count = count.value !== 'all' ? Number(count.value) : null;
+    if (countChoice) {
+      var state = countChoice.state();
+      settings.count = state.value;
+      settings.custom = state.custom;
+    }
     if (mode) settings.mode = mode.value;
   }
 
@@ -173,13 +182,14 @@
 
   function showSetup(moveFocus) {
     running = null;
+    countChoice = null;
     G12.clear(quizArea);
     G12.clear(setupArea);
     setupArea.hidden = false;
 
     var unitSelect = el('select', { id: 'practice-unit', name: 'unit' });
     var topicSelect = el('select', { id: 'practice-topic', name: 'topic' });
-    var countChoices = el('div', { className: 'inline-choices' });
+    var countHolder = el('div');
     var emptyMessage = el('div', { className: 'practice-empty', role: 'status' });
     var startButton = el('button', { type: 'submit', className: 'btn', text: t('Start practice') });
     var heading = el('h2', { id: 'setup-heading', tabindex: '-1', text: t('Choose your practice') });
@@ -190,12 +200,7 @@
     }
     rows.push(el('div', { className: 'form-row' }, [el('label', { for: 'practice-topic', text: t('Topic') }), topicSelect]));
     rows.push(emptyMessage);
-    var countFieldset = el('fieldset', { className: 'form-row' }, [
-      el('legend', { text: t('Number of questions') }),
-      countChoices,
-      el('p', { className: 'hint', text: t('Questions are chosen at random.') })
-    ]);
-    rows.push(countFieldset);
+    rows.push(countHolder);
     rows.push(el('fieldset', { className: 'form-row' }, [
       el('legend', { text: t('How do you want to answer?') }),
       el('div', { className: 'inline-choices' }, modes().map(function (mode) {
@@ -213,7 +218,7 @@
       var available = pool(unitSelect.value || '', topicSelect.value).length;
       G12.clear(emptyMessage);
       startButton.disabled = available === 0;
-      countFieldset.hidden = available === 0;
+      countHolder.hidden = available === 0;
       if (available === 0) {
         emptyMessage.appendChild(el('div', { className: 'unit-empty' }, [
           el('p', { text: topicSelect.value ? t('No practice questions for this topic yet.') : t('No practice questions for this unit yet.') }),
@@ -221,16 +226,23 @@
         ]));
         return;
       }
-      var values = COUNT_CHOICES.filter(function (n) { return n < available; }).map(String).concat(['all']);
-      var current = settings.count && values.indexOf(String(settings.count)) !== -1 ? String(settings.count) : (available > 10 ? '10' : 'all');
-      G12.clear(countChoices);
-      values.forEach(function (value) {
-        var id = 'practice-count-' + value;
-        countChoices.appendChild(el('label', { for: id }, [
-          el('input', { type: 'radio', id: id, name: 'count', value: value, checked: value === current }),
-          value === 'all' ? t('All ({count})', { count: available }) : value
-        ]));
+      var value = settings.count;
+      if (typeof value === 'number' && !(value < available && COUNT_PRESETS.indexOf(value) !== -1)) value = null;
+      if (value === null || value === undefined) value = available > 10 ? 10 : 'all';
+      countChoice = G12.countChoice({
+        id: 'practice-count',
+        available: available,
+        presets: COUNT_PRESETS,
+        value: value,
+        custom: settings.custom,
+        hint: t('Questions are chosen at random.'),
+        onChange: function (state) {
+          settings.count = state.value;
+          settings.custom = state.custom;
+        }
       });
+      G12.clear(countHolder);
+      countHolder.appendChild(countChoice.element);
     }
 
     fillSelect(unitSelect, unitOptions(), settings.unit);
@@ -243,13 +255,15 @@
 
     form.addEventListener('submit', function (event) {
       event.preventDefault();
-      var count = form.querySelector('input[name="count"]:checked');
       var mode = form.querySelector('input[name="mode"]:checked');
       settings.unit = unitSelect.value || '';
       settings.topic = topicSelect.value;
-      settings.count = count && count.value !== 'all' ? Number(count.value) : null;
       settings.mode = mode ? mode.value : 'one';
-      if (pool(settings.unit, settings.topic).length) startPractice();
+      if (!pool(settings.unit, settings.topic).length || !countChoice) return;
+      var chosen = countChoice.read();
+      if (chosen.error) return;
+      settings.pick = chosen.count;
+      startPractice();
     });
 
     setupArea.appendChild(form);
@@ -263,8 +277,8 @@
      choose new ones from the settings. */
   function startPractice(picked, quiet) {
     if (!picked) {
-      picked = G12.QuizEngine.shuffle(pool(settings.unit, settings.topic), Math.random);
-      if (settings.count) picked = picked.slice(0, settings.count);
+      /* Spread over the whole topic, no question twice, then in random order. */
+      picked = G12.QuizEngine.shuffle(G12.QuizEngine.pickSpread(pool(settings.unit, settings.topic), settings.pick), Math.random);
     }
     running = picked;
 

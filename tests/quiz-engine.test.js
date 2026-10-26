@@ -4,7 +4,7 @@
 
 const test = require('node:test');
 const assert = require('node:assert/strict');
-const { Quiz, shuffle, gradeAll, unansweredNumbers, hasValidAnswerKey } = require('../quiz-engine.js');
+const { Quiz, shuffle, gradeAll, unansweredNumbers, hasValidAnswerKey, pickSpread, parseCount } = require('../quiz-engine.js');
 
 function mcq(id, reviewStatus) {
   return { id, type: 'mcq', prompt: 'Prompt ' + id, options: ['A', 'B', 'C'], answer: 'B', reviewStatus };
@@ -203,4 +203,84 @@ test('Quiz results count questions never attempted as unanswered, not correct', 
   assert.equal(results.firstTryMatches, 1);
   assert.equal(results.unansweredCount, 1);
   assert.equal(results.percent, 50);
+});
+
+/* ---------- Choosing how many questions ---------- */
+
+function bank(n) {
+  return Array.from({ length: n }, (_, i) => ({ id: 'q' + (i + 1) }));
+}
+
+test('pickSpread: exactly the number asked for, no question twice, in bank order', () => {
+  const questions = bank(158);
+  for (const count of [1, 5, 20, 30, 38, 50, 60, 80, 100, 120, 157]) {
+    for (let run = 0; run < 50; run++) {
+      const picked = pickSpread(questions, count);
+      assert.equal(picked.length, count);
+      assert.equal(new Set(picked.map((q) => q.id)).size, count, 'no duplicates');
+      const positions = picked.map((q) => questions.indexOf(q));
+      assert.deepEqual(positions, [...positions].sort((a, b) => a - b), 'kept in bank order');
+    }
+  }
+});
+
+test('pickSpread: all (no count, or a count of at least the bank size) gives every question once, in order', () => {
+  const questions = bank(158);
+  assert.deepEqual(pickSpread(questions, null), questions);
+  assert.deepEqual(pickSpread(questions, 158), questions);
+  assert.deepEqual(pickSpread(questions, 500), questions);
+  assert.notEqual(pickSpread(questions, null), questions, 'a copy, not the same array');
+});
+
+test('pickSpread: questions come from every part of the bank, and every question can be chosen', () => {
+  const questions = bank(158);
+  // 50 of 158: each of the 50 equal parts gives exactly one question.
+  const picked = pickSpread(questions, 50);
+  for (let part = 0; part < 50; part++) {
+    const start = Math.floor(part * 158 / 50);
+    const end = Math.floor((part + 1) * 158 / 50);
+    const inPart = picked.filter((q) => { const i = questions.indexOf(q); return i >= start && i < end; });
+    assert.equal(inPart.length, 1, 'part ' + part);
+  }
+  // Both the first 38 and the later 120 appear in a 20-question quiz.
+  const twenty = pickSpread(questions, 20).map((q) => questions.indexOf(q));
+  assert.ok(twenty.some((i) => i < 38) && twenty.some((i) => i >= 38));
+  // Lowest and highest random numbers still pick valid questions, and over
+  // many runs every question gets chosen at least once.
+  assert.equal(pickSpread(questions, 50, () => 0)[0], questions[0]);
+  assert.equal(pickSpread(questions, 50, () => 0.9999999)[49], questions[157]);
+  const seen = new Set();
+  for (let run = 0; run < 2000; run++) pickSpread(questions, 20).forEach((q) => seen.add(q.id));
+  assert.equal(seen.size, 158);
+});
+
+test('pickSpread: a broken count is refused', () => {
+  for (const bad of [0, -1, 2.5, NaN, '20']) {
+    assert.throws(() => pickSpread(bank(10), bad), /whole number/);
+  }
+});
+
+test('parseCount: accepts whole numbers from 1 to the maximum only', () => {
+  assert.deepEqual(parseCount('50', 158), { count: 50 });
+  assert.deepEqual(parseCount(' 158 ', 158), { count: 158 });
+  assert.deepEqual(parseCount('1', 158), { count: 1 });
+  assert.deepEqual(parseCount('٥٠', 158), { count: 50 }, 'Arabic-Indic digits');
+  assert.deepEqual(parseCount('۶۰', 158), { count: 60 }, 'Eastern Arabic-Indic digits');
+  assert.deepEqual(parseCount('', 158), { error: 'empty' });
+  assert.deepEqual(parseCount('   ', 158), { error: 'empty' });
+  assert.deepEqual(parseCount(null, 158), { error: 'empty' });
+  assert.deepEqual(parseCount('0', 158), { error: 'too-small' });
+  assert.deepEqual(parseCount('-5', 158), { error: 'too-small' });
+  assert.deepEqual(parseCount('159', 158), { error: 'too-big' });
+  assert.deepEqual(parseCount('99999999999999999999', 158), { error: 'too-big' });
+  for (const bad of ['2.5', 'abc', '1e2', '20 questions', '١٠x', '--3']) {
+    assert.deepEqual(parseCount(bad, 158), { error: 'not-whole' }, bad);
+  }
+});
+
+test('a submitted question cannot be submitted again (no double counting)', () => {
+  const quiz = new Quiz([mcq('q1', 'reviewed')], { shuffle: false });
+  quiz.submit('B');
+  assert.throws(() => quiz.submit('B'), /already been answered/);
+  assert.equal(quiz.results().firstTryMatches, 1);
 });

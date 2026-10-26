@@ -13,7 +13,21 @@
   var root = document.getElementById('page-root');
   var PAGE = 'grammar.html';
 
-  var questionMode = 'one'; // how a lesson's questions are shown (kept when the language changes)
+  /* Choices for a lesson's quiz: "How many questions would you like to
+     solve?" — the bigger counts only appear when the lesson has more. */
+  var COUNT_PRESETS = [20, 30, 38, 50, 60, 80, 100, 120];
+  function modes() {
+    return [
+      { value: 'one', label: t('One at a time — feedback after each answer') },
+      { value: 'all', label: t('All at once — answer everything, then check') }
+    ];
+  }
+
+  /* What the student chose for the lesson's quiz. Kept in memory only (never
+     saved or sent anywhere), so it survives a language change but not a
+     page reload. stage: 'setup' or 'quiz'; picked: the questions of the
+     quiz in progress. */
+  var quizState = { lessonId: null, stage: 'setup', value: null, custom: '', mode: 'one', picked: null };
 
   G12.showPage(['units', 'lessons', 'summaries', 'questions'], function (content) {
     var topicId = G12.param('topic') || G12.param('lesson');
@@ -26,7 +40,7 @@
   /* Switching language draws the lesson again, so answers already given to
      its questions would be cleared: ask first. */
   G12.beforeLanguageChange(function () {
-    return G12.hasAnswers(root.querySelector('.lesson-questions'))
+    return quizState.stage === 'quiz' && G12.hasAnswers(root.querySelector('.lesson-quiz'))
       ? t('Changing the language starts the questions on this page again, and your answers so far will be cleared. Change the language?')
       : null;
   });
@@ -177,11 +191,16 @@
     });
     if (body.childNodes.length) root.appendChild(body);
 
-    /* The lesson's practice questions, in the order they are stored. */
+    /* The lesson's questions: first "How many questions?", then the quiz. */
     if (lessonQuestions.length) {
+      if (quizState.lessonId !== lesson.id) {
+        quizState = { lessonId: lesson.id, stage: 'setup', value: null, custom: '', mode: 'one', picked: null };
+      }
       var questionArea = el('section', { className: 'lesson-questions', 'aria-label': t('Questions about {title}', { title: lesson.title }) });
+      G12.ignoreDoubleClicks(questionArea);
       root.appendChild(questionArea);
-      renderLessonQuestions(questionArea, lesson, lessonQuestions, questionMode, false);
+      if (quizState.stage === 'quiz' && quizState.picked) showLessonQuiz(questionArea, lesson, lessonQuestions, quizState.picked, false);
+      else showLessonSetup(questionArea, lesson, lessonQuestions, false);
     }
 
     var summary = summaryFor(content, lesson.id);
@@ -204,32 +223,76 @@
     ]));
   }
 
-  /* The questions of one lesson: one at a time (feedback after each answer)
-     or all at once, always in the stored order. Same layout as the
-     questions on the Reading page. */
-  function renderLessonQuestions(area, lesson, questions, mode, moveFocus) {
-    questionMode = mode;
+  /* Quiz settings: how many questions (all, a preset or a custom number) and
+     how to answer them. Nothing starts until the student presses Start quiz. */
+  function showLessonSetup(area, lesson, questions, moveFocus) {
+    quizState.stage = 'setup';
+    quizState.picked = null;
     G12.clear(area);
-    var switcher = el('div', { className: 'mode-switch', role: 'group', 'aria-label': t('How to answer the questions') },
-      [{ value: 'one', label: t('One at a time') }, { value: 'all', label: t('All questions') }].map(function (option) {
-        return el('button', {
-          type: 'button',
-          className: 'btn btn--secondary btn--small',
-          'aria-pressed': String(option.value === mode),
-          text: option.label,
-          onclick: function () {
-            if (option.value !== mode) renderLessonQuestions(area, lesson, questions, option.value, true);
-          }
-        });
-      }));
-    var holder = el('div');
-    area.appendChild(switcher);
+
+    var heading = el('h2', { id: 'lesson-quiz-heading', tabindex: '-1', text: t('Quiz') });
+    var choice = G12.countChoice({
+      id: 'lesson-count',
+      available: questions.length,
+      presets: COUNT_PRESETS,
+      value: quizState.value,
+      custom: quizState.custom,
+      hint: questions.length > 1
+        ? t('If you choose fewer than all the questions, they are chosen at random from the whole lesson, so you get a different set each time.')
+        : null,
+      onChange: function (state) {
+        quizState.value = state.value;
+        quizState.custom = state.custom;
+      }
+    });
+    var modeRow = el('fieldset', { className: 'form-row' }, [
+      el('legend', { text: t('How do you want to answer?') }),
+      el('div', { className: 'inline-choices' }, modes().map(function (mode) {
+        var id = 'lesson-mode-' + mode.value;
+        return el('label', { for: id }, [
+          el('input', { type: 'radio', id: id, name: 'lesson-mode', value: mode.value, checked: quizState.mode === mode.value }),
+          mode.label
+        ]);
+      }))
+    ]);
+    modeRow.addEventListener('change', function (event) { quizState.mode = event.target.value; });
+
+    var form = el('form', { className: 'panel quiz-setup', 'aria-labelledby': 'lesson-quiz-heading', novalidate: true }, [
+      heading,
+      el('p', { text: t('This lesson has {questions}.', { questions: G12.plural(questions.length, 'question') }) }),
+      choice.element,
+      modeRow,
+      el('div', { className: 'actions' }, [el('button', { type: 'submit', className: 'btn', text: t('Start quiz') })])
+    ]);
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+      var result = choice.read();
+      if (result.error) return;
+      showLessonQuiz(area, lesson, questions, G12.QuizEngine.pickSpread(questions, result.count), true);
+    });
+    area.appendChild(form);
+    if (moveFocus) G12.focus(heading);
+  }
+
+  /* The quiz itself, with the chosen questions in the lesson's order: one at
+     a time (feedback after each answer) or all at once. */
+  function showLessonQuiz(area, lesson, questions, picked, moveFocus) {
+    quizState.stage = 'quiz';
+    quizState.picked = picked;
+    G12.clear(area);
+    function back() { showLessonSetup(area, lesson, questions, true); }
+
+    area.appendChild(el('p', null, [
+      el('button', { type: 'button', className: 'btn btn--link', text: t('← Change quiz settings'), onclick: back })
+    ]));
+    var holder = el('div', { className: 'lesson-quiz' });
     area.appendChild(holder);
     var label = t('Questions about {title}', { title: lesson.title });
-    if (mode === 'all') {
-      G12.renderWorksheet(holder, questions, { label: label, title: t('Questions') });
+    var actions = [{ label: t('Change quiz settings'), onClick: back }];
+    if (quizState.mode === 'all') {
+      G12.renderWorksheet(holder, picked, { label: label, title: t('Questions'), resultActions: actions });
     } else {
-      G12.renderQuiz(holder, questions, { label: label, shuffle: false });
+      G12.renderQuiz(holder, picked, { label: label, shuffle: false, resultActions: actions });
     }
     if (moveFocus) G12.focus(holder.querySelector('h2'));
   }

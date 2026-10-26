@@ -741,6 +741,79 @@ fieldset {
   margin: 0.25rem 0 0;
 }
 
+/* ---------- "How many questions?" (lesson quiz and Grammar Practice) ---------- */
+.panel.quiz-setup {
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+}
+
+.count-choice legend {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+/* The choices as soft pastel tiles: easy to tap on a phone. */
+.count-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(9.5rem, 1fr));
+  gap: 0.6rem;
+}
+
+.count-option {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  min-height: 3rem;
+  padding: 0.55rem 0.85rem;
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius);
+  background: var(--color-surface);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+/* "All questions (158)" gets a wider tile so it stays on one line. */
+.count-option:first-child { grid-column: span 2; }
+
+.count-option:hover { border-color: #a9cbff; background: #f6f9ff; }
+
+.count-option:has(input:checked) {
+  border-color: #8fb6f2;
+  background: linear-gradient(135deg, var(--color-sky), var(--color-lavender));
+  color: var(--color-button-text);
+}
+
+.count-option input {
+  flex-shrink: 0;
+  width: 1.1rem;
+  height: 1.1rem;
+  margin: 0;
+  accent-color: var(--color-primary);
+}
+
+.count-custom {
+  margin-top: 1rem;
+  padding: 0.9rem 1rem;
+  border-radius: var(--radius);
+  background: var(--color-bg);
+}
+
+.count-custom label { display: block; font-weight: 600; }
+.count-custom .hint { margin: 0.15rem 0 0.45rem; }
+
+input[type="text"].count-custom-input {
+  max-width: 9rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.count-choice > .field-error { margin: -0.25rem 0 0.6rem; }
+
+.count-choice > .hint:last-child { margin-top: 0.75rem; }
+
 /* ---------- Quiz ---------- */
 /* Each question sits on its own white card: rounded corners, a soft shadow
    and plenty of space. In "one at a time" mode the quiz box is that card;
@@ -1525,6 +1598,8 @@ input[type="file"] { font: inherit; max-width: 100%; }
   .card { padding: 1.15rem; }
 
   .worksheet-q { padding: 1.15rem; }
+  .panel.quiz-setup { padding: 1.15rem; }
+  .count-options { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .question-legend { font-size: 1.15rem; }
   .question-head { gap: 0.7rem; }
   .question-icon { width: 2.4rem; height: 2.4rem; font-size: 1.2rem; }

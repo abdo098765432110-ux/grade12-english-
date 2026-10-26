@@ -286,6 +286,48 @@
     };
   }
 
+  /**
+   * Choose `count` different questions spread over the whole list: the list
+   * is cut into `count` equal parts and one question is taken at random from
+   * each part, so every part of the bank is used and no question appears
+   * twice. The chosen questions keep their order in the list. With no count,
+   * or a count of at least the list length, every question is returned once.
+   */
+  function pickSpread(questions, count, random) {
+    var list = (questions || []).slice();
+    if (count === null || count === undefined) return list;
+    if (typeof count !== 'number' || count < 1 || Math.floor(count) !== count) {
+      throw new Error('The number of questions must be a whole number of at least 1.');
+    }
+    if (count >= list.length) return list;
+    random = random || Math.random;
+    var picked = [];
+    for (var i = 0; i < count; i++) {
+      var start = Math.floor(i * list.length / count);
+      var end = Math.floor((i + 1) * list.length / count);
+      picked.push(list[start + Math.min(end - start - 1, Math.floor(random() * (end - start)))]);
+    }
+    return picked;
+  }
+
+  /**
+   * Reads a number of questions typed by a student (Arabic-Indic digits are
+   * accepted too). Returns { count } or { error } where error is one of
+   * 'empty', 'not-whole', 'too-small', 'too-big'.
+   */
+  function parseCount(text, max) {
+    var value = String(text === undefined || text === null ? '' : text)
+      .replace(/[٠-٩]/g, function (d) { return String(d.charCodeAt(0) - 0x0660); })
+      .replace(/[۰-۹]/g, function (d) { return String(d.charCodeAt(0) - 0x06F0); })
+      .trim();
+    if (value === '') return { error: 'empty' };
+    if (!/^[+-]?\d+$/.test(value)) return { error: 'not-whole' };
+    var number = Number(value);
+    if (number < 1) return { error: 'too-small' };
+    if (number > max) return { error: 'too-big' };
+    return { count: number };
+  }
+
   /* Numbers (1-based) of the questions that still have no answer. */
   function unansweredNumbers(questions, answers) {
     var numbers = [];
@@ -304,6 +346,8 @@
     unansweredNumbers: unansweredNumbers,
     hasValidAnswerKey: hasValidAnswerKey,
     shuffle: shuffle,
+    pickSpread: pickSpread,
+    parseCount: parseCount,
     isReviewed: isReviewed
   };
 });
