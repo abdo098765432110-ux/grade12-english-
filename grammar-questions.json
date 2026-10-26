@@ -13,6 +13,7 @@
         "had always had"
       ],
       "answer": "always have",
+      "difficulty": "medium",
       "reviewStatus": "reviewed",
       "explanation": "daily habit, so present simple"
     },
@@ -28,6 +29,7 @@
         "was ringing"
       ],
       "answer": "is ringing",
+      "difficulty": "easy",
       "reviewStatus": "reviewed",
       "explanation": "happening right now"
     },
@@ -43,6 +45,7 @@
         "have ever been faced"
       ],
       "answer": "have ever faced",
+      "difficulty": "medium",
       "reviewStatus": "reviewed",
       "explanation": "superlative + present perfect + ever"
     },
@@ -58,6 +61,7 @@
         "since"
       ],
       "answer": "since",
+      "difficulty": "easy",
       "reviewStatus": "reviewed",
       "explanation": "point in time (my early childhood)"
     },
@@ -73,6 +77,7 @@
         "when"
       ],
       "answer": "since",
+      "difficulty": "easy",
       "reviewStatus": "reviewed",
       "explanation": "point in time (his childhood)"
     },
@@ -88,6 +93,7 @@
         "had been"
       ],
       "answer": "has been",
+      "difficulty": "easy",
       "reviewStatus": "reviewed",
       "explanation": "started in the past and still true (for three years)"
     },
@@ -103,6 +109,7 @@
         "to"
       ],
       "answer": "since",
+      "difficulty": "medium",
       "reviewStatus": "reviewed",
       "explanation": "It’s + time + since + past simple"
     },
@@ -118,6 +125,7 @@
         "since"
       ],
       "answer": "since",
+      "difficulty": "medium",
       "reviewStatus": "reviewed",
       "explanation": "same pattern as 7"
     },
@@ -133,6 +141,7 @@
         "for"
       ],
       "answer": "for",
+      "difficulty": "easy",
       "reviewStatus": "reviewed",
       "explanation": "period of time (2 years)"
     },
@@ -148,6 +157,7 @@
         "had"
       ],
       "answer": "has had",
+      "difficulty": "medium",
       "reviewStatus": "reviewed",
       "explanation": "since + stative verb, so present perfect simple"
     },
@@ -163,6 +173,7 @@
         "has read"
       ],
       "answer": "have read",
+      "difficulty": "medium",
       "reviewStatus": "reviewed",
       "explanation": "a number of finished things (three books), so simple, not continuous"
     },
@@ -178,6 +189,7 @@
         "enjoy"
       ],
       "answer": "have enjoyed",
+      "difficulty": "easy",
       "reviewStatus": "reviewed",
       "explanation": "since I was a child"
     },
@@ -193,6 +205,7 @@
         "never"
       ],
       "answer": "ever",
+      "difficulty": "medium",
       "reviewStatus": "reviewed",
       "explanation": "superlative + ever"
     },
@@ -208,6 +221,7 @@
         "broke"
       ],
       "answer": "have broken",
+      "difficulty": "medium",
       "reviewStatus": "reviewed",
       "explanation": "recent action with a result now (What can I do?)"
     },
@@ -223,6 +237,7 @@
         "was going"
       ],
       "answer": "has gone",
+      "difficulty": "medium",
       "reviewStatus": "reviewed",
       "explanation": "he’s still there and will be back later"
     },
@@ -238,6 +253,7 @@
         "was seen"
       ],
       "answer": "has seen",
+      "difficulty": "easy",
       "reviewStatus": "reviewed",
       "explanation": "so far + a number (four patients)"
     },
@@ -253,6 +269,7 @@
         "happened"
       ],
       "answer": "has ever happened",
+      "difficulty": "medium",
       "reviewStatus": "reviewed",
       "explanation": "nothing is already negative, so use ever, not never"
     },
@@ -268,6 +285,7 @@
         "revised"
       ],
       "answer": "have revised",
+      "difficulty": "medium",
       "reviewStatus": "reviewed",
       "explanation": "in the last two hours"
     },
@@ -283,6 +301,7 @@
         "had been knowing"
       ],
       "answer": "have known",
+      "difficulty": "medium",
       "reviewStatus": "reviewed",
       "explanation": "know is stative, so no continuous"
     },
@@ -298,6 +317,7 @@
         "were built"
       ],
       "answer": "have been built",
+      "difficulty": "medium",
       "reviewStatus": "reviewed",
       "explanation": "so far + passive (schools are built by someone)"
     },
@@ -313,6 +333,7 @@
         "had phoned"
       ],
       "answer": "phoned",
+      "difficulty": "medium",
       "reviewStatus": "reviewed",
       "explanation": "since I last + past simple"
     },
@@ -328,6 +349,7 @@
         "arresting"
       ],
       "answer": "been arrested",
+      "difficulty": "hard",
       "reviewStatus": "reviewed",
       "explanation": "perfect participle, passive (he was arrested)"
     },
@@ -343,6 +365,7 @@
         "have never had"
       ],
       "answer": "have ever had",
+      "difficulty": "medium",
       "reviewStatus": "reviewed",
       "explanation": "superlative + ever"
     },
@@ -358,6 +381,7 @@
         "haven’t been"
       ],
       "answer": "haven’t been",
+      "difficulty": "medium",
       "reviewStatus": "reviewed",
       "explanation": "been to = visited, for ages"
     },
@@ -373,6 +397,7 @@
         "yet"
       ],
       "answer": "ever",
+      "difficulty": "easy",
       "reviewStatus": "reviewed",
       "explanation": "question about any time in your life"
     },
@@ -388,6 +413,7 @@
         "hasn’t attended"
       ],
       "answer": "hasn’t attended",
+      "difficulty": "easy",
       "reviewStatus": "reviewed",
       "explanation": "since she came here"
     },
@@ -403,6 +429,7 @@
         "had been"
       ],
       "answer": "has gone",
+      "difficulty": "medium",
       "reviewStatus": "reviewed",
       "explanation": "she’s at the market now and will be back soon"
     },
@@ -418,6 +445,7 @@
         "are knowing"
       ],
       "answer": "have known",
+      "difficulty": "medium",
       "reviewStatus": "reviewed",
       "explanation": "stative verb + for a long time"
     },
@@ -433,6 +461,7 @@
         "will have gone"
       ],
       "answer": "has been",
+      "difficulty": "medium",
       "reviewStatus": "reviewed",
       "explanation": "he went and came back (twice this year)"
     },
@@ -448,6 +477,7 @@
         "Do you see"
       ],
       "answer": "Have you seen",
+      "difficulty": "medium",
       "reviewStatus": "reviewed",
       "explanation": "present evidence (You look scared) of a recent experience"
     },
@@ -463,6 +493,7 @@
         "will be watching"
       ],
       "answer": "has been watching",
+      "difficulty": "medium",
       "reviewStatus": "reviewed",
       "explanation": "repeated activity over a recent period (recently)"
     },
@@ -478,6 +509,7 @@
         "will be passing"
       ],
       "answer": "has passed",
+      "difficulty": "medium",
       "reviewStatus": "reviewed",
       "explanation": "completed result (all her exams)"
     },
@@ -493,6 +525,7 @@
         "will be raining"
       ],
       "answer": "has been raining",
+      "difficulty": "medium",
       "reviewStatus": "reviewed",
       "explanation": "the present result (muddy streets) of a long activity"
     },
@@ -508,6 +541,7 @@
         "was doing"
       ],
       "answer": "has been doing",
+      "difficulty": "medium",
       "reviewStatus": "reviewed",
       "explanation": "still in progress + for two hours now"
     },
@@ -523,6 +557,7 @@
         "were researching"
       ],
       "answer": "have been researching",
+      "difficulty": "medium",
       "reviewStatus": "reviewed",
       "explanation": "for years + still doing it"
     },
@@ -538,6 +573,7 @@
         "when"
       ],
       "answer": "since",
+      "difficulty": "easy",
       "reviewStatus": "reviewed",
       "explanation": "since + past simple (he left)"
     },
@@ -553,6 +589,7 @@
         "are seen"
       ],
       "answer": "has been seen",
+      "difficulty": "hard",
       "reviewStatus": "reviewed",
       "explanation": "passive, because the thing was seen falling"
     },
@@ -568,6 +605,7 @@
         "have been working"
       ],
       "answer": "have been working",
+      "difficulty": "medium",
       "reviewStatus": "reviewed",
       "explanation": "since I graduated, still ongoing"
     },
@@ -712,7 +750,7 @@
       ],
       "answer": "has been",
       "explanation": "Been = went and came back (three times)",
-      "difficulty": "easy",
+      "difficulty": "medium",
       "reviewStatus": "reviewed"
     },
     {
@@ -808,7 +846,7 @@
       ],
       "answer": "have taken",
       "explanation": "This is the first time + present perfect",
-      "difficulty": "easy",
+      "difficulty": "medium",
       "reviewStatus": "reviewed"
     },
     {
@@ -824,7 +862,7 @@
       ],
       "answer": "haven't had",
       "explanation": "This month is not finished yet",
-      "difficulty": "easy",
+      "difficulty": "medium",
       "reviewStatus": "reviewed"
     },
     {
@@ -920,7 +958,7 @@
       ],
       "answer": "has seen",
       "explanation": "Number of times takes the simple form",
-      "difficulty": "easy",
+      "difficulty": "medium",
       "reviewStatus": "reviewed"
     },
     {
@@ -936,7 +974,7 @@
       ],
       "answer": "gone",
       "explanation": "He is still there and comes back Friday",
-      "difficulty": "easy",
+      "difficulty": "medium",
       "reviewStatus": "reviewed"
     },
     {
@@ -1064,7 +1102,7 @@
       ],
       "answer": "have been working",
       "explanation": "Explains something we can see now (dirty hands)",
-      "difficulty": "easy",
+      "difficulty": "medium",
       "reviewStatus": "reviewed"
     },
     {
@@ -1096,7 +1134,7 @@
       ],
       "answer": "been",
       "explanation": "Been to = visited",
-      "difficulty": "easy",
+      "difficulty": "medium",
       "reviewStatus": "reviewed"
     },
     {
@@ -1112,7 +1150,7 @@
       ],
       "answer": "Has",
       "explanation": "Anyone is singular",
-      "difficulty": "easy",
+      "difficulty": "medium",
       "reviewStatus": "reviewed"
     },
     {
@@ -1128,7 +1166,7 @@
       ],
       "answer": "has written",
       "explanation": "Letter is finished (it's on the table)",
-      "difficulty": "easy",
+      "difficulty": "medium",
       "reviewStatus": "reviewed"
     },
     {
@@ -1160,7 +1198,7 @@
       ],
       "answer": "has cooked",
       "explanation": "Finished, dinner is ready now",
-      "difficulty": "easy",
+      "difficulty": "medium",
       "reviewStatus": "reviewed"
     },
     {
@@ -1288,7 +1326,7 @@
       ],
       "answer": "has been working",
       "explanation": "Since 2019 and he still works there",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reviewStatus": "reviewed"
     },
     {
@@ -1400,7 +1438,7 @@
       ],
       "answer": "has employed",
       "explanation": "So far",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reviewStatus": "reviewed"
     },
     {
@@ -1416,7 +1454,7 @@
       ],
       "answer": "haven't read",
       "explanation": "Since I bought a tablet",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reviewStatus": "reviewed"
     },
     {
@@ -1448,7 +1486,7 @@
       ],
       "answer": "has been studying",
       "explanation": "For weeks + he looks tired now",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reviewStatus": "reviewed"
     },
     {
@@ -1464,7 +1502,7 @@
       ],
       "answer": "Have",
       "explanation": "Recent news, asked about now",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reviewStatus": "reviewed"
     },
     {
@@ -1496,7 +1534,7 @@
       ],
       "answer": "since",
       "explanation": "Since + past simple clause",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reviewStatus": "reviewed"
     },
     {
@@ -1528,7 +1566,7 @@
       ],
       "answer": "has been writing",
       "explanation": "The novel isn't finished (200 pages so far)",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reviewStatus": "reviewed"
     },
     {
@@ -1560,7 +1598,7 @@
       ],
       "answer": "since",
       "explanation": "Since + past simple clause",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reviewStatus": "reviewed"
     },
     {
@@ -1592,7 +1630,7 @@
       ],
       "answer": "have been lying",
       "explanation": "Lie = rest your body (lay = put); all day + sunburnt now",
-      "difficulty": "medium",
+      "difficulty": "hard",
       "reviewStatus": "reviewed"
     },
     {
@@ -1640,7 +1678,7 @@
       ],
       "answer": "have been",
       "explanation": "For three years and still at the school",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reviewStatus": "reviewed"
     },
     {
@@ -1656,7 +1694,7 @@
       ],
       "answer": "since",
       "explanation": "Breakfast is a point in time",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reviewStatus": "reviewed"
     },
     {
@@ -1672,7 +1710,7 @@
       ],
       "answer": "has been teaching",
       "explanation": "Since 2005 and still teaching",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reviewStatus": "reviewed"
     },
     {
@@ -1736,7 +1774,7 @@
       ],
       "answer": "have risen",
       "explanation": "Since last year",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reviewStatus": "reviewed"
     },
     {
@@ -1752,7 +1790,7 @@
       ],
       "answer": "hasn't seen",
       "explanation": "For over a month, up to now",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reviewStatus": "reviewed"
     },
     {
@@ -1768,7 +1806,7 @@
       ],
       "answer": "hasn't started",
       "explanation": "Yet",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reviewStatus": "reviewed"
     },
     {
@@ -1784,7 +1822,7 @@
       ],
       "answer": "has won",
       "explanation": "So far + this season",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reviewStatus": "reviewed"
     },
     {
@@ -1800,7 +1838,7 @@
       ],
       "answer": "has visited",
       "explanation": "Twice since he moved",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reviewStatus": "reviewed"
     },
     {
@@ -1816,7 +1854,7 @@
       ],
       "answer": "How long",
       "explanation": "Has been working asks about duration",
-      "difficulty": "medium",
+      "difficulty": "easy",
       "reviewStatus": "reviewed"
     },
     {
@@ -1864,7 +1902,7 @@
       ],
       "answer": "have been working",
       "explanation": "Since I graduated and still working",
-      "difficulty": "hard",
+      "difficulty": "medium",
       "reviewStatus": "reviewed"
     },
     {
@@ -1976,7 +2014,7 @@
       ],
       "answer": "have been planted",
       "explanation": "Trees are planted (passive) + up to now",
-      "difficulty": "hard",
+      "difficulty": "medium",
       "reviewStatus": "reviewed"
     },
     {
@@ -1992,7 +2030,7 @@
       ],
       "answer": "have been cutting",
       "explanation": "Explains something we can see now (red eyes)",
-      "difficulty": "hard",
+      "difficulty": "medium",
       "reviewStatus": "reviewed"
     },
     {
@@ -2024,7 +2062,7 @@
       ],
       "answer": "have been reading",
       "explanation": "For a week and not finished (page 50)",
-      "difficulty": "hard",
+      "difficulty": "medium",
       "reviewStatus": "reviewed"
     },
     {
@@ -2040,7 +2078,7 @@
       ],
       "answer": "has reached",
       "explanation": "It's the first time + present perfect",
-      "difficulty": "hard",
+      "difficulty": "medium",
       "reviewStatus": "reviewed"
     },
     {
@@ -2072,7 +2110,7 @@
       ],
       "answer": "has been",
       "explanation": "Be ill is a state; since last Monday",
-      "difficulty": "hard",
+      "difficulty": "medium",
       "reviewStatus": "reviewed"
     },
     {
@@ -2088,7 +2126,7 @@
       ],
       "answer": "have been trying",
       "explanation": "All day and still trying",
-      "difficulty": "hard",
+      "difficulty": "medium",
       "reviewStatus": "reviewed"
     },
     {
@@ -2120,7 +2158,7 @@
       ],
       "answer": "has been working",
       "explanation": "Since dawn, result now (tired)",
-      "difficulty": "hard",
+      "difficulty": "medium",
       "reviewStatus": "reviewed"
     },
     {
@@ -2136,7 +2174,7 @@
       ],
       "answer": "has increased",
       "explanation": "Since 2020",
-      "difficulty": "hard",
+      "difficulty": "easy",
       "reviewStatus": "reviewed"
     },
     {
@@ -2152,7 +2190,7 @@
       ],
       "answer": "have ever been",
       "explanation": "Superlative + ever; been in a traffic jam",
-      "difficulty": "hard",
+      "difficulty": "medium",
       "reviewStatus": "reviewed"
     },
     {
@@ -2168,7 +2206,7 @@
       ],
       "answer": "have been thinking",
       "explanation": "Lately + an ongoing activity",
-      "difficulty": "hard",
+      "difficulty": "medium",
       "reviewStatus": "reviewed"
     },
     {
@@ -2200,7 +2238,7 @@
       ],
       "answer": "has lived",
       "explanation": "He is alive and still lives there",
-      "difficulty": "hard",
+      "difficulty": "medium",
       "reviewStatus": "reviewed"
     },
     {
@@ -2232,7 +2270,7 @@
       ],
       "answer": "Has she dyed",
       "explanation": "Present result (she looks different)",
-      "difficulty": "hard",
+      "difficulty": "medium",
       "reviewStatus": "reviewed"
     },
     {
@@ -2248,7 +2286,7 @@
       ],
       "answer": "has been visited",
       "explanation": "The museum is visited (passive) + since 2015",
-      "difficulty": "hard",
+      "difficulty": "medium",
       "reviewStatus": "reviewed"
     },
     {
@@ -2296,7 +2334,7 @@
       ],
       "answer": "have been making",
       "explanation": "Explains something we can see now (the mess)",
-      "difficulty": "hard",
+      "difficulty": "medium",
       "reviewStatus": "reviewed"
     },
     {
@@ -2312,7 +2350,7 @@
       ],
       "answer": "gone",
       "explanation": "She is still at the library",
-      "difficulty": "hard",
+      "difficulty": "medium",
       "reviewStatus": "reviewed"
     },
     {
@@ -2328,7 +2366,7 @@
       ],
       "answer": "have been waiting",
       "explanation": "Since last week and still waiting",
-      "difficulty": "hard",
+      "difficulty": "medium",
       "reviewStatus": "reviewed"
     },
     {
@@ -2344,7 +2382,7 @@
       ],
       "answer": "Has",
       "explanation": "Has + she + been told (passive present perfect)",
-      "difficulty": "hard",
+      "difficulty": "medium",
       "reviewStatus": "reviewed"
     },
     {
@@ -2376,7 +2414,7 @@
       ],
       "answer": "has been",
       "explanation": "It has been + time + since",
-      "difficulty": "hard",
+      "difficulty": "medium",
       "reviewStatus": "reviewed"
     },
     {
@@ -2392,7 +2430,7 @@
       ],
       "answer": "has been running",
       "explanation": "Explains how he is now (out of breath)",
-      "difficulty": "hard",
+      "difficulty": "medium",
       "reviewStatus": "reviewed"
     },
     {
@@ -2408,7 +2446,7 @@
       ],
       "answer": "has lasted",
       "explanation": "Since they were children",
-      "difficulty": "hard",
+      "difficulty": "easy",
       "reviewStatus": "reviewed"
     },
     {
@@ -2472,7 +2510,7 @@
       ],
       "answer": "has won",
       "explanation": "So far this year + a number",
-      "difficulty": "hard",
+      "difficulty": "medium",
       "reviewStatus": "reviewed"
     },
     {
