@@ -179,6 +179,10 @@
       "Start quiz": "Start quiz",
       "← Change quiz settings": "← Change quiz settings",
       "Change quiz settings": "Change quiz settings",
+      "What difficulty level would you like?": "What difficulty level would you like?",
+      "Simple": "Simple",
+      "All Levels": "All Levels",
+      "There are only {questions} at the {level} level. Choose {max} or fewer questions (a custom number of {max} gives you all of them), or choose another level.": "There are only {questions} at the {level} level. Choose {max} or fewer questions (a custom number of {max} gives you all of them), or choose another level.",
       /* ---- Reading Comprehension page ---- */
       "All questions": "All questions",
       "One at a time": "One at a time",

@@ -181,6 +181,10 @@
       "Start quiz": "ابدأ الاختبار",
       "← Change quiz settings": "→ تغيير إعدادات الاختبار",
       "Change quiz settings": "تغيير إعدادات الاختبار",
+      "What difficulty level would you like?": "ما مستوى الصعوبة الذي تريده؟",
+      "Simple": "سهل",
+      "All Levels": "كل المستويات",
+      "There are only {questions} at the {level} level. Choose {max} or fewer questions (a custom number of {max} gives you all of them), or choose another level.": "يوجد {questions} فقط في مستوى «{level}». اختر عددًا لا يزيد على {max} (اكتب العدد {max} لتحصل عليها كلها)، أو اختر مستوى آخر.",
       /* ---- Reading Comprehension page ---- */
       "All questions": "كل الأسئلة",
       "One at a time": "سؤال تلو الآخر",

@@ -747,20 +747,23 @@ fieldset {
   padding: 1.75rem;
 }
 
-.count-choice legend {
+.count-choice legend,
+.level-choice legend {
   font-size: 1.15rem;
   font-weight: 700;
   margin-bottom: 0.75rem;
 }
 
 /* The choices as soft pastel tiles: easy to tap on a phone. */
-.count-options {
+.count-options,
+.level-options {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(9.5rem, 1fr));
   gap: 0.6rem;
 }
 
-.count-option {
+.count-option,
+.level-option {
   display: flex;
   align-items: center;
   gap: 0.55rem;
@@ -777,15 +780,20 @@ fieldset {
 /* "All questions (158)" gets a wider tile so it stays on one line. */
 .count-option:first-child { grid-column: span 2; }
 
-.count-option:hover { border-color: #a9cbff; background: #f6f9ff; }
+.count-option:hover,
+.level-option:hover { border-color: #a9cbff; background: #f6f9ff; }
 
-.count-option:has(input:checked) {
+.level-choice { margin-top: 1.25rem; }
+
+.count-option:has(input:checked),
+.level-option:has(input:checked) {
   border-color: #8fb6f2;
   background: linear-gradient(135deg, var(--color-sky), var(--color-lavender));
   color: var(--color-button-text);
 }
 
-.count-option input {
+.count-option input,
+.level-option input {
   flex-shrink: 0;
   width: 1.1rem;
   height: 1.1rem;
@@ -810,7 +818,8 @@ input[type="text"].count-custom-input {
   text-align: center;
 }
 
-.count-choice > .field-error { margin: -0.25rem 0 0.6rem; }
+.count-choice > .field-error,
+.level-choice > .field-error { margin: -0.25rem 0 0.6rem; }
 
 .count-choice > .hint:last-child { margin-top: 0.75rem; }
 
@@ -1599,7 +1608,8 @@ input[type="file"] { font: inherit; max-width: 100%; }
 
   .worksheet-q { padding: 1.15rem; }
   .panel.quiz-setup { padding: 1.15rem; }
-  .count-options { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .count-options,
+  .level-options { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .question-legend { font-size: 1.15rem; }
   .question-head { gap: 0.7rem; }
   .question-icon { width: 2.4rem; height: 2.4rem; font-size: 1.2rem; }

@@ -23,11 +23,32 @@
     ];
   }
 
+  /* "What difficulty level would you like?" — uses the difficulty already
+     stored on each question (easy = Simple, medium, hard). */
+  var LEVELS = ['easy', 'medium', 'hard'];
+  function levelName(level) {
+    if (level === 'easy') return t('Simple');
+    if (level === 'medium') return t('Medium');
+    if (level === 'hard') return t('Hard');
+    return t('All Levels');
+  }
+
+  /* The levels a lesson can offer, with how many questions each has. None
+     when no question in the lesson has a difficulty level. */
+  function levelChoices(questions) {
+    if (!questions.some(function (q) { return LEVELS.indexOf(q.difficulty) !== -1; })) return null;
+    var list = LEVELS.map(function (level) {
+      return { value: level, count: questions.filter(function (q) { return q.difficulty === level; }).length };
+    }).filter(function (level) { return level.count > 0; });
+    list.push({ value: 'all', count: questions.length });
+    return list;
+  }
+
   /* What the student chose for the lesson's quiz. Kept in memory only (never
      saved or sent anywhere), so it survives a language change but not a
-     page reload. stage: 'setup' or 'quiz'; picked: the questions of the
-     quiz in progress. */
-  var quizState = { lessonId: null, stage: 'setup', value: null, custom: '', mode: 'one', picked: null };
+     page reload. stage: 'setup' or 'quiz'; level: 'easy', 'medium', 'hard'
+     or 'all'; picked: the questions of the quiz in progress. */
+  var quizState = { lessonId: null, stage: 'setup', value: null, custom: '', level: 'all', mode: 'one', picked: null };
 
   G12.showPage(['units', 'lessons', 'summaries', 'questions'], function (content) {
     var topicId = G12.param('topic') || G12.param('lesson');
@@ -194,7 +215,7 @@
     /* The lesson's questions: first "How many questions?", then the quiz. */
     if (lessonQuestions.length) {
       if (quizState.lessonId !== lesson.id) {
-        quizState = { lessonId: lesson.id, stage: 'setup', value: null, custom: '', mode: 'one', picked: null };
+        quizState = { lessonId: lesson.id, stage: 'setup', value: null, custom: '', level: 'all', mode: 'one', picked: null };
       }
       var questionArea = el('section', { className: 'lesson-questions', 'aria-label': t('Questions about {title}', { title: lesson.title }) });
       G12.ignoreDoubleClicks(questionArea);
@@ -223,8 +244,9 @@
     ]));
   }
 
-  /* Quiz settings: how many questions (all, a preset or a custom number) and
-     how to answer them. Nothing starts until the student presses Start quiz. */
+  /* Quiz settings: how many questions (all, a preset or a custom number),
+     which difficulty level, and how to answer them. Nothing starts until the
+     student presses Start quiz. */
   function showLessonSetup(area, lesson, questions, moveFocus) {
     quizState.stage = 'setup';
     quizState.picked = null;
@@ -243,8 +265,40 @@
       onChange: function (state) {
         quizState.value = state.value;
         quizState.custom = state.custom;
+        if (levelError) hideLevelError();
       }
     });
+
+    /* Difficulty level: Simple, Medium, Hard or All Levels, each with how
+       many questions it has. */
+    var levels = levelChoices(questions);
+    var levelRow = null;
+    var levelError = null;
+    if (levels) {
+      if (!levels.some(function (level) { return level.value === quizState.level; })) quizState.level = 'all';
+      levelError = el('p', { className: 'field-error', id: 'lesson-level-error', hidden: true });
+      levelRow = el('fieldset', { className: 'form-row level-choice', 'aria-describedby': 'lesson-level-error' }, [
+        el('legend', { text: t('What difficulty level would you like?') }),
+        levelError,
+        el('div', { className: 'level-options' }, levels.map(function (level) {
+          var id = 'lesson-level-' + level.value;
+          return el('label', { for: id, className: 'level-option' }, [
+            el('input', { type: 'radio', id: id, name: 'lesson-level', value: level.value, checked: quizState.level === level.value }),
+            el('span', { text: t('{title} ({count})', { title: levelName(level.value), count: level.count }) })
+          ]);
+        }))
+      ]);
+      levelRow.addEventListener('change', function (event) {
+        quizState.level = event.target.value;
+        hideLevelError();
+      });
+    }
+
+    function hideLevelError() {
+      levelError.hidden = true;
+      levelError.textContent = '';
+    }
+
     var modeRow = el('fieldset', { className: 'form-row' }, [
       el('legend', { text: t('How do you want to answer?') }),
       el('div', { className: 'inline-choices' }, modes().map(function (mode) {
@@ -261,6 +315,7 @@
       heading,
       el('p', { text: t('This lesson has {questions}.', { questions: G12.plural(questions.length, 'question') }) }),
       choice.element,
+      levelRow,
       modeRow,
       el('div', { className: 'actions' }, [el('button', { type: 'submit', className: 'btn', text: t('Start quiz') })])
     ]);
@@ -268,7 +323,21 @@
       event.preventDefault();
       var result = choice.read();
       if (result.error) return;
-      showLessonQuiz(area, lesson, questions, G12.QuizEngine.pickSpread(questions, result.count), true);
+      var level = levels ? quizState.level : 'all';
+      var pool = level === 'all' ? questions : questions.filter(function (q) { return q.difficulty === level; });
+      var wanted = result.count === null ? questions.length : result.count;
+      /* Not enough questions at this level: say how many there are and keep
+         the student's choices as they are. */
+      if (wanted > pool.length) {
+        levelError.textContent = t('There are only {questions} at the {level} level. Choose {max} or fewer questions (a custom number of {max} gives you all of them), or choose another level.', {
+          questions: G12.plural(pool.length, 'question'), level: levelName(level), max: pool.length
+        });
+        levelError.hidden = false;
+        var checked = levelRow.querySelector('input:checked');
+        if (checked) checked.focus();
+        return;
+      }
+      showLessonQuiz(area, lesson, questions, G12.QuizEngine.pickSpread(pool, wanted >= pool.length ? null : wanted), true);
     });
     area.appendChild(form);
     if (moveFocus) G12.focus(heading);
