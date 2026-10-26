@@ -1,6 +1,6 @@
 # Project status — Grade 12 English
 
-_Last updated: 26 October 2026 (Phase 2 + the Arabic/English interface button)_
+_Last updated: 26 October 2026 (Phase 2 + the Arabic/English language switch, all website files at the top level)_
 
 Target website (given by the owner): https://abdo098765432110-ux.github.io/grade12-english-/
 Repository behind that address: https://github.com/abdo098765432110-ux/grade12-english-
@@ -13,9 +13,9 @@ Repository behind that address: https://github.com/abdo098765432110-ux/grade12-e
 | Phase 1 — student pages, quiz engine, content manager, empty content library | Done (19 Oct 2026) |
 | Phase 1.5 — audit of the live site, fallback/loading/error states, navigation | Done (20 Oct 2026) |
 | Phase 2 — data-driven content by unit and topic, answer checking, validation | Done in the project files (20 Oct 2026) |
-| Addition — Arabic/English interface button | Done in the project files (26 Oct 2026) |
+| Arabic/English language switch | Done in the project files (26 Oct 2026) — now switches instantly, without reloading |
 
-As the owner asked, this version adds **only** the language button. The
+As the owner asked, the only addition to Phase 2 is the language switch. The
 other Phase 3 work prepared earlier (home banner, new import/restore and
 publishing workflow in the content manager) is **not** included.
 
@@ -23,98 +23,109 @@ The content library is still **empty**. No lessons, summaries, questions,
 answers, explanations or reading passages have been written for the site.
 All educational content will be supplied by the project owner.
 
-## The target website today (checked 26 Oct 2026)
+## Why the language button did not work on the live site
 
-- `https://abdo098765432110-ux.github.io/grade12-english-/` is the GitHub
-  Pages address of the repository `grade12-english-`. Its latest commit is
-  `c72020c` (20 Oct 2026, 22:28).
-- The site works, with the `css`, `js` and `data` folders in place, but it
-  is the **Phase 1 version** (19 Oct). It has no units, no “answer all”
-  practice mode, and none of the Phase 1.5 loading and error fixes. It has
-  no language button. All its data files are empty.
-- This version is Phase 2 plus the language button. Uploading it replaces
-  the Phase 1 files with the same names and adds the new ones
-  (`data/units.json`, `js/i18n.js`, `js/i18n-ar.js` and others). Nothing is
-  removed. The extra `package.json` in the repository can stay.
-- **Upload simulated:**
-  - a copy of the repository's current files was overwritten with this
-    project, the same result as an upload on GitHub;
-  - the copy was served at `/grade12-english-/`;
-  - result: site check OK, 70 / 70 unit tests, 209 / 209 browser checks.
+Checked on 26 Oct 2026, repository `grade12-english-`, commit `df47d46`
+(26 Oct, 15:06):
+- The upload put every file at the **top level** of the repository. The
+  pages looked for `js/i18n-ar.js`, `js/i18n.js`, `css/style.css` and
+  `js/common.js` inside folders.
+- The `js` and `css` folders still held the old Phase 1 files, and the two
+  language files were not in `js` at all. So the pages showed the red
+  “could not be loaded” message, and the button could not translate.
+- `js/i18n-en.js` was not referenced by any file in the repository.
 
-## Addition: Arabic/English interface button (26 Oct 2026)
+## The fix (26 Oct 2026)
 
-**What changed**
-- A button in the header of every page: **العربية** on English pages,
-  **English** on Arabic pages. On phones it sits next to the Menu button.
-- Arabic: all interface text in Arabic, including the content manager and
-  its messages. The pages use `lang="ar"` and `dir="rtl"`, and the layout is
-  mirrored. English: the English text and `dir="ltr"` come back.
-- The choice is saved in the browser (`localStorage`, key `g12-lang`). It
-  applies to every page and after reloading. Nothing else is stored.
-- Educational content is not translated or changed. It is shown exactly as
-  written, with its own text direction.
-- Files:
-  - **new:** `js/i18n.js` (the button and the switching) and `js/i18n-ar.js`
-    (the Arabic interface text);
-  - **changed:** the six pages (header button, two script lines, translation
-    markers), `css/style.css` (header layout and right-to-left styles), and
-    the page scripts (interface text passed through the translator);
-  - **unchanged:** `js/content-store.js`, `js/quiz-engine.js`, all `data/`
-    files, `tools/`, file names and links.
+**1. All website files at the top level** (the owner's choice)
+- The pages now load `style.css`, `i18n-en.js`, `i18n-ar.js`, `i18n.js`,
+  `common.js` and the other scripts, and the five data files, from the top
+  level, next to `index.html`. There are no `css`, `js` or `data` folders.
+- Selecting all the files and dragging them onto GitHub (what the owner
+  did) now puts every file in the right place.
+- The old `css`, `js` and `data` folders in the repository are no longer
+  used and can be deleted later. They do no harm.
+- The content manager's publishing steps, the “missing file” message and
+  the site checker (`tools/check-site.js`) now describe the top-level
+  layout.
 
-**Test results** (Linux, Node.js 22, Playwright with headless Chromium; the
-site was served from a `/grade12-english/` subfolder, as on GitHub Pages)
+**2. Language switch works immediately, without reloading**
+- One click changes the whole interface:
+  - the fixed text in the pages;
+  - each page's content (lists, empty states, quizzes, results, errors);
+  - the content manager with its forms and messages;
+  - the browser tab title.
+- `lang`/`dir` change at the same time: `en`/`ltr` and `ar`/`rtl`.
+- English is the default. The choice is saved in the browser
+  (`localStorage`, key `g12-lang`) and used again after reloading and on
+  every page.
+- If a student has already answered questions on the page, or a manager
+  form has unsaved changes, the button asks first, because switching draws
+  the page again. Answering “Cancel” keeps everything as it was.
+- Educational content is never translated or changed.
+
+**3. Translation files included in the project**
+- `i18n-en.js` (English) and `i18n-ar.js` (Arabic): 610 interface texts
+  each, plus the counted words (Arabic has six forms: 0, 1, 2, 3–10, 11–99,
+  100+).
+- `i18n.js` does the switching. The owner does not have to create or
+  upload anything else.
+
+## Test results (26 Oct 2026)
+
+Linux, Node.js 22, Playwright with headless Chromium. The site was served
+from a repository-style subfolder, as on GitHub Pages.
 
 | Test | Result |
 |---|---|
-| `node --test tests/*.test.js` | **70 / 70 passed** (57 from Phase 2 + 13 for the language) |
-| `python tests/e2e_test.py` | **209 / 209 checks passed** on two runs (161 from Phase 2 + 48 for the language) |
-| `node tools/check-site.js` | OK |
+| `node --test tests/*.test.js` | **74 / 74 passed** |
+| `python tests/e2e_test.py` (project) | **222 / 222 checks passed** on two runs |
+| `node tools/check-site.js` | OK (all files at the top level) |
 | `node tools/validate-content.js` | OK (empty library) |
-| Upload simulated on a copy of `grade12-english-`, served at `/grade12-english-/` | 209 / 209 checks passed |
+| Upload simulated on a copy of `grade12-english-` (commit `df47d46`), every file dropped at the top level, served at `/grade12-english-/` | 221 / 222 checks passed. The one failure is a developer check that runs the repository's **old** `tools/validate-content.js` from Phase 1; it is not part of the website. |
 
-The language checks cover:
-- the button on all six pages;
-- English → Arabic → English;
-- the choice kept after reloading and on every page;
-- `rtl` and `ltr`, Arabic navigation with the same links, the phone menu in
-  Arabic;
-- storage blocked;
-- accessibility checks on every Arabic page;
-- no interface text missing from the Arabic file.
+New checks for the language switch:
+- English → Arabic and back on the same page **without a reload** (a marker
+  set in the page survives the switch);
+- the page content changes too, not only the button;
+- keyboard focus stays on the button;
+- `rtl`/`ltr`, the choice kept after reloading and on every page;
+- the “unsaved work” questions on the practice, reading and manager pages:
+  “Cancel” keeps everything, and after confirming the page redraws in the
+  other language;
+- the practice settings keep the chosen topic;
+- placeholder lessons, answer choices and passages stay exactly as written
+  when switching back and forth;
+- the “missing files” message names the top-level files, in both languages.
 
-Placeholder test content — lesson text, unit titles, questions, answer
-choices and passage spacing — stayed exactly as written on Arabic pages, and
-the project's `data/` files were still empty after the tests. All Phase 2
-checks (lessons, summaries, practice, reading, content manager, navigation,
-error states) still pass.
+All Phase 2 checks (lessons, summaries, practice, reading, content manager,
+navigation, error and loading states) still pass.
 
 **Not tested:** the live site (nothing was uploaded from here), Firefox,
 Safari, real phones, and screen readers. The Arabic interface text has not
-been reviewed by a native speaker; it can be edited in `js/i18n-ar.js`.
+been reviewed by a native speaker; it can be edited in `i18n-ar.js`.
 
 ## How to upload this version
 
-1. On a **computer**, unzip `grade12-english-language-toggle.zip` and open
-   the `grade12-english` folder inside it. You should see `index.html`,
-   `css`, `js`, `data` and the other items.
+1. On a **computer**, unzip `grade12-english-language-switch.zip` and open
+   the `grade12-english` folder inside it.
 2. Open https://github.com/abdo098765432110-ux/grade12-english- (with the
    hyphen at the end) and choose **Add file → Upload files**.
-3. Select everything in the folder (Ctrl+A, or Cmd+A on a Mac) and **drag**
-   it onto the upload area. Don't use “choose your files”, because it cannot
-   upload folders. If `.nojekyll` does not come along (Macs hide it), that
-   is fine.
-4. Wait until the list finishes. It must show names **with** their folders,
-   such as `css/style.css`, `js/i18n.js` and `js/i18n-ar.js`. If you see
-   only `style.css`, close the page without committing and drag again (or
-   use GitHub Desktop).
-5. Choose **Commit changes**. Files with the same name are replaced; nothing
-   is deleted.
-6. Wait 1–2 minutes. Open https://abdo098765432110-ux.github.io/grade12-english-/
-   and reload with **Ctrl+F5** (Cmd+Shift+R on a Mac). Expected: the
-   **العربية** button at the top. Click it: the page turns Arabic and
-   right-to-left. Reload: it stays Arabic. Click **English** to switch back.
+3. Select all the files (Ctrl+A, or Cmd+A on a Mac) and drag them onto the
+   upload area. All the files go to the top level, next to `index.html`,
+   which is exactly where the website looks for them.
+4. Choose **Commit changes**. Files with the same names are replaced;
+   nothing is deleted.
+5. Wait 1–2 minutes. Open https://abdo098765432110-ux.github.io/grade12-english-/
+   and reload with **Ctrl+F5** (Cmd+Shift+R on a Mac).
+6. Click **العربية**: the page turns Arabic and right-to-left at once. Click
+   **English** to switch back. Reload: the last choice is kept.
+7. Optional: the old `css`, `js` and `data` folders are no longer used and
+   can be deleted.
+
+The five data files in the zip are empty, and so are the ones in the
+repository today, so no content is lost. Later, once you have published
+your own content, upload only the files that changed, not empty data files.
 
 ## Phase 2 report (20 Oct 2026) — implemented features
 

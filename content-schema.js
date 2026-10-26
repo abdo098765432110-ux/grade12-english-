@@ -11,7 +11,7 @@
    See docs/CONTENT_FORMAT.md for the human-readable description.
 
    How content is organised
-     Unit   — data/units.json. A unit groups everything else.
+     Unit   — units.json. A unit groups everything else.
      Topic  — one grammar lesson. A topic's ID is the lesson's "id".
      Every lesson, summary, question and passage can name its unit with
      "unitId". Summaries and practice questions can name their topic with
@@ -35,23 +35,23 @@
   /* The content collections and the data file each one lives in. */
   var COLLECTIONS = {
     units: {
-      key: 'units', path: 'data/units.json', fileName: 'units.json',
+      key: 'units', path: 'units.json', fileName: 'units.json',
       label: 'Units', singular: 'Unit'
     },
     lessons: {
-      key: 'lessons', path: 'data/grammar-lessons.json', fileName: 'grammar-lessons.json',
+      key: 'lessons', path: 'grammar-lessons.json', fileName: 'grammar-lessons.json',
       label: 'Grammar lessons', singular: 'Lesson'
     },
     summaries: {
-      key: 'summaries', path: 'data/grammar-summaries.json', fileName: 'grammar-summaries.json',
+      key: 'summaries', path: 'grammar-summaries.json', fileName: 'grammar-summaries.json',
       label: 'Grammar summaries', singular: 'Summary'
     },
     questions: {
-      key: 'questions', path: 'data/grammar-questions.json', fileName: 'grammar-questions.json',
+      key: 'questions', path: 'grammar-questions.json', fileName: 'grammar-questions.json',
       label: 'Grammar practice questions', singular: 'Question'
     },
     passages: {
-      key: 'passages', path: 'data/reading-passages.json', fileName: 'reading-passages.json',
+      key: 'passages', path: 'reading-passages.json', fileName: 'reading-passages.json',
       label: 'Reading passages', singular: 'Passage'
     }
   };
@@ -75,7 +75,7 @@
 
   /* ---------- Messages ----------
      Messages are written in English with {placeholders}. In the browser they
-     go through G12.t() (js/i18n.js), so they appear in the chosen interface
+     go through G12.t() (i18n.js), so they appear in the chosen interface
      language. In Node (tools/validate-content.js) they stay in English. */
 
   function format(text, params) {

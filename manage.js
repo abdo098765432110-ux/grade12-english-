@@ -1,7 +1,7 @@
 /* ==========================================================================
    Content manager (manage.html)
 
-   - Starts from the published data files (data/*.json).
+   - Starts from the published data files (units.json, grammar-lessons.json, …).
    - Every change is saved automatically as a draft in this browser.
    - "Import & export" downloads the data files to upload to GitHub, makes a
      backup, imports files (merge or replace) and checks all content.
@@ -25,42 +25,48 @@
   var hasText = Schema.hasText;
   var root = document.getElementById('page-root');
 
-  var TYPES = {
-    units: {
-      title: t('Units'), singular: 'unit', add: t('Add a unit'), none: t('No units added yet'),
-      help: t('Units group the lessons, summaries, practice questions and reading passages. They appear on the website in this order. Units are optional: without them, each page shows one list.'),
-      empty: t('Add your first unit, or import a units file.')
-    },
-    lessons: {
-      title: t('Lessons'), singular: 'lesson', add: t('Add a lesson'), none: t('No lessons added yet'),
-      help: t('Each lesson is one grammar topic; its ID is the topic ID. Lessons appear in this order within their unit.'),
-      empty: t('Add your first grammar lesson, or import a lessons file.')
-    },
-    summaries: {
-      title: t('Summaries'), singular: 'summary', add: t('Add a summary'), none: t('No summaries added yet'),
-      help: t('Summaries appear in this order within their unit. Link each summary to its topic (lesson); it then belongs to that lesson’s unit.'),
-      empty: t('Add your first grammar summary, or import a summaries file.')
-    },
-    questions: {
-      title: t('Grammar questions'), singular: 'question', add: t('Add a question'), none: t('No grammar questions added yet'),
-      help: t('These questions are used on the Grammar Practice page. Link each question to a topic (lesson) or a unit so students can practise by unit and topic.'),
-      empty: t('Add your first practice question, or import a questions file.')
-    },
-    passages: {
-      title: t('Reading passages'), singular: 'passage', add: t('Add a passage'), none: t('No reading passages added yet'),
-      help: t('Passages appear on the Reading page in this order within their unit. Each passage has its own questions.'),
-      empty: t('Add your first reading passage, or import a passages file.')
-    }
-  };
+  /* Labels for each content type. Built again when the language changes. */
+  var TYPES;
+  var SECTION_TYPE_OPTIONS;
+  function buildLabels() {
+    TYPES = {
+      units: {
+        title: t('Units'), singular: 'unit', add: t('Add a unit'), none: t('No units added yet'),
+        help: t('Units group the lessons, summaries, practice questions and reading passages. They appear on the website in this order. Units are optional: without them, each page shows one list.'),
+        empty: t('Add your first unit, or import a units file.')
+      },
+      lessons: {
+        title: t('Lessons'), singular: 'lesson', add: t('Add a lesson'), none: t('No lessons added yet'),
+        help: t('Each lesson is one grammar topic; its ID is the topic ID. Lessons appear in this order within their unit.'),
+        empty: t('Add your first grammar lesson, or import a lessons file.')
+      },
+      summaries: {
+        title: t('Summaries'), singular: 'summary', add: t('Add a summary'), none: t('No summaries added yet'),
+        help: t('Summaries appear in this order within their unit. Link each summary to its topic (lesson); it then belongs to that lesson’s unit.'),
+        empty: t('Add your first grammar summary, or import a summaries file.')
+      },
+      questions: {
+        title: t('Grammar questions'), singular: 'question', add: t('Add a question'), none: t('No grammar questions added yet'),
+        help: t('These questions are used on the Grammar Practice page. Link each question to a topic (lesson) or a unit so students can practise by unit and topic.'),
+        empty: t('Add your first practice question, or import a questions file.')
+      },
+      passages: {
+        title: t('Reading passages'), singular: 'passage', add: t('Add a passage'), none: t('No reading passages added yet'),
+        help: t('Passages appear on the Reading page in this order within their unit. Each passage has its own questions.'),
+        empty: t('Add your first reading passage, or import a passages file.')
+      }
+    };
 
-  var SECTION_TYPE_OPTIONS = [
-    { value: 'text', label: t('Text (paragraphs)') },
-    { value: 'note', label: t('Note (highlighted box)') },
-    { value: 'list', label: t('Bulleted list') },
-    { value: 'examples', label: t('Examples') },
-    { value: 'table', label: t('Table') },
-    { value: 'mistakes', label: t('Common mistakes (avoid / use)') }
-  ];
+    SECTION_TYPE_OPTIONS = [
+      { value: 'text', label: t('Text (paragraphs)') },
+      { value: 'note', label: t('Note (highlighted box)') },
+      { value: 'list', label: t('Bulleted list') },
+      { value: 'examples', label: t('Examples') },
+      { value: 'table', label: t('Table') },
+      { value: 'mistakes', label: t('Common mistakes (avoid / use)') }
+    ];
+  }
+  buildLabels();
   var LETTERS = 'ABCDEFGH';
 
   /* ---------- State ---------- */
@@ -80,9 +86,31 @@
   var importReport = null;    // shown on the tools view after an import
   var lastQuestionLinks = {}; // unit and topic remembered for "Save and add another"
   var firstRender = true;
+  var quietRender = false;    // redraw after a language change: keep focus where it is
+  var loadFailure = null;
   var ui = {};
 
   G12.setTitle(t('Content Manager'));
+
+  /* Language button: draw the whole manager again in the other language.
+     A form with unsaved changes would be cleared, so ask first. */
+  G12.beforeLanguageChange(function () {
+    return dirty
+      ? t('You have unsaved changes on this form. Changing the language redraws the page and clears them. Change the language?')
+      : null;
+  });
+  G12.onLanguageChange(function () {
+    buildLabels();
+    G12.setTitle(t('Content Manager'));
+    if (ui.view) {
+      dirty = false;
+      buildShell();
+      quietRender = true;
+      route();
+    } else if (loadFailure) {
+      G12.showError(root, loadFailure, { title: t('Content Manager') });
+    }
+  });
 
   loadPublished().then(function () {
     var draft = Store.loadDraft(storage);
@@ -106,6 +134,7 @@
     currentHash = window.location.hash.slice(1);
     route();
   }).catch(function (error) {
+    loadFailure = error;
     G12.showError(root, error, { title: t('Content Manager') });
   });
 
@@ -114,7 +143,7 @@
       return G12.loadCollection(key).then(function (list) {
         published[key] = list;
       }).catch(function (error) {
-        publishedErrors.push(error.message);
+        publishedErrors.push(error);
       });
     })).then(function () {
       publishedFingerprint = Store.fingerprint(published);
@@ -157,7 +186,7 @@
     }));
     root.appendChild(el('div', { className: 'notice notice--info' }, [
       el('p', null, [el('strong', { text: t('How saving works:') + ' ' }), G12.tNodes(
-        'your changes are saved automatically as a draft in this browser, on this device only. Students see them after you publish: open {link}, download the data files and upload them to the data folder of your GitHub repository.',
+        'your changes are saved automatically as a draft in this browser, on this device only. Students see them after you publish: open {link}, download the data files and upload them to your GitHub repository, next to index.html.',
         null, { link: el('a', { href: '#tools', text: t('Import & export') }) })])
     ]));
     ui.status = el('div', { className: 'status-bar', role: 'region', 'aria-label': t('Draft status') });
@@ -179,7 +208,7 @@
     var box = G12.clear(ui.status);
     if (publishedErrors.length) {
       box.appendChild(el('div', { className: 'notice notice--error', role: 'alert' }, [
-        el('p', null, [el('strong', { text: t('The published data files could not be loaded.') + ' ' }), publishedErrors.join(' ')]),
+        el('p', null, [el('strong', { text: t('The published data files could not be loaded.') + ' ' }), publishedErrors.map(G12.errorText).join(' ')]),
         el('p', { text: t('The manager is showing your browser draft, or an empty library if there is no draft. Be careful: publishing from here could replace content that is already on the website. Reload the page to try again.') })
       ]));
     }
@@ -261,7 +290,8 @@
   }
 
   function route() {
-    var quietStart = firstRender && !currentHash; // plain first visit: don't move focus
+    var quietStart = (firstRender && !currentHash) || quietRender; // first visit or language change: don't move focus
+    quietRender = false;
     var parts = currentHash.split('/').map(function (part) {
       try { return decodeURIComponent(part); } catch (error) { return part; }
     });
@@ -1658,7 +1688,7 @@
       el('h3', { id: 'publish-heading', text: t('Publish your changes') }),
       el('ol', { className: 'steps' }, [
         el('li', { text: t('Download the five data files below.') }),
-        el('li', { text: t('In your GitHub repository, open the data folder (not the top level), choose “Add file” → “Upload files”, and upload the files to replace the old ones. Then choose “Commit changes”.') }),
+        el('li', { text: t('In your GitHub repository, stay at the top level (where index.html is), choose “Add file” → “Upload files”, and upload the files to replace the old ones. Then choose “Commit changes”.') }),
         el('li', { text: t('GitHub Pages updates the website, usually within a few minutes. Reload the website to check.') })
       ]),
       check.errors.length ? el('div', { className: 'notice notice--error', role: 'note' }, [

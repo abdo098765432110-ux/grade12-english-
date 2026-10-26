@@ -1,10 +1,10 @@
-/* Unit tests for js/quiz-engine.js — run with: npm test
+/* Unit tests for quiz-engine.js — run with: node --test tests/*.test.js
    Fixtures use placeholder text only; they are not educational content. */
 'use strict';
 
 const test = require('node:test');
 const assert = require('node:assert/strict');
-const { Quiz, shuffle } = require('../js/quiz-engine.js');
+const { Quiz, shuffle, gradeAll, unansweredNumbers, hasValidAnswerKey } = require('../quiz-engine.js');
 
 function mcq(id, reviewStatus) {
   return { id, type: 'mcq', prompt: 'Prompt ' + id, options: ['A', 'B', 'C'], answer: 'B', reviewStatus };
@@ -139,4 +139,68 @@ test('shuffle keeps every question exactly once; shuffle: false keeps order', ()
   assert.deepEqual(list, Array.from({ length: 20 }, (_, i) => i), 'input is not modified');
   const ordered = new Quiz([mcq('a'), mcq('b'), mcq('c')], { shuffle: false });
   assert.deepEqual(ordered.items.map((item) => item.question.id), ['a', 'b', 'c']);
+});
+
+/* ---------- Added in Phase 2: answer-all mode ---------- */
+
+test('gradeAll: unanswered questions are never marked correct', () => {
+  const questions = [mcq('q1', 'reviewed'), mcq('q2', 'reviewed'), mcq('q3', 'reviewed'), mcq('q4', 'reviewed')];
+  const result = gradeAll(questions, { q1: 'B', q2: 'A', q3: '', q4: 'Not an option' });
+  assert.deepEqual(result.items.map((item) => item.status), ['correct', 'incorrect', 'unanswered', 'unanswered']);
+  assert.deepEqual(result.items.map((item) => item.correct), [true, false, false, false]);
+  assert.equal(result.correctCount, 1);
+  assert.equal(result.incorrectCount, 1);
+  assert.equal(result.unansweredCount, 2);
+  assert.equal(result.scoredCount, 4);
+  assert.equal(result.percent, 25);
+  assert.deepEqual(result.missed.map((q) => q.id), ['q2', 'q3', 'q4']);
+});
+
+test('gradeAll: nothing answered scores zero, never full marks', () => {
+  const result = gradeAll([mcq('q1', 'reviewed'), mcq('q2', 'unreviewed')], {});
+  assert.equal(result.correctCount, 0);
+  assert.equal(result.unansweredCount, 2);
+  assert.equal(result.percent, 0);
+  // Even an (invalid) empty answer key cannot be "matched" by an empty answer.
+  const broken = Object.assign(mcq('q3', 'reviewed'), { answer: '' });
+  const brokenResult = gradeAll([broken], { q3: '' });
+  assert.equal(brokenResult.items[0].status, 'no-key');
+  assert.equal(brokenResult.items[0].correct, false);
+  assert.equal(brokenResult.scoredCount, 0);
+  assert.equal(brokenResult.noKeyCount, 1);
+});
+
+test('gradeAll: unreviewed wording, provisional score, written answers not scored', () => {
+  const result = gradeAll([mcq('q1', 'unreviewed'), mcq('q2', 'unreviewed'), short('s1'), short('s2')],
+    { q1: 'B', q2: 'C', s1: '  my words  ' });
+  assert.deepEqual(result.items.map((item) => item.status), ['matches', 'differs', 'recorded', 'unanswered']);
+  assert.equal(result.provisional, true);
+  assert.equal(result.unreviewedCount, 2);
+  assert.equal(result.scoredCount, 2);
+  assert.equal(result.shortAnswerCount, 2);
+  assert.equal(result.shortUnansweredCount, 1);
+  assert.equal(result.items[2].response, 'my words');
+  assert.equal(result.unansweredCount, 0, 'unanswered written answers are not counted as unanswered scored questions');
+});
+
+test('unansweredNumbers lists the questions still blank', () => {
+  const questions = [mcq('q1'), short('s1'), mcq('q2'), mcq('q3')];
+  assert.deepEqual(unansweredNumbers(questions, { q1: 'A', s1: '   ', q3: 'Wrong text' }), [2, 3, 4]);
+  assert.deepEqual(unansweredNumbers(questions, { q1: 'A', s1: 'x', q2: 'B', q3: 'C' }), []);
+});
+
+test('answer keys are checked: a quiz refuses a question without a valid key', () => {
+  assert.equal(hasValidAnswerKey(mcq('q1')), true);
+  assert.equal(hasValidAnswerKey(short('s1')), true);
+  assert.equal(hasValidAnswerKey(Object.assign(mcq('q2'), { answer: 'Z' })), false);
+  assert.throws(() => new Quiz([Object.assign(mcq('q2'), { answer: 'Z' })]), /no valid answer key/);
+});
+
+test('Quiz results count questions never attempted as unanswered, not correct', () => {
+  const quiz = new Quiz([mcq('q1', 'reviewed'), mcq('q2', 'reviewed')], { shuffle: false });
+  quiz.submit('B');
+  const results = quiz.results();
+  assert.equal(results.firstTryMatches, 1);
+  assert.equal(results.unansweredCount, 1);
+  assert.equal(results.percent, 50);
 });

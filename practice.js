@@ -13,18 +13,61 @@
   var OTHER_UNIT = '__other__';   // questions with no unit (or an unknown unit)
   var NO_TOPIC = '__none__';      // questions with no topic (or an unknown topic)
   var COUNT_CHOICES = [5, 10, 20];
-  var MODES = [
-    { value: 'one', label: t('One at a time — feedback after each answer') },
-    { value: 'all', label: t('All at once — answer everything, then check') }
-  ];
+  function modes() {
+    return [
+      { value: 'one', label: t('One at a time — feedback after each answer') },
+      { value: 'all', label: t('All at once — answer everything, then check') }
+    ];
+  }
 
   var content = null;
+  var loadError = null;
   var settings = { unit: '', topic: '', count: null, mode: 'one' };
+  var running = null;  // the questions of the practice in progress (null: settings screen)
   var setupArea = el('div');
   var quizArea = el('div', { id: 'quiz-area' });
 
   G12.loadContent(['units', 'lessons', 'questions']).then(function (loaded) {
     content = loaded;
+    if (content.questions.length) applyAddress();
+    drawPage();
+  }).catch(function (error) {
+    loadError = error;
+    G12.showError(root, error, { title: t('Grammar Practice') });
+  });
+
+  /* The language button draws the page again in the other language. A
+     practice in progress starts again with the same questions, so ask first
+     if the student has already answered something. */
+  G12.beforeLanguageChange(function () {
+    return running && G12.hasAnswers(quizArea)
+      ? t('Changing the language starts the questions on this page again, and your answers so far will be cleared. Change the language?')
+      : null;
+  });
+  G12.onLanguageChange(function () {
+    if (content) {
+      rememberChoices();
+      drawPage();
+    } else if (loadError) {
+      G12.showError(root, loadError, { title: t('Grammar Practice') });
+    }
+  });
+
+  /* Keep the choices made on the settings screen (not yet started). */
+  function rememberChoices() {
+    var form = setupArea.querySelector('form');
+    if (!form || setupArea.hidden) return;
+    var unit = form.querySelector('#practice-unit');
+    var topic = form.querySelector('#practice-topic');
+    var count = form.querySelector('input[name="count"]:checked');
+    var mode = form.querySelector('input[name="mode"]:checked');
+    if (unit) settings.unit = unit.value || '';
+    if (topic) settings.topic = topic.value;
+    if (count) settings.count = count.value !== 'all' ? Number(count.value) : null;
+    if (mode) settings.mode = mode.value;
+  }
+
+  function drawPage() {
     G12.setTitle(t('Grammar Practice'));
     G12.clear(root);
     root.appendChild(el('h1', { text: t('Grammar Practice') }));
@@ -43,13 +86,11 @@
 
     var notice = G12.listReviewNotice(content.questions);
     if (notice) root.appendChild(notice);
-    applyAddress();
     root.appendChild(setupArea);
     root.appendChild(quizArea);
-    showSetup(false);
-  }).catch(function (error) {
-    G12.showError(root, error, { title: t('Grammar Practice') });
-  });
+    if (running) startPractice(running, true);
+    else showSetup(false);
+  }
 
   /* ---------- Which questions belong where ---------- */
 
@@ -131,6 +172,7 @@
   /* ---------- Settings form ---------- */
 
   function showSetup(moveFocus) {
+    running = null;
     G12.clear(quizArea);
     G12.clear(setupArea);
     setupArea.hidden = false;
@@ -156,7 +198,7 @@
     rows.push(countFieldset);
     rows.push(el('fieldset', { className: 'form-row' }, [
       el('legend', { text: t('How do you want to answer?') }),
-      el('div', { className: 'inline-choices' }, MODES.map(function (mode) {
+      el('div', { className: 'inline-choices' }, modes().map(function (mode) {
         var id = 'practice-mode-' + mode.value;
         return el('label', { for: id }, [
           el('input', { type: 'radio', id: id, name: 'mode', value: mode.value, checked: settings.mode === mode.value }),
@@ -217,9 +259,14 @@
 
   /* ---------- Practice ---------- */
 
-  function startPractice() {
-    var picked = G12.QuizEngine.shuffle(pool(settings.unit, settings.topic), Math.random);
-    if (settings.count) picked = picked.slice(0, settings.count);
+  /* picked: the same questions again (after a language change), or none to
+     choose new ones from the settings. */
+  function startPractice(picked, quiet) {
+    if (!picked) {
+      picked = G12.QuizEngine.shuffle(pool(settings.unit, settings.topic), Math.random);
+      if (settings.count) picked = picked.slice(0, settings.count);
+    }
+    running = picked;
 
     setupArea.hidden = true;
     G12.clear(quizArea);
@@ -234,6 +281,6 @@
     } else {
       G12.renderQuiz(holder, picked, { label: t('Grammar practice'), shuffle: true, resultActions: back });
     }
-    G12.focus(holder.querySelector('h2'));
+    if (!quiet) G12.focus(holder.querySelector('h2'));
   }
 })();

@@ -13,11 +13,11 @@
   var root = document.getElementById('page-root');
   var PAGE = 'grammar.html';
 
-  G12.loadContent(['units', 'lessons', 'summaries', 'questions']).then(function (content) {
+  G12.showPage(['units', 'lessons', 'summaries', 'questions'], function (content) {
     var topicId = G12.param('topic') || G12.param('lesson');
     if (topicId) renderLesson(content, topicId);
     else renderList(content, G12.param('unit'));
-  }).catch(function (error) {
+  }, function (error) {
     G12.showError(root, error, { title: t('Grammar Lessons') });
   });
 

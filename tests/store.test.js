@@ -1,11 +1,11 @@
-/* Unit tests for js/content-store.js — run with: npm test
+/* Unit tests for content-store.js — run with: node --test tests/*.test.js
    Fixtures use placeholder text only; they are not educational content. */
 'use strict';
 
 const test = require('node:test');
 const assert = require('node:assert/strict');
-const Schema = require('../js/content-schema.js');
-const Store = require('../js/content-store.js');
+const Schema = require('../content-schema.js');
+const Store = require('../content-store.js');
 
 function sampleLibrary() {
   const library = Schema.emptyLibrary();
@@ -13,11 +13,14 @@ function sampleLibrary() {
     { id: 'l1', title: 'Lesson 1', reviewStatus: 'unreviewed', sections: [] },
     { id: 'l2', title: 'Lesson 2', reviewStatus: 'unreviewed', sections: [] }
   ];
-  library.summaries = [{ id: 's1', title: 'Summary 1', lessonId: 'l1', reviewStatus: 'unreviewed', remember: ['r'] }];
+  library.units = [{ id: 'u1', title: 'Unit 1' }];
+  library.lessons[0].unitId = 'u1';
+  library.summaries = [{ id: 's1', title: 'Summary 1', topicId: 'l1', reviewStatus: 'unreviewed', remember: ['r'] }];
   library.questions = [
-    { id: 'q-001', type: 'mcq', topic: 'l1', prompt: 'P1', options: ['A', 'B'], answer: 'A', reviewStatus: 'unreviewed' },
-    { id: 'q-002', type: 'mcq', topic: 'l2', prompt: 'P2', options: ['A', 'B'], answer: 'B', reviewStatus: 'unreviewed' }
+    { id: 'q-001', type: 'mcq', topicId: 'l1', prompt: 'P1', options: ['A', 'B'], answer: 'A', reviewStatus: 'unreviewed' },
+    { id: 'q-002', type: 'mcq', topicId: 'l2', unitId: 'u1', prompt: 'P2', options: ['A', 'B'], answer: 'B', reviewStatus: 'unreviewed' }
   ];
+  library.passages = [{ id: 'p1', title: 'P', unitId: 'u1', paragraphs: ['x'], questions: [], reviewStatus: 'unreviewed' }];
   return library;
 }
 
@@ -46,9 +49,9 @@ test('saveItem adds new items and replaces existing ones without changing the or
 test('changing a lesson id updates linked summaries and questions', () => {
   const next = Store.saveItem(sampleLibrary(), 'lessons', { id: 'new-id', title: 'Lesson 1', reviewStatus: 'unreviewed', sections: [] }, 'l1');
   assert.equal(next.lessons[0].id, 'new-id');
-  assert.equal(next.summaries[0].lessonId, 'new-id');
-  assert.equal(next.questions[0].topic, 'new-id');
-  assert.equal(next.questions[1].topic, 'l2');
+  assert.equal(next.summaries[0].topicId, 'new-id');
+  assert.equal(next.questions[0].topicId, 'new-id');
+  assert.equal(next.questions[1].topicId, 'l2');
 });
 
 test('deleting a lesson keeps linked items but removes the link', () => {
@@ -57,8 +60,8 @@ test('deleting a lesson keeps linked items but removes the link', () => {
   const next = Store.deleteItem(library, 'lessons', 'l1');
   assert.equal(next.lessons.length, 1);
   assert.equal(next.summaries.length, 1);
-  assert.equal(next.summaries[0].lessonId, undefined);
-  assert.equal(next.questions[0].topic, undefined);
+  assert.equal(next.summaries[0].topicId, undefined);
+  assert.equal(next.questions[0].topicId, undefined);
   assert.equal(Store.deleteItem(library, 'lessons', 'nope').lessons.length, 2);
 });
 
@@ -94,10 +97,11 @@ test('export formats: data file and backup', () => {
   assert.equal(backup.type, Store.BACKUP_TYPE);
   assert.equal(backup.exportedAt, '2026-01-02T03:04:05.000Z');
   assert.equal(backup.lessons.length, 2);
+  assert.equal(backup.units.length, 1);
   // A backup can be imported again.
   const read = Schema.readImport(JSON.parse(JSON.stringify(backup)), 'backup.json');
   assert.equal(read.report.errors.length, 0);
-  assert.equal(Object.keys(read.collections).length, 4);
+  assert.equal(Object.keys(read.collections).length, 5);
 });
 
 test('fingerprint detects changes; isEmpty works', () => {
@@ -136,4 +140,39 @@ test('without storage, saving throws and the other functions are safe', () => {
   assert.equal(Store.loadDraft(null), null);
   assert.equal(Store.isPreviewOn(null), false);
   assert.equal(Store.setPreview(null, true), false);
+});
+
+/* ---------- Added in Phase 2 ---------- */
+
+test('renaming a unit id updates every item that names it', () => {
+  const next = Store.saveItem(sampleLibrary(), 'units', { id: 'unit-one', title: 'Unit 1' }, 'u1');
+  assert.equal(next.units[0].id, 'unit-one');
+  assert.equal(next.lessons[0].unitId, 'unit-one');
+  assert.equal(next.questions[1].unitId, 'unit-one');
+  assert.equal(next.passages[0].unitId, 'unit-one');
+});
+
+test('deleting a unit keeps its content but removes the unit link', () => {
+  const library = sampleLibrary();
+  assert.deepEqual(Store.countUnitLinks(library, 'u1'), { lessons: 1, summaries: 0, questions: 1, passages: 1 });
+  const next = Store.deleteItem(library, 'units', 'u1');
+  assert.equal(next.units.length, 0);
+  assert.equal(next.lessons.length, 2);
+  assert.equal(next.lessons[0].unitId, undefined);
+  assert.equal(next.questions[1].unitId, undefined);
+  assert.equal(next.passages[0].unitId, undefined);
+});
+
+test('old drafts and imports with version 1 field names are upgraded', () => {
+  const storage = memoryStorage();
+  storage.setItem(Store.DRAFT_KEY, JSON.stringify({ library: {
+    lessons: [], summaries: [{ id: 's', title: 'S', lessonId: 'l1' }], questions: [{ id: 'q', topic: 'l1' }], passages: []
+  } }));
+  const draft = Store.loadDraft(storage);
+  assert.deepEqual(draft.library.units, []);
+  assert.equal(draft.library.summaries[0].topicId, 'l1');
+  assert.equal(draft.library.questions[0].topicId, 'l1');
+  assert.equal('topic' in draft.library.questions[0], false);
+  const merged = Store.applyImport(Schema.emptyLibrary(), { questions: [{ id: 'q2', topic: 'l9' }] }, 'merge');
+  assert.equal(merged.library.questions[0].topicId, 'l9');
 });

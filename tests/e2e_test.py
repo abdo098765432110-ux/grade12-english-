@@ -106,7 +106,9 @@ def audit(page, label):
 def watch(page):
     """Collect console errors, page errors and failed requests."""
     page.errors = []
-    page.on("console", lambda m: page.errors.append("console %s: %s" % (m.type, m.text)) if m.type == "error" else None)
+    # Errors, and warnings about interface text with no Arabic translation.
+    page.on("console", lambda m: page.errors.append("console %s: %s" % (m.type, m.text))
+            if m.type == "error" or "[i18n]" in m.text else None)
     page.on("pageerror", lambda e: page.errors.append("page error: %s" % e))
     page.on("requestfailed", lambda r: page.errors.append("request failed: %s" % r.url))
     return page
@@ -117,9 +119,20 @@ def no_errors(page, label):
     page.errors.clear()
 
 
+def settle(page):
+    """Wait until the page has finished loading its content."""
+    page.wait_for_function("!document.querySelector('.loading')")
+
+
 def draft(page):
     raw = page.evaluate("() => localStorage.getItem('g12-content-draft-v1')")
     return json.loads(raw)["library"] if raw else None
+
+
+# The five data files (they are at the top level, next to index.html).
+DATA_ROUTE = re.compile(r".*/(units|grammar-lessons|grammar-summaries|grammar-questions|reading-passages)\.json(\?.*)?$")
+# Every stylesheet, script and data file of the site.
+ASSET_ROUTE = re.compile(r".*/[^/]+\.(css|js|json)(\?.*)?$")
 
 
 def run_section(name, fn, *args):
@@ -235,7 +248,7 @@ def manager_flow(context, base):
     page.click(".manager-nav >> text=Summaries")
     page.click("text=Add a summary >> nth=0")
     page.fill("#f-title", "Test summary")
-    page.select_option("#f-lesson", "test-lesson-one")
+    page.select_option("#f-topic", "test-lesson-one")
     page.fill("#pt-0-title", "P1")
     page.fill("#pt-0-rule", "Rule one")
     page.fill("#pt-0-example", "Example one")
@@ -330,10 +343,10 @@ def manager_flow(context, base):
     page.click("[aria-label='Edit lesson “Test lesson one”']")
     page.fill("#f-id", "renamed-lesson")
     page.click("button:has-text('Save changes')")
-    expect(page.locator(".manager-message")).to_contain_text("now use the new ID")
+    expect(page.locator(".manager-message")).to_contain_text("now use the new topic ID")
     library = draft(page)
     record("renaming a lesson updates linked questions and summaries",
-           all(q.get("topic") == "renamed-lesson" for q in library["questions"]) and library["summaries"][0]["lessonId"] == "renamed-lesson")
+           all(q.get("topicId") == "renamed-lesson" for q in library["questions"]) and library["summaries"][0]["topicId"] == "renamed-lesson")
 
     # --- Delete lesson two
     page.click("[data-id='test-lesson-two'][data-action='delete']")
@@ -393,7 +406,7 @@ def student_pages_in_preview(page, base):
     page.screenshot(path=str(SHOTS / "04-lesson-page.png"), full_page=True)
 
     page.click("text=Read the summary")
-    expect(page).to_have_url(re.compile(r"summaries\.html#test-summary$"))
+    expect(page).to_have_url(re.compile(r"summaries\.html\?topic=renamed-lesson$"))
     expect(page.locator(".summary-card tbody tr")).to_have_count(2)
     audit(page, "summaries page")
 
@@ -453,6 +466,9 @@ def student_pages_in_preview(page, base):
     expect(page.locator(".card .passage-meta")).to_contain_text("2 questions")
     page.click("text=Read passage")
     expect(page.locator(".passage-paragraphs li")).to_have_count(2)
+    expect(page.locator(".mode-switch button[aria-pressed='true']")).to_have_text("All questions")
+    expect(page.locator(".worksheet-q .question-legend").first).to_contain_text("Passage question two")
+    page.click(".mode-switch button:has-text('One at a time')")
     expect(page.locator(".question-legend, .question-form label.question-legend").first).to_contain_text("Passage question two")
     page.fill(".question-form textarea", "Reading answer")
     page.click("button:has-text('Submit answer')")
@@ -491,20 +507,19 @@ def student_pages_in_preview(page, base):
 def export_files(page, base):
     page.goto(base + "manage.html#tools")
     names = {}
-    for key, file in [("lessons", "grammar-lessons.json"), ("summaries", "grammar-summaries.json"),
+    for key, file in [("units", "units.json"), ("lessons", "grammar-lessons.json"), ("summaries", "grammar-summaries.json"),
                       ("questions", "grammar-questions.json"), ("passages", "reading-passages.json")]:
         with page.expect_download() as info:
             page.click("button:has-text('Download %s')" % file)
         download = info.value
-        target = DOWNLOADS / "data" / download.suggested_filename
-        target.parent.mkdir(exist_ok=True)
+        target = DOWNLOADS / download.suggested_filename
         download.save_as(target)
         names[key] = target
     with page.expect_download() as info:
         page.click("button:has-text('Download backup file')")
     backup = DOWNLOADS / info.value.suggested_filename
     info.value.save_as(backup)
-    record("four data files and a backup downloaded",
+    record("five data files and a backup downloaded",
            all(p.exists() for p in names.values()) and re.match(r"grade12-english-backup-\d{4}-\d{2}-\d{2}\.json", backup.name) is not None,
            ", ".join(sorted(p.name for p in names.values())) + ", " + backup.name)
 
@@ -524,7 +539,7 @@ def published_site(browser, base, files):
     """Serve the exported files as if they were uploaded to GitHub (no draft in this browser)."""
     context = browser.new_context()
     for key, path in files.items():
-        context.route("**/data/" + path.name, serve_json(path.read_text(encoding="utf-8")))
+        context.route("**/" + path.name, serve_json(path.read_text(encoding="utf-8")))
     page = watch(context.new_page())
     page.goto(base + "grammar.html")
     expect(page.locator(".card h2")).to_have_text("Test lesson one")
@@ -540,7 +555,7 @@ def published_site(browser, base, files):
     broken = {"schemaVersion": 1, "questions": [
         {"id": "q-001", "type": "mcq", "prompt": "Works", "options": ["A", "B"], "answer": "A", "reviewStatus": "unreviewed"},
         {"id": "q-002", "type": "mcq", "prompt": "Broken", "options": ["A", "B"], "answer": "C", "reviewStatus": "unreviewed"}]}
-    context.route("**/data/grammar-questions.json", serve_json(json.dumps(broken)))
+    context.route("**/grammar-questions.json", serve_json(json.dumps(broken)))
     page = watch(context.new_page())
     page.goto(base + "practice.html")
     expect(page.locator("main")).to_contain_text("1 item could not be shown")
@@ -551,8 +566,8 @@ def published_site(browser, base, files):
 
     # Invalid JSON and a missing file show a clear message instead of a blank page.
     context = browser.new_context()
-    context.route("**/data/reading-passages.json", serve_json("{ not json"))
-    context.route("**/data/grammar-lessons.json", serve_json("missing", status=404))
+    context.route("**/reading-passages.json", serve_json("{ not json"))
+    context.route("**/grammar-lessons.json", serve_json("missing", status=404))
     page = context.new_page()
     page.goto(base + "reading.html")
     expect(page.locator(".notice--error")).to_contain_text("contains invalid JSON")
@@ -612,7 +627,750 @@ def import_flow(browser, base, backup):
     context.close()
 
 
-# ---------------------------------------------------------------- 6. colour contrast
+# ---------------------------------------------------------------- 6. missing files, loading and error states
+
+def missing_files_and_states(browser, base):
+    # a) Website files not uploaded (only the pages): a clear message, in both languages.
+    context = browser.new_context()
+    context.route(ASSET_ROUTE, serve_json("Not found", status=404))
+    page = context.new_page()
+    for path in ["index.html", "grammar.html"]:
+        page.goto(base + path)
+        alert = page.locator("#load-failure")
+        expect(alert).to_be_visible()
+        text = alert.inner_text()
+        record("missing files: clear message on " + path,
+               "style.css" in text and "i18n-ar.js" in text and "common.js" in text
+               and "top level of the GitHub repository, next to index.html" in text, text[:160])
+        record("missing files: no endless 'Loading…' on " + path,
+               page.locator(".loading").count() == 0 and "This content could not be loaded." in page.inner_text("main"))
+    page.screenshot(path=str(SHOTS / "10-missing-files-message.png"))
+    page.evaluate("() => localStorage.setItem('g12-lang', 'ar')")
+    page.goto(base + "index.html")
+    expect(page.locator("#load-failure")).to_be_visible()
+    record("missing files: the message is in Arabic when Arabic was chosen",
+           "المستوى الأعلى في مستودع GitHub" in page.locator("#load-failure").inner_text())
+    context.close()
+
+    # b) Only the stylesheet missing: message shown, content still works.
+    context = browser.new_context()
+    context.route("**/style.css", serve_json("Not found", status=404))
+    page = context.new_page()
+    page.goto(base + "grammar.html")
+    expect(page.locator("#load-failure")).to_contain_text("style.css")
+    expect(page.locator(".empty-state h2")).to_have_text("No lessons added yet")
+    record("missing stylesheet only: message shown and page content still loads", True)
+    context.close()
+
+    # c) Data files missing: error state with heading, reason and Try again.
+    context = browser.new_context()
+    context.route(DATA_ROUTE, serve_json("Not found", status=404))
+    page = watch(context.new_page())
+    titles = {"grammar.html": "Grammar Lessons", "summaries.html": "Grammar Summaries",
+              "practice.html": "Grammar Practice", "reading.html": "Reading Comprehension"}
+    for path, title in titles.items():
+        page.goto(base + path)
+        expect(page.locator(".error-state h2")).to_have_text("This content could not be loaded")
+        record("data missing: error state on " + path,
+               page.locator("h1").inner_text() == title
+               and "was not found (HTTP 404)" in page.locator(".error-state").inner_text()
+               and page.locator(".error-state button:has-text('Try again')").count() == 1,
+               page.locator(".error-state").inner_text().replace("\n", " | ")[:160])
+        audit(page, "error state " + path)
+    # The content manager keeps working (so a teacher can still reach the draft)
+    # and shows the problem in its status bar instead.
+    page.goto(base + "manage.html")
+    expect(page.locator(".status-bar .notice--error")).to_contain_text("could not be loaded")
+    record("data missing: content manager warns but stays usable",
+           "was not found (HTTP 404)" in page.locator(".status-bar").inner_text()
+           and page.locator(".manager-nav a").count() == 6)
+    page.goto(base + "index.html")
+    expect(page.locator("#home-status .error-state")).to_be_visible()
+    record("data missing: home page shows the error and 'Could not load' counts",
+           page.locator("[data-count='lessons']").inner_text() == "Could not load"
+           and page.locator("#home-status a:has-text('Go to the home page')").count() == 0)
+    page.screenshot(path=str(SHOTS / "11-error-state.png"))
+    # Try again reloads and works once the files are back.
+    page.goto(base + "grammar.html")
+    expect(page.locator(".error-state")).to_be_visible()  # wait until the failed load is shown
+    context.unroute(DATA_ROUTE)
+    page.click("button:has-text('Try again')")
+    expect(page.locator(".empty-state h2")).to_have_text("No lessons added yet")
+    record("'Try again' reloads the page and recovers", True)
+    page.errors.clear()  # the 404s above were intentional
+    context.close()
+
+    # d) Loading state, slow-network notice and timeout (fake clock, data never answers).
+    context = browser.new_context()
+    held = []
+    context.route(DATA_ROUTE, lambda route: held.append(route))  # hold every data request (never answer)
+    page = context.new_page()
+    page.clock.install()
+    page.goto(base + "grammar.html")
+    loading = page.locator("#page-root .loading")
+    expect(loading).to_have_text("Loading…")
+    record("loading state shows a spinner",
+           page.evaluate("getComputedStyle(document.querySelector('.loading'), '::before').animationName") == "g12-spin")
+    page.clock.run_for(9000)
+    expect(loading).to_contain_text("taking longer than usual")
+    record("slow loading: 'taking longer than usual' notice after 8 seconds", True)
+    page.clock.run_for(22000)
+    expect(page.locator(".error-state")).to_contain_text("took too long")
+    record("loading gives up after 30 seconds with an error and Try again", True)
+    for route in held:  # answer the held requests so closing the browser is quiet
+        route.abort()
+    page.wait_for_timeout(200)
+    context.close()
+
+
+# ---------------------------------------------------------------- 7. navigation and mobile menu
+
+def navigation(browser, base):
+    labels = ["Home", "Grammar Lessons", "Grammar Summaries", "Grammar Practice", "Reading Comprehension"]
+    context = browser.new_context(viewport={"width": 1280, "height": 900})
+    page = watch(context.new_page())
+    page.goto(base + "index.html")
+    links = page.locator("#site-nav a")
+    record("navigation has the five sections in order", links.all_inner_texts() == labels, str(links.all_inner_texts()))
+    record("desktop: menu button hidden, links visible",
+           not page.is_visible(".nav-toggle") and page.is_visible("#site-nav"))
+    for href, label in [("grammar.html", "Grammar Lessons"), ("summaries.html", "Grammar Summaries"),
+                        ("practice.html", "Grammar Practice"), ("reading.html", "Reading Comprehension"), ("index.html", "Home")]:
+        settle(page)
+        page.click("#site-nav a:has-text('%s')" % label)
+        expect(page).to_have_url(re.compile(re.escape(href) + "$"))
+        current = page.locator("#site-nav a[aria-current='page']")
+        record("nav link works and marks current page: " + label, current.inner_text() == label)
+    page.screenshot(path=str(SHOTS / "12-home-desktop.png"), full_page=True)
+    for width in [1024, 768]:
+        page.set_viewport_size({"width": width, "height": 900})
+        page.goto(base + "index.html")
+        audit(page, "home at %dpx" % width)
+    no_errors(page, "navigation desktop")
+
+    page.set_viewport_size({"width": 375, "height": 800})
+    page.goto(base + "index.html")
+    toggle = page.locator(".nav-toggle")
+    record("phone: menu button shown, links hidden until opened",
+           toggle.is_visible() and not page.is_visible("#site-nav") and toggle.get_attribute("aria-expanded") == "false")
+    brand = page.locator(".brand").bounding_box()
+    button = toggle.bounding_box()
+    record("phone: menu button sits beside the site name",
+           abs((brand["y"] + brand["height"] / 2) - (button["y"] + button["height"] / 2)) < 25 and button["x"] >= brand["x"] + brand["width"])
+    page.screenshot(path=str(SHOTS / "13-home-phone-closed.png"), full_page=True)
+    toggle.click()
+    record("phone: menu opens and reports aria-expanded=true",
+           page.is_visible("#site-nav") and toggle.get_attribute("aria-expanded") == "true")
+    audit(page, "phone menu open")
+    page.screenshot(path=str(SHOTS / "14-home-phone-open.png"), full_page=False)
+    page.keyboard.press("Tab")
+    page.keyboard.press("Escape")
+    record("phone: Escape closes the menu and returns focus to the button",
+           not page.is_visible("#site-nav") and page.evaluate("document.activeElement.classList.contains('nav-toggle')"))
+    settle(page)
+    toggle.click()
+    page.click("#site-nav a:has-text('Reading Comprehension')")
+    expect(page).to_have_url(re.compile(r"reading\.html$"))
+    record("phone: menu link navigates", True)
+    no_errors(page, "navigation phone")
+    context.close()
+
+    # Without JavaScript the full navigation must stay visible.
+    context = browser.new_context(java_script_enabled=False, viewport={"width": 375, "height": 800})
+    page = context.new_page()
+    page.goto(base + "index.html")
+    record("no JavaScript: navigation visible, menu button hidden",
+           page.is_visible("#site-nav") and not page.is_visible(".nav-toggle") and page.locator("#site-nav a").count() == 5)
+    page.goto(base + "grammar.html")
+    record("no JavaScript: page explains that JavaScript is needed", "needs JavaScript" in page.inner_text("main"))
+    context.close()
+
+
+# ---------------------------------------------------------------- 8. Phase 2: units, topics, answer-all
+
+def fixture_question(qid, **extra):
+    question = {"id": qid, "type": "mcq", "prompt": "Test prompt " + qid, "options": ["Opt A", "Opt B", "Opt C"],
+                "answer": "Opt B", "reviewStatus": "unreviewed"}
+    question.update(extra)
+    return question
+
+
+# Placeholder test data only (served by the test, never written to the project's data files).
+# Summaries and questions deliberately use the old version 1 field names.
+PHASE2_DATA = {
+    "units.json": {"schemaVersion": 2, "units": [
+        {"id": "u1", "title": "Test unit one", "description": "Placeholder unit description"},
+        {"id": "u2", "title": "Test unit two"}]},
+    "grammar-lessons.json": {"schemaVersion": 2, "lessons": [
+        {"id": "l1", "unitId": "u1", "title": "Test topic one", "reviewStatus": "unreviewed",
+         "sections": [{"type": "text", "paragraphs": ["Line one\nLine two"]}]},
+        {"id": "l2", "title": "Test topic without unit", "reviewStatus": "unreviewed", "sections": []}]},
+    "grammar-summaries.json": {"schemaVersion": 1, "summaries": [
+        {"id": "s1", "lessonId": "l1", "title": "Test summary", "reviewStatus": "unreviewed", "remember": ["Reminder"]}]},
+    "grammar-questions.json": {"schemaVersion": 1, "questions": [
+        fixture_question("q1", topic="l1"),
+        fixture_question("q2", unitId="u1", reviewStatus="reviewed"),
+        {"id": "q3", "type": "short", "prompt": "Short prompt", "modelAnswer": "Model text", "reviewStatus": "unreviewed", "unitId": "u1"},
+        fixture_question("q4", answer="B"),
+        fixture_question("q5")]},
+    "reading-passages.json": {"schemaVersion": 2, "passages": [
+        {"id": "p1", "unitId": "u1", "title": "Test passage", "reviewStatus": "unreviewed",
+         "paragraphs": ["Para one line 1\nPara one line 2", "Para   two"],
+         "questions": [fixture_question("rq1"),
+                       {"id": "rq2", "type": "short", "prompt": "Reading short", "modelAnswer": "Model r", "reviewStatus": "unreviewed"},
+                       fixture_question("rq3", answer="Opt C")]},
+        {"id": "p2", "title": "Plain passage", "showParagraphNumbers": False, "reviewStatus": "unreviewed",
+         "paragraphs": ["Only paragraph"], "questions": []}]},
+}
+
+
+def phase2_pages(browser, base):
+    context = browser.new_context(viewport={"width": 1280, "height": 900})
+    for name, body in PHASE2_DATA.items():
+        context.route("**/" + name, serve_json(json.dumps(body)))
+    page = watch(context.new_page())
+
+    # Grammar lessons by unit and topic
+    page.goto(base + "grammar.html")
+    settle(page)
+    nav = page.locator(".unit-nav a").all_inner_texts()
+    record("lessons: unit filter links", nav == ["All units", "Test unit one (1)", "Test unit two"], str(nav))
+    sections = page.locator(".unit-section > h2").all_inner_texts()
+    record("lessons: grouped by unit, with an 'Other topics' group", sections == ["Test unit one", "Test unit two", "Other topics"], str(sections))
+    record("lessons: empty unit says so", "No lessons in this unit yet." in page.locator("#unit-u2").locator("xpath=..").inner_text())
+    audit(page, "lessons by unit")
+    page.goto(base + "grammar.html?unit=u2")
+    settle(page)
+    expect(page.locator(".empty-state h3")).to_have_text("No lessons in this unit yet")
+    record("lessons: ?unit= filter with an empty unit shows an empty state",
+           page.locator(".unit-nav a[aria-current='page']").inner_text() == "Test unit two")
+    page.goto(base + "grammar.html?unit=missing")
+    settle(page)
+    expect(page.locator(".empty-state h2")).to_have_text("Unit not found")
+    page.goto(base + "grammar.html?topic=l1")
+    settle(page)
+    crumbs = page.locator(".breadcrumb li").all_inner_texts()
+    record("lessons: ?topic= opens the lesson with its unit in the breadcrumb", crumbs == ["Grammar Lessons", "Test unit one", "Test topic one"], str(crumbs))
+    paragraph = page.locator(".lesson-body p").first
+    record("lessons: line breaks in the text are kept",
+           paragraph.evaluate("p => getComputedStyle(p).whiteSpace") == "pre-line" and "\n" in paragraph.evaluate("p => p.textContent"))
+    page.goto(base + "grammar.html?lesson=l1")
+    settle(page)
+    expect(page.locator("h1")).to_have_text("Test topic one")
+    record("lessons: old ?lesson= links still work", True)
+    record("lessons: a broken practice question does not trigger a notice here", page.locator("text=could not be shown").count() == 0)
+
+    # Summaries by unit and topic (old field name lessonId is upgraded)
+    page.goto(base + "summaries.html?topic=l1")
+    settle(page)
+    expect(page.locator(".summary-card h2")).to_have_text("Test summary")
+    record("summaries: ?topic= shows the topic's summary (old 'lessonId' field upgraded)", True)
+    page.goto(base + "summaries.html?topic=l2")
+    settle(page)
+    expect(page.locator(".empty-state h2")).to_have_text("No summary for this topic yet")
+    page.goto(base + "summaries.html?unit=u2")
+    settle(page)
+    expect(page.locator(".empty-state h3")).to_have_text("No summaries in this unit yet")
+    page.goto(base + "summaries.html")
+    settle(page)
+    record("summaries: grouped by unit", page.locator("#unit-u1 a").inner_text() == "Test unit one"
+           and "No summaries in this unit yet." in page.inner_text("main"))
+    audit(page, "summaries by unit")
+
+    # Practice: unit and topic selection, empty states, broken answer key skipped
+    page.goto(base + "practice.html")
+    settle(page)
+    expect(page.locator("main")).to_contain_text("1 item could not be shown")
+    options = page.locator("#practice-unit option").all_inner_texts()
+    record("practice: units listed with counts and 'no questions yet'",
+           options == ["All units (4)", "Test unit one (3)", "Test unit two (no questions yet)", "Questions without a unit (1)"], str(options))
+    page.select_option("#practice-unit", "u2")
+    expect(page.locator(".practice-empty")).to_contain_text("No practice questions for this unit yet.")
+    record("practice: empty unit disables Start", page.is_disabled("button:has-text('Start practice')"))
+    audit(page, "practice empty unit")
+    page.goto(base + "practice.html?topic=l1")
+    settle(page)
+    record("practice: ?topic= preselects the topic and its unit",
+           page.input_value("#practice-unit") == "u1" and page.input_value("#practice-topic") == "l1")
+
+    # Answer-all mode: nothing answered can never score
+    page.goto(base + "practice.html?unit=u1")
+    settle(page)
+    page.check("#practice-mode-all")
+    page.click("button:has-text('Start practice')")
+    expect(page.locator(".worksheet-q")).to_have_count(3)
+    expect(page.locator(".answered-count")).to_have_text("Answered 0 of 3")
+    page.click("button:has-text('Check my answers')")
+    expect(page.locator(".worksheet-warning")).to_contain_text("You have not answered 3 questions: 1, 2, 3.")
+    record("answer-all: unanswered questions are listed before checking", True)
+    page.click("button:has-text('Check anyway')")
+    expect(page.locator(".worksheet-score .score-number")).to_have_text("0 / 2")
+    breakdown = page.locator(".score-breakdown").inner_text()
+    record("answer-all: unanswered questions score nothing", "Not answered: 2" in breakdown, breakdown.replace("\n", " | "))
+    record("answer-all: each unanswered question says 'Not answered'",
+           page.locator(".feedback--warning .feedback-title:has-text('Not answered')").count() == 3)
+    audit(page, "answer-all results")
+    page.screenshot(path=str(SHOTS / "15-answer-all-unanswered.png"), full_page=True)
+    page.click("button:has-text('Retry missed questions (2)')")
+    expect(page.locator(".worksheet h2")).to_have_text("Missed questions (2)")
+    for index in range(2):
+        page.locator(".worksheet-q").nth(index).locator("label:has-text('Opt B')").click()
+    expect(page.locator(".answered-count")).to_have_text("Answered 2 of 2")
+    page.click("button:has-text('Check my answers')")
+    expect(page.locator(".worksheet-score .score-number")).to_have_text("2 / 2")
+    record("answer-all: retry missed, answer all, full score", True)
+
+    # Reading: formatting kept, questions in stored order, both modes
+    page.goto(base + "reading.html?passage=p1")
+    settle(page)
+    first = page.locator(".passage-paragraphs li").first
+    record("reading: line breaks and spacing kept exactly",
+           first.evaluate("li => getComputedStyle(li).whiteSpace") == "pre-wrap"
+           and page.locator(".passage-paragraphs li").nth(1).evaluate("li => li.textContent") == "Para   two")
+    prompts = page.locator(".worksheet-q .question-legend, .worksheet-q label.question-legend").all_inner_texts()
+    record("reading: questions in the stored order", [p.split("\n")[-1] for p in prompts] == ["Test prompt rq1", "Reading short", "Test prompt rq3"], str(prompts))
+    record("reading: passage stays in view on wide screens",
+           page.locator("article.passage").evaluate("a => getComputedStyle(a).position") == "sticky")
+    page.locator(".worksheet-q").nth(0).locator("label:has-text('Opt B')").click()
+    page.locator(".worksheet-q").nth(2).locator("label:has-text('Opt A')").click()
+    page.click("button:has-text('Check my answers')")
+    page.click("button:has-text('Check anyway')")
+    expect(page.locator(".worksheet-score .score-number")).to_have_text("1 / 2")
+    record("reading: matched, different and unanswered are reported separately",
+           "Matched: 1" in page.locator(".score-breakdown").inner_text() and "Different: 1" in page.locator(".score-breakdown").inner_text())
+    audit(page, "reading answer-all")
+    page.screenshot(path=str(SHOTS / "16-reading-answer-all.png"), full_page=True)
+    page.click(".mode-switch button:has-text('One at a time')")
+    expect(page.locator(".quiz-progress-text")).to_have_text("Question 1 of 3")
+    expect(page.locator(".question-legend")).to_contain_text("Test prompt rq1")
+    record("reading: one-at-a-time mode keeps the stored order", True)
+    page.goto(base + "reading.html?passage=p2")
+    settle(page)
+    record("reading: paragraph numbers can be turned off",
+           page.locator(".passage-paragraphs").count() == 0 and page.locator(".passage-text p").inner_text() == "Only paragraph")
+    page.goto(base + "reading.html?unit=u2")
+    settle(page)
+    expect(page.locator(".empty-state h3")).to_have_text("No passages in this unit yet")
+    page.goto(base + "reading.html")
+    settle(page)
+    audit(page, "reading by unit")
+    no_errors(page, "phase 2 student pages")
+    context.close()
+
+    # Without units.json (a site uploaded before units existed) pages still work.
+    context = browser.new_context()
+    context.route("**/units.json", serve_json("Not found", status=404))
+    page = watch(context.new_page())
+    page.goto(base + "grammar.html")
+    settle(page)
+    expect(page.locator(".empty-state h2")).to_have_text("No lessons added yet")
+    page.errors = [e for e in page.errors if "units.json" not in e]
+    record("missing units.json is treated as 'no units'", page.locator(".error-state").count() == 0)
+    context.close()
+
+
+def phase2_manager(browser, base):
+    context = browser.new_context(accept_downloads=True)
+    page = watch(context.new_page())
+    page.on("dialog", lambda dialog: dialog.accept())
+    page.goto(base + "manage.html#units")
+    settle(page)
+    expect(page.locator(".empty-state h3")).to_have_text("No units added yet")
+    for title in ["Test unit A", "Test unit B"]:
+        page.click("text=Add a unit >> nth=0")
+        page.fill("#f-title", title)
+        page.click("button:has-text('Save unit')")
+        expect(page.locator(".manager-message")).to_contain_text("Unit “%s” saved." % title)
+    record("manager: units added", page.locator(".manager-row").count() == 2)
+    audit(page, "manager units list")
+
+    page.click(".manager-nav >> text=Lessons")
+    page.click("text=Add a lesson >> nth=0")
+    page.fill("#f-title", "Test topic A")
+    page.select_option("#f-unit", "test-unit-a")
+    page.click("button:has-text('Add section')")
+    page.fill("#sec-0-text", "Placeholder text.")
+    page.click("button:has-text('Save lesson')")
+    expect(page.locator(".manager-row-meta")).to_contain_text("Unit: Test unit A")
+
+    page.click(".manager-nav >> text=Grammar questions")
+    page.click("text=Add a question >> nth=0")
+    page.select_option("#f-topic", "test-topic-a")
+    record("manager: choosing a topic selects its unit", page.input_value("#f-unit") == "test-unit-a")
+    page.select_option("#f-unit", "test-unit-b")
+    page.fill("#f-prompt", "Linked prompt")
+    page.fill("#f-option-0", "X")
+    page.fill("#f-option-1", "Y")
+    page.check("#f-correct-0")
+    page.click("button:has-text('Save question')")
+    expect(page.locator(".error-summary")).to_contain_text("is in the unit “Test unit A”")
+    record("manager: a unit that disagrees with the topic is refused", page.get_attribute("#f-unit", "aria-invalid") == "true")
+    audit(page, "question editor with unit and topic")
+    page.select_option("#f-unit", "test-unit-a")
+    page.click("button:has-text('Save question')")
+    expect(page.locator(".manager-row")).to_have_count(1)
+    page.click("text=Add a question >> nth=0")
+    page.select_option("#f-topic", "")
+    page.select_option("#f-unit", "test-unit-b")
+    page.fill("#f-prompt", "Unit-only prompt")
+    page.fill("#f-option-0", "X")
+    page.fill("#f-option-1", "Y")
+    page.check("#f-correct-1")
+    page.click("button:has-text('Save question')")
+    library = draft(page)
+    q1, q2 = library["questions"]
+    record("manager: questions store topicId, and unitId only when there is no topic",
+           q1.get("topicId") == "test-topic-a" and "unitId" not in q1 and q2.get("unitId") == "test-unit-b" and "topicId" not in q2,
+           json.dumps(library["questions"]))
+    page.select_option("#filter-unit", "test-unit-b")
+    expect(page.locator(".manager-row")).to_have_count(1)
+    record("manager: questions can be filtered by unit", True)
+
+    page.click(".manager-nav >> text=Reading passages")
+    page.click("text=Add a passage >> nth=0")
+    page.fill("#f-title", "Test passage A")
+    page.select_option("#f-unit", "test-unit-a")
+    page.fill("#f-text", "Line 1\nLine 2\n\nSecond paragraph")
+    page.uncheck("#f-numbers")
+    page.click("button:has-text('Save passage')")
+    passage = draft(page)["passages"][0]
+    record("manager: passage keeps line breaks, unit and paragraph-number setting",
+           passage["paragraphs"] == ["Line 1\nLine 2", "Second paragraph"] and passage.get("unitId") == "test-unit-a"
+           and passage.get("showParagraphNumbers") is False, json.dumps(passage))
+
+    page.click(".manager-nav >> text=Units")
+    meta = page.locator(".manager-row-meta").first.inner_text()
+    record("manager: unit list shows what each unit contains", "1 lesson" in meta and "1 question" in meta and "1 passage" in meta, meta)
+    page.click("[aria-label='Edit unit “Test unit A”']")
+    page.fill("#f-id", "unit-a")
+    page.click("button:has-text('Save changes')")
+    library = draft(page)
+    record("manager: renaming a unit ID updates its lessons and passages",
+           library["lessons"][0]["unitId"] == "unit-a" and library["passages"][0]["unitId"] == "unit-a")
+    page.click("[data-id='test-unit-b'][data-action='delete']")
+    library = draft(page)
+    record("manager: deleting a unit keeps its content and removes the link",
+           len(library["units"]) == 1 and len(library["questions"]) == 2 and "unitId" not in library["questions"][1])
+
+    page.click(".manager-nav >> text=Import & export")
+    expect(page.locator("button:has-text('Download all five files')")).to_be_visible()
+    with page.expect_download() as info:
+        page.click("button:has-text('Download units.json')")
+    record("manager: units.json can be downloaded", info.value.suggested_filename == "units.json")
+    old_format = DOWNLOADS / "old-format-questions.json"
+    old_format.write_text(json.dumps({"schemaVersion": 1, "questions": [fixture_question("q-900", topic="test-topic-a")]}))
+    page.set_input_files("#import-files", str(old_format))
+    page.click("#import-result >> xpath=.. >> button:has-text('Import')")
+    expect(page.locator("#import-result")).to_contain_text("Import complete")
+    imported = [q for q in draft(page)["questions"] if q["id"] == "q-900"][0]
+    record("manager: importing a version 1 file upgrades its field names", imported.get("topicId") == "test-topic-a" and "topic" not in imported)
+    letter = DOWNLOADS / "letter-answer.json"
+    letter.write_text(json.dumps({"schemaVersion": 2, "questions": [fixture_question("q-901", answer="B")]}))
+    page.set_input_files("#import-files", str(letter))
+    page.click("#import-result >> xpath=.. >> button:has-text('Import')")
+    expect(page.locator("#import-result")).to_contain_text("looks like an option letter")
+    record("manager: an answer key written as a letter is rejected with a hint", True)
+    no_errors(page, "phase 2 manager")
+    context.close()
+
+
+# ---------------------------------------------------------------- 10. Arabic / English interface
+
+PAGES = ["index.html", "grammar.html", "summaries.html", "practice.html", "reading.html", "manage.html"]
+NAV_HREFS = ["index.html", "grammar.html", "summaries.html", "practice.html", "reading.html"]
+NAV_EN = ["Home", "Grammar Lessons", "Grammar Summaries", "Grammar Practice", "Reading Comprehension"]
+NAV_AR = ["الرئيسية", "دروس القواعد", "ملخصات القواعد", "تدريبات القواعد", "القراءة والفهم"]
+ARABIC = re.compile(r"[؀-ۿ]")
+
+
+def page_language(page):
+    return page.evaluate("() => [document.documentElement.lang, document.documentElement.dir, localStorage.getItem('g12-lang')]")
+
+
+def use_arabic(page, base):
+    page.goto(base + "index.html")
+    page.evaluate("() => localStorage.setItem('g12-lang', 'ar')")
+
+
+def language_switch(browser, base):
+    context = browser.new_context(viewport={"width": 1280, "height": 900})
+    page = watch(context.new_page())
+
+    # English is the default on every page, and every page offers Arabic.
+    for path in PAGES:
+        page.goto(base + path)
+        settle(page)
+        toggle = page.locator(".lang-toggle")
+        lang, direction, saved = page_language(page)
+        record("language button on %s (English page offers العربية)" % path,
+               toggle.is_visible() and toggle.inner_text() == "العربية" and toggle.get_attribute("lang") == "ar"
+               and lang == "en" and direction == "ltr" and saved is None, "%s %s %s" % (lang, direction, toggle.inner_text()))
+
+    # Switch on the home page: immediately, without reloading the page.
+    page.goto(base + "index.html")
+    settle(page)
+    page.evaluate("window.__samePage = true")
+    page.click(".lang-toggle")
+    page.wait_for_function("document.documentElement.lang === 'ar'")
+    settle(page)
+    record("switching to Arabic happens immediately, without reloading the page",
+           page.evaluate("window.__samePage === true"))
+    record("Arabic: the page content changes too, not only the button",
+           page.locator(".empty-state h2").inner_text() == "لم يُضف أي محتوى بعد"
+           and page.locator("[data-count='lessons']").inner_text() == "لا توجد دروس بعد"
+           and page.locator(".card h2").first.inner_text() == "دروس القواعد"
+           and page.locator(".site-footer p").first.inner_text().startswith("مصدر مجاني"),
+           page.locator(".empty-state h2").inner_text())
+    focused = page.evaluate("document.activeElement.classList.contains('lang-toggle')")
+    record("keyboard focus stays on the language button after switching", focused)
+    lang, direction, saved = page_language(page)
+    links = page.locator("#site-nav a")
+    record("switching to Arabic: lang=ar, dir=rtl and the choice is saved", (lang, direction, saved) == ("ar", "rtl", "ar"),
+           "%s %s %s" % (lang, direction, saved))
+    record("Arabic navigation labels, same links",
+           links.all_inner_texts() == NAV_AR
+           and links.evaluate_all("list => list.map(a => a.getAttribute('href'))") == NAV_HREFS, str(links.all_inner_texts()))
+    record("Arabic: the button now offers English",
+           page.locator(".lang-toggle").inner_text() == "English" and page.locator(".lang-toggle").get_attribute("lang") == "en")
+    record("Arabic: page title and headings are translated",
+           ARABIC.search(page.title()) is not None and ARABIC.search(page.locator("h1").inner_text()) is not None, page.title())
+
+    # Straight back to English on the same page, still without a reload.
+    page.click(".lang-toggle")
+    page.wait_for_function("document.documentElement.lang === 'en'")
+    record("switching back to English immediately: English text, left-to-right, saved",
+           page.evaluate("window.__samePage === true") and page_language(page) == ["en", "ltr", "en"]
+           and page.locator("#site-nav a").all_inner_texts() == NAV_EN
+           and page.locator("h1").inner_text() == "Free English practice for Grade 12"
+           and page.locator(".empty-state h2").inner_text() == "No content added yet"
+           and page.locator("[data-count='lessons']").inner_text() == "No lessons yet"
+           and page.locator(".lang-toggle").inner_text() == "العربية" and page.title() == "Grade 12 English")
+    page.click(".lang-toggle")
+    page.wait_for_function("document.documentElement.lang === 'ar'")
+
+    # The choice is remembered on every page and after reloading.
+    for path in PAGES:
+        page.goto(base + path)
+        settle(page)
+        lang, direction, saved = page_language(page)
+        texts = page.locator("#site-nav a").all_inner_texts()
+        record("Arabic remembered on " + path,
+               (lang, direction) == ("ar", "rtl") and texts == NAV_AR and ARABIC.search(page.locator("h1").inner_text()) is not None,
+               "%s %s %s" % (lang, direction, page.locator("h1").inner_text()))
+        audit(page, "Arabic " + path)
+        page.screenshot(path=str(SHOTS / ("20-ar-%s.png" % path.replace(".html", ""))), full_page=True)
+    page.reload()
+    settle(page)
+    record("Arabic still chosen after a reload", page_language(page)[:2] == ["ar", "rtl"])
+    no_errors(page, "Arabic pages (also: no text missing from the Arabic dictionary)")
+
+    # Arabic on a phone: the language button and the menu both work.
+    page.set_viewport_size({"width": 375, "height": 800})
+    page.goto(base + "index.html")
+    settle(page)
+    toggle = page.locator(".nav-toggle")
+    record("Arabic phone: menu button and language button visible, links hidden",
+           toggle.is_visible() and page.locator(".lang-toggle").is_visible() and not page.is_visible("#site-nav"))
+    toggle.click()
+    record("Arabic phone: menu opens with Arabic links", page.is_visible("#site-nav") and page.locator("#site-nav a").first.inner_text() == "الرئيسية")
+    audit(page, "Arabic phone menu open")
+    page.screenshot(path=str(SHOTS / "21-ar-phone-menu.png"), full_page=False)
+    page.set_viewport_size({"width": 1280, "height": 900})
+
+    # Back to English.
+    page.goto(base + "grammar.html")
+    settle(page)
+    page.click(".lang-toggle")
+    page.wait_for_function("document.documentElement.lang === 'en'")
+    settle(page)
+    record("switching back to English", page_language(page) == ["en", "ltr", "en"]
+           and page.locator("#site-nav a").all_inner_texts() == NAV_EN and page.url.endswith("grammar.html"))
+    no_errors(page, "language switch back")
+    context.close()
+
+    # Storage blocked (for example, strict privacy settings): the site still works in English.
+    context = browser.new_context()
+    context.add_init_script("Object.defineProperty(window, 'localStorage', { get() { throw new Error('blocked'); } });")
+    page = watch(context.new_page())
+    page.goto(base + "grammar.html")
+    settle(page)
+    record("storage blocked: pages still load in English with the language button",
+           page.locator(".empty-state h2").inner_text() == "No lessons added yet" and page.locator(".lang-toggle").is_visible())
+    page.errors.clear()
+    context.close()
+
+
+def arabic_interface(browser, base):
+    """Arabic interface with placeholder content: the content itself must stay exactly as written."""
+    context = browser.new_context(viewport={"width": 1280, "height": 900})
+    for name, body in PHASE2_DATA.items():
+        context.route("**/" + name, serve_json(json.dumps(body)))
+    page = watch(context.new_page())
+    dialogs = []
+
+    def on_dialog(dialog):
+        dialogs.append(dialog.message)
+        if getattr(page, "dismiss_next", False):
+            page.dismiss_next = False
+            dialog.dismiss()
+        else:
+            dialog.accept()
+
+    page.on("dialog", on_dialog)
+    use_arabic(page, base)
+
+    page.goto(base + "index.html")
+    settle(page)
+    counts = [page.inner_text("[data-count='%s']" % k) for k in ["lessons", "summaries", "questions", "passages"]]
+    record("Arabic home: counted words use Arabic plural forms", counts == ["درسان", "ملخص واحد", "4 أسئلة", "قطعتان"], str(counts))
+
+    page.goto(base + "grammar.html?topic=l1")
+    settle(page)
+    crumbs = page.locator(".breadcrumb li").all_inner_texts()
+    paragraph = page.locator(".lesson-body p").first
+    record("Arabic lesson page: interface in Arabic, lesson text unchanged and left-to-right",
+           crumbs == ["دروس القواعد", "Test unit one", "Test topic one"] and page.locator("h1").inner_text() == "Test topic one"
+           and paragraph.evaluate("p => p.textContent") == "Line one\nLine two"
+           and paragraph.evaluate("p => getComputedStyle(p).direction") == "ltr", str(crumbs))
+    audit(page, "Arabic lesson page")
+    page.evaluate("window.__samePage = true")
+    page.click(".lang-toggle")
+    page.wait_for_function("document.documentElement.lang === 'en'")
+    english_crumbs = page.locator(".breadcrumb li").all_inner_texts()
+    same_text = page.locator(".lesson-body p").first.evaluate("p => p.textContent") == "Line one\nLine two"
+    page.click(".lang-toggle")
+    page.wait_for_function("document.documentElement.lang === 'ar'")
+    record("lesson page: switching languages on the page changes only the interface; the lesson stays exactly as written",
+           page.evaluate("window.__samePage === true") and same_text
+           and english_crumbs == ["Grammar Lessons", "Test unit one", "Test topic one"]
+           and page.locator(".breadcrumb li").all_inner_texts() == crumbs
+           and page.locator(".lesson-body p").first.evaluate("p => p.textContent") == "Line one\nLine two", str(english_crumbs))
+
+    page.goto(base + "practice.html")
+    settle(page)
+    options = page.locator("#practice-unit option").all_inner_texts()
+    record("Arabic practice setup: labels translated, unit titles unchanged",
+           options == ["كل الوحدات (4)", "Test unit one (3)", "Test unit two (لا أسئلة بعد)", "أسئلة بلا وحدة (1)"]
+           and page.locator("label[for='practice-unit']").inner_text() == "الوحدة", str(options))
+
+    page.goto(base + "practice.html?topic=l1")
+    settle(page)
+    page.click("button:has-text('ابدأ التدريب')")
+    expect(page.locator(".question-legend")).to_contain_text("Test prompt q1")
+    record("Arabic practice: question and answer choices shown exactly as written",
+           [label.split("\n")[-1] for label in page.locator(".options label").all_inner_texts()] == ["Opt A", "Opt B", "Opt C"]
+           and page.locator(".quiz-progress-text").inner_text() == "السؤال 1 من 1")
+    record("Arabic practice: the question box follows the question's own direction (English, left-to-right)",
+           page.locator(".question-form fieldset").evaluate("f => getComputedStyle(f).direction") == "ltr"
+           and page.locator(".quiz-progress-text").evaluate("p => getComputedStyle(p).direction") == "rtl")
+    page.click(".options label:has-text('Opt A')")
+    page.click("button.btn:has-text('أرسل الإجابة')")
+    expect(page.locator(".feedback")).to_contain_text("إجابتك تختلف عن الإجابة المقترحة.")
+    record("Arabic feedback, with the answer options left exactly as written",
+           "Opt A" in page.locator(".options").inner_text() and "Not correct" not in page.locator(".feedback").inner_text())
+    audit(page, "Arabic practice feedback")
+    page.screenshot(path=str(SHOTS / "23-ar-practice-feedback.png"), full_page=True)
+
+    # Practice already answered: the language button asks first (Cancel keeps everything).
+    page.dismiss_next = True
+    page.click(".lang-toggle")
+    page.wait_for_timeout(200)
+    record("practice in progress: switching asks first; Cancel keeps the answers and the language",
+           page_language(page)[0] == "ar" and page.locator(".feedback-title").count() == 1
+           and len(dialogs) == 1 and "تغيير اللغة" in dialogs[-1], " | ".join(dialogs))
+    page.click(".lang-toggle")
+    page.wait_for_function("document.documentElement.lang === 'en'")
+    record("practice: after confirming, the same question starts again in English without reloading",
+           page.locator(".quiz-progress-text").inner_text() == "Question 1 of 1"
+           and page.locator(".feedback-title").count() == 0
+           and "Test prompt q1" in page.locator(".question-legend").inner_text()
+           and [label.split("\n")[-1] for label in page.locator(".options label").all_inner_texts()] == ["Opt A", "Opt B", "Opt C"]
+           and page.locator("button:has-text('Submit answer')").count() == 1)
+    page.click(".lang-toggle")  # nothing answered now: no question
+    page.wait_for_function("document.documentElement.lang === 'ar'")
+    record("practice: with no answers yet, switching does not ask", len(dialogs) == 2 and page.locator(".quiz-progress-text").inner_text() == "السؤال 1 من 1")
+    page.click("button.btn--link:has-text('تغيير إعدادات التدريب')")
+    page.click(".lang-toggle")
+    page.wait_for_function("document.documentElement.lang === 'en'")
+    record("practice settings screen switches language and keeps the chosen topic",
+           page.locator("#setup-heading").inner_text() == "Choose your practice" and page.input_value("#practice-topic") == "l1"
+           and page.locator("label[for='practice-mode-one']").inner_text().startswith("One at a time"))
+    page.click(".lang-toggle")
+    page.wait_for_function("document.documentElement.lang === 'ar'")
+
+    page.goto(base + "reading.html?passage=p1")
+    settle(page)
+    record("Arabic reading page: passage text unchanged",
+           page.locator(".passage-paragraphs li").nth(1).evaluate("li => li.textContent") == "Para   two"
+           and page.locator(".answered-count").inner_text() == "أُجيب عن 0 من 3")
+    page.click("button:has-text('صحّح إجاباتي')")
+    expect(page.locator(".worksheet-warning")).to_contain_text("لم تُجب عن 3 أسئلة:")
+    page.click("button:has-text('صحّح على أي حال')")
+    expect(page.locator(".score-breakdown")).to_contain_text("لم تتم الإجابة: 2")
+    record("Arabic answer-all: unanswered questions are reported in Arabic and get no marks",
+           page.locator(".worksheet-score .score-number").inner_text() == "0 / 2")
+    page.dismiss_next = True
+    page.click(".lang-toggle")
+    page.wait_for_timeout(200)
+    record("reading results shown: switching asks first; Cancel keeps the results",
+           page_language(page)[0] == "ar" and page.locator(".worksheet-score").count() == 1 and len(dialogs) == 3)
+    audit(page, "Arabic reading results")
+    page.screenshot(path=str(SHOTS / "24-ar-reading.png"), full_page=True)
+
+    # Content manager in Arabic: validation messages translated, content untouched.
+    page.goto(base + "manage.html#lessons")
+    settle(page)
+    record("Arabic manager: content titles are shown as written",
+           page.locator(".manager-row-title").all_inner_texts() == ["Test topic one", "Test topic without unit"])
+    page.click("[aria-label='تعديل الدرس «Test topic one»']")
+    page.fill("#f-title", "")
+    page.click("#manager-view button:has-text('حفظ التغييرات')")
+    expect(page.locator(".error-summary")).to_contain_text("اكتب عنوانًا.")
+    record("Arabic manager: form validation messages are in Arabic", page.get_attribute("#f-title", "aria-invalid") == "true")
+    audit(page, "Arabic lesson editor with an error")
+    page.screenshot(path=str(SHOTS / "25-ar-manager-error.png"), full_page=True)
+
+    # Unsaved form: the language button asks first; after confirming, the manager redraws in English.
+    page.evaluate("window.__samePage = true")
+    page.dismiss_next = True
+    page.click(".lang-toggle")
+    page.wait_for_timeout(200)
+    record("manager: unsaved form → asks before switching; Cancel keeps the form",
+           page_language(page)[0] == "ar" and page.input_value("#f-title") == "" and "غير محفوظة" in dialogs[-1], dialogs[-1])
+    page.click(".lang-toggle")
+    page.wait_for_function("document.documentElement.lang === 'en'")
+    expect(page.locator("#manager-view h2")).to_have_text("Edit lesson: Test topic one")
+    record("manager redraws in English without reloading (same form, saved content unchanged)",
+           page.evaluate("window.__samePage === true") and page.input_value("#f-title") == "Test topic one"
+           and page.locator(".manager-nav a").first.inner_text() == "Units (2)"
+           and page.locator("#f-sec-0-text, #sec-0-text").first.input_value() == "Line one\nLine two")
+    page.click(".lang-toggle")
+    page.wait_for_function("document.documentElement.lang === 'ar'")
+    page.goto(base + "manage.html#questions/new")
+    settle(page)
+    page.fill("#f-prompt", "Placeholder prompt")
+    page.fill("#f-option-0", "X")
+    page.fill("#f-option-1", "X")
+    page.click("#manager-view button:has-text('حفظ السؤال')")
+    summary = page.locator(".error-summary").inner_text()
+    record("Arabic manager: answer-key checks are in Arabic",
+           "الاختيار B مطابق لاختيار آخر." in summary and "حدّد الاختيار الذي يمثّل الإجابة الصحيحة." in summary, summary.replace("\n", " | "))
+    page.goto(base + "manage.html#tools")
+    settle(page)
+    letter = DOWNLOADS / "letter-answer-ar.json"
+    letter.write_text(json.dumps({"schemaVersion": 2, "questions": [fixture_question("q-950", answer="B")]}))
+    page.set_input_files("#import-files", str(letter))
+    page.click("#import-result >> xpath=.. >> button[type='submit']")
+    expect(page.locator("#import-result")).to_contain_text("لم يُستورد أي شيء")
+    expect(page.locator("#import-result")).to_contain_text("تبدو حرف اختيار")
+    record("Arabic manager: import errors are in Arabic", True)
+    audit(page, "Arabic import & export")
+    page.screenshot(path=str(SHOTS / "26-ar-manager-tools.png"), full_page=True)
+    no_errors(page, "Arabic interface with content")
+    context.close()
+
+
+# ---------------------------------------------------------------- 9. colour contrast
 
 def contrast():
     def luminance(hex_color):
@@ -624,7 +1382,7 @@ def contrast():
         la, lb = sorted([luminance(a), luminance(b)], reverse=True)
         return (la + 0.05) / (lb + 0.05)
 
-    css = (PROJECT / "css" / "style.css").read_text()
+    css = (PROJECT / "style.css").read_text()
     var = dict(re.findall(r"--([\w-]+):\s*(#[0-9a-fA-F]{6})", css))
     pairs = [
         ("text", "bg"), ("text", "surface"), ("muted", "surface"), ("muted", "bg"), ("primary", "surface"),
@@ -667,6 +1425,12 @@ def main():
         if files:
             run_section("published site", published_site, browser, base, files)
             run_section("import", import_flow, browser, base, backup)
+        run_section("missing files and states", missing_files_and_states, browser, base)
+        run_section("navigation", navigation, browser, base)
+        run_section("phase 2 student pages", phase2_pages, browser, base)
+        run_section("phase 2 content manager", phase2_manager, browser, base)
+        run_section("language switch", language_switch, browser, base)
+        run_section("Arabic interface", arabic_interface, browser, base)
         browser.close()
     server.shutdown()
     contrast()
@@ -675,8 +1439,8 @@ def main():
     print("\n%d checks, %d passed, %d failed" % (len(results), passed, len(results) - passed))
     print("Screenshots: %s" % SHOTS)
     data_untouched = all(
-        json.loads((PROJECT / "data" / f).read_text())[k] == []
-        for f, k in [("grammar-lessons.json", "lessons"), ("grammar-summaries.json", "summaries"),
+        json.loads((PROJECT / f).read_text())[k] == []
+        for f, k in [("units.json", "units"), ("grammar-lessons.json", "lessons"), ("grammar-summaries.json", "summaries"),
                      ("grammar-questions.json", "questions"), ("reading-passages.json", "passages")])
     print("Project data files still empty after the test: %s" % data_untouched)
     sys.exit(0 if passed == len(results) else 1)

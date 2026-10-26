@@ -14,12 +14,12 @@
   var root = document.getElementById('page-root');
   var PAGE = 'summaries.html';
 
-  G12.loadContent(['units', 'summaries', 'lessons', 'questions']).then(function (content) {
+  G12.showPage(['units', 'summaries', 'lessons', 'questions'], function (content, redraw) {
     var topicId = G12.param('topic');
     if (topicId) renderTopic(content, topicId);
     else renderList(content, G12.param('unit'));
-    jumpToHash();
-  }).catch(function (error) {
+    if (!redraw) jumpToHash();
+  }, function (error) {
     G12.showError(root, error, { title: t('Grammar Summaries') });
   });
 

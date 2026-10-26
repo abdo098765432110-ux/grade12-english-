@@ -14,17 +14,29 @@
   var hasText = Schema.hasText;
   var root = document.getElementById('page-root');
   var PAGE = 'reading.html';
-  var MODES = [
-    { value: 'all', label: t('All questions') },
-    { value: 'one', label: t('One at a time') }
-  ];
+  var currentMode = 'all'; // how the questions are shown (kept when the language changes)
 
-  G12.loadContent(['units', 'passages']).then(function (content) {
+  function modes() {
+    return [
+      { value: 'all', label: t('All questions') },
+      { value: 'one', label: t('One at a time') }
+    ];
+  }
+
+  G12.showPage(['units', 'passages'], function (content) {
     var id = G12.param('passage');
     if (id) renderPassage(content, id);
     else renderList(content, G12.param('unit'));
-  }).catch(function (error) {
+  }, function (error) {
     G12.showError(root, error, { title: t('Reading Comprehension') });
+  });
+
+  /* Switching language draws the questions again, so answers already given
+     would be cleared: ask first. */
+  G12.beforeLanguageChange(function () {
+    return G12.hasAnswers(root.querySelector('.reading-questions'))
+      ? t('Changing the language starts the questions on this page again, and your answers so far will be cleared. Change the language?')
+      : null;
   });
 
   function passageLink(passage) {
@@ -181,7 +193,7 @@
         el('p', { text: t('No questions have been added to this passage yet.') })
       ]));
     } else {
-      renderQuestions(questionColumn, passage, 'all', false);
+      renderQuestions(questionColumn, passage, currentMode, false);
     }
 
     var previous = ordered[index - 1];
@@ -194,9 +206,10 @@
 
   /* Questions in their stored order, either all together or one at a time. */
   function renderQuestions(column, passage, mode, moveFocus) {
+    currentMode = mode;
     G12.clear(column);
     var switcher = el('div', { className: 'mode-switch', role: 'group', 'aria-label': t('How to answer the questions') },
-      MODES.map(function (option) {
+      modes().map(function (option) {
         return el('button', {
           type: 'button',
           className: 'btn btn--secondary btn--small',

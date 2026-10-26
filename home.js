@@ -1,24 +1,32 @@
-/* Home page: shows how much content each section has. */
+/* Home page: shows how much content each section has.
+   Drawn again in the other language when the language button is used. */
 (function () {
   'use strict';
 
   var G12 = window.G12;
   var status = document.getElementById('home-status');
   var t = G12.t;
-  var WORDS = {
-    lessons: ['lesson', t('No lessons yet')],
-    summaries: ['summary', t('No summaries yet'), 'summaries'],
-    questions: ['question', t('No questions yet')],
-    passages: ['passage', t('No passages yet')]
-  };
-  G12.setTitle('');
+  var loaded = null;   // content, once loaded
+  var failed = null;   // loading error, if any
+
+  /* [counted word, text when there is none, English plural] */
+  function words() {
+    return {
+      lessons: ['lesson', t('No lessons yet')],
+      summaries: ['summary', t('No summaries yet'), 'summaries'],
+      questions: ['question', t('No questions yet')],
+      passages: ['passage', t('No passages yet')]
+    };
+  }
 
   function setCount(key, text) {
     var target = document.querySelector('[data-count="' + key + '"]');
     if (target) target.textContent = text;
   }
 
-  G12.loadContent(['lessons', 'summaries', 'questions', 'passages']).then(function (content) {
+  function draw(content) {
+    var WORDS = words();
+    G12.setTitle('');
     G12.clear(status);
     var total = 0;
     Object.keys(WORDS).forEach(function (key) {
@@ -36,8 +44,26 @@
     }
     var skipped = G12.skippedNotice(content.skipped);
     if (skipped) status.appendChild(skipped);
-  }).catch(function (error) {
-    Object.keys(WORDS).forEach(function (key) { setCount(key, t('Could not load')); });
+  }
+
+  function drawError(error) {
+    G12.setTitle('');
+    Object.keys(words()).forEach(function (key) { setCount(key, t('Could not load')); });
     G12.showError(status, error, { homeLink: false });
+  }
+
+  G12.setTitle('');
+  G12.loadContent(['lessons', 'summaries', 'questions', 'passages']).then(function (content) {
+    loaded = content;
+    draw(content);
+  }).catch(function (error) {
+    failed = error;
+    drawError(error);
+  });
+
+  G12.onLanguageChange(function () {
+    if (loaded) draw(loaded);
+    else if (failed) drawError(failed);
+    else G12.setTitle('');
   });
 })();

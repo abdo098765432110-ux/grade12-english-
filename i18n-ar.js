@@ -1,11 +1,12 @@
 /* ==========================================================================
    Arabic text for the website's interface (menus, buttons, headings,
-   labels and messages). Educational content is never translated.
+   labels, messages, forms). Educational content is never translated.
 
-   How it works (see js/i18n.js):
+   How it works (see i18n.js):
    - strings: the English text on the left is the key used in the code;
      the Arabic text on the right is shown when Arabic is chosen.
-     Keep the {placeholders} exactly as they are.
+     To change a translation, edit the right-hand side only, and keep the
+     {placeholders} exactly as they are.
    - nouns: counted words ("3 lessons"). Arabic uses a different form for
      0, 1, 2, 3–10, 11–99 and 100+; {n} is replaced by the number.
    If a text is missing here, the English text is shown instead.
@@ -386,7 +387,6 @@
       "Warning: your changes could not be saved in this browser ({reason}). Download a backup now from Import & export.": "تنبيه: تعذّر حفظ تغييراتك في هذا المتصفح ({reason}). نزّل نسخة احتياطية الآن من «الاستيراد والتصدير».",
       "Add, edit, organise, import and export the lessons, summaries, practice questions and reading passages shown on the website.": "أضف الدروس والملخصات وأسئلة التدريب وقطع القراءة المعروضة في الموقع، وعدّلها ونظّمها واستوردها وصدّرها.",
       "How saving works:": "كيف يتم الحفظ:",
-      "your changes are saved automatically as a draft in this browser, on this device only. Students see them after you publish: open {link}, download the data files and upload them to the data folder of your GitHub repository.": "تُحفظ تغييراتك تلقائيًا كمسودة في هذا المتصفح، على هذا الجهاز فقط. يراها الطلاب بعد النشر: افتح {link}، ونزّل ملفات البيانات، وارفعها إلى مجلد data في مستودعك على GitHub.",
       "Import & export": "الاستيراد والتصدير",
       "Draft status": "حالة المسودة",
       "Content types": "أنواع المحتوى",
@@ -631,7 +631,6 @@
       "They are saved in this browser. Students cannot see them until you publish them from {link}.": "وهي محفوظة في هذا المتصفح. لن يراها الطلاب حتى تنشرها من {link}.",
       "No unpublished changes: everything here matches the published files.": "لا توجد تغييرات غير منشورة: كل ما هنا يطابق الملفات المنشورة.",
       "Download the five data files below.": "نزّل ملفات البيانات الخمسة أدناه.",
-      "In your GitHub repository, open the data folder (not the top level), choose “Add file” → “Upload files”, and upload the files to replace the old ones. Then choose “Commit changes”.": "في مستودعك على GitHub، افتح مجلد data (وليس المستوى الأعلى)، واختر «Add file» ثم «Upload files»، وارفع الملفات لتحل محل الملفات القديمة. ثم اختر «Commit changes».",
       "GitHub Pages updates the website, usually within a few minutes. Reload the website to check.": "يحدّث GitHub Pages الموقع عادةً خلال بضع دقائق. أعد تحميل الموقع للتأكد.",
       "Some content has errors (see “Check content” below). Items with errors are not shown to students until they are fixed.": "بعض المحتوى فيه أخطاء (راجع «فحص المحتوى» بالأسفل). العناصر التي فيها أخطاء لا تظهر للطلاب حتى تُصلَح.",
       "Backup": "النسخة الاحتياطية",
@@ -642,7 +641,13 @@
       "Imported files are checked first. If anything is wrong, nothing is changed.": "تُفحص الملفات المستوردة أولًا. إذا كان فيها أي خطأ، فلن يتغير شيء.",
       "{title} ({items})": "{title} ({items})",
       "Replace your current {items} with the imported content?": "هل تريد استبدال المحتوى الحالي — {items} — بالمحتوى المستورد؟",
-      "{type}: {added} added, {updated} updated.": "{type}: أُضيف {added}، وحُدِّث {updated}."
+      "{type}: {added} added, {updated} updated.": "{type}: أُضيف {added}، وحُدِّث {updated}.",
+      /* ---- Content manager: top-level upload and language change ---- */
+      "your changes are saved automatically as a draft in this browser, on this device only. Students see them after you publish: open {link}, download the data files and upload them to your GitHub repository, next to index.html.": "تُحفظ تغييراتك تلقائيًا كمسودة في هذا المتصفح، على هذا الجهاز فقط. يراها الطلاب بعد النشر: افتح {link}، ونزّل ملفات البيانات، وارفعها إلى مستودعك على GitHub بجوار index.html.",
+      "In your GitHub repository, stay at the top level (where index.html is), choose “Add file” → “Upload files”, and upload the files to replace the old ones. Then choose “Commit changes”.": "في مستودعك على GitHub، ابقَ في المستوى الأعلى (حيث يوجد index.html)، واختر «Add file» ثم «Upload files»، وارفع الملفات لتحل محل الملفات القديمة. ثم اختر «Commit changes».",
+      "You have unsaved changes on this form. Changing the language redraws the page and clears them. Change the language?": "لديك تغييرات غير محفوظة في هذا النموذج. تغيير اللغة يعيد عرض الصفحة ويمسحها. هل تريد تغيير اللغة؟",
+      /* ---- Questions and scores: language change ---- */
+      "Changing the language starts the questions on this page again, and your answers so far will be cleared. Change the language?": "تغيير اللغة يبدأ أسئلة هذه الصفحة من جديد، وستُمسح إجاباتك حتى الآن. هل تريد تغيير اللغة؟"
     },
 
     /* zero, one, two, few (3–10), many (11–99), other (100 and more) */

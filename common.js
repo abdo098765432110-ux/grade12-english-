@@ -4,7 +4,7 @@
    without a build step or modules.
    All content from JSON is inserted with textContent (never innerHTML), so
    text in the data files can never inject HTML or scripts into the page.
-   Interface text goes through G12.t() (js/i18n.js) so it can be shown in
+   Interface text goes through G12.t() (i18n.js) so it can be shown in
    English or Arabic. Content from the data files is never translated.
    ========================================================================== */
 (function (global) {
@@ -22,6 +22,19 @@
      All paths are relative (no leading slash), so the site also works inside
      a GitHub Pages repository subfolder such as https://user.github.io/repo/ */
 
+  /* An error whose message can be shown again in the other language. */
+  function failure(key, params) {
+    var error = new Error(t(key, params));
+    error.i18n = { key: key, params: params };
+    return error;
+  }
+
+  /* The message of an error, in the current interface language. */
+  G12.errorText = function (error) {
+    if (error && error.i18n) return t(error.i18n.key, error.i18n.params);
+    return error && error.message ? error.message : String(error);
+  };
+
   G12.loadJSON = function (path) {
     var controller = typeof AbortController === 'function' ? new AbortController() : null;
     var timer = controller ? setTimeout(function () { controller.abort(); }, G12.LOAD_TIMEOUT_MS) : null;
@@ -32,35 +45,35 @@
       function (response) {
         clearTimeout(timer);
         if (!response.ok) {
-          var failure = new Error(response.status === 404
-            ? t('The file "{path}" was not found (HTTP 404).', { path: path })
-            : t('Could not load "{path}" (HTTP {status}).', { path: path, status: response.status }));
-          failure.status = response.status;
-          throw failure;
+          var problem = response.status === 404
+            ? failure('The file "{path}" was not found (HTTP 404).', { path: path })
+            : failure('Could not load "{path}" (HTTP {status}).', { path: path, status: response.status });
+          problem.status = response.status;
+          throw problem;
         }
         return response.json().catch(function (error) {
           if (error && error.name === 'SyntaxError') {
-            throw new Error(t('The file "{path}" contains invalid JSON. Check it with the content validator.', { path: path }));
+            throw failure('The file "{path}" contains invalid JSON. Check it with the content validator.', { path: path });
           }
-          throw new Error(t('The file "{path}" could not be downloaded completely. Check your internet connection and try again.', { path: path }));
+          throw failure('The file "{path}" could not be downloaded completely. Check your internet connection and try again.', { path: path });
         });
       },
       function (error) {
         clearTimeout(timer);
         if (error && error.name === 'AbortError') {
-          throw new Error(t('Could not load "{path}". It took too long to load. Check your internet connection and try again.', { path: path }));
+          throw failure('Could not load "{path}". It took too long to load. Check your internet connection and try again.', { path: path });
         }
         if (global.location && global.location.protocol === 'file:') {
-          throw new Error(t('Could not load "{path}". Pages opened directly from your computer (file://) cannot load data files. Use GitHub Pages or a local web server instead (see README.md).', { path: path }));
+          throw failure('Could not load "{path}". Pages opened directly from your computer (file://) cannot load data files. Use GitHub Pages or a local web server instead (see README.md).', { path: path });
         }
-        throw new Error(t('Could not load "{path}". Check your internet connection and try again.', { path: path }));
+        throw failure('Could not load "{path}". Check your internet connection and try again.', { path: path });
       }
     );
   };
 
   /**
    * Loads one data file and returns its list (old field names upgraded).
-   * data/units.json is optional: if it is missing, there are simply no units
+   * units.json is optional: if it is missing, there are simply no units
    * (so a site uploaded before units existed keeps working).
    */
   G12.loadCollection = function (key) {
@@ -68,12 +81,12 @@
     var path = Schema.COLLECTIONS[key].path;
     return G12.loadJSON(path).then(function (data) {
       if (!data || !Array.isArray(data[key])) {
-        throw new Error(t('The file "{path}" must contain a "{key}" list. Check it with the content validator.', { path: path, key: key }));
+        throw failure('The file "{path}" must contain a "{key}" list. Check it with the content validator.', { path: path, key: key });
       }
       return Schema.upgradeCollection(key, data[key]);
     }, function (error) {
       if (key === 'units' && error.status === 404) {
-        console.warn('data/units.json was not found, so no units are shown.');
+        console.warn('units.json was not found, so no units are shown.');
         return [];
       }
       throw error;
@@ -110,6 +123,48 @@
       });
       return content;
     });
+  };
+
+  if (G12.onLanguageChange) {
+    G12.onLanguageChange(function () {
+      var banner = document.getElementById('preview-banner');
+      if (!banner) return;
+      banner.remove();
+      showPreviewBanner(G12.Store.browserStorage());
+    });
+  }
+
+  /* True when the student has started answering questions inside container
+     (a choice picked, something written, or an answer checked). */
+  G12.hasAnswers = function (container) {
+    if (!container) return false;
+    if (container.querySelector('input[type="radio"]:checked, .feedback-title, .worksheet-score, .score-number')) return true;
+    return Array.prototype.some.call(container.querySelectorAll('textarea'), function (box) {
+      return box.value.trim() !== '';
+    });
+  };
+
+  /**
+   * Loads the content a page needs and draws it. When the language button is
+   * used, the page is drawn again from the content already loaded (nothing is
+   * downloaded again). draw(content) and fail(error) use the current language.
+   */
+  G12.showPage = function (keys, draw, fail) {
+    var loaded = null;
+    var failed = null;
+    G12.loadContent(keys).then(function (content) {
+      loaded = content;
+      draw(content, false);
+    }).catch(function (error) {
+      failed = error;
+      fail(error);
+    });
+    if (G12.onLanguageChange) {
+      G12.onLanguageChange(function () {
+        if (loaded) draw(loaded, true);
+        else if (failed) fail(failed);
+      });
+    }
   };
 
   function showPreviewBanner(storage) {
@@ -325,7 +380,7 @@
    */
   G12.showError = function (container, error, options) {
     options = options || {};
-    var message = error && error.message ? error.message : String(error);
+    var message = G12.errorText(error);
     var actions = [G12.el('button', {
       type: 'button',
       className: 'btn',

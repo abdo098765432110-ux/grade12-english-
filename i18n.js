@@ -2,15 +2,21 @@
    Interface language: English (default) or Arabic.
 
    - Only the website's own interface text is translated: menus, buttons,
-     headings, labels, messages. Educational content (lessons, questions,
-     options, explanations, passages) is always shown exactly as written.
+     headings, labels, messages, forms. Educational content (lessons,
+     summaries, questions, answer choices, answers, explanations, passages)
+     is always shown exactly as written.
+   - The texts are in two files:
+       i18n-en.js  English interface text  (G12.I18N_EN)
+       i18n-ar.js  Arabic interface text   (G12.I18N_AR)
+     The English text is also the key used in the code:
+       G12.t('Grammar Lessons')                       → "دروس القواعد" in Arabic
+       G12.t('Question {n} of {total}', { n: 1, total: 5 })
+   - The language button switches immediately, without reloading the page:
+     the fixed text marked in the HTML (data-i18n="…") is translated again,
+     the page direction changes (ltr / rtl), and every page redraws its own
+     content through G12.onLanguageChange(…).
    - The choice is saved in this browser (localStorage, key "g12-lang") and
-     applies to every page. Nothing else is stored.
-   - English text is the key: G12.t('Grammar Lessons') returns the Arabic
-     text from js/i18n-ar.js when Arabic is chosen, or the English text.
-     Placeholders: G12.t('Question {n} of {total}', { n: 1, total: 5 }).
-   - Fixed text in the HTML is marked with data-i18n="English text";
-     aria-label text with data-i18n-aria="English text".
+     used again on every page and after reloading. Nothing else is stored.
    ========================================================================== */
 (function (global) {
   'use strict';
@@ -18,21 +24,27 @@
   var G12 = global.G12 || (global.G12 = {});
   var STORAGE_KEY = 'g12-lang';
   var LANGUAGES = ['en', 'ar'];
+  var listeners = [];   // redraw functions, called after the language changes
+  var guards = [];      // functions that may ask before the language changes
 
   function savedLanguage() {
     try {
       var value = global.localStorage.getItem(STORAGE_KEY);
       return LANGUAGES.indexOf(value) !== -1 ? value : null;
     } catch (error) {
-      return null;
+      return null; // storage blocked (some private-browsing modes)
     }
   }
 
+  function applyLanguage(lang) {
+    G12.lang = lang;
+    G12.dir = lang === 'ar' ? 'rtl' : 'ltr';
+    document.documentElement.lang = lang;
+    document.documentElement.dir = G12.dir;
+  }
+
   G12.LANG_STORAGE_KEY = STORAGE_KEY;
-  G12.lang = savedLanguage() || 'en';
-  G12.dir = G12.lang === 'ar' ? 'rtl' : 'ltr';
-  document.documentElement.lang = G12.lang;
-  document.documentElement.dir = G12.dir;
+  applyLanguage(savedLanguage() || 'en');
 
   function format(text, params) {
     if (!params) return text;
@@ -43,14 +55,17 @@
   G12.format = format;
 
   function dictionary() {
-    return G12.lang === 'ar' && G12.I18N_AR ? G12.I18N_AR : null;
+    return G12.lang === 'ar' ? G12.I18N_AR : G12.I18N_EN;
   }
 
-  /* Translate interface text. Unknown text is shown in English. */
+  /* Translate interface text. Text missing from the dictionary is shown as
+     written in the code (English), so the page never breaks. */
   G12.t = function (text, params) {
     var dict = dictionary();
-    var translated = dict ? dict.strings[text] : undefined;
-    if (dict && translated === undefined && global.console) console.warn('[i18n] No Arabic text for: ' + text);
+    var translated = dict && dict.strings ? dict.strings[text] : undefined;
+    if (dict && translated === undefined && global.console) {
+      console.warn('[i18n] No ' + (G12.lang === 'ar' ? 'Arabic' : 'English') + ' text for: ' + text);
+    }
     return format(translated !== undefined ? translated : text, params);
   };
 
@@ -94,13 +109,13 @@
    * not word + "s" (e.g. 'summary', 'summaries').
    */
   G12.plural = function (count, word, pluralWord) {
-    var dict = dictionary();
-    var forms = dict && dict.nouns[word];
-    if (forms) {
-      var form = forms[arabicCategory(count)] || forms.other;
-      return format(form, { n: count });
+    if (G12.lang === 'ar') {
+      var forms = G12.I18N_AR && G12.I18N_AR.nouns && G12.I18N_AR.nouns[word];
+      if (forms) return format(forms[arabicCategory(count)] || forms.other, { n: count });
+      if (G12.I18N_AR && global.console) console.warn('[i18n] No Arabic word for: ' + word);
     }
-    if (dict && global.console) console.warn('[i18n] No Arabic word for: ' + word);
+    var english = G12.I18N_EN && G12.I18N_EN.nouns && G12.I18N_EN.nouns[word];
+    if (english) return format(count === 1 ? english.one : english.other, { n: count });
     return count + ' ' + (count === 1 ? word : (pluralWord || word + 's'));
   };
 
@@ -113,7 +128,8 @@
     }
   };
 
-  /* Translate the fixed text marked in the HTML. Safe to call more than once. */
+  /* Translate the fixed text marked in the HTML. The English text stays in
+     the data-i18n attribute, so this works again after every switch. */
   G12.translatePage = function (root) {
     root = root || document;
     Array.prototype.forEach.call(root.querySelectorAll('[data-i18n]'), function (node) {
@@ -127,17 +143,43 @@
     });
   };
 
-  /* Switch language: save the choice and reload, so every part of the page
-     (including content loaded from the data files) is drawn again. */
+  /* A page registers how to draw itself again in the new language. */
+  G12.onLanguageChange = function (redraw) {
+    listeners.push(redraw);
+  };
+
+  /* A page that could lose unsaved work registers a check. It returns a
+     question to ask (in the current language), or nothing when it is safe. */
+  G12.beforeLanguageChange = function (check) {
+    guards.push(check);
+  };
+
+  /**
+   * Switch the interface language immediately (no page reload).
+   * Returns true if the language was changed.
+   */
   G12.setLanguage = function (lang) {
-    if (LANGUAGES.indexOf(lang) === -1) return;
+    if (LANGUAGES.indexOf(lang) === -1 || lang === G12.lang) return false;
+    for (var i = 0; i < guards.length; i++) {
+      var question = guards[i]();
+      if (question && !global.confirm(question)) return false;
+    }
     try {
       global.localStorage.setItem(STORAGE_KEY, lang);
     } catch (error) {
-      // Private browsing may block saving: switch for this visit only.
-      G12.lang = lang;
+      // Storage blocked: the switch still works until the page is closed.
     }
-    global.location.reload();
+    applyLanguage(lang);
+    G12.translatePage(document);
+    G12.setupLanguageToggle();
+    listeners.slice().forEach(function (redraw) {
+      try {
+        redraw(lang);
+      } catch (error) {
+        if (global.console) console.error(error);
+      }
+    });
+    return true;
   };
 
   /* The button in the header shows the language you can switch to. */
@@ -150,7 +192,9 @@
       button.hidden = false;
       if (!button.getAttribute('data-ready')) {
         button.setAttribute('data-ready', '1');
-        button.addEventListener('click', function () { G12.setLanguage(other); });
+        button.addEventListener('click', function () {
+          G12.setLanguage(G12.lang === 'ar' ? 'en' : 'ar');
+        });
       }
     });
   };

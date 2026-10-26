@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /* ==========================================================================
-   Checks the four data files with the same rules the website uses.
+   Checks the five data files with the same rules the website uses.
 
    Usage (from the project folder):
      node tools/validate-content.js
@@ -13,7 +13,7 @@
 
 const fs = require('fs');
 const path = require('path');
-const Schema = require('../js/content-schema.js');
+const Schema = require('../content-schema.js');
 
 const projectRoot = path.resolve(process.argv[2] || path.join(__dirname, '..'));
 const library = Schema.emptyLibrary();
@@ -39,7 +39,7 @@ for (const key of Schema.COLLECTION_KEYS) {
   const fileReport = Schema.validateFile(key, data);
   report.errors.push(...fileReport.errors);
   report.warnings.push(...fileReport.warnings);
-  if (data && Array.isArray(data[key])) library[key] = data[key];
+  if (data && Array.isArray(data[key])) library[key] = Schema.upgradeCollection(key, data[key]);
 }
 
 Schema.checkLinks(library, report);

@@ -18,7 +18,7 @@
     })();
 
     /* 2. Fallback: if a CSS or JavaScript file cannot be loaded (for example,
-       because a folder was not uploaded to GitHub), show a clear message
+       because it was not uploaded to GitHub), show a clear message
        instead of an unstyled page that keeps saying "Loading…".
        This must stay inline: an external file could be missing too. */
     (function () {
@@ -38,8 +38,8 @@
         box.setAttribute('role', 'alert');
         box.style.cssText = 'margin:1rem 0;padding:1rem;border:2px solid #a8261b;border-radius:8px;background:#fbeceb;color:#1d2733;font:1rem/1.6 system-ui,Tahoma,sans-serif';
         box.textContent = arabic
-          ? 'تعذّر تحميل جزء من هذه الصفحة (' + files + '). يُرجى إعادة تحميل الصفحة. إذا كنت تدير هذا الموقع، فتأكد من رفع المجلدات css وjs وdata إلى مستودع GitHub.'
-          : 'Part of this page could not be loaded (' + files + '). Please reload the page. If you manage this website, check that the css, js and data folders are uploaded to the GitHub repository.';
+          ? 'تعذّر تحميل جزء من هذه الصفحة (' + files + '). يُرجى إعادة تحميل الصفحة. إذا كنت تدير هذا الموقع، فتأكد من رفع كل ملفات الموقع إلى المستوى الأعلى في مستودع GitHub، بجوار index.html.'
+          : 'Part of this page could not be loaded (' + files + '). Please reload the page. If you manage this website, check that all the website files are uploaded to the top level of the GitHub repository, next to index.html.';
         var main = document.getElementById('main');
         if (main) main.insertBefore(box, main.firstChild);
         if (failed.some(function (f) { return f.script; })) {
@@ -51,9 +51,10 @@
       });
     })();
   </script>
-  <link rel="stylesheet" href="css/style.css">
-  <script src="js/i18n-ar.js"></script>
-  <script src="js/i18n.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <script src="i18n-en.js"></script>
+  <script src="i18n-ar.js"></script>
+  <script src="i18n.js"></script>
 </head>
 <body>
   <a class="skip-link" href="#main" data-i18n="Skip to main content">Skip to main content</a>
@@ -94,9 +95,9 @@
     </div>
   </footer>
 
-  <script src="js/content-schema.js"></script>
-  <script src="js/content-store.js"></script>
-  <script src="js/common.js"></script>
-  <script src="js/manage.js"></script>
+  <script src="content-schema.js"></script>
+  <script src="content-store.js"></script>
+  <script src="common.js"></script>
+  <script src="manage.js"></script>
 </body>
 </html>

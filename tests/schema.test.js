@@ -1,10 +1,10 @@
-/* Unit tests for js/content-schema.js — run with: npm test
+/* Unit tests for content-schema.js — run with: node --test tests/*.test.js
    Fixtures use placeholder text only; they are not educational content. */
 'use strict';
 
 const test = require('node:test');
 const assert = require('node:assert/strict');
-const Schema = require('../js/content-schema.js');
+const Schema = require('../content-schema.js');
 
 function lesson(overrides) {
   return Object.assign({
@@ -75,8 +75,9 @@ test('missing reviewStatus is a warning and is treated as unreviewed', () => {
 
 test('multiple-choice rules: answer must match an option exactly', () => {
   assert.deepEqual(errorsOf('questions', mcq()), []);
-  assert.match(errorsOf('questions', mcq({ answer: 'option b' })).join(), /does not exactly match any option/);
-  assert.match(errorsOf('questions', mcq({ answer: '' })).join(), /answer is required/);
+  assert.match(errorsOf('questions', mcq({ answer: 'option b' })).join(), /only in spaces or capital letters/);
+  assert.match(errorsOf('questions', mcq({ answer: 'Something else' })).join(), /does not exactly match any option/);
+  assert.match(errorsOf('questions', mcq({ answer: '' })).join(), /answer is missing/);
   assert.match(errorsOf('questions', mcq({ options: ['Only one'], answer: 'Only one' })).join(), /between 2 and 6 options/);
   assert.match(errorsOf('questions', mcq({ options: ['A', 'A', 'B'], answer: 'B' })).join(), /appears more than once/);
   assert.match(errorsOf('questions', mcq({ options: ['A', '', 'B'], answer: 'B' })).join(), /every option must contain text/);
@@ -111,16 +112,30 @@ test('summaries: rule is required for each point; empty summary is a warning', (
 
 test('duplicate ids in a collection are errors', () => {
   const report = Schema.validateCollection('lessons', [lesson(), lesson()]);
-  assert.match(report.errors.join(), /already used by lesson 1/);
+  assert.match(report.errors.join(), /already used by Lesson 1/);
 });
 
-test('links to missing lessons are warnings', () => {
+test('links to missing topics and units are warnings', () => {
   const library = Schema.emptyLibrary();
-  library.questions = [mcq({ topic: 'missing-lesson' })];
-  library.summaries = [{ id: 's1', title: 'S', lessonId: 'missing-lesson', reviewStatus: 'unreviewed', remember: ['r'] }];
+  library.questions = [mcq({ topicId: 'missing-lesson' })];
+  library.summaries = [{ id: 's1', title: 'S', topicId: 'missing-lesson', reviewStatus: 'unreviewed', remember: ['r'] }];
+  library.passages = [{ id: 'p1', title: 'P', unitId: 'missing-unit', reviewStatus: 'unreviewed', paragraphs: ['x'], questions: [mcq()] }];
+  library.lessons = [lesson({ unitId: 'missing-unit' })];
   const report = Schema.validateLibrary(library);
   assert.equal(report.errors.length, 0);
-  assert.equal(report.warnings.length, 2);
+  assert.equal(report.warnings.length, 4);
+  assert.match(report.warnings.join(), /no lesson has that id/);
+  assert.match(report.warnings.join(), /no unit has that id/);
+});
+
+test('a unitId that disagrees with the topic’s unit is a warning, and the topic’s unit wins', () => {
+  const library = Schema.emptyLibrary();
+  library.units = [{ id: 'u1', title: 'U1' }, { id: 'u2', title: 'U2' }];
+  library.lessons = [lesson({ id: 'l1', unitId: 'u1' })];
+  library.questions = [mcq({ topicId: 'l1', unitId: 'u2' })];
+  const report = Schema.validateLibrary(library);
+  assert.match(report.warnings.join(), /its topic “l1” is in the unit “u1”/);
+  assert.equal(Schema.unitIdOf(library.questions[0], library.lessons), 'u1');
 });
 
 test('file shape and schema version are checked', () => {
@@ -137,7 +152,7 @@ test('readImport accepts single files and backups, rejects other shapes', () => 
   const backup = Schema.readImport({ schemaVersion: 1, type: 'grade12-english-backup', lessons: [], summaries: [], questions: [], passages: [] });
   assert.equal(Object.keys(backup.collections).length, 4);
   assert.match(Schema.readImport([1, 2]).report.errors.join(), /not a content file/);
-  assert.match(Schema.readImport({ something: [] }).report.errors.join(), /does not contain lessons/);
+  assert.match(Schema.readImport({ something: [] }).report.errors.join(), /does not contain units, lessons/);
   assert.match(Schema.readImport({ lessons: {} }).report.errors.join(), /must be a list/);
 });
 
@@ -164,5 +179,79 @@ test('id and text helpers', () => {
   assert.equal(Schema.nextNumberedId('q', []), 'q-001');
   assert.deepEqual(Schema.splitParagraphs('a\nb\n\n\n  c  \r\n\r\nd'), ['a\nb', 'c', 'd']);
   assert.deepEqual(Schema.splitLines(' a \n\n b\r\n'), ['a', 'b']);
-  assert.equal(Schema.toJSON(Schema.toFileData('lessons', [])), '{\n  "schemaVersion": 1,\n  "lessons": []\n}\n');
+  assert.equal(Schema.toJSON(Schema.toFileData('lessons', [])), '{\n  "schemaVersion": 2,\n  "lessons": []\n}\n');
+});
+
+/* ---------- Added in Phase 2: units, topics, format upgrade, answer keys ---------- */
+
+test('units: id and title are required; description is optional text', () => {
+  assert.deepEqual(errorsOf('units', { id: 'unit-1', title: 'Unit title' }), []);
+  assert.match(errorsOf('units', { id: 'unit-1', title: '' }).join(), /title is required/);
+  assert.match(errorsOf('units', { id: 'Unit 1', title: 'T' }).join(), /may only contain lowercase/);
+  assert.match(errorsOf('units', { id: 'u', title: 'T', description: 5 }).join(), /description must be text/);
+  assert.match(Schema.validateCollection('units', [{ id: 'u', title: 'A' }, { id: 'u', title: 'B' }]).errors.join(), /already used/);
+});
+
+test('unitId and topicId must be valid ids when given', () => {
+  assert.deepEqual(errorsOf('questions', mcq({ unitId: 'unit-1', topicId: 'topic-1' })), []);
+  assert.match(errorsOf('questions', mcq({ unitId: 'Unit 1' })).join(), /unitId “Unit 1” is not a valid id/);
+  assert.match(errorsOf('summaries', { id: 's', title: 'S', topicId: 'Bad Topic', remember: ['r'] }).join(), /topicId/);
+  assert.match(errorsOf('lessons', lesson({ unitId: 7 })).join(), /unitId/);
+  assert.match(errorsOf('passages', { id: 'p', title: 'P', paragraphs: ['x'], questions: [], unitId: 'x y' }).join(), /unitId/);
+});
+
+test('version 1 field names are upgraded (lessonId → topicId, topic → topicId)', () => {
+  assert.deepEqual(Schema.upgradeItem('summaries', { id: 's', lessonId: 'l1' }), { id: 's', topicId: 'l1' });
+  assert.deepEqual(Schema.upgradeItem('questions', { id: 'q', topic: 'l1' }), { id: 'q', topicId: 'l1' });
+  assert.deepEqual(Schema.upgradeItem('questions', { id: 'q', topic: 'old', topicId: 'new' }), { id: 'q', topicId: 'new' });
+  const original = { id: 'q', topic: 'l1' };
+  Schema.upgradeItem('questions', original);
+  assert.deepEqual(original, { id: 'q', topic: 'l1' }, 'the original is not changed');
+
+  const file = Schema.validateFile('questions', { schemaVersion: 1, questions: [mcq({ topic: 'l1' })] });
+  assert.equal(file.errors.length, 0);
+  assert.match(file.warnings.join(), /old field name "topic"/);
+  const imported = Schema.readImport({ schemaVersion: 1, summaries: [{ id: 's', title: 'S', lessonId: 'l1', remember: ['r'] }] });
+  assert.equal(imported.collections.summaries[0].topicId, 'l1');
+  assert.equal(Schema.usableItems('questions', [mcq({ topic: 'l1' })]).items[0].topicId, 'l1');
+  assert.match(Schema.validateFile('lessons', { schemaVersion: 3, lessons: [] }).errors.join(), /not supported/);
+});
+
+test('answer-key mistakes get specific messages', () => {
+  const problem = (answer) => Schema.answerKeyProblem(mcq({ answer }));
+  assert.equal(problem('Option B'), null);
+  assert.match(problem(''), /answer is missing/);
+  assert.match(problem(undefined), /answer is missing/);
+  assert.match(problem('B'), /looks like an option letter.*option B is “Option B”/);
+  assert.match(problem('(c)'), /option letter.*option C is “Option C”/);
+  assert.match(problem('2'), /looks like an option number.*option 2 is “Option B”/);
+  assert.match(problem(3), /is the number 3.*“Option C”/);
+  assert.match(problem(' option b '), /only in spaces or capital letters/);
+  assert.match(problem({}), /must be the text/);
+});
+
+test('passage options: showParagraphNumbers must be true or false', () => {
+  const passage = { id: 'p', title: 'P', paragraphs: ['x'], questions: [], reviewStatus: 'unreviewed' };
+  assert.deepEqual(errorsOf('passages', Object.assign({}, passage, { showParagraphNumbers: false })), []);
+  assert.match(errorsOf('passages', Object.assign({}, passage, { showParagraphNumbers: 'no' })).join(), /true or false/);
+});
+
+test('unitIdOf, groupByUnit and orderByUnit', () => {
+  const units = [{ id: 'u1', title: 'U1' }, { id: 'u2', title: 'U2' }];
+  const lessons = [lesson({ id: 'l1', unitId: 'u1' }), lesson({ id: 'l2' })];
+  const items = [
+    { id: 'a', topicId: 'l1' },            // unit from its topic
+    { id: 'b', unitId: 'u2' },             // own unit
+    { id: 'c', topicId: 'l2' },            // topic without a unit, no unit
+    { id: 'd', unitId: 'gone' },           // unknown unit
+    { id: 'e', topicId: 'l2', unitId: 'u1' } // topic has no unit, so own unit counts
+  ];
+  assert.equal(Schema.unitIdOf(items[0], lessons), 'u1');
+  assert.equal(Schema.unitIdOf(items[2], lessons), '');
+  assert.equal(Schema.unitIdOf(items[4], lessons), 'u1');
+  const groups = Schema.groupByUnit(items, units, lessons);
+  assert.deepEqual(groups.map((g) => (g.unit ? g.unit.id : null)), ['u1', 'u2', null]);
+  assert.deepEqual(groups.map((g) => g.items.map((i) => i.id)), [['a', 'e'], ['b'], ['c', 'd']]);
+  assert.deepEqual(Schema.groupByUnit([], units, lessons).map((g) => g.items.length), [0, 0], 'empty units are kept; no "other" group');
+  assert.deepEqual(Schema.orderByUnit(items, units, lessons).map((i) => i.id), ['a', 'e', 'b', 'c', 'd']);
 });

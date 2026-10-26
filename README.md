@@ -11,7 +11,10 @@ reading comprehension.
 - **Starts with an empty content library.** All lessons, summaries, questions
   and passages are added by the teacher with the built-in content manager.
 
-## Folder structure
+## Files
+
+All website files are at the **top level**, next to `index.html` (there are
+no `css`, `js` or `data` folders).
 
 ```
 grade12-english/
@@ -22,87 +25,71 @@ grade12-english/
 ├── reading.html           Reading Comprehension (?unit=<id>, ?passage=<id>)
 ├── manage.html            Content manager (for teachers)
 ├── .nojekyll              Empty file: tells GitHub Pages to serve files as they are
-├── css/
-│   └── style.css          All styles
-├── js/
-│   ├── i18n.js            Interface language: English/Arabic button, page direction, saved choice
-│   ├── i18n-ar.js         Arabic text for the interface (not for the content)
-│   ├── content-schema.js  Data format, validation rules, units and topics
-│   ├── content-store.js   Add/edit/delete/move/import logic, browser drafts
-│   ├── common.js          Shared helpers: data loading, unit links, empty and error states, menu
-│   ├── quiz-engine.js     Quiz rules: answer keys, scoring, unanswered questions
-│   ├── quiz-ui.js         Quiz screens: one at a time, or all questions then check
-│   └── home.js, grammar.js, summaries.js, practice.js, reading.js, manage.js
-├── data/                  The content (empty to start)
-│   ├── units.json
-│   ├── grammar-lessons.json
-│   ├── grammar-summaries.json
-│   ├── grammar-questions.json
-│   └── reading-passages.json
-├── docs/
-│   ├── CONTENT_FORMAT.md          Data format reference
-│   └── GITHUB_PAGES_DIAGNOSTIC.md Why the first upload showed unstyled pages
-├── tools/
-│   ├── check-site.js       Checks files, folders, letter case and paths before upload
-│   └── validate-content.js Checks the content in data/
-├── tests/                 Automated tests (development only, not used by the site)
+├── style.css              All styles
+├── i18n.js                Interface language: the English/Arabic button, page direction, saved choice
+├── i18n-en.js             English interface text
+├── i18n-ar.js             Arabic interface text
+├── content-schema.js      Data format, validation rules, units and topics
+├── content-store.js       Add/edit/delete/move/import logic, browser drafts
+├── common.js              Shared helpers: data loading, unit links, empty and error states, menu
+├── quiz-engine.js         Quiz rules: answer keys, scoring, unanswered questions
+├── quiz-ui.js             Quiz screens: one at a time, or all questions then check
+├── home.js, grammar.js, summaries.js, practice.js, reading.js, manage.js   One script per page
+├── units.json             The content (empty to start)
+├── grammar-lessons.json
+├── grammar-summaries.json
+├── grammar-questions.json
+├── reading-passages.json
+├── docs/                  Data format reference and the first-upload diagnosis
+├── tools/                 check-site.js, validate-content.js (for developers)
+├── tests/                 Automated tests (for developers, not used by the site)
 ├── README.md
 └── PROJECT_STATUS.md
 ```
 
-The website itself needs only the six `.html` files, `.nojekyll`, and the
-`css`, `js` and `data` **folders** — the files must stay inside them. The
-other folders are documentation and tools; uploading them is recommended.
+The website needs only the files at the top level. The `docs`, `tools` and
+`tests` folders are for reference and development; they are not needed on
+GitHub.
 
 ## Publish on GitHub Pages
 
-**Upload the folders, not just the files.** The site breaks (plain, unstyled
-pages that keep saying “Loading…”) if `css`, `js` or `data` is missing. See
-[docs/GITHUB_PAGES_DIAGNOSTIC.md](docs/GITHUB_PAGES_DIAGNOSTIC.md).
-
-1. Unzip the project and open the `grade12-english` folder, so you can see
-   `index.html`, `css`, `js`, `data` and the other items.
+1. Unzip the project on a computer and open the `grade12-english` folder, so
+   you can see `index.html`, `style.css`, `i18n.js` and the other files.
 2. On GitHub, open your repository and choose **Add file → Upload files**.
-3. Select **everything** in the folder (Ctrl+A on Windows, Cmd+A on Mac) and
-   **drag it onto the upload area**. The selection must include the
-   **folders** `css`, `js`, `data`, `docs`, `tools` and `tests` themselves —
-   not the files from inside them. Do **not** use the “choose your files”
-   button: it cannot select folders, and files chosen with it all land at the
-   top level, where the website cannot find them. Dragging folders works in
-   Chrome, Edge and Firefox on a computer, not on a phone.
-4. Before committing, scroll through the list of files and check that the
-   names include their folder: `css/style.css`, `js/common.js`,
-   `data/units.json`. If you see only `style.css` or `common.js`, the folders
-   were not included — cancel and drag the folders again. Then choose
-   **Commit changes**.
+3. Select all the files in the folder (Ctrl+A on Windows, Cmd+A on Mac) and
+   drag them onto the upload area (or use “choose your files” and select
+   them all). Every file belongs at the top level of the repository, next to
+   `index.html`.
+4. Choose **Commit changes**. Files with the same name are replaced.
 5. The first time only: open **Settings → Pages**, choose **Deploy from a
    branch**, then branch `main` and folder `/ (root)`, and save.
 6. Wait 1–2 minutes and open `https://<user>.github.io/<repository>/`. If you
    still see the old page, force a reload: **Ctrl+F5** (Windows) or
    **Cmd+Shift+R** (Mac).
 
-If the folders still do not upload, use **GitHub Desktop** (free), which
-always keeps folders.
-
-If something is still missing, every page shows a red message naming the
-missing files.
+If a file is missing, every page shows a red message naming it.
 
 ## Interface language (English / العربية)
 
 - Every page has a language button in the header: **العربية** on English
-  pages, **English** on Arabic pages. It switches the interface — menus,
-  buttons, headings, labels and messages, including the content manager —
-  and the page direction (left-to-right for English, right-to-left for
-  Arabic).
+  pages, **English** on Arabic pages. A click switches the whole interface
+  **immediately, without reloading the page**: menus, buttons, headings,
+  labels, messages and forms, including the content manager. The page
+  direction changes too: left-to-right for English, right-to-left for
+  Arabic. English is the default.
 - **Educational content is never translated.** Lessons, summaries,
   questions, answer choices, answers, explanations and passages always
   appear exactly as written, and each keeps its own text direction.
-- The choice is saved in the browser (`localStorage`, key `g12-lang`) and
-  applies to every page after reloading. If the browser blocks storage, the
-  site stays in English.
-- The Arabic text is in `js/i18n-ar.js`: English on the left, Arabic on the
-  right. To change a translation, edit the right-hand side and keep any
-  `{placeholders}`. Text missing there is shown in English.
+- The choice is saved in the browser (`localStorage`, key `g12-lang`), so it
+  stays after reloading and on every page. If the browser blocks storage,
+  the button still works until the page is closed.
+- If a student has already answered questions on the page, or the content
+  manager has a form with unsaved changes, the button asks first, because
+  switching draws the page again.
+- The interface text is in two files: `i18n-en.js` (English) and
+  `i18n-ar.js` (Arabic). The text on the left is the key used in the code;
+  the text on the right is what visitors see. To change wording, edit the
+  right-hand side and keep any `{placeholders}`.
 
 ## Run it on your computer
 
@@ -129,9 +116,9 @@ Open `manage.html` (also linked at the bottom of every page).
 3. Tick **“Preview my draft on the student pages”** to see the draft on the
    real pages in your browser. Students do not see it.
 4. **Publish:** open *Import & export* and choose *Download all five files*.
-   Then, in your GitHub repository, **open the `data` folder first**, choose
-   **Add file → Upload files**, upload the five files (they replace the old
-   ones) and commit.
+   Then, in your GitHub repository (at the top level, next to `index.html`),
+   choose **Add file → Upload files**, upload the five files (they replace
+   the old ones) and commit.
 5. **Back up** regularly with *Download backup file*. A backup (or any data
    file) can be **imported** on any computer. *Merge* adds new items and
    updates items with the same ID; *Replace* swaps the imported type
@@ -154,7 +141,7 @@ The data format is described in [docs/CONTENT_FORMAT.md](docs/CONTENT_FORMAT.md)
 
 ```
 node tools/check-site.js        # before uploading: folders, files, letter case, relative paths
-node tools/validate-content.js  # after editing data/*.json by hand
+node tools/validate-content.js  # after editing the .json data files by hand
 ```
 
 ## Tests (for developers)
@@ -165,5 +152,6 @@ python tests/e2e_test.py        # browser tests; needs: pip install playwright &
 ```
 
 The browser tests serve the site from a subfolder (like GitHub Pages), type
-placeholder test text into the content manager, and never change the files
-in `data/`.
+placeholder test text into the content manager, and never change the
+project's data files. Run the checks and tests from the unzipped project
+folder on a computer (they need the `tools` and `tests` folders).
