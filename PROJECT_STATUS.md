@@ -1,118 +1,284 @@
 # Project status — Grade 12 English
 
-_Last updated: 19 October 2026 (end of Phase 1)_
+_Last updated: 26 October 2026 (Phase 2 + the Arabic/English interface button)_
+
+Target website (given by the owner): https://abdo098765432110-ux.github.io/grade12-english-/
+Repository behind that address: https://github.com/abdo098765432110-ux/grade12-english-
+(the repository name ends with a hyphen)
 
 ## Summary
 
-Phase 1 is complete: a working static website for GitHub Pages with four
-student sections (Grammar Lessons, Grammar Summaries, Grammar Practice,
-Reading Comprehension) and a content manager for adding, editing, deleting,
-reordering, importing and exporting content.
-
-The content library is **empty**. No lessons, summaries, questions, answers,
-explanations or reading passages have been written for the site. All
-educational content will be added by the project owner.
-
-## Requirement changes during Phase 1
-
-| Date | Change |
+| Work | Status |
 |---|---|
-| 19 Oct 2026 | Original Phase 1 brief asked for clearly labelled demonstration content and said the content editor belonged to Phase 3. |
-| 19 Oct 2026 | **Corrected by the owner:** no invented educational content at all; start with an empty library; build the content-management tools (add, edit, delete, import, export) now. Demonstration content that had already been drafted (6 lessons, 6 summaries, 48 questions) was deleted; nothing from it remains in the project. |
+| Phase 1 — student pages, quiz engine, content manager, empty content library | Done (19 Oct 2026) |
+| Phase 1.5 — audit of the live site, fallback/loading/error states, navigation | Done (20 Oct 2026) |
+| Phase 2 — data-driven content by unit and topic, answer checking, validation | Done in the project files (20 Oct 2026) |
+| Addition — Arabic/English interface button | Done in the project files (26 Oct 2026) |
 
-## Project structure
+As the owner asked, this version adds **only** the language button. The
+other Phase 3 work prepared earlier (home banner, new import/restore and
+publishing workflow in the content manager) is **not** included.
 
-```
-index.html                 Home (section cards with content counts)
-grammar.html               Lesson list / single lesson (?lesson=<id>)
-summaries.html             All summaries (printable)
-practice.html              Topic + question-count selection, then quiz (?topic=<id>)
-reading.html               Passage list / passage with questions (?passage=<id>)
-manage.html                Content manager (teachers)
-css/style.css              All styles
-js/content-schema.js       Data format + validation (browser and Node)
-js/content-store.js        Library changes (save/delete/move/import), browser draft, preview flag
-js/common.js               Shared helpers: loading, notices, empty states, preview banner
-js/quiz-engine.js          Quiz rules (no page code)
-js/quiz-ui.js              Quiz screens (shared by Practice and Reading)
-js/home.js, grammar.js, summaries.js, practice.js, reading.js, manage.js
-data/grammar-lessons.json  { "schemaVersion": 1, "lessons": [] }
-data/grammar-summaries.json, data/grammar-questions.json, data/reading-passages.json (all empty)
-tools/validate-content.js  Command-line content check (Node.js, no packages)
-tests/*.test.js            Unit tests (Node built-in test runner)
-tests/e2e_test.py          Browser tests (Playwright; development only)
-docs/CONTENT_FORMAT.md     Data format reference
-README.md                  Running, publishing and content workflow
-.nojekyll                  Makes GitHub Pages serve files as they are
-package.json               Test/validate commands only (no dependencies)
-```
+The content library is still **empty**. No lessons, summaries, questions,
+answers, explanations or reading passages have been written for the site.
+All educational content will be supplied by the project owner.
 
-## Completed features
+## The target website today (checked 26 Oct 2026)
 
-**Student pages**
-- Responsive layout and navigation (desktop and 375 px phone width), skip link, visible focus, semantic HTML.
-- Empty states on every page (“No lessons added yet”, etc.) with a button to the matching “add” form.
-- Grammar lessons with six section types: text, note box, bulleted list, examples, table, common mistakes (avoid/use). Arabic sections display right to left.
-- Summaries page with table of contents, rule tables, reminders, links to lesson and practice; print styles.
-- Practice: topic selection (lessons with questions, plus “Other questions”), number of questions (5/10/20/all), random selection.
-- Quiz (Practice and Reading): answer selection, submit, feedback with explanation, **try again** (tried options disabled), show answer, next, results with per-question review, **retry missed questions**, **restart quiz**, change settings.
-- Scoring counts the first attempt of multiple-choice questions only. Short written answers are never auto-scored; students compare with the model answer.
-- **Answer-key honesty:** unless a question is marked `reviewed`, the site says “matches / different from the suggested answer” (never “correct / incorrect”), shows a “not yet reviewed” note, and marks the score as provisional.
-- Broken items in hand-edited files are skipped with a notice; invalid or missing files show a clear error message instead of a blank page.
-- All content is inserted as text (no HTML injection from data files).
+- `https://abdo098765432110-ux.github.io/grade12-english-/` is the GitHub
+  Pages address of the repository `grade12-english-`. Its latest commit is
+  `c72020c` (20 Oct 2026, 22:28).
+- The site works, with the `css`, `js` and `data` folders in place, but it
+  is the **Phase 1 version** (19 Oct). It has no units, no “answer all”
+  practice mode, and none of the Phase 1.5 loading and error fixes. It has
+  no language button. All its data files are empty.
+- This version is Phase 2 plus the language button. Uploading it replaces
+  the Phase 1 files with the same names and adds the new ones
+  (`data/units.json`, `js/i18n.js`, `js/i18n-ar.js` and others). Nothing is
+  removed. The extra `package.json` in the repository can stay.
+- **Upload simulated:**
+  - a copy of the repository's current files was overwritten with this
+    project, the same result as an upload on GitHub;
+  - the copy was served at `/grade12-english-/`;
+  - result: site check OK, 70 / 70 unit tests, 209 / 209 browser checks.
 
-**Content manager (`manage.html`)**
-- Add / edit / delete / reorder lessons, summaries, grammar questions, reading passages, and each passage’s questions.
-- Lesson section editor (add, remove, reorder, change type); repeating rows for mistakes and summary points.
-- Multiple-choice editor (2–6 options, mark the correct one) and short-answer questions; “Save and add another” keeps the topic.
-- Validation before saving, with an error summary linked to the fields.
-- IDs generated from titles; renaming a lesson ID updates linked summaries and questions; deleting a lesson unlinks them (asks first).
-- Question filters (topic, text search).
-- Automatic draft saving in the browser; warning when the published files changed since the draft began; warning before leaving a form with unsaved changes.
-- Preview the draft on the real student pages (this browser only).
-- Export the four data files (individually or all), backup file, import (merge or replace) with full validation before any change, content check report, discard draft.
+## Addition: Arabic/English interface button (26 Oct 2026)
 
-## Test results (run on 19 Oct 2026)
+**What changed**
+- A button in the header of every page: **العربية** on English pages,
+  **English** on Arabic pages. On phones it sits next to the Menu button.
+- Arabic: all interface text in Arabic, including the content manager and
+  its messages. The pages use `lang="ar"` and `dir="rtl"`, and the layout is
+  mirrored. English: the English text and `dir="ltr"` come back.
+- The choice is saved in the browser (`localStorage`, key `g12-lang`). It
+  applies to every page and after reloading. Nothing else is stored.
+- Educational content is not translated or changed. It is shown exactly as
+  written, with its own text direction.
+- Files:
+  - **new:** `js/i18n.js` (the button and the switching) and `js/i18n-ar.js`
+    (the Arabic interface text);
+  - **changed:** the six pages (header button, two script lines, translation
+    markers), `css/style.css` (header layout and right-to-left styles), and
+    the page scripts (interface text passed through the translator);
+  - **unchanged:** `js/content-store.js`, `js/quiz-engine.js`, all `data/`
+    files, `tools/`, file names and links.
 
-Environment: Linux, Node.js 22.22.0, Python 3.13, Playwright with headless Chromium 141. The site was served from a **subfolder** (`http://127.0.0.1:<port>/grade12-english/`) to match GitHub Pages project sites.
+**Test results** (Linux, Node.js 22, Playwright with headless Chromium; the
+site was served from a `/grade12-english/` subfolder, as on GitHub Pages)
 
 | Test | Result |
 |---|---|
-| `npm test` — unit tests (schema, store, quiz engine) | **36 / 36 passed** |
-| `node tools/validate-content.js` on the empty data files | **OK** |
-| `python tests/e2e_test.py` — browser tests | **77 / 77 checks passed** |
-| Project `data/` files after the browser tests | Still empty (verified) |
+| `node --test tests/*.test.js` | **70 / 70 passed** (57 from Phase 2 + 13 for the language) |
+| `python tests/e2e_test.py` | **209 / 209 checks passed** on two runs (161 from Phase 2 + 48 for the language) |
+| `node tools/check-site.js` | OK |
+| `node tools/validate-content.js` | OK (empty library) |
+| Upload simulated on a copy of `grade12-english-`, served at `/grade12-english-/` | 209 / 209 checks passed |
 
-The browser tests cover: empty states on all pages; adding/editing/deleting/reordering every content type in the manager; form validation messages; lesson ID rename cascade; unsaved-changes prompt; preview on all student pages; practice quiz (unreviewed and reviewed wording, try again, show answer, results, retry missed, restart, change settings); reading quiz; export of all files and backup; exported files passing the command-line validator; published files shown without preview; broken item skipped; invalid JSON and missing file messages; import merge, re-import, invalid import rejected, replace import; discard draft; phone-width layout; no browser console errors.
+The language checks cover:
+- the button on all six pages;
+- English → Arabic → English;
+- the choice kept after reloading and on every page;
+- `rtl` and `ltr`, Arabic navigation with the same links, the phone menu in
+  Arabic;
+- storage blocked;
+- accessibility checks on every Arabic page;
+- no interface text missing from the Arabic file.
 
-Accessibility checks performed (custom, in the browser tests, on every tested screen): every form control labelled, every link/button named, one `h1`, no skipped heading levels, no duplicate IDs, no broken `aria-describedby`/`aria-labelledby` references, no sideways scrolling at 375 px, and text colour pairs at least 4.5:1 contrast (WCAG AA). Focus movement after submitting an answer and after reordering items was checked.
+Placeholder test content — lesson text, unit titles, questions, answer
+choices and passage spacing — stayed exactly as written on Arabic pages, and
+the project's `data/` files were still empty after the tests. All Phase 2
+checks (lessons, summaries, practice, reading, content manager, navigation,
+error states) still pass.
 
-Visual review of screenshots led to three fixes, all re-tested: result colours on selected options, right-hand border for Arabic notes, and spacing above quiz results.
+**Not tested:** the live site (nothing was uploaded from here), Firefox,
+Safari, real phones, and screen readers. The Arabic interface text has not
+been reviewed by a native speaker; it can be edited in `js/i18n-ar.js`.
 
-## Not tested / known limitations
+## How to upload this version
 
-- **Not deployed to GitHub Pages yet** — tested with a local server in a subfolder only.
-- Tested in **Chromium only**. Not tested in Firefox, Safari, or on real phones.
-- The automated accessibility tool axe-core could not be installed (package download blocked in this environment); custom checks were used instead. Not tested with a real screen reader.
-- Opening pages directly from disk (`file://`) is not supported; a message explains this. Use GitHub Pages or a local server.
-- Drafts are stored per browser (usually about 5 MB available). Clearing site data deletes the draft — download backups.
-- “Download all four files” may trigger a browser prompt to allow multiple downloads.
-- Publishing requires uploading the exported files to GitHub manually (by design: no accounts or server).
-- No student progress saving between visits.
-- Topic and wording of the student pages have not been checked against the current official Egyptian Grade 12 syllabus.
+1. On a **computer**, unzip `grade12-english-language-toggle.zip` and open
+   the `grade12-english` folder inside it. You should see `index.html`,
+   `css`, `js`, `data` and the other items.
+2. Open https://github.com/abdo098765432110-ux/grade12-english- (with the
+   hyphen at the end) and choose **Add file → Upload files**.
+3. Select everything in the folder (Ctrl+A, or Cmd+A on a Mac) and **drag**
+   it onto the upload area. Don't use “choose your files”, because it cannot
+   upload folders. If `.nojekyll` does not come along (Macs hide it), that
+   is fine.
+4. Wait until the list finishes. It must show names **with** their folders,
+   such as `css/style.css`, `js/i18n.js` and `js/i18n-ar.js`. If you see
+   only `style.css`, close the page without committing and drag again (or
+   use GitHub Desktop).
+5. Choose **Commit changes**. Files with the same name are replaced; nothing
+   is deleted.
+6. Wait 1–2 minutes. Open https://abdo098765432110-ux.github.io/grade12-english-/
+   and reload with **Ctrl+F5** (Cmd+Shift+R on a Mac). Expected: the
+   **العربية** button at the top. Click it: the page turns Arabic and
+   right-to-left. Reload: it stays Arabic. Click **English** to switch back.
 
-## Remaining tasks (not started)
+## Phase 2 report (20 Oct 2026) — implemented features
 
-- Owner: add all educational content and publish it.
-- Deploy to GitHub Pages and re-check the live site.
-- Cross-browser and real-device testing (Firefox, Safari, Android/iOS phones); screen-reader check.
-- Possible later additions (only if wanted): saving student progress in the browser, more question types (e.g. typed fill-in-the-blank, matching), search, Arabic interface text, an automatic content check on GitHub (GitHub Actions running `tools/validate-content.js`).
+**1. Content by unit and topic**
+- New file `data/units.json` (empty). Units group all content and appear in
+  the order listed.
+- A topic is a grammar lesson, and its `id` is the topic ID.
+- Lessons, summaries, questions and passages can have `unitId`. Summaries and
+  questions can have `topicId`, and then belong to that lesson’s unit
+  automatically.
+- **Grammar Lessons:** grouped by unit, with unit filter links. Pages work by
+  address: `?unit=<id>` for one unit, `?topic=<id>` for one lesson (the old
+  `?lesson=<id>` still works). The breadcrumb shows the unit, and the
+  previous/next links follow unit order.
+- **Grammar Summaries:** grouped by unit, with `?unit=<id>` and
+  `?topic=<id>`. Lessons link to their own summary.
+- **Grammar Practice:** choose a unit, then a topic (both with question
+  counts), the number of questions, and how to answer. `?unit=` and `?topic=`
+  preselect the choices.
+- **Reading:** grouped by unit, with `?unit=<id>`.
 
-## Exact next steps
+**2. Grammar practice — answering and marking**
+- Multiple-choice questions come only from `data/grammar-questions.json`.
+- Two ways to answer:
+  - *One at a time*: as before, with feedback, try again and show answer.
+  - *All at once* (new): every question on one page, then “Check my answers”.
+- Answers are checked against the answer key in the data. Only exact matches
+  count.
+- **Unanswered questions:**
+  - Before checking, the page lists the blank question numbers and offers
+    “Go to question N” or “Check anyway”.
+  - Blank questions are marked “Not answered” and score 0. A blank answer is
+    never counted as correct.
+  - Any choice that is not one of the options counts as unanswered.
+- **Score summary:** the score, the percentage, and separate counts for
+  correct, not correct and not answered. Each question gets its own feedback
+  and explanation. “Retry missed questions” includes the unanswered ones.
+- The review-honesty rules from Phase 1 still apply: unreviewed answers are
+  “suggested”, and scores that include them are “provisional”.
 
-1. Create a GitHub repository and upload every file in this folder, including `.nojekyll`.
-2. Settings → Pages → Deploy from a branch → `main`, `/ (root)` → Save.
-3. Open `https://<user>.github.io/<repository>/` and confirm the empty-state pages load.
-4. Open `manage.html` on the live site, add content, tick preview to check it, then Import & export → Download all four files.
-5. Upload the four files into the repository’s `data/` folder (replace existing) and commit. Reload the site after a few minutes.
-6. Download a backup file regularly.
+**3. Reading comprehension**
+- Each passage is shown beside its questions. Questions appear **exactly in
+  the stored order** in both modes and are never shuffled.
+- “All questions” is the default mode, and “One at a time” is a button away.
+- **Formatting is kept exactly:** paragraphs, line breaks, and spacing inside
+  a paragraph. Paragraph numbers can be turned off per passage
+  (`showParagraphNumbers: false`).
+- On wide screens the passage stays in view while students scroll through
+  the questions. A long passage scrolls inside its own box, which can also
+  be scrolled with the keyboard.
+- Line breaks are also kept in lesson text, summaries, question prompts,
+  options and explanations.
+
+**4. Safety and validation**
+- Missing required fields, invalid IDs, and links to units or topics that
+  don’t exist are all reported.
+- **Answer keys get specific messages:**
+  - a letter (`"B"`) or a number (`2`) instead of the option text, with the
+    option it probably meant;
+  - a difference only in spaces or capital letters;
+  - a missing answer.
+- Questions with an invalid key are never shown to students, and the quiz
+  engine refuses to mark them as a second safeguard.
+- A `unitId` that disagrees with its topic’s unit gets a warning, and the
+  topic’s unit is used.
+- Each page’s “N items could not be shown” notice now counts only the
+  content that page shows.
+- **Empty states:**
+  - every unit with no content says so (“No lessons in this unit yet”);
+  - a filtered empty unit or topic gets its own message;
+  - Practice disables Start for an empty unit or topic;
+  - unknown unit or topic addresses show “Unit not found” or “Topic not
+    found”.
+- **Older files keep working:** version 1 files are upgraded when loaded
+  (`lessonId` → `topicId`, `topic` → `topicId`), with a validator reminder. If
+  `data/units.json` is missing, the site behaves as if there are no units.
+
+**5. Content manager**
+- New **Units** tab: add, edit, reorder and delete units.
+  - Renaming a unit’s ID updates everything linked to it.
+  - Deleting a unit keeps its content and only removes the link.
+- Every editor has a Unit field. Summaries and questions also have a Topic
+  field, grouped by unit; choosing a topic selects its unit.
+- Questions can be filtered by unit. The passage editor has a “Show
+  paragraph numbers” option.
+- Export, import and backup now include `units.json` (five data files).
+  Imports of version 1 files are upgraded automatically.
+
+### Data format
+
+Version 2, documented in [docs/CONTENT_FORMAT.md](docs/CONTENT_FORMAT.md)
+(units and topics, web addresses, answer-key rules, formatting, older files).
+
+### Phase 2 test results (20 Oct 2026)
+
+Environment: Linux, Node.js 22.22.0, Python 3.13, Playwright 1.56 with
+headless Chromium 141. The site was served from a `/grade12-english/`
+subfolder, the same path as on GitHub Pages. All test content is placeholder
+text such as “Test prompt q1”, supplied by the tests and never written to
+`data/`.
+
+| Test | Result |
+|---|---|
+| `node --test tests/*.test.js` (unit tests) | **57 / 57 passed** (41 before + 16 new) |
+| `python tests/e2e_test.py` (browser tests) | **161 / 161 checks passed**, on two runs in a row (115 before + 46 new) |
+| `node tools/check-site.js` | OK: every referenced file exists with exact case; all paths are relative |
+| `node tools/validate-content.js` | OK (empty library, version 2) |
+| Project `data/` files after the tests | Still empty (verified) |
+
+New tests in Phase 2:
+
+- **Unit tests** cover:
+  - unit validation;
+  - `unitId`/`topicId` checks;
+  - the version 1 → 2 upgrade (files, imports, drafts);
+  - answer-key messages (letter, number, case, missing);
+  - grouping and ordering by unit;
+  - unit rename and delete cascades;
+  - `gradeAll`: blank and invalid answers are never correct, nothing
+    answered scores 0, unreviewed wording, written answers not scored;
+  - blank-question numbers;
+  - the quiz refusing a question without a valid key.
+- **Browser tests (student pages)** cover:
+  - unit links and grouping, including per-unit empty states;
+  - `?unit=` / `?topic=` / `?lesson=` addresses, “Unit not found”, and the
+    unit in the breadcrumb;
+  - line breaks kept in lessons, and the old `lessonId` upgraded on the
+    summaries page;
+  - practice unit/topic counts, an empty unit disabling Start, a question
+    with key `"B"` skipped with a notice, and `?topic=` preselecting the unit;
+  - answer-all mode: blank questions listed, “Check anyway” scoring 0 with
+    “Not answered” on each, retry missed, full score;
+  - reading: spacing kept exactly, questions in stored order in both modes,
+    sticky passage, matched/different/not answered counts, paragraph numbers
+    off;
+  - a missing `units.json`, and accessibility checks on the new screens.
+- **Browser tests (content manager)** cover:
+  - adding units, and a lesson in a unit;
+  - choosing a topic selecting its unit, and a conflicting unit being
+    refused;
+  - what each question stores; the unit filter;
+  - passage line breaks and the paragraph-number setting;
+  - unit contents counts, unit ID rename and delete cascades;
+  - the `units.json` download;
+  - a version 1 import upgraded, and a letter answer key rejected with a
+    hint.
+- **Visual review** of screenshots found three layout issues, all fixed and
+  re-tested: extra space above the question list, single cards stretching
+  the full width, and extra space at the top of the practice panel.
+
+### Phase 2 known limitations (still apply)
+
+- Text formatting covers paragraphs, line breaks and spacing. Bold or
+  italic text inside content is not supported.
+- Only multiple-choice questions are scored; written answers are compared by
+  the student.
+- Drafts are per browser; publishing is a manual upload; there is no saved
+  student progress; the wording has not been checked against the official
+  syllabus.
+
+## Next steps
+
+1. Upload this version (see “How to upload this version” above) and check
+   the live site with Ctrl+F5.
+2. Add units first, then lessons (topics), summaries, questions and
+   passages, with the content manager or JSON files that follow
+   docs/CONTENT_FORMAT.md.
