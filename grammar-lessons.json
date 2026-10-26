@@ -1,4 +1,11 @@
 {
   "schemaVersion": 2,
-  "lessons": []
+  "lessons": [
+    {
+      "id": "present-perfect",
+      "title": "Present Perfect",
+      "reviewStatus": "reviewed",
+      "sections": []
+    }
+  ]
 }

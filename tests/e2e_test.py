@@ -8,10 +8,14 @@ path works the way it will on GitHub Pages (https://user.github.io/repo/).
 Requirements:  pip install playwright  &&  python -m playwright install chromium
 Run:           python tests/e2e_test.py
 
+The tests start from an empty website: they serve a temporary copy of the
+project in which the five data files are empty, so the real lessons and
+questions are never read or changed.
+
 All test content is typed into the content manager during the test (or
 served from inside this script). It is placeholder text such as
 "Test prompt one", not educational content, and it is never written to the
-project's data folder.
+project's data files.
 """
 import functools
 import http.server
@@ -19,6 +23,7 @@ import json
 import os
 import pathlib
 import re
+import shutil
 import subprocess
 import sys
 import tempfile
@@ -47,11 +52,26 @@ class QuietHandler(http.server.SimpleHTTPRequestHandler):
         pass
 
 
+DATA_FILES = [("units.json", "units"), ("grammar-lessons.json", "lessons"), ("grammar-summaries.json", "summaries"),
+              ("grammar-questions.json", "questions"), ("reading-passages.json", "passages")]
+
+
+def empty_copy():
+    """A temporary copy of the website (same folder name) with empty data files."""
+    root = pathlib.Path(tempfile.mkdtemp(prefix="g12-site-"))
+    site = root / PROJECT.name
+    shutil.copytree(PROJECT, site, ignore=shutil.ignore_patterns(".git", "node_modules", "__pycache__"))
+    for name, key in DATA_FILES:
+        (site / name).write_text(json.dumps({"schemaVersion": 2, key: []}, indent=2) + "\n", encoding="utf-8")
+    return site
+
+
 def start_server():
-    handler = functools.partial(QuietHandler, directory=str(PROJECT.parent))
+    site = empty_copy()
+    handler = functools.partial(QuietHandler, directory=str(site.parent))
     server = http.server.ThreadingHTTPServer(("127.0.0.1", 0), handler)
     threading.Thread(target=server.serve_forever, daemon=True).start()
-    return server, "http://127.0.0.1:%d/%s/" % (server.server_address[1], PROJECT.name)
+    return server, "http://127.0.0.1:%d/%s/" % (server.server_address[1], site.name)
 
 
 # ---------------------------------------------------------------- helpers
@@ -1388,21 +1408,21 @@ def contrast():
         ("text", "bg"), ("text", "surface"), ("muted", "surface"), ("muted", "bg"), ("primary", "surface"),
         ("primary", "primary-light"), ("primary", "bg"), ("success", "success-bg"), ("danger", "danger-bg"),
         ("danger", "surface"), ("warning", "warning-bg"), ("info", "info-bg"),
+        # main buttons and the current menu item: deep blue text on pastel
+        ("button-text", "button"), ("button-text", "button-end"), ("button-text", "button-hover"),
     ]
     failures = []
     for fg, bg in pairs:
         r = ratio(var["color-" + fg], var["color-" + bg])
         if r < 4.5:
             failures.append("%s on %s = %.2f" % (fg, bg, r))
-    white_on_primary = ratio("#ffffff", var["color-primary"])
-    if white_on_primary < 4.5:
-        failures.append("white on primary = %.2f" % white_on_primary)
     record("colour contrast of text colour pairs is at least 4.5:1 (WCAG AA)", not failures, "; ".join(failures))
 
 
 # ---------------------------------------------------------------- main
 
 def main():
+    real_data = {name: (PROJECT / name).read_bytes() for name, _ in DATA_FILES}
     server, base = start_server()
     print("Serving the site from a subfolder: " + base)
     with sync_playwright() as playwright:
@@ -1438,11 +1458,8 @@ def main():
     passed = sum(1 for _, ok, _ in results if ok)
     print("\n%d checks, %d passed, %d failed" % (len(results), passed, len(results) - passed))
     print("Screenshots: %s" % SHOTS)
-    data_untouched = all(
-        json.loads((PROJECT / f).read_text())[k] == []
-        for f, k in [("units.json", "units"), ("grammar-lessons.json", "lessons"), ("grammar-summaries.json", "summaries"),
-                     ("grammar-questions.json", "questions"), ("reading-passages.json", "passages")])
-    print("Project data files still empty after the test: %s" % data_untouched)
+    data_untouched = all((PROJECT / name).read_bytes() == real_data[name] for name in real_data)
+    print("Project data files unchanged by the test: %s" % data_untouched)
     sys.exit(0 if passed == len(results) else 1)
 
 

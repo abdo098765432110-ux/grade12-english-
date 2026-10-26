@@ -1,4 +1,575 @@
 {
   "schemaVersion": 2,
-  "questions": []
+  "questions": [
+    {
+      "id": "present-perfect-q001",
+      "type": "mcq",
+      "topicId": "present-perfect",
+      "prompt": "I ............ a cup of coffee in the morning when I get up. (Sudan 2017)",
+      "options": [
+        "always have",
+        "have always had",
+        "always had",
+        "had always had"
+      ],
+      "answer": "always have",
+      "reviewStatus": "reviewed",
+      "explanation": "daily habit, so present simple"
+    },
+    {
+      "id": "present-perfect-q002",
+      "type": "mcq",
+      "topicId": "present-perfect",
+      "prompt": "The phone ............ , stay where you are. I'll answer it myself. (2017)",
+      "options": [
+        "rings",
+        "is ringing",
+        "rang",
+        "was ringing"
+      ],
+      "answer": "is ringing",
+      "reviewStatus": "reviewed",
+      "explanation": "happening right now"
+    },
+    {
+      "id": "present-perfect-q003",
+      "type": "mcq",
+      "topicId": "present-perfect",
+      "prompt": "This is the most difficult situation I ............ . (Workbook)",
+      "options": [
+        "had ever been faced",
+        "have ever faced",
+        "had ever faced",
+        "have ever been faced"
+      ],
+      "answer": "have ever faced",
+      "reviewStatus": "reviewed",
+      "explanation": "superlative + present perfect + ever"
+    },
+    {
+      "id": "present-perfect-q004",
+      "type": "mcq",
+      "topicId": "present-perfect",
+      "prompt": "I haven’t travelled to my village by train ............ my early childhood. (Wokbook)",
+      "options": [
+        "when",
+        "ago",
+        "for",
+        "since"
+      ],
+      "answer": "since",
+      "reviewStatus": "reviewed",
+      "explanation": "point in time (my early childhood)"
+    },
+    {
+      "id": "present-perfect-q005",
+      "type": "mcq",
+      "topicId": "present-perfect",
+      "prompt": "My uncle has lived in his village ............ his childhood. (Workbook)",
+      "options": [
+        "for",
+        "since",
+        "ago",
+        "when"
+      ],
+      "answer": "since",
+      "reviewStatus": "reviewed",
+      "explanation": "point in time (his childhood)"
+    },
+    {
+      "id": "present-perfect-q006",
+      "type": "mcq",
+      "topicId": "present-perfect",
+      "prompt": "My sister ............ at university for three years. She comes home every weekend. (2011)",
+      "options": [
+        "is",
+        "has been",
+        "is being",
+        "had been"
+      ],
+      "answer": "has been",
+      "reviewStatus": "reviewed",
+      "explanation": "started in the past and still true (for three years)"
+    },
+    {
+      "id": "present-perfect-q007",
+      "type": "mcq",
+      "topicId": "present-perfect",
+      "prompt": "It's a month ............ Hend last visited her uncle. (Sudan 2011)",
+      "options": [
+        "for",
+        "since",
+        "of",
+        "to"
+      ],
+      "answer": "since",
+      "reviewStatus": "reviewed",
+      "explanation": "It’s + time + since + past simple"
+    },
+    {
+      "id": "present-perfect-q008",
+      "type": "mcq",
+      "topicId": "present-perfect",
+      "prompt": "It's more than 40 years ............ I travelled abroad. (2012)",
+      "options": [
+        "while",
+        "before",
+        "when",
+        "since"
+      ],
+      "answer": "since",
+      "reviewStatus": "reviewed",
+      "explanation": "same pattern as 7"
+    },
+    {
+      "id": "present-perfect-q009",
+      "type": "mcq",
+      "topicId": "present-perfect",
+      "prompt": "I have been learning English ............ 2 years. (Sudan 2012)",
+      "options": [
+        "ever",
+        "yet",
+        "since",
+        "for"
+      ],
+      "answer": "for",
+      "reviewStatus": "reviewed",
+      "explanation": "period of time (2 years)"
+    },
+    {
+      "id": "present-perfect-q010",
+      "type": "mcq",
+      "topicId": "present-perfect",
+      "prompt": "Tamer ............ his own room since they moved to the new house in Cairo. (2014)",
+      "options": [
+        "is having",
+        "has",
+        "has had",
+        "had"
+      ],
+      "answer": "has had",
+      "reviewStatus": "reviewed",
+      "explanation": "since + stative verb, so present perfect simple"
+    },
+    {
+      "id": "present-perfect-q011",
+      "type": "mcq",
+      "topicId": "present-perfect",
+      "prompt": "I ............ three books this week. (2018)",
+      "options": [
+        "have been reading",
+        "had been reading",
+        "have read",
+        "has read"
+      ],
+      "answer": "have read",
+      "reviewStatus": "reviewed",
+      "explanation": "a number of finished things (three books), so simple, not continuous"
+    },
+    {
+      "id": "present-perfect-q012",
+      "type": "mcq",
+      "topicId": "present-perfect",
+      "prompt": "I ............ reading short stories since I was a young child. (2018)",
+      "options": [
+        "enjoyed",
+        "has enjoyed",
+        "have enjoyed",
+        "enjoy"
+      ],
+      "answer": "have enjoyed",
+      "reviewStatus": "reviewed",
+      "explanation": "since I was a child"
+    },
+    {
+      "id": "present-perfect-q013",
+      "type": "mcq",
+      "topicId": "present-perfect",
+      "prompt": "This is the longest flyover ............ built in Egypt. (2018)",
+      "options": [
+        "just",
+        "ever",
+        "every",
+        "never"
+      ],
+      "answer": "ever",
+      "reviewStatus": "reviewed",
+      "explanation": "superlative + ever"
+    },
+    {
+      "id": "present-perfect-q014",
+      "type": "mcq",
+      "topicId": "present-perfect",
+      "prompt": "Oh! I ............ my mobile. What can I do? (2019)",
+      "options": [
+        "had broken",
+        "was breaking",
+        "have broken",
+        "broke"
+      ],
+      "answer": "have broken",
+      "reviewStatus": "reviewed",
+      "explanation": "recent action with a result now (What can I do?)"
+    },
+    {
+      "id": "present-perfect-q015",
+      "type": "mcq",
+      "topicId": "present-perfect",
+      "prompt": "He.........to the bank to draw some money. He will be back in half an hour. (Azhar 2019)",
+      "options": [
+        "has been",
+        "has gone",
+        "had been",
+        "was going"
+      ],
+      "answer": "has gone",
+      "reviewStatus": "reviewed",
+      "explanation": "he’s still there and will be back later"
+    },
+    {
+      "id": "present-perfect-q016",
+      "type": "mcq",
+      "topicId": "present-perfect",
+      "prompt": "Dr. Tamer ............ four patients so far this morning. (Azhar 2019)",
+      "options": [
+        "had seen",
+        "has seen",
+        "saw",
+        "was seen"
+      ],
+      "answer": "has seen",
+      "reviewStatus": "reviewed",
+      "explanation": "so far + a number (four patients)"
+    },
+    {
+      "id": "present-perfect-q017",
+      "type": "mcq",
+      "topicId": "present-perfect",
+      "prompt": "Nothing like this ............ to her. (2019)",
+      "options": [
+        "has happened",
+        "has never happened",
+        "has ever happened",
+        "happened"
+      ],
+      "answer": "has ever happened",
+      "reviewStatus": "reviewed",
+      "explanation": "nothing is already negative, so use ever, not never"
+    },
+    {
+      "id": "present-perfect-q018",
+      "type": "mcq",
+      "topicId": "present-perfect",
+      "prompt": "In the last two hours, I ............ my lessons. (2020)",
+      "options": [
+        "had revised",
+        "have revised",
+        "revise",
+        "revised"
+      ],
+      "answer": "have revised",
+      "reviewStatus": "reviewed",
+      "explanation": "in the last two hours"
+    },
+    {
+      "id": "present-perfect-q019",
+      "type": "mcq",
+      "topicId": "present-perfect",
+      "prompt": "I ............ my classmates for many years now. (2020)",
+      "options": [
+        "have been knowing",
+        "have known",
+        "had know",
+        "had been knowing"
+      ],
+      "answer": "have known",
+      "reviewStatus": "reviewed",
+      "explanation": "know is stative, so no continuous"
+    },
+    {
+      "id": "present-perfect-q020",
+      "type": "mcq",
+      "topicId": "present-perfect",
+      "prompt": "So far, many schools ............ in rural and urban areas. (2020)",
+      "options": [
+        "will have been built",
+        "are building",
+        "have been built",
+        "were built"
+      ],
+      "answer": "have been built",
+      "reviewStatus": "reviewed",
+      "explanation": "so far + passive (schools are built by someone)"
+    },
+    {
+      "id": "present-perfect-q021",
+      "type": "mcq",
+      "topicId": "present-perfect",
+      "prompt": "It’s been 2 weeks since I last ............ Sara. (2021)",
+      "options": [
+        "phoned",
+        "phone",
+        "have phoned",
+        "had phoned"
+      ],
+      "answer": "phoned",
+      "reviewStatus": "reviewed",
+      "explanation": "since I last + past simple"
+    },
+    {
+      "id": "present-perfect-q022",
+      "type": "mcq",
+      "topicId": "present-perfect",
+      "prompt": "Having ............ , he was sent to prison. (2021)",
+      "options": [
+        "been arrested",
+        "arrested",
+        "had arrested",
+        "arresting"
+      ],
+      "answer": "been arrested",
+      "reviewStatus": "reviewed",
+      "explanation": "perfect participle, passive (he was arrested)"
+    },
+    {
+      "id": "present-perfect-q023",
+      "type": "mcq",
+      "topicId": "present-perfect",
+      "prompt": "This is the best meal I ............ . (Azhar 2021)",
+      "options": [
+        "had ever had",
+        "have ever had",
+        "ever have",
+        "have never had"
+      ],
+      "answer": "have ever had",
+      "reviewStatus": "reviewed",
+      "explanation": "superlative + ever"
+    },
+    {
+      "id": "present-perfect-q024",
+      "type": "mcq",
+      "topicId": "present-perfect",
+      "prompt": "I ............ to the stadium for ages. (Azhar 2021)",
+      "options": [
+        "haven’t gone",
+        "hadn’t gone",
+        "wasn’t going",
+        "haven’t been"
+      ],
+      "answer": "haven’t been",
+      "reviewStatus": "reviewed",
+      "explanation": "been to = visited, for ages"
+    },
+    {
+      "id": "present-perfect-q025",
+      "type": "mcq",
+      "topicId": "present-perfect",
+      "prompt": "Have you ............ lived abroad before? (Azhar 2021)",
+      "options": [
+        "ever",
+        "never",
+        "just",
+        "yet"
+      ],
+      "answer": "ever",
+      "reviewStatus": "reviewed",
+      "explanation": "question about any time in your life"
+    },
+    {
+      "id": "present-perfect-q026",
+      "type": "mcq",
+      "topicId": "present-perfect",
+      "prompt": "She ............ any meetings since she came here. (Azhar 2022)",
+      "options": [
+        "wasn’t attending",
+        "doesn’t attend",
+        "won’t attend",
+        "hasn’t attended"
+      ],
+      "answer": "hasn’t attended",
+      "reviewStatus": "reviewed",
+      "explanation": "since she came here"
+    },
+    {
+      "id": "present-perfect-q027",
+      "type": "mcq",
+      "topicId": "present-perfect",
+      "prompt": "She ............ to the market. She will be here soon. (Azhar 2022)",
+      "options": [
+        "has been",
+        "has gone",
+        "was going",
+        "had been"
+      ],
+      "answer": "has gone",
+      "reviewStatus": "reviewed",
+      "explanation": "she’s at the market now and will be back soon"
+    },
+    {
+      "id": "present-perfect-q028",
+      "type": "mcq",
+      "topicId": "present-perfect",
+      "prompt": "They ............ each other for a long time. (Azhar 2023)",
+      "options": [
+        "have known",
+        "have been knowing",
+        "had been knowing",
+        "are knowing"
+      ],
+      "answer": "have known",
+      "reviewStatus": "reviewed",
+      "explanation": "stative verb + for a long time"
+    },
+    {
+      "id": "present-perfect-q029",
+      "type": "mcq",
+      "topicId": "present-perfect",
+      "prompt": "Although he...........to France twice this year, he's going again next week. (Azhar 2024)",
+      "options": [
+        "goes",
+        "has gone",
+        "has been",
+        "will have gone"
+      ],
+      "answer": "has been",
+      "reviewStatus": "reviewed",
+      "explanation": "he went and came back (twice this year)"
+    },
+    {
+      "id": "present-perfect-q030",
+      "type": "mcq",
+      "topicId": "present-perfect",
+      "prompt": "You look scared. ............ anything frightening? (2024 دور تانى)",
+      "options": [
+        "Had you seen",
+        "Did you see",
+        "Have you seen",
+        "Do you see"
+      ],
+      "answer": "Have you seen",
+      "reviewStatus": "reviewed",
+      "explanation": "present evidence (You look scared) of a recent experience"
+    },
+    {
+      "id": "present-perfect-q378",
+      "type": "mcq",
+      "topicId": "present-perfect",
+      "prompt": "Fady broke his leg and has to stay in bed, so he........a lot of films recently! (Workbook)",
+      "options": [
+        "is watching",
+        "has been watching",
+        "was watching",
+        "will be watching"
+      ],
+      "answer": "has been watching",
+      "reviewStatus": "reviewed",
+      "explanation": "repeated activity over a recent period (recently)"
+    },
+    {
+      "id": "present-perfect-q379",
+      "type": "mcq",
+      "topicId": "present-perfect",
+      "prompt": "Hana ............ all her exams and is going to start at university next month. (Workbook)",
+      "options": [
+        "has passed",
+        "has been passing",
+        "passes",
+        "will be passing"
+      ],
+      "answer": "has passed",
+      "reviewStatus": "reviewed",
+      "explanation": "completed result (all her exams)"
+    },
+    {
+      "id": "present-perfect-q380",
+      "type": "mcq",
+      "topicId": "present-perfect",
+      "prompt": "The village streets are muddy because it ............ all night. (Workbook)",
+      "options": [
+        "had rained",
+        "had been raining",
+        "has been raining",
+        "will be raining"
+      ],
+      "answer": "has been raining",
+      "reviewStatus": "reviewed",
+      "explanation": "the present result (muddy streets) of a long activity"
+    },
+    {
+      "id": "present-perfect-q381",
+      "type": "mcq",
+      "topicId": "present-perfect",
+      "prompt": "He is still doing the exercise. He ............ it for two hours now. (Workbook)",
+      "options": [
+        "has done",
+        "has been doing",
+        "had been doing",
+        "was doing"
+      ],
+      "answer": "has been doing",
+      "reviewStatus": "reviewed",
+      "explanation": "still in progress + for two hours now"
+    },
+    {
+      "id": "present-perfect-q382",
+      "type": "mcq",
+      "topicId": "present-perfect",
+      "prompt": "Scientists ............ the side effects of COVID-19 for years; they are still doing this task. (Workbook)",
+      "options": [
+        "had been researching",
+        "have researching",
+        "have been researching",
+        "were researching"
+      ],
+      "answer": "have been researching",
+      "reviewStatus": "reviewed",
+      "explanation": "for years + still doing it"
+    },
+    {
+      "id": "present-perfect-q383",
+      "type": "mcq",
+      "topicId": "present-perfect",
+      "prompt": "Hisham has been living in Tanta ............ he left his village. (2014)",
+      "options": [
+        "since",
+        "for",
+        "ago",
+        "when"
+      ],
+      "answer": "since",
+      "reviewStatus": "reviewed",
+      "explanation": "since + past simple (he left)"
+    },
+    {
+      "id": "present-perfect-q384",
+      "type": "mcq",
+      "topicId": "present-perfect",
+      "prompt": "What ............ falling from the sky? B: I'm not sure, perhaps it is a ball. (2015)",
+      "options": [
+        "has seen",
+        "has been seen",
+        "have seen",
+        "are seen"
+      ],
+      "answer": "has been seen",
+      "reviewStatus": "reviewed",
+      "explanation": "passive, because the thing was seen falling"
+    },
+    {
+      "id": "present-perfect-q385",
+      "type": "mcq",
+      "topicId": "present-perfect",
+      "prompt": "Since I graduated, I ............ in this bank. (2016)",
+      "options": [
+        "will work",
+        "has worked",
+        "worked",
+        "have been working"
+      ],
+      "answer": "have been working",
+      "reviewStatus": "reviewed",
+      "explanation": "since I graduated, still ongoing"
+    }
+  ]
 }

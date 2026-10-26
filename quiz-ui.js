@@ -54,12 +54,25 @@
     return question.difficulty ? [t('Difficulty: {level}', { level: t(question.difficulty) })] : [];
   }
 
-  /* The question text, with the number above it (interface language). */
-  function promptNodes(question, numberText) {
-    return [
-      numberText ? ui('span', { className: 'question-number', text: numberText }) : null,
-      el('span', { className: 'prompt-text' }, [G12.renderPrompt(question.prompt)])
-    ];
+  /* A friendly picture before each question. It is decoration only, so
+     screen readers skip it (aria-hidden). */
+  var QUESTION_ICONS = ['✏️', '💡', '🤔', '🎯', '📝', '🌟', '📚', '🧠'];
+
+  /* The picture, then the question text with the number above it
+     (interface language). index is the question's position in the list. */
+  function promptNodes(question, numberText, index) {
+    index = index || 0;
+    return [el('span', { className: 'question-head' }, [
+      el('span', {
+        className: 'question-icon question-icon--' + (index % 4),
+        'aria-hidden': 'true',
+        text: QUESTION_ICONS[index % QUESTION_ICONS.length]
+      }),
+      el('span', { className: 'question-main' }, [
+        numberText ? ui('span', { className: 'question-number', text: numberText }) : null,
+        el('span', { className: 'prompt-text' }, [G12.renderPrompt(question.prompt)])
+      ])
+    ])];
   }
 
   G12.renderQuiz = function (container, questions, options) {
@@ -130,7 +143,7 @@
           list.appendChild(li);
         });
         form.appendChild(el('fieldset', { dir: 'auto' }, [
-          el('legend', { className: 'question-legend' }, promptNodes(question, null)),
+          el('legend', { className: 'question-legend' }, promptNodes(question, null, quiz.index)),
           badges,
           list
         ]));
@@ -138,7 +151,7 @@
         var textareaId = fieldName + '-answer';
         textarea = el('textarea', { id: textareaId, dir: 'auto', rows: '5' });
         form.appendChild(el('div', { className: 'form-row' }, [
-          el('label', { className: 'question-legend', for: textareaId, dir: 'auto' }, promptNodes(question, null)),
+          el('label', { className: 'question-legend', for: textareaId, dir: 'auto' }, promptNodes(question, null, quiz.index)),
           badges,
           el('p', { className: 'hint', id: textareaId + '-hint', text: reviewed
             ? t('Write your answer, then submit it to compare it with the correct answer. Written answers are not scored automatically.')
@@ -607,14 +620,14 @@
           optionList.appendChild(optionLi);
         });
         li.appendChild(el('fieldset', { dir: 'auto' }, [
-          el('legend', { className: 'question-legend' }, promptNodes(question, numberText)),
+          el('legend', { className: 'question-legend' }, promptNodes(question, numberText, index)),
           G12.badges(question, labels),
           optionList
         ]));
       } else {
         textarea = el('textarea', { id: id + '-answer', dir: 'auto', rows: '4', 'data-question': question.id });
         li.appendChild(el('div', { className: 'form-row' }, [
-          el('label', { className: 'question-legend', for: id + '-answer', dir: 'auto' }, promptNodes(question, numberText)),
+          el('label', { className: 'question-legend', for: id + '-answer', dir: 'auto' }, promptNodes(question, numberText, index)),
           G12.badges(question, labels),
           el('p', { className: 'hint', id: id + '-hint', text: t('Written answers are not scored automatically.') }),
           textarea

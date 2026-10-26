@@ -13,12 +13,22 @@
   var root = document.getElementById('page-root');
   var PAGE = 'grammar.html';
 
+  var questionMode = 'one'; // how a lesson's questions are shown (kept when the language changes)
+
   G12.showPage(['units', 'lessons', 'summaries', 'questions'], function (content) {
     var topicId = G12.param('topic') || G12.param('lesson');
     if (topicId) renderLesson(content, topicId);
     else renderList(content, G12.param('unit'));
   }, function (error) {
     G12.showError(root, error, { title: t('Grammar Lessons') });
+  });
+
+  /* Switching language draws the lesson again, so answers already given to
+     its questions would be cleared: ask first. */
+  G12.beforeLanguageChange(function () {
+    return G12.hasAnswers(root.querySelector('.lesson-questions'))
+      ? t('Changing the language starts the questions on this page again, and your answers so far will be cleared. Change the language?')
+      : null;
   });
 
   function lessonHref(lesson) {
@@ -157,14 +167,22 @@
     var notice = G12.reviewNotice(lesson, 'lesson');
     if (notice) root.appendChild(notice);
 
+    var lessonQuestions = content.questions.filter(function (q) { return q.topicId === lesson.id; });
     var body = el('div', { className: 'lesson-body', dir: 'auto' });
-    if (lesson.sections.length === 0) {
+    if (lesson.sections.length === 0 && lessonQuestions.length === 0) {
       body.appendChild(el('p', { text: t('This lesson has no content yet.') }));
     }
     lesson.sections.forEach(function (section) {
       body.appendChild(renderSection(section));
     });
-    root.appendChild(body);
+    if (body.childNodes.length) root.appendChild(body);
+
+    /* The lesson's practice questions, in the order they are stored. */
+    if (lessonQuestions.length) {
+      var questionArea = el('section', { className: 'lesson-questions', 'aria-label': t('Questions about {title}', { title: lesson.title }) });
+      root.appendChild(questionArea);
+      renderLessonQuestions(questionArea, lesson, lessonQuestions, questionMode, false);
+    }
 
     var summary = summaryFor(content, lesson.id);
     var count = questionCount(content, lesson.id);
@@ -184,6 +202,36 @@
       previous ? el('a', { href: lessonHref(previous), text: t('← {title}', { title: previous.title }) }) : el('span'),
       next ? el('a', { href: lessonHref(next), text: t('{title} →', { title: next.title }) }) : el('span')
     ]));
+  }
+
+  /* The questions of one lesson: one at a time (feedback after each answer)
+     or all at once, always in the stored order. Same layout as the
+     questions on the Reading page. */
+  function renderLessonQuestions(area, lesson, questions, mode, moveFocus) {
+    questionMode = mode;
+    G12.clear(area);
+    var switcher = el('div', { className: 'mode-switch', role: 'group', 'aria-label': t('How to answer the questions') },
+      [{ value: 'one', label: t('One at a time') }, { value: 'all', label: t('All questions') }].map(function (option) {
+        return el('button', {
+          type: 'button',
+          className: 'btn btn--secondary btn--small',
+          'aria-pressed': String(option.value === mode),
+          text: option.label,
+          onclick: function () {
+            if (option.value !== mode) renderLessonQuestions(area, lesson, questions, option.value, true);
+          }
+        });
+      }));
+    var holder = el('div');
+    area.appendChild(switcher);
+    area.appendChild(holder);
+    var label = t('Questions about {title}', { title: lesson.title });
+    if (mode === 'all') {
+      G12.renderWorksheet(holder, questions, { label: label, title: t('Questions') });
+    } else {
+      G12.renderQuiz(holder, questions, { label: label, shuffle: false });
+    }
+    if (moveFocus) G12.focus(holder.querySelector('h2'));
   }
 
   /* ---------- Lesson sections ---------- */
