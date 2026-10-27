@@ -109,6 +109,7 @@
      ========================================================================== */
   G12.countChoice = function (config) {
     var available = config.available;
+    var max = config.max || available;   // the largest number that can be typed
     var name = config.id;
     var presets = (config.presets || []).filter(function (n) { return n < available; });
     var values = ['all'].concat(presets.map(String), ['custom']);
@@ -120,7 +121,7 @@
       var id = name + '-' + value;
       var input = el('input', { type: 'radio', id: id, name: name, value: value, checked: value === current });
       radios[value] = input;
-      var text = value === 'all' ? t('All questions ({count})', { count: available })
+      var text = value === 'all' ? t('All available questions ({count})', { count: available })
         : value === 'custom' ? t('Custom number')
           : G12.plural(Number(value), 'question');
       return el('label', { for: id, className: 'count-option' }, [input, el('span', { text: text })]);
@@ -143,7 +144,7 @@
       el('div', { className: 'count-options' }, options),
       el('div', { className: 'count-custom' }, [
         el('label', { for: customId, text: t('Custom number of questions') }),
-        el('p', { className: 'hint', id: customHintId, text: t('A whole number from 1 to {max}.', { max: available }) }),
+        el('p', { className: 'hint', id: customHintId, text: t('A whole number from 1 to {max}.', { max: max }) }),
         customInput,
         customError
       ]),
@@ -194,7 +195,7 @@
 
     /* What is wrong with the typed number, in the interface language. */
     function problem(error) {
-      var params = { max: available, questions: G12.plural(available, 'question') };
+      var params = { max: max, questions: G12.plural(max, 'question') };
       if (error === 'empty') return t('Enter how many questions you want, from 1 to {max}.', params);
       if (error === 'too-small') return t('Choose at least 1 question (a number from 1 to {max}).', params);
       if (error === 'too-big') return t('There are only {questions}. Enter a number from 1 to {max}.', params);
@@ -212,7 +213,7 @@
       }
       if (value === 'all') return { count: null };
       if (value !== 'custom') return { count: Number(value) };
-      var parsed = G12.QuizEngine.parseCount(customInput.value, available);
+      var parsed = G12.QuizEngine.parseCount(customInput.value, max);
       if (parsed.error) {
         customError.textContent = problem(parsed.error);
         customError.hidden = false;
@@ -221,10 +222,116 @@
         customInput.focus();
         return { error: parsed.error };
       }
-      return { count: parsed.count >= available ? null : parsed.count };
+      return { count: parsed.count };
     }
 
-    return { element: fieldset, read: read, state: state };
+    /* The "All available questions (n)" choice shows how many questions
+       there are, for example at the difficulty level chosen. */
+    function setAll(count) {
+      radios.all.parentNode.lastChild.textContent = t('All available questions ({count})', { count: count });
+    }
+
+    return { element: fieldset, read: read, state: state, setAll: setAll };
+  };
+
+  /* ==========================================================================
+     Exam settings, shared by every grammar lesson and Grammar Practice:
+     "What difficulty level would you like?" (Easy, Medium, Hard or Mixed)
+     and "How many questions would you like to solve?".
+
+     var settings = G12.examSettings({
+       id: 'lesson',               // ids: lesson-level-…, lesson-count-…
+       questions: [...],           // the question bank to choose from
+       presets: [10, 15, 20, 30],
+       level: 'mixed',             // 'easy' | 'medium' | 'hard' | 'mixed'
+       value: null, custom: '',    // the question-count choice (see countChoice)
+       hint: '…',
+       onChange: function (state) {}   // { level, value, custom }
+     });
+     settings.elements   the two fieldsets, to put in a form
+     settings.read()     { level, count } (count null = all) or { error }
+     Every question needs a difficulty for Easy/Medium/Hard; questions
+     without one are only used in Mixed exams.
+     ========================================================================== */
+  G12.examLevels = function () {
+    return [
+      { value: 'easy', label: t('Easy') },
+      { value: 'medium', label: t('Medium') },
+      { value: 'hard', label: t('Hard') },
+      { value: 'mixed', label: t('Mixed') }
+    ];
+  };
+
+  G12.examLevelName = function (level) {
+    return G12.examLevels().filter(function (item) { return item.value === level; })[0].label;
+  };
+
+  G12.examSettings = function (config) {
+    var questions = config.questions || [];
+    var name = config.id;
+    function sizeOf(level) {
+      return level === 'mixed' ? questions.length : questions.filter(function (q) { return q.difficulty === level; }).length;
+    }
+    var level = config.level && sizeOf(config.level) > 0 ? config.level : 'mixed';
+
+    var count = G12.countChoice({
+      id: name + '-count',
+      available: questions.length,
+      max: questions.length,
+      presets: config.presets,
+      value: config.value,
+      custom: config.custom,
+      hint: config.hint,
+      onChange: changed
+    });
+
+    var levelFieldset = el('fieldset', { className: 'form-row level-choice' }, [
+      el('legend', { text: t('What difficulty level would you like?') }),
+      el('div', { className: 'level-options' }, G12.examLevels().map(function (item) {
+        var id = name + '-level-' + item.value;
+        var size = sizeOf(item.value);
+        return el('label', { for: id, className: 'level-option' + (size ? '' : ' level-option--empty') }, [
+          el('input', { type: 'radio', id: id, name: name + '-level', value: item.value, checked: item.value === level, disabled: size === 0 }),
+          el('span', { text: t('{title} ({count})', { title: item.label, count: size }) })
+        ]);
+      }))
+    ]);
+    levelFieldset.addEventListener('change', function (event) {
+      level = event.target.value;
+      count.setAll(sizeOf(level));
+      changed();
+    });
+    count.setAll(sizeOf(level));
+
+    function state() {
+      var countState = count.state();
+      return { level: level, value: countState.value, custom: countState.custom };
+    }
+
+    function changed() {
+      if (config.onChange) config.onChange(state());
+    }
+
+    function read() {
+      var chosen = count.read();
+      if (chosen.error) return chosen;
+      return { level: level, count: chosen.count };
+    }
+
+    return { elements: [levelFieldset, count.element], read: read, state: state };
+  };
+
+  /* The message shown above an exam that has fewer questions than asked for
+     (not enough at the chosen level). exam: the result of buildExam. */
+  G12.examNotice = function (exam, level) {
+    if (!exam || !exam.adjusted) return null;
+    return el('div', { className: 'notice notice--info exam-notice', role: 'status' }, [
+      el('p', { text: t('You asked for {requested}, but there are only {available} at the {level} level, so this exam has all of them.', {
+        requested: G12.plural(exam.requested, 'question'),
+        available: G12.plural(exam.available, 'question'),
+        level: G12.examLevelName(level)
+      }) })
+    ]);
   };
 
   G12.renderQuiz = function (container, questions, options) {

@@ -284,3 +284,76 @@ test('a submitted question cannot be submitted again (no double counting)', () =
   assert.throws(() => quiz.submit('B'), /already been answered/);
   assert.equal(quiz.results().firstTryMatches, 1);
 });
+
+/* ---------- Exams by difficulty ---------- */
+
+const { buildExam } = require('../quiz-engine.js');
+
+function levelled(easy, medium, hard, none = 0) {
+  const list = [];
+  const add = (n, level) => { for (let i = 0; i < n; i++) list.push({ id: (level || 'none') + i, difficulty: level }); };
+  add(easy, 'easy'); add(medium, 'medium'); add(hard, 'hard'); add(none, undefined);
+  return list;
+}
+
+test('buildExam: one level gives only that level, the number asked for, no repeats', () => {
+  const bank = levelled(59, 96, 33);
+  for (const level of ['easy', 'medium', 'hard']) {
+    for (const count of [10, 15, 20, 30]) {
+      const exam = buildExam(bank, { level, count });
+      assert.equal(exam.questions.length, count);
+      assert.ok(exam.questions.every((q) => q.difficulty === level));
+      assert.equal(new Set(exam.questions.map((q) => q.id)).size, count);
+      assert.equal(exam.adjusted, false);
+    }
+  }
+});
+
+test('buildExam: mixed takes questions from every level, in proportion', () => {
+  const bank = levelled(59, 96, 33);
+  for (const count of [3, 10, 15, 20, 30, 100]) {
+    for (let run = 0; run < 30; run++) {
+      const exam = buildExam(bank, { level: 'mixed', count });
+      const levels = exam.questions.map((q) => q.difficulty);
+      assert.equal(exam.questions.length, count);
+      assert.equal(new Set(exam.questions.map((q) => q.id)).size, count, 'no repeats');
+      for (const level of ['easy', 'medium', 'hard']) assert.ok(levels.includes(level), count + ' has ' + level);
+    }
+  }
+  const twenty = buildExam(bank, { level: 'mixed', count: 20 }).questions;
+  const counted = (level) => twenty.filter((q) => q.difficulty === level).length;
+  assert.deepEqual([counted('easy'), counted('medium'), counted('hard')], [6, 10, 4], 'shares follow the bank: 59/96/33 of 188');
+  // Fewer questions than levels: no level is forced in, still the right number.
+  assert.equal(buildExam(bank, { level: 'mixed', count: 2 }).questions.length, 2);
+  // A level with very few questions still gets one.
+  const lopsided = buildExam(levelled(100, 100, 1), { level: 'mixed', count: 10 }).questions;
+  assert.ok(lopsided.some((q) => q.difficulty === 'hard'));
+  assert.equal(lopsided.length, 10);
+  // Questions without a level are part of a mixed exam too.
+  assert.equal(buildExam(levelled(3, 3, 3, 3), { level: 'mixed', count: null }).questions.length, 12);
+});
+
+test('buildExam: all questions, or more than there are, gives every question once (adjusted when too many)', () => {
+  const bank = levelled(59, 96, 33);
+  const all = buildExam(bank, { level: 'mixed', count: null });
+  assert.equal(all.questions.length, 188);
+  assert.deepEqual(all.questions.map((q) => q.id).sort(), bank.map((q) => q.id).sort());
+  assert.equal(all.adjusted, false);
+  const hard = buildExam(bank, { level: 'hard', count: 50 });
+  assert.equal(hard.questions.length, 33);
+  assert.ok(hard.questions.every((q) => q.difficulty === 'hard'));
+  assert.deepEqual([hard.adjusted, hard.available, hard.requested], [true, 33, 50]);
+  const allHard = buildExam(bank, { level: 'hard', count: null });
+  assert.deepEqual([allHard.questions.length, allHard.adjusted], [33, false]);
+  const none = buildExam(levelled(5, 0, 0), { level: 'hard', count: 10 });
+  assert.deepEqual([none.questions.length, none.available, none.adjusted], [0, 0, true]);
+});
+
+test('buildExam: the order is random, so two exams of all questions differ', () => {
+  const bank = levelled(59, 96, 33);
+  const a = buildExam(bank, { level: 'mixed', count: null }).questions.map((q) => q.id);
+  const b = buildExam(bank, { level: 'mixed', count: null }).questions.map((q) => q.id);
+  assert.notDeepEqual(a, b);
+  assert.notDeepEqual(a, bank.map((q) => q.id));
+  assert.throws(() => buildExam(bank, { level: 'easy', count: 0 }), /whole number/);
+});

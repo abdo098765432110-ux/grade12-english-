@@ -2528,6 +2528,486 @@
       "explanation": "Present perfect in the main clause, past simple after since",
       "difficulty": "hard",
       "reviewStatus": "reviewed"
+    },
+    {
+      "id": "present-perfect-set3-q001",
+      "type": "mcq",
+      "topicId": "present-perfect",
+      "prompt": "Seldom .......... such a talented student in all my years of teaching.",
+      "options": [
+        "I have met",
+        "have I met",
+        "did I met",
+        "I met"
+      ],
+      "answer": "have I met",
+      "explanation": "Seldom at the start causes inversion; “in all my years” = up to now",
+      "difficulty": "hard",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "present-perfect-set3-q002",
+      "type": "mcq",
+      "topicId": "present-perfect",
+      "prompt": "Hardly ever .......... late since she joined the company.",
+      "options": [
+        "she has been",
+        "was she",
+        "has she been",
+        "she was"
+      ],
+      "answer": "has she been",
+      "explanation": "Hardly ever at the start causes inversion; since needs present perfect",
+      "difficulty": "hard",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "present-perfect-set3-q003",
+      "type": "mcq",
+      "topicId": "present-perfect",
+      "prompt": "Not having .......... the instructions carefully, he made several mistakes.",
+      "options": [
+        "reading",
+        "read",
+        "been read",
+        "reads"
+      ],
+      "answer": "read",
+      "explanation": "Not having + past participle (he didn’t read them first)",
+      "difficulty": "hard",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "present-perfect-set3-q004",
+      "type": "mcq",
+      "topicId": "present-perfect",
+      "prompt": "Having been .......... about the storm, the fishermen stayed in the harbour.",
+      "options": [
+        "warning",
+        "warn",
+        "warns",
+        "warned"
+      ],
+      "answer": "warned",
+      "explanation": "Passive perfect participle: they were warned first",
+      "difficulty": "hard",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "present-perfect-set3-q005",
+      "type": "mcq",
+      "topicId": "present-perfect",
+      "prompt": "My uncle .......... his car repaired three times since he bought it.",
+      "options": [
+        "has had",
+        "had",
+        "has been",
+        "has"
+      ],
+      "answer": "has had",
+      "explanation": "Causative: has had + object + past participle (a mechanic repaired it)",
+      "difficulty": "hard",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "present-perfect-set3-q006",
+      "type": "mcq",
+      "topicId": "present-perfect",
+      "prompt": "Since when .......... interested in astronomy?",
+      "options": [
+        "are you",
+        "were you",
+        "had you been",
+        "have you been"
+      ],
+      "answer": "have you been",
+      "explanation": "Since when asks about the start of a state that is still true now",
+      "difficulty": "medium",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "present-perfect-set3-q007",
+      "type": "mcq",
+      "topicId": "present-perfect",
+      "prompt": "How long ago .......... your first job?",
+      "options": [
+        "have you started",
+        "have you been starting",
+        "did you start",
+        "do you start"
+      ],
+      "answer": "did you start",
+      "explanation": "How long ago = a finished past time, so past simple",
+      "difficulty": "medium",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "present-perfect-set3-q008",
+      "type": "mcq",
+      "topicId": "present-perfect",
+      "prompt": "This is the second time this month that the lift .......... down.",
+      "options": [
+        "breaks",
+        "broke",
+        "is breaking",
+        "has broken"
+      ],
+      "answer": "has broken",
+      "explanation": "This is the second time + present perfect",
+      "difficulty": "medium",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "present-perfect-set3-q009",
+      "type": "mcq",
+      "topicId": "present-perfect",
+      "prompt": "The last time I .......... Ahmed was at his wedding.",
+      "options": [
+        "saw",
+        "have seen",
+        "have been seeing",
+        "had seen"
+      ],
+      "answer": "saw",
+      "explanation": "The last time + past simple",
+      "difficulty": "medium",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "present-perfect-set3-q010",
+      "type": "mcq",
+      "topicId": "present-perfect",
+      "prompt": "Since the new manager .......... , sales .......... by 20%.",
+      "options": [
+        "has arrived / rose",
+        "has arrived / have risen",
+        "arrived / have risen",
+        "arrived / rose"
+      ],
+      "answer": "arrived / have risen",
+      "explanation": "Since + past simple (the starting point); main clause present perfect",
+      "difficulty": "hard",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "present-perfect-set3-q011",
+      "type": "mcq",
+      "topicId": "present-perfect",
+      "prompt": "Hassan .......... the walls since 8 a.m. So far he .......... three rooms.",
+      "options": [
+        "has painted / has been painting",
+        "painted / has painted",
+        "has been painting / painted",
+        "has been painting / has painted"
+      ],
+      "answer": "has been painting / has painted",
+      "explanation": "Since 8 a.m. = ongoing activity (continuous); three rooms = amount done (simple)",
+      "difficulty": "hard",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "present-perfect-set3-q012",
+      "type": "mcq",
+      "topicId": "present-perfect",
+      "prompt": "Omar and Laila .......... each other for ten years before they finally got married last spring.",
+      "options": [
+        "have known",
+        "have been knowing",
+        "had known",
+        "know"
+      ],
+      "answer": "had known",
+      "explanation": "Before a finished past event (married last spring), so past perfect, not present perfect",
+      "difficulty": "hard",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "present-perfect-set3-q013",
+      "type": "mcq",
+      "topicId": "present-perfect",
+      "prompt": "“Has the parcel arrived yet?” “No, it .......... .”",
+      "options": [
+        "still hasn't",
+        "hasn't still",
+        "didn't yet",
+        "yet hasn't"
+      ],
+      "answer": "still hasn't",
+      "explanation": "Still comes before the negative auxiliary: still hasn’t",
+      "difficulty": "medium",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "present-perfect-set3-q014",
+      "type": "mcq",
+      "topicId": "present-perfect",
+      "prompt": "Wow! You've .......... finished your homework, and you only started ten minutes ago.",
+      "options": [
+        "yet",
+        "still",
+        "already",
+        "ever"
+      ],
+      "answer": "already",
+      "explanation": "Already in an affirmative sentence = sooner than expected",
+      "difficulty": "easy",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "present-perfect-set3-q015",
+      "type": "mcq",
+      "topicId": "present-perfect",
+      "prompt": "“Have you ever been to Siwa?” “Yes, I .......... there in 2019.”",
+      "options": [
+        "have been",
+        "have gone",
+        "had been",
+        "went"
+      ],
+      "answer": "went",
+      "explanation": "In 2019 is a specific past time, so past simple",
+      "difficulty": "medium",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "present-perfect-set3-q016",
+      "type": "mcq",
+      "topicId": "present-perfect",
+      "prompt": "Ever since she .......... her first novel, she .......... famous.",
+      "options": [
+        "has published / was",
+        "published / has been",
+        "published / was",
+        "has published / has been"
+      ],
+      "answer": "published / has been",
+      "explanation": "Since + past simple; main clause present perfect (she is still famous)",
+      "difficulty": "hard",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "present-perfect-set3-q017",
+      "type": "mcq",
+      "topicId": "present-perfect",
+      "prompt": "That's the third time you .......... me that story!",
+      "options": [
+        "have told",
+        "told",
+        "tell",
+        "are telling"
+      ],
+      "answer": "have told",
+      "explanation": "That’s the third time + present perfect",
+      "difficulty": "medium",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "present-perfect-set3-q018",
+      "type": "mcq",
+      "topicId": "present-perfect",
+      "prompt": "The thief .......... yet, so the police are still searching.",
+      "options": [
+        "hasn't been caught",
+        "hasn't caught",
+        "didn't catch",
+        "wasn't caught"
+      ],
+      "answer": "hasn't been caught",
+      "explanation": "The thief is caught by the police (passive) + yet",
+      "difficulty": "medium",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "present-perfect-set3-q019",
+      "type": "mcq",
+      "topicId": "present-perfect",
+      "prompt": "My brother .......... in Canada for five years, but he moved back to Egypt in 2020.",
+      "options": [
+        "has lived",
+        "has been living",
+        "lives",
+        "lived"
+      ],
+      "answer": "lived",
+      "explanation": "He moved back in 2020, so the five years are finished: past simple",
+      "difficulty": "hard",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "present-perfect-set3-q020",
+      "type": "mcq",
+      "topicId": "present-perfect",
+      "prompt": "Grandpa .......... in hospital since Tuesday. We're visiting him tonight.",
+      "options": [
+        "has gone",
+        "went",
+        "has been",
+        "is"
+      ],
+      "answer": "has been",
+      "explanation": "Has been in = has stayed there up to now; “gone in hospital” is wrong",
+      "difficulty": "medium",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "present-perfect-set3-q021",
+      "type": "mcq",
+      "topicId": "present-perfect",
+      "prompt": "I .......... Mona just now in the corridor.",
+      "options": [
+        "have seen",
+        "saw",
+        "have been seeing",
+        "had seen"
+      ],
+      "answer": "saw",
+      "explanation": "Just now = a moment ago, so past simple (just alone takes present perfect)",
+      "difficulty": "hard",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "present-perfect-set3-q022",
+      "type": "mcq",
+      "topicId": "present-perfect",
+      "prompt": "Choose the sentence with the same meaning: “I started learning Spanish three years ago.”",
+      "options": [
+        "I learnt Spanish for three years.",
+        "I have learnt Spanish since three years.",
+        "I have been learning Spanish for three years.",
+        "I had been learning Spanish three years ago."
+      ],
+      "answer": "I have been learning Spanish for three years.",
+      "explanation": "Started in the past and still learning, so have been learning + for",
+      "difficulty": "medium",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "present-perfect-set3-q023",
+      "type": "mcq",
+      "topicId": "present-perfect",
+      "prompt": "Choose the sentence with the same meaning: “It's two years since we moved to this flat.”",
+      "options": [
+        "We moved to this flat for two years.",
+        "We have lived in this flat for two years.",
+        "We have moved to this flat since two years.",
+        "We lived in this flat two years ago."
+      ],
+      "answer": "We have lived in this flat for two years.",
+      "explanation": "It’s + time + since = have + past participle + for + time",
+      "difficulty": "medium",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "present-perfect-set3-q024",
+      "type": "mcq",
+      "topicId": "present-perfect",
+      "prompt": "Choose the sentence with the same meaning: “This is the first time I've seen snow.”",
+      "options": [
+        "I have never seen snow before.",
+        "I have seen snow once before.",
+        "I saw snow for the first time last year.",
+        "I have often seen snow."
+      ],
+      "answer": "I have never seen snow before.",
+      "explanation": "The first time = never before",
+      "difficulty": "medium",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "present-perfect-set3-q025",
+      "type": "mcq",
+      "topicId": "present-perfect",
+      "prompt": "Choose the sentence with the same meaning: “He hasn't called me for a month.”",
+      "options": [
+        "He calls me every month.",
+        "He last called me a month ago.",
+        "He didn't call me a month ago.",
+        "He has called me for a month."
+      ],
+      "answer": "He last called me a month ago.",
+      "explanation": "Hasn’t … for a month = last … a month ago",
+      "difficulty": "medium",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "present-perfect-set3-q026",
+      "type": "mcq",
+      "topicId": "present-perfect",
+      "prompt": "Choose the sentence with the same meaning: “I've never eaten such delicious food.”",
+      "options": [
+        "I have ever eaten delicious food.",
+        "This food was never delicious.",
+        "I never eat delicious food.",
+        "This is the most delicious food I have ever eaten."
+      ],
+      "answer": "This is the most delicious food I have ever eaten.",
+      "explanation": "Never … such = the most … ever",
+      "difficulty": "medium",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "present-perfect-set3-q027",
+      "type": "mcq",
+      "topicId": "present-perfect",
+      "prompt": "Choose the sentence with the same meaning: “It's ages since I last went to the cinema.”",
+      "options": [
+        "I haven't been to the cinema for ages.",
+        "I have gone to the cinema for ages.",
+        "I went to the cinema for ages.",
+        "I have been going to the cinema for ages."
+      ],
+      "answer": "I haven't been to the cinema for ages.",
+      "explanation": "It’s ages since I last … = I haven’t … for ages",
+      "difficulty": "medium",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "present-perfect-set3-q028",
+      "type": "mcq",
+      "topicId": "present-perfect",
+      "prompt": "Choose the correct sentence.",
+      "options": [
+        "I didn't see him since Monday.",
+        "I have seen him yesterday.",
+        "I saw him since Monday.",
+        "I haven't seen him since Monday."
+      ],
+      "answer": "I haven't seen him since Monday.",
+      "explanation": "Since takes present perfect; yesterday takes past simple",
+      "difficulty": "medium",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "present-perfect-set3-q029",
+      "type": "mcq",
+      "topicId": "present-perfect",
+      "prompt": "Choose the correct sentence.",
+      "options": [
+        "She has been knowing him for years.",
+        "She knows him since years.",
+        "She has known him for years.",
+        "She is knowing him for years."
+      ],
+      "answer": "She has known him for years.",
+      "explanation": "Know is stative, so no -ing; for + a period",
+      "difficulty": "medium",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "present-perfect-set3-q030",
+      "type": "mcq",
+      "topicId": "present-perfect",
+      "prompt": "Choose the correct sentence.",
+      "options": [
+        "Nothing has never surprised me like this.",
+        "Nothing has ever surprised me like this.",
+        "Nothing hasn't ever surprised me like this.",
+        "Nothing was ever surprising me like this."
+      ],
+      "answer": "Nothing has ever surprised me like this.",
+      "explanation": "Nothing is already negative, so ever, not never",
+      "difficulty": "medium",
+      "reviewStatus": "reviewed"
     }
   ]
 }

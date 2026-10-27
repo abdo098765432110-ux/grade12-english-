@@ -641,6 +641,7 @@
         if (unitLine) details.push(unitLine);
         details.push(t('Topic: {topic}', { topic: topicTitle(item.topicId) }));
         if (item.type === 'mcq' && hasText(item.answer)) details.push(t('Answer: {answer}', { answer: item.answer }));
+        details.push(difficultyLine(item));
         details.push(t('ID: {id}', { id: item.id }));
         return { title: item.prompt || item.id, meta: details.join(' · ') };
       case 'passages':
@@ -1380,9 +1381,11 @@
       id: 'f-explanation', label: t('Explanation'), optional: true, multiline: true, rows: 3, value: q.explanation,
       hint: t('Shown to students after they answer.')
     });
+    var automatic = ctx.mode === 'grammar';  // grammar questions get a level automatically
     var difficulty = selectField({
       id: 'f-difficulty', label: t('Difficulty'), optional: true, value: q.difficulty,
-      options: [{ value: '', label: t('— Not set —') }, { value: 'easy', label: t('Easy') }, { value: 'medium', label: t('Medium') }, { value: 'hard', label: t('Hard') }]
+      hint: automatic ? t('Students can choose Easy, Medium or Hard exams. Leave this on Automatic and a level is estimated from the question when you save; you can change it at any time.') : undefined,
+      options: [{ value: '', label: automatic ? t('Automatic (estimated when you save)') : t('— Not set —') }, { value: 'easy', label: t('Easy') }, { value: 'medium', label: t('Medium') }, { value: 'hard', label: t('Hard') }]
     });
     var reviewed = checkboxField({
       id: 'f-reviewed', label: t('A teacher has reviewed this question and its answer'),
@@ -1491,6 +1494,7 @@
       if (hasText(explanation.control.value)) item.explanation = explanation.control.value.trim();
       if (hasText(difficulty.control.value)) item.difficulty = difficulty.control.value;
       item.reviewStatus = reviewStatusOf(reviewed.control);
+      if (automatic && !item.difficulty) item.difficulty = Schema.estimateDifficulty(item);
 
       if (!errors.length) errors = schemaErrors('questions', item);
       if (errors.length) {
@@ -1503,6 +1507,17 @@
       ctx.save(item, isNew ? null : q.id);
       go(addAnother ? ctx.newHref : ctx.doneHref);
     });
+  }
+
+  /* "Difficulty: Easy" for the question lists. */
+  function difficultyName(level) {
+    return level === 'easy' ? t('Easy') : level === 'medium' ? t('Medium') : level === 'hard' ? t('Hard') : '';
+  }
+
+  function difficultyLine(question) {
+    return difficultyName(question.difficulty)
+      ? t('Difficulty: {level}', { level: difficultyName(question.difficulty) })
+      : t('Difficulty: not set');
   }
 
   /* ----- Reading passage ----- */
@@ -1827,7 +1842,14 @@
 
       var applied = null;
       var warnings = [];
+      var estimated = 0;
       if (!problems.length) {
+        (combined.questions || []).forEach(function (question) {
+          if (question && typeof question === 'object' && question.difficulty === undefined) {
+            question.difficulty = Schema.estimateDifficulty(question);
+            estimated += 1;
+          }
+        });
         applied = Store.applyImport(library, combined, mode);
         var check = Schema.validateLibrary(applied.library);
         problems = check.errors;
@@ -1861,6 +1883,7 @@
       importReport = el('div', { className: 'notice notice--info', role: 'status' }, [
         el('p', null, [el('strong', { text: t('Import complete.') + ' ' }), t('Your draft has been updated. Remember to publish it.')]),
         reportList(lines),
+        estimated ? el('p', { text: t('{questions} had no difficulty level, so one was estimated automatically. You can change it in each question’s editor.', { questions: G12.plural(estimated, 'grammar question') }) }) : null,
         warnings.length ? el('p', { text: t('Warnings (the content still works):') }) : null,
         warnings.length ? reportList(warnings) : null
       ]);

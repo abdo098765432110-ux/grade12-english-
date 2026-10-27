@@ -311,6 +311,79 @@
   }
 
   /**
+   * Builds an exam from a question bank.
+   *   buildExam(questions, { level: 'easy' | 'medium' | 'hard' | 'mixed', count: n or null (all), random })
+   * - easy / medium / hard: only questions with that difficulty.
+   * - mixed: questions from every level; when fewer than all are asked for,
+   *   each level gets its share (in proportion to its size, and at least
+   *   one question from each level when the count allows it).
+   * - No question appears twice, and the order is random.
+   * - When the count is larger than the questions available, the exam has
+   *   all of them and `adjusted` is true (the page tells the student).
+   * Returns { questions, available, requested, adjusted }.
+   */
+  function buildExam(questions, options) {
+    options = options || {};
+    var random = options.random || Math.random;
+    var level = options.level || 'mixed';
+    var list = (questions || []).slice();
+    var pool = level === 'mixed' ? list : list.filter(function (q) { return q.difficulty === level; });
+    var count = options.count === null || options.count === undefined ? null : options.count;
+    if (count !== null && (typeof count !== 'number' || count < 1 || Math.floor(count) !== count)) {
+      throw new Error('The number of questions must be a whole number of at least 1.');
+    }
+    var adjusted = count !== null && count > pool.length;
+    var picked;
+    if (count === null || count >= pool.length) {
+      picked = pool;
+    } else if (level !== 'mixed') {
+      picked = pickSpread(pool, count, random);
+    } else {
+      picked = pickMixed(pool, count, random);
+    }
+    return { questions: shuffle(picked, random), available: pool.length, requested: count, adjusted: adjusted };
+  }
+
+  /* Mixed exams: split the count between the levels (largest remainder),
+     at least one from each level when possible, then pick within each. */
+  function pickMixed(pool, count, random) {
+    var groups = [];
+    var byLevel = {};
+    pool.forEach(function (question) {
+      var key = question.difficulty || '';
+      if (!byLevel[key]) {
+        byLevel[key] = [];
+        groups.push(key);
+      }
+      byLevel[key].push(question);
+    });
+    var shares = groups.map(function (key) {
+      var exact = count * byLevel[key].length / pool.length;
+      return { key: key, take: Math.floor(exact), rest: exact - Math.floor(exact) };
+    });
+    if (count >= groups.length) {
+      shares.forEach(function (share) { if (share.take === 0) { share.take = 1; share.rest = 0; } });
+    }
+    var total = function () { return shares.reduce(function (sum, share) { return sum + share.take; }, 0); };
+    /* Too many after the "at least one" rule: take from the biggest shares. */
+    while (total() > count) {
+      shares.slice().sort(function (a, b) { return b.take - a.take; })[0].take -= 1;
+    }
+    /* Too few: add to the largest remainders, without going over a level's size. */
+    while (total() < count) {
+      var open = shares.filter(function (share) { return share.take < byLevel[share.key].length; });
+      open.sort(function (a, b) { return b.rest - a.rest; });
+      open[0].take += 1;
+      open[0].rest = -1;
+    }
+    var picked = [];
+    shares.forEach(function (share) {
+      if (share.take > 0) picked = picked.concat(pickSpread(byLevel[share.key], share.take, random));
+    });
+    return picked;
+  }
+
+  /**
    * Reads a number of questions typed by a student (Arabic-Indic digits are
    * accepted too). Returns { count } or { error } where error is one of
    * 'empty', 'not-whole', 'too-small', 'too-big'.
@@ -347,6 +420,7 @@
     hasValidAnswerKey: hasValidAnswerKey,
     shuffle: shuffle,
     pickSpread: pickSpread,
+    buildExam: buildExam,
     parseCount: parseCount,
     isReviewed: isReviewed
   };

@@ -650,6 +650,45 @@
     return { collections: collections, report: report };
   }
 
+  /* ---------- Automatic difficulty (estimate) ---------- */
+
+  /*
+   * A simple, rule-based guess at a grammar question's difficulty, used only
+   * when a question has no difficulty yet (a new question saved without one,
+   * an imported file, or a question added to the data file by hand). The
+   * teacher can always change it. It looks at the question's form, not its
+   * meaning, so it is a rough estimate:
+   *   hard    inversion after a negative or limiting adverb (Seldom, Rarely,
+   *           Not once, Only recently …), perfect participles (Having …),
+   *           two or more blanks, or answers made of two parts ("has / had").
+   *   easy    every answer choice is one short word such as for, since,
+   *           yet, already, just, ever, never, ago, have, has; or the
+   *           sentence has a clear signal (since, for …, so far, yet …)
+   *           and only one choice is in the present perfect.
+   *   medium  everything else (and the "It's … since" pattern).
+   */
+  var INVERSION_START = /^(seldom|rarely|hardly|scarcely|barely|never before|not once|not only|not until|no sooner|little|only (recently|then|after|when|later|once|now|by|in|if)|under no circumstances|at no time|on no account|in no way)\b/i;
+  var SHORT_WORDS = ['for', 'since', 'ago', 'yet', 'already', 'just', 'ever', 'never', 'still', 'when', 'while', 'before', 'after',
+    'have', 'has', 'had', 'did', 'do', 'does', 'is', 'are', 'was', 'were', 'am'];
+
+  var PERFECT_SIGNAL = /\b(since|for (a|an|\d+|two|three|four|five|six|ten|years|weeks|months|days|ages|a long time)|so far|yet|already|up to now|this (week|month|year|morning))\b/i;
+
+  function estimateDifficulty(question) {
+    if (!isObject(question)) return 'medium';
+    var prompt = String(question.prompt || '').replace(/\s+/g, ' ').trim();
+    var options = Array.isArray(question.options) ? question.options.map(function (o) { return String(o).trim(); }) : [];
+    var blanks = (prompt.match(/\.{3,}|_{3,}|…{2,}/g) || []).length;
+    if (INVERSION_START.test(prompt.replace(/^[“"']/, ''))) return 'hard';
+    if (/^(not )?having\b/i.test(prompt) || options.some(function (o) { return /^(not )?having\b/i.test(o); })) return 'hard';
+    if (blanks >= 2 || options.some(function (o) { return o.indexOf(' / ') !== -1; })) return 'hard';
+    if (/^it('s| is| has been)\b[^.]*\bsince\b/i.test(prompt) || /^it('s| is| has been) .*(\.{3,}|_{3,})/i.test(prompt)) return 'medium';
+    if (options.length && options.every(function (o) { return SHORT_WORDS.indexOf(o.toLowerCase()) !== -1; })) return 'easy';
+    /* A clear present-perfect signal and only one present-perfect choice. */
+    var perfect = options.filter(function (o) { return /^(have|has|haven['’]t|hasn['’]t)\b/i.test(o); });
+    if (perfect.length === 1 && PERFECT_SIGNAL.test(prompt)) return 'easy';
+    return 'medium';
+  }
+
   /* ---------- Filtering for the student pages ---------- */
 
   /**
@@ -809,6 +848,7 @@
     SECTION_TYPES: SECTION_TYPES,
     QUESTION_TYPES: QUESTION_TYPES,
     DIFFICULTIES: DIFFICULTIES,
+    estimateDifficulty: estimateDifficulty,
     LANGUAGES: LANGUAGES,
     ID_PATTERN: ID_PATTERN,
     MIN_OPTIONS: MIN_OPTIONS,

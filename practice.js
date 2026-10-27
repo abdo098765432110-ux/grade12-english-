@@ -12,8 +12,9 @@
   var root = document.getElementById('page-root');
   var OTHER_UNIT = '__other__';   // questions with no unit (or an unknown unit)
   var NO_TOPIC = '__none__';      // questions with no topic (or an unknown topic)
-  /* "How many questions?" — the bigger numbers only appear when there are more questions. */
-  var COUNT_PRESETS = [5, 10, 20, 30, 38, 50, 60, 80, 100, 120];
+  /* Exam settings (the same as on the lesson pages): difficulty level and
+     number of questions; numbers only appear when there are more questions. */
+  var COUNT_PRESETS = [10, 15, 20, 30];
   function modes() {
     return [
       { value: 'one', label: t('One at a time — feedback after each answer') },
@@ -23,11 +24,12 @@
 
   var content = null;
   var loadError = null;
-  /* count: the choice on the settings screen ('all', a number, 'custom' or null for the default);
-     custom: the number typed for 'custom'; pick: how many questions to use (null: all). */
-  var settings = { unit: '', topic: '', count: null, custom: '', pick: null, mode: 'one' };
-  var countChoice = null;  // the "How many questions?" field on the settings screen
-  var running = null;  // the questions of the practice in progress (null: settings screen)
+  /* level: 'easy', 'medium', 'hard' or 'mixed'; count: the choice on the settings screen
+     ('all', a number, 'custom' or null for the default); custom: the number typed for
+     'custom'; pick: how many questions to use (null: all). */
+  var settings = { unit: '', topic: '', level: 'mixed', count: null, custom: '', pick: null, mode: 'one' };
+  var examChoice = null;  // the difficulty and "How many questions?" fields on the settings screen
+  var running = null;  // the exam in progress (null: settings screen)
   var setupArea = el('div');
   var quizArea = el('div', { id: 'quiz-area' });
   G12.ignoreDoubleClicks(setupArea);
@@ -68,8 +70,9 @@
     var mode = form.querySelector('input[name="mode"]:checked');
     if (unit) settings.unit = unit.value || '';
     if (topic) settings.topic = topic.value;
-    if (countChoice) {
-      var state = countChoice.state();
+    if (examChoice) {
+      var state = examChoice.state();
+      settings.level = state.level;
       settings.count = state.value;
       settings.custom = state.custom;
     }
@@ -182,7 +185,7 @@
 
   function showSetup(moveFocus) {
     running = null;
-    countChoice = null;
+    examChoice = null;
     G12.clear(quizArea);
     G12.clear(setupArea);
     setupArea.hidden = false;
@@ -229,20 +232,22 @@
       var value = settings.count;
       if (typeof value === 'number' && !(value < available && COUNT_PRESETS.indexOf(value) !== -1)) value = null;
       if (value === null || value === undefined) value = available > 10 ? 10 : 'all';
-      countChoice = G12.countChoice({
-        id: 'practice-count',
-        available: available,
+      examChoice = G12.examSettings({
+        id: 'practice',
+        questions: pool(unitSelect.value || '', topicSelect.value),
         presets: COUNT_PRESETS,
+        level: settings.level,
         value: value,
         custom: settings.custom,
-        hint: t('Questions are chosen at random.'),
+        hint: t('Questions are chosen at random from the level you choose, in a random order, and never twice in the same exam.'),
         onChange: function (state) {
+          settings.level = state.level;
           settings.count = state.value;
           settings.custom = state.custom;
         }
       });
       G12.clear(countHolder);
-      countHolder.appendChild(countChoice.element);
+      examChoice.elements.forEach(function (element) { countHolder.appendChild(element); });
     }
 
     fillSelect(unitSelect, unitOptions(), settings.unit);
@@ -259,9 +264,10 @@
       settings.unit = unitSelect.value || '';
       settings.topic = topicSelect.value;
       settings.mode = mode ? mode.value : 'one';
-      if (!pool(settings.unit, settings.topic).length || !countChoice) return;
-      var chosen = countChoice.read();
+      if (!pool(settings.unit, settings.topic).length || !examChoice) return;
+      var chosen = examChoice.read();
       if (chosen.error) return;
+      settings.level = chosen.level;
       settings.pick = chosen.count;
       startPractice();
     });
@@ -273,20 +279,24 @@
 
   /* ---------- Practice ---------- */
 
-  /* picked: the same questions again (after a language change), or none to
-     choose new ones from the settings. */
-  function startPractice(picked, quiet) {
-    if (!picked) {
-      /* Spread over the whole topic, no question twice, then in random order. */
-      picked = G12.QuizEngine.shuffle(G12.QuizEngine.pickSpread(pool(settings.unit, settings.topic), settings.pick), Math.random);
+  /* exam: the same exam again (after a language change), or none to build a
+     new one from the settings: the chosen level, no question twice, in a
+     random order. */
+  function startPractice(exam, quiet) {
+    if (!exam) {
+      exam = G12.QuizEngine.buildExam(pool(settings.unit, settings.topic), { level: settings.level, count: settings.pick });
+      exam.level = settings.level;
     }
-    running = picked;
+    running = exam;
+    var picked = exam.questions;
 
     setupArea.hidden = true;
     G12.clear(quizArea);
     quizArea.appendChild(el('p', null, [
       el('button', { type: 'button', className: 'btn btn--link', text: t('← Change practice settings'), onclick: function () { showSetup(true); } })
     ]));
+    var notice = G12.examNotice(exam, exam.level);
+    if (notice) quizArea.appendChild(notice);
     var holder = el('div');
     quizArea.appendChild(holder);
     var back = [{ label: t('Change practice settings'), onClick: function () { showSetup(true); } }];

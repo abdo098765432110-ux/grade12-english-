@@ -115,6 +115,17 @@
       keys.forEach(function (key, i) {
         var usable = Schema.usableItems(key, lists[i]);
         content[key] = usable.items;
+        /* A grammar question without a difficulty (for example one added to
+           the data file by hand) gets an estimated level, so Easy, Medium and
+           Hard exams can use it straight away. Only in this page's memory. */
+        if (key === 'questions') {
+          usable.items.forEach(function (question) {
+            if (Schema.DIFFICULTIES.indexOf(question.difficulty) === -1) {
+              question.difficulty = Schema.estimateDifficulty(question);
+              question.difficultyEstimated = true;
+            }
+          });
+        }
         content.skippedBy[key] = usable.skipped + usable.skippedQuestions;
         content.skipped += usable.skipped + usable.skippedQuestions;
         if (usable.skipped || usable.skippedQuestions) {

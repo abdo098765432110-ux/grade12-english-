@@ -255,3 +255,27 @@ test('unitIdOf, groupByUnit and orderByUnit', () => {
   assert.deepEqual(Schema.groupByUnit([], units, lessons).map((g) => g.items.length), [0, 0], 'empty units are kept; no "other" group');
   assert.deepEqual(Schema.orderByUnit(items, units, lessons).map((i) => i.id), ['a', 'e', 'b', 'c', 'd']);
 });
+
+/* ---------- Automatic difficulty (estimate for questions without one) ---------- */
+
+test('estimateDifficulty: rough rules give a valid level for any question', () => {
+  const est = (prompt, options) => Schema.estimateDifficulty({ type: 'mcq', prompt, options, answer: options[0] });
+  assert.equal(est('Seldom .......... such a talented student.', ['have I met', 'I have met', 'did I met', 'I met']), 'hard', 'inversion');
+  assert.equal(est('Not once .......... a lesson.', ['has she missed', 'she has missed', 'did she missed', 'she missed']), 'hard');
+  assert.equal(est('Having .......... the test, he left.', ['finished', 'finishing', 'finish', 'been finished']), 'hard', 'perfect participle');
+  assert.equal(est('She .......... the report since 9, but she .......... half.', ['has been writing / has written', 'wrote / has', 'a / b', 'c / d']), 'hard', 'two blanks');
+  assert.equal(est('She has lived here .......... 2015.', ['for', 'ago', 'since', 'yet']), 'easy', 'one short word');
+  assert.equal(est('He .......... in Saudi Arabia since 2019.', ['works', 'is working', 'had worked', 'has been working']), 'easy', 'clear signal, one present perfect');
+  assert.equal(est("It's three years .......... I last saw my cousin.", ['for', 'ago', 'since', 'when']), 'medium', "It's … since");
+  assert.equal(est('They .......... each other for a long time.', ['have known', 'have been knowing', 'had been knowing', 'are knowing']), 'medium');
+  for (const bad of [null, {}, { prompt: 5 }, { options: 'x' }]) {
+    assert.ok(Schema.DIFFICULTIES.includes(Schema.estimateDifficulty(bad)));
+  }
+});
+
+test('estimateDifficulty agrees with the stored levels for most Present Perfect questions', () => {
+  const questions = require('../grammar-questions.json').questions;
+  const agree = questions.filter((q) => Schema.estimateDifficulty(q) === q.difficulty).length;
+  assert.ok(questions.every((q) => Schema.DIFFICULTIES.includes(q.difficulty)), 'every stored question has a level');
+  assert.ok(agree / questions.length >= 0.7, 'agreement ' + agree + ' / ' + questions.length);
+});
