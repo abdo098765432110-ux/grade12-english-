@@ -175,6 +175,7 @@
       "Change practice settings": "Change practice settings",
       "Grammar practice": "Grammar practice",
       "Practice questions": "Practice questions",
+      "Contents of this lesson ({n})": "Contents of this lesson ({n})",
       /* ---- Lesson quiz (Grammar Lessons page) ---- */
       "This lesson has {questions}.": "This lesson has {questions}.",
       "Start quiz": "Start quiz",

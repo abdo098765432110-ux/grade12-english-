@@ -177,6 +177,7 @@
       "Change practice settings": "تغيير إعدادات التدريب",
       "Grammar practice": "تدريب القواعد",
       "Practice questions": "أسئلة التدريب",
+      "Contents of this lesson ({n})": "محتويات الدرس ({n})",
       /* ---- Lesson quiz (Grammar Lessons page) ---- */
       "This lesson has {questions}.": "في هذا الدرس {questions}.",
       "Start quiz": "ابدأ الاختبار",

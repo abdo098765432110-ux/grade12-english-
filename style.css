@@ -657,6 +657,50 @@ thead th {
   list-style: none;
 }
 
+/* Contents list of a long lesson (folded until opened). */
+.lesson-toc { padding: 0.9rem 1.15rem; }
+.lesson-toc summary {
+  cursor: pointer;
+  font-weight: 700;
+  color: var(--color-primary-dark);
+}
+.lesson-toc ul {
+  display: block;
+  margin-top: 0.75rem;
+  columns: 2 22rem;
+  column-gap: 2rem;
+}
+.lesson-toc li { break-inside: avoid; margin-bottom: 0.35rem; font-size: 0.95rem; }
+.lesson-toc li.lesson-toc-part { font-weight: 700; margin-top: 0.6rem; }
+.lesson-section { scroll-margin-top: 1rem; }
+/* On phones a lesson table becomes one card per row; each cell shows its column name. */
+@media (max-width: 40rem) {
+  .lesson-section .table-wrap { overflow-x: visible; border: none; background: transparent; }
+  .lesson-section table,
+  .lesson-section tbody,
+  .lesson-section tr,
+  .lesson-section td { display: block; width: 100%; min-width: 0; }
+  .lesson-section thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; }
+  .lesson-section tr {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 0.4rem 0.85rem;
+    margin-bottom: 0.6rem;
+  }
+  .lesson-section td { border-top: none; padding: 0.3rem 0; }
+  .lesson-section td + td { border-top: 1px dashed var(--color-border); }
+  .lesson-section td[data-label]:not([data-label=""])::before {
+    content: attr(data-label);
+    display: block;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--color-muted);
+  }
+}
+/* Room for the bullets on both sides: Arabic items put theirs on the right. */
+.lesson-section ul.prose { padding-inline: 1.5rem; }
+
 .summary-card {
   background: var(--color-surface);
   border: 1px solid var(--color-border);

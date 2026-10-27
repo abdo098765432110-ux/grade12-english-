@@ -6,6 +6,4916 @@
       "title": "Present Perfect",
       "reviewStatus": "reviewed",
       "sections": []
+    },
+    {
+      "id": "present-perfect-and-continuous",
+      "title": "Present Perfect & Present Perfect Continuous",
+      "description": "From zero to advanced mastery · من الصفر حتى الاحتراف — شرح بسيط بالعربي والإنجليزي",
+      "reviewStatus": "reviewed",
+      "sections": [
+        {
+          "type": "note",
+          "heading": "Part 1 · Introduction & Absolute Basics",
+          "paragraphs": [
+            "المقدمة والأساسيات من الصفر"
+          ],
+          "lang": "ar"
+        },
+        {
+          "heading": "1.1 Key words you need first — كلمات مهمة لازم تعرفها الأول",
+          "type": "text",
+          "paragraphs": [
+            "قبل ما نبدأ، خلّينا نفهم شوية مصطلحات هتقابلنا كتير في الشرح. متقلقش، كلها سهلة جدًا."
+          ],
+          "lang": "ar"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Term",
+            "المعنى ببساطة",
+            "Example"
+          ],
+          "rows": [
+            [
+              "verb",
+              "الفعل: كلمة بتدل على حدث أو حالة",
+              "play, eat, know"
+            ],
+            [
+              "subject",
+              "الفاعل: الشخص أو الحاجة اللي الجملة بتتكلم عنها",
+              "Ahmed plays."
+            ],
+            [
+              "object",
+              "المفعول به: اللي وقع عليه الفعل",
+              "He reads a book."
+            ],
+            [
+              "tense",
+              "الزمن: شكل الفعل اللي بيوضح إمتى حصل الحدث",
+              "play / played / have played"
+            ],
+            [
+              "auxiliary verb",
+              "فعل مساعد: بيساعد الفعل الأساسي يكوّن الزمن",
+              "have, has, been"
+            ],
+            [
+              "main verb",
+              "الفعل الأساسي: الفعل اللي فيه المعنى",
+              "I have eaten."
+            ],
+            [
+              "past participle (V3)",
+              "التصريف التالت للفعل",
+              "eat → ate → eaten"
+            ],
+            [
+              "-ing form",
+              "الفعل + ing",
+              "play → playing"
+            ],
+            [
+              "affirmative",
+              "جملة مُثبتة (مش منفية ولا سؤال)",
+              "I have finished."
+            ],
+            [
+              "negative",
+              "جملة منفية (فيها not)",
+              "I haven't finished."
+            ],
+            [
+              "question",
+              "سؤال",
+              "Have you finished?"
+            ],
+            [
+              "contraction",
+              "اختصار",
+              "I have → I've"
+            ],
+            [
+              "signal words",
+              "كلمات دالة بتساعدك تعرف الزمن",
+              "since, for, already, yet"
+            ],
+            [
+              "timeline",
+              "خط الزمن: رسم للماضي والحاضر والمستقبل",
+              "PAST → NOW → FUTURE"
+            ],
+            [
+              "stative verb",
+              "فعل حالة: بيوصف حالة مش حركة",
+              "know, like, own"
+            ]
+          ]
+        },
+        {
+          "heading": "1.2 The three forms of the verb — تصريفات الفعل التلاتة",
+          "type": "text",
+          "paragraphs": [
+            "كل فعل في الإنجليزي ليه تلات تصريفات أساسية. في الدرس ده هنحتاج التصريف التالت (V3) جدًا، وكمان صيغة -ing."
+          ],
+          "lang": "ar"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "V1 (base)",
+            "V2 (past)",
+            "V3 (past participle)",
+            "المعنى"
+          ],
+          "rows": [
+            [
+              "play",
+              "played",
+              "played",
+              "يلعب"
+            ],
+            [
+              "watch",
+              "watched",
+              "watched",
+              "يشاهد"
+            ],
+            [
+              "go",
+              "went",
+              "gone",
+              "يذهب"
+            ],
+            [
+              "eat",
+              "ate",
+              "eaten",
+              "يأكل"
+            ],
+            [
+              "write",
+              "wrote",
+              "written",
+              "يكتب"
+            ],
+            [
+              "see",
+              "saw",
+              "seen",
+              "يرى"
+            ]
+          ]
+        },
+        {
+          "type": "note",
+          "heading": "V2 IS NOT V3! — التصريف التاني مش هو التالت!",
+          "paragraphs": [
+            "الزمنين اللي هنذاكرهم بيستخدموا V3، مش V2. يعني He has went غلط، والصح He has gone. هنشرح V3 بالتفصيل في الجزء التاني."
+          ],
+          "lang": "ar"
+        },
+        {
+          "heading": "1.3 The big idea: Past + Now — الفكرة الكبيرة: الماضي + دلوقتي",
+          "type": "text",
+          "paragraphs": [
+            "الزمنين اللي هنذاكرهم اسمهم «تام» (Perfect)، والفكرة الأساسية فيهم إنهم بيربطوا الماضي بالحاضر. يعني حاجة حصلت أو بدأت في الماضي، لكن ليها علاقة بـ دلوقتي."
+          ],
+          "lang": "ar"
+        },
+        {
+          "type": "note",
+          "paragraphs": [
+            "Past Simple = finished and disconnected. Present Perfect = connected to now.",
+            "الماضي البسيط = حدث خلص ومش مربوط بدلوقتي. المضارع التام = حدث في الماضي ليه علاقة بدلوقتي."
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Example",
+            "المعنى بالعربي"
+          ],
+          "rows": [
+            [
+              "I lost my keys yesterday. (a story about the past)",
+              "ضاعت مفاتيحي امبارح. (بنحكي عن الماضي وبس)"
+            ],
+            [
+              "I have lost my keys. (I can't find them now!)",
+              "لقد أضعت مفاتيحي. (ومش لاقيها لحد دلوقتي!)"
+            ]
+          ]
+        },
+        {
+          "type": "note",
+          "heading": "WHY IS THIS TENSE HARD FOR ARABIC SPEAKERS? — ليه الزمن ده بيلخبط الطلاب العرب؟",
+          "paragraphs": [
+            "لأن العربي مفيهوش زمن يطابقه بالظبط. عشان كده هنترجمه بطرق مختلفة حسب المعنى:"
+          ],
+          "lang": "ar"
+        },
+        {
+          "type": "list",
+          "items": [
+            "«لقد / قد + فعل ماضي» ← I have finished. = لقد أنهيت.",
+            "«للتو / توّه / حالاً» ← He has just arrived. = لقد وصل للتو.",
+            "«فعل مضارع + منذ» ← I have lived here for five years. = أعيش هنا منذ خمس سنوات.",
+            "«بقالي / بقاله» (بالمصري) ← He has been studying for two hours. = بقاله ساعتين بيذاكر."
+          ]
+        },
+        {
+          "type": "text",
+          "paragraphs": [
+            "يعني متترجمش كلمة بكلمة؛ افهم المعنى الأول، وبعدين اختار الزمن."
+          ],
+          "lang": "ar"
+        },
+        {
+          "heading": "1.4 The two tenses in two pictures — الزمنين في صورتين",
+          "type": "table",
+          "columns": [
+            "Example",
+            "المعنى بالعربي"
+          ],
+          "rows": [
+            [
+              "He has finished his homework.",
+              "لقد أنهى واجبه."
+            ]
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Example",
+            "المعنى بالعربي"
+          ],
+          "rows": [
+            [
+              "He has been studying for two hours.",
+              "هو يذاكر منذ ساعتين. (بقاله ساعتين بيذاكر)"
+            ]
+          ]
+        },
+        {
+          "type": "text",
+          "paragraphs": [
+            "الصورة الأولى بتركز على النتيجة: الواجب خلص ✓ ← ده Present Perfect. الصورة التانية بتركز على المدة والنشاط: بقاله ساعتين بيذاكر ← ده Present Perfect Continuous. الفرق ده هو الفكرة اللي هنفضل نبنيها في الكتاب كله."
+          ],
+          "lang": "ar"
+        },
+        {
+          "heading": "1.5 Have or has? — نستخدم have ولا has؟",
+          "type": "table",
+          "columns": [
+            "(الفاعل) Subject",
+            "Helper",
+            "Example"
+          ],
+          "rows": [
+            [
+              "I / you / we / they",
+              "have",
+              "They have eaten."
+            ],
+            [
+              "he / she / it",
+              "has",
+              "He has eaten."
+            ],
+            [
+              "a singular name or noun: Ahmed, my brother, the cat",
+              "has",
+              "The cat has eaten."
+            ],
+            [
+              "a plural noun: the boys, my friends",
+              "have",
+              "The boys have eaten."
+            ]
+          ]
+        },
+        {
+          "type": "note",
+          "heading": "A SIMPLE RULE — قاعدة سهلة",
+          "paragraphs": [
+            "مع الفاعل المفرد الغائب (he / she / it أو أي اسم مفرد) ← has. مع أي فاعل تاني (I / you / we / they أو أي اسم جمع) ← have."
+          ],
+          "lang": "ar"
+        },
+        {
+          "heading": "Short forms (contractions) — الاختصارات",
+          "type": "table",
+          "columns": [
+            "Full form",
+            "Short form",
+            "Full form",
+            "Short form"
+          ],
+          "rows": [
+            [
+              "I have",
+              "I've",
+              "he has",
+              "he's"
+            ],
+            [
+              "you have",
+              "you've",
+              "she has",
+              "she's"
+            ],
+            [
+              "we have",
+              "we've",
+              "it has",
+              "it's"
+            ],
+            [
+              "they have",
+              "they've",
+              "has not",
+              "hasn't"
+            ],
+            [
+              "have not",
+              "haven't",
+              "Omar has",
+              "Omar's"
+            ]
+          ]
+        },
+        {
+          "type": "note",
+          "heading": "HE'S = HE IS OR HE HAS — he's ممكن تكون is أو has",
+          "paragraphs": [
+            "بص على الكلمة اللي بعدها علطول:"
+          ],
+          "lang": "ar"
+        },
+        {
+          "type": "list",
+          "items": [
+            "لو بعدها V3 ← تبقى has: He's finished. = He has finished.",
+            "لو بعدها been ← تبقى has: He's been working. = He has been working.",
+            "لو بعدها فعل بـ -ing أو صفة أو مكان ← تبقى is: He's working. / He's happy./ He's at home."
+          ]
+        },
+        {
+          "type": "note",
+          "heading": "Part 2 · Present Perfect — from Beginner to Advanced",
+          "paragraphs": [
+            "المضارع التام من البداية للاحتراف"
+          ],
+          "lang": "ar"
+        },
+        {
+          "heading": "2.1 What is the Present Perfect? — يعني إيه المضارع التام؟",
+          "type": "text",
+          "paragraphs": [
+            "المضارع التام (Present Perfect) بنستخدمه لما نتكلم عن حدث حصل في الماضي، لكن ليه علاقة بدلوقتي. العلاقة دي ممكن تكون:"
+          ],
+          "lang": "ar"
+        },
+        {
+          "type": "list",
+          "items": [
+            "نتيجة موجودة دلوقتي ← الواجب خلص.",
+            "تجربة في حياتك لحد دلوقتي ← زرت الأقصر.",
+            "فترة زمنية لسه مخلصتش ← النهارده، الأسبوع ده.",
+            "حالة بدأت في الماضي ولسه مستمرة ← أعرفه من ١٠ سنين."
+          ]
+        },
+        {
+          "type": "note",
+          "heading": "THE GOLDEN QUESTION — السؤال الذهبي",
+          "paragraphs": [
+            "اسأل نفسك: «هل الحدث ده ليه علاقة بـ دلوقتي؟ ولا خلص في وقت محدد في الماضي؟» لو ليه علاقة بدلوقتي ← غالبًا Present Perfect. لو خلص في وقت محدد ومنتهي ← Past Simple."
+          ],
+          "lang": "ar"
+        },
+        {
+          "heading": "2.2 The past participle (V3) — التصريف التالت V3",
+          "type": "text",
+          "paragraphs": [
+            "علشان نكوّن المضارع التام لازم نعرف V3 لكل فعل. الأفعال نوعين: منتظمة (ليها قاعدة) وشاذة (لازم تتحفظ)."
+          ],
+          "lang": "ar"
+        },
+        {
+          "heading": "Regular verbs: add -ed — الأفعال المنتظمة: نزود ed",
+          "type": "table",
+          "columns": [
+            "Rule",
+            "Examples",
+            "بالعربي"
+          ],
+          "rows": [
+            [
+              "most verbs: + ed",
+              "work → worked, watch → watched, open → opened",
+              "أغلب الأفعال: نزود ed"
+            ],
+            [
+              "ends in -e: + d",
+              "live → lived, arrive → arrived, use → used",
+              "آخره e: نزود d بس"
+            ],
+            [
+              "consonant + y → -ied",
+              "study → studied, try → tried, carry → carried",
+              "حرف ساكن + y: نشيل y ونحط ied"
+            ],
+            [
+              "vowel + y → + ed",
+              "play → played, enjoy → enjoyed, stay → stayed",
+              "حرف متحرك + y: نزود ed عادي"
+            ],
+            [
+              "short verb, consonant– vowel–consonant → double",
+              "stop → stopped, plan → planned, drop → dropped",
+              "فعل قصير آخره ساكن- متحرك-ساكن: نكرر الحرف الأخير"
+            ],
+            [
+              "British English: one vowel + l → double the l",
+              "travel → travelled, cancel → cancelled (US: traveled) · but: fail → failed",
+              "البريطاني بيكرر l بعد حرف متحرك واحد، والأمريكي لأ"
+            ]
+          ]
+        },
+        {
+          "heading": "Irregular verbs — الأفعال الشاذة",
+          "type": "text",
+          "paragraphs": [
+            "الأفعال دي ملهاش قاعدة، فلازم تتحفظ. قسمناها لمجموعات عشان الحفظ يبقى أسهل (الترتيب: V1 · V2 · V3:)"
+          ],
+          "lang": "ar"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "V1 · V2 · V3",
+            "المعنى"
+          ],
+          "rows": [
+            [
+              "buy · bought · bought",
+              "يشتري"
+            ],
+            [
+              "bring · brought · brought",
+              "يُحضِر"
+            ],
+            [
+              "think · thought · thought",
+              "يفكر"
+            ],
+            [
+              "teach · taught · taught",
+              "يُعلِّم"
+            ],
+            [
+              "catch · caught · caught",
+              "يمسك"
+            ],
+            [
+              "find · found · found",
+              "يجد"
+            ],
+            [
+              "make · made · made",
+              "يصنع"
+            ],
+            [
+              "have · had · had",
+              "يملك / يتناول"
+            ],
+            [
+              "hear · heard · heard",
+              "يسمع"
+            ],
+            [
+              "keep · kept · kept",
+              "يحتفظ"
+            ],
+            [
+              "leave · left · left",
+              "يغادر / يترك"
+            ],
+            [
+              "lose · lost · lost",
+              "يُضيِّع / يخسر"
+            ],
+            [
+              "meet · met · met",
+              "يقابل"
+            ],
+            [
+              "sleep · slept · slept",
+              "ينام"
+            ],
+            [
+              "send · sent · sent",
+              "يرسل"
+            ],
+            [
+              "spend · spent · spent",
+              "يقضي / يصرف"
+            ],
+            [
+              "build · built · built",
+              "يبني"
+            ],
+            [
+              "sit · sat · sat",
+              "يجلس"
+            ],
+            [
+              "win · won · won",
+              "يفوز"
+            ],
+            [
+              "feel · felt · felt",
+              "يشعر"
+            ],
+            [
+              "tell · told · told",
+              "يخبر"
+            ],
+            [
+              "say · said · said",
+              "يقول"
+            ],
+            [
+              "pay · paid · paid",
+              "يدفع"
+            ],
+            [
+              "understand · understood · understood",
+              "يفهم"
+            ]
+          ],
+          "heading": "Group A — V2 and V3 are the same · التصريف التاني والتالت زي بعض"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "V1 · V2 · V3",
+            "المعنى"
+          ],
+          "rows": [
+            [
+              "be · was / were · been",
+              "يكون"
+            ],
+            [
+              "go · went · gone / been",
+              "يذهب"
+            ],
+            [
+              "do · did · done",
+              "يفعل"
+            ],
+            [
+              "see · saw · seen",
+              "يرى"
+            ],
+            [
+              "eat · ate · eaten",
+              "يأكل"
+            ],
+            [
+              "write · wrote · written",
+              "يكتب"
+            ],
+            [
+              "take · took · taken",
+              "يأخذ"
+            ],
+            [
+              "give · gave · given",
+              "يعطي"
+            ],
+            [
+              "speak · spoke · spoken",
+              "يتكلم"
+            ],
+            [
+              "break · broke · broken",
+              "يكسر"
+            ],
+            [
+              "drive · drove · driven",
+              "يقود"
+            ],
+            [
+              "ride · rode · ridden",
+              "يركب"
+            ],
+            [
+              "forget · forgot · forgotten",
+              "ينسى"
+            ],
+            [
+              "know · knew · known",
+              "يعرف"
+            ],
+            [
+              "grow · grew · grown",
+              "ينمو / يزرع"
+            ],
+            [
+              "fly · flew · flown",
+              "يطير"
+            ],
+            [
+              "drink · drank · drunk",
+              "يشرب"
+            ],
+            [
+              "swim · swam · swum",
+              "يسبح"
+            ],
+            [
+              "begin · began · begun",
+              "يبدأ"
+            ],
+            [
+              "choose · chose · chosen",
+              "يختار"
+            ],
+            [
+              "wear · wore · worn",
+              "يرتدي"
+            ],
+            [
+              "fall · fell · fallen",
+              "يقع"
+            ]
+          ],
+          "heading": "Group B — all three are different · التلات تصريفات مختلفين"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "V1 · V2 · V3",
+            "المعنى"
+          ],
+          "rows": [
+            [
+              "come · came · come",
+              "يأتي"
+            ],
+            [
+              "become · became · become",
+              "يصبح"
+            ],
+            [
+              "run · ran · run",
+              "يجري"
+            ]
+          ],
+          "heading": "Group C — V1 and V3 are the same · الأول والتالت زي بعض"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "V1 · V2 · V3",
+            "المعنى"
+          ],
+          "rows": [
+            [
+              "put · put · put",
+              "يضع"
+            ],
+            [
+              "cut · cut · cut",
+              "يقطع"
+            ],
+            [
+              "hit · hit · hit",
+              "يضرب"
+            ],
+            [
+              "let · let · let",
+              "يسمح"
+            ],
+            [
+              "cost · cost · cost",
+              "يُكلِّف"
+            ],
+            [
+              "shut · shut · shut",
+              "يغلق"
+            ],
+            [
+              "read · read · read",
+              "يقرأ"
+            ]
+          ],
+          "heading": "Group D — all three are the same · التلاتة زي بعض"
+        },
+        {
+          "heading": "TWO SPECIAL VERBS — فعلين مميزين",
+          "type": "list",
+          "items": [
+            "read – read – read: الكتابة واحدة، لكن النطق مختلف: /riːd/ – /red/ – /red/.",
+            "get – got – got: في الإنجليزي الأمريكي التصريف التالت غالبًا gotten."
+          ]
+        },
+        {
+          "type": "note",
+          "heading": "2.3 Affirmative sentences — الجملة المثبتة",
+          "paragraphs": [
+            "Structure — التركيب: Subject + have / has + V3 + (the rest)"
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Example",
+            "المعنى بالعربي"
+          ],
+          "rows": [
+            [
+              "I have finished my homework.",
+              "لقد أنهيت واجبي."
+            ],
+            [
+              "You have done a great job.",
+              "لقد قمت بعمل رائع."
+            ],
+            [
+              "Omar has bought a new bike.",
+              "لقد اشترى عمر دراجة جديدة."
+            ],
+            [
+              "We have visited Luxor twice.",
+              "لقد زرنا الأقصر مرتين."
+            ],
+            [
+              "They have moved to Giza.",
+              "لقد انتقلوا إلى الجيزة."
+            ],
+            [
+              "The film has started.",
+              "لقد بدأ الفيلم."
+            ],
+            [
+              "I've finished. / He's bought a bike. (short forms)",
+              "الصيغ المختصرة في الكلام"
+            ]
+          ]
+        },
+        {
+          "type": "note",
+          "heading": "الشرح ببساطة",
+          "paragraphs": [
+            "التركيب سهل: فاعل + have أو has + الفعل في التصريف التالت. الفعل المساعد have/has هو اللي بيتغير مع الفاعل، أما V3 فثابت مع كل الفاعلين: I have eaten / he has eaten."
+          ],
+          "lang": "ar"
+        },
+        {
+          "type": "note",
+          "heading": "2.4 Negative sentences — النفي",
+          "paragraphs": [
+            "Structure — التركيب: Subject + haven't / hasn't + V3 + (the rest)"
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Example",
+            "المعنى بالعربي"
+          ],
+          "rows": [
+            [
+              "I haven't seen that film.",
+              "لم أشاهد ذلك الفيلم."
+            ],
+            [
+              "He hasn't called me.",
+              "لم يتصل بي."
+            ],
+            [
+              "We haven't finished the project yet.",
+              "لم ننهِ المشروع بعد."
+            ],
+            [
+              "The bus hasn't arrived.",
+              "لم يصل الأتوبيس (لسه)."
+            ]
+          ]
+        },
+        {
+          "type": "note",
+          "heading": "NEGATIVE WITH NEVER — النفي بـ never",
+          "paragraphs": [
+            "ممكن ننفي بـ never بدل not، وساعتها المعنى «عمري ما...». ومينفعش نجمع not وnever في نفس الجملة."
+          ],
+          "lang": "ar"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Example",
+            "المعنى بالعربي"
+          ],
+          "rows": [
+            [
+              "I have never eaten sushi.",
+              "لم آكل السوشي أبدًا (في حياتي)."
+            ]
+          ]
+        },
+        {
+          "type": "note",
+          "heading": "2.5 Yes/No questions & short answers — أسئلة Yes/No والإجابات القصيرة",
+          "paragraphs": [
+            "Structure — التركيب: Have / Has + Subject + V3 + (the rest) + ?"
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Example",
+            "المعنى بالعربي"
+          ],
+          "rows": [
+            [
+              "Have you finished your homework?",
+              "هل أنهيت واجبك؟"
+            ],
+            [
+              "Has Ali called you?",
+              "هل اتصل بك علي؟"
+            ],
+            [
+              "Have they arrived?",
+              "هل وصلوا؟"
+            ]
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Question",
+            "Yes",
+            "No"
+          ],
+          "rows": [
+            [
+              "Have you finished?",
+              "Yes, I have.",
+              "No, I haven't."
+            ],
+            [
+              "Has he finished?",
+              "Yes, he has.",
+              "No, he hasn't."
+            ],
+            [
+              "Have they finished?",
+              "Yes, they have.",
+              "No, they haven't."
+            ]
+          ]
+        },
+        {
+          "type": "note",
+          "heading": "SHORT ANSWERS — الإجابة القصيرة",
+          "paragraphs": [
+            "في الإجابة القصيرة بنقول الفاعل + have/has بس. ومينفعش نختصر في الإجابة المثبتة: Yes, I've. غلط، والصح Yes, I have."
+          ],
+          "lang": "ar"
+        },
+        {
+          "type": "note",
+          "heading": "2.6 WH-questions — أسئلة WH",
+          "paragraphs": [
+            "Structure — التركيب: WH-word + have / has + Subject + V3 + ?"
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Example",
+            "المعنى بالعربي"
+          ],
+          "rows": [
+            [
+              "What have you done?",
+              "ماذا فعلت؟"
+            ],
+            [
+              "Where has he gone?",
+              "إلى أين ذهب؟"
+            ],
+            [
+              "How many books have you read this year?",
+              "كم كتابًا قرأت هذا العام؟"
+            ],
+            [
+              "Why hasn't he replied?",
+              "لماذا لم يرد؟"
+            ],
+            [
+              "How long have you known Karim?",
+              "منذ متى تعرف كريم؟"
+            ]
+          ]
+        },
+        {
+          "type": "note",
+          "heading": "WHEN WHO / WHAT IS THE SUBJECT — لما Who أو What تكون هي الفاعل",
+          "paragraphs": [
+            "لو أداة السؤال نفسها هي الفاعل، مش بنحط فاعل تاني بعد has، وبنستخدم has عادةً:"
+          ],
+          "lang": "ar"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Example",
+            "المعنى بالعربي"
+          ],
+          "rows": [
+            [
+              "Who has taken my pen?",
+              "من أخذ قلمي؟"
+            ],
+            [
+              "What has happened?",
+              "ماذا حدث؟"
+            ]
+          ]
+        },
+        {
+          "type": "note",
+          "heading": "WHEN...? GOES WITH THE PAST SIMPLE — سؤال When مع الماضي البسيط",
+          "paragraphs": [
+            "السؤال بـ When بيسأل عن وقت محدد في الماضي، عشان كده بيكون Past Simple مش Present Perfect:"
+          ],
+          "lang": "ar"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Example",
+            "المعنى بالعربي"
+          ],
+          "rows": [
+            [
+              "When have you arrived? → When did you arrive?",
+              "متى وصلت؟"
+            ]
+          ]
+        },
+        {
+          "heading": "2.7 Use 1 — Life experiences — الاستخدام الأول: الخبرات والتجارب",
+          "type": "text",
+          "paragraphs": [
+            "بنستخدمه لما نتكلم عن حاجة عملناها (أو معملناهاش) في حياتنا لحد دلوقتي، من غير ما نحدد إمتى. المهم هنا «التجربة» مش الوقت."
+          ],
+          "lang": "ar"
+        },
+        {
+          "type": "note",
+          "paragraphs": [
+            "I have visited Luxor twice. (When? Not important.)",
+            "لقد زرت الأقصر مرتين. (إمتى؟ مش مهم.)"
+          ],
+          "heading": "My life up to now = an unfinished period"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Example",
+            "المعنى بالعربي"
+          ],
+          "rows": [
+            [
+              "He has visited the Pyramids. (He has this experience.)",
+              "لقد زار الأهرامات. (عنده التجربة دي.)"
+            ]
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Example",
+            "المعنى بالعربي"
+          ],
+          "rows": [
+            [
+              "I have been to Aswan.",
+              "لقد ذهبت إلى أسوان (من قبل)."
+            ],
+            [
+              "Have you ever ridden a camel?",
+              "هل سبق لك أن ركبت جملاً؟"
+            ],
+            [
+              "He has never travelled by plane.",
+              "لم يسافر بالطائرة أبدًا."
+            ],
+            [
+              "We have seen this film three times.",
+              "لقد شاهدنا هذا الفيلم ثلاث مرات."
+            ]
+          ]
+        },
+        {
+          "type": "note",
+          "heading": "الشرح ببساطة",
+          "paragraphs": [
+            "أول ما تحدد الوقت (last year / in 2020) لازم تحوّل للماضي البسيط: I visited Luxor last year. لأنك كده بتحكي عن وقت خلص، مش عن تجربة وخلاص."
+          ],
+          "lang": "ar"
+        },
+        {
+          "heading": "2.8 Use 2 — A past action with a result now — الاستخدام التاني: حدث في الماضي ونتيجته موجودة دلوقتي",
+          "type": "text",
+          "paragraphs": [
+            "الحدث خلص، لكن نتيجته باينة دلوقتي. ده من أهم الاستخدامات في الامتحانات."
+          ],
+          "lang": "ar"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Example",
+            "المعنى بالعربي"
+          ],
+          "rows": [
+            [
+              "The cat has broken the vase. (The vase is broken now.)",
+              "لقد كسرت القطة المزهرية. (والمزهرية مكسورة دلوقتي.)"
+            ]
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Sentence",
+            "Result now",
+            "النتيجة دلوقتي"
+          ],
+          "rows": [
+            [
+              "I have lost my keys.",
+              "I can't open the door.",
+              "مش لاقي المفاتيح ومش عارف أفتح"
+            ],
+            [
+              "He has broken his arm.",
+              "His arm is in plaster.",
+              "دراعه في الجبس"
+            ],
+            [
+              "They have painted the door.",
+              "The door is a new colour.",
+              "الباب لونه جديد"
+            ],
+            [
+              "Somebody has opened the window.",
+              "The window is open.",
+              "الشباك مفتوح"
+            ]
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Example",
+            "المعنى بالعربي"
+          ],
+          "rows": [
+            [
+              "I lost my keys, but I found them later. (Past Simple — no result now)",
+              "ضاعت مفاتيحي، لكني وجدتها بعد كده. (مفيش نتيجة دلوقتي ← ماضي بسيط)"
+            ]
+          ]
+        },
+        {
+          "heading": "2.9 Use 3 — News and things that have just happened — الاستخدام التالت: أخبار جديدة وحاجات حصلت حالاً",
+          "type": "text",
+          "paragraphs": [
+            "بنستخدمه لما نعلن خبر جديد أو حدث حصل من شوية، وكتير بيكون مع just."
+          ],
+          "lang": "ar"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Example",
+            "المعنى بالعربي"
+          ],
+          "rows": [
+            [
+              "The bus has just left.",
+              "لقد غادر الأتوبيس للتو."
+            ]
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Example",
+            "المعنى بالعربي"
+          ],
+          "rows": [
+            [
+              "I've just had lunch.",
+              "لقد تناولت الغداء للتو."
+            ],
+            [
+              "The price of tickets has gone up.",
+              "لقد ارتفع سعر التذاكر."
+            ],
+            [
+              "Good news! Our team has won the cup.",
+              "أخبار حلوة! فريقنا فاز بالكأس."
+            ]
+          ]
+        },
+        {
+          "type": "note",
+          "heading": "NEWS STYLE — أسلوب الأخبار",
+          "paragraphs": [
+            "في الأخبار، الجملة الأولى غالبًا بتكون Present Perfect (الخبر الجديد)، وبعدها التفاصيل بالماضي البسيط (لأن الوقت بقى محدد):"
+          ],
+          "lang": "ar"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Example",
+            "المعنى بالعربي"
+          ],
+          "rows": [
+            [
+              "A fire has broken out in a factory. It started at 3 a.m.",
+              "لقد اندلع حريق في مصنع. وقد بدأ في الثالثة فجرًا."
+            ]
+          ]
+        },
+        {
+          "heading": "2.10 Use 4 — Unfinished time periods — الاستخدام الرابع: فترة زمنية لسه مخلصتش",
+          "type": "text",
+          "paragraphs": [
+            "لو الفترة الزمنية لسه مستمرة (النهارده، الأسبوع ده، السنة دي) ← Present Perfect. لو الفترة خلصت (امبارح، الأسبوع اللي فات) ← Past Simple."
+          ],
+          "lang": "ar"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "",
+            "Example",
+            "المعنى بالعربي"
+          ],
+          "rows": [
+            [
+              "yesterday (finished)",
+              "I drank two cups of tea yesterday.",
+              "شربت كوبين شاي امبارح."
+            ],
+            [
+              "today (not finished)",
+              "I have drunk three cups of tea today.",
+              "شربت تلات أكواب شاي النهارده (واليوم لسه مخلصش)."
+            ]
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Unfinished → Present Perfect",
+            "Finished → Past Simple"
+          ],
+          "rows": [
+            [
+              "today",
+              "yesterday"
+            ],
+            [
+              "this week / this month / this year",
+              "last week / last month / last year"
+            ],
+            [
+              "this morning (if it is still morning)",
+              "this morning (if it is now afternoon)"
+            ],
+            [
+              "in my life / ever",
+              "when I was a child / in 2019"
+            ],
+            [
+              "lately / so far",
+              "two days ago / last night"
+            ]
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Example",
+            "المعنى بالعربي"
+          ],
+          "rows": [
+            [
+              "I have had three exams this week.",
+              "خضت ثلاثة امتحانات هذا الأسبوع. (والأسبوع لسه مخلصش)"
+            ],
+            [
+              "He hasn't drunk any coffee today.",
+              "لم يشرب أي قهوة اليوم."
+            ],
+            [
+              "(It's 10 a.m.) I have sent five emails this morning.",
+              "(الساعة ١٠ الصبح) لقد أرسلت خمس رسائل هذا الصباح."
+            ],
+            [
+              "(It's 4 p.m.) I sent five emails this morning.",
+              "(الساعة ٤ العصر) أرسلت خمس رسائل هذا الصباح. (الصبح خلص)"
+            ]
+          ]
+        },
+        {
+          "heading": "2.11 Use 5 — States from the past until now — الاستخدام الخامس: حالة بدأت في الماضي ولسه مستمرة",
+          "type": "text",
+          "paragraphs": [
+            "بنستخدمه مع since وfor لما نتكلم عن حالة لسه مستمرة، خصوصًا مع أفعال الحالة (know, have, be, like...) لأنها مينفعش تيجي في المستمر."
+          ],
+          "lang": "ar"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Example",
+            "المعنى بالعربي"
+          ],
+          "rows": [
+            [
+              "I have known Ziad for ten years.",
+              "أعرف زياد منذ عشر سنوات."
+            ],
+            [
+              "We have had this car since 2019.",
+              "نمتلك هذه السيارة منذ ٢٠١٩."
+            ],
+            [
+              "He has been ill since Monday.",
+              "هو مريض منذ يوم الإثنين."
+            ],
+            [
+              "They have lived in Alexandria for a long time.",
+              "يعيشون في الإسكندرية منذ فترة طويلة."
+            ]
+          ]
+        },
+        {
+          "type": "note",
+          "heading": "THE TRANSLATION TRAP — فخ الترجمة",
+          "paragraphs": [
+            "بالعربي بنقول «أعرفه من عشر سنين» بفعل مضارع، فالطالب يكتب I know him for ten years. وده غلط. الصح: I have known him for ten years.← أي حالة مستمرة من الماضي لحد دلوقتي ومعاها for / since = زمن تام."
+          ],
+          "lang": "ar"
+        },
+        {
+          "heading": "2.12 Use 6 — Repeated actions up to now — الاستخدام السادس: أحداث متكررة لحد دلوقتي",
+          "type": "text",
+          "paragraphs": [
+            "لما نعدّ كام مرة حصل الحدث لحد دلوقتي، أو كام حاجة عملناها ← Present Perfect."
+          ],
+          "lang": "ar"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Example",
+            "المعنى بالعربي"
+          ],
+          "rows": [
+            [
+              "He has scored two goals so far. (The match isn't over.)",
+              "لقد أحرز هدفين حتى الآن. (والماتش لسه مخلصش.)"
+            ]
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Example",
+            "المعنى بالعربي"
+          ],
+          "rows": [
+            [
+              "I have watched this match four times.",
+              "لقد شاهدت هذه المباراة أربع مرات."
+            ],
+            [
+              "Mahmoud has written three emails this morning.",
+              "لقد كتب محمود ثلاث رسائل هذا الصباح."
+            ],
+            [
+              "How many times have you visited your grandfather this month?",
+              "كم مرة زرت جدك هذا الشهر؟"
+            ],
+            [
+              "Karim has called me twice today.",
+              "اتصل بي كريم مرتين اليوم."
+            ]
+          ]
+        },
+        {
+          "heading": "2.13 Use 7 — Change over time — الاستخدام السابع: التغيير مع الوقت",
+          "type": "text",
+          "paragraphs": [
+            "لما نتكلم عن حاجة اتغيرت أو اتطورت من الماضي لحد دلوقتي:"
+          ],
+          "lang": "ar"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Example",
+            "المعنى بالعربي"
+          ],
+          "rows": [
+            [
+              "The tree has grown a lot.",
+              "لقد نمت الشجرة كثيرًا."
+            ]
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Example",
+            "المعنى بالعربي"
+          ],
+          "rows": [
+            [
+              "Your English has improved a lot.",
+              "لقد تحسنت لغتك الإنجليزية كثيرًا."
+            ],
+            [
+              "Cairo has changed since I was a child.",
+              "لقد تغيرت القاهرة منذ أن كنت طفلاً."
+            ],
+            [
+              "Prices have increased this year.",
+              "لقد ارتفعت الأسعار هذا العام."
+            ]
+          ]
+        },
+        {
+          "heading": "2.14 Use 8 — Superlatives and \"the first time\" — الاستخدام الثامن: صيغة التفضيل و«أول مرة»",
+          "type": "table",
+          "columns": [
+            "Example",
+            "المعنى بالعربي"
+          ],
+          "rows": [
+            [
+              "This is the best book I have ever read.",
+              "هذا أفضل كتاب قرأته في حياتي."
+            ],
+            [
+              "It's the first time I have eaten Indian food.",
+              "هذه أول مرة آكل فيها طعامًا هنديًا."
+            ],
+            [
+              "This is the third time he has been late this week.",
+              "هذه ثالث مرة يتأخر فيها هذا الأسبوع."
+            ]
+          ]
+        },
+        {
+          "type": "note",
+          "heading": "WATCH OUT — خلّي بالك",
+          "paragraphs": [
+            "بعد It's / This is the first (second, third...) time لازم Present Perfect: It's the first time I see snow. غلط ← It's the first time I have seen snow. صح."
+          ],
+          "lang": "ar"
+        },
+        {
+          "type": "note",
+          "heading": "2.15 Already · Yet · Just",
+          "paragraphs": [
+            "already و yet و just"
+          ]
+        },
+        {
+          "type": "note",
+          "paragraphs": [
+            "already = خلاص / بالفعل · not … yet = لسه / حتى الآن · just = توّه / حالاً · ever / never = في حياتك؟ / أبدًا"
+          ],
+          "heading": "Small words with a big meaning. — كلمات صغيرة ليها معنى كبير."
+        },
+        {
+          "heading": "already — before now, or sooner than expected — already = خلاص / بالفعل (وأسرع من المتوقع)",
+          "type": "list",
+          "items": [
+            "Mostly in affirmative sentences.",
+            "Position: between have/has and V3, or at the end for emphasis."
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Example",
+            "المعنى بالعربي"
+          ],
+          "rows": [
+            [
+              "I have already finished my homework.",
+              "لقد أنهيت واجبي بالفعل."
+            ],
+            [
+              "He's already left.",
+              "لقد غادر بالفعل."
+            ],
+            [
+              "I've done it already!",
+              "خلّصته خلاص!"
+            ],
+            [
+              "Have you already eaten? It's only 11 o'clock!",
+              "أكلت خلاص؟ دي الساعة لسه ١١! (سؤال فيه مفاجأة)"
+            ]
+          ]
+        },
+        {
+          "heading": "yet — until now (negatives and questions) — yet = لسه / حتى الآن (في النفي والسؤال)",
+          "type": "list",
+          "items": [
+            "Used in negatives and questions.",
+            "Position: usually at the end of the sentence."
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Example",
+            "المعنى بالعربي"
+          ],
+          "rows": [
+            [
+              "I haven't finished my homework yet.",
+              "لم أنهِ واجبي بعد. (لسه مخلصتوش)"
+            ],
+            [
+              "Have you finished your homework yet?",
+              "هل أنهيت واجبك؟ (ولا لسه؟)"
+            ],
+            [
+              "\"Has the bus arrived?\" — \"Not yet.\"",
+              "«هل وصل الأتوبيس؟» — «ليس بعد.»"
+            ]
+          ]
+        },
+        {
+          "type": "note",
+          "heading": "FORMAL POSITION — مكان yet في الأسلوب الرسمي",
+          "paragraphs": [
+            "في الأسلوب الرسمي ممكن تيجي yet بعد not على طول: We have not yet decided. = لم نقرر بعد."
+          ],
+          "lang": "ar"
+        },
+        {
+          "heading": "just — a very short time ago — just = للتو / توّه / حالاً",
+          "type": "list",
+          "items": [
+            "Mostly in affirmative sentences (and some questions).",
+            "Position: between have/has and V3."
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Example",
+            "المعنى بالعربي"
+          ],
+          "rows": [
+            [
+              "He has just arrived.",
+              "لقد وصل للتو."
+            ],
+            [
+              "I've just seen Omar in the street.",
+              "لقد رأيت عمر في الشارع للتو."
+            ],
+            [
+              "Have you just woken up?",
+              "هل استيقظت للتو؟"
+            ]
+          ]
+        },
+        {
+          "type": "note",
+          "heading": "JUST NOW ≠ JUST — just now مع الماضي البسيط",
+          "paragraphs": [
+            "just now معناها «من لحظة»، وبتيجي مع الماضي البسيط: I saw him just now. صح. أما I have seen him just now. فغلط."
+          ]
+        },
+        {
+          "type": "note",
+          "heading": "AMERICAN ENGLISH — الإنجليزي الأمريكي",
+          "paragraphs": [
+            "في الإنجليزي الأمريكي (في الكلام غير الرسمي) ممكن تسمع الماضي البسيط مع just / already / yet: I just ate. / Did you eat yet? — لكن في امتحانات الإنجليزي البريطاني استخدم Present Perfect."
+          ],
+          "lang": "ar"
+        },
+        {
+          "type": "note",
+          "heading": "2.16 Ever · Never · Before",
+          "paragraphs": [
+            "ever و never و before"
+          ]
+        },
+        {
+          "heading": "ever — at any time in your life — ever = في أي وقت في حياتك / قبل كده",
+          "type": "list",
+          "items": [
+            "Mostly in questions. Position: before V3."
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Example",
+            "المعنى بالعربي"
+          ],
+          "rows": [
+            [
+              "Have you ever been to Siwa?",
+              "هل سبق لك أن ذهبت إلى سيوة؟"
+            ],
+            [
+              "Has he ever lied to you?",
+              "هل كذب عليك من قبل؟"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Also in negatives (= never), and after superlatives and words like nobody / nothing:"
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Example",
+            "المعنى بالعربي"
+          ],
+          "rows": [
+            [
+              "I haven't ever seen snow. (= I have never seen snow.)",
+              "لم أرَ الثلج أبدًا."
+            ],
+            [
+              "It's the most beautiful place I've ever seen.",
+              "إنه أجمل مكان رأيته في حياتي."
+            ],
+            [
+              "Nobody has ever done this before.",
+              "لم يفعل أحد هذا من قبل."
+            ]
+          ]
+        },
+        {
+          "type": "note",
+          "heading": "WATCH OUT — خلّي بالك",
+          "paragraphs": [
+            "مينفعش ever في جملة مثبتة عادية: I have ever been to Paris. غلط ← I have been to Paris. صح."
+          ],
+          "lang": "ar"
+        },
+        {
+          "heading": "never — not at any time — never = أبدًا / عمري ما",
+          "type": "list",
+          "items": [
+            "Affirmative form, negative meaning. Position: before V3."
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Example",
+            "المعنى بالعربي"
+          ],
+          "rows": [
+            [
+              "I have never flown in a plane.",
+              "لم أركب طائرة أبدًا."
+            ],
+            [
+              "My grandfather has never used a computer.",
+              "جدي لم يستخدم الكمبيوتر أبدًا."
+            ]
+          ]
+        },
+        {
+          "type": "note",
+          "heading": "NO DOUBLE NEGATIVES — ممنوع النفي المزدوج",
+          "paragraphs": [
+            "I haven't never seen it. غلط ← الصح I have never seen it. أو I haven't ever seen it."
+          ]
+        },
+        {
+          "heading": "before — at some time before now — before = من قبل",
+          "type": "list",
+          "items": [
+            "Position: at the end of the sentence."
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Example",
+            "المعنى بالعربي"
+          ],
+          "rows": [
+            [
+              "I have seen this film before.",
+              "لقد شاهدت هذا الفيلم من قبل."
+            ],
+            [
+              "Have you met him before?",
+              "هل قابلته من قبل؟"
+            ],
+            [
+              "I have never tasted this fruit before.",
+              "لم أتذوق هذه الفاكهة من قبل."
+            ]
+          ]
+        },
+        {
+          "heading": "2.17 Since and For — since و for",
+          "type": "text",
+          "paragraphs": [
+            "الاتنين ترجمتهم غالبًا «منذ»، لكن الفرق كبير: since قبل نقطة بداية، وfor قبل مدة."
+          ],
+          "lang": "ar"
+        },
+        {
+          "type": "note",
+          "paragraphs": [
+            "since = نقطة البداية · for = طول المدة",
+            "since 2020 (نقطة بداية) · for 6 years (مدة)"
+          ],
+          "heading": "since = the starting point · for = the length of time"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "since + a POINT in time",
+            "for + a PERIOD of time"
+          ],
+          "rows": [
+            [
+              "since 2020",
+              "for six years"
+            ],
+            [
+              "since Monday",
+              "for three days"
+            ],
+            [
+              "since 8 o'clock",
+              "for two hours"
+            ],
+            [
+              "since last summer",
+              "for a few months"
+            ],
+            [
+              "since yesterday",
+              "for a week"
+            ],
+            [
+              "since I was a child",
+              "for a long time / for ages"
+            ]
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Example",
+            "المعنى بالعربي"
+          ],
+          "rows": [
+            [
+              "I have lived in Mansoura since 2015.",
+              "أعيش في المنصورة منذ ٢٠١٥."
+            ],
+            [
+              "I have lived in Mansoura for eleven years.",
+              "أعيش في المنصورة منذ إحدى عشرة سنة."
+            ],
+            [
+              "He hasn't eaten anything since breakfast.",
+              "لم يأكل أي شيء منذ الإفطار."
+            ],
+            [
+              "We haven't seen each other for months.",
+              "لم نرَ بعضنا منذ شهور."
+            ]
+          ]
+        },
+        {
+          "type": "note",
+          "heading": "A QUICK TEST — اختبار سريع",
+          "paragraphs": [
+            "اسأل: «من إمتى؟» لو الإجابة نقطة (سنة، يوم، ساعة، حدث) ← since. لو الإجابة مدة (كام دقيقة، كام سنة) ← for."
+          ],
+          "lang": "ar"
+        },
+        {
+          "type": "note",
+          "heading": "SINCE + A CLAUSE — since + جملة كاملة",
+          "paragraphs": [
+            "بعد since ممكن تيجي جملة كاملة، وغالبًا بتكون ماضي بسيط (لأنها نقطة بداية في الماضي)، والجملة الأساسية بتكون زمن تام:"
+          ],
+          "lang": "ar"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Example",
+            "المعنى بالعربي"
+          ],
+          "rows": [
+            [
+              "I have known him since we were at primary school.",
+              "أعرفه منذ أن كنا في المدرسة الابتدائية."
+            ],
+            [
+              "He has worked here since he left university.",
+              "يعمل هنا منذ أن ترك الجامعة."
+            ]
+          ]
+        },
+        {
+          "heading": "2.18 Recently · Lately · So far · Up to now · Until now — recently و lately و so far و up to now و until now",
+          "type": "table",
+          "columns": [
+            "Word",
+            "المعنى",
+            "Usual position"
+          ],
+          "rows": [
+            [
+              "recently",
+              "مؤخرًا / في الفترة الأخيرة",
+              "before V3 or at the end"
+            ],
+            [
+              "lately",
+              "مؤخرًا / الأيام دي",
+              "usually at the end"
+            ],
+            [
+              "so far",
+              "حتى الآن (لحد دلوقتي)",
+              "at the end or the beginning"
+            ],
+            [
+              "up to now",
+              "حتى الآن",
+              "at the beginning or the end"
+            ],
+            [
+              "until now / till now",
+              "حتى الآن (لحد اللحظة دي)",
+              "at the end or the beginning"
+            ]
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Example",
+            "المعنى بالعربي"
+          ],
+          "rows": [
+            [
+              "I've recently started a new course.",
+              "لقد بدأت مؤخرًا دورة جديدة."
+            ],
+            [
+              "Have you seen Ali recently?",
+              "هل رأيت علي مؤخرًا؟"
+            ],
+            [
+              "I haven't slept well lately.",
+              "لم أنم جيدًا في الآونة الأخيرة."
+            ],
+            [
+              "We've learned five tenses so far.",
+              "لقد تعلمنا خمسة أزمنة حتى الآن."
+            ],
+            [
+              "So far, the trip has been amazing.",
+              "حتى الآن، كانت الرحلة رائعة."
+            ],
+            [
+              "Up to now, we haven't had any problems.",
+              "حتى الآن، لم تواجهنا أي مشكلات."
+            ],
+            [
+              "Until now, he has always been on time.",
+              "حتى الآن، كان دائمًا في موعده."
+            ]
+          ]
+        },
+        {
+          "type": "text",
+          "paragraphs": [
+            "الفرق الدقيق بين الكلمات دي موجود في الجزء الخامس."
+          ],
+          "lang": "ar"
+        },
+        {
+          "heading": "2.19 Where do the signal words go? — مكان الكلمات الدالة في الجملة",
+          "type": "table",
+          "columns": [
+            "Position",
+            "Words",
+            "Example"
+          ],
+          "rows": [
+            [
+              "between have/has and V3",
+              "already, just, ever, never, recently, always",
+              "I have just eaten."
+            ],
+            [
+              "at the end",
+              "yet, before, so far, lately, already (emphasis), since/for + time",
+              "Have you finished yet?"
+            ],
+            [
+              "at the beginning",
+              "So far, Up to now, Until now, Recently, Lately",
+              "So far, we've won two games."
+            ],
+            [
+              "before haven't / hasn't",
+              "still",
+              "He still hasn't replied."
+            ]
+          ]
+        },
+        {
+          "type": "note",
+          "heading": "Structure — التركيب",
+          "paragraphs": [
+            "Subject + have / has + just / already / ever / never + V3"
+          ]
+        },
+        {
+          "type": "note",
+          "heading": "Structure — التركيب",
+          "paragraphs": [
+            "Subject + haven't / hasn't + V3 +... + yet"
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Example",
+            "المعنى بالعربي"
+          ],
+          "rows": [
+            [
+              "He still hasn't replied to my message.",
+              "لسه مردّش على رسالتي."
+            ]
+          ]
+        },
+        {
+          "heading": "2.20 When NOT to use the Present Perfect — إمتى منستخدمش المضارع التام",
+          "type": "text",
+          "paragraphs": [
+            "أهم قاعدة: لو فيه وقت منتهي ومحدد في الماضي ← Past Simple مش Present Perfect."
+          ],
+          "lang": "ar"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Don't use it with…",
+            "✗ Wrong",
+            "✓ Right"
+          ],
+          "rows": [
+            [
+              "yesterday",
+              "I have seen him yesterday.",
+              "I saw him yesterday."
+            ],
+            [
+              "… ago",
+              "He has left two hours ago.",
+              "He left two hours ago."
+            ],
+            [
+              "last week / month / year",
+              "We have visited Aswan last year.",
+              "We visited Aswan last year."
+            ],
+            [
+              "in + a past year",
+              "I have finished school in 2022.",
+              "I finished school in 2022."
+            ],
+            [
+              "When…?",
+              "When have you arrived?",
+              "When did you arrive?"
+            ],
+            [
+              "when I was…",
+              "I have played a lot when I was a child.",
+              "I played a lot when I was a child."
+            ],
+            [
+              "a story in order",
+              "Yesterday I have got up and have gone out.",
+              "Yesterday I got up and went out."
+            ],
+            [
+              "a life that has ended",
+              "Naguib Mahfouz has written many novels.",
+              "Naguib Mahfouz wrote many novels."
+            ]
+          ]
+        },
+        {
+          "type": "note",
+          "heading": "الشرح ببساطة",
+          "paragraphs": [
+            "ركّز في الكلمات دي: «امبارح، من يومين، السنة اللي فاتت، في ٢٠٢٢، لما كنت صغير، إمتى؟» كلها بتقفل الباب في وش Present Perfect وبتوديك على الماضي البسيط."
+          ],
+          "lang": "ar"
+        },
+        {
+          "heading": "2.21 Present Perfect or Past Simple? — المضارع التام ولا الماضي البسيط؟",
+          "type": "table",
+          "columns": [
+            "Present Perfect",
+            "Past Simple"
+          ],
+          "rows": [
+            [
+              "connected to now",
+              "finished, not connected to now"
+            ],
+            [
+              "no time, or an unfinished time",
+              "a finished, specific time"
+            ],
+            [
+              "I have lost my phone. (It's still lost.)",
+              "I lost my phone last week. (We don't know if it's still lost.)"
+            ],
+            [
+              "Have you ever been to Aswan?",
+              "When did you go to Aswan?"
+            ],
+            [
+              "I have lived here for five years. (I still live here.)",
+              "I lived there for five years. (I don't now.)"
+            ]
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Example",
+            "المعنى بالعربي"
+          ],
+          "rows": [
+            [
+              "I have worked here for five years.",
+              "أعمل هنا منذ خمس سنوات. (ولسه شغال)"
+            ],
+            [
+              "I worked there for five years.",
+              "عملت هناك لمدة خمس سنوات. (ومبقتش بشتغل هناك)"
+            ]
+          ]
+        },
+        {
+          "heading": "SAME QUESTION, TWO MEANINGS — نفس السؤال بمعنيين",
+          "type": "table",
+          "columns": [
+            "Example",
+            "المعنى بالعربي"
+          ],
+          "rows": [
+            [
+              "Have you seen the new exhibition? (It is still open.)",
+              "هل شاهدت المعرض الجديد؟ (لسه مفتوح)"
+            ],
+            [
+              "Did you see the exhibition? (It has closed now.)",
+              "هل شاهدت المعرض؟ (خلاص قفل)"
+            ]
+          ]
+        },
+        {
+          "type": "text",
+          "paragraphs": [
+            "لو الفرصة لسه موجودة ← Present Perfect. لو الفرصة انتهت ← Past Simple."
+          ],
+          "lang": "ar"
+        },
+        {
+          "type": "note",
+          "heading": "Part 3 · Present Perfect Continuous — from Beginner to Advanced",
+          "paragraphs": [
+            "المضارع التام المستمر من البداية للاحتراف"
+          ],
+          "lang": "ar"
+        },
+        {
+          "heading": "3.1 What is the Present Perfect Continuous? — يعني إيه المضارع التام المستمر؟",
+          "type": "text",
+          "paragraphs": [
+            "بنستخدمه لما نتكلم عن نشاط بدأ في الماضي واستمر فترة لحد دلوقتي (ولسه مستمر، أو وقف حالاً). التركيز هنا على المدة واستمرار النشاط، مش على النتيجة."
+          ],
+          "lang": "ar"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Example",
+            "المعنى بالعربي"
+          ],
+          "rows": [
+            [
+              "He started studying at 4:00. It's 6:00 now, and he is still studying.",
+              "بدأ يذاكر الساعة ٤. الساعة دلوقتي ٦ ولسه بيذاكر."
+            ]
+          ]
+        },
+        {
+          "type": "note",
+          "heading": "IN ONE LINE — في سطر واحد",
+          "paragraphs": [
+            "Present Perfect Continuous = «بقاله ... بيعمل كذا». مثلاً: He has been studying for two hours. = بقاله ساعتين بيذاكر = هو يذاكر منذ ساعتين."
+          ]
+        },
+        {
+          "type": "note",
+          "heading": "3.2 The structure — piece by piece — التركيب — حتة حتة",
+          "paragraphs": [
+            "Structure — التركيب: Subject + have / has + been + V-ing + (the rest)"
+          ]
+        },
+        {
+          "type": "note",
+          "paragraphs": [
+            "Perfect (have/has + V3) + Continuous (be + V-ing) = have/has + been + V-ing",
+            "التام + المستمر = have/has + been + V-ing"
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Part",
+            "Its job",
+            "بالعربي"
+          ],
+          "rows": [
+            [
+              "have / has",
+              "shows the tense and agrees with the subject",
+              "بيحدد الزمن، وبيتغير حسب الفاعل (has مع المفرد الغائب)"
+            ],
+            [
+              "been",
+              "the V3 of \"be\" — it never changes",
+              "التصريف التالت لفعل be — ثابتة ومبتتغيرش أبدًا"
+            ],
+            [
+              "V-ing",
+              "the main action, in progress",
+              "الفعل الأساسي في حالة استمرار"
+            ]
+          ]
+        },
+        {
+          "type": "note",
+          "heading": "BEEN NEVER CHANGES — been ثابتة دايمًا",
+          "paragraphs": [
+            "He has be studying غلط · He has being studying غلط · He has been study غلط ← الصح: He has been studying."
+          ]
+        },
+        {
+          "heading": "3.3 Spelling of the -ing form — إزاي نكتب الفعل + ing",
+          "type": "table",
+          "columns": [
+            "Rule",
+            "Examples",
+            "بالعربي"
+          ],
+          "rows": [
+            [
+              "most verbs: + ing",
+              "work → working, read → reading, play → playing",
+              "أغلب الأفعال: نزود ing"
+            ],
+            [
+              "silent -e: drop the e",
+              "write → writing, make → making, come → coming",
+              "آخره e مش بتتنطق: نشيلها"
+            ],
+            [
+              "but -ee stays",
+              "see → seeing, agree → agreeing",
+              "لكن ee بتفضل زي ما هي"
+            ],
+            [
+              "-ie → -ying",
+              "lie → lying, die → dying, tie → tying",
+              "ie تتحول لـ y"
+            ],
+            [
+              "short verb, consonant– vowel–consonant → double",
+              "run → running, swim → swimming, sit → sitting",
+              "فعل قصير آخره ساكن- متحرك-ساكن: نكرر الحرف الأخير"
+            ],
+            [
+              "stress on the last syllable → double",
+              "begin → beginning, forget → forgetting",
+              "النبر على آخر مقطع: نكرر الحرف الأخير"
+            ],
+            [
+              "-y stays",
+              "study → studying, try → trying, stay → staying",
+              "y بتفضل زي ما هي"
+            ],
+            [
+              "British: one vowel + l → double the l",
+              "travel → travelling, cancel → cancelling (US: traveling) · but: feel → feeling",
+              "البريطاني بيكرر l بعد حرف متحرك واحد"
+            ]
+          ]
+        },
+        {
+          "heading": "3.4 Affirmative sentences — الجملة المثبتة",
+          "type": "table",
+          "columns": [
+            "Example",
+            "المعنى بالعربي"
+          ],
+          "rows": [
+            [
+              "I have been waiting for you for an hour.",
+              "أنتظرك منذ ساعة. (بقالي ساعة مستنيك)"
+            ],
+            [
+              "He's been playing football since 4 o'clock.",
+              "يلعب كرة القدم منذ الساعة الرابعة."
+            ],
+            [
+              "We have been learning English for six years.",
+              "نتعلم الإنجليزية منذ ست سنوات."
+            ],
+            [
+              "It has been raining all day.",
+              "السماء تمطر طوال اليوم."
+            ],
+            [
+              "They've been building the new bridge since last year.",
+              "يبنون الكوبري الجديد منذ العام الماضي."
+            ]
+          ]
+        },
+        {
+          "type": "note",
+          "heading": "3.5 Negative sentences — النفي",
+          "paragraphs": [
+            "Structure — التركيب: Subject + haven't / hasn't + been + V-ing"
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Example",
+            "المعنى بالعربي"
+          ],
+          "rows": [
+            [
+              "I haven't been sleeping well recently.",
+              "لا أنام جيدًا في الفترة الأخيرة."
+            ],
+            [
+              "He hasn't been studying hard this term.",
+              "لا يذاكر بجد هذا الترم."
+            ],
+            [
+              "You haven't been listening to me!",
+              "أنت مش مركز معايا خالص! (لم تكن تستمع إليّ)"
+            ]
+          ]
+        },
+        {
+          "type": "note",
+          "heading": "\"IT HASN'T HAPPENED AT ALL\" → USUALLY THE SIMPLE FORM — لو الحدث محصلش خالص",
+          "paragraphs": [
+            "لما نقول إن حاجة محصلتش خالص طول فترة معينة، غالبًا بنستخدم Present Perfect العادي، مش المستمر:"
+          ],
+          "lang": "ar"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Example",
+            "المعنى بالعربي"
+          ],
+          "rows": [
+            [
+              "I haven't eaten anything since breakfast.",
+              "لم آكل شيئًا منذ الإفطار."
+            ],
+            [
+              "I haven't seen Omar for months.",
+              "لم أرَ عمر منذ شهور."
+            ]
+          ]
+        },
+        {
+          "type": "text",
+          "paragraphs": [
+            "النفي المستمر بنستخدمه أكتر لما نقصد إن نشاط معين مكانش ماشي بانتظام في الفترة دي: I haven't been sleeping well."
+          ],
+          "lang": "ar"
+        },
+        {
+          "type": "note",
+          "heading": "3.6 Questions & short answers — السؤال والإجابة القصيرة",
+          "paragraphs": [
+            "Structure — التركيب: Have / Has + Subject + been + V-ing + ?"
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Example",
+            "المعنى بالعربي"
+          ],
+          "rows": [
+            [
+              "Have you been waiting long?",
+              "هل تنتظر منذ وقت طويل؟"
+            ],
+            [
+              "Has it been raining? The ground is wet.",
+              "هل كانت السماء تمطر؟ الأرض مبلولة."
+            ]
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Question",
+            "Yes",
+            "No"
+          ],
+          "rows": [
+            [
+              "Have you been working?",
+              "Yes, I have.",
+              "No, I haven't."
+            ],
+            [
+              "Has he been running?",
+              "Yes, he has.",
+              "No, he hasn't."
+            ],
+            [
+              "Have they been playing?",
+              "Yes, they have.",
+              "No, they haven't."
+            ]
+          ]
+        },
+        {
+          "type": "note",
+          "heading": "3.7 WH-questions — أسئلة WH",
+          "paragraphs": [
+            "Structure — التركيب: WH-word + have / has + Subject + been + V-ing + ?"
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Example",
+            "المعنى بالعربي"
+          ],
+          "rows": [
+            [
+              "How long have you been learning English?",
+              "منذ متى وأنت تتعلم الإنجليزية؟"
+            ],
+            [
+              "What have you been doing? Your hands are dirty!",
+              "ماذا كنت تفعل؟ يداك متسختان!"
+            ],
+            [
+              "Why has he been crying?",
+              "لماذا كان يبكي؟"
+            ],
+            [
+              "Who has been using my laptop?",
+              "من كان يستخدم اللابتوب بتاعي؟"
+            ]
+          ]
+        },
+        {
+          "type": "note",
+          "heading": "THE FAMOUS QUESTION: HOW LONG…? — السؤال المشهور How long",
+          "paragraphs": [
+            "How long هو أشهر سؤال مع الزمن ده، والإجابة بتكون بـ for أو since:"
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Example",
+            "المعنى بالعربي"
+          ],
+          "rows": [
+            [
+              "\"How long have you been waiting?\" — \"For twenty minutes.\" / \"Since 3 o'clock.\"",
+              "«بقالك قد إيه مستني؟» — «من عشرين دقيقة.» / «من الساعة ٣.»"
+            ]
+          ]
+        },
+        {
+          "heading": "3.8 Use 1 — Started in the past and still continuing — الاستخدام الأول: بدأ في الماضي ولسه مستمر",
+          "type": "text",
+          "paragraphs": [
+            "النشاط بدأ في الماضي، ولسه شغال دلوقتي، وإحنا مهتمين بقاله قد إيه."
+          ],
+          "lang": "ar"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Example",
+            "المعنى بالعربي"
+          ],
+          "rows": [
+            [
+              "He has been waiting for the bus for an hour!",
+              "ينتظر الأتوبيس منذ ساعة! (بقاله ساعة مستني)"
+            ]
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Example",
+            "المعنى بالعربي"
+          ],
+          "rows": [
+            [
+              "I have been reading this novel since Friday.",
+              "أقرأ هذه الرواية منذ يوم الجمعة."
+            ],
+            [
+              "Hassan has been working at the hospital for ten years.",
+              "يعمل حسن في المستشفى منذ عشر سنوات."
+            ],
+            [
+              "We've been sitting here for three hours!",
+              "نجلس هنا منذ ثلاث ساعات!"
+            ]
+          ]
+        },
+        {
+          "heading": "3.9 Use 2 — Just stopped, with a visible result — الاستخدام التاني: وقف حالاً وأثره باين",
+          "type": "text",
+          "paragraphs": [
+            "النشاط وقف من شوية، لكن فيه أثر أو دليل واضح دلوقتي، فبنشرح سبب الأثر ده."
+          ],
+          "lang": "ar"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Example",
+            "المعنى بالعربي"
+          ],
+          "rows": [
+            [
+              "The activity has just stopped, but we can see its effect now.",
+              "النشاط وقف حالاً، لكن أثره باين قدامنا."
+            ]
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Example",
+            "المعنى بالعربي"
+          ],
+          "rows": [
+            [
+              "He's hot and out of breath. He has been running.",
+              "هو حرّان ونَفَسه مقطوع. لقد كان يجري."
+            ]
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Example",
+            "المعنى بالعربي"
+          ],
+          "rows": [
+            [
+              "The ground is wet. It has been raining.",
+              "الأرض مبلولة. لقد كانت السماء تمطر."
+            ]
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Example",
+            "المعنى بالعربي"
+          ],
+          "rows": [
+            [
+              "The dog is dirty. It has been digging in the garden.",
+              "الكلب متسخ. لقد كان يحفر في الحديقة."
+            ]
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Example",
+            "المعنى بالعربي"
+          ],
+          "rows": [
+            [
+              "Your eyes are red. Have you been crying?",
+              "عيناك حمراوان. هل كنت تبكي؟"
+            ],
+            [
+              "I'm tired because I've been working all day.",
+              "أنا تعبان لأني كنت أعمل طوال اليوم."
+            ],
+            [
+              "Your hands are covered in paint. What have you been doing?",
+              "يداك مغطاتان بالدهان. ماذا كنت تفعل؟"
+            ]
+          ]
+        },
+        {
+          "type": "note",
+          "heading": "الشرح ببساطة",
+          "paragraphs": [
+            "لما تلاقي في الجملة دليل زي (تعبان، مبلول، متوسخ، عينه حمرا، نَفَسه مقطوع) والسؤال «ليه؟» ← الإجابة غالبًا Present Perfect Continuous لأننا بنشرح النشاط اللي عمل الأثر ده."
+          ],
+          "lang": "ar"
+        },
+        {
+          "heading": "3.10 Use 3 — Repeated or temporary activities lately — الاستخدام التالت: نشاط متكرر أو مؤقت في الفترة الأخيرة",
+          "type": "table",
+          "columns": [
+            "Example",
+            "المعنى بالعربي"
+          ],
+          "rows": [
+            [
+              "I've been going to the gym a lot lately.",
+              "أذهب إلى الجيم كثيرًا في الفترة الأخيرة."
+            ],
+            [
+              "Ali has been calling me every day this week.",
+              "علي يتصل بي كل يوم هذا الأسبوع."
+            ],
+            [
+              "I've been staying with my uncle for two weeks. (until I find a flat)",
+              "أقيم عند عمي منذ أسبوعين. (لحد ما ألاقي شقة ← وضع مؤقت)"
+            ]
+          ]
+        },
+        {
+          "heading": "3.11 Use 4 — Complaining about something long — الاستخدام الرابع: الشكوى من حاجة طوّلت",
+          "type": "text",
+          "paragraphs": [
+            "لما نشتكي أو نتضايق من حاجة طوّلت، الزمن ده بيدّي إحساس «بقالي كتير!»:"
+          ],
+          "lang": "ar"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Example",
+            "المعنى بالعربي"
+          ],
+          "rows": [
+            [
+              "I've been waiting for you for ages!",
+              "أنا مستنيك من زمان!"
+            ],
+            [
+              "Someone has been using my phone!",
+              "حد كان بيستخدم موبايلي!"
+            ],
+            [
+              "You've been playing computer games all day!",
+              "أنت بتلعب ألعاب كمبيوتر طول اليوم!"
+            ]
+          ]
+        },
+        {
+          "heading": "3.12 Signal words and their positions — الكلمات الدالة ومكانها",
+          "type": "table",
+          "columns": [
+            "Word",
+            "المعنى",
+            "Position",
+            "Example"
+          ],
+          "rows": [
+            [
+              "for + a period",
+              "منذ / لمدة",
+              "after the verb",
+              "I've been working for two hours."
+            ],
+            [
+              "since + a point",
+              "منذ",
+              "after the verb",
+              "He's been sleeping since 10 p.m."
+            ],
+            [
+              "How long…?",
+              "منذ متى؟ / بقالك قد إيه؟",
+              "at the beginning",
+              "How long have you been waiting?"
+            ],
+            [
+              "all day / all morning / all week",
+              "طول اليوم / الصبح / الأسبوع",
+              "at the end",
+              "It's been raining all day."
+            ],
+            [
+              "lately / recently",
+              "مؤخرًا",
+              "at the end (recently also before been)",
+              "I've been feeling tired lately."
+            ]
+          ]
+        },
+        {
+          "heading": "3.13 Stative verbs: no -ing! — أفعال الحالة: ممنوع ing!",
+          "type": "text",
+          "paragraphs": [
+            "أفعال الحالة (stative verbs) بتوصف حالة (تفكير، مشاعر، ملكية، حواس) مش حركة أو نشاط. الأفعال دي عادةً مبتجيش في الأزمنة المستمرة، فمع since / for بنستخدم Present Perfect العادي."
+          ],
+          "lang": "ar"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Group",
+            "Verbs",
+            "المجموعة"
+          ],
+          "rows": [
+            [
+              "thinking & knowing",
+              "know, believe, understand, remember, forget, mean, realise, recognise, suppose",
+              "التفكير والمعرفة"
+            ],
+            [
+              "feelings & wants",
+              "like, love, hate, prefer, dislike, want, need",
+              "المشاعر والرغبات"
+            ],
+            [
+              "possession",
+              "own, have (= possess), belong, possess",
+              "الملكية"
+            ],
+            [
+              "senses & appearance",
+              "see, hear, smell, taste, seem, appear, sound",
+              "الحواس والمظهر"
+            ],
+            [
+              "other states",
+              "be, exist, contain, include, consist, cost, weigh, depend, deserve, matter",
+              "حالات تانية"
+            ]
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Example",
+            "المعنى بالعربي"
+          ],
+          "rows": [
+            [
+              "I have been knowing him for years. → I have known him for years.",
+              "أعرفه منذ سنوات."
+            ],
+            [
+              "This car has been belonging to my father. → This car has belonged to my father since 2010.",
+              "هذه السيارة ملك والدي منذ ٢٠١٠."
+            ],
+            [
+              "He has been being ill. → He has been ill for a week.",
+              "هو مريض منذ أسبوع."
+            ]
+          ]
+        },
+        {
+          "type": "note",
+          "heading": "INFORMAL EXCEPTIONS — استثناءات في الكلام غير الرسمي",
+          "paragraphs": [
+            "في الإنجليزي الحديث ممكن تسمع بعض أفعال المشاعر والرغبة في المستمر، زي I've been wanting to tell you... (كان نفسي أقولك من بدري). ده مقبول في الكلام، لكن في الامتحان خليك على القاعدة: فعل الحالة ← من غير -ing."
+          ],
+          "lang": "ar"
+        },
+        {
+          "heading": "3.14 Verbs with two meanings — أفعال ليها معنيين (حالة ونشاط)",
+          "type": "text",
+          "paragraphs": [
+            "بعض الأفعال تكون حالة في معنى، ونشاط في معنى تاني. لو معناها نشاط ← ينفع معاها -ing."
+          ],
+          "lang": "ar"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Verb",
+            "State meaning (no -ing)",
+            "Action meaning (-ing is OK)"
+          ],
+          "rows": [
+            [
+              "have",
+              "own: I have had this phone for a year.",
+              "eat / experience: We've been having lunch. · I've been having problems with my laptop."
+            ],
+            [
+              "think",
+              "opinion: I have always thought he was honest.",
+              "consider: I've been thinking about your idea."
+            ],
+            [
+              "see",
+              "see with your eyes: I have seen that film.",
+              "meet / visit a doctor: He's been seeing a doctor about his back."
+            ],
+            [
+              "taste",
+              "have a flavour: The soup tastes salty.",
+              "try food: The cook has been tasting the soup."
+            ],
+            [
+              "weigh",
+              "have a weight: The box weighs 5 kg.",
+              "measure the weight: He's been weighing the boxes."
+            ],
+            [
+              "feel",
+              "opinion: I feel that you are right.",
+              "physical feeling: I've been feeling tired lately."
+            ]
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Example",
+            "المعنى بالعربي"
+          ],
+          "rows": [
+            [
+              "I've been thinking about your offer.",
+              "كنت أفكر في عرضك. (بفكر فيه بقالي فترة ← نشاط)"
+            ],
+            [
+              "I have always thought he was honest.",
+              "لطالما اعتقدت أنه أمين. (رأي ← حالة)"
+            ]
+          ]
+        },
+        {
+          "type": "note",
+          "heading": "THE TEST — الاختبار",
+          "paragraphs": [
+            "اسأل: «هل الفعل هنا معناه حركة أو نشاط بيستمر؟» لو آه ← ينفع -ing. لو معناه حالة أو رأي أو ملكية ← من غير -ing."
+          ],
+          "lang": "ar"
+        },
+        {
+          "heading": "3.15 live, work, study, teach — both forms are possible — أفعال ينفع معاها الزمنين",
+          "type": "text",
+          "paragraphs": [
+            "أفعال زي live, work, study, teach بتيجي مع for / since في الزمنين بفرق بسيط جدًا:"
+          ],
+          "lang": "ar"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Example",
+            "المعنى بالعربي"
+          ],
+          "rows": [
+            [
+              "I've lived here for ten years. ≈ I've been living here for ten years.",
+              "أعيش هنا منذ عشر سنوات."
+            ]
+          ]
+        },
+        {
+          "type": "text",
+          "paragraphs": [
+            "المستمر ممكن يدّي إحساس إن الوضع مؤقت أو جديد، والعادي ممكن يدّي إحساس إن الوضع دائم أو ثابت:"
+          ],
+          "lang": "ar"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Example",
+            "المعنى بالعربي"
+          ],
+          "rows": [
+            [
+              "I've been living with my cousin since last month. (temporary)",
+              "أعيش مع ابن عمي منذ الشهر الماضي. (وضع مؤقت)"
+            ],
+            [
+              "My grandparents have lived in this village all their lives. (permanent)",
+              "يعيش جدّي وجدّتي في هذه القرية طوال حياتهما. (وضع دائم)"
+            ]
+          ]
+        },
+        {
+          "heading": "3.16 Common mistakes with the continuous form — أخطاء شائعة في المستمر",
+          "type": "mistakes",
+          "items": [
+            {
+              "avoid": "He has been play football for an hour.",
+              "use": "He has been playing football for an hour.",
+              "note": "بعد been لازم الفعل ياخد -ing. ANOTHER EXAMPLE: I have been reading since 6 o'clock. أقرأ منذ الساعة السادسة."
+            },
+            {
+              "avoid": "I have been knowing him since 2018.",
+              "use": "I have known him since 2018.",
+              "note": "know فعل حالة، فمبيجيش مع -ing. ANOTHER EXAMPLE: They have had this car for years. يمتلكون هذه السيارة منذ سنوات."
+            },
+            {
+              "avoid": "He have been working all day.",
+              "use": "He has been working all day.",
+              "note": "الفاعل he ← has. ANOTHER EXAMPLE: My parents have been working all day. ظلّ والداي يعملان طوال اليوم."
+            },
+            {
+              "avoid": "I am waiting for you for an hour.",
+              "use": "I have been waiting for you for an hour.",
+              "note": "فيه مدة (for an hour) والنشاط مستمر لحد دلوقتي ← مش Present Continuous. ANOTHER EXAMPLE: He has been sleeping since 9 p.m. ينام منذ التاسعة مساءً."
+            },
+            {
+              "avoid": "I have been writing five emails this morning.",
+              "use": "I have written five emails this morning.",
+              "note": "فيه عدد (خمسة) ← نتيجة ← Present Perfect. ANOTHER EXAMPLE: He has read three chapters today. لقد قرأ ثلاثة فصول اليوم."
+            },
+            {
+              "avoid": "It has been rained all day.",
+              "use": "It has been raining all day.",
+              "note": "في المستمر بعد been ييجي -ing. أما been + V3 فده مبني للمجهول. ANOTHER EXAMPLE: The ground is wet — it has been raining. الأرض مبلولة — كانت السماء تمطر."
+            }
+          ]
+        },
+        {
+          "type": "note",
+          "heading": "Part 4 · Present Perfect vs. Present Perfect Continuous",
+          "paragraphs": [
+            "المقارنة التفصيلية بين الزمنين"
+          ],
+          "lang": "ar"
+        },
+        {
+          "heading": "4.1 The big difference in one picture — الفرق الكبير في صورة واحدة",
+          "type": "note",
+          "paragraphs": [
+            "Present Perfect looks at the RESULT. Present Perfect Continuous looks at the ACTIVITY and how long it has lasted.",
+            "التام بيبص على النتيجة. التام المستمر بيبص على النشاط ومدته."
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "",
+            "Present Perfect",
+            "Present Perfect Continuous"
+          ],
+          "rows": [
+            [
+              "Form",
+              "have/has + V3",
+              "have/has + been + V-ing"
+            ],
+            [
+              "Focus",
+              "the result — what is done",
+              "the activity — how long"
+            ],
+            [
+              "Key question",
+              "How many? How much? How many times?",
+              "How long?"
+            ],
+            [
+              "Is it finished?",
+              "usually yes (with action verbs)",
+              "maybe not — or it has just stopped"
+            ],
+            [
+              "Stative verbs",
+              "✓ I've known him for years.",
+              "✗ I've been knowing him"
+            ],
+            [
+              "Example",
+              "I've read the book.",
+              "I've been reading the book."
+            ],
+            [
+              "بالعربي",
+              "التركيز على النتيجة (اللي اتعمل)",
+              "التركيز على النشاط والمدة (بقالي…)"
+            ]
+          ]
+        },
+        {
+          "heading": "4.2 Result vs. duration — النتيجة مقابل المدة",
+          "type": "table",
+          "columns": [
+            "Tense",
+            "Example",
+            "المعنى بالعربي"
+          ],
+          "rows": [
+            [
+              "Present Perfect",
+              "He has painted the room. (The job is done — look at the result!)",
+              "لقد دهن الغرفة. (الشغل خلص — بص على النتيجة!)"
+            ],
+            [
+              "Present Perfect Continuous",
+              "He has been painting the room. (That's why there's paint on his clothes. Maybe he hasn't finished.)",
+              "كان بيدهن الأوضة. (عشان كده هدومه عليها دهان — وممكن لسه مخلصش.)"
+            ]
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Example",
+            "المعنى بالعربي"
+          ],
+          "rows": [
+            [
+              "I've cleaned my room. Now it's tidy. ← result",
+              "لقد نظفت غرفتي. أصبحت مرتبة الآن. ← نتيجة"
+            ],
+            [
+              "I've been cleaning my room. That's why I'm tired. ← activity",
+              "كنت أنظف غرفتي، ولهذا أنا متعب. ← نشاط"
+            ]
+          ]
+        },
+        {
+          "type": "note",
+          "heading": "WHY? — ليه؟",
+          "paragraphs": [
+            "في الجملة الأولى بنقول إيه اللي اتعمل (الأوضة بقت نضيفة). في التانية بنقول كنت بعمل إيه الفترة اللي فاتت (وعشان كده تعبان)، ومش مهم الأوضة خلصت ولا لأ."
+          ],
+          "lang": "ar"
+        },
+        {
+          "heading": "4.3 Completed vs. still continuing — خلص مقابل لسه مستمر",
+          "type": "table",
+          "columns": [
+            "Tense",
+            "Example",
+            "المعنى بالعربي"
+          ],
+          "rows": [
+            [
+              "Present Perfect",
+              "Karim has read the book. (He finished it.)",
+              "قرأ كريم الكتاب. (خلّصه)"
+            ],
+            [
+              "Present Perfect Continuous",
+              "Karim has been reading the book. (He hasn't finished it yet.)",
+              "كريم بيقرا الكتاب. (لسه مخلّصهوش)"
+            ]
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Example",
+            "المعنى بالعربي"
+          ],
+          "rows": [
+            [
+              "I've written my essay. You can read it now.",
+              "لقد كتبت مقالي. يمكنك قراءته الآن."
+            ],
+            [
+              "I've been writing my essay. I'll finish it tonight.",
+              "أكتب مقالي (بقالي فترة). سأنهيه الليلة."
+            ]
+          ]
+        },
+        {
+          "heading": "4.4 Quantity vs. duration — العدد مقابل المدة",
+          "type": "table",
+          "columns": [
+            "Tense",
+            "Example",
+            "المعنى بالعربي"
+          ],
+          "rows": [
+            [
+              "Present Perfect",
+              "He has written three emails. (How many?)",
+              "لقد كتب ثلاث رسائل. (كام؟)"
+            ],
+            [
+              "Present Perfect Continuous",
+              "He has been writing emails all morning. (How long?)",
+              "بقاله الصبح كله بيكتب رسايل. (قد إيه؟)"
+            ]
+          ]
+        },
+        {
+          "type": "note",
+          "heading": "NUMBERS GO WITH THE PRESENT PERFECT — العدد = المضارع التام",
+          "paragraphs": [
+            "لو في الجملة رقم أو كمية أو عدد مرات (three, five times, how many, how much) ← Present Perfect. لو بنتكلم عن المدة (for two hours, all day, how long) ← Present Perfect Continuous."
+          ],
+          "lang": "ar"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "✓ Present Perfect (how many?)",
+            "✓ PP Continuous (how long?)"
+          ],
+          "rows": [
+            [
+              "I've drunk four cups of coffee today.",
+              "I've been drinking coffee all day."
+            ],
+            [
+              "He has visited three museums.",
+              "He has been visiting museums since the morning."
+            ],
+            [
+              "We've planted 20 trees.",
+              "We've been planting trees for hours."
+            ],
+            [
+              "How many pages have you read?",
+              "How long have you been reading?"
+            ]
+          ]
+        },
+        {
+          "type": "note",
+          "heading": "WATCH OUT — خلّي بالك",
+          "paragraphs": [
+            "I have been drinking four cups of coffee. غلط — مينفعش نستخدم العدد مع المستمر."
+          ]
+        },
+        {
+          "heading": "4.5 Stopped vs. still continuing — وقف مقابل لسه مستمر",
+          "type": "text",
+          "paragraphs": [
+            "مع المستمر، النشاط ممكن يكون لسه مستمر أو وقف حالاً، والسياق هو اللي بيحدد:"
+          ],
+          "lang": "ar"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Example",
+            "المعنى بالعربي"
+          ],
+          "rows": [
+            [
+              "I've been studying since 4 o'clock. (I'm still studying.)",
+              "أذاكر منذ الرابعة. (ولسه بذاكر)"
+            ],
+            [
+              "Your eyes are red. Have you been studying? (You've stopped now.)",
+              "عيناك حمراوان. هل كنت تذاكر؟ (وقفت دلوقتي)"
+            ]
+          ]
+        },
+        {
+          "type": "text",
+          "paragraphs": [
+            "أما Present Perfect مع أفعال النشاط فغالبًا معناه إن الحدث خلص:"
+          ],
+          "lang": "ar"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Example",
+            "المعنى بالعربي"
+          ],
+          "rows": [
+            [
+              "I've studied Unit 5. Now I'm ready for the test.",
+              "لقد ذاكرت الوحدة الخامسة. أنا الآن مستعد للاختبار."
+            ]
+          ]
+        },
+        {
+          "heading": "4.6 Both correct — but the meaning changes — الزمنين صح… بس المعنى بيتغير",
+          "type": "table",
+          "columns": [
+            "Tense",
+            "Example",
+            "المعنى بالعربي"
+          ],
+          "rows": [
+            [
+              "Present Perfect",
+              "The cat has eaten the fish. (All of it — only the bones are left.)",
+              "لقد أكلت القطة السمكة. (كلها — مفضلش غير العضم)"
+            ],
+            [
+              "Present Perfect Continuous",
+              "The cat has been eating the fish. (Part of it is missing.)",
+              "القطة كانت بتاكل من السمكة. (فيه جزء ناقص)"
+            ]
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Present Perfect",
+            "Present Perfect Continuous"
+          ],
+          "rows": [
+            [
+              "Someone has eaten my sandwich. (It's gone!)",
+              "Someone has been eating my sandwich. (Part of it is missing.)"
+            ],
+            [
+              "حد أكل الساندوتش بتاعي (خلص!)",
+              "حد كان بياكل من الساندوتش بتاعي (فيه حتة ناقصة)"
+            ],
+            [
+              "Ahmed has fixed the car. (It works now.)",
+              "Ahmed has been fixing the car. (His hands are dirty; maybe he hasn't finished.)"
+            ],
+            [
+              "أحمد صلّح العربية (بقت شغالة)",
+              "أحمد كان بيصلّح العربية (إيده متوسخة، وممكن لسه مخلصش)"
+            ],
+            [
+              "I've read your report. (I've finished it.)",
+              "I've been reading your report. (I haven't finished.)"
+            ],
+            [
+              "قريت التقرير بتاعك (خلّصته)",
+              "كنت بقرا التقرير بتاعك (لسه مخلّصتوش)"
+            ],
+            [
+              "He has cut his finger. (one action)",
+              "He has been cutting onions. (That's why his eyes are watering.)"
+            ],
+            [
+              "جرح صباعه (حدث واحد)",
+              "كان بيقطّع بصل (عشان كده عينه بتدمع)"
+            ]
+          ]
+        },
+        {
+          "heading": "4.7 Both correct — with almost no difference — الزمنين صح بنفس المعنى تقريبًا",
+          "type": "text",
+          "paragraphs": [
+            "مع أفعال زي live, work, study, teach ومعاها for / since، الزمنين صح تقريبًا بنفس المعنى:"
+          ],
+          "lang": "ar"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Example",
+            "المعنى بالعربي"
+          ],
+          "rows": [
+            [
+              "I've worked here for five years. = I've been working here for five years.",
+              "أعمل هنا منذ خمس سنوات."
+            ],
+            [
+              "He's taught English since 2015. = He's been teaching English since 2015.",
+              "يدرّس الإنجليزية منذ ٢٠١٥."
+            ]
+          ]
+        },
+        {
+          "type": "text",
+          "paragraphs": [
+            "المستمر بيركز أكتر على الاستمرار، وأحيانًا بيدّي إحساس إن الوضع مؤقت (شوف 3.15)."
+          ],
+          "lang": "ar"
+        },
+        {
+          "heading": "4.8 When only ONE tense is correct — لما زمن واحد بس هو الصح",
+          "type": "table",
+          "columns": [
+            "Situation",
+            "Use",
+            "Example"
+          ],
+          "rows": [
+            [
+              "a stative verb (know, own, like…)",
+              "Present Perfect",
+              "I've known him for years."
+            ],
+            [
+              "a number / how many / how much",
+              "Present Perfect",
+              "I've sent twelve messages."
+            ],
+            [
+              "a short single action (break, lose, arrive…)",
+              "Present Perfect",
+              "He has lost his wallet."
+            ],
+            [
+              "the whole job is finished (result)",
+              "Present Perfect",
+              "I've finished the report."
+            ],
+            [
+              "experience, already, yet, just, ever, never",
+              "Present Perfect (usually)",
+              "Have you ever tried feteer?"
+            ],
+            [
+              "duration of an activity: how long, all day",
+              "PP Continuous (more natural)",
+              "How long have you been waiting?"
+            ],
+            [
+              "visible evidence of a recent activity",
+              "PP Continuous",
+              "Why are you wet? — I've been swimming."
+            ],
+            [
+              "an activity still in progress (not finished)",
+              "PP Continuous",
+              "I've been reading this book (I'm on page 50)."
+            ]
+          ]
+        },
+        {
+          "type": "note",
+          "heading": "SHORT \"MOMENT\" VERBS IN THE CONTINUOUS = REPETITION — الأفعال اللحظية في المستمر = تكرار",
+          "paragraphs": [
+            "الأفعال اللي بتحصل في لحظة (knock, cough, jump, kick) لو جات في المستمر يبقى معناها إنها اتكررت كتير:"
+          ],
+          "lang": "ar"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Example",
+            "المعنى بالعربي"
+          ],
+          "rows": [
+            [
+              "Someone has been knocking at the door for five minutes.",
+              "حد بيخبط على الباب بقاله خمس دقايق. (خبطات كتير)"
+            ],
+            [
+              "He has been coughing all night.",
+              "بيكح طول الليل."
+            ]
+          ]
+        },
+        {
+          "type": "note",
+          "heading": "4.9 A decision map",
+          "paragraphs": [
+            "خريطة اختيار الزمن"
+          ],
+          "lang": "ar"
+        },
+        {
+          "type": "list",
+          "heading": "Ask these three questions in order. — اسأل الأسئلة التلاتة دي بالترتيب.",
+          "items": [
+            "1) Stative verb? (know, like, own…) — هل الفعل فعل حالة؟ YES → Present Perfect · NO ↓",
+            "2) A number / how many / finished result? — هل في عدد أو كمية أو نتيجة خلصت؟ YES → Present Perfect · NO ↓",
+            "3) Focus on duration / activity / fresh evidence? — التركيز على المدة أو النشاط أو أثر ظاهر؟ YES → PP Continuous · NO → Present Perfect (experience · just · already · yet · never…)"
+          ]
+        },
+        {
+          "type": "text",
+          "paragraphs": [
+            "الخريطة دي بتساعدك في أغلب الأسئلة، لكن السياق دايمًا هو الحَكَم الأخير. ولو لقيت وقت منتهي (yesterday, ago, last…) يبقى خلاص: لا ده ولا ده ← Past Simple."
+          ],
+          "lang": "ar"
+        },
+        {
+          "type": "note",
+          "heading": "Part 5 · Signal Words and Their Differences",
+          "paragraphs": [
+            "الكلمات الدالة والفروق بينها"
+          ],
+          "lang": "ar"
+        },
+        {
+          "heading": "5.1 The master table of signal words — الجدول الشامل للكلمات الدالة",
+          "type": "text",
+          "paragraphs": [
+            "الجدول ده بيجمع كل الكلمات الدالة في مكان واحد: معناها، الزمن اللي بتيجي معاه، ومكانها في الجملة.",
+            "PP = Present Perfect · PPC = Present Perfect Continuous · (−) negative · (?) question"
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Word",
+            "المعنى",
+            "Tense",
+            "Position",
+            "Example"
+          ],
+          "rows": [
+            [
+              "already",
+              "خلاص / بالفعل",
+              "PP",
+              "mid / end",
+              "I've already paid."
+            ],
+            [
+              "yet",
+              "لسه / حتى الآن",
+              "PP (− and ?)",
+              "end",
+              "Has he called yet?"
+            ],
+            [
+              "just",
+              "للتو / حالاً",
+              "PP",
+              "mid",
+              "They've just arrived."
+            ],
+            [
+              "ever",
+              "في أي وقت / قبل كده",
+              "PP (?)",
+              "mid",
+              "Have you ever been to Siwa?"
+            ],
+            [
+              "never",
+              "أبدًا / عمري ما",
+              "PP",
+              "mid",
+              "I've never seen snow."
+            ],
+            [
+              "before",
+              "من قبل",
+              "PP",
+              "end",
+              "I've met him before."
+            ],
+            [
+              "since",
+              "منذ (نقطة بداية)",
+              "PP & PPC",
+              "before the point",
+              "since 2020"
+            ],
+            [
+              "for",
+              "منذ / لمدة (مدة)",
+              "PP & PPC",
+              "before the period",
+              "for two years"
+            ],
+            [
+              "recently",
+              "مؤخرًا",
+              "PP & PPC",
+              "mid / end",
+              "I've recently moved."
+            ],
+            [
+              "lately",
+              "مؤخرًا / الأيام دي",
+              "PP & PPC",
+              "end",
+              "I've been tired lately."
+            ],
+            [
+              "so far",
+              "لحد دلوقتي",
+              "PP",
+              "end / start",
+              "We've won two games so far."
+            ],
+            [
+              "up to now / until now",
+              "لحد دلوقتي",
+              "PP",
+              "start / end",
+              "Up to now, nobody has complained."
+            ],
+            [
+              "still",
+              "لسه (مع النفي)",
+              "PP",
+              "before haven't / hasn't",
+              "He still hasn't replied."
+            ],
+            [
+              "How long…?",
+              "منذ متى؟ / بقالك قد إيه؟",
+              "PPC (PP with stative verbs)",
+              "start",
+              "How long have you been waiting?"
+            ],
+            [
+              "all day / all morning",
+              "طول اليوم / طول الصبح",
+              "PPC (mostly)",
+              "end",
+              "It's been raining all day."
+            ],
+            [
+              "today / this week / this year",
+              "النهارده / الأسبوع ده",
+              "PP",
+              "end",
+              "I've had two tests this week."
+            ],
+            [
+              "once / twice / three times",
+              "مرة / مرتين / ٣ مرات",
+              "PP",
+              "end",
+              "I've been there twice."
+            ],
+            [
+              "It's the first time…",
+              "أول مرة",
+              "PP",
+              "start",
+              "It's the first time I've flown."
+            ]
+          ]
+        },
+        {
+          "heading": "5.2 Since vs. For — the details — since و for بالتفصيل",
+          "type": "text",
+          "paragraphs": [
+            "الفكرة الأساسية: since + نقطة بداية، وfor + مدة. بس فيه حالات بتلخبط:"
+          ],
+          "lang": "ar"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "✓ Correct",
+            "✗ Wrong",
+            "ليه؟"
+          ],
+          "rows": [
+            [
+              "for two years",
+              "since two years",
+              "two years مدة"
+            ],
+            [
+              "since yesterday",
+              "for yesterday",
+              "yesterday نقطة"
+            ],
+            [
+              "for the last two years",
+              "since the last two years",
+              "the last two years مدة"
+            ],
+            [
+              "since last week",
+              "for last week",
+              "last week نقطة"
+            ],
+            [
+              "for a week",
+              "since a week",
+              "a week مدة"
+            ],
+            [
+              "for ages / for a long time",
+              "since ages",
+              "مدة"
+            ]
+          ]
+        },
+        {
+          "heading": "MORE ADVANCED POINTS — نقاط متقدمة",
+          "type": "list",
+          "items": [
+            "since two years ago ← تجنبها في الامتحان، واكتب for two years أو since 2024.",
+            "for ممكن تيجي مع الماضي البسيط لما المدة تكون خلصت: I lived in Aswan for two years. (ومبقتش عايش هناك). أما since فبتيجي مع الأزمنة التامة.",
+            "It's two years since I last saw him. = I haven't seen him for two years.",
+            "ever since = منذ ذلك الوقت وحتى الآن: We met in 2018, and we've been friends ever since."
+          ]
+        },
+        {
+          "heading": "5.3 Already vs. Yet vs. Just vs. Still — الفرق بين already و yet و just و still",
+          "type": "table",
+          "columns": [
+            "Word",
+            "Sentence type",
+            "Position",
+            "المعنى",
+            "Example"
+          ],
+          "rows": [
+            [
+              "already",
+              "affirmative (+ surprised questions)",
+              "mid / end",
+              "خلاص (حصل، ويمكن أسرع من المتوقع)",
+              "I've already eaten."
+            ],
+            [
+              "yet",
+              "negative & questions",
+              "end",
+              "لسه / حتى الآن",
+              "I haven't eaten yet. · Have you eaten yet?"
+            ],
+            [
+              "just",
+              "affirmative (+ questions)",
+              "mid",
+              "من لحظات",
+              "I've just eaten."
+            ],
+            [
+              "still",
+              "negative",
+              "before haven't / hasn't",
+              "لسه مـ… (والمفروض كان حصل)",
+              "I still haven't eaten!"
+            ]
+          ]
+        },
+        {
+          "type": "note",
+          "heading": "YET OR STILL? — yet ولا still؟",
+          "paragraphs": [
+            "الاتنين معناهم «لسه» في النفي، لكن:"
+          ],
+          "lang": "ar"
+        },
+        {
+          "type": "list",
+          "items": [
+            "I haven't finished yet. = لسه مخلصتش. (عادي)",
+            "I still haven't finished! = لسه مخلصتش! (فيه إحساس إن الموضوع طوّل أو فيه ضيق)"
+          ]
+        },
+        {
+          "type": "text",
+          "paragraphs": [
+            "ولاحظ المكان: yet في آخر الجملة، وstill قبل haven't / hasn't."
+          ],
+          "lang": "ar"
+        },
+        {
+          "heading": "5.4 Recently vs. Lately — الفرق بين recently و lately",
+          "type": "table",
+          "columns": [
+            "",
+            "recently",
+            "lately"
+          ],
+          "rows": [
+            [
+              "Meaning",
+              "not long ago / in the recent period",
+              "in the recent period, up to now"
+            ],
+            [
+              "Tenses",
+              "PP, PPC and also Past Simple",
+              "mainly PP and PPC"
+            ],
+            [
+              "Position",
+              "mid, end or start",
+              "usually at the end"
+            ],
+            [
+              "✓ Example",
+              "I've recently joined a football club. · I recently bought a laptop.",
+              "I've been feeling tired lately. · Have you seen any good films lately?"
+            ],
+            [
+              "✗ Wrong",
+              "—",
+              "I lately bought a laptop."
+            ]
+          ]
+        },
+        {
+          "type": "note",
+          "heading": "الشرح ببساطة",
+          "paragraphs": [
+            "recently أوسع: ممكن تيجي مع الماضي البسيط لحدث واحد حصل من قريب (I recently bought…). أما lately فغالبًا مع الأزمنة التامة لأنها بتتكلم عن فترة ممتدة لحد دلوقتي."
+          ]
+        },
+        {
+          "type": "note",
+          "heading": "LATELY ≠ LATE — lately مش late",
+          "paragraphs": [
+            "late = متأخر (He arrived late. = وصل متأخر). أما lately = مؤخرًا (He hasn't been well lately. = مش كويس الأيام دي)."
+          ]
+        },
+        {
+          "heading": "5.5 Ever vs. Never — الفرق بين ever و never",
+          "type": "table",
+          "columns": [
+            "ever",
+            "never"
+          ],
+          "rows": [
+            [
+              "questions: Have you ever…?",
+              "affirmative form, negative meaning: I have never…"
+            ],
+            [
+              "negatives: I haven't ever… (= never)",
+              "never + not = ✗ (haven't never)"
+            ],
+            [
+              "after superlatives: the best … I've ever…",
+              "with before: I've never … before."
+            ],
+            [
+              "It's the first time I've ever…",
+              "Nobody / Nothing has ever… (ever, not never)"
+            ]
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Example",
+            "المعنى بالعربي"
+          ],
+          "rows": [
+            [
+              "Have you ever tried feteer? — No, I've never tried it.",
+              "هل جربت الفطير قبل كده؟ — لا، عمري ما جربته."
+            ]
+          ]
+        },
+        {
+          "heading": "5.6 So far · Up to now · Until now — so far و up to now و until now",
+          "type": "text",
+          "paragraphs": [
+            "التلاتة معناهم تقريبًا «لحد دلوقتي»، وبيجوا مع Present Perfect:"
+          ],
+          "lang": "ar"
+        },
+        {
+          "type": "list",
+          "items": [
+            "so far: كتير في الكلام، وغالبًا مع عدد أو تقدّم: We've finished three units so far.",
+            "up to now: رسمي شوية، وكتير في أول الجملة: Up to now, the results have been good.",
+            "until now / till now: أحيانًا بتدّي إحساس إن الوضع هيتغير دلوقتي: I haven't told anyone until now. (ودلوقتي هقولك)"
+          ]
+        },
+        {
+          "heading": "5.7 Time words that send you to the Past Simple — كلمات بتوديك للماضي البسيط",
+          "type": "table",
+          "columns": [
+            "Present Perfect ←",
+            "Past Simple ←"
+          ],
+          "rows": [
+            [
+              "today",
+              "yesterday"
+            ],
+            [
+              "this week / this month",
+              "last week / last month"
+            ],
+            [
+              "for two days / since Monday",
+              "two days ago"
+            ],
+            [
+              "since 2020",
+              "in 2020"
+            ],
+            [
+              "in my life / ever",
+              "when I was young"
+            ],
+            [
+              "just (= a short time ago)",
+              "just now (= a moment ago)"
+            ]
+          ]
+        },
+        {
+          "type": "text",
+          "paragraphs": [
+            "الجدول ده بيلخّص أهم فرق في الامتحانات: الكلمة الدالة غالبًا هي اللي بتحسم الإجابة."
+          ],
+          "lang": "ar"
+        },
+        {
+          "type": "note",
+          "heading": "Part 6 · Special Cases and Exceptions",
+          "paragraphs": [
+            "حالات خاصة واستثناءات"
+          ],
+          "lang": "ar"
+        },
+        {
+          "heading": "6.1 Been vs. Gone — الفرق بين been و gone",
+          "type": "text",
+          "paragraphs": [
+            "الكلمتين بيجوا كتصريف تالت مع معنى «راح»، لكن الفرق بينهم مهم جدًا:"
+          ],
+          "lang": "ar"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Example",
+            "المعنى بالعربي",
+            "Picture"
+          ],
+          "rows": [
+            [
+              "He has BEEN to Alexandria.",
+              "راح ورجع",
+              "Cairo (home) → Alexandria: went · came back"
+            ],
+            [
+              "He has GONE to Alexandria.",
+              "راح ولسه هناك",
+              "Cairo (not home) → Alexandria: went · still there"
+            ]
+          ]
+        },
+        {
+          "type": "note",
+          "paragraphs": [
+            "been = went and came back · gone = went and is still there (or on the way)",
+            "been = راح ورجع · gone = راح ولسه هناك (أو في الطريق)"
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Example",
+            "المعنى بالعربي"
+          ],
+          "rows": [
+            [
+              "Omar has been to Alexandria. (He's back now.)",
+              "زار عمر الإسكندرية. (ورجع)"
+            ],
+            [
+              "Omar has gone to Alexandria. (He's there now, or on his way.)",
+              "سافر عمر إلى الإسكندرية. (ولسه هناك أو في الطريق)"
+            ],
+            [
+              "\"Where's Dad?\" — \"He's gone to the mosque.\"",
+              "«بابا فين؟» — «راح الجامع.»"
+            ],
+            [
+              "I've been to the bank this morning. Here's your money.",
+              "رحت البنك الصبح. اتفضل فلوسك."
+            ]
+          ]
+        },
+        {
+          "heading": "THREE MORE POINTS — تلات نقط كمان",
+          "type": "list",
+          "items": [
+            "للتجربة في الحياة دايمًا been: Have you ever been to Luxor?"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "I have gone to… نادرًا ما تتقال عن نفسك، لأنك لو «رحت ولسه هناك» مش هتبقى معانا هنا!",
+            "been in = كان موجود في مكان فترة (ولسه فيه): I've been in Cairo for two weeks."
+          ]
+        },
+        {
+          "heading": "6.2 \"It's the first time…\" — تركيب It's the first time",
+          "type": "table",
+          "columns": [
+            "Example",
+            "المعنى بالعربي"
+          ],
+          "rows": [
+            [
+              "It's the first time I've driven a car.",
+              "هذه أول مرة أقود فيها سيارة."
+            ],
+            [
+              "This is the second time he's lost his phone.",
+              "هذه ثاني مرة يضيع فيها هاتفه."
+            ]
+          ]
+        },
+        {
+          "type": "note",
+          "heading": "IN THE PAST — لو بنحكي في الماضي",
+          "paragraphs": [
+            "لو بنحكي في الماضي بنقول: It was the first time I had seen the sea. ← بنستخدم Past Perfect (ده زمن تاني مش موضوعنا، بس كويس تبقى عارفه)."
+          ],
+          "lang": "ar"
+        },
+        {
+          "heading": "6.3 How long…? — three different situations — سؤال How long — تلات حالات",
+          "type": "table",
+          "columns": [
+            "Situation",
+            "Question",
+            "المعنى"
+          ],
+          "rows": [
+            [
+              "an action verb, still continuing",
+              "How long have you been learning English?",
+              "بقالك قد إيه بتتعلم إنجليزي؟ (ولسه بتتعلم)"
+            ],
+            [
+              "a stative verb, still true",
+              "How long have you known Tarek?",
+              "تعرف طارق من إمتى؟ (ولسه تعرفه)"
+            ],
+            [
+              "a finished period",
+              "How long did you stay in Aswan?",
+              "قعدت في أسوان قد إيه؟ (وخلاص رجعت)"
+            ]
+          ]
+        },
+        {
+          "type": "note",
+          "heading": "6.4 It's / It has been + time + since — تركيب It's / It has been … since",
+          "paragraphs": [
+            "Structure — التركيب: It has been / It's + a period + since + Subject + V2"
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Example",
+            "المعنى بالعربي"
+          ],
+          "rows": [
+            [
+              "It has been three years since I saw him. = I haven't seen him for three years.",
+              "مرت ثلاث سنوات منذ رأيته. = لم أره منذ ثلاث سنوات."
+            ],
+            [
+              "It's ages since we went to the cinema. = We haven't been to the cinema for ages.",
+              "مر وقت طويل منذ ذهبنا إلى السينما."
+            ],
+            [
+              "It's a long time since he visited us. = He hasn't visited us for a long time.",
+              "مرت مدة طويلة منذ زارنا."
+            ]
+          ]
+        },
+        {
+          "type": "note",
+          "heading": "WATCH OUT — خلّي بالك",
+          "paragraphs": [
+            "بعد since هنا ييجي ماضي بسيط (V2)، والجملة مثبتة لكن معناها منفي («بقالي كتير مشفتوش»)."
+          ],
+          "lang": "ar"
+        },
+        {
+          "heading": "6.5 Important transformations — تحويلات مهمة (بتيجي كتير في الامتحانات)",
+          "type": "table",
+          "columns": [
+            "From",
+            "To"
+          ],
+          "rows": [
+            [
+              "I started learning English six years ago.",
+              "I have been learning English for six years."
+            ],
+            [
+              "I last saw Omar two years ago.",
+              "I haven't seen Omar for two years."
+            ],
+            [
+              "The last time I ate fish was on Friday.",
+              "I haven't eaten fish since Friday."
+            ],
+            [
+              "When did you start working here?",
+              "How long have you been working here?"
+            ],
+            [
+              "This is my first visit to Luxor.",
+              "I have never visited Luxor before. · It's the first time I have visited Luxor."
+            ],
+            [
+              "I've never seen such a beautiful garden.",
+              "This is the most beautiful garden I have ever seen."
+            ],
+            [
+              "He went to Alexandria and he's still there.",
+              "He has gone to Alexandria."
+            ],
+            [
+              "I bought this car in 2019 (and I still have it).",
+              "I have had this car since 2019."
+            ],
+            [
+              "I met him ten years ago (and we're still friends).",
+              "I have known him for ten years."
+            ],
+            [
+              "It's three months since I wrote to him.",
+              "I haven't written to him for three months."
+            ]
+          ]
+        },
+        {
+          "heading": "THE SECRETS OF THESE TRANSFORMATIONS — أسرار التحويلات دي",
+          "type": "list",
+          "items": [
+            "ago ← بتتحول لـ for (والمدة زي ما هي).",
+            "in / on / at + وقت ← بتتحول لـ since.",
+            "the last time + V2 ← haven't / hasn't + V3 + for / since.",
+            "started / began ← have been + V-ing (أو have + V3 مع أفعال الحالة).",
+            "bought / met (والوضع مستمر) ← have had / have known لأن الملكية والمعرفة حالة."
+          ]
+        },
+        {
+          "heading": "6.6 Present Perfect passive vs. PP Continuous — المبني للمجهول في التام مقابل التام المستمر",
+          "type": "text",
+          "paragraphs": [
+            "التركيبين شبه بعض جدًا، والفرق كله في آخر الفعل:"
+          ],
+          "lang": "ar"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Structure",
+            "Example",
+            "المعنى"
+          ],
+          "rows": [
+            [
+              "PPC (active): have/has been + V-ing",
+              "He has been cleaning the room.",
+              "كان بينضف الأوضة (هو اللي بينضف)"
+            ],
+            [
+              "PP passive: have/has been + V3",
+              "The room has been cleaned.",
+              "الأوضة اتنضفت (مش مهم مين نضفها)"
+            ]
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Example",
+            "المعنى بالعربي"
+          ],
+          "rows": [
+            [
+              "The new bridge has been built. (passive)",
+              "تم بناء الكوبري الجديد."
+            ],
+            [
+              "They have been building the bridge for two years. (PPC)",
+              "يبنون الكوبري منذ عامين."
+            ]
+          ]
+        },
+        {
+          "type": "note",
+          "heading": "REMEMBER — افتكر",
+          "paragraphs": [
+            "been + -ing = الفاعل بيعمل النشاط. been + V3 = حاجة اتعملت (مبني للمجهول). اسأل: «هل الفاعل يقدر يعمل الفعل بنفسه؟» الأوضة متقدرش تنضف نفسها ← has been cleaned."
+          ]
+        },
+        {
+          "heading": "6.7 \"have got\" — not a Present Perfect meaning — have got مش بمعنى المضارع التام",
+          "type": "text",
+          "paragraphs": [
+            "في الإنجليزي البريطاني have got معناها غالبًا «يمتلك / عنده» = have، مش حدث حصل:"
+          ],
+          "lang": "ar"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Example",
+            "المعنى بالعربي"
+          ],
+          "rows": [
+            [
+              "I've got two brothers. = I have two brothers.",
+              "عندي أخوان."
+            ],
+            [
+              "Have you got a pen? = Do you have a pen?",
+              "معاك قلم؟"
+            ]
+          ]
+        },
+        {
+          "type": "text",
+          "paragraphs": [
+            "وفي الإنجليزي الأمريكي التصريف التالت لـ get غالبًا gotten: He has gotten better. (البريطاني: He has got better.)"
+          ],
+          "lang": "ar"
+        },
+        {
+          "heading": "6.8 Other useful notes — ملاحظات مهمة تانية",
+          "type": "list",
+          "items": [
+            "في الإجابة القصيرة المثبتة مفيش اختصار: Yes, I have. صح · Yes, I've. غلط.",
+            "ممكن have واحدة تخدم فعلين: I have washed and dried the dishes."
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "always مع حالة لحد دلوقتي: I've always wanted to visit Japan. = طول عمري نفسي أزور اليابان.",
+            "already مبتجيش مع النفي العادي: ✗ I haven't already finished. ← ✓ I haven't finished yet.",
+            "ever since = من ساعتها لحد دلوقتي، وممكن تيجي في آخر الجملة: He moved here in 2010 and has lived here ever since."
+          ]
+        },
+        {
+          "type": "note",
+          "heading": "Part 7 · Common Mistakes",
+          "paragraphs": [
+            "الأخطاء الشائعة"
+          ],
+          "lang": "ar"
+        },
+        {
+          "heading": "7.1 How to read this section — إزاي تقرا الجزء ده",
+          "type": "text",
+          "paragraphs": [
+            "كل كارت فيه: الجملة الغلط ✗، والجملة الصح ✓، وشرح بسيط بالعربي، ومثال تاني يثبّت القاعدة. ركّز في السبب؛ لأنك لو فهمت السبب مش هتغلط تاني."
+          ],
+          "lang": "ar"
+        },
+        {
+          "heading": "7.2 Mistakes with time words — أخطاء كلمات الزمن",
+          "type": "mistakes",
+          "items": [
+            {
+              "avoid": "I have seen him yesterday.",
+              "use": "I saw him yesterday.",
+              "note": "yesterday وقت منتهي ومحدد ← ماضي بسيط. ANOTHER EXAMPLE: We visited Aswan last year. زرنا أسوان العام الماضي."
+            },
+            {
+              "avoid": "When have you arrived?",
+              "use": "When did you arrive?",
+              "note": "When بتسأل عن وقت محدد في الماضي ← ماضي بسيط. ANOTHER EXAMPLE: When did he buy that car? متى اشترى تلك السيارة؟"
+            },
+            {
+              "avoid": "He has left two hours ago.",
+              "use": "He left two hours ago.",
+              "note": "ago دايمًا مع الماضي البسيط. ANOTHER EXAMPLE: He has been away for two hours. هو غائب منذ ساعتين."
+            },
+            {
+              "avoid": "I have spoken to him just now.",
+              "use": "I spoke to him just now. · I've just spoken to him.",
+              "note": "just now = من لحظة ← ماضي بسيط. أما just لوحدها ← Present Perfect. ANOTHER EXAMPLE: He has just left. لقد غادر للتو."
+            }
+          ]
+        },
+        {
+          "heading": "7.3 Mistakes with form — أخطاء في شكل الفعل",
+          "type": "mistakes",
+          "items": [
+            {
+              "avoid": "He has went to the market.",
+              "use": "He has gone to the market.",
+              "note": "بعد have لازم V3 مش V2. ANOTHER EXAMPLE: He has eaten his lunch. (not has ate) لقد تناول غداءه."
+            },
+            {
+              "avoid": "My brother have finished school.",
+              "use": "My brother has finished school.",
+              "note": "my brother = he ← has. ANOTHER EXAMPLE: The students have finished the test. لقد أنهى الطلاب الاختبار."
+            },
+            {
+              "avoid": "I have studyed hard.",
+              "use": "I have studied hard.",
+              "note": "حرف ساكن + y ← نشيل y ونحط ied. ANOTHER EXAMPLE: He has tried hard. لقد حاول بجد."
+            },
+            {
+              "avoid": "I have working here since May.",
+              "use": "I have been working here since May.",
+              "note": "المستمر محتاج been: have + been + V-ing. ANOTHER EXAMPLE: They've been playing for an hour. يلعبون منذ ساعة."
+            },
+            {
+              "avoid": "He has been cleaned his room all morning.",
+              "use": "He has been cleaning his room all morning.",
+              "note": "been + V3 مبني للمجهول. النشاط ← been + V-ing. ANOTHER EXAMPLE: The room has been cleaned. (passive) تم تنظيف الغرفة."
+            },
+            {
+              "avoid": "You have finished your homework?",
+              "use": "Have you finished your homework?",
+              "note": "في السؤال، have / has بتيجي قبل الفاعل. ANOTHER EXAMPLE: Has your father arrived? هل وصل والدك؟"
+            }
+          ]
+        },
+        {
+          "heading": "7.4 Mistakes from translating Arabic — أخطاء جاية من الترجمة الحرفية",
+          "type": "mistakes",
+          "items": [
+            {
+              "avoid": "I live here since 2015.",
+              "use": "I have lived / I have been living here since 2015.",
+              "note": "مع since / for والحالة مستمرة لحد دلوقتي ← زمن تام، مش مضارع بسيط. ANOTHER EXAMPLE: I have known Ali since primary school. أعرف علي منذ المرحلة الابتدائية."
+            },
+            {
+              "avoid": "I am studying for three hours.",
+              "use": "I have been studying for three hours.",
+              "note": "«بقالي» + مدة ← Present Perfect Continuous. ANOTHER EXAMPLE: He has been waiting since 5 o'clock. ينتظر منذ الخامسة."
+            },
+            {
+              "avoid": "It's the first time I visit Luxor.",
+              "use": "It's the first time I have visited Luxor.",
+              "note": "بعد It's the first time ← Present Perfect. ANOTHER EXAMPLE: This is the best meal I've ever had. هذه أفضل وجبة تناولتها في حياتي."
+            }
+          ]
+        },
+        {
+          "heading": "7.5 Mistakes with since and for — أخطاء since و for",
+          "type": "mistakes",
+          "items": [
+            {
+              "avoid": "I have lived here since five years.",
+              "use": "I have lived here for five years.",
+              "note": "five years مدة ← for. ANOTHER EXAMPLE: I've been here since Monday. أنا هنا منذ يوم الإثنين."
+            },
+            {
+              "avoid": "He has worked here for 2019.",
+              "use": "He has worked here since 2019.",
+              "note": "2019 نقطة بداية ← since. ANOTHER EXAMPLE: They've been friends since childhood. هم أصدقاء منذ الطفولة."
+            }
+          ]
+        },
+        {
+          "heading": "7.6 Choosing the wrong tense of the two — اختيار الزمن الغلط من الاتنين",
+          "type": "mistakes",
+          "items": [
+            {
+              "avoid": "I have been knowing Omar for years.",
+              "use": "I have known Omar for years.",
+              "note": "know فعل حالة ← من غير -ing. ANOTHER EXAMPLE: This bag has belonged to my brother since 2020. هذه الحقيبة ملك أخي منذ ٢٠٢٠."
+            },
+            {
+              "avoid": "I have been reading three books this month.",
+              "use": "I have read three books this month.",
+              "note": "العدد (three) ← نتيجة ← Present Perfect. ANOTHER EXAMPLE: He has scored two goals so far. لقد أحرز هدفين حتى الآن."
+            },
+            {
+              "avoid": "Look! I have been painting the whole wall. It's finished!",
+              "use": "Look! I have painted the whole wall.",
+              "note": "الشغل خلص والنتيجة قدامنا ← Present Perfect. ANOTHER EXAMPLE: I've repaired the bike. You can ride it now. لقد أصلحت الدراجة. يمكنك ركوبها الآن."
+            },
+            {
+              "avoid": "I've been losing my keys, so I can't open the door.",
+              "use": "I've lost my keys, so I can't open the door.",
+              "note": "lose حدث لحظي واحد ونتيجته موجودة ← Present Perfect. المستمر هنا كان هيعني إنك بتضيّعها كل شوية! ANOTHER EXAMPLE: He's broken his glasses. He can't read. لقد كسر نظارته. لا يستطيع القراءة."
+            }
+          ]
+        },
+        {
+          "heading": "7.7 Mistakes with signal words — أخطاء الكلمات الدالة",
+          "type": "mistakes",
+          "items": [
+            {
+              "avoid": "I have finished my work yet.",
+              "use": "I have already finished my work.",
+              "note": "yet للنفي والسؤال، وalready للمثبت. ANOTHER EXAMPLE: Have you finished yet? — Yes, I've already finished. هل انتهيت؟ — نعم، انتهيت بالفعل."
+            },
+            {
+              "avoid": "I haven't already done it.",
+              "use": "I haven't done it yet.",
+              "note": "في النفي نستخدم yet (أو still قبل haven't). ANOTHER EXAMPLE: He still hasn't called. لسه متصلش."
+            },
+            {
+              "avoid": "I haven't never been to Aswan.",
+              "use": "I have never been to Aswan. · I haven't ever been to Aswan.",
+              "note": "never منفية لوحدها؛ متجمعهاش مع not. ANOTHER EXAMPLE: We have never met before. لم نتقابل من قبل أبدًا."
+            },
+            {
+              "avoid": "I have ever visited Paris.",
+              "use": "I have visited Paris.",
+              "note": "ever للسؤال (أو بعد صيغة التفضيل)، مش للمثبت العادي. ANOTHER EXAMPLE: Have you ever visited Paris? هل سبق لك زيارة باريس؟"
+            },
+            {
+              "avoid": "Have you yet finished?",
+              "use": "Have you finished yet?",
+              "note": "yet مكانها في آخر السؤال. ANOTHER EXAMPLE: Has the film started yet? هل بدأ الفيلم؟"
+            },
+            {
+              "avoid": "Dad has been to work. He'll be back at 5.",
+              "use": "Dad has gone to work. He'll be back at 5.",
+              "note": "لسه في الشغل ومرجعش ← gone. ANOTHER EXAMPLE: I've been to the dentist. My tooth is fine now. ذهبت إلى طبيب الأسنان. سِنّي بخير الآن."
+            }
+          ]
+        },
+        {
+          "type": "note",
+          "heading": "Part 8 · Advanced Grammar and Exam Traps",
+          "paragraphs": [
+            "قواعد متقدمة وفخاخ الامتحانات"
+          ],
+          "lang": "ar"
+        },
+        {
+          "heading": "8.1 Six steps to solve any tense question — ست خطوات لحل أي سؤال أزمنة",
+          "type": "text",
+          "paragraphs": [
+            "قبل ما تختار الإجابة، امشي على الخطوات دي بالترتيب:"
+          ],
+          "lang": "ar"
+        },
+        {
+          "type": "list",
+          "items": [
+            "دوّر على وقت منتهي (yesterday, ago, last…, in 2019, When…?) ← لو موجود: ماضي بسيط وخلاص.",
+            "دوّر على since / for / How long ← غالبًا زمن تام (إلا لو الفترة خلصت ← ماضي بسيط، شوف الفخ 8). بعد كده: فعل حالة؟ ← Present Perfect. فعل نشاط والتركيز على المدة؟ ← Present Perfect Continuous.",
+            "دوّر على عدد أو كمية (three, twice, how many, how much) ← Present Perfect.",
+            "دوّر على just, already, yet, ever, never, before ← غالبًا Present Perfect.",
+            "دوّر على دليل في السياق (تعبان، مبلول، متوسخ، عينه حمرا) ← غالبًا Present Perfect Continuous.",
+            "راجع الشكل: have ولا has؟ V3 ولا been + V-ing؟ وفي المبني للمجهول been + V3."
+          ]
+        },
+        {
+          "type": "note",
+          "heading": "8.2 The 15 most famous exam traps",
+          "paragraphs": [
+            "أشهر ١٥ فخ في الامتحانات"
+          ],
+          "lang": "ar"
+        },
+        {
+          "heading": "TRAP 1 — \"THIS MORNING\" DEPENDS ON THE TIME NOW — الفخ 1: this morning حسب الوقت دلوقتي",
+          "type": "table",
+          "columns": [
+            "Example",
+            "المعنى بالعربي"
+          ],
+          "rows": [
+            [
+              "(10 a.m.) I have drunk two cups of tea this morning.",
+              "(الساعة ١٠ الصبح) الصبح لسه مخلصش ← تام."
+            ],
+            [
+              "(6 p.m.) I drank two cups of tea this morning.",
+              "(الساعة ٦ المغرب) الصبح خلص ← ماضي بسيط."
+            ]
+          ]
+        },
+        {
+          "type": "note",
+          "heading": "TRAP 2 — HE'S = HE IS OR HE HAS — الفخ 2: he's ممكن تكون is أو has",
+          "paragraphs": [
+            "بص على الكلمة اللي بعد he's علطول:"
+          ],
+          "lang": "ar"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Example",
+            "المعنى بالعربي"
+          ],
+          "rows": [
+            [
+              "He's gone out. (= has)",
+              "خرج. ← بعدها V3 يبقى has"
+            ],
+            [
+              "He's been working. (= has)",
+              "بيشتغل بقاله فترة. ← بعدها been يبقى has"
+            ],
+            [
+              "He's going out. (= is)",
+              "هو خارج دلوقتي. ← بعدها -ing يبقى is"
+            ]
+          ]
+        },
+        {
+          "type": "note",
+          "heading": "TRAP 3 — THE NUMBER HIDES IN THE SENTENCE — الفخ 3: العدد مستخبي في الجملة",
+          "paragraphs": [
+            "كلمات زي all the cake / the whole book / five pages معناها كمية محددة ← Present Perfect."
+          ],
+          "lang": "ar"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Example",
+            "المعنى بالعربي"
+          ],
+          "rows": [
+            [
+              "He has eaten all the cake.",
+              "أكل الكيكة كلها. ← كمية ونتيجة"
+            ],
+            [
+              "He has been eating cake.",
+              "كان بياكل كيك. ← نشاط من غير ما نعرف الكمية"
+            ]
+          ]
+        },
+        {
+          "type": "note",
+          "heading": "TRAP 4 — A STATIVE VERB WITH FOR / SINCE — الفخ 4: فعل حالة مع for / since",
+          "paragraphs": [
+            "حتى لو فيه مدة، فعل الحالة ميجيش في المستمر:"
+          ],
+          "lang": "ar"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Example",
+            "المعنى بالعربي"
+          ],
+          "rows": [
+            [
+              "I have had this bike for three years. (have been having)",
+              "أمتلك هذه الدراجة منذ ثلاث سنوات."
+            ]
+          ]
+        },
+        {
+          "type": "note",
+          "heading": "TRAP 5 — BEING VS. BEEN — الفخ 5: being ولا been",
+          "paragraphs": [
+            "بعد have / has دايمًا been وعمرها ما تكون being:"
+          ],
+          "lang": "ar"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Example",
+            "المعنى بالعربي"
+          ],
+          "rows": [
+            [
+              "He has been working. (has being)",
+              "يعمل منذ فترة."
+            ]
+          ]
+        },
+        {
+          "type": "note",
+          "heading": "TRAP 6 — PASSIVE OR CONTINUOUS? — الفخ 6: مبني للمجهول ولا مستمر؟",
+          "paragraphs": [
+            "اسأل: «هل الفاعل يقدر يعمل الفعل بنفسه؟» لو لأ ← been + V3. لو آه ← been + V-ing."
+          ],
+          "lang": "ar"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Example",
+            "المعنى بالعربي"
+          ],
+          "rows": [
+            [
+              "The letter has been written. (passive)",
+              "تمت كتابة الخطاب. ← الخطاب مبيكتبش نفسه"
+            ],
+            [
+              "He has been writing for hours. (PPC)",
+              "بيكتب بقاله ساعات. ← هو اللي بيكتب"
+            ]
+          ]
+        },
+        {
+          "type": "note",
+          "heading": "TRAP 7 — THE TENSE AFTER SINCE — الفخ 7: الزمن اللي بعد since",
+          "paragraphs": [
+            "الجملة اللي بعد since غالبًا ماضي بسيط لأنها نقطة بداية:"
+          ],
+          "lang": "ar"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Example",
+            "المعنى بالعربي"
+          ],
+          "rows": [
+            [
+              "He has lived here since he was born. (since he has been born)",
+              "يعيش هنا منذ أن وُلد."
+            ]
+          ]
+        },
+        {
+          "heading": "TRAP 8 — \"FOR\" WITH A FINISHED PERIOD — الفخ 8: for مع فترة خلصت",
+          "type": "table",
+          "columns": [
+            "Example",
+            "المعنى بالعربي"
+          ],
+          "rows": [
+            [
+              "He worked in Kuwait for five years.",
+              "عمل في الكويت خمس سنوات. ← رجع ومبقاش هناك (ماضي بسيط)"
+            ],
+            [
+              "He has worked in Kuwait for five years.",
+              "يعمل في الكويت منذ خمس سنوات. ← لسه هناك (تام)"
+            ]
+          ]
+        },
+        {
+          "heading": "TRAP 9 — HOW LONG VS. HOW MANY — الفخ 9: How long ولا How many",
+          "type": "table",
+          "columns": [
+            "Example",
+            "المعنى بالعربي"
+          ],
+          "rows": [
+            [
+              "How long have you been playing?",
+              "بقالك قد إيه بتلعب؟ ← المدة (مستمر)"
+            ],
+            [
+              "How many matches have you played?",
+              "لعبت كام ماتش؟ ← العدد (تام)"
+            ]
+          ]
+        },
+        {
+          "type": "note",
+          "heading": "TRAP 10 — EVER AND NEVER — الفخ 10: ever و never",
+          "paragraphs": [
+            "ever في السؤال وبعد صيغة التفضيل. never في المثبت بمعنى منفي، ومينفعش معاها not."
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Example",
+            "المعنى بالعربي"
+          ],
+          "rows": [
+            [
+              "Have you ever seen a whale? — No, I've never seen one.",
+              "هل رأيت حوتًا من قبل؟ — لا، لم أرَ واحدًا أبدًا."
+            ]
+          ]
+        },
+        {
+          "heading": "TRAP 11 — JUST VS. JUST NOW — الفخ 11: just ولا just now",
+          "type": "table",
+          "columns": [
+            "Example",
+            "المعنى بالعربي"
+          ],
+          "rows": [
+            [
+              "I've just seen him. ✓",
+              "رأيته للتو."
+            ],
+            [
+              "I saw him just now. ✓ (I've seen him just now.)",
+              "رأيته من لحظة."
+            ]
+          ]
+        },
+        {
+          "heading": "TRAP 12 — THE POSITION OF STILL AND YET — الفخ 12: مكان still و yet",
+          "type": "table",
+          "columns": [
+            "Example",
+            "المعنى بالعربي"
+          ],
+          "rows": [
+            [
+              "He still hasn't called.",
+              "لسه متصلش! ← still قبل hasn't"
+            ],
+            [
+              "He hasn't called yet.",
+              "لم يتصل بعد. ← yet في الآخر"
+            ]
+          ]
+        },
+        {
+          "heading": "TRAP 13 — LATELY VS. LATE — الفخ 13: lately ولا late",
+          "type": "table",
+          "columns": [
+            "Example",
+            "المعنى بالعربي"
+          ],
+          "rows": [
+            [
+              "He came home late.",
+              "رجع البيت متأخر. ← late = متأخر"
+            ],
+            [
+              "He hasn't been well lately.",
+              "مش كويس الأيام دي. ← lately = مؤخرًا"
+            ]
+          ]
+        },
+        {
+          "heading": "TRAP 14 — IS THE CHANCE STILL OPEN? — الفخ 14: الفرصة لسه موجودة؟",
+          "type": "table",
+          "columns": [
+            "Example",
+            "المعنى بالعربي"
+          ],
+          "rows": [
+            [
+              "Have you seen my keys?",
+              "شفت مفاتيحي؟ ← بدوّر عليهم دلوقتي (تام)"
+            ],
+            [
+              "Did you see the match last night?",
+              "شفت الماتش امبارح بالليل؟ ← الوقت خلص (ماضي)"
+            ]
+          ]
+        },
+        {
+          "type": "note",
+          "heading": "TRAP 15 — A FINISHED LIFE — الفخ 15: حياة انتهت",
+          "paragraphs": [
+            "لو الشخص مبقاش عايش، حياته فترة خلصت ← ماضي بسيط:"
+          ],
+          "lang": "ar"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Example",
+            "المعنى بالعربي"
+          ],
+          "rows": [
+            [
+              "Einstein won the Nobel Prize. (has won)",
+              "فاز أينشتاين بجائزة نوبل."
+            ]
+          ]
+        },
+        {
+          "heading": "8.3 Context decides — السياق هو اللي بيحدد",
+          "type": "text",
+          "paragraphs": [
+            "نفس الفعل ممكن ييجي في الزمنين، والسياق (الجملة اللي قبله أو بعده) هو اللي بيختار:"
+          ],
+          "lang": "ar"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Example",
+            "المعنى بالعربي"
+          ],
+          "rows": [
+            [
+              "(Your T-shirt is dirty.) You've been playing football!",
+              "(تيشيرتك متوسخ) إنت كنت بتلعب كورة! ← أثر"
+            ],
+            [
+              "(Look at the score!) You've played really well!",
+              "(بص على النتيجة!) لعبت حلو جدًا! ← نتيجة"
+            ],
+            [
+              "(He's still at his desk.) He's been working since 8 a.m.",
+              "(لسه على مكتبه) بيشتغل من ٨ الصبح. ← مستمر"
+            ],
+            [
+              "(He's finished his work.) He's written ten pages today.",
+              "(خلّص شغله) كتب عشر صفحات النهارده. ← عدد ونتيجة"
+            ],
+            [
+              "(I'm still hungry.) I haven't eaten anything today.",
+              "(لسه جعان) مكلتش حاجة النهارده. ← نفي لفترة لسه مخلصتش"
+            ]
+          ]
+        },
+        {
+          "heading": "8.4 Advanced summary of the tricky distinctions — ملخص متقدم للفروق الصعبة",
+          "type": "table",
+          "columns": [
+            "Pair",
+            "The difference in one line",
+            "بالعربي"
+          ],
+          "rows": [
+            [
+              "been / gone",
+              "been = went and came back; gone = still there",
+              "راح ورجع / راح ولسه هناك"
+            ],
+            [
+              "since / for",
+              "since + a point; for + a period",
+              "نقطة بداية / مدة"
+            ],
+            [
+              "already / yet",
+              "already in affirmatives; yet in negatives and questions",
+              "المثبت / النفي والسؤال"
+            ],
+            [
+              "yet / still",
+              "yet at the end; still before haven't (stronger feeling)",
+              "في الآخر / قبل haven't"
+            ],
+            [
+              "just / just now",
+              "just + PP; just now + Past Simple",
+              "للتو / من لحظة"
+            ],
+            [
+              "recently / lately",
+              "recently can go with the Past Simple; lately mostly with perfect tenses",
+              "recently أوسع"
+            ],
+            [
+              "ever / never",
+              "ever in questions; never in affirmatives with a negative meaning",
+              "سؤال / نفي"
+            ],
+            [
+              "PP / PPC",
+              "result, number, completed / activity, duration, evidence",
+              "نتيجة وعدد / نشاط ومدة"
+            ],
+            [
+              "PP / Past Simple",
+              "connected to now / finished time",
+              "مربوط بدلوقتي / وقت خلص"
+            ],
+            [
+              "been + V3 / been + V-ing",
+              "passive / active continuous",
+              "مبني للمجهول / مستمر"
+            ]
+          ]
+        },
+        {
+          "type": "note",
+          "heading": "Part 10 · Final Revision Tables",
+          "paragraphs": [
+            "جداول المراجعة النهائية"
+          ],
+          "lang": "ar"
+        },
+        {
+          "heading": "10.1 The structures at a glance — التركيبات في نظرة واحدة",
+          "type": "table",
+          "columns": [
+            "",
+            "Present Perfect",
+            "Present Perfect Continuous"
+          ],
+          "rows": [
+            [
+              "Affirmative",
+              "I/you/we/they have + V3 · he/she/it has + V3",
+              "I/you/we/they have been + V-ing · he/she/it has been + V-ing"
+            ],
+            [
+              "Example",
+              "He has finished.",
+              "He has been working."
+            ],
+            [
+              "Negative",
+              "haven't / hasn't + V3",
+              "haven't / hasn't + been + V-ing"
+            ],
+            [
+              "Example",
+              "We haven't seen it.",
+              "We haven't been sleeping well."
+            ],
+            [
+              "Question",
+              "Have / Has + subject + V3?",
+              "Have / Has + subject + been + V-ing?"
+            ],
+            [
+              "Example",
+              "Have you eaten?",
+              "Have you been waiting long?"
+            ],
+            [
+              "WH- question",
+              "What have you done?",
+              "How long have you been waiting?"
+            ],
+            [
+              "Short answers",
+              "Yes, I have. / No, I haven't.",
+              "Yes, he has. / No, he hasn't."
+            ]
+          ]
+        },
+        {
+          "heading": "10.2 All the uses on one page — كل الاستخدامات في صفحة واحدة",
+          "type": "table",
+          "columns": [
+            "Present Perfect — use",
+            "Example",
+            "بالعربي"
+          ],
+          "rows": [
+            [
+              "1 · life experience",
+              "I've visited Luxor twice.",
+              "تجربة في حياتك"
+            ],
+            [
+              "2 · past action + result now",
+              "I've lost my keys.",
+              "حدث ونتيجته موجودة"
+            ],
+            [
+              "3 · news / just happened",
+              "The bus has just left.",
+              "خبر جديد أو حصل حالاً"
+            ],
+            [
+              "4 · unfinished time",
+              "I've had three exams this week.",
+              "فترة لسه مخلصتش"
+            ],
+            [
+              "5 · state until now",
+              "I've known him for years.",
+              "حالة مستمرة (فعل حالة)"
+            ],
+            [
+              "6 · repeated / how many",
+              "He's scored two goals so far.",
+              "عدد أو تكرار لحد دلوقتي"
+            ],
+            [
+              "7 · change over time",
+              "Your English has improved.",
+              "تغيير وتطور"
+            ],
+            [
+              "8 · first time / superlative",
+              "It's the best film I've ever seen.",
+              "أول مرة / صيغة تفضيل"
+            ]
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "PP Continuous — use",
+            "Example",
+            "بالعربي"
+          ],
+          "rows": [
+            [
+              "1 · started in the past, still continuing",
+              "I've been waiting for an hour.",
+              "بدأ ولسه مستمر (بقالي…)"
+            ],
+            [
+              "2 · just stopped, visible result",
+              "He's tired. He's been running.",
+              "وقف حالاً وأثره باين"
+            ],
+            [
+              "3 · repeated / temporary activity lately",
+              "I've been going to the gym a lot.",
+              "نشاط متكرر أو مؤقت"
+            ],
+            [
+              "4 · complaining about something long",
+              "Someone has been using my phone!",
+              "شكوى من حاجة طوّلت"
+            ]
+          ]
+        },
+        {
+          "heading": "10.3 Signal words at a glance — الكلمات الدالة في نظرة واحدة",
+          "type": "table",
+          "columns": [
+            "",
+            "Present Perfect",
+            "Present Perfect Continuous"
+          ],
+          "rows": [
+            [
+              "Typical words",
+              "already · yet · just · ever · never · before · so far · up to now · until now · still (negative) · once / twice / … times · today / this week · It's the first time",
+              "How long…? (with action verbs) · all day · all morning · all week"
+            ],
+            [
+              "Used with both",
+              "since · for · recently · lately",
+              "since · for · recently · lately"
+            ],
+            [
+              "Never with these",
+              "yesterday · last week · … ago · in 2019 · When…? · just now → use the Past Simple",
+              "yesterday · last week · … ago · in 2019 · When…? · just now → use the Past Simple"
+            ]
+          ]
+        },
+        {
+          "heading": "10.4 Stative verbs — the list to memorise — أفعال الحالة — القائمة اللي لازم تتحفظ",
+          "type": "table",
+          "columns": [
+            "Group",
+            "Verbs"
+          ],
+          "rows": [
+            [
+              "thinking",
+              "know · believe · understand · remember · forget · mean · realise · recognise · suppose"
+            ],
+            [
+              "feelings & wants",
+              "like · love · hate · prefer · dislike · want · need"
+            ],
+            [
+              "possession",
+              "own · have (= possess) · belong · possess"
+            ],
+            [
+              "senses & appearance",
+              "see · hear · smell · taste · seem · appear · sound"
+            ],
+            [
+              "other states",
+              "be · exist · contain · include · consist · cost · weigh · depend · deserve · matter"
+            ]
+          ]
+        },
+        {
+          "type": "text",
+          "paragraphs": [
+            "الأفعال دي بنستخدمها مع for / since في Present Perfect العادي، مش المستمر (إلا لو معناها اتغير لنشاط — شوف 3.14)."
+          ],
+          "lang": "ar"
+        },
+        {
+          "type": "note",
+          "heading": "10.5 The final checklist",
+          "paragraphs": [
+            "قائمة المراجعة النهائية"
+          ],
+          "lang": "ar"
+        },
+        {
+          "type": "note",
+          "heading": "BEFORE YOU CHOOSE YOUR ANSWER — قبل ما تختار إجابتك",
+          "paragraphs": [
+            "✔ فيه وقت منتهي (yesterday, ago, last, When؟) ← ماضي بسيط.",
+            "✔ فيه since / for / How long ← زمن تام (إلا لو الفترة خلصت ← ماضي بسيط). فعل حالة؟ ← Present Perfect. فعل نشاط والتركيز على المدة؟ ← Present Perfect Continuous.",
+            "✔ فيه عدد أو كمية محددة (three, all the cake, the whole wall)؟ ← Present Perfect. لكن all day / all morning ← مدة ← Present Perfect Continuous.",
+            "✔ فيه just, already, yet, ever, never, before؟ ← Present Perfect.",
+            "✔ فيه أثر ظاهر (تعبان، مبلول، متوسخ)؟ ← Present Perfect Continuous.",
+            "✔ الفعل متصرّف صح؟ have / has + V3 · have / has + been + V-ing · المبني للمجهول been + V3."
+          ],
+          "lang": "ar"
+        },
+        {
+          "heading": "10.6 Ten golden rules — عشر قواعد ذهبية",
+          "type": "table",
+          "columns": [
+            "#",
+            "Golden rule",
+            "بالعربي"
+          ],
+          "rows": [
+            [
+              "1",
+              "Present Perfect = have/has + V3",
+              "التام = have/has + V3"
+            ],
+            [
+              "2",
+              "PP Continuous = have/has + been + V-ing",
+              "التام المستمر = have/has + been + V-ing"
+            ],
+            [
+              "3",
+              "PP = result · PPC = activity and duration",
+              "التام = نتيجة · المستمر = نشاط ومدة"
+            ],
+            [
+              "4",
+              "Numbers and \"how many\" → PP",
+              "العدد ← التام"
+            ],
+            [
+              "5",
+              "\"How long\" + an action verb → PPC",
+              "How long + فعل نشاط ← المستمر"
+            ],
+            [
+              "6",
+              "Stative meanings don't take -ing",
+              "أفعال الحالة (بمعنى الحالة) من غير -ing"
+            ],
+            [
+              "7",
+              "since + a point · for + a period",
+              "since + نقطة · for + مدة"
+            ],
+            [
+              "8",
+              "Finished time → Past Simple",
+              "وقت خلص ← ماضي بسيط"
+            ],
+            [
+              "9",
+              "been = went and came back · gone = still there",
+              "been راح ورجع · gone لسه هناك"
+            ],
+            [
+              "10",
+              "already (+) · yet (− / ?) · just (mid) · ever (?) · never (+)",
+              "مكان ومعنى كل كلمة دالة"
+            ]
+          ]
+        }
+      ]
     }
   ]
 }
