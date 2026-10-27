@@ -60,6 +60,7 @@
     SECTION_TYPE_OPTIONS = [
       { value: 'text', label: t('Text (paragraphs)') },
       { value: 'note', label: t('Note (highlighted box)') },
+      { value: 'tip', label: t('Exam tip (coloured box)') },
       { value: 'list', label: t('Bulleted list') },
       { value: 'examples', label: t('Examples') },
       { value: 'table', label: t('Table') },
@@ -634,7 +635,10 @@
       case 'summaries':
         if (unitLine) details.push(unitLine);
         details.push(t('Topic: {topic}', { topic: topicTitle(item.topicId) }));
-        details.push(G12.plural(Array.isArray(item.points) ? item.points.length : 0, 'point'));
+        var pointCount = Array.isArray(item.points) ? item.points.length : 0;
+        var sectionCount = Array.isArray(item.sections) ? item.sections.length : 0;
+        if (pointCount || !sectionCount) details.push(G12.plural(pointCount, 'point'));
+        if (sectionCount) details.push(G12.plural(sectionCount, 'section'));
         return { title: item.title || item.id, meta: details.join(' · ') };
       case 'questions':
         details.push(item.type === 'short' ? t('Short answer') : t('Multiple choice'));
@@ -977,6 +981,7 @@
     switch (draft.type) {
       case 'text':
       case 'note':
+      case 'tip':
         section.paragraphs = Schema.splitParagraphs(draft.text);
         if (draft.lang === 'ar') section.lang = 'ar';
         break;
@@ -1010,7 +1015,9 @@
     return type;
   }
 
-  function sectionsEditor(drafts) {
+  /* texts: { hint, empty } for a summary; a lesson uses the default texts. */
+  function sectionsEditor(drafts, texts) {
+    texts = texts || {};
     var list = el('ol', { className: 'section-list' });
     var addButton = el('button', {
       type: 'button',
@@ -1025,7 +1032,7 @@
     });
     var box = el('fieldset', { className: 'editor-block' }, [
       el('legend', { text: t('Sections') }),
-      el('p', { className: 'hint', text: t('A lesson is made of sections shown in this order. Choose a type for each section: text, a note box, a list, examples, a table or common mistakes.') }),
+      el('p', { className: 'hint', text: texts.hint || t('A lesson is made of sections shown in this order. Choose a type for each section: text, a note box, an exam tip box, a list, examples, a table or common mistakes.') }),
       list,
       addButton
     ]);
@@ -1062,7 +1069,7 @@
       bind(heading.control, draft, 'heading');
 
       var parts = [];
-      if (draft.type === 'text' || draft.type === 'note') {
+      if (draft.type === 'text' || draft.type === 'note' || draft.type === 'tip') {
         var text = textField({ id: p + '-text', label: t('Text'), multiline: true, rows: 6, value: draft.text, hint: t('Leave an empty line between paragraphs.') });
         bind(text.control, draft, 'text');
         var lang = selectField({
@@ -1118,7 +1125,7 @@
     function draw() {
       G12.clear(list);
       if (drafts.length === 0) {
-        list.appendChild(el('li', { className: 'hint', text: t('No sections yet. Use “Add section” to start writing the lesson.') }));
+        list.appendChild(el('li', { className: 'hint', text: texts.empty || t('No sections yet. Use “Add section” to start writing the lesson.') }));
       }
       drafts.forEach(function (draft, index) { list.appendChild(sectionEditor(draft, index)); });
     }
@@ -1236,6 +1243,12 @@
       ]
     }));
 
+    var drafts = (summary && Array.isArray(summary.sections) ? summary.sections : []).map(sectionDraft);
+    frame.form.appendChild(sectionsEditor(drafts, {
+      hint: t('Optional. Sections are shown after the table, in this order, written like the sections of a lesson: text (a heading on its own starts a new part), a note box, an exam tip box, a list, examples, a table or common mistakes.'),
+      empty: t('No sections. A summary can be just its table and reminders.')
+    }));
+
     var remember = textField({
       id: 'f-remember', label: t('Remember'), optional: true, multiline: true, rows: 4,
       value: summary && Array.isArray(summary.remember) ? summary.remember.join('\n') : '',
@@ -1263,9 +1276,15 @@
         if (hasText(point.example)) clean.example = point.example.trim();
         item.points.push(clean);
       });
+      var sections = drafts.map(sectionFromDraft);
+      if (sections.length) item.sections = sections;
       var reminders = Schema.splitLines(remember.control.value);
       if (reminders.length) item.remember = reminders;
-      if (!errors.length) errors = schemaErrors('summaries', item);
+      if (!errors.length) {
+        errors = schemaErrors('summaries', item, function (detail) {
+          return detail.meta && detail.meta.section !== undefined ? 'sec-' + detail.meta.section + '-type' : null;
+        });
+      }
       if (errors.length) {
         showErrors(frame, errors);
         return;

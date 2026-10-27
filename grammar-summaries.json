@@ -1,4 +1,605 @@
 {
   "schemaVersion": 2,
-  "summaries": []
+  "summaries": [
+    {
+      "id": "present-perfect-vs-present-perfect-continuous",
+      "title": "Present Perfect vs Present Perfect Continuous",
+      "topicId": "present-perfect-and-continuous",
+      "reviewStatus": "reviewed",
+      "sections": [
+        {
+          "type": "note",
+          "heading": "Both tenses link the past to NOW",
+          "paragraphs": [
+            "PP = the RESULT · what is done",
+            "PPC = the ACTIVITY · how long"
+          ]
+        },
+        {
+          "type": "text",
+          "heading": "1 · Present Perfect",
+          "paragraphs": [
+            "have/has + V3"
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Form",
+            "Structure",
+            "Example"
+          ],
+          "rows": [
+            [
+              "+",
+              "S + have / has + V3",
+              "She has finished her homework."
+            ],
+            [
+              "−",
+              "S + haven't / hasn't + V3",
+              "We haven't seen that film."
+            ],
+            [
+              "?",
+              "Have / Has + S + V3?",
+              "Have you eaten? — Yes, I have."
+            ]
+          ]
+        },
+        {
+          "type": "table",
+          "heading": "Uses — linked to now · no finished time",
+          "columns": [
+            "Use",
+            "Example"
+          ],
+          "rows": [
+            [
+              "1. Experience (when? not important)",
+              "I've been to Aswan twice."
+            ],
+            [
+              "2. Past action, result now",
+              "I've lost my keys. (still lost)"
+            ],
+            [
+              "3. News / just happened",
+              "The bus has just left."
+            ],
+            [
+              "4. Unfinished time",
+              "I've had three exams this week."
+            ],
+            [
+              "5. State until now",
+              "I've known Ziad for ten years."
+            ],
+            [
+              "6. How many so far",
+              "He's scored two goals so far."
+            ],
+            [
+              "7. Change over time",
+              "Your English has improved a lot."
+            ],
+            [
+              "8. First time / superlative",
+              "the best book I've ever read"
+            ]
+          ]
+        },
+        {
+          "type": "note",
+          "heading": "V3 not V2",
+          "paragraphs": [
+            "✗ has went ✓ has gone",
+            "✓ Yes, I have. ✗ Yes, I've."
+          ]
+        },
+        {
+          "type": "text",
+          "heading": "2 · Present Perfect Continuous",
+          "paragraphs": [
+            "have/has + been + V-ing"
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Form",
+            "Structure",
+            "Example"
+          ],
+          "rows": [
+            [
+              "+",
+              "S + have / has been + V-ing",
+              "It has been raining all day."
+            ],
+            [
+              "−",
+              "S + haven't / hasn't been + V-ing",
+              "I haven't been sleeping well."
+            ],
+            [
+              "?",
+              "Have / Has + S + been + V-ing?",
+              "How long have you been waiting?"
+            ]
+          ]
+        },
+        {
+          "type": "table",
+          "heading": "Uses — focus on the activity and its duration",
+          "columns": [
+            "Use",
+            "Example"
+          ],
+          "rows": [
+            [
+              "1. Started in the past, still going",
+              "He's been waiting for an hour."
+            ],
+            [
+              "2. Just stopped, evidence now",
+              "It's wet. It has been raining."
+            ],
+            [
+              "3. Repeated / temporary lately",
+              "I've been going to the gym lately."
+            ],
+            [
+              "4. Complaining",
+              "Someone has been using my phone!"
+            ],
+            [
+              "5. Moment verb = repeated",
+              "He's been coughing all night."
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "heading": "Typical signal words",
+          "items": [
+            "How long…? · for · since · all day / all morning · lately · recently",
+            "Answer to How long…? → For twenty minutes. / Since 3 o'clock.",
+            "-ing spelling: write → writing · run → running · lie → lying · study → studying"
+          ]
+        },
+        {
+          "type": "note",
+          "heading": "“been” never changes",
+          "paragraphs": [
+            "✗ has being / be working · ✗ has been work"
+          ]
+        },
+        {
+          "type": "text",
+          "heading": "3 · The Core Difference — Result vs Activity",
+          "paragraphs": [
+            "How many? → PP | How long? → PPC"
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Difference",
+            "Present Perfect — result / completed",
+            "PP Continuous — activity / duration"
+          ],
+          "rows": [
+            [
+              "Result vs activity",
+              "I've cleaned my room. Now it's tidy.",
+              "I've been cleaning my room. That's why I'm tired."
+            ],
+            [
+              "Finished vs not yet",
+              "Karim has read the book. (page 300 of 300)",
+              "Karim has been reading the book. (page 120 of 300)"
+            ],
+            [
+              "Number vs duration",
+              "He has written three emails.",
+              "He has been writing emails all morning."
+            ],
+            [
+              "All vs part",
+              "Someone has eaten my sandwich! (plate empty)",
+              "Someone has been eating my sandwich! (half missing)"
+            ]
+          ]
+        },
+        {
+          "type": "note",
+          "heading": "Both fine",
+          "paragraphs": [
+            "live, work, study, teach + for/since: I've worked / I've been working here for five years. (PPC can sound more temporary)"
+          ]
+        },
+        {
+          "type": "text",
+          "heading": "★ Exam Tricks",
+          "paragraphs": [
+            "The shortcuts that decide multiple-choice answers"
+          ]
+        },
+        {
+          "type": "tip",
+          "heading": "Trick 1 · Finished time → Past Simple, not PP",
+          "paragraphs": [
+            "yesterday · …ago · last… · in 2019 · When…?",
+            "✗ I have seen him yesterday. ✓ I saw him…",
+            "✗ When have you left? ✓ When did you leave?"
+          ]
+        },
+        {
+          "type": "tip",
+          "heading": "Trick 2 · Number / quantity → PP, never PPC",
+          "paragraphs": [
+            "three · twice · How many? · all the cake",
+            "✓ I've drunk four cups of coffee today.",
+            "✗ I've been drinking four cups today."
+          ]
+        },
+        {
+          "type": "tip",
+          "heading": "Trick 3 · How long? + action verb → PPC",
+          "paragraphs": [
+            "How long have you been waiting?",
+            "Stative → PP: How long have you known him?",
+            "How many? → PP: How many have you sold?"
+          ]
+        },
+        {
+          "type": "tip",
+          "heading": "Trick 4 · Visible evidence → PPC",
+          "paragraphs": [
+            "tired · wet · dirty · red eyes · out of breath",
+            "The grass is wet. It has been raining."
+          ]
+        },
+        {
+          "type": "tip",
+          "heading": "Trick 5 · Stative verb → no -ing, even with for/since",
+          "paragraphs": [
+            "✗ I've been knowing him for years.",
+            "✓ I've known him for years."
+          ]
+        },
+        {
+          "type": "tip",
+          "heading": "Trick 6 · One short action + result now → PP",
+          "paragraphs": [
+            "I've lost my keys, so I can't get in.",
+            "“I've been losing my keys” = again and again"
+          ]
+        },
+        {
+          "type": "tip",
+          "heading": "Trick 7 · been + V-ing = active · been + V3 = passive",
+          "paragraphs": [
+            "He has been cleaning the room. (he does it)",
+            "The room has been cleaned. (it can't clean itself)"
+          ]
+        },
+        {
+          "type": "tip",
+          "heading": "Trick 8 · “This morning” — is it still morning?",
+          "paragraphs": [
+            "(10 a.m.) I've sent five emails this morning.",
+            "(4 p.m.) I sent five emails this morning."
+          ]
+        },
+        {
+          "type": "tip",
+          "heading": "Trick 9 · for + a finished period → Past Simple",
+          "paragraphs": [
+            "He worked in Kuwait for five years. (back now)",
+            "He has worked there for five years. (still there)"
+          ]
+        },
+        {
+          "type": "tip",
+          "heading": "Trick 10 · It's the first time… → PP",
+          "paragraphs": [
+            "✗ It's the first time I see snow.",
+            "✓ It's the first time I've seen snow."
+          ]
+        },
+        {
+          "type": "tip",
+          "heading": "Trick 11 · Up to now + for/since → not a present tense",
+          "paragraphs": [
+            "✗ I know him for years. ✓ I've known him…",
+            "✗ I'm waiting for an hour. ✓ I've been waiting…"
+          ]
+        },
+        {
+          "type": "tip",
+          "heading": "Trick 12 · Didn't happen at all → usually PP",
+          "paragraphs": [
+            "I haven't eaten anything since breakfast.",
+            "I haven't seen Omar for months."
+          ]
+        },
+        {
+          "type": "tip",
+          "heading": "Trick 13 · he's = he has or he is?",
+          "paragraphs": [
+            "+ V3 / been = has: He's gone. He's been working.",
+            "+ V-ing / adjective = is: He's going out."
+          ]
+        },
+        {
+          "type": "tip",
+          "heading": "Trick 14 · Life over / chance gone → Past Simple",
+          "paragraphs": [
+            "Einstein won the Nobel Prize. ✗ has won",
+            "Have you seen the exhibition? (still open → PP)"
+          ]
+        },
+        {
+          "type": "tip",
+          "heading": "Trick 15 · Signal-word errors",
+          "paragraphs": [
+            "✗ I haven't never · ✗ I have ever been to Paris",
+            "✓ I've never… · ✓ I haven't finished yet."
+          ]
+        },
+        {
+          "type": "tip",
+          "heading": "Decision map: ask in order",
+          "paragraphs": [
+            "1. Finished time word? → PAST SIMPLE",
+            "2. Stative verb? → PP",
+            "3. Number / done result? → PP",
+            "4. Duration / evidence? → PPC",
+            "5. ever, just, already, yet… → PP (usually)"
+          ]
+        },
+        {
+          "type": "text",
+          "heading": "4 · Signal Words & Position",
+          "paragraphs": []
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Signal word",
+            "Use / position",
+            "Example"
+          ],
+          "rows": [
+            [
+              "already",
+              "(+) · mid/end",
+              "I've already paid."
+            ],
+            [
+              "yet",
+              "(−) & (?) · end",
+              "Has he called yet?"
+            ],
+            [
+              "just",
+              "have + just + V3",
+              "They've just arrived."
+            ],
+            [
+              "still",
+              "(−) · before haven't",
+              "He still hasn't replied."
+            ],
+            [
+              "ever",
+              "(?) & superlatives",
+              "Have you ever…?"
+            ],
+            [
+              "never",
+              "(+) form, (−) meaning",
+              "I've never flown."
+            ],
+            [
+              "before",
+              "end",
+              "I've met him before."
+            ],
+            [
+              "so far",
+              "= up to now",
+              "We've won two games so far."
+            ],
+            [
+              "recently",
+              "PP · PPC · also PS",
+              "I recently bought…"
+            ],
+            [
+              "lately",
+              "PP · PPC",
+              "I've been tired lately."
+            ],
+            [
+              "all day",
+              "PPC mostly",
+              "It's been raining all day."
+            ],
+            [
+              "just now",
+              "PS = a moment ago",
+              "I saw him just now."
+            ]
+          ]
+        },
+        {
+          "type": "note",
+          "heading": "Mid position",
+          "paragraphs": [
+            "have/has + already · just · ever · never · recently + V3"
+          ]
+        },
+        {
+          "type": "text",
+          "heading": "5 · Since · For · Been · Gone",
+          "paragraphs": []
+        },
+        {
+          "type": "table",
+          "columns": [
+            "since + a POINT",
+            "for + a PERIOD"
+          ],
+          "rows": [
+            [
+              "2020 · Monday · 8 o'clock · last week · yesterday · I was a child",
+              "six years · two hours · a week · ages · the last two years"
+            ]
+          ]
+        },
+        {
+          "type": "note",
+          "paragraphs": [
+            "Test: “From when?” → since · “How much time?” → for",
+            "✗ since two years · ✗ for 2019 · ✗ since a week",
+            "since + clause → usually Past Simple: I've known him since we were kids."
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Phrase",
+            "Meaning",
+            "Example"
+          ],
+          "rows": [
+            [
+              "has been to",
+              "went & came back",
+              "Omar has been to Alex. (back)"
+            ],
+            [
+              "has gone to",
+              "still there",
+              "Dad has gone to work. (not here)"
+            ]
+          ]
+        },
+        {
+          "type": "text",
+          "heading": "6 · Stative Verbs — No -ing",
+          "paragraphs": []
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Group",
+            "Verbs"
+          ],
+          "rows": [
+            [
+              "Mind",
+              "know, believe, understand, mean"
+            ],
+            [
+              "Feeling",
+              "like, love, hate, prefer, want, need"
+            ],
+            [
+              "Owning",
+              "own, belong, have (= possess)"
+            ],
+            [
+              "Senses",
+              "see, hear, smell, taste, seem"
+            ],
+            [
+              "Other",
+              "be, cost, contain, weigh, depend"
+            ]
+          ]
+        },
+        {
+          "type": "table",
+          "heading": "Action meaning → -ing is OK",
+          "columns": [
+            "Verb (meaning)",
+            "Example"
+          ],
+          "rows": [
+            [
+              "have (eat)",
+              "We've been having lunch."
+            ],
+            [
+              "think (consider)",
+              "I've been thinking about it."
+            ],
+            [
+              "see (visit)",
+              "He's been seeing a doctor."
+            ],
+            [
+              "feel (body)",
+              "I've been feeling tired lately."
+            ]
+          ]
+        },
+        {
+          "type": "tip",
+          "heading": "Exception",
+          "paragraphs": [
+            "Informal speech may say I've been wanting to… — in exams, stative = no -ing."
+          ]
+        },
+        {
+          "type": "text",
+          "heading": "7 · Key Transformations",
+          "paragraphs": [
+            "…ago → for · in/on/at → since · the last time → haven't … since"
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Sentence",
+            "Rewritten"
+          ],
+          "rows": [
+            [
+              "I started learning French two years ago.",
+              "I've been learning French for two years."
+            ],
+            [
+              "The last time I saw Karim was in June.",
+              "I haven't seen Karim since June."
+            ],
+            [
+              "It's three years since I saw him.",
+              "I haven't seen him for three years."
+            ],
+            [
+              "This is my first visit to Luxor.",
+              "I've never visited Luxor before."
+            ],
+            [
+              "I bought this phone two years ago. (still mine)",
+              "I've had this phone for two years."
+            ],
+            [
+              "I've never seen such a big fish.",
+              "It's the biggest fish I've ever seen."
+            ]
+          ]
+        }
+      ],
+      "remember": [
+        "Context decides — these are strong exam patterns, not unbreakable laws.",
+        "PP = Present Perfect · PPC = Present Perfect Continuous · PS = Past Simple"
+      ]
+    }
+  ]
 }

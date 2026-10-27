@@ -41,6 +41,8 @@ test('a complete lesson with every section type is valid', () => {
     sections: [
       { type: 'text', heading: 'H', paragraphs: ['P1', 'P2'] },
       { type: 'note', paragraphs: ['ملاحظة'], lang: 'ar' },
+      { type: 'tip', heading: 'Tip', paragraphs: ['T1'] },
+      { type: 'text', heading: 'Part title only', paragraphs: [] },
       { type: 'list', items: ['a', 'b'] },
       { type: 'examples', items: ['e1'] },
       { type: 'table', columns: ['C1', 'C2'], rows: [['1', '2'], ['3', '']] },
@@ -108,6 +110,22 @@ test('summaries: rule is required for each point; empty summary is a warning', (
   const empty = Schema.validateItem('summaries', { id: 's2', title: 'Empty', reviewStatus: 'unreviewed' }, 0);
   assert.equal(empty.errors.length, 0);
   assert.match(empty.warnings.join(), /will look empty/);
+});
+
+test('summaries: optional sections are checked like lesson sections', () => {
+  const summary = { id: 's1', title: 'Test summary', reviewStatus: 'unreviewed', sections: [
+    { type: 'text', heading: 'Part 1', paragraphs: [] },
+    { type: 'tip', heading: 'Tip', paragraphs: ['T1'] },
+    { type: 'table', columns: ['A', 'B'], rows: [['1', '2']] }
+  ] };
+  const report = Schema.validateItem('summaries', summary, 0);
+  assert.deepEqual(report.errors, []);
+  assert.equal(report.warnings.length, 0, 'sections alone are enough, so no "will look empty" warning');
+  assert.match(errorsOf('summaries', Object.assign({}, summary, { sections: 'x' })).join(), /sections must be a list/);
+  assert.match(errorsOf('summaries', Object.assign({}, summary, { sections: [{ type: 'table', columns: ['A', 'B'], rows: [['1']] }] })).join(), /section 1.*row 1 has 1 cell/);
+  // a heading alone is allowed for text only; a note or tip box still needs text
+  assert.match(errorsOf('summaries', Object.assign({}, summary, { sections: [{ type: 'tip', heading: 'T', paragraphs: [] }] })).join(), /paragraphs needs at least 1/);
+  assert.match(errorsOf('lessons', lesson({ sections: [{ type: 'text', paragraphs: [] }] })).join(), /paragraphs needs at least 1/);
 });
 
 test('duplicate ids in a collection are errors', () => {

@@ -169,6 +169,14 @@
 
   /* ---------- One summary card ---------- */
 
+  /* True when the first letter of a section (heading, then content) is Arabic. */
+  function startsInArabic(section) {
+    var first = [section.heading].concat(section.paragraphs || [], section.columns || [], section.items || []).map(function (entry) {
+      return entry && typeof entry === 'object' ? entry.avoid : entry;
+    }).join(' ').match(/[A-Za-z\u0621-\u064A]/);
+    return Boolean(first) && /[\u0621-\u064A]/.test(first[0]);
+  }
+
   function renderSummary(content, summary, headingLevel) {
     var headingId = summary.id + '-heading';
     var subLevel = headingLevel === 'h2' ? 'h3' : 'h4';
@@ -200,6 +208,29 @@
         ])
       ]));
     }
+
+    // optional sections, written like a lesson's sections (part titles, tables, rule and exam-tip boxes…).
+    // Exam tips that follow each other share a grid: two or three side by side on wide screens.
+    var tipGrid = null;
+    var sections = Array.isArray(summary.sections) ? summary.sections : [];
+    if (sections.length) card.classList.add('has-sections');
+    sections.forEach(function (section, i) {
+      var box = G12.renderSection(section, {
+        id: summary.id + '-part-' + (i + 1),
+        headingTag: subLevel,
+        className: 'summary-section summary-section--' + section.type,
+        marks: true
+      });
+      // each section reads in the direction of its own text, whatever the interface language
+      if (section.lang !== 'ar') box.setAttribute('dir', startsInArabic(section) ? 'rtl' : 'ltr');
+      if (section.type !== 'tip') {
+        tipGrid = null;
+        card.appendChild(box);
+        return;
+      }
+      if (!tipGrid) tipGrid = card.appendChild(el('div', { className: 'tip-grid', dir: box.getAttribute('dir') }));
+      tipGrid.appendChild(box);
+    });
 
     var remember = (summary.remember || []).filter(hasText);
     if (remember.length) {

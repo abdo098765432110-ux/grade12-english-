@@ -58,7 +58,7 @@
   var COLLECTION_KEYS = ['units', 'lessons', 'summaries', 'questions', 'passages'];
 
   var REVIEW_STATUSES = ['unreviewed', 'reviewed'];
-  var SECTION_TYPES = ['text', 'note', 'list', 'examples', 'table', 'mistakes'];
+  var SECTION_TYPES = ['text', 'note', 'tip', 'list', 'examples', 'table', 'mistakes'];
   var QUESTION_TYPES = ['mcq', 'short'];
   var DIFFICULTIES = ['easy', 'medium', 'hard'];
   var LANGUAGES = ['en', 'ar'];
@@ -276,7 +276,9 @@
     switch (section.type) {
       case 'text':
       case 'note':
-        checkTextList(section.paragraphs, 'paragraphs', report, where, 1, meta);
+      case 'tip':
+        // a text section can also be just a heading (the title of a part), with no paragraphs
+        checkTextList(section.paragraphs, 'paragraphs', report, where, section.type === 'text' && hasText(section.heading) ? 0 : 1, meta);
         if (section.lang !== undefined && LANGUAGES.indexOf(section.lang) === -1) {
           report.error(where, tr('lang must be "en" or "ar".'), meta);
         }
@@ -381,7 +383,19 @@
       checkTextList(summary.remember, 'remember', report, where, 0);
       if (Array.isArray(summary.remember)) rememberCount = summary.remember.filter(hasText).length;
     }
-    if (pointCount === 0 && rememberCount === 0) {
+    // optional sections, written like a lesson's sections (shown between the points and "remember")
+    var sectionCount = 0;
+    if (summary.sections !== undefined) {
+      if (!Array.isArray(summary.sections)) {
+        report.error(where, tr('{field} must be a list.', { field: 'sections' }));
+      } else {
+        summary.sections.forEach(function (section, i) {
+          validateSection(section, report, tr('{where}, section {n}', { where: where, n: i + 1 }), { section: i });
+        });
+        sectionCount = summary.sections.length;
+      }
+    }
+    if (pointCount === 0 && rememberCount === 0 && sectionCount === 0) {
       report.warn(where, tr('has no points and nothing in “remember”, so it will look empty.'));
     }
   }

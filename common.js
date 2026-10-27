@@ -499,6 +499,160 @@
     ]));
   };
 
+  /* ---------- Lesson sections (lesson pages and summaries) ---------- */
+  (function () {
+    var el = G12.el;
+
+    /* Lesson text often mixes Arabic and English. Each stretch written in the
+       other language is isolated (<bdi>) so it keeps its own reading order, for
+       example an English sentence and its full stop inside an Arabic
+       explanation. The text itself is not changed. */
+    var FIRST_LETTER = /[A-Za-z\u0621-\u064A]/;
+    var ARABIC_LETTER = /[\u0621-\u064A]/;
+
+    function mixed(text) {
+      text = String(text);
+      var first = text.match(FIRST_LETTER);
+      if (!first) return [text];
+      var rtl = ARABIC_LETTER.test(first[0]);
+      // a hyphen written straight before a Latin word ("-ing") belongs to that word
+      var pattern = rtl ? /-?[A-Za-z0-9][^\u0600-\u06FF]*/g : /[\u0621-\u064A][^A-Za-z]*/g;
+      var endOk = rtl ? /[A-Za-z0-9.?!'’”…%]/ : /[\u0621-\u0652\u0660-\u0669.؟!،…»]/;
+      var out = [];
+      var last = 0;
+      var match;
+      while ((match = pattern.exec(text))) {
+        var run = match[0];
+        // keep a closing bracket only when its opening bracket is inside the stretch
+        while (run && !endOk.test(run.slice(-1)) && !(run.slice(-1) === ')' && run.split('(').length > run.slice(0, -1).split(')').length)) {
+          run = run.slice(0, -1);
+        }
+        if (!run) continue;
+        if (match.index > last) out.push(text.slice(last, match.index));
+        out.push(el('bdi', { dir: rtl ? 'ltr' : 'rtl', text: run }));
+        last = match.index + run.length;
+        pattern.lastIndex = last;
+      }
+      if (last < text.length) out.push(text.slice(last));
+      return out;
+    }
+
+    /* Headings are "English — Arabic": each part keeps its own direction. */
+    function mixedHeading(text) {
+      var parts = String(text).split(' — ');
+      var out = [];
+      parts.forEach(function (part, i) {
+        if (i > 0) out.push(' — ');
+        var first = part.match(FIRST_LETTER);
+        out.push(first ? el('bdi', { dir: ARABIC_LETTER.test(first[0]) ? 'rtl' : 'ltr', text: part }) : part);
+      });
+      return out;
+    }
+
+    function headingOf(section, tag) {
+      return G12.Schema.hasText(section.heading) ? el(tag || 'h2', { dir: 'auto' }, mixedHeading(section.heading)) : null;
+    }
+
+    function paragraphs(list, show) {
+      return list.filter(G12.Schema.hasText).map(function (text) {
+        return el('p', { dir: 'auto' }, show(text));
+      });
+    }
+
+    /* The marks ✗ (wrong) and ✓ (right) in red and green. The text is unchanged. */
+    function marked(parts) {
+      var out = [];
+      parts.forEach(function (part) {
+        if (typeof part !== 'string') {
+          out.push(part);
+          return;
+        }
+        part.split(/([✗✓])/).forEach(function (bit) {
+          if (bit === '✗') out.push(el('span', { className: 'mark-wrong', text: bit }));
+          else if (bit === '✓') out.push(el('span', { className: 'mark-right', text: bit }));
+          else if (bit) out.push(bit);
+        });
+      });
+      return out;
+    }
+
+    /* One section of a lesson (or of a summary).
+       opts: { id, headingTag (default 'h2'), className (extra classes),
+               marks (true: colour the ✗ and ✓ marks) } */
+    function renderSection(section, opts) {
+      opts = opts || {};
+      var show = opts.marks ? function (text) { return marked(mixed(text)); } : mixed;
+      var wrapper = el('section', { className: 'lesson-section' + (opts.className ? ' ' + opts.className : ''), id: opts.id });
+      var heading = function (s) { return headingOf(s, opts.headingTag); };
+      if (section.lang === 'ar') {
+        wrapper.setAttribute('lang', 'ar');
+        wrapper.setAttribute('dir', 'rtl');
+      }
+
+      switch (section.type) {
+        case 'text':
+          wrapper.appendChild(el('div', { className: 'prose' }, [heading(section), paragraphs(section.paragraphs, show)]));
+          break;
+
+        case 'note':
+          wrapper.appendChild(el('div', { className: 'callout', role: 'note' }, [heading(section), paragraphs(section.paragraphs, show)]));
+          break;
+
+        case 'tip':
+          // an exam tip: same as a note, in its own colour
+          wrapper.appendChild(el('div', { className: 'callout callout--tip', role: 'note' }, [heading(section), paragraphs(section.paragraphs, show)]));
+          break;
+
+        case 'list':
+          wrapper.appendChild(heading(section) || document.createTextNode(''));
+          wrapper.appendChild(el('ul', { className: 'prose', dir: 'auto' }, section.items.filter(G12.Schema.hasText).map(function (item) {
+            return el('li', { dir: 'auto' }, show(item));
+          })));
+          break;
+
+        case 'examples':
+          wrapper.appendChild(heading(section) || document.createTextNode(''));
+          wrapper.appendChild(el('ul', { className: 'example-list', dir: 'auto' }, section.items.filter(G12.Schema.hasText).map(function (item) {
+            return el('li', { dir: 'auto' }, show(item));
+          })));
+          break;
+
+        case 'table':
+          wrapper.appendChild(heading(section) || document.createTextNode(''));
+          wrapper.appendChild(el('div', { className: 'table-wrap', dir: 'auto', tabindex: '0', role: 'region', 'aria-label': section.heading || t('Table') }, [
+            el('table', null, [
+              el('thead', null, [el('tr', null, section.columns.map(function (column) {
+                return el('th', { scope: 'col', dir: 'auto', text: column });
+              }))]),
+              el('tbody', null, section.rows.map(function (row) {
+                return el('tr', null, row.map(function (cell, i) {
+                  // the column name is shown above each cell when the table is stacked on phones
+                  return el('td', { dir: 'auto', 'data-label': section.columns[i] || '' }, show(cell));
+                }));
+              }))
+            ])
+          ]));
+          break;
+
+        case 'mistakes':
+          wrapper.appendChild(heading(section) || document.createTextNode(''));
+          wrapper.appendChild(el('ul', { className: 'mistake-list' }, section.items.map(function (item) {
+            return el('li', null, [
+              el('p', null, [el('span', { className: 'label-avoid', text: t('✗ Avoid:') + ' ' }), el('span', { className: 'text-avoid', dir: 'auto' }, show(item.avoid))]),
+              el('p', null, [el('span', { className: 'label-use', text: t('✓ Use:') + ' ' }), el('span', { dir: 'auto' }, show(item.use))]),
+              G12.Schema.hasText(item.note) ? el('p', { className: 'hint', dir: 'auto' }, show(item.note)) : null
+            ]);
+          })));
+          break;
+      }
+      return wrapper;
+    }
+
+    G12.mixed = mixed;
+    G12.mixedHeading = mixedHeading;
+    G12.renderSection = renderSection;
+  })();
+
   /* ---------- Small utilities ---------- */
 
   G12.wordCount = function (paragraphs) {

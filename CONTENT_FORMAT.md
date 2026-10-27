@@ -118,8 +118,9 @@ Section types (each may also have an optional `heading`):
 
 | `type` | Fields |
 |---|---|
-| `text` | `paragraphs`: list of text; optional `lang`: `"en"` or `"ar"` (Arabic shows right to left) |
-| `note` | same as `text`, shown in a highlighted box |
+| `text` | `paragraphs`: list of text; optional `lang`: `"en"` or `"ar"` (Arabic shows right to left). With a `heading`, `paragraphs` may be empty: the heading alone is the title of a part. |
+| `note` | same as `text`, shown in a highlighted box (for key rules) |
+| `tip` | same as `note`, shown in a cream “exam tip” box |
 | `list` | `items`: list of text (bullets) |
 | `examples` | `items`: list of text (example boxes) |
 | `table` | `columns`: list of headings; `rows`: list of rows, each a list with one cell per column |
@@ -133,6 +134,7 @@ Section types (each may also have an optional `heading`):
 | `topicId` | no | The topic (lesson) it summarises. Gives it that lesson’s unit. |
 | `unitId` | no | Only needed when there is no `topicId`. |
 | `points` | no | List of `{ "title": "...", "rule": "...", "example": "..." }`. Only `rule` is required. |
+| `sections` | no | Sections written exactly like a lesson’s sections (types above), shown after the points table. A `text` section with a heading starts a new part; `tip` boxes that follow each other are shown side by side on wide screens; ✗ and ✓ are shown in red and green. |
 | `remember` | no | List of short reminders. |
 
 ## Question (grammar practice)

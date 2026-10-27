@@ -714,6 +714,66 @@ thead th {
 
 .summary-card h3 { font-size: 1.05rem; margin-top: 1rem; }
 
+/* Sections inside a summary (written like lesson sections): part titles,
+   tables, and coloured boxes for key rules (note) and exam tips (tip). */
+.summary-section { margin: 1rem 0 1.25rem; }
+.summary-card .summary-section h3,
+.summary-card .summary-section h4 {
+  font-size: 1.08rem;
+  margin: 1.1rem 0 0.45rem;
+  color: var(--color-primary-dark);
+}
+/* A text section with a heading starts a new part of the summary. */
+.summary-card .summary-section--text { margin-top: 2.25rem; }
+.summary-card .summary-section--text h3,
+.summary-card .summary-section--text h4 {
+  font-size: 1.3rem;
+  margin: 0;
+  padding-bottom: 0.4rem;
+  border-bottom: 3px solid var(--color-button-border);
+}
+.summary-section--text .prose p {
+  margin: 0.5rem 0 0;
+  font-weight: 600;
+  color: var(--color-primary-dark);
+}
+.summary-card .callout h3,
+.summary-card .callout h4 { margin: 0 0 0.35rem; font-size: 1.05rem; }
+.summary-section .callout p { margin: 0.3rem 0; }
+
+/* Exam tip box (section type "tip"): cream with an amber edge. */
+.callout--tip {
+  border-inline-start-color: var(--color-focus);
+  background: var(--color-cream);
+}
+.callout--tip h2,
+.summary-card .callout--tip h3,
+.summary-card .callout--tip h4 { color: var(--color-warning); }
+
+/* Exam tips that follow each other in a summary: side by side on wide screens. */
+.tip-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 20rem), 1fr));
+  gap: 0.9rem;
+  margin: 1rem 0 1.25rem;
+}
+.tip-grid .summary-section { margin: 0; }
+.tip-grid .callout { max-width: none; height: 100%; }
+
+/* On phones a summary table is stacked like a lesson table, but more compact:
+   each column name sits at the start of its line. */
+@media (max-width: 40rem) {
+  .summary-section td { padding: 0.25rem 0; }
+  .summary-section td[data-label]:not([data-label=""])::before {
+    display: inline;
+    margin-inline-end: 0.45rem;
+  }
+}
+
+/* ✗ and ✓ in a summary */
+.mark-wrong { color: var(--color-danger); font-weight: 700; }
+.mark-right { color: var(--color-success); font-weight: 700; }
+
 /* ---------- Practice setup ---------- */
 .panel {
   background: var(--color-surface);
@@ -1680,4 +1740,10 @@ input[type="file"] { font: inherit; max-width: 100%; }
   .summary-card,
   .card,
   .passage { box-shadow: none; break-inside: avoid; }
+
+  /* A long summary (with sections) flows over several pages; its parts stay whole. */
+  .summary-card.has-sections { break-inside: auto; }
+  .summary-section,
+  .tip-grid .callout { break-inside: avoid; }
+  .summary-section--text { break-after: avoid; }
 }
