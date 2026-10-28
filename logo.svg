@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48">
+  <!-- Site logo: a speech bubble holding an open book. Original drawing for this website. -->
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#4f8ff2"/>
+      <stop offset="1" stop-color="#8f6cf0"/>
+    </linearGradient>
+  </defs>
+  <path d="M12 3h24a10 10 0 0 1 10 10v14a10 10 0 0 1-10 10H20l-10 8 2-8a10 10 0 0 1-10-10V13A10 10 0 0 1 12 3z" fill="url(#g)"/>
+  <path d="M10 14q7-3 14 1v15q-7-4-14-1z" fill="#ffffff"/>
+  <path d="M38 14q-7-3-14 1v15q7-4 14-1z" fill="#fff4c2"/>
+  <path d="M13 18.5q4.5-1.5 8 .5M13 22.5q4.5-1.5 8 .5M27 19q3.5-2 8-.5M27 23q3.5-2 8-.5" stroke="#8fb5f7" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+</svg>

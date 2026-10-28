@@ -1,4 +1,4 @@
-# Grade 12 English
+# Learn English for Grade 12
 
 A free English learning website for Egyptian Grade 12 students: grammar
 lessons, grammar summaries, grammar practice with feedback and scoring, and
@@ -26,6 +26,9 @@ grade12-english/
 ├── manage.html            Content manager (for teachers)
 ├── .nojekyll              Empty file: tells GitHub Pages to serve files as they are
 ├── style.css              All styles
+├── logo.svg               Logo (header, footer and browser tab)
+├── home-hero.svg          Home page illustration
+├── icon-lessons.svg, icon-summaries.svg, icon-practice.svg, icon-reading.svg   Home page section pictures
 ├── i18n.js                Interface language: the English/Arabic button, page direction, saved choice
 ├── i18n-en.js             English interface text
 ├── i18n-ar.js             Arabic interface text

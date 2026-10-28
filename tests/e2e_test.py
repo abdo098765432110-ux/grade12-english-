@@ -1152,8 +1152,9 @@ def language_switch(browser, base):
            and links.evaluate_all("list => list.map(a => a.getAttribute('href'))") == NAV_HREFS, str(links.all_inner_texts()))
     record("Arabic: the button now offers English",
            page.locator(".lang-toggle").inner_text() == "English" and page.locator(".lang-toggle").get_attribute("lang") == "en")
-    record("Arabic: page title and headings are translated",
-           ARABIC.search(page.title()) is not None and ARABIC.search(page.locator("h1").inner_text()) is not None, page.title())
+    # The website name stays in English in both languages, so the home page's tab title is the name itself.
+    record("Arabic: headings are translated; the tab title is the website name",
+           page.title() == "Learn English for Grade 12" and ARABIC.search(page.locator("h1").inner_text()) is not None, page.title())
 
     # Straight back to English on the same page, still without a reload.
     page.click(".lang-toggle")
@@ -1164,7 +1165,7 @@ def language_switch(browser, base):
            and page.locator("h1").inner_text() == "Free English practice for Grade 12"
            and page.locator(".empty-state h2").inner_text() == "No content added yet"
            and page.locator("[data-count='lessons']").inner_text() == "No lessons yet"
-           and page.locator(".lang-toggle").inner_text() == "العربية" and page.title() == "Grade 12 English")
+           and page.locator(".lang-toggle").inner_text() == "العربية" and page.title() == "Learn English for Grade 12")
     page.click(".lang-toggle")
     page.wait_for_function("document.documentElement.lang === 'ar'")
 

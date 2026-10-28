@@ -18,7 +18,7 @@
     strings: {
       /* ---- Header, menu and footer (every page) ---- */
       "Skip to main content": "Skip to main content",
-      "Grade 12 English": "Grade 12 English",
+      "Learn English for Grade 12": "Learn English for Grade 12",
       "Free practice for Egyptian secondary students": "Free practice for Egyptian secondary students",
       "Menu": "Menu",
       "Main": "Main",
@@ -33,6 +33,8 @@
       "Content manager (for teachers)": "Content manager (for teachers)",
       /* ---- Home page ---- */
       "Free English practice for Grade 12": "Free English practice for Grade 12",
+      "Start with a lesson": "Start with a lesson",
+      "Practise questions": "Practise questions",
       "Grammar lessons, quick revision summaries, practice questions with instant feedback, and reading comprehension — free, with no account needed.": "Grammar lessons, quick revision summaries, practice questions with instant feedback, and reading comprehension — free, with no account needed.",
       "Loading content…": "Loading content…",
       "Sections": "Sections",

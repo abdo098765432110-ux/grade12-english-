@@ -1,4 +1,4 @@
-# Project status — Grade 12 English
+# Project status — Learn English for Grade 12
 
 _Last updated: 26 October 2026 (Phase 2 + the Arabic/English language switch, all website files at the top level)_
 

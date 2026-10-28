@@ -13,7 +13,7 @@
   var G12 = global.G12 || (global.G12 = {});
   var t = G12.t;
 
-  G12.SITE_NAME = 'Grade 12 English';
+  G12.SITE_NAME = 'Learn English for Grade 12';
   G12.MANAGER_PAGE = 'manage.html';
   G12.SLOW_NOTICE_MS = 8000;   // show "still loading" after this long
   G12.LOAD_TIMEOUT_MS = 30000; // give up on a data file after this long
@@ -257,7 +257,7 @@
     return new URLSearchParams(global.location.search).get(name);
   };
 
-  /* Page title in the browser tab: "<text> — Grade 12 English" (translated). */
+  /* Page title in the browser tab: "<text> — Learn English for Grade 12" (the page name translated). */
   G12.setTitle = function (text) {
     var site = t(G12.SITE_NAME);
     document.title = text ? text + ' — ' + site : site;

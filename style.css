@@ -3,18 +3,19 @@
    Plain CSS, no build step. Colours are defined once as variables below.
    ========================================================================== */
 
-/* A bright, soft pastel palette (light blue, mint, cream yellow, lavender).
-   Text colours are soft slate and blue, never plain black, and every text
-   colour still has at least 4.5:1 contrast with its background. */
+/* A bright, cheerful pastel palette: sky blue, mint, sunshine yellow and
+   lavender. Each part of the website has its own colour (see "Section
+   colours" below). Text colours are deep slate and blue, never plain black,
+   and every text colour has at least 4.5:1 contrast with its background. */
 :root {
   --color-primary: #2f63b0;
   --color-primary-dark: #244f8f;
-  --color-primary-light: #e7f0ff;
-  --color-text: #34405c;
-  --color-muted: #59647e;
-  --color-bg: #f4f7fd;
+  --color-primary-light: #e4efff;
+  --color-text: #2b3654;
+  --color-muted: #56617c;
+  --color-bg: #f6f9ff;
   --color-surface: #ffffff;
-  --color-border: #dbe4f3;
+  --color-border: #dbe5f5;
   --color-focus: #f5b83d;
 
   /* Main buttons: pastel blue to lavender, with deep blue text. */
@@ -39,10 +40,22 @@
   --color-info: #2f63b0;
   --color-info-bg: #e7f0ff;
 
-  --radius: 12px;
-  --radius-lg: 18px;
-  --shadow: 0 1px 3px rgba(70, 100, 160, 0.06), 0 6px 20px rgba(70, 100, 160, 0.08);
+  /* Section colours: a light tint, a stronger edge and a deep text colour.
+     Lessons are sky blue, summaries mint, practice sunshine yellow and
+     reading lavender: on the home page, in the menu and in the steps. */
+  --sky: #dcebff;      --sky-edge: #a9cbff;      --sky-hover: #c7defd;      --sky-ink: #23559f;
+  --mint: #d3f4e4;     --mint-edge: #93dfbd;     --mint-hover: #bdeed6;     --mint-ink: #1b6b49;
+  --sun: #fff0b3;      --sun-edge: #ffd25c;      --sun-hover: #ffe68a;      --sun-ink: #744b00;
+  --lavender: #e8e0ff; --lavender-edge: #c4b5fd; --lavender-hover: #dacfff; --lavender-ink: #523cab;
+
+  --radius: 14px;
+  --radius-lg: 22px;
+  --radius-xl: 32px;
+  --shadow: 0 1px 3px rgba(60, 90, 160, 0.06), 0 8px 24px rgba(60, 90, 160, 0.09);
+  --shadow-raised: 0 2px 6px rgba(60, 90, 160, 0.08), 0 14px 32px rgba(60, 90, 160, 0.14);
   --font-body: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", "Helvetica Neue", Arial, sans-serif;
+  /* Headings: rounded letters where the device has them (Apple devices), otherwise the system font. */
+  --font-heading: ui-rounded, "SF Pro Rounded", "Segoe UI Variable Display", "Segoe UI", system-ui, -apple-system, Roboto, "Noto Sans", Arial, sans-serif;
   --font-arabic: "Noto Naskh Arabic", "Segoe UI", Tahoma, Arial, sans-serif;
   /* System fonts only (no downloads). Interface text in Arabic: */
   --font-arabic-ui: "Segoe UI", Tahoma, "Noto Sans Arabic", "Noto Naskh Arabic", "Geeza Pro", "Arabic UI Text", Arial, sans-serif;
@@ -66,7 +79,7 @@ body {
   font-size: 1.0625rem;
   line-height: 1.6;
   color: var(--color-text);
-  background: var(--color-bg) linear-gradient(180deg, #e9f2ff 0, #f3efff 18rem, var(--color-bg) 36rem) no-repeat;
+  background: var(--color-bg) linear-gradient(180deg, #eaf3ff 0, #f4f0ff 20rem, var(--color-bg) 40rem) no-repeat;
 }
 
 img {
@@ -78,12 +91,13 @@ h1,
 h2,
 h3,
 h4 {
+  font-family: var(--font-heading);
   line-height: 1.25;
   margin: 1.5em 0 0.5em;
   color: var(--color-text);
 }
 
-h1 { font-size: 2rem; margin-top: 0.5em; }
+h1 { font-size: 2.1rem; font-weight: 800; letter-spacing: -0.01em; margin-top: 0.5em; }
 h2 { font-size: 1.5rem; }
 h3 { font-size: 1.2rem; }
 
@@ -130,6 +144,9 @@ html[lang="ar"] body {
   line-height: 1.7;
 }
 
+html[lang="ar"] { --font-heading: var(--font-arabic-ui); }
+html[lang="ar"] h1 { letter-spacing: 0; }
+
 /* ---------- Skip link ---------- */
 .skip-link {
   position: absolute;
@@ -146,14 +163,14 @@ html[lang="ar"] body {
 .skip-link:focus { top: 1rem; color: var(--color-button-text); }
 
 /* ---------- Header and navigation ---------- */
-/* A thin pastel stripe across the top of every page. */
+/* A pastel stripe across the top of every page, in the four section colours. */
 .site-header {
   background:
-    linear-gradient(90deg, #a9cbff, #b5ead7, #ffe7a0, #d6c9ff) top / 100% 5px no-repeat,
+    linear-gradient(90deg, var(--sky-edge) 0 25%, var(--mint-edge) 25% 50%, var(--sun-edge) 50% 75%, var(--lavender-edge) 75%) top / 100% 6px no-repeat,
     var(--color-surface);
-  padding-top: 5px;
+  padding-top: 6px;
   border-bottom: 1px solid var(--color-border);
-  box-shadow: 0 2px 12px rgba(70, 100, 160, 0.06);
+  box-shadow: 0 2px 14px rgba(60, 90, 160, 0.07);
 }
 
 .header-inner {
@@ -167,13 +184,32 @@ html[lang="ar"] body {
 }
 
 .brand {
-  font-weight: 700;
-  font-size: 1.2rem;
-  color: var(--color-primary);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  color: var(--color-primary-dark);
   text-decoration: none;
 }
 
-.brand-name { display: block; }
+.brand:hover { color: var(--color-primary-dark); }
+
+.brand-logo {
+  flex-shrink: 0;
+  width: 2.75rem;
+  height: 2.75rem;
+}
+
+.brand-name {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+/* The website name is English in both languages: keep the English heading font. */
+html[lang="ar"] .brand-name { font-family: ui-rounded, "Segoe UI Variable Display", "Segoe UI", system-ui, Roboto, Arial, sans-serif; }
 
 .brand-tagline {
   display: block;
@@ -221,20 +257,29 @@ html[lang="ar"] body {
 
 .nav-list a {
   display: block;
-  padding: 0.5rem 0.75rem;
-  border-radius: var(--radius);
+  padding: 0.5rem 0.95rem;
+  border: 2px solid transparent;
+  border-radius: 999px;
   color: var(--color-text);
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 600;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
 }
 
 .nav-list a:hover { background: var(--color-primary-light); }
 
 .nav-list a[aria-current="page"] {
   background: var(--color-button);
+  border-color: var(--color-button-border);
   color: var(--color-button-text);
   font-weight: 700;
 }
+
+/* The current page takes its section's colour. */
+.nav-list a[aria-current="page"][href="grammar.html"] { background: var(--sky); border-color: var(--sky-edge); color: var(--sky-ink); }
+.nav-list a[aria-current="page"][href="summaries.html"] { background: var(--mint); border-color: var(--mint-edge); color: var(--mint-ink); }
+.nav-list a[aria-current="page"][href="practice.html"] { background: var(--sun); border-color: var(--sun-edge); color: var(--sun-ink); }
+.nav-list a[aria-current="page"][href="reading.html"] { background: var(--lavender); border-color: var(--lavender-edge); color: var(--lavender-ink); }
 
 /* Menu button: hidden in the HTML and shown by common.js on small screens.
    Without JavaScript the full navigation is always visible. */
@@ -245,7 +290,7 @@ html[lang="ar"] body {
   min-height: 2.75rem;
   padding: 0.45rem 0.9rem;
   border: 2px solid var(--color-button-border);
-  border-radius: var(--radius);
+  border-radius: 999px;
   background: var(--color-surface);
   color: var(--color-primary);
   font: inherit;
@@ -279,7 +324,9 @@ html[lang="ar"] body {
 .nav-toggle-icon::before { top: -6px; }
 .nav-toggle-icon::after { top: 6px; }
 
-@media (max-width: 48rem) {
+/* Up to small-laptop width the links fold into the menu button, so the five
+   links never wrap onto a second, uneven row. */
+@media (max-width: 60rem) {
   .has-menu .header-inner { column-gap: 0.75rem; flex-wrap: wrap; }
   .has-menu .brand { flex: 1 1 0; min-width: 0; }
   .has-menu .header-tools { flex-shrink: 0; }
@@ -293,6 +340,26 @@ html[lang="ar"] body {
   }
 
   .has-menu .nav-list a { padding: 0.7rem 0.75rem; }
+}
+
+/* Phones: room for the website name beside the buttons. The menu button shows
+   only its icon (its name "Menu" is still read out), and the tagline is hidden. */
+@media (max-width: 30rem) {
+  .has-menu .header-inner { column-gap: 0.5rem; }
+  .brand { gap: 0.5rem; }
+  .brand-logo { width: 2.25rem; height: 2.25rem; }
+  .brand-name { font-size: 1.05rem; }
+  .brand-tagline { display: none; }
+  .lang-toggle { padding: 0.4rem 0.75rem; }
+  .has-menu .nav-toggle { padding: 0.45rem 0.8rem; }
+  .has-menu .nav-toggle span:not(.nav-toggle-icon) {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+  }
 }
 
 /* ---------- Main and footer ---------- */
@@ -309,6 +376,26 @@ main {
   font-size: 0.9rem;
   padding: 1.5rem 0;
 }
+
+.footer-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 2rem;
+}
+
+.footer-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: ui-rounded, "Segoe UI Variable Display", "Segoe UI", system-ui, Roboto, Arial, sans-serif;
+  font-weight: 800;
+  font-size: 1.05rem;
+  color: var(--color-primary-dark);
+}
+
+.footer-brand img { width: 2.25rem; height: 2.25rem; }
 
 .site-footer p { margin: 0.25rem 0; }
 
@@ -448,6 +535,9 @@ main {
   box-shadow: var(--shadow);
 }
 
+.card h2 a,
+.card h3 a { text-decoration-thickness: 2px; }
+
 .card h2,
 .card h3 {
   margin-top: 0;
@@ -477,6 +567,217 @@ main {
 
 .steps li { margin-bottom: 0.4rem; }
 
+/* ---------- Home page ---------- */
+/* Room above the footer (main's own padding is replaced by .container's). */
+.home { padding-bottom: 3.5rem; }
+
+/* Section colours as classes: tone-sky, tone-mint, tone-sun, tone-lavender. */
+.tone-sky { --tone: var(--sky); --tone-edge: var(--sky-edge); --tone-hover: var(--sky-hover); --tone-ink: var(--sky-ink); }
+.tone-mint { --tone: var(--mint); --tone-edge: var(--mint-edge); --tone-hover: var(--mint-hover); --tone-ink: var(--mint-ink); }
+.tone-sun { --tone: var(--sun); --tone-edge: var(--sun-edge); --tone-hover: var(--sun-hover); --tone-ink: var(--sun-ink); }
+.tone-lavender { --tone: var(--lavender); --tone-edge: var(--lavender-edge); --tone-hover: var(--lavender-hover); --tone-ink: var(--lavender-ink); }
+
+/* The welcome panel: text, two buttons and the illustration, on a dotted
+   "exercise book" background. The student in the picture stands on the
+   bottom edge, so only his upper body shows. */
+.hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 1rem 2.5rem;
+  margin-top: 1.25rem;
+  padding: 2.5rem 2.75rem 0;
+  border: 1px solid #d5e2f7;
+  border-radius: var(--radius-xl);
+  background:
+    radial-gradient(circle, rgba(125, 160, 220, 0.22) 1.3px, transparent 1.6px) 0 0 / 22px 22px,
+    linear-gradient(135deg, #e3efff 0%, #efe9ff 55%, #fff5d4 100%);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.hero-text { padding-bottom: 2.5rem; }
+
+.hero h1 {
+  margin: 0 0 0.75rem;
+  text-wrap: balance;
+  font-size: clamp(2.1rem, 1.35rem + 2.6vw, 3.25rem);
+  line-height: 1.08;
+  color: #22305a;
+}
+
+.hero .lead {
+  margin-bottom: 1.5rem;
+  font-size: 1.2rem;
+  color: #4a5675;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.btn--big {
+  min-height: 3.25rem;
+  padding: 0.7rem 1.6rem;
+  font-size: 1.08rem;
+}
+
+.hero-art {
+  align-self: end;
+  justify-self: center;
+  width: 100%;
+  max-width: 34rem;
+}
+
+.hero-art img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* The four sections, each in its own colour. */
+.home-cards {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.25rem;
+  margin: 2.25rem 0 1rem;
+}
+
+.home-cards .card {
+  border: 2px solid var(--tone);
+  padding: 1.5rem 1.4rem 1.4rem;
+}
+
+/* Each picture sits in a speech-bubble shape (one square corner, like a tail). */
+.card-icon {
+  width: 4.5rem;
+  height: 4.5rem;
+  padding: 0.55rem;
+  margin-bottom: 1rem;
+  border-radius: 1.5rem;
+  border-end-start-radius: 0.4rem;
+  background: var(--tone);
+}
+
+.home-cards h2 {
+  margin: 0 0 0.4rem;
+  font-size: 1.3rem;
+}
+
+.home-cards .card-count {
+  align-self: flex-start;
+  margin: 0 0 1.1rem;
+  padding: 0.15rem 0.75rem;
+  border-radius: 999px;
+  background: var(--tone);
+  color: var(--tone-ink);
+  font-weight: 700;
+}
+
+.home-cards .btn {
+  width: 100%;
+  background: var(--tone);
+  border-color: var(--tone-edge);
+  color: var(--tone-ink);
+  box-shadow: none;
+}
+
+.home-cards .btn:hover {
+  background: var(--tone-hover);
+  border-color: var(--tone-edge);
+  color: var(--tone-ink);
+}
+
+/* "How to use this website": the four steps as a path, in the section colours. */
+.how-to { margin-top: 3rem; }
+
+.how-to h2 { margin-bottom: 1rem; }
+
+.steps--path {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.25rem;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: step;
+}
+
+.steps--path li {
+  position: relative;
+  margin: 0;
+  padding: 3.9rem 1.15rem 1.15rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: var(--shadow);
+  counter-increment: step;
+  font-weight: 500;
+}
+
+/* The step number, in a small speech bubble. */
+.steps--path li::before {
+  content: counter(step);
+  position: absolute;
+  top: 1rem;
+  inset-inline-start: 1.15rem;
+  display: grid;
+  place-items: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 0.9rem;
+  border-end-start-radius: 0.3rem;
+  background: var(--tone);
+  color: var(--tone-ink);
+  font-family: var(--font-heading);
+  font-weight: 800;
+}
+
+/* A dashed line leads on to the next step. */
+.steps--path li:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 2.1rem;
+  inset-inline-start: 4rem;
+  inset-inline-end: -1.25rem;
+  border-top: 2px dashed var(--tone-edge);
+}
+
+@media (max-width: 64rem) {
+  .home-cards,
+  .steps--path { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .steps--path li:nth-child(2n)::after { display: none; }
+}
+
+@media (max-width: 52rem) {
+  .hero {
+    grid-template-columns: minmax(0, 1fr);
+    padding: 2rem 1.5rem 0;
+    border-radius: var(--radius-lg);
+  }
+  .hero-text { padding-bottom: 0; }
+  .hero-art { max-width: 24rem; }
+}
+
+@media (max-width: 36rem) {
+  .home-cards,
+  .steps--path { grid-template-columns: minmax(0, 1fr); }
+  .steps--path li::after { display: none; }
+  .hero { padding: 1.6rem 1.15rem 0; }
+  .hero .lead { font-size: 1.08rem; }
+  .hero-actions .btn { flex: 1 1 100%; }
+  .hero-art { max-width: 20rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn,
+  .nav-list a { transition: none; }
+  .btn:hover { transform: none; }
+}
+
 /* ---------- Buttons ---------- */
 .btn {
   display: inline-flex;
@@ -484,19 +785,30 @@ main {
   justify-content: center;
   gap: 0.4rem;
   min-height: 2.75rem;
-  padding: 0.55rem 1.1rem;
+  padding: 0.55rem 1.25rem;
   border: 2px solid var(--color-button-border);
-  border-radius: var(--radius);
+  border-radius: 999px;
   background: linear-gradient(135deg, var(--color-button), var(--color-button-end));
   color: var(--color-button-text);
   font: inherit;
   font-weight: 700;
   text-decoration: none;
   cursor: pointer;
-  box-shadow: 0 2px 8px rgba(70, 100, 160, 0.10);
+  box-shadow: 0 2px 8px rgba(60, 90, 160, 0.12);
+  transition: background-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
 }
 
-.btn:hover { background: var(--color-button-hover); border-color: var(--color-button-border); color: var(--color-button-text); }
+.btn:hover {
+  background: var(--color-button-hover);
+  border-color: var(--color-button-border);
+  color: var(--color-button-text);
+  box-shadow: 0 4px 14px rgba(60, 90, 160, 0.18);
+  transform: translateY(-1px);
+}
+
+.btn:active { transform: none; }
+
+.btn[disabled]:hover { transform: none; }
 
 .btn--secondary {
   background: var(--color-surface);
@@ -516,7 +828,7 @@ main {
   padding-inline-end: 0.25rem;
 }
 
-.btn--link:hover { background: transparent; border-color: transparent; color: var(--color-primary-dark); }
+.btn--link:hover { background: transparent; border-color: transparent; color: var(--color-primary-dark); box-shadow: none; transform: none; }
 
 .btn[disabled] { opacity: 0.55; cursor: not-allowed; }
 
@@ -551,6 +863,9 @@ main {
   font-size: 1.1em;
   line-height: 1.8;
 }
+
+/* Headings inside Arabic content keep the Arabic content font. */
+[lang="ar"]:not(html) :is(h1, h2, h3, h4) { font-family: var(--font-arabic); }
 
 .table-wrap {
   overflow-x: auto;

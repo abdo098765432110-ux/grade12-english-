@@ -20,7 +20,8 @@
     strings: {
       /* ---- Header, menu and footer (every page) ---- */
       "Skip to main content": "تخطَّ إلى المحتوى الرئيسي",
-      "Grade 12 English": "الإنجليزية للصف الثالث الثانوي",
+      /* The website name stays in English in both languages. */
+      "Learn English for Grade 12": "Learn English for Grade 12",
       "Free practice for Egyptian secondary students": "تدريب مجاني لطلاب الثانوية العامة في مصر",
       "Menu": "القائمة",
       "Main": "القائمة الرئيسية",
@@ -35,6 +36,8 @@
       "Content manager (for teachers)": "مدير المحتوى (للمعلمين)",
       /* ---- Home page ---- */
       "Free English practice for Grade 12": "تدريب مجاني على اللغة الإنجليزية للصف الثالث الثانوي",
+      "Start with a lesson": "ابدأ بدرس",
+      "Practise questions": "تدرّب على الأسئلة",
       "Grammar lessons, quick revision summaries, practice questions with instant feedback, and reading comprehension — free, with no account needed.": "دروس في القواعد، وملخصات سريعة للمراجعة، وأسئلة تدريب مع تصحيح فوري، وقراءة وفهم — مجانًا ودون الحاجة إلى حساب.",
       "Loading content…": "جارٍ تحميل المحتوى…",
       "Sections": "الأقسام",

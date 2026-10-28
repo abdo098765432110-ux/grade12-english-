@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <!-- Grammar lessons: an open book with a bookmark. -->
+  <path d="M6 16q13-6 26 2v36q-13-8-26-2z" fill="#4f8ff2"/>
+  <path d="M58 16q-13-6-26 2v36q13-8 26-2z" fill="#4f8ff2"/>
+  <path d="M9 15q11.5-4.5 23 3v33q-11.5-7-23-2.5z" fill="#ffffff"/>
+  <path d="M55 15q-11.5-4.5-23 3v33q11.5-7 23-2.5z" fill="#ffffff"/>
+  <path d="M14 24q7-2.5 13 .8M14 31q7-2.5 13 .8M14 38q7-2.5 13 .8M37 25q6-3.3 13-.8M37 32q6-3.3 13-.8" stroke="#a9c8ff" stroke-width="2.4" stroke-linecap="round" fill="none"/>
+  <path d="M42 13h8v20l-4-3.5-4 3.5z" fill="#ffc447"/>
+</svg>

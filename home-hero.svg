@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 480" width="560" height="480" role="img" aria-label="">
+  <!-- Home page illustration: a smiling student (upper body) holding an open book,
+       with speech bubbles and a stack of books. Original drawing for this website. -->
+  <style>
+    .bubble { transform-box: fill-box; transform-origin: 50% 100%; animation: pop 0.7s cubic-bezier(0.2, 0.9, 0.3, 1.25) both; }
+    .b1 { animation-delay: 0.25s; }
+    .b2 { animation-delay: 0.55s; }
+    .b3 { animation-delay: 0.85s; }
+    @keyframes pop { from { opacity: 0; transform: scale(0.6); } to { opacity: 1; transform: scale(1); } }
+    @media (prefers-reduced-motion: reduce) { .bubble { animation: none; } }
+    text { font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif; font-weight: 800; }
+  </style>
+
+  <!-- soft shapes behind -->
+  <circle cx="318" cy="262" r="196" fill="#dcebff"/>
+  <circle cx="112" cy="384" r="82" fill="#cff3e2"/>
+  <circle cx="492" cy="70" r="38" fill="#ffe48a"/>
+  <circle cx="98" cy="96" r="26" fill="#e5dcff"/>
+  <path d="M520 220l6 14 14 6-14 6-6 14-6-14-14-6 14-6z" fill="#ffd35a"/>
+  <path d="M60 230l4 10 10 4-10 4-4 10-4-10-10-4 10-4z" fill="#b9a6ff"/>
+  <path d="M230 60l4 9 9 4-9 4-4 9-4-9-9-4 9-4z" fill="#8fd9b6"/>
+
+  <!-- student: shirt and collar -->
+  <path d="M196 480c2-70 40-112 124-120 84 8 122 50 124 120z" fill="#5b9cf0"/>
+  <path d="M298 314h44v58c0 12-10 20-22 20s-22-8-22-20z" fill="#c98e68"/>
+  <path d="M292 356l28 34-36 2z" fill="#ffffff"/>
+  <path d="M348 356l-28 34 36 2z" fill="#ffffff"/>
+  <!-- head -->
+  <ellipse cx="254" cy="262" rx="13" ry="18" fill="#d99a72"/>
+  <ellipse cx="386" cy="262" rx="13" ry="18" fill="#d99a72"/>
+  <ellipse cx="320" cy="254" rx="66" ry="76" fill="#e5ab82"/>
+  <!-- short hair -->
+  <path d="M252 250c-8-58 24-90 70-90 44 0 76 30 68 90-6-22-18-38-36-44-20 10-52 12-78 2-12 10-20 24-24 42z" fill="#3b2a22"/>
+  <!-- eyebrows, eyes, nose, smile, cheeks -->
+  <path d="M286 236q12-7 24 0" stroke="#3b2a22" stroke-width="5" stroke-linecap="round" fill="none"/>
+  <path d="M330 236q12-7 24 0" stroke="#3b2a22" stroke-width="5" stroke-linecap="round" fill="none"/>
+  <ellipse cx="298" cy="258" rx="7" ry="9" fill="#2b2b3a"/>
+  <ellipse cx="342" cy="258" rx="7" ry="9" fill="#2b2b3a"/>
+  <circle cx="300.5" cy="255" r="2.4" fill="#ffffff"/>
+  <circle cx="344.5" cy="255" r="2.4" fill="#ffffff"/>
+  <path d="M320 266q-6 12 2 14" stroke="#b97a56" stroke-width="4" stroke-linecap="round" fill="none"/>
+  <path d="M298 290q22 22 44 0z" fill="#8a3f2c"/>
+  <path d="M304 291q16 9 32 0z" fill="#ffffff"/>
+  <circle cx="281" cy="282" r="9" fill="#f29c8a" opacity="0.45"/>
+  <circle cx="359" cy="282" r="9" fill="#f29c8a" opacity="0.45"/>
+
+  <!-- open book held in both hands -->
+  <path d="M224 404q48-18 96 2v76h-96z" fill="#ffb547"/>
+  <path d="M416 404q-48-18-96 2v76h96z" fill="#ffb547"/>
+  <path d="M234 404q42-14 86 6v70q-44-16-86-4z" fill="#ffffff"/>
+  <path d="M406 404q-42-14-86 6v70q44-16 86-4z" fill="#ffffff"/>
+  <path d="M320 410v70" stroke="#e8b25a" stroke-width="3"/>
+  <g stroke="#a9c8ff" stroke-width="4" stroke-linecap="round" fill="none">
+    <path d="M250 424q30-8 56 2"/><path d="M250 440q30-8 56 2"/><path d="M250 456q30-8 44 0"/>
+    <path d="M334 426q26-10 56-2"/><path d="M334 442q26-10 56-2"/><path d="M334 458q20-8 44-2"/>
+  </g>
+  <circle cx="232" cy="446" r="17" fill="#e5ab82"/>
+  <circle cx="408" cy="446" r="17" fill="#e5ab82"/>
+
+  <!-- stack of books -->
+  <rect x="44" y="404" width="160" height="36" rx="7" fill="#5b9cf0"/>
+  <rect x="176" y="410" width="22" height="24" rx="3" fill="#ffffff"/>
+  <rect x="62" y="372" width="132" height="32" rx="7" fill="#ffc447"/>
+  <rect x="168" y="378" width="20" height="20" rx="3" fill="#ffffff"/>
+  <rect x="52" y="342" width="146" height="30" rx="7" fill="#9b84f5"/>
+  <rect x="172" y="347" width="20" height="20" rx="3" fill="#ffffff"/>
+  <rect x="44" y="440" width="160" height="40" rx="7" fill="#3ccb91"/>
+  <rect x="176" y="446" width="22" height="28" rx="3" fill="#ffffff"/>
+  <g fill="#ffffff" opacity="0.55">
+    <rect x="64" y="416" width="60" height="6" rx="3"/>
+    <rect x="80" y="384" width="48" height="6" rx="3"/>
+    <rect x="70" y="353" width="56" height="6" rx="3"/>
+    <rect x="64" y="454" width="70" height="6" rx="3"/>
+  </g>
+
+  <!-- speech bubbles -->
+  <g class="bubble b1">
+    <path d="M118 140h112a26 26 0 0 1 26 26v14a26 26 0 0 1-26 26h-18l14 24-36-24h-72a26 26 0 0 1-26-26v-14a26 26 0 0 1 26-26z" fill="#ffffff" stroke="#bfd5fa" stroke-width="3"/>
+    <text x="174" y="184" font-size="30" fill="#2f63b0" text-anchor="middle">Hello!</text>
+  </g>
+  <g class="bubble b2">
+    <path d="M424 132h80a22 22 0 0 1 22 22v12a22 22 0 0 1-22 22h-58l-30 22 10-22a22 22 0 0 1-24-22v-12a22 22 0 0 1 22-22z" fill="#ffe48a"/>
+    <text x="464" y="171" font-size="27" fill="#7a4f00" text-anchor="middle">ABC</text>
+  </g>
+  <g class="bubble b3">
+    <path d="M446 292h50a20 20 0 0 1 20 20v8a20 20 0 0 1-20 20h-42l-22 16 6-18a20 20 0 0 1-12-18v-8a20 20 0 0 1 20-20z" fill="#e5dcff"/>
+    <text x="474" y="326" font-size="24" fill="#5b45b0" text-anchor="middle">Aa</text>
+  </g>
+</svg>
