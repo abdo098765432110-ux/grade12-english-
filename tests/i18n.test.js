@@ -50,7 +50,7 @@ const EN = ar.I18N_EN;
 /* Texts that the code translates through a variable, so the key finder
    cannot see them as written text. */
 function dynamicKeys() {
-  const keys = new Set(['Learn English for Grade 12', 'Imported file', 'required', 'optional', 'Mistake', 'Point']);
+  const keys = new Set(['Learn for Grade 12', 'Imported file', 'required', 'optional', 'Mistake', 'Point']);
   Schema.COLLECTION_KEYS.forEach((key) => {
     keys.add(Schema.COLLECTIONS[key].label);
     keys.add(Schema.COLLECTIONS[key].singular);
@@ -106,7 +106,7 @@ test('translations keep exactly the same {placeholders}', () => {
 });
 
 test('translations are Arabic text, not empty or copied English', () => {
-  const KEEP_ENGLISH = new Set(['Learn English for Grade 12']); // the website name stays in English by choice
+  const KEEP_ENGLISH = new Set(['Learn for Grade 12']); // the website name stays in English by choice
   const notArabic = Object.keys(DICT.strings).filter((key) => {
     if (KEEP_ENGLISH.has(key)) return false;
     const value = DICT.strings[key];

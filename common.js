@@ -13,7 +13,7 @@
   var G12 = global.G12 || (global.G12 = {});
   var t = G12.t;
 
-  G12.SITE_NAME = 'Learn English for Grade 12';
+  G12.SITE_NAME = 'Learn for Grade 12';
   G12.MANAGER_PAGE = 'manage.html';
   G12.SLOW_NOTICE_MS = 8000;   // show "still loading" after this long
   G12.LOAD_TIMEOUT_MS = 30000; // give up on a data file after this long
@@ -257,7 +257,7 @@
     return new URLSearchParams(global.location.search).get(name);
   };
 
-  /* Page title in the browser tab: "<text> — Learn English for Grade 12" (the page name translated). */
+  /* Page title in the browser tab: "<text> — Learn for Grade 12" (the page name translated). */
   G12.setTitle = function (text) {
     var site = t(G12.SITE_NAME);
     document.title = text ? text + ' — ' + site : site;
@@ -440,7 +440,25 @@
     });
   };
 
+  /* Subject menu (المواد الدراسية): a <details> list in the header. It opens and
+     closes by itself; this adds closing with Escape and with a click outside. */
+  G12.setupSubjectMenu = function () {
+    var menu = document.querySelector('.subject-menu');
+    if (!menu) return;
+    var button = menu.querySelector('summary');
+    document.addEventListener('click', function (event) {
+      if (menu.open && !menu.contains(event.target)) menu.open = false;
+    });
+    menu.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape' && menu.open) {
+        menu.open = false;
+        button.focus();
+      }
+    });
+  };
+
   G12.setupMenu();
+  G12.setupSubjectMenu();
   G12.watchSlowLoading();
   if (G12.translatePage) G12.translatePage(document);
 

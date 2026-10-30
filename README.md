@@ -1,8 +1,14 @@
-# Learn English for Grade 12
+# Learn for Grade 12
 
-A free English learning website for Egyptian Grade 12 students: grammar
-lessons, grammar summaries, grammar practice with feedback and scoring, and
-reading comprehension.
+A free learning website for Egyptian Grade 12 students. The subject menu
+(المواد الدراسية) at the top of every page leads to the five subjects:
+اللغة العربية، اللغة الإنجليزية، الفيزياء، الكيمياء، الأحياء.
+
+- **English** (the home page and the pages below): grammar lessons, grammar
+  summaries, grammar practice with feedback and scoring, and reading
+  comprehension.
+- **Arabic, physics, chemistry and biology**: one page each, with an empty
+  content area ready for future lessons.
 
 - Plain HTML, CSS, JavaScript and JSON. No build step, frameworks, packages,
   database, accounts, paid services or AI APIs.
@@ -24,11 +30,13 @@ grade12-english/
 ├── practice.html          Grammar Practice  (?unit=<id>, ?topic=<id> preselect)
 ├── reading.html           Reading Comprehension (?unit=<id>, ?passage=<id>)
 ├── manage.html            Content manager (for teachers)
+├── arabic.html, physics.html, chemistry.html, biology.html   The other four subjects (empty for now)
 ├── .nojekyll              Empty file: tells GitHub Pages to serve files as they are
 ├── style.css              All styles
 ├── logo.svg               Logo (header, footer and browser tab)
 ├── home-hero.svg          Home page illustration
 ├── icon-lessons.svg, icon-summaries.svg, icon-practice.svg, icon-reading.svg   Home page section pictures
+├── subject-arabic.svg, subject-english.svg, subject-physics.svg, subject-chemistry.svg, subject-biology.svg   Subject menu pictures
 ├── i18n.js                Interface language: the English/Arabic button, page direction, saved choice
 ├── i18n-en.js             English interface text
 ├── i18n-ar.js             Arabic interface text

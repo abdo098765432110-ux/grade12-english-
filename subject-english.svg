@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <!-- English: a speech bubble with the letters Aa. -->
+  <path d="M14 8h36a10 10 0 0 1 10 10v20a10 10 0 0 1-10 10H26l-12 10 2-10a10 10 0 0 1-12-10V18A10 10 0 0 1 14 8z" fill="#4f8ff2"/>
+  <text x="32" y="38" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="22" fill="#ffffff">Aa</text>
+</svg>

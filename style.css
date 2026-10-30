@@ -47,6 +47,7 @@
   --mint: #d3f4e4;     --mint-edge: #93dfbd;     --mint-hover: #bdeed6;     --mint-ink: #1b6b49;
   --sun: #fff0b3;      --sun-edge: #ffd25c;      --sun-hover: #ffe68a;      --sun-ink: #744b00;
   --lavender: #e8e0ff; --lavender-edge: #c4b5fd; --lavender-hover: #dacfff; --lavender-ink: #523cab;
+  --peach: #ffe4d6;    --peach-edge: #ffb999;    --peach-hover: #ffd3bf;    --peach-ink: #973b16;
 
   --radius: 14px;
   --radius-lg: 22px;
@@ -245,6 +246,165 @@ html[lang="ar"] .brand-name { font-family: ui-rounded, "Segoe UI Variable Displa
 .lang-toggle[lang="ar"] { font-family: var(--font-arabic-ui); }
 
 .lang-toggle:hover { background: var(--color-primary-light); }
+
+/* ---------- Subject menu (المواد الدراسية) ----------
+   A disclosure (<details>) in the header of every page: it works without
+   JavaScript; common.js closes it with Escape or a click outside. The labels
+   are Arabic in both interface languages. */
+.subject-menu {
+  position: relative;
+  order: 1;
+  margin-inline-start: auto;
+}
+
+.subject-menu .subject-menu-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  min-height: 2.75rem;
+  padding: 0.4rem 1.05rem;
+  border: 2px solid var(--color-button-border);
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--color-button), var(--color-button-end));
+  color: var(--color-button-text);
+  font-family: var(--font-arabic-ui);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.4;
+  list-style: none;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(60, 90, 160, 0.12);
+  user-select: none;
+}
+
+.subject-menu-button::-webkit-details-marker { display: none; }
+
+.subject-menu .subject-menu-button:hover { background: var(--color-button-hover); }
+
+/* Four small squares: "all subjects". */
+.subject-menu-button::before {
+  content: "";
+  flex-shrink: 0;
+  width: 1.05rem;
+  height: 1.05rem;
+  background: currentColor;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='7' height='7' rx='2'/%3E%3Crect x='9' width='7' height='7' rx='2'/%3E%3Crect y='9' width='7' height='7' rx='2'/%3E%3Crect x='9' y='9' width='7' height='7' rx='2'/%3E%3C/svg%3E") center / contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='7' height='7' rx='2'/%3E%3Crect x='9' width='7' height='7' rx='2'/%3E%3Crect y='9' width='7' height='7' rx='2'/%3E%3Crect x='9' y='9' width='7' height='7' rx='2'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+/* A small arrow that turns when the list is open. */
+.subject-menu-button::after {
+  content: "";
+  flex-shrink: 0;
+  width: 0.45rem;
+  height: 0.45rem;
+  margin-top: -0.2rem;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg);
+  transition: transform 0.15s ease;
+}
+
+.subject-menu[open] .subject-menu-button::after { transform: translateY(0.2rem) rotate(-135deg); }
+
+.subject-menu .subject-list {
+  position: absolute;
+  z-index: 20;
+  top: calc(100% + 0.5rem);
+  right: 0;
+  width: 17rem;
+  margin: 0;
+  padding: 0.5rem;
+  list-style: none;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-raised);
+  font-family: var(--font-arabic-ui);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* In the Arabic interface the menu is on the left of the header. */
+html[dir="rtl"] .subject-menu .subject-list { right: auto; left: 0; }
+
+.subject-menu[open] .subject-list { animation: subject-list-open 0.16s ease-out; }
+
+@keyframes subject-list-open {
+  from { opacity: 0; transform: translateY(-0.35rem); }
+  to { opacity: 1; transform: none; }
+}
+
+.subject-list li + li { margin-top: 0.15rem; }
+
+.subject-list a {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.45rem 0.6rem;
+  border-radius: var(--radius);
+  color: var(--color-text);
+  font-size: 1.05rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.subject-list a:hover { background: var(--tone); color: var(--tone-ink); }
+
+.subject-list img {
+  flex-shrink: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0.35rem;
+  border-radius: 0.9rem;
+  border-end-start-radius: 0.3rem;
+  background: var(--tone);
+}
+
+/* The subject you are in: coloured, with a tick. */
+.subject-list a[aria-current] { background: var(--tone); color: var(--tone-ink); }
+.subject-list a[aria-current] img { background: var(--color-surface); }
+.subject-list a[aria-current]::after {
+  content: "";
+  width: 0.45rem;
+  height: 0.8rem;
+  margin-inline-start: auto;
+  margin-inline-end: 0.35rem;
+  border-right: 3px solid currentColor;
+  border-bottom: 3px solid currentColor;
+  transform: rotate(45deg) translate(-0.1rem, -0.1rem);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .subject-menu[open] .subject-list { animation: none; }
+  .subject-menu-button::after { transition: none; }
+}
+
+/* Phones: the subject menu gets its own full-width row under the website name. */
+@media (max-width: 40rem) {
+  .subject-menu {
+    order: 2;
+    flex-basis: 100%;
+    margin-inline-start: 0;
+  }
+  .subject-menu .subject-menu-button {
+    width: 100%;
+    justify-content: center;
+  }
+  .subject-menu .subject-list,
+  html[dir="rtl"] .subject-menu .subject-list {
+    position: static;
+    width: auto;
+    margin-top: 0.5rem;
+    box-shadow: var(--shadow);
+  }
+  .site-nav { order: 3; }
+  /* Subject pages have no page links: keep the name and the language button on one row. */
+  .site-header.site-header--subject:not(.has-menu) .header-inner {
+    flex-direction: row;
+    align-items: center;
+  }
+}
 
 .nav-list {
   display: flex;
@@ -576,6 +736,7 @@ main {
 .tone-mint { --tone: var(--mint); --tone-edge: var(--mint-edge); --tone-hover: var(--mint-hover); --tone-ink: var(--mint-ink); }
 .tone-sun { --tone: var(--sun); --tone-edge: var(--sun-edge); --tone-hover: var(--sun-hover); --tone-ink: var(--sun-ink); }
 .tone-lavender { --tone: var(--lavender); --tone-edge: var(--lavender-edge); --tone-hover: var(--lavender-hover); --tone-ink: var(--lavender-ink); }
+.tone-peach { --tone: var(--peach); --tone-edge: var(--peach-edge); --tone-hover: var(--peach-hover); --tone-ink: var(--peach-ink); }
 
 /* The welcome panel: text, two buttons and the illustration, on a dotted
    "exercise book" background. The student in the picture stands on the
@@ -777,6 +938,39 @@ main {
   .nav-list a { transition: none; }
   .btn:hover { transform: none; }
 }
+
+/* ---------- Subject pages (Arabic, physics, chemistry, biology) ---------- */
+.subject-page { padding-bottom: 3.5rem; }
+
+.subject-title {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 1.5rem 0 1.25rem;
+  padding: 1.25rem 1.5rem;
+  border: 2px solid var(--tone-edge);
+  border-radius: var(--radius-xl);
+  background: var(--tone);
+}
+
+.subject-title img {
+  flex-shrink: 0;
+  width: 4rem;
+  height: 4rem;
+  padding: 0.5rem;
+  border-radius: 1.4rem;
+  border-end-start-radius: 0.4rem;
+  background: var(--color-surface);
+}
+
+.subject-page .subject-title h1 {
+  margin: 0;
+  color: var(--tone-ink);
+  font-family: var(--font-arabic-ui);
+  font-size: clamp(1.7rem, 1.3rem + 1.4vw, 2.3rem);
+}
+
+.subject-content { min-height: 14rem; }
 
 /* ---------- Buttons ---------- */
 .btn {

@@ -18,7 +18,7 @@
     strings: {
       /* ---- Header, menu and footer (every page) ---- */
       "Skip to main content": "Skip to main content",
-      "Learn English for Grade 12": "Learn English for Grade 12",
+      "Learn for Grade 12": "Learn for Grade 12",
       "Free practice for Egyptian secondary students": "Free practice for Egyptian secondary students",
       "Menu": "Menu",
       "Main": "Main",
@@ -29,7 +29,7 @@
       "Reading Comprehension": "Reading Comprehension",
       "Content Manager": "Content Manager",
       "Loading…": "Loading…",
-      "A free English learning resource for Egyptian Grade 12 students.": "A free English learning resource for Egyptian Grade 12 students.",
+      "A free learning resource for Egyptian Grade 12 students.": "A free learning resource for Egyptian Grade 12 students.",
       "Content manager (for teachers)": "Content manager (for teachers)",
       /* ---- Home page ---- */
       "Free English practice for Grade 12": "Free English practice for Grade 12",
@@ -56,6 +56,7 @@
       "No questions yet": "No questions yet",
       "No passages yet": "No passages yet",
       "No content added yet": "No content added yet",
+      "Lessons for this subject will appear here when they are added.": "Lessons for this subject will appear here when they are added.",
       "Lessons, summaries, practice questions and reading passages will appear here as soon as a teacher adds them.": "Lessons, summaries, practice questions and reading passages will appear here as soon as a teacher adds them.",
       "Open the content manager": "Open the content manager",
       "Could not load": "Could not load",

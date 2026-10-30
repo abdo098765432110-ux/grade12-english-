@@ -21,7 +21,7 @@
       /* ---- Header, menu and footer (every page) ---- */
       "Skip to main content": "تخطَّ إلى المحتوى الرئيسي",
       /* The website name stays in English in both languages. */
-      "Learn English for Grade 12": "Learn English for Grade 12",
+      "Learn for Grade 12": "Learn for Grade 12",
       "Free practice for Egyptian secondary students": "تدريب مجاني لطلاب الثانوية العامة في مصر",
       "Menu": "القائمة",
       "Main": "القائمة الرئيسية",
@@ -32,7 +32,7 @@
       "Reading Comprehension": "القراءة والفهم",
       "Content Manager": "مدير المحتوى",
       "Loading…": "جارٍ التحميل…",
-      "A free English learning resource for Egyptian Grade 12 students.": "مصدر مجاني لتعلّم اللغة الإنجليزية لطلاب الصف الثالث الثانوي في مصر.",
+      "A free learning resource for Egyptian Grade 12 students.": "مصدر مجاني للتعلّم لطلاب الصف الثالث الثانوي في مصر.",
       "Content manager (for teachers)": "مدير المحتوى (للمعلمين)",
       /* ---- Home page ---- */
       "Free English practice for Grade 12": "تدريب مجاني على اللغة الإنجليزية للصف الثالث الثانوي",
@@ -59,6 +59,7 @@
       "No questions yet": "لا توجد أسئلة بعد",
       "No passages yet": "لا توجد قطع بعد",
       "No content added yet": "لم يُضف أي محتوى بعد",
+      "Lessons for this subject will appear here when they are added.": "ستظهر دروس هذه المادة هنا عند إضافتها.",
       "Lessons, summaries, practice questions and reading passages will appear here as soon as a teacher adds them.": "ستظهر هنا الدروس والملخصات وأسئلة التدريب وقطع القراءة بمجرد أن يضيفها معلم.",
       "Open the content manager": "افتح مدير المحتوى",
       "Could not load": "تعذّر التحميل",
