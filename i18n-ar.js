@@ -60,6 +60,8 @@
       "No passages yet": "لا توجد قطع بعد",
       "No content added yet": "لم يُضف أي محتوى بعد",
       "Lessons for this subject will appear here when they are added.": "ستظهر دروس هذه المادة هنا عند إضافتها.",
+      "Open the chapter": "افتح الفصل",
+      "Open the picture in full size": "افتح الصورة بالحجم الكامل",
       "Lessons, summaries, practice questions and reading passages will appear here as soon as a teacher adds them.": "ستظهر هنا الدروس والملخصات وأسئلة التدريب وقطع القراءة بمجرد أن يضيفها معلم.",
       "Open the content manager": "افتح مدير المحتوى",
       "Could not load": "تعذّر التحميل",

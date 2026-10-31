@@ -57,6 +57,8 @@
       "No passages yet": "No passages yet",
       "No content added yet": "No content added yet",
       "Lessons for this subject will appear here when they are added.": "Lessons for this subject will appear here when they are added.",
+      "Open the chapter": "Open the chapter",
+      "Open the picture in full size": "Open the picture in full size",
       "Lessons, summaries, practice questions and reading passages will appear here as soon as a teacher adds them.": "Lessons, summaries, practice questions and reading passages will appear here as soon as a teacher adds them.",
       "Open the content manager": "Open the content manager",
       "Could not load": "Could not load",

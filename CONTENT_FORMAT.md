@@ -155,15 +155,20 @@ Section types (each may also have an optional `heading`):
 
 ### Subject questions (`physics-questions.json`)
 
-The physics page shows the sections in `physics-questions.json`, each with
-its title and the questions under it, one at a time with instant feedback:
+The physics page reads `physics-questions.json`: chapters, each with
+sections of questions. Students go step by step: the physics page shows the
+chapters; a chapter shows its sections; a section shows its questions, one at
+a time with instant feedback.
 
 ```json
-{ "schemaVersion": 2, "sections": [
-  { "id": "chapter-1-questions", "title": "أسئلة على الفصل الأول", "questions": [ … ] } ] }
+{ "schemaVersion": 2, "chapters": [
+  { "id": "chapter-1", "title": "الفصل الأول", "sections": [
+    { "id": "chapter-1-questions", "title": "أسئلة على الفصل الأول", "questions": [ … ] } ] } ] }
 ```
 
-The questions use the same fields as the grammar questions above.
+Addresses: `physics.html` (chapters), `physics.html?chapter=chapter-1`
+(its sections), `physics.html?chapter=chapter-1&section=chapter-1-questions`
+(the questions). The questions use the same fields as the grammar questions above.
 
 ### Answer key rules
 

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 290" width="520" height="290">
+  <!-- Physics, chapter 1, question 6: a battery between W (long plate, positive) and Z; a wire from W to X; the resistor R between X and Y; a wire from Y to Z. -->
+  <rect width="520" height="290" fill="#ffffff"/>
+  <path d="M70.0 40.0 L450.0 40.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M70.0 260.0 L450.0 260.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M70.0 40.0 L70.0 128.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M70.0 152.0 L70.0 260.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M30 128H110" stroke="#b07a2e" stroke-width="7"/>
+  <path d="M50 152H90" stroke="#b07a2e" stroke-width="7"/>
+  <path d="M450.0 40.0 L450.0 85.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M450.0 85.0 L450.0 94.6 L440.0 103.0 L460.0 119.8 L440.0 136.6 L460.0 153.4 L440.0 170.2 L460.0 187.0 L450.0 195.4 L450.0 205.0" stroke="#6a4fb0" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M450.0 205.0 L450.0 260.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="70.0" cy="70.0" r="10" fill="#ec6a2c"/>
+  <circle cx="70.0" cy="230.0" r="10" fill="#9aa6c4"/>
+  <circle cx="450.0" cy="70.0" r="10" fill="#e23b3b"/>
+  <circle cx="450.0" cy="230.0" r="10" fill="#3ccfe6"/>
+  <text x="34.0" y="79.0" text-anchor="middle" font-size="30" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#b2392e">W</text>
+  <text x="34.0" y="240.0" text-anchor="middle" font-size="30" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#4a5675">Z</text>
+  <text x="486.0" y="79.0" text-anchor="middle" font-size="30" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#c43030">X</text>
+  <text x="486.0" y="240.0" text-anchor="middle" font-size="30" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#1f8fb3">Y</text>
+  <text x="486.0" y="156.0" text-anchor="middle" font-size="30" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#6a4fb0">R</text>
+</svg>

@@ -7,7 +7,7 @@ A free learning website for Egyptian Grade 12 students. The subject menu
 - **English** (the home page and the pages below): grammar lessons, grammar
   summaries, grammar practice with feedback and scoring, and reading
   comprehension.
-- **Physics**: questions on chapter 1 (أسئلة على الفصل الأول), interactive,
+- **Physics**: الفصل الأول → أسئلة على الفصل الأول: interactive questions,
   with the correct answer and an explanation after each answer.
 - **Arabic, chemistry and biology**: one page each, with an empty content
   area ready for future lessons.
@@ -33,9 +33,9 @@ grade12-english/
 ├── reading.html           Reading Comprehension (?unit=<id>, ?passage=<id>)
 ├── manage.html            Content manager (for teachers)
 ├── arabic.html, physics.html, chemistry.html, biology.html   The other four subjects
-├── subject.js             Subject pages: shows a subject's question sections with the shared quiz
-├── physics-questions.json Physics questions (section: أسئلة على الفصل الأول)
-├── physics-ch1-q1.svg … physics-ch1-q5.svg   Diagrams for the physics questions
+├── subject.js             Subject pages: chapters → sections → questions, with the shared quiz
+├── physics-questions.json Physics questions (الفصل الأول → أسئلة على الفصل الأول)
+├── physics-ch1-q1.svg … physics-ch1-q11.svg   Diagrams for the physics questions (no picture for question 8)
 ├── .nojekyll              Empty file: tells GitHub Pages to serve files as they are
 ├── style.css              All styles
 ├── logo.svg               Logo (header, footer and browser tab)

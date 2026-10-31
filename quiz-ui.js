@@ -33,8 +33,10 @@
      description in question.imageAlt for screen readers). */
   function figure(question) {
     if (!G12.Schema.hasText(question.image)) return null;
+    // the picture opens on its own page, where it can be zoomed on a phone
     return el('figure', { className: 'question-figure' }, [
-      el('img', { src: question.image, alt: question.imageAlt || '', loading: 'lazy' })
+      el('img', { src: question.image, alt: question.imageAlt || '', loading: 'lazy' }),
+      el('figcaption', null, [el('a', { href: question.image, target: '_blank', rel: 'noopener', text: t('Open the picture in full size') })])
     ]);
   }
 

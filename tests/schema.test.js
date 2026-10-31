@@ -303,14 +303,21 @@ test('physics questions: every question is valid, has its diagram, and the answe
   const path = require('path');
   const project = path.join(__dirname, '..');
   const data = JSON.parse(fs.readFileSync(path.join(project, 'physics-questions.json'), 'utf8'));
-  assert.equal(data.sections[0].title, 'أسئلة على الفصل الأول');
-  data.sections.forEach((section) => {
-    section.questions.forEach((question, i) => {
-      assert.deepEqual(Schema.validateItem('questions', question, i).errors, [], question.id);
-      assert.ok(question.options.includes(question.answer), question.id);
-      if (question.image) assert.ok(fs.existsSync(path.join(project, question.image)), question.image);
+  assert.equal(data.chapters[0].title, 'الفصل الأول');
+  assert.equal(data.chapters[0].sections[0].title, 'أسئلة على الفصل الأول');
+  const ids = new Set();
+  data.chapters.forEach((chapter) => {
+    chapter.sections.forEach((section) => {
+      section.questions.forEach((question, i) => {
+        assert.deepEqual(Schema.validateItem('questions', question, i).errors, [], question.id);
+        assert.ok(question.options.includes(question.answer), question.id);
+        assert.ok(!ids.has(question.id), 'duplicate id ' + question.id);
+        ids.add(question.id);
+        if (question.image) assert.ok(fs.existsSync(path.join(project, question.image)), question.image);
+      });
     });
   });
+  assert.equal(ids.size, 11);
 });
 
 test('questions: optional lang, image and imageAlt are checked', () => {
