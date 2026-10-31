@@ -1,0 +1,128 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 370" width="560" height="370">
+  <!-- Physics, chapter 1, question 5: current-time graph. The current rises steadily from 0 to 10A in the first 2s, then stays at 10A until 6s. -->
+  <rect width="560" height="370" fill="#ffffff"/>
+  <path d="M70.0 330V78" stroke="#9fb3d6" stroke-width="1.6"/>
+  <path d="M80.0 330V78" stroke="#c9d6ee" stroke-width="1"/>
+  <path d="M90.0 330V78" stroke="#c9d6ee" stroke-width="1"/>
+  <path d="M100.0 330V78" stroke="#c9d6ee" stroke-width="1"/>
+  <path d="M110.0 330V78" stroke="#c9d6ee" stroke-width="1"/>
+  <path d="M120.0 330V78" stroke="#9fb3d6" stroke-width="1.6"/>
+  <path d="M130.0 330V78" stroke="#c9d6ee" stroke-width="1"/>
+  <path d="M140.0 330V78" stroke="#c9d6ee" stroke-width="1"/>
+  <path d="M150.0 330V78" stroke="#c9d6ee" stroke-width="1"/>
+  <path d="M160.0 330V78" stroke="#c9d6ee" stroke-width="1"/>
+  <path d="M170.0 330V78" stroke="#9fb3d6" stroke-width="1.6"/>
+  <path d="M180.0 330V78" stroke="#c9d6ee" stroke-width="1"/>
+  <path d="M190.0 330V78" stroke="#c9d6ee" stroke-width="1"/>
+  <path d="M200.0 330V78" stroke="#c9d6ee" stroke-width="1"/>
+  <path d="M210.0 330V78" stroke="#c9d6ee" stroke-width="1"/>
+  <path d="M220.0 330V78" stroke="#9fb3d6" stroke-width="1.6"/>
+  <path d="M230.0 330V78" stroke="#c9d6ee" stroke-width="1"/>
+  <path d="M240.0 330V78" stroke="#c9d6ee" stroke-width="1"/>
+  <path d="M250.0 330V78" stroke="#c9d6ee" stroke-width="1"/>
+  <path d="M260.0 330V78" stroke="#c9d6ee" stroke-width="1"/>
+  <path d="M270.0 330V78" stroke="#9fb3d6" stroke-width="1.6"/>
+  <path d="M280.0 330V78" stroke="#c9d6ee" stroke-width="1"/>
+  <path d="M290.0 330V78" stroke="#c9d6ee" stroke-width="1"/>
+  <path d="M300.0 330V78" stroke="#c9d6ee" stroke-width="1"/>
+  <path d="M310.0 330V78" stroke="#c9d6ee" stroke-width="1"/>
+  <path d="M320.0 330V78" stroke="#9fb3d6" stroke-width="1.6"/>
+  <path d="M330.0 330V78" stroke="#c9d6ee" stroke-width="1"/>
+  <path d="M340.0 330V78" stroke="#c9d6ee" stroke-width="1"/>
+  <path d="M350.0 330V78" stroke="#c9d6ee" stroke-width="1"/>
+  <path d="M360.0 330V78" stroke="#c9d6ee" stroke-width="1"/>
+  <path d="M370.0 330V78" stroke="#9fb3d6" stroke-width="1.6"/>
+  <path d="M380.0 330V78" stroke="#c9d6ee" stroke-width="1"/>
+  <path d="M390.0 330V78" stroke="#c9d6ee" stroke-width="1"/>
+  <path d="M400.0 330V78" stroke="#c9d6ee" stroke-width="1"/>
+  <path d="M410.0 330V78" stroke="#c9d6ee" stroke-width="1"/>
+  <path d="M420.0 330V78" stroke="#9fb3d6" stroke-width="1.6"/>
+  <path d="M430.0 330V78" stroke="#c9d6ee" stroke-width="1"/>
+  <path d="M440.0 330V78" stroke="#c9d6ee" stroke-width="1"/>
+  <path d="M450.0 330V78" stroke="#c9d6ee" stroke-width="1"/>
+  <path d="M460.0 330V78" stroke="#c9d6ee" stroke-width="1"/>
+  <path d="M470.0 330V78" stroke="#9fb3d6" stroke-width="1.6"/>
+  <path d="M70 330.0H470" stroke="#9fb3d6" stroke-width="1.6"/>
+  <path d="M70 326.4H470" stroke="#c9d6ee" stroke-width="1"/>
+  <path d="M70 322.8H470" stroke="#c9d6ee" stroke-width="1"/>
+  <path d="M70 319.2H470" stroke="#c9d6ee" stroke-width="1"/>
+  <path d="M70 315.6H470" stroke="#c9d6ee" stroke-width="1"/>
+  <path d="M70 312.0H470" stroke="#9fb3d6" stroke-width="1.6"/>
+  <path d="M70 308.4H470" stroke="#c9d6ee" stroke-width="1"/>
+  <path d="M70 304.8H470" stroke="#c9d6ee" stroke-width="1"/>
+  <path d="M70 301.2H470" stroke="#c9d6ee" stroke-width="1"/>
+  <path d="M70 297.6H470" stroke="#c9d6ee" stroke-width="1"/>
+  <path d="M70 294.0H470" stroke="#9fb3d6" stroke-width="1.6"/>
+  <path d="M70 290.4H470" stroke="#c9d6ee" stroke-width="1"/>
+  <path d="M70 286.8H470" stroke="#c9d6ee" stroke-width="1"/>
+  <path d="M70 283.2H470" stroke="#c9d6ee" stroke-width="1"/>
+  <path d="M70 279.6H470" stroke="#c9d6ee" stroke-width="1"/>
+  <path d="M70 276.0H470" stroke="#9fb3d6" stroke-width="1.6"/>
+  <path d="M70 272.4H470" stroke="#c9d6ee" stroke-width="1"/>
+  <path d="M70 268.8H470" stroke="#c9d6ee" stroke-width="1"/>
+  <path d="M70 265.2H470" stroke="#c9d6ee" stroke-width="1"/>
+  <path d="M70 261.6H470" stroke="#c9d6ee" stroke-width="1"/>
+  <path d="M70 258.0H470" stroke="#9fb3d6" stroke-width="1.6"/>
+  <path d="M70 254.4H470" stroke="#c9d6ee" stroke-width="1"/>
+  <path d="M70 250.8H470" stroke="#c9d6ee" stroke-width="1"/>
+  <path d="M70 247.2H470" stroke="#c9d6ee" stroke-width="1"/>
+  <path d="M70 243.6H470" stroke="#c9d6ee" stroke-width="1"/>
+  <path d="M70 240.0H470" stroke="#9fb3d6" stroke-width="1.6"/>
+  <path d="M70 236.4H470" stroke="#c9d6ee" stroke-width="1"/>
+  <path d="M70 232.8H470" stroke="#c9d6ee" stroke-width="1"/>
+  <path d="M70 229.2H470" stroke="#c9d6ee" stroke-width="1"/>
+  <path d="M70 225.6H470" stroke="#c9d6ee" stroke-width="1"/>
+  <path d="M70 222.0H470" stroke="#9fb3d6" stroke-width="1.6"/>
+  <path d="M70 218.4H470" stroke="#c9d6ee" stroke-width="1"/>
+  <path d="M70 214.8H470" stroke="#c9d6ee" stroke-width="1"/>
+  <path d="M70 211.2H470" stroke="#c9d6ee" stroke-width="1"/>
+  <path d="M70 207.6H470" stroke="#c9d6ee" stroke-width="1"/>
+  <path d="M70 204.0H470" stroke="#9fb3d6" stroke-width="1.6"/>
+  <path d="M70 200.4H470" stroke="#c9d6ee" stroke-width="1"/>
+  <path d="M70 196.8H470" stroke="#c9d6ee" stroke-width="1"/>
+  <path d="M70 193.2H470" stroke="#c9d6ee" stroke-width="1"/>
+  <path d="M70 189.6H470" stroke="#c9d6ee" stroke-width="1"/>
+  <path d="M70 186.0H470" stroke="#9fb3d6" stroke-width="1.6"/>
+  <path d="M70 182.4H470" stroke="#c9d6ee" stroke-width="1"/>
+  <path d="M70 178.8H470" stroke="#c9d6ee" stroke-width="1"/>
+  <path d="M70 175.2H470" stroke="#c9d6ee" stroke-width="1"/>
+  <path d="M70 171.6H470" stroke="#c9d6ee" stroke-width="1"/>
+  <path d="M70 168.0H470" stroke="#9fb3d6" stroke-width="1.6"/>
+  <path d="M70 164.4H470" stroke="#c9d6ee" stroke-width="1"/>
+  <path d="M70 160.8H470" stroke="#c9d6ee" stroke-width="1"/>
+  <path d="M70 157.2H470" stroke="#c9d6ee" stroke-width="1"/>
+  <path d="M70 153.6H470" stroke="#c9d6ee" stroke-width="1"/>
+  <path d="M70 150.0H470" stroke="#9fb3d6" stroke-width="1.6"/>
+  <path d="M70 146.4H470" stroke="#c9d6ee" stroke-width="1"/>
+  <path d="M70 142.8H470" stroke="#c9d6ee" stroke-width="1"/>
+  <path d="M70 139.2H470" stroke="#c9d6ee" stroke-width="1"/>
+  <path d="M70 135.6H470" stroke="#c9d6ee" stroke-width="1"/>
+  <path d="M70 132.0H470" stroke="#9fb3d6" stroke-width="1.6"/>
+  <path d="M70 128.4H470" stroke="#c9d6ee" stroke-width="1"/>
+  <path d="M70 124.8H470" stroke="#c9d6ee" stroke-width="1"/>
+  <path d="M70 121.2H470" stroke="#c9d6ee" stroke-width="1"/>
+  <path d="M70 117.6H470" stroke="#c9d6ee" stroke-width="1"/>
+  <path d="M70 114.0H470" stroke="#9fb3d6" stroke-width="1.6"/>
+  <path d="M70 110.4H470" stroke="#c9d6ee" stroke-width="1"/>
+  <path d="M70 106.8H470" stroke="#c9d6ee" stroke-width="1"/>
+  <path d="M70 103.2H470" stroke="#c9d6ee" stroke-width="1"/>
+  <path d="M70 99.6H470" stroke="#c9d6ee" stroke-width="1"/>
+  <path d="M70 96.0H470" stroke="#9fb3d6" stroke-width="1.6"/>
+  <path d="M70 92.4H470" stroke="#c9d6ee" stroke-width="1"/>
+  <path d="M70 88.8H470" stroke="#c9d6ee" stroke-width="1"/>
+  <path d="M70 85.2H470" stroke="#c9d6ee" stroke-width="1"/>
+  <path d="M70 81.6H470" stroke="#c9d6ee" stroke-width="1"/>
+  <path d="M70 78.0H470" stroke="#9fb3d6" stroke-width="1.6"/>
+  <path d="M70.0 330.0L498.0 330.0" stroke="#2b3654" stroke-width="3" stroke-linecap="round"/>
+  <path d="M510.0 330.0L498.0 338.4L498.0 321.6z" fill="#2b3654"/>
+  <path d="M70.0 330.0L70.0 56.0" stroke="#2b3654" stroke-width="3" stroke-linecap="round"/>
+  <path d="M70.0 44.0L78.4 56.0L61.6 56.0z" fill="#2b3654"/>
+  <path d="M70 330L170 150H370" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round"/>
+  <path d="M170 150V330M370 150V330" stroke="#2b3654" stroke-width="4" stroke-dasharray="16 10"/>
+  <path d="M70 150h-8" stroke="#2b3654" stroke-width="3"/>
+  <text x="58" y="158" text-anchor="end" font-size="22" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">10</text>
+  <text x="170" y="358" text-anchor="middle" font-size="22" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">2</text>
+  <text x="370" y="358" text-anchor="middle" font-size="22" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">6</text>
+  <text x="516" y="338" font-size="22" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">t(S)</text>
+  <text x="70" y="36" text-anchor="middle" font-size="22" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">I(A)</text>
+</svg>

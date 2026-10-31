@@ -112,6 +112,23 @@ if (fs.existsSync(schemaPath)) {
   const Schema = require(schemaPath);
   Schema.COLLECTION_KEYS.forEach((key) => checkReference('content-schema.js', Schema.COLLECTIONS[key].path, '.'));
 }
+// Pictures named by questions ("image") in the top-level data files, for example physics-questions.json.
+fs.readdirSync(root).filter((name) => name.endsWith('.json')).forEach((name) => {
+  let data;
+  try {
+    data = JSON.parse(fs.readFileSync(path.join(root, name), 'utf8'));
+  } catch (error) {
+    return; // invalid JSON is reported by the content validator
+  }
+  (function visit(value) {
+    if (Array.isArray(value)) value.forEach(visit);
+    else if (value && typeof value === 'object') {
+      if (typeof value.image === 'string') checkReference(name, value.image, '.');
+      Object.keys(value).forEach((key) => { if (key !== 'image') visit(value[key]); });
+    }
+  })(data);
+});
+
 const referenced = new Set();
 pages.forEach((page) => {
   const html = fs.readFileSync(path.join(root, page), 'utf8');

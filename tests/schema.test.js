@@ -297,3 +297,25 @@ test('estimateDifficulty agrees with the stored levels for most Present Perfect 
   assert.ok(questions.every((q) => Schema.DIFFICULTIES.includes(q.difficulty)), 'every stored question has a level');
   assert.ok(agree / questions.length >= 0.7, 'agreement ' + agree + ' / ' + questions.length);
 });
+
+test('physics questions: every question is valid, has its diagram, and the answer is one of its choices', () => {
+  const fs = require('fs');
+  const path = require('path');
+  const project = path.join(__dirname, '..');
+  const data = JSON.parse(fs.readFileSync(path.join(project, 'physics-questions.json'), 'utf8'));
+  assert.equal(data.sections[0].title, 'أسئلة على الفصل الأول');
+  data.sections.forEach((section) => {
+    section.questions.forEach((question, i) => {
+      assert.deepEqual(Schema.validateItem('questions', question, i).errors, [], question.id);
+      assert.ok(question.options.includes(question.answer), question.id);
+      if (question.image) assert.ok(fs.existsSync(path.join(project, question.image)), question.image);
+    });
+  });
+});
+
+test('questions: optional lang, image and imageAlt are checked', () => {
+  const question = mcq({ lang: 'ar', image: 'figure.svg', imageAlt: 'وصف الشكل' });
+  assert.deepEqual(errorsOf('questions', question), []);
+  assert.match(errorsOf('questions', mcq({ lang: 'fr' })).join(), /lang must be/);
+  assert.match(errorsOf('questions', mcq({ image: 3 })).join(), /image must be text/);
+});

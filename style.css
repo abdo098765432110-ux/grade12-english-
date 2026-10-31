@@ -972,6 +972,38 @@ main {
 
 .subject-content { min-height: 14rem; }
 
+/* A section of questions on a subject page, for example "أسئلة على الفصل الأول". */
+.question-section { margin-bottom: 2.5rem; }
+
+.subject-page .question-section-title {
+  margin: 0.5rem 0 1rem;
+  text-align: start;
+  color: var(--tone-ink, var(--color-text));
+  font-family: var(--font-arabic-ui);
+  font-size: 1.6rem;
+}
+
+/* A question's diagram (questions with an "image"). */
+.question-figure { margin: 0.25rem 0 1rem; }
+
+.question-figure img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  padding: 0.5rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background: #ffffff;
+}
+
+.review-list .question-figure img { max-width: min(100%, 26rem); }
+
+/* In the English interface the section title lines up with the quiz below it. */
+html[dir="ltr"] .subject-page .question-section-title { text-align: left; }
+
+/* An Arabic explanation under its label. */
+.explanation-block p { margin: 0.25rem 0; }
+
 /* ---------- Buttons ---------- */
 .btn {
   display: inline-flex;
@@ -1601,6 +1633,9 @@ html[lang="ar"] .question-number { letter-spacing: 0; text-transform: none; }
 }
 
 .option-text { flex: 1; }
+
+/* Arabic questions read right to left: a choice such as "4A" sits next to its letter. */
+.option-text--ar { text-align: right; }
 
 .option-status {
   font-size: 0.85rem;

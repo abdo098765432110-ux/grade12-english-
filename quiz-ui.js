@@ -15,6 +15,28 @@
   var el = G12.el;
   var t = G12.t;
   var LETTERS = 'ABCDEFGH';
+  var ARABIC_LETTERS = 'أبجدهوزح';
+  var ARABIC = /[\u0600-\u06FF]/;
+
+  /* Questions written in Arabic (question.lang "ar") number their choices
+     أ) ب) ج) د) like the exam papers; other questions use A. B. C. D. */
+  function optionLetter(question, i) {
+    return question.lang === 'ar' ? ARABIC_LETTERS.charAt(i) + ')' : LETTERS.charAt(i) + '.';
+  }
+
+  /* The language of a piece of question content, for the lang attribute. */
+  function langOf(question, text) {
+    return question.lang === 'ar' && ARABIC.test(text) ? 'ar' : null;
+  }
+
+  /* The question's diagram, when it has one (question.image, with a text
+     description in question.imageAlt for screen readers). */
+  function figure(question) {
+    if (!G12.Schema.hasText(question.image)) return null;
+    return el('figure', { className: 'question-figure' }, [
+      el('img', { src: question.image, alt: question.imageAlt || '', loading: 'lazy' })
+    ]);
+  }
 
   /* Content (answers, explanations) inside an interface sentence is wrapped
      in <bdi> so English content and Arabic interface text never get mixed up. */
@@ -39,6 +61,13 @@
 
   function explanationParagraph(question, reviewed) {
     if (!G12.Schema.hasText(question.explanation)) return null;
+    // An Arabic explanation gets its own right-to-left paragraph under the label.
+    if (question.lang === 'ar') {
+      return el('div', { className: 'explanation-block' }, [
+        el('p', null, [el('strong', { text: reviewed ? t('Explanation:') : t('Suggested explanation:') })]),
+        el('p', { lang: 'ar', dir: 'rtl', className: 'explanation-text', text: question.explanation })
+      ]);
+    }
     return el('p', null, [
       el('strong', { text: (reviewed ? t('Explanation:') : t('Suggested explanation:')) + ' ' }),
       el('span', { dir: 'auto', className: 'explanation-text', text: question.explanation })
@@ -70,7 +99,7 @@
       }),
       el('span', { className: 'question-main' }, [
         numberText ? ui('span', { className: 'question-number', text: numberText }) : null,
-        el('span', { className: 'prompt-text' }, [G12.renderPrompt(question.prompt)])
+        el('span', { className: 'prompt-text', lang: langOf(question, question.prompt) }, [G12.renderPrompt(question.prompt)])
       ])
     ])];
   }
@@ -393,8 +422,8 @@
           var li = el('li', { className: 'option' }, [
             el('label', null, [
               input,
-              el('span', { className: 'option-letter', 'aria-hidden': 'true', text: LETTERS.charAt(i) + '.' }),
-              el('span', { className: 'option-text', dir: 'auto', text: option }),
+              el('span', { className: 'option-letter', 'aria-hidden': 'true', text: optionLetter(question, i) }),
+              el('span', { className: question.lang === 'ar' ? 'option-text option-text--ar' : 'option-text', dir: 'auto', lang: langOf(question, option), text: option }),
               status
             ])
           ]);
@@ -404,6 +433,7 @@
         });
         form.appendChild(el('fieldset', { dir: 'auto' }, [
           el('legend', { className: 'question-legend' }, promptNodes(question, null, quiz.index)),
+          figure(question),
           badges,
           list
         ]));
@@ -614,7 +644,9 @@
       results.items.forEach(function (entry) {
         var question = entry.question;
         var li = el('li');
-        li.appendChild(el('p', { dir: 'auto' }, [el('strong', null, [G12.renderPrompt(question.prompt)])]));
+        li.appendChild(el('p', { dir: 'auto', lang: langOf(question, question.prompt) }, [el('strong', null, [G12.renderPrompt(question.prompt)])]));
+        var diagram = figure(question);
+        if (diagram) li.appendChild(diagram);
         if (entry.scored) {
           var matched = entry.firstTryMatches;
           var outcomeText = entry.reviewed
@@ -878,8 +910,8 @@
           var optionLi = el('li', { className: 'option' }, [
             el('label', null, [
               input,
-              el('span', { className: 'option-letter', 'aria-hidden': 'true', text: LETTERS.charAt(i) + '.' }),
-              el('span', { className: 'option-text', dir: 'auto', text: option }),
+              el('span', { className: 'option-letter', 'aria-hidden': 'true', text: optionLetter(question, i) }),
+              el('span', { className: question.lang === 'ar' ? 'option-text option-text--ar' : 'option-text', dir: 'auto', lang: langOf(question, option), text: option }),
               status
             ])
           ]);
@@ -889,6 +921,7 @@
         });
         li.appendChild(el('fieldset', { dir: 'auto' }, [
           el('legend', { className: 'question-legend' }, promptNodes(question, numberText, index)),
+          figure(question),
           G12.badges(question, labels),
           optionList
         ]));

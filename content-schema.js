@@ -452,6 +452,12 @@
     checkRequiredText(question, 'prompt', report, where);
     checkReviewStatus(question, report, where);
     checkOptionalText(question, 'explanation', report, where);
+    // optional: a diagram (a picture file next to index.html) and its text description
+    checkOptionalText(question, 'image', report, where);
+    checkOptionalText(question, 'imageAlt', report, where);
+    if (question.lang !== undefined && LANGUAGES.indexOf(question.lang) === -1) {
+      report.error(where, tr('lang must be "en" or "ar".'), meta);
+    }
     checkLinkId(question, 'unitId', report, where);
     checkLinkId(question, 'topicId', report, where);
     if (question.difficulty !== undefined && DIFFICULTIES.indexOf(question.difficulty) === -1) {

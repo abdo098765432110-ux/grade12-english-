@@ -84,13 +84,10 @@
       <h1>الفيزياء</h1>
     </div>
 
-    <!-- Content area for this subject: empty for now, ready for lessons in a future update. -->
-    <section class="subject-content" aria-labelledby="subject-content-heading">
-      <div class="empty-state">
-        <h2 id="subject-content-heading" data-i18n="No content added yet">No content added yet</h2>
-        <p data-i18n="Lessons for this subject will appear here when they are added.">Lessons for this subject will appear here when they are added.</p>
-      </div>
-    </section>
+    <!-- Content for this subject: the question sections in physics-questions.json, drawn by subject.js. -->
+    <div class="subject-content" data-questions="physics-questions.json">
+      <p class="loading" role="status" data-i18n="Loading content…">Loading content…</p>
+    </div>
   </main>
 
   <footer class="site-footer">
@@ -106,5 +103,8 @@
   <script src="content-schema.js"></script>
   <script src="content-store.js"></script>
   <script src="common.js"></script>
+  <script src="quiz-engine.js"></script>
+  <script src="quiz-ui.js"></script>
+  <script src="subject.js"></script>
 </body>
 </html>
