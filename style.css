@@ -1051,6 +1051,95 @@ main {
   .source-links a { width: 100%; padding: 0.4rem 0.8rem; font-size: 0.95rem; }
 }
 
+/* Physics: review videos on YouTube, under the notice. Two cards side by
+   side on wide screens, one under the other on narrow ones. */
+.video-links {
+  margin: -0.5rem 0 1.9rem;
+  font-family: var(--font-arabic-ui);
+  text-align: right;
+}
+
+.video-links-title {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin: 0 0 0.8rem;
+  font-family: var(--font-arabic-ui);
+  font-size: 1.25rem;
+  color: var(--lavender-ink);
+}
+
+.video-links-icon { flex: none; fill: var(--lavender-ink); }
+
+.video-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 24rem), 1fr));
+  gap: 1rem;
+}
+
+.video-card {
+  display: flex;
+  align-items: stretch;
+  gap: 1rem;
+  padding: 1rem;
+  border: 1.5px solid var(--lavender-edge);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: var(--shadow);
+}
+
+.video-thumb {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 6.5rem;
+  min-height: 5.5rem;
+  border-radius: var(--radius);
+  background:
+    radial-gradient(circle, rgba(82, 60, 171, 0.14) 1.2px, transparent 1.5px) 0 0 / 14px 14px,
+    linear-gradient(135deg, var(--lavender), var(--sky));
+}
+
+.video-thumb svg { width: 3rem; height: 3rem; fill: var(--lavender-ink); }
+
+.video-body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.4rem;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.video-teacher { margin: 0; font-size: 0.92rem; font-weight: 700; color: var(--color-muted); }
+.video-teacher bdi { white-space: nowrap; }
+
+.video-title {
+  margin: 0;
+  font-family: var(--font-arabic-ui);
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: var(--color-text);
+}
+
+.video-note { margin: 0; font-size: 0.88rem; line-height: 1.6; color: var(--color-muted); }
+
+.video-btn { margin-top: auto; }
+.video-btn-icon { flex: none; fill: currentColor; }
+
+@media (max-width: 40rem) {
+  .video-links { margin-top: -0.75rem; }
+  .video-links-title { font-size: 1.12rem; }
+  .video-card { flex-direction: column; gap: 0.75rem; padding: 0.9rem; }
+  .video-thumb { width: 100%; min-height: 4.25rem; }
+  .video-thumb svg { width: 2.5rem; height: 2.5rem; }
+  .video-btn { align-self: stretch; }
+}
+
 /* Subject page steps: chapter cards, then section cards, then the questions. */
 .subject-cards {
   grid-template-columns: repeat(auto-fill, minmax(min(100%, 18rem), 1fr));

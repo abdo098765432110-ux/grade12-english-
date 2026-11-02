@@ -3,6 +3,11 @@
    website, printable from the browser, and turned into the downloadable PDF
    (tools/physics_pdfs.py prints this same page). Loaded only by sheet pages,
    so the A4 print settings below do not change printing elsewhere.
+
+   Look: calm colours for long study sessions — warm paper, white section
+   cards, a blue card for every law, mint for tips and soft amber for
+   warnings. The small drawings (class "ill") and the section icons only
+   repeat what the text says, so they are hidden from screen readers.
    ========================================================================== */
 
 .sheet-page { padding-top: 1.25rem; padding-bottom: 3rem; }
@@ -22,70 +27,123 @@
 
 /* ---------- The sheet: a sheet of paper on screen ---------- */
 .sheet {
-  --ink: #23304d;
-  --muted: #56617c;
-  --line: #dbe3f2;
-  --law-bg: #eef4ff;
-  --law-edge: #9dbcf0;
+  --ink: #283350;
+  --muted: #5b6580;
+  --line: #e3e7f0;
+  --line-strong: #d3dae8;
+  --accent: #4a3f9f;          /* section numbers and icons */
+  --accent-ink: #33297a;      /* section titles */
+  --accent-soft: #f1eefc;
+  --law-bg: #f0f5fe;
+  --law-edge: #cfdcf3;
   --law-ink: #1f4787;
-  --tip-bg: #eefaf3;
-  --tip-edge: #9fdcbd;
-  --warn-bg: #fff7e0;
-  --warn-edge: #f2cf6b;
-  --warn-ink: #6b4500;
+  --eq-ink: #173a73;
+  --tip-bg: #eef8f2;
+  --tip-edge: #c3e5d2;
+  --tip-ink: #1b6b49;
+  --warn-bg: #fff8e9;
+  --warn-edge: #efd59b;
+  --warn-ink: #714800;
+  --mark: #fcefc2;            /* highlighter behind key words */
+  --card-pad: 1.15rem;
   max-width: 210mm;
   margin: 0 auto;
-  padding: 14mm 14mm 16mm;
-  background: #ffffff;
+  padding: 11mm 10mm 12mm;
+  background: #fbfaf6;
   color: var(--ink);
   border: 1px solid var(--color-border);
-  border-radius: 6px;
+  border-radius: 18px;
   box-shadow: var(--shadow);
   font-family: var(--font-arabic-ui);
   font-size: 1rem;
-  line-height: 1.75;
+  line-height: 1.8;
   text-align: right;
 }
 
+/* Title banner */
 .sheet-head {
   display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 0.5rem 1rem;
+  align-items: center;
+  gap: 0.75rem 1rem;
   flex-wrap: wrap;
-  padding-bottom: 0.6rem;
-  margin-bottom: 0.9rem;
-  border-bottom: 3px solid #c9b8f5;
+  padding: 1rem 1.2rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ddd6f3;
+  border-radius: 18px;
+  background:
+    radial-gradient(circle, rgba(110, 120, 200, 0.13) 1.2px, transparent 1.5px) 0 0 / 16px 16px,
+    linear-gradient(115deg, #efeafd 0%, #e9f1ff 58%, #fdf5e1 100%);
 }
+
+.sheet-head-art {
+  flex: none;
+  width: 3.5rem;
+  height: 3.5rem;
+  padding: 0.45rem;
+  border-radius: 1rem;
+  background: #ffffff;
+  box-shadow: 0 2px 8px rgba(74, 63, 159, 0.12);
+}
+
+.sheet-head > div { flex: 1 1 16rem; min-width: 0; }
 
 .sheet-head h1 {
   margin: 0;
-  font-size: 1.65rem;
+  font-size: 1.7rem;
   line-height: 1.35;
-  color: #3e2c8c;
+  color: var(--accent-ink);
 }
 
-.sheet-head .sheet-sub { margin: 0.15rem 0 0; color: var(--muted); font-size: 0.95rem; }
-.sheet-head .sheet-brand { margin: 0; color: var(--muted); font-size: 0.85rem; white-space: nowrap; }
+.sheet-head .sheet-sub { margin: 0.2rem 0 0; color: #4f5974; font-size: 0.95rem; }
 
+.sheet-head .sheet-brand {
+  align-self: flex-start;
+  margin: 0;
+  padding: 0.15rem 0.75rem;
+  border: 1px solid #dcd5f3;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.8);
+  color: var(--muted);
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
+/* The opening sentence */
 .sheet-intro {
-  margin: 0 0 1rem;
-  padding: 0.55rem 0.85rem;
-  border-radius: 6px;
-  background: #f5f2ff;
-  font-size: 0.95rem;
+  margin: 0 0 1.2rem;
+  padding: 0.7rem 1rem;
+  padding-inline-start: 3.1rem;
+  border: 1px solid #e3def6;
+  border-radius: 14px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='15' fill='%23fff' stroke='%23ddd5f5'/%3E%3Cpath d='M9 10.5c2.4-.9 4.7-.6 7 1 2.3-1.6 4.6-1.9 7-1v11c-2.4-.9-4.7-.6-7 1-2.3-1.6-4.6-1.9-7-1zM16 11.5v11' fill='none' stroke='%234a3f9f' stroke-width='1.7' stroke-linejoin='round'/%3E%3C/svg%3E") right 0.75rem top 0.75rem / 1.8rem 1.8rem no-repeat, #f7f5ff;
+  font-size: 0.97rem;
+}
+
+/* ---------- Sections: white cards ---------- */
+.sheet > section {
+  margin: 0 0 1.1rem;
+  padding: 0 var(--card-pad) 0.85rem;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: #ffffff;
+  box-shadow: 0 1px 2px rgba(40, 51, 80, 0.04), 0 6px 18px rgba(40, 51, 80, 0.05);
+  display: flow-root;            /* holds the floated drawings */
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
 }
 
 .sheet h2 {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  margin: 1.35rem 0 0.55rem;
-  padding-bottom: 0.25rem;
-  border-bottom: 1.5px solid var(--line);
+  gap: 0.6rem;
+  margin: 0 calc(-1 * var(--card-pad)) 0.85rem;
+  padding: 0.7rem var(--card-pad);
+  border-bottom: 1px solid #ebe7f8;
+  border-radius: 16px 16px 0 0;
+  background: linear-gradient(to left, #f3f0fd, #faf9ff 65%, #ffffff);
   font-size: 1.2rem;
-  line-height: 1.4;
-  color: #3e2c8c;
+  line-height: 1.45;
+  color: var(--accent-ink);
   break-after: avoid;
   break-inside: avoid;
 }
@@ -95,23 +153,78 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 1.7rem;
-  height: 1.7rem;
-  padding: 0 0.3rem;
-  border-radius: 6px;
-  background: #ebe4ff;
-  color: #3e2c8c;
+  min-width: 1.9rem;
+  height: 1.9rem;
+  padding: 0 0.35rem;
+  border-radius: 10px;
+  background: var(--accent);
+  color: #ffffff;
   font-size: 0.95rem;
+  font-weight: 700;
+  box-shadow: 0 2px 6px rgba(74, 63, 159, 0.25);
 }
 
-.sheet h3 { margin: 0.75rem 0 0.35rem; font-size: 1.02rem; color: var(--law-ink); break-after: avoid; }
-.sheet p { margin: 0 0 0.45rem; }
+.sheet h2 .h-icon {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid #e0daf6;
+  border-radius: 50%;
+  background: #ffffff;
+  color: var(--accent);
+}
 
-.sheet ul { margin: 0.2rem 0 0.6rem; padding-inline-start: 1.25rem; }
-.sheet li { margin: 0.12rem 0; break-inside: avoid; }
-.sheet li::marker { color: #8a74d8; }
+.sheet h2 .h-icon svg { display: block; width: 1.2rem; height: 1.2rem; }
 
-.sheet b, .sheet strong { color: #1c2742; }
+.sheet h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0.9rem 0 0.4rem;
+  font-size: 1.04rem;
+  color: var(--law-ink);
+  break-after: avoid;
+}
+
+.sheet h3::before {
+  content: "";
+  flex: none;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 2px;
+  background: #7e9fdc;
+  transform: rotate(45deg);
+}
+
+.sheet p { margin: 0 0 0.5rem; }
+
+/* Bullets: small round dots in the accent colour */
+.sheet ul { list-style: none; margin: 0.25rem 0 0.7rem; padding: 0; }
+.sheet ul > li { position: relative; margin: 0.3rem 0; padding-inline-start: 1.15rem; break-inside: avoid; }
+.sheet ul > li::before {
+  content: "";
+  position: absolute;
+  inset-inline-start: 0.15rem;
+  top: 0.68em;
+  top: calc(0.5lh - 0.21rem);
+  width: 0.42rem;
+  height: 0.42rem;
+  border-radius: 50%;
+  background: #8b80d6;
+}
+
+/* Key words: a soft highlighter line */
+.sheet b, .sheet strong {
+  color: #1f2a52;
+  background: linear-gradient(transparent 58%, var(--mark) 58%);
+  border-radius: 2px;
+  padding: 0 0.1em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
 
 /* An equation: always left to right, never broken across lines. */
 .eq {
@@ -121,7 +234,14 @@
   white-space: nowrap;
   font-family: var(--font-body);
   font-weight: 600;
-  color: #12306a;
+  color: var(--eq-ink, #12306a);
+}
+
+/* In running text, equations sit on a faint blue tint so they are easy to spot. */
+.sheet p .eq, .sheet li .eq, .sheet td .eq, .tip .eq, .warn .eq, .law-note .eq {
+  padding: 0 0.18em;
+  border-radius: 5px;
+  background: rgba(47, 99, 176, 0.07);
 }
 
 .eq sub, .eq sup { font-size: 0.72em; line-height: 0; }
@@ -139,44 +259,86 @@
 .frac > span { padding: 0 0.2em; }
 .frac > span:first-child { border-bottom: 1.5px solid currentColor; }
 
-/* A highlighted law: name, equation(s), and a short note. */
+/* ---------- A law: name, the equations as white chips, and a short note ---------- */
 .law {
-  margin: 0.45rem 0 0.6rem;
-  padding: 0.55rem 0.85rem;
+  margin: 0.55rem 0 0.8rem;
+  padding: 0.7rem 0.95rem 0.75rem;
+  padding-inline-start: 3.1rem;
   border: 1px solid var(--law-edge);
-  border-inline-start-width: 5px;
-  border-radius: 6px;
-  background: var(--law-bg);
+  border-radius: 14px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='15' fill='%23fff' stroke='%23c9d8f2'/%3E%3Cpath d='M20.5 10H11.5l5.5 6-5.5 6h9' fill='none' stroke='%232f63b0' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") right 0.75rem top 0.75rem / 1.8rem 1.8rem no-repeat, var(--law-bg);
   break-inside: avoid;
 }
 
-.law .law-name { display: block; margin-bottom: 0.15rem; font-weight: 700; color: var(--law-ink); }
-.law .law-eqs { display: flex; flex-wrap: wrap; gap: 0.3rem 1.6rem; max-width: 100%; overflow-x: auto; font-size: 1.12rem; }
-.law .law-note { display: block; margin-top: 0.2rem; font-size: 0.92rem; color: var(--muted); }
+.law .law-name { display: block; margin-bottom: 0.4rem; font-weight: 700; color: var(--law-ink); line-height: 1.6; }
 
+.law .law-eqs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem 0.55rem;
+  max-width: 100%;
+  overflow-x: auto;
+  font-size: 1.12rem;
+}
+
+.law .law-eqs .eq {
+  padding: 0.28rem 0.75rem;
+  border: 1px solid #d3e0f6;
+  border-radius: 10px;
+  background: #ffffff;
+  line-height: 1.55;
+}
+
+.law .law-note {
+  display: block;
+  margin-top: 0.5rem;
+  padding-top: 0.4rem;
+  border-top: 1px dashed #c6d5ef;
+  font-size: 0.92rem;
+  color: var(--muted);
+}
+
+.law .law-note + .law-note { margin-top: 0.15rem; padding-top: 0; border-top: 0; }
+
+/* ---------- Tips (mint, light bulb) and warnings (amber, triangle) ---------- */
 .tip, .warn {
-  margin: 0.5rem 0 0.7rem;
-  padding: 0.55rem 0.85rem;
-  border-radius: 6px;
+  margin: 0.6rem 0 0.8rem;
+  padding: 0.65rem 0.95rem;
+  padding-inline-start: 3.1rem;
   border: 1px solid var(--tip-edge);
-  background: var(--tip-bg);
+  border-radius: 14px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='15' fill='%23fff' stroke='%23bfe3cf'/%3E%3Cpath d='M13.5 21.5h5M14.3 24h3.4M16 8.5a5.5 5.5 0 0 0-3.2 10c.5.4.8 1 .8 1.7h4.8c0-.7.3-1.3.8-1.7a5.5 5.5 0 0 0-3.2-10z' fill='none' stroke='%231b6b49' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") right 0.75rem top 0.7rem / 1.8rem 1.8rem no-repeat, var(--tip-bg);
   font-size: 0.95rem;
   break-inside: avoid;
 }
 
-.warn { border-color: var(--warn-edge); background: var(--warn-bg); }
-.tip .box-title, .warn .box-title { display: block; margin-bottom: 0.1rem; font-weight: 700; }
-.warn .box-title { color: var(--warn-ink); }
-.tip .box-title { color: #1b6b49; }
-.tip ul, .warn ul { margin-bottom: 0; }
+.warn {
+  border-color: var(--warn-edge);
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='15' fill='%23fff' stroke='%23edd394'/%3E%3Cpath d='M16 8.5 7.8 22.5h16.4z' fill='none' stroke='%23a06a00' stroke-width='1.7' stroke-linejoin='round'/%3E%3Cpath d='M16 13.5v4' stroke='%23a06a00' stroke-width='1.8' stroke-linecap='round'/%3E%3Ccircle cx='16' cy='20' r='1' fill='%23a06a00'/%3E%3C/svg%3E") right 0.75rem top 0.7rem / 1.8rem 1.8rem no-repeat, var(--warn-bg);
+}
 
-/* Tables */
-.sheet-table-wrap { overflow-x: auto; margin: 0.4rem 0 0.75rem; }
+.tip .box-title, .warn .box-title { display: block; margin-bottom: 0.15rem; font-weight: 700; }
+.tip .box-title { color: var(--tip-ink); }
+.warn .box-title { color: var(--warn-ink); }
+.tip ul, .warn ul { margin-bottom: 0; }
+.warn ul > li::before { background: #d9a520; }
+.warn li { margin: 0.35rem 0; }
+
+/* ---------- Tables ---------- */
+.sheet-table-wrap {
+  overflow-x: auto;
+  margin: 0.5rem 0 0.85rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 12px;
+  background: #ffffff;
+}
+
 .sheet-table-wrap.keep { break-inside: avoid; }   /* short tables stay on one page */
 
 .sheet table {
   width: 100%;
-  border-collapse: collapse;
+  border-collapse: separate;
+  border-spacing: 0;
   font-size: 0.93rem;
 }
 
@@ -187,67 +349,168 @@
 .cell-note { display: block; font-size: 0.85em; color: var(--muted); }
 
 .sheet th, .sheet td {
-  padding: 0.35rem 0.55rem;
-  border: 1px solid var(--line);
+  padding: 0.45rem 0.65rem;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  border-inline-start: 1px solid var(--line);
   vertical-align: middle;
   text-align: right;
 }
 
-.sheet thead th { background: #f3f0ff; color: #3e2c8c; font-weight: 700; }
-.sheet tbody tr:nth-child(even) td { background: #fbfaff; }
+.sheet tr > :first-child { border-inline-start: 0; }
+.sheet tbody tr:last-child > * { border-bottom: 0; }
+
+.sheet thead th {
+  background: #f2effb;
+  border-bottom-color: #dcd5f2;
+  color: var(--accent-ink);
+  font-weight: 700;
+}
+
+.sheet tbody tr:nth-child(even) td { background: #fafbfd; }
+
+/* Rounded outer corners, drawn by the corner cells (no clipping needed on paper). */
+.sheet thead tr > :first-child { border-start-start-radius: 11px; }
+.sheet thead tr > :last-child { border-start-end-radius: 11px; }
+.sheet tbody tr:last-child > :first-child { border-end-start-radius: 11px; }
+.sheet tbody tr:last-child > :last-child { border-end-end-radius: 11px; }
 .sheet td.c, .sheet th.c { text-align: center; }
 
-/* Two cards side by side (series / parallel). */
-.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin: 0.45rem 0 0.7rem; }
+/* Up / down arrows: soft green and soft red cells */
+.sheet tbody tr > td.arrow-up { background: #e8f6ee; color: #1b6b49; font-weight: 700; font-size: 1.1em; }
+.sheet tbody tr > td.arrow-down { background: #fcecea; color: #a3361f; font-weight: 700; font-size: 1.1em; }
+
+/* ---------- Two cards side by side (series / parallel) ---------- */
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; margin: 0.5rem 0 0.8rem; }
 
 .two-col > div {
-  padding: 0.55rem 0.8rem;
+  padding: 0.75rem 0.9rem 0.6rem;
   border: 1px solid var(--line);
-  border-radius: 6px;
-  background: #fcfcff;
+  border-radius: 14px;
+  background: linear-gradient(#f6f8fe, #ffffff 6rem);
   break-inside: avoid;
 }
 
 .two-col h3 { margin-top: 0; }
 .two-col ul { margin-bottom: 0; }
+.two-col .ill { margin: 0.2rem 0 0.55rem; }
 
-.steps { counter-reset: step; list-style: none; padding-inline-start: 0; }
-.steps li { position: relative; padding-inline-start: 1.9rem; }
+/* ---------- Numbered steps, joined by a thin line ---------- */
+.steps { counter-reset: step; list-style: none; margin: 0.4rem 0 0.8rem; padding: 0; }
+.steps li { position: relative; margin: 0; padding-inline-start: 2.35rem; padding-bottom: 0.55rem; break-inside: avoid; }
 .steps li::before {
   counter-increment: step;
   content: counter(step);
   position: absolute;
   inset-inline-start: 0;
-  top: 0.2rem;
-  width: 1.35rem;
-  height: 1.35rem;
+  top: 0.15rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.6rem;
+  height: 1.6rem;
+  border: 1.5px solid #cbc2f0;
   border-radius: 50%;
-  background: #ebe4ff;
-  color: #3e2c8c;
-  font-size: 0.8rem;
+  background: var(--accent-soft);
+  color: var(--accent-ink);
+  font-size: 0.82rem;
   font-weight: 700;
-  text-align: center;
-  line-height: 1.35rem;
+  line-height: 1;
+}
+
+.steps li:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  inset-inline-start: calc(0.8rem - 1px);
+  top: 1.75rem;
+  bottom: -0.15rem;
+  width: 2px;
+  border-radius: 2px;
+  background: #e4dff7;
 }
 
 .arrow-up { color: #1b6b49; font-weight: 700; }
 .arrow-down { color: #a3361f; font-weight: 700; }
 
-.sheet-end { margin-top: 1.2rem; padding-top: 0.5rem; border-top: 1px solid var(--line); font-size: 0.85rem; color: var(--muted); text-align: center; }
+/* ---------- Small drawings ---------- */
+.ill {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 0.6rem;
+  border: 1px solid #e5e9f2;
+  border-radius: 12px;
+  background: radial-gradient(circle, rgba(120, 140, 190, 0.16) 1px, transparent 1.3px) 0 0 / 14px 14px, #fcfdff;
+  break-inside: avoid;
+}
+
+.ill svg { display: block; max-width: 100%; height: auto; direction: ltr; }
+
+/* A text block with its drawing beside it (stacked on phones). */
+.split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: start;
+  gap: 0.4rem 1.1rem;
+}
+
+.split > .ill { margin-top: 0.55rem; max-width: 16.5rem; }
+.split > .law + .ill { margin-top: 0.55rem; }
+
+/* Drawings in a row under a block of text. */
+.ill-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.7rem;
+  margin: 0.5rem 0 0.7rem;
+  break-inside: avoid;
+}
+
+.ill-row > .ill { flex: 0 1 auto; }
+
+/* A drawing beside a list: the list's text flows around it and continues
+   under it. The sheet is right to left, so the drawing sits on the left. */
+.ill-float {
+  float: left;
+  width: 15.5rem;
+  margin: 0.4rem 0 0.6rem 0;
+  margin-right: 1.1rem;
+}
+
+.law, .tip, .warn, .sheet-table-wrap, .two-col, .steps { clear: both; }
+
+.sheet-end {
+  margin-top: 1.2rem;
+  padding-top: 0.55rem;
+  border-top: 1px dashed var(--line-strong);
+  font-size: 0.85rem;
+  color: var(--muted);
+  text-align: center;
+}
 
 /* ---------- Phones ---------- */
 @media (max-width: 40rem) {
-  .sheet { padding: 1rem 0.9rem 1.25rem; font-size: 0.97rem; border-radius: 0; border-inline: 0; }
+  .sheet { --card-pad: 0.85rem; padding: 0.9rem 0.6rem 1.1rem; font-size: 0.97rem; border-radius: 0; border-inline: 0; }
+  .sheet-head { padding: 0.85rem 0.9rem; }
   .sheet-head h1 { font-size: 1.35rem; }
-  .law .law-eqs { font-size: 1.04rem; gap: 0.25rem 1rem; }
+  .sheet-head-art { width: 2.9rem; height: 2.9rem; }
+  .sheet h2 { font-size: 1.08rem; gap: 0.5rem; }
+  .sheet h2 .h-icon { width: 1.8rem; height: 1.8rem; }
+  .law, .tip, .warn, .sheet-intro { padding-inline-start: 2.45rem; padding-inline-end: 0.75rem; background-position: right 0.55rem top 0.7rem; background-size: 1.45rem 1.45rem; }
+  .law .law-eqs { font-size: 1.04rem; gap: 0.35rem 0.4rem; }
+  .law .law-eqs .eq { padding: 0.22rem 0.55rem; }
   .two-col { grid-template-columns: 1fr; }
+  .split { grid-template-columns: minmax(0, 1fr); }
+  .split > .ill { justify-self: center; max-width: 100%; margin-top: 0; margin-bottom: 0.7rem; }
+  .ill-float { float: none; width: auto; max-width: 18rem; margin: 0.3rem auto 0.7rem; }
   .sheet-toolbar .btn { flex: 1 1 100%; }
 }
 
 /* ---------- Print and PDF: A4 pages ---------- */
 @page {
   size: A4;
-  margin: 13mm 13mm 15mm;
+  margin: 12mm 12mm 14mm;
   @bottom-center {
     content: counter(page) " / " counter(pages);
     font-family: "DejaVu Sans", Tahoma, Arial, sans-serif;
@@ -261,19 +524,28 @@
   .site-header, .site-footer, .skip-link, .sheet-toolbar, .breadcrumb, #load-failure { display: none !important; }
   .sheet-page { padding: 0; margin: 0; max-width: none; }
   .sheet {
+    --card-pad: 9pt;
     max-width: none;
     margin: 0;
     padding: 0;
     border: 0;
-    box-shadow: none;
     border-radius: 0;
-    font-size: 10.2pt;
+    box-shadow: none;
+    background: #ffffff;
+    font-size: 10pt;
     line-height: 1.55;
   }
-  .sheet-head h1 { font-size: 18pt; }
-  .sheet h2 { font-size: 13pt; margin-top: 10pt; }
-  .law .law-eqs { font-size: 12pt; }
+  .sheet-head { padding: 8pt 10pt; margin-bottom: 8pt; }
+  .sheet-head h1 { font-size: 17pt; }
+  .sheet-intro { margin-bottom: 9pt; }
+  .sheet > section { margin-bottom: 8pt; padding-bottom: 6pt; border-color: #dde2ec; border-radius: 10px; box-shadow: none; }
+  .sheet h2 { margin-bottom: 6pt; padding-top: 5pt; padding-bottom: 5pt; border-radius: 10px 10px 0 0; font-size: 12.5pt; }
+  .law .law-eqs { font-size: 11.5pt; overflow: visible; }
   .two-col { grid-template-columns: 1fr 1fr; }
+  .two-col > div, .warn { break-inside: auto; }   /* a tall card may continue on the next page */
+  .split { grid-template-columns: minmax(0, 1fr) auto; }
+  .ill svg { zoom: 0.85; }                   /* slightly smaller drawings on paper */
+  .ill-float { width: 52mm; }
   .sheet-table-wrap { overflow: visible; }
   a { color: inherit; text-decoration: none; }
   * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
