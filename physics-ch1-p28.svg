@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 670 300" width="670" height="300">
+  <!-- Physics, chapter 1, PDF question 28: from A, a group of two 4R resistors in parallel with a plain wire running straight through the middle of the group; then a group of three 9R resistors in parallel (the middle one on the main line); then B. -->
+  <rect width="670" height="300" fill="#ffffff"/>
+  <path d="M20.0 170.0 L110.0 170.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M71.0 170.0 L49.0 161.8 L49.0 178.2 z" fill="#2b3654"/>
+  <text x="28.0" y="148.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">A</text>
+  <path d="M110.0 70.0 L110.0 270.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M300.0 70.0 L300.0 270.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M110.0 70.0 L170.8 70.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M239.2 70.0 L300.0 70.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M170.8 70.0 L176.5 79.0 L187.9 61.0 L199.3 79.0 L210.7 61.0 L222.1 79.0 L233.5 61.0 L239.2 70.0" stroke="#e8692e" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M110.0 270.0 L170.8 270.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M239.2 270.0 L300.0 270.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M170.8 270.0 L176.5 279.0 L187.9 261.0 L199.3 279.0 L210.7 261.0 L222.1 279.0 L233.5 261.0 L239.2 270.0" stroke="#e8692e" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M110.0 170.0 L300.0 170.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M300.0 170.0 L370.0 170.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M370.0 70.0 L370.0 270.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M560.0 70.0 L560.0 270.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M370.0 70.0 L430.8 70.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M499.2 70.0 L560.0 70.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M430.8 70.0 L436.5 79.0 L447.9 61.0 L459.3 79.0 L470.7 61.0 L482.1 79.0 L493.5 61.0 L499.2 70.0" stroke="#e8692e" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M370.0 170.0 L430.8 170.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M499.2 170.0 L560.0 170.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M430.8 170.0 L436.5 179.0 L447.9 161.0 L459.3 179.0 L470.7 161.0 L482.1 179.0 L493.5 161.0 L499.2 170.0" stroke="#e8692e" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M370.0 270.0 L430.8 270.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M499.2 270.0 L560.0 270.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M430.8 270.0 L436.5 279.0 L447.9 261.0 L459.3 279.0 L470.7 261.0 L482.1 279.0 L493.5 261.0 L499.2 270.0" stroke="#e8692e" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M560.0 170.0 L650.0 170.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="640.0" y="148.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">B</text>
+  <circle cx="110.0" cy="170.0" r="5" fill="#2b3654"/>
+  <circle cx="300.0" cy="170.0" r="5" fill="#2b3654"/>
+  <circle cx="370.0" cy="170.0" r="5" fill="#2b3654"/>
+  <circle cx="560.0" cy="170.0" r="5" fill="#2b3654"/>
+  <text x="205.0" y="48.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">4R</text>
+  <text x="205.0" y="248.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">4R</text>
+  <text x="465.0" y="48.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">9R</text>
+  <text x="465.0" y="148.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">9R</text>
+  <text x="465.0" y="248.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">9R</text>
+</svg>

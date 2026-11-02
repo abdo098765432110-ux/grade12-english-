@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 320" width="520" height="320">
+  <!-- Physics, chapter 1, PDF question 2: current I (A) against time t (s). 2 A from 0 to 2 s, rising evenly to 4 A at 3 s, 4 A until 4 s, falling evenly to 2 A at 5 s. -->
+  <rect width="520" height="320" fill="#ffffff"/>
+  <path d="M146.0 270.0 L146.0 102.0" stroke="#9aa3b5" stroke-width="1.5" fill="none" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="6 5"/>
+  <path d="M212.0 270.0 L212.0 102.0" stroke="#9aa3b5" stroke-width="1.5" fill="none" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="6 5"/>
+  <path d="M278.0 270.0 L278.0 102.0" stroke="#9aa3b5" stroke-width="1.5" fill="none" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="6 5"/>
+  <path d="M344.0 270.0 L344.0 102.0" stroke="#9aa3b5" stroke-width="1.5" fill="none" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="6 5"/>
+  <path d="M410.0 270.0 L410.0 102.0" stroke="#9aa3b5" stroke-width="1.5" fill="none" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="6 5"/>
+  <path d="M80.0 102.0 L410.0 102.0" stroke="#9aa3b5" stroke-width="1.5" fill="none" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="6 5"/>
+  <path d="M80.0 270.0 L80.0 30.0" stroke="#1f6f62" stroke-width="3.5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M80.0 21.0 L73.2 39.0 L86.8 39.0 z" fill="#1f6f62"/>
+  <path d="M80.0 270.0 L449.6 270.0" stroke="#1f6f62" stroke-width="3.5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M458.6 270.0 L440.6 263.2 L440.6 276.8 z" fill="#1f6f62"/>
+  <path d="M80.0 186.0 L212.0 186.0 L278.0 102.0 L344.0 102.0 L410.0 186.0" stroke="#e8692e" stroke-width="4.5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="146.0" y="302.0" text-anchor="middle" font-size="20" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">1</text>
+  <text x="212.0" y="302.0" text-anchor="middle" font-size="20" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">2</text>
+  <text x="278.0" y="302.0" text-anchor="middle" font-size="20" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">3</text>
+  <text x="344.0" y="302.0" text-anchor="middle" font-size="20" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">4</text>
+  <text x="410.0" y="302.0" text-anchor="middle" font-size="20" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">5</text>
+  <text x="62.0" y="193.0" text-anchor="end" font-size="20" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">2</text>
+  <text x="62.0" y="109.0" text-anchor="end" font-size="20" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">4</text>
+  <text x="80.0" y="20.0" text-anchor="middle" font-size="20" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">I (A)</text>
+  <text x="465.6" y="277.0" text-anchor="start" font-size="20" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">t (s)</text>
+</svg>

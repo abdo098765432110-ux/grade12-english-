@@ -11,7 +11,8 @@
      physics.html?chapter=chapter-1                      the sections of that chapter
      physics.html?chapter=chapter-1&section=<id>         the questions of that section
    The questions use the shared quiz (quiz-ui.js): one question at a time, with
-   instant feedback, the correct answer and the explanation. Questions use the
+   instant feedback, the correct answer and the explanation, and a panel of
+   question numbers to jump to any question. Questions use the
    same format as the grammar questions; a broken question is skipped. Drawn
    again when the interface language changes. */
 (function () {
@@ -130,7 +131,8 @@
       el('h2', { id: headingId, className: 'question-section-title', dir: 'auto', lang: langOf(section.title), text: section.title }),
       quizArea
     ]));
-    G12.renderQuiz(quizArea, usable(section.questions), { label: section.title, shuffle: false });
+    // navigator: the panel of question numbers beside the question
+    G12.renderQuiz(quizArea, usable(section.questions), { label: section.title, shuffle: false, navigator: true });
   }
 
   function notFound(chapter) {

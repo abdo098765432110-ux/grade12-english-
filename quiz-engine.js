@@ -174,6 +174,35 @@
     this.index += 1;
   };
 
+  /* Jump straight to a question (the question number panel on subject pages).
+     index is 0-based. The question keeps whatever was already done on it. */
+  Quiz.prototype.goTo = function (index) {
+    if (typeof index !== 'number' || Math.floor(index) !== index || index < 0 || index >= this.items.length) {
+      throw new Error('There is no question ' + (Number(index) + 1) + ' in this quiz.');
+    }
+    this.index = index;
+  };
+
+  /* True once the question at index has an answer: a multiple-choice question
+     with at least one attempt, or a written answer that was submitted. */
+  Quiz.prototype.isAnswered = function (index) {
+    var item = this.items[index];
+    if (!item) return false;
+    return item.question.type === 'short' ? item.response !== null : item.attempts.length > 0;
+  };
+
+  Quiz.prototype.answeredCount = function () {
+    var count = 0;
+    for (var i = 0; i < this.items.length; i++) if (this.isAnswered(i)) count += 1;
+    return count;
+  };
+
+  /* The 0-based index of the first question with no answer yet, or -1. */
+  Quiz.prototype.firstUnanswered = function () {
+    for (var i = 0; i < this.items.length; i++) if (!this.isAnswered(i)) return i;
+    return -1;
+  };
+
   Quiz.prototype.results = function () {
     var scored = this.items.filter(function (item) { return isScored(item.question); });
     var firstTry = scored.filter(function (item) {

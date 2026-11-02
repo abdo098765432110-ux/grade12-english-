@@ -5,8 +5,13 @@
    G12.renderQuiz(container, questions, {
      label: 'Grammar practice',   // accessible name for the quiz
      shuffle: true,               // shuffle question order
-     resultActions: [{ label: 'Change settings', onClick: fn }]
+     resultActions: [{ label: 'Change settings', onClick: fn }],
+     navigator: false             // true: a panel of question numbers (1, 2, 3 …)
+                                  // beside the question, to jump to any question
    })
+   The panel is used on the subject pages (physics). It sits on the left on
+   wide screens and folds above the question on narrow screens. Each number
+   shows whether it is the current question, answered, or not answered yet.
    ========================================================================== */
 (function (global) {
   'use strict';
@@ -365,18 +370,131 @@
     ]);
   };
 
+  /* ---------- Question number panel ---------- */
+  var navigatorCount = 0;
+
+  /* One button per question, numbered 1, 2, 3 … (Western digits in every
+     interface language). onPick(index) is called with the 0-based index.
+     Returns { element, update }; update() repaints the buttons from the quiz. */
+  function questionNavigator(quiz, onPick) {
+    navigatorCount += 1;
+    var gridId = 'quiz-nav-grid-' + navigatorCount;
+    var open = false;
+    var grid = el('ol', { className: 'quiz-nav-grid', id: gridId, dir: 'ltr' });
+    var count = el('p', { className: 'quiz-nav-count' });
+    var toggle = el('button', { type: 'button', className: 'btn btn--secondary quiz-nav-toggle', 'aria-expanded': 'false', 'aria-controls': gridId });
+    var swatch = function (kind, label) {
+      return el('li', null, [el('span', { className: 'quiz-nav-swatch quiz-nav-swatch--' + kind, 'aria-hidden': 'true' }), document.createTextNode(label)]);
+    };
+    var element = el('nav', { className: 'quiz-nav', dir: G12.dir, 'aria-label': t('Question numbers') }, [
+      el('div', { className: 'quiz-nav-head' }, [
+        el('p', { className: 'quiz-nav-title', text: t('Question numbers') }),
+        count,
+        toggle
+      ]),
+      el('div', { className: 'quiz-nav-body' }, [
+        grid,
+        el('ul', { className: 'quiz-nav-legend' }, [
+          swatch('current', t('Current question')),
+          swatch('answered', t('Answered')),
+          swatch('unanswered', t('Not answered'))
+        ])
+      ])
+    ]);
+
+    /* On narrow screens the numbers fold away behind the toggle button. */
+    function folded() {
+      return global.getComputedStyle(toggle).display !== 'none';
+    }
+
+    function paintToggle() {
+      element.classList.toggle('quiz-nav--open', open);
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      toggle.textContent = open ? t('Hide question numbers') : t('Show question numbers');
+    }
+
+    toggle.addEventListener('click', function () {
+      open = !open;
+      paintToggle();
+      showCurrent();
+    });
+
+    /* A long list scrolls inside the panel: keep the current number in sight
+       (only the list scrolls, never the page). */
+    function showCurrent() {
+      var button = grid.querySelector('[aria-current]');
+      if (!button || grid.scrollHeight <= grid.clientHeight) return;
+      var box = grid.getBoundingClientRect();
+      var spot = button.getBoundingClientRect();
+      if (spot.top < box.top) grid.scrollTop -= box.top - spot.top + 4;
+      else if (spot.bottom > box.bottom) grid.scrollTop += spot.bottom - box.bottom + 4;
+    }
+
+    grid.addEventListener('click', function (event) {
+      var button = event.target.closest('button[data-index]');
+      if (!button) return;
+      if (folded()) {
+        open = false;
+        paintToggle();
+      }
+      onPick(Number(button.getAttribute('data-index')));
+    });
+
+    function update() {
+      if (grid.children.length !== quiz.total) {
+        G12.clear(grid);
+        for (var i = 0; i < quiz.total; i++) {
+          grid.appendChild(el('li', null, [el('button', { type: 'button', className: 'quiz-nav-button', 'data-index': String(i), text: String(i + 1) })]));
+        }
+      }
+      Array.prototype.forEach.call(grid.querySelectorAll('button[data-index]'), function (button, i) {
+        var current = i === quiz.index;
+        var answered = quiz.isAnswered(i);
+        button.className = 'quiz-nav-button ' + (answered ? 'is-answered' : 'is-unanswered') + (current ? ' is-current' : '');
+        button.setAttribute('aria-label', t(answered ? 'Question {n}, answered' : 'Question {n}, not answered', { n: i + 1 }));
+        if (current) button.setAttribute('aria-current', 'step');
+        else button.removeAttribute('aria-current');
+      });
+      count.textContent = t('Answered: {n} of {total}', { n: quiz.answeredCount(), total: quiz.total });
+      paintToggle();
+      showCurrent();
+    }
+
+    return { element: element, update: update };
+  }
+
   G12.renderQuiz = function (container, questions, options) {
     options = options || {};
     var quiz = new G12.QuizEngine.Quiz(questions, { shuffle: options.shuffle !== false });
-    var root = el('section', { className: 'quiz', 'aria-label': options.label || t('Quiz') });
+    var useNavigator = options.navigator === true;
+    var root = el('section', { className: useNavigator ? 'quiz quiz--with-nav' : 'quiz', 'aria-label': options.label || t('Quiz') });
     G12.ignoreDoubleClicks(root);
     G12.clear(container).appendChild(root);
+
+    /* view: where the question (or the results) is drawn. With the number
+       panel, the panel and the view sit side by side, the panel on the left
+       whatever the interface direction (the layout box is left-to-right and
+       each part keeps the interface direction). */
+    var view = root;
+    var navigator = null;
+    if (useNavigator) {
+      navigator = questionNavigator(quiz, function (index) {
+        quiz.goTo(index);
+        showQuestion(true);
+      });
+      view = el('div', { className: 'quiz-main', dir: G12.dir });
+      root.appendChild(el('div', { className: 'quiz-layout', dir: 'ltr' }, [navigator.element, view]));
+    }
     showQuestion(false);
 
     /* ---------- Question view ---------- */
 
     function showQuestion(moveFocus) {
-      G12.clear(root);
+      G12.clear(view);
+      if (navigator) {
+        root.classList.remove('quiz--results');
+        navigator.element.hidden = false;
+      }
       var item = quiz.current;
       var question = item.question;
       var reviewed = G12.isReviewed(question);
@@ -391,7 +509,7 @@
           : t('Question {n} of {total}', { n: number, total: quiz.total })
       });
 
-      root.appendChild(el('div', { className: 'quiz-header' }, [
+      view.appendChild(el('div', { className: 'quiz-header' }, [
         heading,
         el('button', {
           type: 'button',
@@ -403,7 +521,9 @@
           }
         })
       ]));
-      root.appendChild(el('progress', { max: quiz.total, value: quiz.index, 'aria-hidden': 'true' }));
+      // With the number panel the student can go in any order, so the bar shows how many are answered.
+      var progress = el('progress', { max: quiz.total, value: navigator ? quiz.answeredCount() : quiz.index, 'aria-hidden': 'true' });
+      view.appendChild(progress);
 
       var badges = G12.badges(question, difficultyLabels(question));
 
@@ -455,7 +575,7 @@
 
       form.appendChild(feedback);
       form.appendChild(actions);
-      root.appendChild(form);
+      view.appendChild(form);
 
       form.addEventListener('submit', function (event) {
         event.preventDefault();
@@ -463,6 +583,22 @@
         else submitWritten();
       });
 
+      /* Back on a question that was already answered (with the number panel):
+         show it as it was left, with its feedback and buttons. */
+      var restoring = true;
+      if (question.type === 'mcq' && (item.revealed || item.attempts.length > 0)) {
+        paintOptions(true);
+        var last = item.attempts[item.attempts.length - 1];
+        if (item.revealed && last && last.matches) showMatch();
+        else if (item.revealed) showAnswer();
+        else showDifference();
+      } else if (question.type !== 'mcq' && item.revealed) {
+        textarea.value = item.response || '';
+        showWritten();
+      }
+      restoring = false;
+
+      if (navigator) navigator.update();
       if (moveFocus) G12.focus(heading);
 
       /* ---------- Helpers for this question ---------- */
@@ -473,7 +609,7 @@
         feedback.className = 'feedback feedback--' + kind;
         feedback.appendChild(el('p', { className: 'feedback-title' }, title));
         (children || []).forEach(function (child) { if (child) feedback.appendChild(child); });
-        G12.focus(feedback);
+        if (!restoring) G12.focus(feedback);
       }
 
       function setActions(buttons) {
@@ -523,16 +659,20 @@
         var option = question.options[Number(checked.getAttribute('data-index'))];
         var result = quiz.submit(option);
         paintOptions(true);
+        answered();
+        if (result.matches) showMatch();
+        else showDifference();
+      }
 
-        if (result.matches) {
-          setFeedback('match', reviewed ? t('Correct!') : t('Your answer matches the suggested answer.'), [
-            explanationParagraph(question, reviewed),
-            reviewed ? null : reviewNote()
-          ]);
-          setActions([nextButton()]);
-          return;
-        }
+      function showMatch() {
+        setFeedback('match', reviewed ? t('Correct!') : t('Your answer matches the suggested answer.'), [
+          explanationParagraph(question, reviewed),
+          reviewed ? null : reviewNote()
+        ]);
+        setActions(nextButtons());
+      }
 
+      function showDifference() {
         var hint;
         if (quiz.canRetry()) hint = reviewed ? t('You can try again or show the correct answer.') : t('You can try again or show the suggested answer.');
         else hint = reviewed ? t('Show the correct answer to continue.') : t('Show the suggested answer to continue.');
@@ -574,7 +714,7 @@
           explanationParagraph(question, reviewed),
           reviewed ? null : reviewNote()
         ]);
-        setActions([nextButton()]);
+        setActions(nextButtons());
       }
 
       function submitWritten() {
@@ -583,6 +723,11 @@
           return;
         }
         quiz.submit(textarea.value);
+        answered();
+        showWritten();
+      }
+
+      function showWritten() {
         textarea.readOnly = true;
         setFeedback('info', reviewed ? t('Answer saved. Compare it with the correct answer:') : t('Answer saved. Compare it with the suggested answer:'), [
           el('p', { dir: 'auto', text: question.modelAnswer }),
@@ -590,24 +735,54 @@
           el('p', { className: 'hint', text: t('Written answers are not scored automatically.') }),
           reviewed ? null : reviewNote()
         ]);
-        setActions([nextButton()]);
+        setActions(nextButtons());
+      }
+
+      /* The buttons after a question is done. With the number panel, the last
+         question also offers the first question that still has no answer. */
+      function nextButtons() {
+        var next = nextButton();
+        var firstOpen = navigator ? quiz.firstUnanswered() : -1;
+        if (firstOpen === -1 || quiz.index !== quiz.total - 1) return [next];
+        next.className = 'btn btn--secondary';
+        return [el('button', {
+          type: 'button',
+          className: 'btn',
+          text: t('Go to unanswered question {n}', { n: firstOpen + 1 }),
+          onclick: function () {
+            quiz.goTo(firstOpen);
+            showQuestion(true);
+          }
+        }), next];
+      }
+
+      /* A new answer was given: the number panel and the bar count it. */
+      function answered() {
+        if (!navigator) return;
+        navigator.update();
+        progress.value = quiz.answeredCount();
       }
     }
 
     /* ---------- Results view ---------- */
 
     function showResults() {
-      G12.clear(root);
+      G12.clear(view);
+      if (navigator) {
+        // the results list replaces the questions, so the number panel steps aside
+        navigator.element.hidden = true;
+        root.classList.add('quiz--results');
+      }
       var results = quiz.results();
       var heading = el('h2', {
         tabindex: '-1',
         text: results.roundType === 'missed' ? t('Results — missed questions') : t('Results')
       });
-      root.appendChild(heading);
+      view.appendChild(heading);
 
       if (results.scoredCount > 0) {
         var allReviewed = !results.provisional;
-        root.appendChild(el('div', { className: 'score-box' }, [
+        view.appendChild(el('div', { className: 'score-box' }, [
           el('p', { className: 'score-number' }, [scoreText(results.firstTryMatches, results.scoredCount)]),
           el('p', {
             text: allReviewed
@@ -623,7 +798,7 @@
           ])
         ]));
         if (results.provisional) {
-          root.appendChild(el('div', { className: 'notice notice--demo', role: 'note' }, [
+          view.appendChild(el('div', { className: 'notice notice--demo', role: 'note' }, [
             el('p', null, [
               el('strong', { text: t('Provisional score.') + ' ' }),
               results.unreviewedCount === 1
@@ -634,14 +809,14 @@
         }
       }
       if (results.shortAnswerCount > 0) {
-        root.appendChild(el('p', {
+        view.appendChild(el('p', {
           text: results.shortAnswerCount === 1
             ? t('{answers} is not scored. Compare it with the answers below.', { answers: G12.plural(1, 'written answer') })
             : t('{answers} are not scored. Compare them with the answers below.', { answers: G12.plural(results.shortAnswerCount, 'written answer') })
         }));
       }
 
-      root.appendChild(el('h3', { text: t('Review your answers') }));
+      view.appendChild(el('h3', { text: t('Review your answers') }));
       var list = el('ol', { className: 'review-list' });
       results.items.forEach(function (entry) {
         var question = entry.question;
@@ -649,7 +824,11 @@
         li.appendChild(el('p', { dir: 'auto', lang: langOf(question, question.prompt) }, [el('strong', null, [G12.renderPrompt(question.prompt)])]));
         var diagram = figure(question);
         if (diagram) li.appendChild(diagram);
-        if (entry.scored) {
+        if (entry.scored && entry.attempts === 0) {
+          // only possible with the number panel: the student skipped this question
+          li.appendChild(el('p', null, [el('span', { className: 'review-outcome review-outcome--skipped', text: '— ' + t('Not answered') })]));
+          li.appendChild(el('p', null, G12.tNodes(entry.reviewed ? 'Correct answer: {answer}' : 'Suggested answer: {answer}', null, { answer: el('strong', null, [content(question.answer)]) })));
+        } else if (entry.scored) {
           var matched = entry.firstTryMatches;
           var outcomeText = entry.reviewed
             ? (matched ? t('Correct on the first try') : t('Not correct on the first try'))
@@ -670,7 +849,7 @@
         if (!entry.reviewed) li.appendChild(el('p', { className: 'hint', text: t('Not yet reviewed by a teacher.') }));
         list.appendChild(li);
       });
-      root.appendChild(list);
+      view.appendChild(list);
 
       var buttons = [];
       var missed = quiz.missedQuestions().length;
@@ -697,7 +876,7 @@
       (options.resultActions || []).forEach(function (action) {
         buttons.push(el('button', { type: 'button', className: 'btn btn--secondary', text: action.label, onclick: action.onClick }));
       });
-      root.appendChild(el('div', { className: 'actions' }, buttons));
+      view.appendChild(el('div', { className: 'actions' }, buttons));
       G12.focus(heading);
     }
 

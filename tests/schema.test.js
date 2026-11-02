@@ -317,7 +317,15 @@ test('physics questions: every question is valid, has its diagram, and the answe
       });
     });
   });
-  assert.equal(ids.size, 11);
+  assert.equal(ids.size, 33);
+  // the first five questions added earlier were removed, with their pictures
+  for (let n = 1; n <= 5; n += 1) {
+    assert.ok(!ids.has('phys-ch1-q' + n), 'phys-ch1-q' + n + ' should be gone');
+    assert.ok(!fs.existsSync(path.join(project, 'physics-ch1-q' + n + '.svg')), 'physics-ch1-q' + n + '.svg should be gone');
+  }
+  // no question appears twice under another id
+  const prompts = data.chapters[0].sections[0].questions.map((q) => q.prompt.replace(/[\u200f\u2066\u2069\s]/g, ''));
+  assert.equal(new Set(prompts).size, prompts.length);
 });
 
 test('questions: optional lang, image and imageAlt are checked', () => {

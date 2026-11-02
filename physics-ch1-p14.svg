@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 290" width="540" height="290">
+  <!-- Physics, chapter 1, PDF question 14: wire X length l area A; Y length 2l area A; Z length l area 2A; W length 2l area 2A. -->
+  <rect width="540" height="290" fill="#ffffff"/>
+  <rect x="20" y="20" width="500" height="50" fill="#eef3fb"/>
+  <path d="M20.0 20.0 L520.0 20.0" stroke="#2b3654" stroke-width="2" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M20.0 70.0 L520.0 70.0" stroke="#2b3654" stroke-width="2" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M20.0 120.0 L520.0 120.0" stroke="#2b3654" stroke-width="2" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M20.0 170.0 L520.0 170.0" stroke="#2b3654" stroke-width="2" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M20.0 220.0 L520.0 220.0" stroke="#2b3654" stroke-width="2" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M20.0 270.0 L520.0 270.0" stroke="#2b3654" stroke-width="2" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M20.0 20.0 L20.0 270.0" stroke="#2b3654" stroke-width="2" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M250.0 20.0 L250.0 270.0" stroke="#2b3654" stroke-width="2" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M420.0 20.0 L420.0 270.0" stroke="#2b3654" stroke-width="2" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M520.0 20.0 L520.0 270.0" stroke="#2b3654" stroke-width="2" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="135.0" y="53.0" text-anchor="middle" font-size="21" font-weight="700" direction="rtl" unicode-bidi="embed" font-family="'Segoe UI', Tahoma, 'Noto Sans Arabic', 'Noto Naskh Arabic', Arial, sans-serif" fill="#2b3654">مساحة مقطع الموصل</text>
+  <text x="335.0" y="53.0" text-anchor="middle" font-size="21" font-weight="700" direction="rtl" unicode-bidi="embed" font-family="'Segoe UI', Tahoma, 'Noto Sans Arabic', 'Noto Naskh Arabic', Arial, sans-serif" fill="#2b3654">طول الموصل</text>
+  <text x="470.0" y="53.0" text-anchor="middle" font-size="21" font-weight="700" direction="rtl" unicode-bidi="embed" font-family="'Segoe UI', Tahoma, 'Noto Sans Arabic', 'Noto Naskh Arabic', Arial, sans-serif" fill="#2b3654">السلك</text>
+  <text x="135.0" y="104.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">A</text>
+  <text x="335.0" y="104.0" text-anchor="middle" font-size="24" font-weight="700" font-style="italic" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">ℓ</text>
+  <text x="470.0" y="104.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">X</text>
+  <text x="135.0" y="154.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">A</text>
+  <text x="335.0" y="154.0" text-anchor="middle" font-size="24" font-weight="700" font-style="italic" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">2ℓ</text>
+  <text x="470.0" y="154.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">Y</text>
+  <text x="135.0" y="204.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">2A</text>
+  <text x="335.0" y="204.0" text-anchor="middle" font-size="24" font-weight="700" font-style="italic" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">ℓ</text>
+  <text x="470.0" y="204.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">Z</text>
+  <text x="135.0" y="254.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">2A</text>
+  <text x="335.0" y="254.0" text-anchor="middle" font-size="24" font-weight="700" font-style="italic" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">2ℓ</text>
+  <text x="470.0" y="254.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">W</text>
+</svg>

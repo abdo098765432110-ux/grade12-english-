@@ -35,7 +35,8 @@ grade12-english/
 ├── arabic.html, physics.html, chemistry.html, biology.html   The other four subjects
 ├── subject.js             Subject pages: chapters → sections → questions, with the shared quiz
 ├── physics-questions.json Physics questions (الفصل الأول → أسئلة على الفصل الأول)
-├── physics-ch1-q1.svg … physics-ch1-q11.svg   Diagrams for the physics questions (no picture for question 8)
+├── physics-ch1-p02.svg … physics-ch1-p29.svg   Diagrams for the physics questions taken from the review PDF (only the questions that have a figure or table)
+├── physics-ch1-q6.svg … physics-ch1-q11.svg   Diagrams for the earlier physics questions (no picture for q8)
 ├── .nojekyll              Empty file: tells GitHub Pages to serve files as they are
 ├── style.css              All styles
 ├── logo.svg               Logo (header, footer and browser tab)

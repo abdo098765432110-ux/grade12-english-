@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 230" width="380" height="230">
+  <!-- Physics, chapter 1, PDF question 23: a wire (cylinder) of length L. -->
+  <rect width="380" height="230" fill="#ffffff"/>
+  <path d="M48.0 40.0 L322.0 40.0" stroke="#2b3654" stroke-width="2.5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M40.0 40.0 L56.0 34.0 L56.0 46.0 z" fill="#2b3654"/>
+  <path d="M330.0 40.0 L314.0 34.0 L314.0 46.0 z" fill="#2b3654"/>
+  <rect x="171.6" y="20.8" width="26.8" height="28" fill="#ffffff"/>
+  <text x="185.0" y="48.4" text-anchor="middle" font-size="24" font-weight="600" font-style="italic" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">L</text>
+  <path d="M45.0 90.0 H320.0 A21.0 60.0 0 0 1 320.0 210.0 H45.0 A21.0 60.0 0 0 1 45.0 90.0 z" fill="#ffffff" stroke="#2b3654" stroke-width="2"/>
+  <ellipse cx="320.0" cy="150.0" rx="21.0" ry="60.0" fill="#ffffff" fill-opacity="0.55" stroke="#2b3654" stroke-width="2"/>
+</svg>

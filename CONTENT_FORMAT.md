@@ -158,7 +158,11 @@ Section types (each may also have an optional `heading`):
 The physics page reads `physics-questions.json`: chapters, each with
 sections of questions. Students go step by step: the physics page shows the
 chapters; a chapter shows its sections; a section shows its questions, one at
-a time with instant feedback.
+a time with instant feedback. Beside the question, a panel lists the question
+numbers (1, 2, 3 …): a click opens that question straight away, and each
+number shows whether it is the current question, answered, or not answered
+yet. The panel is on the left on wide screens; on phones it sits above the
+question and its numbers open with a button.
 
 ```json
 { "schemaVersion": 2, "chapters": [

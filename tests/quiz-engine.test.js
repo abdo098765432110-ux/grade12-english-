@@ -205,6 +205,63 @@ test('Quiz results count questions never attempted as unanswered, not correct', 
   assert.equal(results.percent, 50);
 });
 
+test('goTo jumps to any question and keeps what was done on each one', () => {
+  const quiz = new Quiz([mcq('q1', 'reviewed'), mcq('q2', 'reviewed'), mcq('q3', 'reviewed'), short('q4')], { shuffle: false });
+  quiz.goTo(2);
+  assert.equal(quiz.index, 2);
+  assert.equal(quiz.current.question.id, 'q3');
+  quiz.submit('A');                       // wrong, not finished
+  quiz.goTo(0);
+  assert.equal(quiz.current.question.id, 'q1');
+  quiz.goTo(2);
+  assert.ok(quiz.hasTried('A'), 'the wrong try is still there');
+  assert.ok(quiz.canRetry());
+  quiz.submit('B');
+  assert.ok(quiz.current.revealed);
+  quiz.goTo(3);
+  quiz.submit('my answer');
+  for (const bad of [-1, 4, 1.5, '1', null, undefined]) {
+    assert.throws(() => quiz.goTo(bad), /no question/);
+  }
+  assert.equal(quiz.index, 3, 'a refused jump changes nothing');
+});
+
+test('isAnswered, answeredCount and firstUnanswered follow the answers in any order', () => {
+  const quiz = new Quiz([mcq('q1', 'reviewed'), mcq('q2', 'reviewed'), short('q3'), mcq('q4', 'reviewed')], { shuffle: false });
+  assert.deepEqual([0, 1, 2, 3].map((i) => quiz.isAnswered(i)), [false, false, false, false]);
+  assert.equal(quiz.answeredCount(), 0);
+  assert.equal(quiz.firstUnanswered(), 0);
+  quiz.goTo(3);
+  quiz.submit('A');                       // a wrong try already counts as answered
+  quiz.goTo(0);
+  quiz.submit('B');
+  assert.deepEqual([0, 1, 2, 3].map((i) => quiz.isAnswered(i)), [true, false, false, true]);
+  assert.equal(quiz.answeredCount(), 2);
+  assert.equal(quiz.firstUnanswered(), 1);
+  quiz.goTo(2);
+  quiz.submit('written');
+  quiz.goTo(1);
+  quiz.submit('B');
+  assert.equal(quiz.answeredCount(), 4);
+  assert.equal(quiz.firstUnanswered(), -1);
+  assert.equal(quiz.isAnswered(9), false);
+  quiz.restart();
+  assert.equal(quiz.answeredCount(), 0, 'restart clears the answers');
+});
+
+test('finishing after skipping questions: the skipped ones are unanswered, never correct', () => {
+  const quiz = new Quiz([mcq('q1', 'reviewed'), mcq('q2', 'reviewed'), mcq('q3', 'reviewed')], { shuffle: false });
+  quiz.goTo(2);
+  quiz.submit('B');
+  quiz.next();
+  assert.ok(quiz.finished);
+  const results = quiz.results();
+  assert.equal(results.firstTryMatches, 1);
+  assert.equal(results.unansweredCount, 2);
+  assert.equal(results.percent, 33);
+  assert.deepEqual(quiz.missedQuestions().map((q) => q.id), ['q1', 'q2']);
+});
+
 /* ---------- Choosing how many questions ---------- */
 
 function bank(n) {

@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 440" width="640" height="440">
+  <!-- Physics, chapter 1, PDF question 15: four wires. (a) area 2A, length L, resistance R. (b) area A, length L, resistance R. (c) area 2A, length 2L, resistance 4R. (d) area A, length 2L, resistance R. -->
+  <rect width="640" height="440" fill="#ffffff"/>
+  <path d="M44.0 200.0 V340.0 A46.0 10.1 0 0 0 136.0 340.0 V200.0" fill="#eaf3fb" stroke="#2f63b0" stroke-width="4"/>
+  <ellipse cx="90.0" cy="200.0" rx="46.0" ry="10.1" fill="#f7fbff" stroke="#2f63b0" stroke-width="4"/>
+  <text x="90.0" y="182.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2f63b0">2A</text>
+  <text x="90.0" y="380.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2f63b0">R</text>
+  <path d="M18.0 208.0 L18.0 332.0" stroke="#2f63b0" stroke-width="2.5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M18.0 200.0 L12.0 216.0 L24.0 216.0 z" fill="#2f63b0"/>
+  <path d="M18.0 340.0 L12.0 324.0 L24.0 324.0 z" fill="#2f63b0"/>
+  <rect x="-4.0" y="254.6" width="44" height="28" fill="#ffffff"/>
+  <text x="18.0" y="277.7" text-anchor="middle" font-size="22" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2f63b0">L</text>
+  <text x="90.0" y="420.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">(a)</text>
+  <path d="M219.0 200.0 V340.0 A26.0 6.0 0 0 0 271.0 340.0 V200.0" fill="#eaf3fb" stroke="#2f63b0" stroke-width="4"/>
+  <ellipse cx="245.0" cy="200.0" rx="26.0" ry="6.0" fill="#f7fbff" stroke="#2f63b0" stroke-width="4"/>
+  <text x="245.0" y="182.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2f63b0">A</text>
+  <text x="245.0" y="380.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2f63b0">R</text>
+  <path d="M193.0 208.0 L193.0 332.0" stroke="#2f63b0" stroke-width="2.5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M193.0 200.0 L187.0 216.0 L199.0 216.0 z" fill="#2f63b0"/>
+  <path d="M193.0 340.0 L187.0 324.0 L199.0 324.0 z" fill="#2f63b0"/>
+  <rect x="171.0" y="254.6" width="44" height="28" fill="#ffffff"/>
+  <text x="193.0" y="277.7" text-anchor="middle" font-size="22" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2f63b0">L</text>
+  <text x="245.0" y="420.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">(b)</text>
+  <path d="M374.0 60.0 V340.0 A46.0 10.1 0 0 0 466.0 340.0 V60.0" fill="#eaf3fb" stroke="#2f63b0" stroke-width="4"/>
+  <ellipse cx="420.0" cy="60.0" rx="46.0" ry="10.1" fill="#f7fbff" stroke="#2f63b0" stroke-width="4"/>
+  <text x="420.0" y="42.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2f63b0">2A</text>
+  <text x="420.0" y="380.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2f63b0">4R</text>
+  <path d="M348.0 68.0 L348.0 332.0" stroke="#2f63b0" stroke-width="2.5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M348.0 60.0 L342.0 76.0 L354.0 76.0 z" fill="#2f63b0"/>
+  <path d="M348.0 340.0 L342.0 324.0 L354.0 324.0 z" fill="#2f63b0"/>
+  <rect x="326.0" y="184.6" width="44" height="28" fill="#ffffff"/>
+  <text x="348.0" y="207.7" text-anchor="middle" font-size="22" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2f63b0">2L</text>
+  <text x="420.0" y="420.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">(c)</text>
+  <path d="M544.0 60.0 V340.0 A26.0 6.0 0 0 0 596.0 340.0 V60.0" fill="#eaf3fb" stroke="#2f63b0" stroke-width="4"/>
+  <ellipse cx="570.0" cy="60.0" rx="26.0" ry="6.0" fill="#f7fbff" stroke="#2f63b0" stroke-width="4"/>
+  <text x="570.0" y="42.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2f63b0">A</text>
+  <text x="570.0" y="380.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2f63b0">R</text>
+  <path d="M622.0 68.0 L622.0 332.0" stroke="#2f63b0" stroke-width="2.5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M622.0 60.0 L616.0 76.0 L628.0 76.0 z" fill="#2f63b0"/>
+  <path d="M622.0 340.0 L616.0 324.0 L628.0 324.0 z" fill="#2f63b0"/>
+  <rect x="600.0" y="184.6" width="44" height="28" fill="#ffffff"/>
+  <text x="622.0" y="207.7" text-anchor="middle" font-size="22" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2f63b0">2L</text>
+  <text x="570.0" y="420.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">(d)</text>
+</svg>

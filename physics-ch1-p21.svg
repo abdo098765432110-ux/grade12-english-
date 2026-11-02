@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 210" width="660" height="210">
+  <!-- Physics, chapter 1, PDF question 21: conductor xy (length 2l, thicker) joined end to end with conductor yz (length l, thinner); the same current I flows from x to z. -->
+  <rect width="660" height="210" fill="#ffffff"/>
+  <path d="M20.0 120.0 L90.0 120.0" stroke="#7a8191" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M81.0 120.0 L59.0 111.8 L59.0 128.2 z" fill="#7a8191"/>
+  <text x="40.0" y="102.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">I</text>
+  <path d="M90.0 86.0 H390.0 A11.9 34.0 0 0 1 390.0 154.0 H90.0 A11.9 34.0 0 0 1 90.0 86.0 z" fill="#d7dbe3" stroke="#6c7488" stroke-width="2"/>
+  <ellipse cx="390.0" cy="120.0" rx="11.9" ry="34.0" fill="#ffffff" fill-opacity="0.55" stroke="#6c7488" stroke-width="2"/>
+  <path d="M390.0 100.0 H540.0 A7.0 20.0 0 0 1 540.0 140.0 H390.0 A7.0 20.0 0 0 1 390.0 100.0 z" fill="#d7dbe3" stroke="#6c7488" stroke-width="2"/>
+  <ellipse cx="540.0" cy="120.0" rx="7.0" ry="20.0" fill="#ffffff" fill-opacity="0.55" stroke="#6c7488" stroke-width="2"/>
+  <path d="M540.0 120.0 L640.0 120.0" stroke="#7a8191" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M631.0 120.0 L609.0 111.8 L609.0 128.2 z" fill="#7a8191"/>
+  <text x="615.0" y="102.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">I</text>
+  <path d="M103.0 52.0 L377.0 52.0" stroke="#2f63b0" stroke-width="2.5" fill="none" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="8 6"/>
+  <path d="M95.0 52.0 L111.0 46.0 L111.0 58.0 z" fill="#2f63b0"/>
+  <path d="M385.0 52.0 L369.0 46.0 L369.0 58.0 z" fill="#2f63b0"/>
+  <rect x="222.1" y="34.4" width="35.8" height="26" fill="#ffffff"/>
+  <text x="240.0" y="59.7" text-anchor="middle" font-size="22" font-weight="600" font-style="italic" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2f63b0">2l</text>
+  <path d="M403.0 72.0 L527.0 72.0" stroke="#2f63b0" stroke-width="2.5" fill="none" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="8 6"/>
+  <path d="M395.0 72.0 L411.0 66.0 L411.0 78.0 z" fill="#2f63b0"/>
+  <path d="M535.0 72.0 L519.0 66.0 L519.0 78.0 z" fill="#2f63b0"/>
+  <rect x="452.1" y="54.4" width="25.9" height="26" fill="#ffffff"/>
+  <text x="465.0" y="79.7" text-anchor="middle" font-size="22" font-weight="600" font-style="italic" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2f63b0">l</text>
+  <text x="90.0" y="186.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">x</text>
+  <text x="390.0" y="186.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">y</text>
+  <text x="540.0" y="186.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">z</text>
+</svg>

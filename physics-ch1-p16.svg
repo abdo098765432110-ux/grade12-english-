@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 746 290" width="746" height="290">
+  <!-- Physics, chapter 1, PDF question 16: three circuits, each with one conductor and one battery. Conductor of length l with 3 V and current I1; length 2l with V and current I2; length 3l with 2 V and current I3. -->
+  <rect width="746" height="290" fill="#ffffff"/>
+  <path d="M97.0 84.0 L14.0 84.0 L14.0 196.0 L116.0 196.0" stroke="#1f6f6a" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M147.0 84.0 L230.0 84.0 L230.0 196.0 L128.0 196.0" stroke="#1f6f6a" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M97.0 72.0 H147.0 A4.2 12.0 0 0 1 147.0 96.0 H97.0 A4.2 12.0 0 0 1 97.0 72.0 z" fill="#f6a06b" stroke="#c4502a" stroke-width="2"/>
+  <ellipse cx="147.0" cy="84.0" rx="4.2" ry="12.0" fill="#ffffff" fill-opacity="0.55" stroke="#c4502a" stroke-width="2"/>
+  <rect x="114.0" y="190.0" width="16.0" height="12.0" fill="#ffffff"/>
+  <path d="M116.0 168.0V224.0M128.0 180.0V212.0" stroke="#1a1a1a" stroke-width="5"/>
+  <text x="122.0" y="52.0" text-anchor="middle" font-size="28" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">I<tspan font-size="19" dy="6">1</tspan></text>
+  <text x="122.0" y="130.0" text-anchor="middle" font-size="28" font-weight="700" font-style="italic" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#6a3d9a">ℓ</text>
+  <text x="122.0" y="264.0" text-anchor="middle" font-size="30" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#6a3d9a">3 V</text>
+  <path d="M316.0 84.0 L258.0 84.0 L258.0 196.0 L360.0 196.0" stroke="#1f6f6a" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M416.0 84.0 L474.0 84.0 L474.0 196.0 L372.0 196.0" stroke="#1f6f6a" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M316.0 72.0 H416.0 A4.2 12.0 0 0 1 416.0 96.0 H316.0 A4.2 12.0 0 0 1 316.0 72.0 z" fill="#f6a06b" stroke="#c4502a" stroke-width="2"/>
+  <ellipse cx="416.0" cy="84.0" rx="4.2" ry="12.0" fill="#ffffff" fill-opacity="0.55" stroke="#c4502a" stroke-width="2"/>
+  <rect x="358.0" y="190.0" width="16.0" height="12.0" fill="#ffffff"/>
+  <path d="M360.0 168.0V224.0M372.0 180.0V212.0" stroke="#1a1a1a" stroke-width="5"/>
+  <text x="366.0" y="52.0" text-anchor="middle" font-size="28" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">I<tspan font-size="19" dy="6">2</tspan></text>
+  <text x="366.0" y="130.0" text-anchor="middle" font-size="28" font-weight="700" font-style="italic" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#6a3d9a">2 ℓ</text>
+  <text x="366.0" y="264.0" text-anchor="middle" font-size="30" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#6a3d9a">V</text>
+  <path d="M535.0 84.0 L502.0 84.0 L502.0 196.0 L604.0 196.0" stroke="#1f6f6a" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M685.0 84.0 L718.0 84.0 L718.0 196.0 L616.0 196.0" stroke="#1f6f6a" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M535.0 72.0 H685.0 A4.2 12.0 0 0 1 685.0 96.0 H535.0 A4.2 12.0 0 0 1 535.0 72.0 z" fill="#f6a06b" stroke="#c4502a" stroke-width="2"/>
+  <ellipse cx="685.0" cy="84.0" rx="4.2" ry="12.0" fill="#ffffff" fill-opacity="0.55" stroke="#c4502a" stroke-width="2"/>
+  <rect x="602.0" y="190.0" width="16.0" height="12.0" fill="#ffffff"/>
+  <path d="M604.0 168.0V224.0M616.0 180.0V212.0" stroke="#1a1a1a" stroke-width="5"/>
+  <text x="610.0" y="52.0" text-anchor="middle" font-size="28" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">I<tspan font-size="19" dy="6">3</tspan></text>
+  <text x="610.0" y="130.0" text-anchor="middle" font-size="28" font-weight="700" font-style="italic" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#6a3d9a">3 ℓ</text>
+  <text x="610.0" y="264.0" text-anchor="middle" font-size="30" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#6a3d9a">2 V</text>
+</svg>
