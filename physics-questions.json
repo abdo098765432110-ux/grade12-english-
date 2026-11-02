@@ -8,7 +8,8 @@
       "sections": [
         {
           "id": "chapter-1-questions",
-          "title": "أسئلة على الفصل الأول",
+          "title": "حل أسئلة الفصل الأول",
+          "pdf": "physics-ch1-questions.pdf",
           "questions": [
             {
               "id": "phys-ch1-p01",
@@ -1978,7 +1979,13 @@
             }
           ]
         }
-      ]
+      ],
+      "revision": {
+        "id": "chapter-1-laws",
+        "title": "مراجعة أهم قوانين الفصل الأول",
+        "page": "physics-ch1-laws.html",
+        "pdf": "physics-ch1-laws.pdf"
+      }
     }
   ]
 }

@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>مراجعة أهم قوانين الفصل الأول — الفيزياء — Learn for Grade 12</title>
+  <meta name="description" content="مراجعة أهم قوانين الفصل الأول في الفيزياء (التيار الكهربي وقانون أوم وقانونا كيرشوف) — Learn for Grade 12.">
+  <link rel="icon" href="logo.svg" type="image/svg+xml">
+  <script>
+    /* 1. Apply the saved interface language before the page is drawn. */
+    (function () {
+      try {
+        if (localStorage.getItem('g12-lang') === 'ar') {
+          document.documentElement.lang = 'ar';
+          document.documentElement.dir = 'rtl';
+        }
+      } catch (error) { /* storage blocked: English */ }
+    })();
+
+    /* 2. Fallback: if a CSS or JavaScript file cannot be loaded, show a clear
+       message. This must stay inline: an external file could be missing too. */
+    (function () {
+      var failed = [];
+      window.addEventListener('error', function (event) {
+        var node = event.target;
+        if (node && (node.tagName === 'LINK' || node.tagName === 'SCRIPT')) {
+          failed.push({ file: node.getAttribute('href') || node.getAttribute('src'), script: node.tagName === 'SCRIPT' });
+        }
+      }, true);
+      window.addEventListener('load', function () {
+        if (!failed.length) return;
+        var arabic = document.documentElement.lang === 'ar';
+        var files = failed.map(function (f) { return f.file; }).join(', ');
+        var box = document.createElement('div');
+        box.id = 'load-failure';
+        box.setAttribute('role', 'alert');
+        box.style.cssText = 'margin:1rem 0;padding:1rem;border:2px solid #a8261b;border-radius:8px;background:#fbeceb;color:#1d2733;font:1rem/1.6 system-ui,Tahoma,sans-serif';
+        box.textContent = arabic
+          ? 'تعذّر تحميل جزء من هذه الصفحة (' + files + '). يُرجى إعادة تحميل الصفحة. إذا كنت تدير هذا الموقع، فتأكد من رفع كل ملفات الموقع إلى المستوى الأعلى في مستودع GitHub، بجوار index.html.'
+          : 'Part of this page could not be loaded (' + files + '). Please reload the page. If you manage this website, check that all the website files are uploaded to the top level of the GitHub repository, next to index.html.';
+        var main = document.getElementById('main');
+        if (main) main.insertBefore(box, main.firstChild);
+      });
+    })();
+  </script>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="sheet.css">
+  <script src="i18n-en.js"></script>
+  <script src="i18n-ar.js"></script>
+  <script src="i18n.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main" data-i18n="Skip to main content">Skip to main content</a>
+
+  <header class="site-header site-header--subject">
+    <div class="container header-inner">
+      <a class="brand" href="index.html"><img class="brand-logo" src="logo.svg" alt="" width="44" height="44"><span class="brand-text"><span class="brand-name" lang="en" dir="ltr" data-i18n="Learn for Grade 12">Learn for Grade 12</span> <span class="brand-tagline" data-i18n="Free practice for Egyptian secondary students">Free practice for Egyptian secondary students</span></span></a>
+      <details class="subject-menu">
+        <summary class="subject-menu-button" lang="ar" dir="rtl">المواد الدراسية</summary>
+        <ul class="subject-list" lang="ar" dir="rtl">
+        <li><a class="tone-peach" href="arabic.html"><img src="subject-arabic.svg" alt="" width="40" height="40"><span>اللغة العربية</span></a></li>
+        <li><a class="tone-sky" href="index.html"><img src="subject-english.svg" alt="" width="40" height="40"><span>اللغة الإنجليزية</span></a></li>
+        <li><a class="tone-lavender" href="physics.html" aria-current="page"><img src="subject-physics.svg" alt="" width="40" height="40"><span>الفيزياء</span></a></li>
+        <li><a class="tone-sun" href="chemistry.html"><img src="subject-chemistry.svg" alt="" width="40" height="40"><span>الكيمياء</span></a></li>
+        <li><a class="tone-mint" href="biology.html"><img src="subject-biology.svg" alt="" width="40" height="40"><span>الأحياء</span></a></li>
+        </ul>
+      </details>
+      <div class="header-tools">
+        <button type="button" class="lang-toggle" lang="ar" hidden>العربية</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="container subject-page sheet-page" tabindex="-1">
+    <nav class="breadcrumb subject-breadcrumb" aria-label="Breadcrumb" data-i18n-aria="Breadcrumb" lang="ar" dir="rtl">
+      <ol>
+        <li><a href="physics.html">الفيزياء</a></li>
+        <li><a href="physics.html?chapter=chapter-1">الفصل الأول</a></li>
+        <li><span aria-current="page">مراجعة أهم قوانين الفصل الأول</span></li>
+      </ol>
+    </nav>
+
+    <div class="sheet-toolbar">
+      <a class="btn" href="physics-ch1-laws.pdf" download data-i18n="Download Revision Sheet">Download Revision Sheet</a>
+      <button type="button" class="btn btn--secondary" data-print-sheet data-i18n="Print Revision Sheet">Print Revision Sheet</button>
+      <p class="hint" data-i18n="PDF file, A4 pages">PDF file, A4 pages</p>
+    </div>
+
+    <article class="sheet" lang="ar" dir="rtl" aria-labelledby="sheet-title">
+      <header class="sheet-head">
+        <div>
+          <h1 id="sheet-title">مراجعة أهم قوانين الفصل الأول</h1>
+          <p class="sheet-sub">الفيزياء — الصف الثالث الثانوي · التيار الكهربي وقانون أوم وقانونا كيرشوف</p>
+        </div>
+        <p class="sheet-brand" lang="en" dir="ltr">Learn for Grade 12</p>
+      </header>
+
+      <p class="sheet-intro">الورقة دي فيها القوانين والقواعد والأفكار اللي هتحتاجها علشان تحل أسئلة الفصل الأول اللي على الموقع (118 سؤال)، مرتبة من الأساسيات للأصعب. كل قانون معاه شروطه والأخطاء اللي بتتكرر فيه.</p>
+
+      <!-- 1 -->
+      <section>
+        <h2><span class="n">1</span>الكميات والرموز والوحدات</h2>
+        <div class="sheet-table-wrap">
+          <table>
+            <thead><tr><th>الكمية</th><th class="c">الرمز</th><th class="c">الوحدة</th><th>ملحوظة</th></tr></thead>
+            <tbody>
+              <tr><td>كمية الكهرباء (الشحنة)</td><td class="c"><span class="eq">Q</span></td><td class="c">كولوم <span class="eq">C</span></td><td></td></tr>
+              <tr><td>شدة التيار</td><td class="c"><span class="eq">I</span></td><td class="c">أمبير <span class="eq">A = C/s</span></td><td></td></tr>
+              <tr><td>الزمن</td><td class="c"><span class="eq">t</span></td><td class="c">ثانية <span class="eq">s</span></td><td></td></tr>
+              <tr><td>فرق الجهد</td><td class="c"><span class="eq">V</span></td><td class="c">فولت <span class="eq">V = J/C</span></td><td></td></tr>
+              <tr><td>القوة الدافعة الكهربية للبطارية</td><td class="c"><span class="eq">V<sub>B</sub></span></td><td class="c">فولت <span class="eq">V</span></td><td></td></tr>
+              <tr><td>المقاومة</td><td class="c"><span class="eq">R</span></td><td class="c">أوم <span class="eq">Ω = V/A</span></td><td></td></tr>
+              <tr><td>المقاومة الداخلية للبطارية</td><td class="c"><span class="eq">r</span></td><td class="c"><span class="eq">Ω</span></td><td>في أسئلة الأسلاك <span class="eq">r</span> ممكن تكون نصف القطر</td></tr>
+              <tr><td>المقاومة النوعية</td><td class="c"><span class="eq">ρ<sub>e</sub></span></td><td class="c"><span class="eq">Ω.m</span></td><td></td></tr>
+              <tr><td>التوصيلية الكهربية</td><td class="c"><span class="eq">σ</span></td><td class="c"><span class="eq">Ω<sup>−1</sup>.m<sup>−1</sup></span></td><td></td></tr>
+              <tr><td>الطول</td><td class="c"><span class="eq">L</span></td><td class="c">متر <span class="eq">m</span></td><td></td></tr>
+              <tr><td>مساحة المقطع</td><td class="c"><span class="eq">A</span></td><td class="c"><span class="eq">m<sup>2</sup></span></td><td><span class="eq">A</span> هنا مساحة، مش الأمبير</td></tr>
+              <tr><td>الشغل / الطاقة</td><td class="c"><span class="eq">W</span></td><td class="c">جول <span class="eq">J</span></td><td></td></tr>
+              <tr><td>القدرة</td><td class="c"><span class="eq">P</span></td><td class="c">وات <span class="eq">W = J/s</span></td><td><span class="eq">W</span> كرمز = الشغل، وكوحدة = الوات</td></tr>
+              <tr><td>مقدار شحنة الإلكترون</td><td class="c"><span class="eq">e</span></td><td class="c"><span class="eq">1.6×10<sup>−19</sup> C</span></td><td></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="tip">
+          <span class="box-title">تحويلات الوحدات</span>
+          <span class="eq">1 cm = 10<sup>−2</sup> m</span> &nbsp;·&nbsp; <span class="eq">1 mm = 10<sup>−3</sup> m</span> &nbsp;·&nbsp; <span class="eq">1 cm<sup>2</sup> = 10<sup>−4</sup> m<sup>2</sup></span> &nbsp;·&nbsp; <span class="eq">1 mm<sup>2</sup> = 10<sup>−6</sup> m<sup>2</sup></span> &nbsp;·&nbsp; <span class="eq">1 mA = 10<sup>−3</sup> A</span><br>
+          في الحسابات حوّل لوحدات <span class="eq">m</span> و <span class="eq">m<sup>2</sup></span>. أما في النسب، لو الكميتين مكتوبين بنفس الوحدة (مثلًا الاتنين <span class="eq">cm<sup>2</sup></span>) الوحدة بتختصر ومش لازم تحوّل؛ ولو الوحدات مختلفة حوّلهم لوحدة واحدة الأول.
+        </div>
+      </section>
+
+      <!-- 2 -->
+      <section>
+        <h2><span class="n">2</span>التيار الكهربي وكمية الكهرباء</h2>
+        <div class="law">
+          <span class="law-name">شدة التيار = كمية الكهرباء المارة عبر مقطع الموصل في الثانية الواحدة</span>
+          <span class="law-eqs"><span class="eq">I = <span class="frac"><span>Q</span><span>t</span></span></span><span class="eq">Q = I t</span><span class="eq">Q = n e</span><span class="eq"><span class="frac"><span>n</span><span>t</span></span> = <span class="frac"><span>I</span><span>e</span></span></span></span>
+          <span class="law-note"><span class="eq">n/t</span> = عدد الإلكترونات اللي بتعدي في الثانية.</span>
+        </div>
+        <ul>
+          <li><b>اتجاه التيار الاصطلاحي</b> = اتجاه حركة الشحنات الموجبة: في الدائرة الخارجية من القطب الموجب للقطب السالب (من الجهد الأعلى للأقل)، وجوه البطارية من القطب السالب للقطب الموجب (ده للبطارية اللي بتدّي التيار؛ البطارية اللي بتتشحن التيار بيدخلها من قطبها الموجب ويمشي جواها من الموجب للسالب). الإلكترونات بتتحرك عكس اتجاه التيار الاصطلاحي.</li>
+          <li><b>رمز البطارية:</b> اللوح الطويل = القطب الموجب (+)، واللوح القصير = القطب السالب (−). البطارية اللي بتدّي التيار، التيار بيخرج من قطبها الموجب للدائرة الخارجية.</li>
+          <li><b>منحنى (التيار – الزمن):</b> كمية الكهرباء = المساحة تحت المنحنى. جزء التيار فيه ثابت = مستطيل <span class="eq">I × t</span>، وجزء التيار فيه بيتغير بانتظام = شبه منحرف <span class="eq">(I<sub>1</sub> + I<sub>2</sub>)/2 × Δt</span>.</li>
+        </ul>
+      </section>
+
+      <!-- 3 -->
+      <section>
+        <h2><span class="n">3</span>فرق الجهد والقوة الدافعة الكهربية</h2>
+        <div class="law">
+          <span class="law-name">فرق الجهد والقوة الدافعة الكهربية</span>
+          <span class="law-eqs"><span class="eq">V = <span class="frac"><span>W</span><span>Q</span></span></span><span class="eq">V<sub>B</sub> = <span class="frac"><span>W</span><span>Q</span></span></span><span class="eq">1 V = 1 J/C</span></span>
+          <span class="law-note">في <span class="eq">V<sub>B</sub></span>: <span class="eq">W</span> هو الشغل الكلي اللي البطارية بتبذله لنقل الشحنة في الدائرة كلها (جوه البطارية وبرّاها).</span>
+        </div>
+        <ul>
+          <li>في المقاومة التيار بيمشي من النقطة الأعلى جهدًا للنقطة الأقل؛ لو التيار داخل المقاومة من <span class="eq">X</span> وخارج من <span class="eq">Y</span>: <span class="eq">V(X) − V(Y) = I R</span>، يعني <span class="eq">I = (V(X) − V(Y))/R</span>.</li>
+          <li>أي نقطتين بيوصل بينهم سلك (مقاومته مهملة) ليهم <b>نفس الجهد</b>.</li>
+          <li>القوة الدافعة الكهربية خاصية للبطارية نفسها، ما بتتغيرش لما نغيّر الدائرة.</li>
+          <li>علشان تحسب التيار أو القدرة من الشغل والشحنة لازم الزمن <span class="eq">t</span> يكون معلوم.</li>
+        </ul>
+      </section>
+
+      <!-- 4 -->
+      <section>
+        <h2><span class="n">4</span>قانون أوم</h2>
+        <div class="law">
+          <span class="law-name">قانون أوم (لموصل أومي عند ثبوت درجة الحرارة)</span>
+          <span class="law-eqs"><span class="eq">V = I R</span><span class="eq">R = <span class="frac"><span>V</span><span>I</span></span></span><span class="eq">I = <span class="frac"><span>V</span><span>R</span></span></span></span>
+        </div>
+        <ul>
+          <li>مقاومة الموصل الأومي ثابتة عند ثبوت درجة الحرارة: لو التيار زاد، فرق الجهد بيزيد بنفس النسبة، والمقاومة ما بتعتمدش على التيار ولا على فرق الجهد.</li>
+          <li>لنفس فرق الجهد: <span class="eq">I ∝ 1/R</span>. ولنفس التيار: <span class="eq">V ∝ R</span>.</li>
+        </ul>
+      </section>
+
+      <!-- 5 -->
+      <section>
+        <h2><span class="n">5</span>المقاومة والمقاومة النوعية والتوصيلية الكهربية</h2>
+        <div class="law">
+          <span class="law-name">مقاومة سلك</span>
+          <span class="law-eqs"><span class="eq">R = <span class="frac"><span>ρ<sub>e</sub> L</span><span>A</span></span></span><span class="eq">ρ<sub>e</sub> = <span class="frac"><span>R A</span><span>L</span></span></span><span class="eq">σ = <span class="frac"><span>1</span><span>ρ<sub>e</sub></span></span> = <span class="frac"><span>L</span><span>R A</span></span></span></span>
+        </div>
+        <div class="sheet-table-wrap keep">
+          <table>
+            <thead><tr><th>الكمية</th><th>بتعتمد على</th><th>ما بتعتمدش على</th></tr></thead>
+            <tbody>
+              <tr><td>المقاومة <span class="eq">R</span></td><td>الطول <span class="eq">L</span> (طرديًا)، مساحة المقطع <span class="eq">A</span> (عكسيًا)، نوع المادة، درجة الحرارة</td><td>التيار وفرق الجهد</td></tr>
+              <tr><td>المقاومة النوعية <span class="eq">ρ<sub>e</sub></span> والتوصيلية <span class="eq">σ</span></td><td>نوع المادة ودرجة الحرارة <b>بس</b></td><td>الطول ومساحة المقطع وشكل السلك</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <ul>
+          <li><b>المقطع الدائري:</b> <span class="eq">A = π r<sup>2</sup> = π d<sup>2</sup>/4</span>، يعني <span class="eq">A ∝ d<sup>2</sup></span>، ولنفس المادة <span class="eq">R ∝ L/d<sup>2</sup></span>. مضاعفة القطر (أو نصف القطر) بتخلّي المساحة 4 أمثالها، فلو الطول ثابت (سلك تاني، مش إعادة تشكيل) المقاومة بتقل للربع. أما لو نفس السلك اتعاد تشكيله، الطول كمان بيتغير (شوف جزء 6).</li>
+          <li><b>درجة الحرارة:</b> لما الموصل المعدني يسخن، سعة اهتزاز ذراته بتزيد، فتصادمات الإلكترونات الحرة معاها بتزيد، فالمقاومة النوعية والمقاومة يزيدوا. ولما يبرد يقلّوا.</li>
+        </ul>
+        <div class="law">
+          <span class="law-name">مقارنة سلكين</span>
+          <span class="law-eqs"><span class="eq"><span class="frac"><span>R<sub>1</sub></span><span>R<sub>2</sub></span></span> = <span class="frac"><span>ρ<sub>e1</sub></span><span>ρ<sub>e2</sub></span></span> × <span class="frac"><span>L<sub>1</sub></span><span>L<sub>2</sub></span></span> × <span class="frac"><span>A<sub>2</sub></span><span>A<sub>1</sub></span></span> = <span class="frac"><span>ρ<sub>e1</sub></span><span>ρ<sub>e2</sub></span></span> × <span class="frac"><span>L<sub>1</sub></span><span>L<sub>2</sub></span></span> × (<span class="frac"><span>d<sub>2</sub></span><span>d<sub>1</sub></span></span>)<sup>2</sup></span></span>
+          <span class="law-note">ولو نفس فرق الجهد على السلكين: <span class="eq">I<sub>1</sub>/I<sub>2</sub> = R<sub>2</sub>/R<sub>1</sub></span>. ولو نفس التيار (توالي): <span class="eq">V<sub>1</sub>/V<sub>2</sub> = R<sub>1</sub>/R<sub>2</sub></span>.</span>
+        </div>
+      </section>
+
+      <!-- 6 -->
+      <section>
+        <h2><span class="n">6</span>إعادة تشكيل سلك (سحب – ثني – تقطيع)</h2>
+        <div class="law">
+          <span class="law-name">حجم السلك ثابت والمادة ثابتة</span>
+          <span class="law-eqs"><span class="eq">L × A = L′ × A′</span></span>
+          <span class="law-note">المادة ما اتغيرتش، فالمقاومة النوعية والتوصيلية ثابتين؛ اللي بيتغير هو المقاومة <span class="eq">R</span>.</span>
+        </div>
+        <div class="sheet-table-wrap">
+          <table>
+            <thead><tr><th>التغيير</th><th class="c">الطول الجديد</th><th class="c">المساحة الجديدة</th><th class="c">المقاومة الجديدة</th></tr></thead>
+            <tbody>
+              <tr><td>سحب السلك بانتظام لـ <span class="eq">n</span> أمثال طوله</td><td class="c"><span class="eq">n L</span></td><td class="c"><span class="eq">A/n</span></td><td class="c"><span class="eq">n<sup>2</sup> R</span><span class="cell-note">للضعف: <span class="eq">4R</span> · لثلاثة أمثال: <span class="eq">9R</span></span></td></tr>
+              <tr><td>سحب السلك لحد ما قطره يقل لـ <span class="eq">1/k</span></td><td class="c"><span class="eq">k<sup>2</sup> L</span></td><td class="c"><span class="eq">A/k<sup>2</sup></span></td><td class="c"><span class="eq">k<sup>4</sup> R</span><span class="cell-note">القطر للنص: <span class="eq">16R</span></span></td></tr>
+              <tr><td>إعادة تشكيله لحد ما طوله يقل لـ <span class="eq">1/n</span> (مساحته تبقى <span class="eq">n</span> أمثالها)</td><td class="c"><span class="eq">L/n</span></td><td class="c"><span class="eq">n A</span></td><td class="c"><span class="eq">R/n<sup>2</sup></span><span class="cell-note">الطول للثلث: <span class="eq">R/9</span></span></td></tr>
+              <tr><td>ثني السلك من منتصفه (طبقتين جنب بعض)</td><td class="c"><span class="eq">L/2</span></td><td class="c"><span class="eq">2A</span></td><td class="c"><span class="eq">R/4</span></td></tr>
+              <tr><td>تقطيع السلك لـ <span class="eq">n</span> أجزاء متساوية (مقاومة كل جزء)</td><td class="c"><span class="eq">L/n</span></td><td class="c"><span class="eq">A</span></td><td class="c"><span class="eq">R/n</span></td></tr>
+              <tr><td>استبدال السلك بسلك تاني من نفس المادة ونفس المقطع وطوله <span class="eq">n L</span> (مش سحب)</td><td class="c"><span class="eq">n L</span></td><td class="c"><span class="eq">A</span></td><td class="c"><span class="eq">n R</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>آخر صفين مش إعادة تشكيل: الحجم مش ثابت فيهم، فما تستخدمش <span class="eq">L × A = L′ × A′</span>.</p>
+        <div class="warn">
+          <span class="box-title">«زادت بمقدار» غير «أصبحت»</span>
+          الزيادة = الفرق: <span class="eq">ΔR = R′ − R</span>. مثال: سلك مقاومته <span class="eq">5 Ω</span> اتسحب لحد ما قطره قلّ للنص ← <span class="eq">R′ = 16 × 5 = 80 Ω</span>، والزيادة = <span class="eq">75 Ω</span>. و«زادت بمقدار <span class="eq">3R</span>» معناها <span class="eq">R′ = 4R</span>.
+        </div>
+      </section>
+
+      <!-- 7 -->
+      <section>
+        <h2><span class="n">7</span>توصيل المقاومات</h2>
+        <div class="two-col">
+          <div>
+            <h3>على التوالي</h3>
+            <ul>
+              <li>نفس التيار في كل المقاومات.</li>
+              <li><span class="eq">R = R<sub>1</sub> + R<sub>2</sub> + R<sub>3</sub> + …</span></li>
+              <li><span class="eq">V = V<sub>1</sub> + V<sub>2</sub> + …</span>، وفرق الجهد بيتوزع بنسبة المقاومات: <span class="eq">V<sub>1</sub>/V<sub>2</sub> = R<sub>1</sub>/R<sub>2</sub></span>.</li>
+              <li><span class="eq">n</span> مقاومات متساوية: <span class="eq">R(eq) = n R</span>. المكافئة أكبر من أكبر مقاومة.</li>
+              <li>لو أي جزء اتقطع (مصباح اتحرق مثلًا) التيار بيقف في المسار كله.</li>
+            </ul>
+          </div>
+          <div>
+            <h3>على التوازي</h3>
+            <ul>
+              <li>نفس فرق الجهد على كل الفروع.</li>
+              <li><span class="eq"><span class="frac"><span>1</span><span>R</span></span> = <span class="frac"><span>1</span><span>R<sub>1</sub></span></span> + <span class="frac"><span>1</span><span>R<sub>2</sub></span></span> + …</span></li>
+              <li>لمقاومتين: <span class="eq">R = <span class="frac"><span>R<sub>1</sub> R<sub>2</sub></span><span>R<sub>1</sub> + R<sub>2</sub></span></span></span>، و <span class="eq">n</span> متساوية: <span class="eq">R/n</span>. المكافئة أصغر من أصغر مقاومة.</li>
+              <li><span class="eq">I = I<sub>1</sub> + I<sub>2</sub> + …</span>، والتيار بيتوزع عكس المقاومات: <span class="eq">I<sub>1</sub>/I<sub>2</sub> = R<sub>2</sub>/R<sub>1</sub></span>، و <span class="eq">I<sub>1</sub> = I × <span class="frac"><span>R<sub>2</sub></span><span>R<sub>1</sub> + R<sub>2</sub></span></span></span>.</li>
+              <li>إضافة فرع جديد بتقلل المقاومة المكافئة، وزيادة مقاومة أي فرع بتزودها.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="tip">لو المقاومة الداخلية للبطارية مهملة، أي فرع متوصل مباشرة على طرفيها فرق الجهد عليه = <span class="eq">V<sub>B</sub></span>، وتياره ما بيتأثرش بفتح أو قفل الفروع التانية.</div>
+      </section>
+
+      <!-- 8 -->
+      <section>
+        <h2><span class="n">8</span>أفكار لتبسيط الدوائر</h2>
+        <ul>
+          <li><b>دائرة القصر:</b> سلك (أو مفتاح مقفول، أو أميتر مثالي) متوصل بين طرفي مقاومة أو مجموعة مقاومات ← المقاومة (أو المجموعة) اللي اتعملها قصر مفيش فيها تيار ونشيلها من الحساب، والتيار كله بيعدي في السلك (ولو ده أميتر بيقرأ التيار ده كله).</li>
+          <li>النقط اللي بيوصل بينها سلك = نقطة واحدة. ومقاومة طرفيها على نفس النقطة ما بيعديش فيها تيار.</li>
+          <li>فرع آخره مفتاح مفتوح أو طرف مش متوصل، أو جزء متوصل بالدائرة من نقطة واحدة بس ← مفيش فيه تيار.</li>
+          <li>ابدأ التبسيط من أبعد جزء عن البطارية وارجع ناحيتها. والفروع المتماثلة بيتقسم التيار عليها بالتساوي.</li>
+          <li>المقاومة المكافئة بتعتمد على النقطتين اللي البطارية متوصلة بينهم؛ نفس الشبكة بين نقطتين تانيين ليها مقاومة تانية.</li>
+          <li>«المقاومة المكافئة الخارجية» = كل المقاومات اللي برا البطارية، من غير المقاومة الداخلية <span class="eq">r</span>.</li>
+        </ul>
+      </section>
+
+      <!-- 9 -->
+      <section>
+        <h2><span class="n">9</span>أجهزة القياس: الأميتر والفولتميتر</h2>
+        <div class="sheet-table-wrap keep">
+          <table>
+            <thead><tr><th>الجهاز</th><th>طريقة التوصيل</th><th class="c">مقاومته المثالية</th><th>بيقيس</th></tr></thead>
+            <tbody>
+              <tr><td>الأميتر</td><td>على التوالي في الفرع</td><td class="c">صفر</td><td>تيار الفرع اللي هو فيه بس (التيار الكلي لو هو في الخط الرئيسي)</td></tr>
+              <tr><td>الفولتميتر</td><td>على التوازي بين نقطتين</td><td class="c">ما لا نهاية (ما بيسحبش تيار)</td><td>فرق الجهد بين النقطتين اللي متوصل بيهم بالظبط (ممكن يكونوا حوالين أكتر من عنصر)</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <ul>
+          <li>أميتر متوصل بين طرفي مقاومة بيعمل لها دائرة قصر.</li>
+          <li>فولتميتر على طرفي البطارية بيقرأ <span class="eq">V = V<sub>B</sub> − I r</span> (ولو البطارية بتتشحن <span class="eq">V = V<sub>B</sub> + I r</span>). ولو مفيش تيار في الدائرة بيقرأ <span class="eq">V<sub>B</sub></span>.</li>
+          <li>لو الدائرة مفتوحة عند مفتاح واحد بس، الفولتميتر اللي بين طرفي المفتاح ده بيقرأ <span class="eq">V<sub>B</sub></span> (مفيش تيار، فمفيش هبوط في الجهد على المقاومات).</li>
+          <li>لو فولتميترين متماثلين بقوا هما المسار الوحيد للتيار (على التوالي مع البطارية ومع أي مصباح سليم في المسار): مقاومتهم كبيرة جدًا فالتيار صغير جدًا والجهد على المصابيح تقريبًا صفر، فمجموع قراءتيهم = <span class="eq">V<sub>B</sub></span>، ولأنهم متماثلين كل واحد بيقرأ <span class="eq">V<sub>B</sub>/2</span>.</li>
+          <li>قراءة الفولتميتر صفر معناها إن جهد النقطتين واحد، مش لازم معناها إن مفيش تيار.</li>
+        </ul>
+      </section>
+
+      <!-- 10 -->
+      <section>
+        <h2><span class="n">10</span>قانون أوم للدائرة المغلقة والمقاومة الداخلية</h2>
+        <div class="law">
+          <span class="law-name">قانون أوم للدائرة المغلقة</span>
+          <span class="law-eqs"><span class="eq">I = <span class="frac"><span>V<sub>B</sub></span><span>R + r</span></span></span><span class="eq">V<sub>B</sub> = I R + I r</span><span class="eq">V = V<sub>B</sub> − I r</span></span>
+          <span class="law-note"><span class="eq">R</span> = المقاومة المكافئة الخارجية، <span class="eq">V</span> = فرق الجهد بين طرفي البطارية وهي بتدّي تيار، <span class="eq">I r</span> = فرق الجهد المفقود جوه البطارية.</span>
+        </div>
+        <ul>
+          <li>مفيش تيار (دائرة مفتوحة) ← <span class="eq">V = V<sub>B</sub></span>.</li>
+          <li>لو <span class="eq">V = V<sub>B</sub> − I r</span> طلعت بالسالب، معناها إن القطب السالب بقى جهده أعلى من الموجب، والفولتميتر بيقرأ مقدارها (مثلًا <span class="eq">6 − 7.5 × 1 = −1.5 V</span> ← بيقرأ <span class="eq">1.5 V</span>).</li>
+          <li>بطارية مقاومتها الداخلية مهملة <span class="eq">(r = 0)</span> ← <span class="eq">V = V<sub>B</sub></span> دايمًا مهما اتغير التيار.</li>
+          <li>لو السؤال ما ذكرش <span class="eq">r</span>، اعتبرها مهملة، إلا لو الإجابة نفسها محتاجة مقاومة داخلية.</li>
+          <li><b>منحنى (فرق الجهد بين طرفي البطارية – التيار):</b> خط مستقيم نازل، بيقطع محور الجهد عند <span class="eq">V<sub>B</sub></span>، والميل بالقيمة المطلقة = <span class="eq">r</span>، وبيقطع محور التيار عند <span class="eq">V<sub>B</sub>/r</span>.</li>
+          <li><b>قراءتين لنفس البطارية:</b> <span class="eq">V<sub>B</sub> = I<sub>1</sub>(R<sub>1</sub> + r) = I<sub>2</sub>(R<sub>2</sub> + r)</span> ← نحسب <span class="eq">r</span> وبعدين <span class="eq">V<sub>B</sub></span>.</li>
+        </ul>
+      </section>
+
+      <!-- 11 -->
+      <section>
+        <h2><span class="n">11</span>أكتر من بطارية: الشحن والتفريغ</h2>
+        <ul>
+          <li>على التوالي في <b>نفس الاتجاه</b>: <span class="eq">V<sub>B</sub> = V<sub>B1</sub> + V<sub>B2</sub></span>، والمقاومات الداخلية بتتجمع <span class="eq">r = r<sub>1</sub> + r<sub>2</sub></span>.</li>
+          <li>على التوالي <b>عكس بعض</b>: <span class="eq">V<sub>B</sub> = V<sub>B1</sub> − V<sub>B2</sub></span> (الأكبر ناقص الأصغر)، والمقاومات الداخلية برضه بتتجمع <span class="eq">r = r<sub>1</sub> + r<sub>2</sub></span> (ما بتتطرحش). البطارية الأكبر هي اللي بتحدد اتجاه التيار، والتانية بتتشحن — ده لو البطاريتين في مسار مقفول واحد؛ في دائرة فيها فروع استخدم قانوني كيرشوف، وإشارة التيار هي اللي بتحدد.</li>
+        </ul>
+        <div class="law">
+          <span class="law-name">فرق الجهد بين طرفي بطارية</span>
+          <span class="law-eqs"><span class="eq">V = V<sub>B</sub> − I r</span><span class="eq">V = V<sub>B</sub> + I r</span></span>
+          <span class="law-note">الأولى وهي بتفرّغ (التيار بيخرج من قطبها الموجب)، والتانية وهي بتتشحن (التيار بيدخلها من قطبها الموجب).</span>
+        </div>
+        <ul>
+          <li>لو قراءة الفولتميتر على بطارية ما اتغيرتش لما التيار بدأ يعدي فيها ← مقاومتها الداخلية مهملة.</li>
+          <li>بطارية مثالية (من غير مقاومة) متوصلة مباشرة بين نقطتين بتثبّت فرق الجهد بينهم = <span class="eq">V<sub>B</sub></span>.</li>
+        </ul>
+      </section>
+
+      <!-- 12 -->
+      <section>
+        <h2><span class="n">12</span>إيه اللي بيحصل لقراءات الأجهزة لما الدائرة تتغير؟</h2>
+        <ol class="steps">
+          <li>شوف المقاومة الكلية زادت ولا قلّت (ريوستات اتحرك، مفتاح اتقفل أو اتفتح، فرع اتضاف أو مصباح اتحرق).</li>
+          <li>التيار الكلي <span class="eq">I = V<sub>B</sub>/(R(total) + r)</span> بيتغير عكس المقاومة الكلية.</li>
+          <li>فرق الجهد المفقود <span class="eq">I r</span> بيتغير مع التيار، وفرق الجهد بين طرفي البطارية <span class="eq">V = V<sub>B</sub> − I r</span> بيتغير عكسه (لو <span class="eq">r ≠ 0</span>).</li>
+          <li>فرق الجهد على مقاومة ثابتة في الخط الرئيسي <span class="eq">= I R</span> بيتغير مع التيار.</li>
+          <li>فرق الجهد على الجزء اللي اتغير احسبه بالطرح: <span class="eq">V = V<sub>B</sub> − I × (r + <bdi lang="ar">باقي المقاومات</bdi>)</span>، لأن تياره ومقاومته بيتغيروا عكس بعض، فـ <span class="eq">I × R</span> لوحده ما بيوضحش هو زاد ولا قل.</li>
+        </ol>
+        <div class="sheet-table-wrap keep">
+          <table>
+            <thead><tr><th>لو المقاومة المتغيرة (في الخط الرئيسي)…</th><th class="c">التيار الكلي</th><th class="c"><span class="eq">I r</span></th><th class="c">جهد طرفي البطارية</th><th class="c">جهد مقاومة ثابتة على التوالي</th><th class="c">جهد المقاومة المتغيرة</th></tr></thead>
+            <tbody>
+              <tr><td>زادت</td><td class="c arrow-down">↓</td><td class="c arrow-down">↓</td><td class="c arrow-up">↑</td><td class="c arrow-down">↓</td><td class="c arrow-up">↑</td></tr>
+              <tr><td>قلّت</td><td class="c arrow-up">↑</td><td class="c arrow-up">↑</td><td class="c arrow-down">↓</td><td class="c arrow-up">↑</td><td class="c arrow-down">↓</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>لو <span class="eq">r = 0</span>: <span class="eq">I r</span> = صفر، وجهد طرفي البطارية ثابت = <span class="eq">V<sub>B</sub></span>، وجهد المقاومة الثابتة + جهد المتغيرة = <span class="eq">V<sub>B</sub></span>.</p>
+        <ul>
+          <li><b>الريوستات:</b> «المقاومة المأخوذة» هي الجزء اللي بين الزالق والطرف المتوصل بس، والجزء التاني ما بيعديش فيه تيار.</li>
+          <li>قفل مفتاح بيضيف فرع على التوازي: المقاومة الكلية بتقل والتيار الكلي بيزيد، لكن تيار فرع معين ممكن يقل.</li>
+          <li>قفل مفتاح متوصل بين طرفي مقاومة بيعمل لها دائرة قصر. ومصباح اتحرق = الدائرة اتفتحت في المسار ده.</li>
+        </ul>
+      </section>
+
+      <!-- 13 -->
+      <section>
+        <h2><span class="n">13</span>الطاقة والقدرة الكهربية والمصابيح</h2>
+        <div class="law">
+          <span class="law-name">الطاقة (الشغل) والقدرة</span>
+          <span class="law-eqs"><span class="eq">W = V I t = I<sup>2</sup> R t = <span class="frac"><span>V<sup>2</sup> t</span><span>R</span></span></span><span class="eq">P = <span class="frac"><span>W</span><span>t</span></span> = V I = I<sup>2</sup> R = <span class="frac"><span>V<sup>2</sup></span><span>R</span></span></span></span>
+        </div>
+        <ul>
+          <li>على التوالي (نفس التيار): <span class="eq">P = I<sup>2</sup> R</span> يعني <span class="eq">P ∝ R</span>. على التوازي (نفس الجهد): <span class="eq">P = V<sup>2</sup>/R</span> يعني <span class="eq">P ∝ 1/R</span>.</li>
+          <li>بيانات المصباح (الجهد والقدرة المكتوبين عليه) هي قيم تشغيله الطبيعي: <span class="eq">R = V<sup>2</sup>/P</span> و <span class="eq">I = P/V</span>.</li>
+          <li>إضاءة المصباح بتعتمد على القدرة اللي بيستهلكها فعلًا. أقصى إضاءة لما يشتغل على جهده وقدرته المقننين بالظبط؛ لو الجهد عليه أقل بينور أضعف، ولو أكبر بيحترق.</li>
+          <li>مصباح محروق = فتيلة مقطوعة = دائرة مفتوحة في الفرع بتاعه: المصابيح اللي في نفس الفرع معاه (مفيش طريق للتيار غير من خلاله) بتطفي، وأي مصباح لسه ليه مسار مقفول للبطارية بيفضل منور (بس إضاءته ممكن تتغير).</li>
+          <li>لما تحسب قدرة عنصر، استخدم تياره هو أو فرق الجهد عليه هو.</li>
+        </ul>
+      </section>
+
+      <!-- 14 -->
+      <section>
+        <h2><span class="n">14</span>قانون كيرشوف الأول (نقطة التفرع)</h2>
+        <div class="law">
+          <span class="law-name">مجموع التيارات الداخلة = مجموع التيارات الخارجة</span>
+          <span class="law-eqs"><span class="eq">ΣI(in) = ΣI(out)</span><span class="eq">ΣI = 0</span></span>
+          <span class="law-note">في <span class="eq">ΣI = 0</span>: التيار الداخل موجب والخارج سالب.</span>
+          <span class="law-note">أساسه: قانون بقاء الشحنة.</span>
+        </div>
+        <ul>
+          <li>ممكن تعتبر جزء كامل من الدائرة «نقطة تفرع كبيرة» وتطبق عليه القانون.</li>
+          <li>لو تيار انت فرضت اتجاهه طلع بالسالب ← اتجاهه الحقيقي عكس اللي فرضته، والقيمة صح. أما الأسهم المرسومة في السؤال على تيارات معلومة فهي اتجاهات حقيقية.</li>
+          <li>لو تيار ملهوش اتجاه مرسوم، جرّب الاتجاهين واستبعد الاتجاه اللي بيدّي نتيجة تتعارض مع الأسهم المعلومة.</li>
+          <li>لو السؤال عن الإلكترونات: <span class="eq">n/t = I/e</span>، واتجاه حركتها عكس التيار الاصطلاحي.</li>
+        </ul>
+      </section>
+
+      <!-- 15 -->
+      <section>
+        <h2><span class="n">15</span>قانون كيرشوف الثاني (المسار المغلق)</h2>
+        <div class="law">
+          <span class="law-name">في أي مسار مغلق: المجموع الجبري للقوى الدافعة الكهربية = المجموع الجبري لفروق الجهد</span>
+          <span class="law-eqs"><span class="eq">ΣV<sub>B</sub> = ΣI R</span></span>
+          <span class="law-note">أساسه: قانون بقاء الطاقة.</span>
+        </div>
+        <ul>
+          <li><b>الإشارات:</b> اختار اتجاه للمسار. <span class="eq">V<sub>B</sub></span> موجبة لو المسار بيعدي في البطارية من القطب السالب للموجب، وسالبة لو العكس. <span class="eq">I R</span> موجب لو المسار في نفس اتجاه التيار في المقاومة، وسالب لو عكسه. المقاومة الداخلية <span class="eq">r</span> بتتعامل زي أي مقاومة.</li>
+        </ul>
+        <h3>خطوات حل دائرة بقانوني كيرشوف</h3>
+        <ol class="steps">
+          <li>حدد اتجاه للتيار في كل فرع (لو مش معروف خمّن).</li>
+          <li>طبّق القانون الأول عند نقط التفرع.</li>
+          <li>طبّق القانون التاني على مسارات مغلقة مستقلة (ولو تقدر اختار مسار ما فيهوش المجهول اللي مش محتاجه).</li>
+          <li>حل المعادلات مع بعض. تيار بالسالب = اتجاهه عكس اللي فرضته.</li>
+        </ol>
+        <h3>فرق الجهد بين نقطتين</h3>
+        <p>ابدأ من جهد النقطة <span class="eq">a</span> وامشي في أي مسار لحد <span class="eq">b</span>، وضيف التغيير في الجهد عند كل عنصر:</p>
+        <div class="sheet-table-wrap keep">
+          <table>
+            <thead><tr><th>لما تعدي في…</th><th class="c">التغيير في الجهد</th></tr></thead>
+            <tbody>
+              <tr><td>مقاومة في نفس اتجاه التيار</td><td class="c"><span class="eq">− I R</span> (هبوط)</td></tr>
+              <tr><td>مقاومة عكس اتجاه التيار</td><td class="c"><span class="eq">+ I R</span> (ارتفاع)</td></tr>
+              <tr><td>بطارية من القطب السالب للموجب</td><td class="c"><span class="eq">+ V<sub>B</sub></span> (ارتفاع)</td></tr>
+              <tr><td>بطارية من القطب الموجب للسالب</td><td class="c"><span class="eq">− V<sub>B</sub></span> (هبوط)</td></tr>
+              <tr><td>المقاومة الداخلية <span class="eq">r</span> في نفس اتجاه التيار</td><td class="c"><span class="eq">− I r</span> (هبوط)</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="law">
+          <span class="law-name">فرق الجهد بين نقطتين</span>
+          <span class="law-eqs"><span class="eq">V(b) = V(a) + Σ(<bdi lang="ar">التغييرات</bdi>)</span><span class="eq">V(a) − V(b) = Σ(<bdi lang="ar">الهبوط</bdi>) − Σ(<bdi lang="ar">الارتفاع</bdi>)</span></span>
+          <span class="law-note">الإشارات هنا عكس معادلة المسار المغلق لأننا بنجمع تغيّرات الجهد كلها في ناحية واحدة (ومجموعها في مسار مقفول = صفر)، وده نفس القانون. وتقدر تتأكد من النتيجة بمسار تاني بين نفس النقطتين.</span>
+        </div>
+      </section>
+
+      <!-- 16 -->
+      <section>
+        <h2><span class="n">16</span>أخطاء شائعة لازم تاخد بالك منها</h2>
+        <div class="warn">
+          <ul>
+            <li>القطر غير نصف القطر: <span class="eq">A = π r<sup>2</sup></span> بنصف القطر، ولو معاك القطر اقسمه على 2.</li>
+            <li>حوّل <span class="eq">cm<sup>2</sup></span> و <span class="eq">mm<sup>2</sup></span> لـ <span class="eq">m<sup>2</sup></span> في الحسابات، وانتبه لإشارة الأس (<span class="eq">10<sup>−6</sup></span> غير <span class="eq">10<sup>6</sup></span>).</li>
+            <li>المقاومة النوعية والتوصيلية ما بيتغيروش بتغيير الطول أو المساحة أو إعادة التشكيل؛ اللي بيتغير هو <span class="eq">R</span>.</li>
+            <li>ثني السلك بيقلل مقاومته، وسحبه لطول أكبر بيزودها أكتر من استبداله بسلك أطول بنفس المقطع.</li>
+            <li>دوّر على الأسلاك اللي بتعمل دائرة قصر قبل ما تحسب المقاومة المكافئة.</li>
+            <li>فرّق بين التيار الكلي وتيار الفرع، وبين فرق الجهد على الفرع كله وعلى مقاومة واحدة فيه.</li>
+            <li>النسبة بين قراءتين من نفس النوع (فرق جهد ÷ فرق جهد) ملهاش وحدة. ولو السؤال إداك نسبة بس، أي قيم بنفس النسبة تنفع («قيم محتملة»).</li>
+            <li>ما تنساش <span class="eq">r</span>: في المقاومة الكلية، وفي فرق الجهد بين طرفي البطارية.</li>
+            <li>البطارية اللي بتتشحن: <span class="eq">V = V<sub>B</sub> + I r</span> (مش ناقص)، ولما تمشي فيها في اتجاه التيار بتعدي من الموجب للسالب.</li>
+            <li>التيار بالسالب في كيرشوف معناه إن الاتجاه عكس السهم؛ ما تتجاهلش الإشارة وانت بتجمع التيارات.</li>
+            <li>قراءة الفولتميتر بتتحدد بالنقطتين اللي هو متوصل بيهم بالظبط (ممكن يكون على بطارية + مقاومة مع بعض).</li>
+            <li>اقرا السؤال كويس: مطلوب القيمة الجديدة ولا مقدار التغيير؟ التيار الكلي ولا تيار فرع؟ قبل غلق المفتاح ولا بعده؟</li>
+          </ul>
+        </div>
+      </section>
+
+      <p class="sheet-end">مراجعة أهم قوانين الفصل الأول — الفيزياء · <span lang="en" dir="ltr">Learn for Grade 12</span></p>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand"><img src="logo.svg" alt="" width="36" height="36"><span lang="en" dir="ltr" data-i18n="Learn for Grade 12">Learn for Grade 12</span></div>
+      <div class="footer-text">
+        <p data-i18n="A free learning resource for Egyptian Grade 12 students.">A free learning resource for Egyptian Grade 12 students.</p>
+        <p><a href="manage.html" data-i18n="Content manager (for teachers)">Content manager (for teachers)</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="common.js"></script>
+  <script src="sheet.js"></script>
+</body>
+</html>

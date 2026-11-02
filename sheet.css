@@ -1,0 +1,280 @@
+/* ==========================================================================
+   Revision sheet pages (physics-ch1-laws.html): an A4 document shown on the
+   website, printable from the browser, and turned into the downloadable PDF
+   (tools/physics_pdfs.py prints this same page). Loaded only by sheet pages,
+   so the A4 print settings below do not change printing elsewhere.
+   ========================================================================== */
+
+.sheet-page { padding-top: 1.25rem; padding-bottom: 3rem; }
+
+/* The bar with "Download" and "Print" above the sheet. */
+.sheet-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem 0.9rem;
+  margin: 0 auto 1.25rem;
+  max-width: 210mm;
+}
+
+.sheet-toolbar .btn { gap: 0.5rem; }
+.sheet-toolbar .hint { margin: 0; font-size: 0.9rem; color: var(--color-muted); }
+
+/* ---------- The sheet: a sheet of paper on screen ---------- */
+.sheet {
+  --ink: #23304d;
+  --muted: #56617c;
+  --line: #dbe3f2;
+  --law-bg: #eef4ff;
+  --law-edge: #9dbcf0;
+  --law-ink: #1f4787;
+  --tip-bg: #eefaf3;
+  --tip-edge: #9fdcbd;
+  --warn-bg: #fff7e0;
+  --warn-edge: #f2cf6b;
+  --warn-ink: #6b4500;
+  max-width: 210mm;
+  margin: 0 auto;
+  padding: 14mm 14mm 16mm;
+  background: #ffffff;
+  color: var(--ink);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  box-shadow: var(--shadow);
+  font-family: var(--font-arabic-ui);
+  font-size: 1rem;
+  line-height: 1.75;
+  text-align: right;
+}
+
+.sheet-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+  flex-wrap: wrap;
+  padding-bottom: 0.6rem;
+  margin-bottom: 0.9rem;
+  border-bottom: 3px solid #c9b8f5;
+}
+
+.sheet-head h1 {
+  margin: 0;
+  font-size: 1.65rem;
+  line-height: 1.35;
+  color: #3e2c8c;
+}
+
+.sheet-head .sheet-sub { margin: 0.15rem 0 0; color: var(--muted); font-size: 0.95rem; }
+.sheet-head .sheet-brand { margin: 0; color: var(--muted); font-size: 0.85rem; white-space: nowrap; }
+
+.sheet-intro {
+  margin: 0 0 1rem;
+  padding: 0.55rem 0.85rem;
+  border-radius: 6px;
+  background: #f5f2ff;
+  font-size: 0.95rem;
+}
+
+.sheet h2 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 1.35rem 0 0.55rem;
+  padding-bottom: 0.25rem;
+  border-bottom: 1.5px solid var(--line);
+  font-size: 1.2rem;
+  line-height: 1.4;
+  color: #3e2c8c;
+  break-after: avoid;
+  break-inside: avoid;
+}
+
+.sheet h2 .n {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.7rem;
+  height: 1.7rem;
+  padding: 0 0.3rem;
+  border-radius: 6px;
+  background: #ebe4ff;
+  color: #3e2c8c;
+  font-size: 0.95rem;
+}
+
+.sheet h3 { margin: 0.75rem 0 0.35rem; font-size: 1.02rem; color: var(--law-ink); break-after: avoid; }
+.sheet p { margin: 0 0 0.45rem; }
+
+.sheet ul { margin: 0.2rem 0 0.6rem; padding-inline-start: 1.25rem; }
+.sheet li { margin: 0.12rem 0; break-inside: avoid; }
+.sheet li::marker { color: #8a74d8; }
+
+.sheet b, .sheet strong { color: #1c2742; }
+
+/* An equation: always left to right, never broken across lines. */
+.eq {
+  direction: ltr;
+  unicode-bidi: isolate;
+  display: inline-block;
+  white-space: nowrap;
+  font-family: var(--font-body);
+  font-weight: 600;
+  color: #12306a;
+}
+
+.eq sub, .eq sup { font-size: 0.72em; line-height: 0; }
+
+/* A fraction inside an equation. */
+.frac {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  vertical-align: middle;
+  margin: 0 0.15em;
+  line-height: 1.2;
+}
+
+.frac > span { padding: 0 0.2em; }
+.frac > span:first-child { border-bottom: 1.5px solid currentColor; }
+
+/* A highlighted law: name, equation(s), and a short note. */
+.law {
+  margin: 0.45rem 0 0.6rem;
+  padding: 0.55rem 0.85rem;
+  border: 1px solid var(--law-edge);
+  border-inline-start-width: 5px;
+  border-radius: 6px;
+  background: var(--law-bg);
+  break-inside: avoid;
+}
+
+.law .law-name { display: block; margin-bottom: 0.15rem; font-weight: 700; color: var(--law-ink); }
+.law .law-eqs { display: flex; flex-wrap: wrap; gap: 0.3rem 1.6rem; max-width: 100%; overflow-x: auto; font-size: 1.12rem; }
+.law .law-note { display: block; margin-top: 0.2rem; font-size: 0.92rem; color: var(--muted); }
+
+.tip, .warn {
+  margin: 0.5rem 0 0.7rem;
+  padding: 0.55rem 0.85rem;
+  border-radius: 6px;
+  border: 1px solid var(--tip-edge);
+  background: var(--tip-bg);
+  font-size: 0.95rem;
+  break-inside: avoid;
+}
+
+.warn { border-color: var(--warn-edge); background: var(--warn-bg); }
+.tip .box-title, .warn .box-title { display: block; margin-bottom: 0.1rem; font-weight: 700; }
+.warn .box-title { color: var(--warn-ink); }
+.tip .box-title { color: #1b6b49; }
+.tip ul, .warn ul { margin-bottom: 0; }
+
+/* Tables */
+.sheet-table-wrap { overflow-x: auto; margin: 0.4rem 0 0.75rem; }
+.sheet-table-wrap.keep { break-inside: avoid; }   /* short tables stay on one page */
+
+.sheet table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.93rem;
+}
+
+/* A long table may continue on the next page, but never splits a row. */
+.sheet tr { break-inside: avoid; }
+.sheet thead { display: table-header-group; }
+
+.cell-note { display: block; font-size: 0.85em; color: var(--muted); }
+
+.sheet th, .sheet td {
+  padding: 0.35rem 0.55rem;
+  border: 1px solid var(--line);
+  vertical-align: middle;
+  text-align: right;
+}
+
+.sheet thead th { background: #f3f0ff; color: #3e2c8c; font-weight: 700; }
+.sheet tbody tr:nth-child(even) td { background: #fbfaff; }
+.sheet td.c, .sheet th.c { text-align: center; }
+
+/* Two cards side by side (series / parallel). */
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin: 0.45rem 0 0.7rem; }
+
+.two-col > div {
+  padding: 0.55rem 0.8rem;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #fcfcff;
+  break-inside: avoid;
+}
+
+.two-col h3 { margin-top: 0; }
+.two-col ul { margin-bottom: 0; }
+
+.steps { counter-reset: step; list-style: none; padding-inline-start: 0; }
+.steps li { position: relative; padding-inline-start: 1.9rem; }
+.steps li::before {
+  counter-increment: step;
+  content: counter(step);
+  position: absolute;
+  inset-inline-start: 0;
+  top: 0.2rem;
+  width: 1.35rem;
+  height: 1.35rem;
+  border-radius: 50%;
+  background: #ebe4ff;
+  color: #3e2c8c;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-align: center;
+  line-height: 1.35rem;
+}
+
+.arrow-up { color: #1b6b49; font-weight: 700; }
+.arrow-down { color: #a3361f; font-weight: 700; }
+
+.sheet-end { margin-top: 1.2rem; padding-top: 0.5rem; border-top: 1px solid var(--line); font-size: 0.85rem; color: var(--muted); text-align: center; }
+
+/* ---------- Phones ---------- */
+@media (max-width: 40rem) {
+  .sheet { padding: 1rem 0.9rem 1.25rem; font-size: 0.97rem; border-radius: 0; border-inline: 0; }
+  .sheet-head h1 { font-size: 1.35rem; }
+  .law .law-eqs { font-size: 1.04rem; gap: 0.25rem 1rem; }
+  .two-col { grid-template-columns: 1fr; }
+  .sheet-toolbar .btn { flex: 1 1 100%; }
+}
+
+/* ---------- Print and PDF: A4 pages ---------- */
+@page {
+  size: A4;
+  margin: 13mm 13mm 15mm;
+  @bottom-center {
+    content: counter(page) " / " counter(pages);
+    font-family: "DejaVu Sans", Tahoma, Arial, sans-serif;
+    font-size: 9pt;
+    color: #6b7590;
+  }
+}
+
+@media print {
+  html, body { background: #ffffff !important; }
+  .site-header, .site-footer, .skip-link, .sheet-toolbar, .breadcrumb, #load-failure { display: none !important; }
+  .sheet-page { padding: 0; margin: 0; max-width: none; }
+  .sheet {
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-shadow: none;
+    border-radius: 0;
+    font-size: 10.2pt;
+    line-height: 1.55;
+  }
+  .sheet-head h1 { font-size: 18pt; }
+  .sheet h2 { font-size: 13pt; margin-top: 10pt; }
+  .law .law-eqs { font-size: 12pt; }
+  .two-col { grid-template-columns: 1fr 1fr; }
+  .sheet-table-wrap { overflow: visible; }
+  a { color: inherit; text-decoration: none; }
+  * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}

@@ -304,7 +304,12 @@ test('physics questions: every question is valid, has its diagram, and the answe
   const project = path.join(__dirname, '..');
   const data = JSON.parse(fs.readFileSync(path.join(project, 'physics-questions.json'), 'utf8'));
   assert.equal(data.chapters[0].title, 'الفصل الأول');
-  assert.equal(data.chapters[0].sections[0].title, 'أسئلة على الفصل الأول');
+  assert.equal(data.chapters[0].sections[0].title, 'حل أسئلة الفصل الأول');
+  // the downloadable questions PDF and the revision sheet (page + PDF) exist
+  assert.ok(fs.existsSync(path.join(project, data.chapters[0].sections[0].pdf)), 'questions PDF');
+  assert.equal(data.chapters[0].revision.title, 'مراجعة أهم قوانين الفصل الأول');
+  assert.ok(fs.existsSync(path.join(project, data.chapters[0].revision.page)), 'revision page');
+  assert.ok(fs.existsSync(path.join(project, data.chapters[0].revision.pdf)), 'revision PDF');
   const ids = new Set();
   data.chapters.forEach((chapter) => {
     chapter.sections.forEach((section) => {

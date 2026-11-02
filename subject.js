@@ -10,6 +10,9 @@
      physics.html                                        the chapters
      physics.html?chapter=chapter-1                      the sections of that chapter
      physics.html?chapter=chapter-1&section=<id>         the questions of that section
+   A section may name a PDF of its questions ("pdf"); a chapter may have a
+   revision sheet ("revision": { title, page, pdf }), shown as a second card
+   on the chapter page with "open", "download" and "print". 
    The questions use the shared quiz (quiz-ui.js): one question at a time, with
    instant feedback, the correct answer and the explanation, and a panel of
    question numbers to jump to any question. Questions use the
@@ -83,14 +86,22 @@
     ]);
   }
 
-  /* One clickable card: the title is a link, with the number of questions and a button. */
-  function card(headingTag, title, href, count, buttonText) {
+  /* One clickable card: the title is a link, with the number of questions and a button.
+     badge: the text under the title (default: the number of questions); extra: more buttons. */
+  function card(headingTag, title, href, count, buttonText, badge, extra) {
     return el('li', { className: 'card' + (tone ? ' ' + tone : '') }, [
       el(headingTag, { dir: 'auto', lang: langOf(title) }, [el('a', { href: href, text: title })]),
-      el('p', { className: 'card-count', text: G12.plural(count, 'question') }),
-      el('div', { className: 'card-actions' }, [el('a', { className: 'btn', href: href, text: buttonText })])
+      el('p', { className: 'card-count', text: badge || G12.plural(count, 'question') }),
+      el('div', { className: 'card-actions' }, [el('a', { className: 'btn', href: href, text: buttonText })].concat(extra || []))
     ]);
   }
+
+  /* A link that downloads a PDF file (the browser saves it, or opens it on some phones). */
+  function downloadLink(file, text, className) {
+    return el('a', { className: className || 'btn btn--secondary', href: file, download: '', type: 'application/pdf', text: text });
+  }
+
+  function hasText(value) { return typeof value === 'string' && value.trim() !== ''; }
 
   /* Step 1: the chapters. */
   function drawChapters(chapters) {
@@ -112,9 +123,18 @@
     G12.setTitle(chapter.title + ' — ' + subjectName);
     area.appendChild(breadcrumb([{ label: subjectName, href: page }, { label: chapter.title }]));
     area.appendChild(el('h2', { className: 'subject-step-title', dir: 'auto', lang: langOf(chapter.title), text: chapter.title }));
-    area.appendChild(el('ul', { className: 'card-grid subject-cards', 'aria-label': chapter.title }, sectionsOf(chapter).map(function (section) {
-      return card('h3', section.title, hrefFor(chapter, section), usable(section.questions).length, t('Start practising'));
-    })));
+    var cards = sectionsOf(chapter).map(function (section) {
+      var extra = hasText(section.pdf) ? [downloadLink(section.pdf, t('Download Questions'))] : [];
+      return card('h3', section.title, hrefFor(chapter, section), usable(section.questions).length, t('Start practising'), null, extra);
+    });
+    var sheet = chapter.revision;
+    if (sheet && hasText(sheet.title) && hasText(sheet.page)) {
+      var extra = [];
+      if (hasText(sheet.pdf)) extra.push(downloadLink(sheet.pdf, t('Download Revision Sheet')));
+      extra.push(el('a', { className: 'btn btn--secondary', href: sheet.page + '?print=1', text: t('Print Revision Sheet') }));
+      cards.push(card('h3', sheet.title, sheet.page, 0, t('Open the revision sheet'), t('Laws and key ideas · A4'), extra));
+    }
+    area.appendChild(el('ul', { className: 'card-grid subject-cards', 'aria-label': chapter.title }, cards));
   }
 
   /* Step 3: the questions of one section. */
@@ -129,6 +149,10 @@
     var quizArea = el('div', { className: 'section-quiz' });
     area.appendChild(el('section', { className: 'question-section', 'aria-labelledby': headingId }, [
       el('h2', { id: headingId, className: 'question-section-title', dir: 'auto', lang: langOf(section.title), text: section.title }),
+      hasText(section.pdf) ? el('div', { className: 'section-downloads' }, [
+        downloadLink(section.pdf, t('Download Questions'), 'btn btn--secondary'),
+        el('span', { className: 'hint', text: t('All the questions in one PDF file (A4), with numbers and diagrams.') })
+      ]) : null,
       quizArea
     ]));
     // navigator: the panel of question numbers beside the question

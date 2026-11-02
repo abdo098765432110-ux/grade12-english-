@@ -1095,6 +1095,21 @@ main {
 
 .subject-cards .btn:hover { background: var(--tone-hover, var(--color-button-hover)); }
 
+/* Second buttons on a card ("Download", "Print"): white with the card's colour. */
+.subject-cards .btn.btn--secondary { background: var(--color-surface); }
+.subject-cards .btn.btn--secondary:hover { background: var(--tone, var(--color-primary-light)); }
+
+/* "Download Questions" above the questions of a section. */
+.section-downloads {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1rem;
+  margin: -0.25rem 0 1.25rem;
+}
+
+.section-downloads .hint { margin: 0; font-size: 0.9rem; color: var(--color-muted); }
+
 .subject-breadcrumb { margin: 0 0 0.75rem; font-family: var(--font-arabic-ui); font-size: 1rem; }
 
 .subject-page .subject-step-title {

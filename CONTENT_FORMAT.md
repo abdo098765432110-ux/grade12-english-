@@ -170,6 +170,13 @@ question and its numbers open with a button.
     { "id": "chapter-1-questions", "title": "أسئلة على الفصل الأول", "questions": [ … ] } ] } ] }
 ```
 
+A section can name a PDF of its questions (`"pdf": "physics-ch1-questions.pdf"`):
+it gets a «تنزيل ملف الأسئلة» button. A chapter can have a revision sheet:
+`"revision": { "id", "title", "page": "physics-ch1-laws.html", "pdf": "physics-ch1-laws.pdf" }`,
+shown as a second card on the chapter page with «افتح المراجعة», «تحميل مراجعة القوانين»
+and «طباعة المراجعة». After changing the questions or the revision sheet, make the
+PDFs again with `python tools/physics_pdfs.py`.
+
 Addresses: `physics.html` (chapters), `physics.html?chapter=chapter-1`
 (its sections), `physics.html?chapter=chapter-1&section=chapter-1-questions`
 (the questions). The questions use the same fields as the grammar questions above.
