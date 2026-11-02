@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 570 490" width="570" height="490">
+  <!-- Physics, chapter 1, PDF question 91 (page 97): battery VB with internal resistance r on the top wire (long plate on the left). A fixed resistor with a voltmeter V across it joins the left and right wires. Below it a rheostat: its slider is joined to the left wire, its right end (point 2) to the right wire, and its left end (point 1) is free. -->
+  <rect width="570" height="490" fill="#ffffff"/>
+  <path d="M50.0 250.0 L50.0 60.0 L520.0 60.0 L520.0 400.0 L430.0 400.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <rect x="277.0" y="54.0" width="16.0" height="12.0" fill="#ffffff"/>
+  <path d="M279.0 32.0V88.0M291.0 45.0V75.0" stroke="#9b2c4a" stroke-width="5"/>
+  <text x="312.0" y="34.0" text-anchor="middle" font-size="24" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">V<tspan font-size="16" dy="6">B</tspan></text>
+  <text x="312.0" y="104.0" text-anchor="middle" font-size="24" font-weight="600" font-style="italic" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">r</text>
+  <path d="M50.0 250.0 L190.0 250.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M190.0 250.0 L190.0 250.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M380.0 250.0 L380.0 250.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M190.0 250.0 L199.5 259.0 L218.5 241.0 L237.5 259.0 L256.5 241.0 L275.5 259.0 L294.5 241.0 L313.5 259.0 L332.5 241.0 L351.5 259.0 L370.5 241.0 L380.0 250.0" stroke="#e8692e" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M380.0 250.0 L520.0 250.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M140.0 250.0 L140.0 165.0 L259.0 165.0" stroke="#2b3654" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M311.0 165.0 L430.0 165.0 L430.0 250.0" stroke="#2b3654" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="285.0" cy="165.0" r="24" fill="#ffffff" stroke="#3b4fb8" stroke-width="3"/>
+  <text x="285.0" y="173.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#3b4fb8">V</text>
+  <circle cx="50.0" cy="250.0" r="5" fill="#2b3654"/>
+  <circle cx="520.0" cy="250.0" r="5" fill="#2b3654"/>
+  <circle cx="140.0" cy="250.0" r="4" fill="#2b3654"/>
+  <circle cx="430.0" cy="250.0" r="4" fill="#2b3654"/>
+  <path d="M50.0 250.0 L50.0 330.0 L270.0 330.0 L270.0 378.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M270.0 388.0 L262.5 368.0 L277.5 368.0 z" fill="#2b3654"/>
+  <path d="M180.0 400.0 L180.0 400.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M430.0 400.0 L430.0 400.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M180.0 400.0 L190.4 410.0 L211.2 390.0 L232.1 410.0 L252.9 390.0 L273.8 410.0 L294.6 390.0 L315.4 410.0 L336.2 390.0 L357.1 410.0 L377.9 390.0 L398.8 410.0 L419.6 390.0 L430.0 400.0" stroke="#e8692e" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="380.0" y="352.0" text-anchor="middle" font-size="22" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">Rheostat</text>
+  <circle cx="180.0" cy="452.0" r="22" fill="#ffffff" stroke="#e8692e" stroke-width="4"/>
+  <text x="180.0" y="460.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">1</text>
+  <circle cx="430.0" cy="452.0" r="22" fill="#ffffff" stroke="#e8692e" stroke-width="4"/>
+  <text x="430.0" y="460.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">2</text>
+</svg>

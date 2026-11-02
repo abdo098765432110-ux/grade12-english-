@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 420" width="640" height="420">
+  <!-- Physics, chapter 1, PDF question 105 (page 113; points P, M and Q are named for the explanation): a current of 3 A comes in from the left, through 4 ohm to a junction, then 6 ohm, and continues to the right. Voltmeter V2 is joined from the start of 4 ohm to the end of 6 ohm. From the junction a wire goes down through 2 ohm, with voltmeter V1 across the 2 ohm. -->
+  <rect width="640" height="420" fill="#ffffff"/>
+  <path d="M20.0 160.0 L620.0 160.0" stroke="#2b3654" stroke-width="5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M95.0 144.0 L122.0 160.0 L95.0 176.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="110.0" y="130.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">3 A</text>
+  <rect x="250" y="150" width="300" height="20" fill="#ffffff"/>
+  <path d="M250.0 160.0 L268.0 160.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M352.0 160.0 L370.0 160.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M268.0 160.0 L275.0 169.0 L289.0 151.0 L303.0 169.0 L317.0 151.0 L331.0 169.0 L345.0 151.0 L352.0 160.0" stroke="#e8692e" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M370.0 160.0 L430.0 160.0" stroke="#2b3654" stroke-width="5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M430.0 160.0 L448.0 160.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M532.0 160.0 L550.0 160.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M448.0 160.0 L455.0 169.0 L469.0 151.0 L483.0 169.0 L497.0 151.0 L511.0 169.0 L525.0 151.0 L532.0 160.0" stroke="#e8692e" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="310.0" y="136.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#6a3d9a">4 Ω</text>
+  <text x="490.0" y="136.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#6a3d9a">6 Ω</text>
+  <path d="M190.0 160.0 L190.0 55.0 L354.0 55.0" stroke="#3b4fb8" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M410.0 55.0 L580.0 55.0 L580.0 160.0" stroke="#3b4fb8" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="382.0" cy="55.0" r="28" fill="#ffffff" stroke="#3b4fb8" stroke-width="3"/>
+  <text x="379.0" y="62.0" text-anchor="middle" font-size="26" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#3b4fb8">V<tspan font-size="18" dy="6">2</tspan></text>
+  <path d="M400.0 160.0 L400.0 410.0" stroke="#2b3654" stroke-width="5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <rect x="390" y="250" width="20" height="90" fill="#ffffff"/>
+  <path d="M400.0 245.0 L400.0 257.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M400.0 333.0 L400.0 345.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M400.0 257.0 L391.0 263.3 L409.0 276.0 L391.0 288.7 L409.0 301.3 L391.0 314.0 L409.0 326.7 L400.0 333.0" stroke="#e8692e" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="428.0" y="304.0" text-anchor="start" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#6a3d9a">2 Ω</text>
+  <path d="M400.0 215.0 L300.0 215.0 L300.0 267.0" stroke="#3b4fb8" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M300.0 323.0 L300.0 375.0 L400.0 375.0" stroke="#3b4fb8" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="300.0" cy="295.0" r="28" fill="#ffffff" stroke="#3b4fb8" stroke-width="3"/>
+  <text x="297.0" y="302.0" text-anchor="middle" font-size="26" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#3b4fb8">V<tspan font-size="18" dy="6">1</tspan></text>
+  <circle cx="190.0" cy="160.0" r="5" fill="#2b3654"/>
+  <circle cx="580.0" cy="160.0" r="5" fill="#2b3654"/>
+  <circle cx="400.0" cy="160.0" r="5" fill="#2b3654"/>
+  <circle cx="400.0" cy="215.0" r="5" fill="#2b3654"/>
+  <circle cx="400.0" cy="375.0" r="5" fill="#2b3654"/>
+  <text x="178.0" y="190.0" text-anchor="end" font-size="22" font-weight="600" font-style="italic" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#6b7385">P</text>
+  <text x="388.0" y="190.0" text-anchor="end" font-size="22" font-weight="600" font-style="italic" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#6b7385">M</text>
+  <text x="592.0" y="190.0" text-anchor="start" font-size="22" font-weight="600" font-style="italic" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#6b7385">Q</text>
+</svg>

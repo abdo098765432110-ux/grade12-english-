@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 360" width="760" height="360">
+  <!-- Physics, chapter 1, PDF question 118 (page 127; junctions X and Y on the top wire are named for the explanation): columns between the top wire and the bottom wire: 75 ohm; 22.5 ohm with battery VB (positive at the top, marked +) at X; then 35 ohm on the top wire from X to Y; at Y a column with a 25 V cell (positive at the top) and the open switch K; then the ammeter A on the top wire; then 40 ohm, with the voltmeter V connected across the 40 ohm resistor. The batteries have negligible internal resistance. -->
+  <rect width="760" height="360" fill="#ffffff"/>
+  <path d="M120.0 70.0 L600.0 70.0 L600.0 330.0 L120.0 330.0 L120.0 70.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M210.0 70.0 L210.0 330.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M440.0 70.0 L440.0 212.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M440.0 283.0 L440.0 330.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M600.0 118.0 L715.0 118.0 L715.0 282.0 L600.0 282.0" stroke="#2b3654" stroke-width="5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M120.0 130.0 L120.0 141.2" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M120.0 258.8 L120.0 270.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M120.0 141.2 L111.0 151.0 L129.0 170.6 L111.0 190.2 L129.0 209.8 L111.0 229.4 L129.0 249.0 L120.0 258.8" stroke="#d6337a" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M210.0 100.0 L210.0 106.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M210.0 194.0 L210.0 200.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M210.0 106.0 L201.0 113.3 L219.0 128.0 L201.0 142.7 L219.0 157.3 L201.0 172.0 L219.0 186.7 L210.0 194.0" stroke="#d6337a" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M600.0 140.0 L600.0 149.6" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M600.0 250.4 L600.0 260.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M600.0 149.6 L591.0 158.0 L609.0 174.8 L591.0 191.6 L609.0 208.4 L591.0 225.2 L609.0 242.0 L600.0 250.4" stroke="#d6337a" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M255.0 70.0 L269.4 70.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M360.6 70.0 L375.0 70.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M269.4 70.0 L277.0 79.0 L292.2 61.0 L307.4 79.0 L322.6 61.0 L337.8 79.0 L353.0 61.0 L360.6 70.0" stroke="#d6337a" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <rect x="204.0" y="254.0" width="12.0" height="16.0" fill="#ffffff"/>
+  <path d="M184.0 256.0H236.0M196.0 268.0H224.0" stroke="#2f63b0" stroke-width="5"/>
+  <rect x="434.0" y="117.0" width="12.0" height="16.0" fill="#ffffff"/>
+  <path d="M414.0 119.0H466.0M426.0 131.0H454.0" stroke="#2f63b0" stroke-width="5"/>
+  <path d="M440.0 212.0 L468.0 262.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="440.0" cy="212.0" r="6" fill="#2b3654"/>
+  <circle cx="440.0" cy="283.0" r="6" fill="#2b3654"/>
+  <circle cx="520.0" cy="70.0" r="22" fill="#eef5e6" stroke="#2b3654" stroke-width="3"/>
+  <text x="520.0" y="78.0" text-anchor="middle" font-size="22" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">A</text>
+  <circle cx="715.0" cy="200.0" r="22" fill="#cfe6f7" stroke="#2b3654" stroke-width="3"/>
+  <text x="715.0" y="208.0" text-anchor="middle" font-size="22" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">V</text>
+  <circle cx="210.0" cy="70.0" r="5" fill="#2b3654"/>
+  <circle cx="440.0" cy="70.0" r="5" fill="#2b3654"/>
+  <circle cx="210.0" cy="330.0" r="5" fill="#2b3654"/>
+  <circle cx="440.0" cy="330.0" r="5" fill="#2b3654"/>
+  <text x="100.0" y="208.0" text-anchor="end" font-size="22" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">75 Ω</text>
+  <text x="232.0" y="160.0" text-anchor="start" font-size="22" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">22.5 Ω</text>
+  <text x="234.0" y="240.0" text-anchor="start" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">+</text>
+  <text x="240.0" y="290.0" text-anchor="start" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">V<tspan font-size="16" dy="6">B</tspan></text>
+  <text x="315.0" y="48.0" text-anchor="middle" font-size="22" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">35 Ω</text>
+  <text x="476.0" y="133.0" text-anchor="start" font-size="22" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">25 V</text>
+  <text x="478.0" y="292.0" text-anchor="start" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">K</text>
+  <text x="620.0" y="208.0" text-anchor="start" font-size="22" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">40 Ω</text>
+  <text x="204.0" y="60.0" text-anchor="end" font-size="22" font-weight="600" font-style="italic" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#6b7385">X</text>
+  <text x="446.0" y="60.0" text-anchor="start" font-size="22" font-weight="600" font-style="italic" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#6b7385">Y</text>
+</svg>

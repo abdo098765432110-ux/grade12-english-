@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 390" width="680" height="390">
+  <!-- Physics, chapter 1, PDF page 51: between two points, an upper branch with 5 ohm and 10 ohm in series (voltmeter V across the 5 ohm) in parallel with a lower branch of 10 ohm; the total current I enters on the right and leaves on the left. -->
+  <rect width="680" height="390" fill="#ffffff"/>
+  <path d="M120.0 150.0 L560.0 150.0 L560.0 330.0 L120.0 330.0 L120.0 150.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M166.8 150.0 L273.2 150.0" stroke="#ffffff" stroke-width="10" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M150.0 150.0 L166.8 150.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M273.2 150.0 L290.0 150.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M166.8 150.0 L173.5 159.0 L186.8 141.0 L200.1 159.0 L213.4 141.0 L226.7 159.0 L240.0 141.0 L253.2 159.0 L266.6 141.0 L273.2 150.0" stroke="#e8692e" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M350.4 150.0 L479.6 150.0" stroke="#ffffff" stroke-width="10" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M330.0 150.0 L350.4 150.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M479.6 150.0 L500.0 150.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M350.4 150.0 L358.5 159.0 L374.6 141.0 L390.8 159.0 L406.9 141.0 L423.1 159.0 L439.2 141.0 L455.4 159.0 L471.5 141.0 L479.6 150.0" stroke="#e8692e" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M279.2 330.0 L400.8 330.0" stroke="#ffffff" stroke-width="10" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M260.0 330.0 L279.2 330.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M400.8 330.0 L420.0 330.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M279.2 330.0 L286.8 339.0 L302.0 321.0 L317.2 339.0 L332.4 321.0 L347.6 339.0 L362.8 321.0 L378.0 339.0 L393.2 321.0 L400.8 330.0" stroke="#e8692e" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M150.0 150.0 L150.0 70.0 L290.0 70.0 L290.0 150.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="220.0" cy="70.0" r="24" fill="#ffffff" stroke="#2b3654" stroke-width="3.5"/>
+  <text x="220.0" y="78.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">V</text>
+  <circle cx="150.0" cy="150.0" r="5" fill="#2b3654"/>
+  <circle cx="290.0" cy="150.0" r="5" fill="#2b3654"/>
+  <text x="220.0" y="190.0" text-anchor="middle" font-size="24" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">5Ω</text>
+  <text x="415.0" y="190.0" text-anchor="middle" font-size="24" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">10Ω</text>
+  <text x="340.0" y="372.0" text-anchor="middle" font-size="24" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">10Ω</text>
+  <path d="M120.0 240.0 L30.0 240.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M49.0 240.0 L71.0 231.8 L71.0 248.2 z" fill="#2b3654"/>
+  <text x="48.0" y="220.0" text-anchor="middle" font-size="26" font-weight="600" font-style="italic" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">I</text>
+  <path d="M560.0 240.0 L650.0 240.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M599.0 240.0 L621.0 231.8 L621.0 248.2 z" fill="#2b3654"/>
+  <text x="622.0" y="220.0" text-anchor="middle" font-size="26" font-weight="600" font-style="italic" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">I</text>
+  <circle cx="120.0" cy="240.0" r="5" fill="#2b3654"/>
+  <circle cx="560.0" cy="240.0" r="5" fill="#2b3654"/>
+</svg>

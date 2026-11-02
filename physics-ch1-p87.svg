@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 470" width="620" height="470">
+  <!-- Physics, chapter 1, PDF page 93 (question 87): top side: cell VB, r (positive plate on the right) with a voltmeter V1 across it. Bottom side: switch K (open) then a resistor; a voltmeter V2 is connected across the switch and the resistor together. -->
+  <rect width="620" height="470" fill="#ffffff"/>
+  <path d="M30.0 330.0 L30.0 165.0 L294.0 165.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <rect x="292.0" y="159.0" width="16.0" height="12.0" fill="#ffffff"/>
+  <path d="M294.0 151.0V179.0M306.0 139.0V191.0" stroke="#c43030" stroke-width="5"/>
+  <path d="M306.0 165.0 L580.0 165.0 L580.0 330.0 L500.0 330.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M30.0 330.0 L130.0 330.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="130.0" cy="330.0" r="5" fill="#c43030"/>
+  <circle cx="200.0" cy="330.0" r="5" fill="#c43030"/>
+  <path d="M130.0 330.0 L194.0 308.0" stroke="#c43030" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M200.0 330.0 L260.0 330.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M260.0 330.0 L267.6 330.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M442.4 330.0 L450.0 330.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M267.6 330.0 L273.8 337.0 L286.3 323.0 L298.8 337.0 L311.3 323.0 L323.8 337.0 L336.3 323.0 L348.8 337.0 L361.2 323.0 L373.7 337.0 L386.2 323.0 L398.7 337.0 L411.2 323.0 L423.7 337.0 L436.2 323.0 L442.4 330.0" stroke="#3aa04a" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M450.0 330.0 L500.0 330.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M170.0 165.0 L170.0 60.0 L271.0 60.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="300.0" cy="60.0" r="28" fill="#f3f6fb" stroke="#a47a12" stroke-width="3"/>
+  <text x="298.0" y="68.0" text-anchor="middle" font-size="22" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#a47a12"><tspan>V</tspan><tspan font-size="15" dy="6">1</tspan></text>
+  <path d="M329.0 60.0 L430.0 60.0 L430.0 165.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M90.0 330.0 L90.0 425.0 L271.0 425.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="300.0" cy="425.0" r="28" fill="#f3f6fb" stroke="#a47a12" stroke-width="3"/>
+  <text x="298.0" y="433.0" text-anchor="middle" font-size="22" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#a47a12"><tspan>V</tspan><tspan font-size="15" dy="6">2</tspan></text>
+  <path d="M329.0 425.0 L500.0 425.0 L500.0 330.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="170.0" cy="165.0" r="5" fill="#2b3654"/>
+  <circle cx="430.0" cy="165.0" r="5" fill="#2b3654"/>
+  <circle cx="90.0" cy="330.0" r="5" fill="#2b3654"/>
+  <circle cx="500.0" cy="330.0" r="5" fill="#2b3654"/>
+  <text x="300.0" y="223.0" text-anchor="middle" font-size="24" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654"><tspan>V</tspan><tspan font-size="16" dy="6">B</tspan><tspan dy="-6"> , r</tspan></text>
+  <text x="160.0" y="296.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">K</text>
+</svg>

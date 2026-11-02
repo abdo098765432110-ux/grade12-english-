@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 400" width="660" height="400">
+  <!-- Physics, chapter 1, PDF question 112 (page 121; the left wire X and the right wire Y are named for the explanation): three branches between the left wire and the right wire. Top: a 10 V cell (long plate, positive, on the right) and 10 ohm. Middle: a 3 V cell (positive on the left) and 2 ohm, current I2 to the right. Bottom: a 6 V cell only (positive on the left). I3 flows up the left wire into the top branch; I1 flows down the right wire into the bottom branch. -->
+  <rect width="660" height="400" fill="#ffffff"/>
+  <path d="M80.0 70.0 L600.0 70.0 L600.0 350.0 L80.0 350.0 L80.0 70.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M80.0 210.0 L600.0 210.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <rect x="320.0" y="54.0" width="130.0" height="32.0" fill="#ffffff" stroke="#c43030" stroke-width="3"/>
+  <rect x="320.0" y="194.0" width="130.0" height="32.0" fill="#ffffff" stroke="#c43030" stroke-width="3"/>
+  <rect x="192.0" y="64.0" width="16.0" height="12.0" fill="#ffffff"/>
+  <path d="M194.0 54.0V86.0M206.0 42.0V98.0" stroke="#c43030" stroke-width="5"/>
+  <rect x="192.0" y="204.0" width="16.0" height="12.0" fill="#ffffff"/>
+  <path d="M194.0 182.0V238.0M206.0 194.0V226.0" stroke="#c43030" stroke-width="5"/>
+  <rect x="192.0" y="344.0" width="16.0" height="12.0" fill="#ffffff"/>
+  <path d="M194.0 322.0V378.0M206.0 334.0V366.0" stroke="#c43030" stroke-width="5"/>
+  <circle cx="80.0" cy="210.0" r="5" fill="#2b3654"/>
+  <circle cx="600.0" cy="210.0" r="5" fill="#2b3654"/>
+  <text x="200.0" y="30.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">10 V</text>
+  <text x="385.0" y="44.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">10 Ω</text>
+  <text x="225.0" y="180.0" text-anchor="start" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">3 V</text>
+  <text x="385.0" y="184.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">2 Ω</text>
+  <text x="225.0" y="320.0" text-anchor="start" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">6 V</text>
+  <path d="M80.0 129.0 L71.8 151.0 L88.2 151.0 z" fill="#2f63b0"/>
+  <text x="64.0" y="148.0" text-anchor="end" font-size="22" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#c43030">I<tspan font-size="15" dy="6">3</tspan></text>
+  <path d="M141.0 210.0 L119.0 201.8 L119.0 218.2 z" fill="#2f63b0"/>
+  <text x="130.0" y="248.0" text-anchor="middle" font-size="22" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#c43030">I<tspan font-size="15" dy="6">2</tspan></text>
+  <path d="M600.0 291.0 L591.8 269.0 L608.2 269.0 z" fill="#2f63b0"/>
+  <text x="616.0" y="288.0" text-anchor="start" font-size="22" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#c43030">I<tspan font-size="15" dy="6">1</tspan></text>
+  <text x="70.0" y="238.0" text-anchor="end" font-size="22" font-weight="600" font-style="italic" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#6b7385">X</text>
+  <text x="610.0" y="196.0" text-anchor="start" font-size="22" font-weight="600" font-style="italic" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#6b7385">Y</text>
+</svg>

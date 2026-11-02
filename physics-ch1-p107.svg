@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 260" width="760" height="260">
+  <!-- Physics, chapter 1, PDF question 107 (page 116; junctions X and Y are named for the explanation): from A, current I1 through 4 ohm to junction X. From X to Y: upper branch with current I2 through a 9 V cell (long plate, positive, towards X) and 1 ohm; lower branch with current I3 through 2 ohm. From Y: a 3 V cell (long plate, positive, towards B), arrow towards B, 4 ohm, then B. -->
+  <rect width="760" height="260" fill="#ffffff"/>
+  <path d="M30.0 100.0 L240.0 100.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M95.0 100.0 L107.6 100.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M187.4 100.0 L200.0 100.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M107.6 100.0 L114.2 109.0 L127.5 91.0 L140.8 109.0 L154.1 91.0 L167.4 109.0 L180.8 91.0 L187.4 100.0" stroke="#e8692e" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M240.0 100.0 L500.0 100.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <rect x="317.0" y="94.0" width="16.0" height="12.0" fill="#ffffff"/>
+  <path d="M319.0 74.0V126.0M331.0 86.0V114.0" stroke="#9b2c4a" stroke-width="5"/>
+  <path d="M370.0 100.0 L382.0 100.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M458.0 100.0 L470.0 100.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M382.0 100.0 L388.3 109.0 L401.0 91.0 L413.7 109.0 L426.3 91.0 L439.0 109.0 L451.7 91.0 L458.0 100.0" stroke="#e8692e" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M240.0 100.0 L240.0 210.0 L500.0 210.0 L500.0 100.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M320.0 210.0 L334.4 210.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M425.6 210.0 L440.0 210.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M334.4 210.0 L342.0 219.0 L357.2 201.0 L372.4 219.0 L387.6 201.0 L402.8 219.0 L418.0 201.0 L425.6 210.0" stroke="#e8692e" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M500.0 100.0 L735.0 100.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <rect x="542.0" y="94.0" width="16.0" height="12.0" fill="#ffffff"/>
+  <path d="M544.0 86.0V114.0M556.0 74.0V126.0" stroke="#9b2c4a" stroke-width="5"/>
+  <path d="M615.0 100.0 L627.0 100.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M703.0 100.0 L715.0 100.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M627.0 100.0 L633.3 109.0 L646.0 91.0 L658.7 109.0 L671.3 91.0 L684.0 109.0 L696.7 91.0 L703.0 100.0" stroke="#e8692e" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="30.0" cy="100.0" r="8" fill="#2b3654"/>
+  <circle cx="735.0" cy="100.0" r="8" fill="#2b3654"/>
+  <circle cx="240.0" cy="100.0" r="5" fill="#2b3654"/>
+  <circle cx="500.0" cy="100.0" r="5" fill="#2b3654"/>
+  <text x="30.0" y="78.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">A</text>
+  <text x="735.0" y="78.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">B</text>
+  <path d="M75.0 100.0 L55.0 92.5 L55.0 107.5 z" fill="#c43030"/>
+  <text x="65.0" y="136.0" text-anchor="middle" font-size="22" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">I<tspan font-size="15" dy="6">1</tspan></text>
+  <text x="148.0" y="74.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">4Ω</text>
+  <text x="665.0" y="74.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">4Ω</text>
+  <path d="M285.0 100.0 L265.0 92.5 L265.0 107.5 z" fill="#c43030"/>
+  <text x="275.0" y="80.0" text-anchor="middle" font-size="22" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">I<tspan font-size="15" dy="6">2</tspan></text>
+  <text x="325.0" y="64.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">9V</text>
+  <text x="420.0" y="74.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">1Ω</text>
+  <path d="M285.0 210.0 L265.0 202.5 L265.0 217.5 z" fill="#c43030"/>
+  <text x="275.0" y="246.0" text-anchor="middle" font-size="22" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">I<tspan font-size="15" dy="6">3</tspan></text>
+  <text x="380.0" y="186.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">2Ω</text>
+  <text x="550.0" y="152.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">3V</text>
+  <path d="M595.0 100.0 L575.0 92.5 L575.0 107.5 z" fill="#c43030"/>
+  <text x="236.0" y="88.0" text-anchor="end" font-size="22" font-weight="600" font-style="italic" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#6b7385">X</text>
+  <text x="504.0" y="88.0" text-anchor="start" font-size="22" font-weight="600" font-style="italic" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#6b7385">Y</text>
+</svg>

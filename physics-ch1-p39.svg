@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 320" width="540" height="320">
+  <!-- Physics, chapter 1, PDF question 39 (page 43): a battery (long plate at the top) with three resistors 2 ohm, 4 ohm and 10 ohm in parallel across it. -->
+  <rect width="540" height="320" fill="#ffffff"/>
+  <path d="M70.0 40.0 L440.0 40.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M70.0 280.0 L440.0 280.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M70.0 40.0 L70.0 280.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <rect x="64.0" y="152.0" width="12.0" height="16.0" fill="#ffffff"/>
+  <path d="M44.0 154.0H96.0M56.0 166.0H84.0" stroke="#9b2c4a" stroke-width="5"/>
+  <path d="M180.0 40.0 L180.0 100.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M180.0 220.0 L180.0 280.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M180.0 100.0 L171.0 110.0 L189.0 130.0 L171.0 150.0 L189.0 170.0 L171.0 190.0 L189.0 210.0 L180.0 220.0" stroke="#e8692e" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="202.0" y="168.0" text-anchor="start" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">2 Ω</text>
+  <path d="M310.0 40.0 L310.0 100.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M310.0 220.0 L310.0 280.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M310.0 100.0 L301.0 110.0 L319.0 130.0 L301.0 150.0 L319.0 170.0 L301.0 190.0 L319.0 210.0 L310.0 220.0" stroke="#e8692e" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="332.0" y="168.0" text-anchor="start" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">4 Ω</text>
+  <path d="M440.0 40.0 L440.0 100.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M440.0 220.0 L440.0 280.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M440.0 100.0 L431.0 110.0 L449.0 130.0 L431.0 150.0 L449.0 170.0 L431.0 190.0 L449.0 210.0 L440.0 220.0" stroke="#e8692e" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="462.0" y="168.0" text-anchor="start" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">10 Ω</text>
+  <circle cx="180.0" cy="40.0" r="5" fill="#2b3654"/>
+  <circle cx="310.0" cy="40.0" r="5" fill="#2b3654"/>
+  <circle cx="180.0" cy="280.0" r="5" fill="#2b3654"/>
+  <circle cx="310.0" cy="280.0" r="5" fill="#2b3654"/>
+</svg>

@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 430" width="600" height="430">
+  <!-- Physics, chapter 1, PDF question 96 (page 103): seven lamps, numbered L1 to L7 for the explanation. Top wire: L1 from the top-left corner to the middle junction, then the battery (long plate on the left) to the top-right corner. L2 on the right side. Middle horizontal wire: plain from the left side to the middle junction, then L3 to the right side. L4 (marked with the arrow) on the left side above the middle wire, L5 on the middle upright above it. Below the middle wire: L6 on the left and L7 on the middle upright, joined by a plain bottom wire. -->
+  <rect width="600" height="430" fill="#ffffff"/>
+  <path d="M90.0 60.0 L520.0 60.0 L520.0 230.0 L90.0 230.0 L90.0 60.0" stroke="#2a8fd8" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M300.0 60.0 L300.0 400.0 L90.0 400.0 L90.0 230.0" stroke="#2a8fd8" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <rect x="402.0" y="54.0" width="16.0" height="12.0" fill="#ffffff"/>
+  <path d="M404.0 32.0V88.0M416.0 45.0V75.0" stroke="#2d8a2d" stroke-width="5"/>
+  <circle cx="195.0" cy="60.0" r="20" fill="#fff8e6" stroke="#b07a00" stroke-width="3.5"/>
+  <path d="M181.0 46.0 L209.0 74.0" stroke="#b07a00" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M181.0 74.0 L209.0 46.0" stroke="#b07a00" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="520.0" cy="145.0" r="20" fill="#fff8e6" stroke="#b07a00" stroke-width="3.5"/>
+  <path d="M506.0 131.0 L534.0 159.0" stroke="#b07a00" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M506.0 159.0 L534.0 131.0" stroke="#b07a00" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="410.0" cy="230.0" r="20" fill="#fff8e6" stroke="#b07a00" stroke-width="3.5"/>
+  <path d="M396.0 216.0 L424.0 244.0" stroke="#b07a00" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M396.0 244.0 L424.0 216.0" stroke="#b07a00" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="90.0" cy="145.0" r="20" fill="#fff8e6" stroke="#b07a00" stroke-width="3.5"/>
+  <path d="M76.0 131.0 L104.0 159.0" stroke="#b07a00" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M76.0 159.0 L104.0 131.0" stroke="#b07a00" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="300.0" cy="145.0" r="20" fill="#fff8e6" stroke="#b07a00" stroke-width="3.5"/>
+  <path d="M286.0 131.0 L314.0 159.0" stroke="#b07a00" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M286.0 159.0 L314.0 131.0" stroke="#b07a00" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="90.0" cy="315.0" r="20" fill="#fff8e6" stroke="#b07a00" stroke-width="3.5"/>
+  <path d="M76.0 301.0 L104.0 329.0" stroke="#b07a00" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M76.0 329.0 L104.0 301.0" stroke="#b07a00" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="300.0" cy="315.0" r="20" fill="#fff8e6" stroke="#b07a00" stroke-width="3.5"/>
+  <path d="M286.0 301.0 L314.0 329.0" stroke="#b07a00" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M286.0 329.0 L314.0 301.0" stroke="#b07a00" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="195.0" y="28.0" text-anchor="middle" font-size="24" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#6b7385">L<tspan font-size="16" dy="6">1</tspan></text>
+  <text x="560.0" y="153.0" text-anchor="middle" font-size="24" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#6b7385">L<tspan font-size="16" dy="6">2</tspan></text>
+  <text x="410.0" y="278.0" text-anchor="middle" font-size="24" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#6b7385">L<tspan font-size="16" dy="6">3</tspan></text>
+  <text x="48.0" y="153.0" text-anchor="middle" font-size="24" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#6b7385">L<tspan font-size="16" dy="6">4</tspan></text>
+  <text x="340.0" y="153.0" text-anchor="middle" font-size="24" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#6b7385">L<tspan font-size="16" dy="6">5</tspan></text>
+  <text x="48.0" y="323.0" text-anchor="middle" font-size="24" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#6b7385">L<tspan font-size="16" dy="6">6</tspan></text>
+  <text x="340.0" y="323.0" text-anchor="middle" font-size="24" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#6b7385">L<tspan font-size="16" dy="6">7</tspan></text>
+  <path d="M195.0 200.0 L125.0 162.0" stroke="#2b3654" stroke-width="3.5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M113.2 155.2 L134.4 158.2 L127.2 171.4 z" fill="#2b3654"/>
+  <circle cx="300.0" cy="60.0" r="6" fill="#2a8fd8"/>
+  <circle cx="300.0" cy="230.0" r="6" fill="#2a8fd8"/>
+  <circle cx="90.0" cy="230.0" r="6" fill="#2a8fd8"/>
+</svg>

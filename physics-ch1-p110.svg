@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 420" width="700" height="420">
+  <!-- Physics, chapter 1, PDF question 110 (page 119): left battery V1 = 10 V and right battery V2 = 20 V, both with the long plate (positive) at the top. Top wire: I1 through R1 = 10 ohm to the middle junction, I2 through R2 = 20 ohm to the middle junction. Middle branch R3 = 40 ohm from the top junction down to the bottom wire, carrying I3 downwards. -->
+  <rect width="700" height="420" fill="#ffffff"/>
+  <path d="M70.0 80.0 L620.0 80.0 L620.0 390.0 L70.0 390.0 L70.0 80.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M345.0 80.0 L345.0 390.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <rect x="150.0" y="58.0" width="120.0" height="44.0" fill="#fde3c8" stroke="#c4502a" stroke-width="3"/>
+  <text x="210.0" y="87.9" text-anchor="middle" font-size="22" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">10 Ω</text>
+  <rect x="420.0" y="58.0" width="120.0" height="44.0" fill="#fde3c8" stroke="#c4502a" stroke-width="3"/>
+  <text x="480.0" y="87.9" text-anchor="middle" font-size="22" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">20 Ω</text>
+  <rect x="321.0" y="165.0" width="48.0" height="120.0" fill="#fde3c8" stroke="#c4502a" stroke-width="3"/>
+  <rect x="64.0" y="227.0" width="12.0" height="16.0" fill="#ffffff"/>
+  <path d="M40.0 229.0H100.0M52.0 241.0H88.0" stroke="#2b3654" stroke-width="5"/>
+  <rect x="614.0" y="227.0" width="12.0" height="16.0" fill="#ffffff"/>
+  <path d="M590.0 229.0H650.0M602.0 241.0H638.0" stroke="#2b3654" stroke-width="5"/>
+  <circle cx="345.0" cy="80.0" r="5" fill="#2b3654"/>
+  <circle cx="345.0" cy="390.0" r="5" fill="#2b3654"/>
+  <path d="M121.0 80.0 L99.0 71.8 L99.0 88.2 z" fill="#2b3654"/>
+  <text x="110.0" y="58.0" text-anchor="middle" font-size="22" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">I<tspan font-size="15" dy="6">1</tspan></text>
+  <text x="210.0" y="48.0" text-anchor="middle" font-size="22" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">R<tspan font-size="15" dy="6">1</tspan></text>
+  <text x="480.0" y="48.0" text-anchor="middle" font-size="22" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">R<tspan font-size="15" dy="6">2</tspan></text>
+  <path d="M574.0 80.0 L596.0 71.8 L596.0 88.2 z" fill="#2b3654"/>
+  <text x="585.0" y="58.0" text-anchor="middle" font-size="22" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">I<tspan font-size="15" dy="6">2</tspan></text>
+  <text x="381.0" y="210.0" text-anchor="start" font-size="22" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">R<tspan font-size="15" dy="6">3</tspan></text>
+  <text x="381.0" y="250.0" text-anchor="start" font-size="22" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">40 Ω</text>
+  <path d="M345.0 331.0 L336.8 309.0 L353.2 309.0 z" fill="#2b3654"/>
+  <text x="365.0" y="330.0" text-anchor="start" font-size="22" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">I<tspan font-size="15" dy="6">3</tspan></text>
+  <text x="86.0" y="195.0" text-anchor="start" font-size="22" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">10 V</text>
+  <text x="86.0" y="290.0" text-anchor="start" font-size="22" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">V<tspan font-size="15" dy="6">1</tspan></text>
+  <text x="636.0" y="195.0" text-anchor="start" font-size="22" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">20 V</text>
+  <text x="636.0" y="290.0" text-anchor="start" font-size="22" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">V<tspan font-size="15" dy="6">2</tspan></text>
+</svg>

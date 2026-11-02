@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 380" width="700" height="380">
+  <!-- Physics, chapter 1, PDF page 60: battery VB with r = 0 (long plate on the right); two parallel branches across it: ammeter A1 with the variable resistor Rv, and ammeter A2 with resistor R. -->
+  <rect width="700" height="380" fill="#ffffff"/>
+  <path d="M60.0 340.0 L60.0 70.0 L640.0 70.0 L640.0 340.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <rect x="322.0" y="64.0" width="16.0" height="12.0" fill="#ffffff"/>
+  <path d="M324.0 54.0V86.0M336.0 42.0V98.0" stroke="#1f3fae" stroke-width="5"/>
+  <text x="372.0" y="48.0" text-anchor="start" font-size="26" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">V<tspan font-size="18" dy="6">B</tspan></text>
+  <text x="372.0" y="114.0" text-anchor="start" font-size="26" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">r = 0</text>
+  <path d="M60.0 210.0 L136.0 210.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="160.0" cy="210.0" r="24" fill="#ffffff" stroke="#c43030" stroke-width="3.5"/>
+  <text x="158.0" y="217.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#c43030">A<tspan font-size="16" dy="5">1</tspan></text>
+  <path d="M184.0 210.0 L640.0 210.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M399.5 210.0 L520.5 210.0" stroke="#ffffff" stroke-width="10" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M388.0 210.0 L399.5 210.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M520.5 210.0 L532.0 210.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M399.5 210.0 L409.6 221.0 L429.8 199.0 L449.9 221.0 L470.1 199.0 L490.2 221.0 L510.4 199.0 L520.5 210.0" stroke="#e8692e" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M390.0 244.0 L525.6 178.9" stroke="#1f3fae" stroke-width="3.5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M540.0 172.0 L528.8 185.7 L522.3 172.2 z" fill="#1f3fae"/>
+  <text x="458.0" y="166.0" text-anchor="middle" font-size="26" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">R<tspan font-size="18" dy="6">V</tspan></text>
+  <path d="M60.0 340.0 L136.0 340.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="160.0" cy="340.0" r="24" fill="#ffffff" stroke="#c43030" stroke-width="3.5"/>
+  <text x="158.0" y="347.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#c43030">A<tspan font-size="16" dy="5">2</tspan></text>
+  <path d="M184.0 340.0 L640.0 340.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M399.5 340.0 L520.5 340.0" stroke="#ffffff" stroke-width="10" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M388.0 340.0 L399.5 340.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M520.5 340.0 L532.0 340.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M399.5 340.0 L409.6 351.0 L429.8 329.0 L449.9 351.0 L470.1 329.0 L490.2 351.0 L510.4 329.0 L520.5 340.0" stroke="#e8692e" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="460.0" y="314.0" text-anchor="middle" font-size="26" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">R</text>
+  <circle cx="60.0" cy="210.0" r="5" fill="#2b3654"/>
+  <circle cx="640.0" cy="210.0" r="5" fill="#2b3654"/>
+</svg>

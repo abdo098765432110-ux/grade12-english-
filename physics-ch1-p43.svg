@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 300" width="640" height="300">
+  <!-- Physics, chapter 1, PDF question 43 (page 47): 12 ohm and 6 ohm in parallel, followed by 8 ohm in series. -->
+  <rect width="640" height="300" fill="#ffffff"/>
+  <path d="M20.0 230.0 L120.0 230.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M120.0 230.0 L182.5 230.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M307.5 230.0 L370.0 230.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M182.5 230.0 L192.9 239.0 L213.8 221.0 L234.6 239.0 L255.4 221.0 L276.2 239.0 L297.1 221.0 L307.5 230.0" stroke="#c43030" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M120.0 230.0 L120.0 90.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M120.0 90.0 L182.5 90.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M307.5 90.0 L370.0 90.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M182.5 90.0 L192.9 99.0 L213.8 81.0 L234.6 99.0 L255.4 81.0 L276.2 99.0 L297.1 81.0 L307.5 90.0" stroke="#c43030" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M370.0 90.0 L370.0 230.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M370.0 230.0 L430.0 230.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M560.0 230.0 L620.0 230.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M430.0 230.0 L440.8 239.0 L462.5 221.0 L484.2 239.0 L505.8 221.0 L527.5 239.0 L549.2 221.0 L560.0 230.0" stroke="#c43030" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="120.0" cy="230.0" r="7" fill="#145a4e"/>
+  <circle cx="370.0" cy="230.0" r="7" fill="#145a4e"/>
+  <text x="245.0" y="66.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">12 Ω</text>
+  <text x="245.0" y="276.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">6 Ω</text>
+  <text x="495.0" y="204.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">8 Ω</text>
+</svg>

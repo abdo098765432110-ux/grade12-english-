@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 430" width="760" height="430">
+  <!-- Physics, chapter 1, PDF question 113 (page 122): a loop with point a on the right, b at the top left and c at the bottom left. Upper path from c to a: 2 ohm, a 12 V cell (positive towards b), 2 ohm, point b, an 8 V cell (positive towards b), arrow I1 towards a, 6 ohm, point a. Lower path from c to a: 4 ohm, a 24 V cell (positive towards a), arrow I2 towards a, 2 ohm, point a. From a, current I flows into a network: 8 ohm then 10 ohm in one branch, 4 ohm then 5 ohm in the other, meeting at a point joined by a wire back to c. -->
+  <rect width="760" height="430" fill="#ffffff"/>
+  <path d="M50.0 70.0 L460.0 70.0 L460.0 320.0 L50.0 320.0 L50.0 70.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M50.0 70.0 L72.5 70.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M152.5 70.0 L175.0 70.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M72.5 70.0 L79.2 79.0 L92.5 61.0 L105.8 79.0 L119.2 61.0 L132.5 79.0 L145.8 61.0 L152.5 70.0" stroke="#e8692e" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M50.0 320.0 L72.5 320.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M152.5 320.0 L175.0 320.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M72.5 320.0 L79.2 329.0 L92.5 311.0 L105.8 329.0 L119.2 311.0 L132.5 329.0 L145.8 311.0 L152.5 320.0" stroke="#e8692e" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <rect x="44.0" y="187.0" width="12.0" height="16.0" fill="#ffffff"/>
+  <path d="M24.0 189.0H76.0M36.0 201.0H64.0" stroke="#9b2c4a" stroke-width="5"/>
+  <rect x="242.0" y="64.0" width="16.0" height="12.0" fill="#ffffff"/>
+  <path d="M244.0 44.0V96.0M256.0 56.0V84.0" stroke="#9b2c4a" stroke-width="5"/>
+  <path d="M345.0 70.0 L361.1 70.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M443.9 70.0 L460.0 70.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M361.1 70.0 L368.0 79.0 L381.8 61.0 L395.6 79.0 L409.4 61.0 L423.2 79.0 L437.0 61.0 L443.9 70.0" stroke="#e8692e" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M175.0 320.0 L188.8 320.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M276.2 320.0 L290.0 320.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M188.8 320.0 L196.1 329.0 L210.7 311.0 L225.2 329.0 L239.8 311.0 L254.4 329.0 L268.9 311.0 L276.2 320.0" stroke="#e8692e" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <rect x="322.0" y="314.0" width="16.0" height="12.0" fill="#ffffff"/>
+  <path d="M324.0 306.0V334.0M336.0 294.0V346.0" stroke="#9b2c4a" stroke-width="5"/>
+  <path d="M375.0 320.0 L386.9 320.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M448.1 320.0 L460.0 320.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M386.9 320.0 L392.0 329.0 L402.2 311.0 L412.4 329.0 L422.6 311.0 L432.8 329.0 L443.0 311.0 L448.1 320.0" stroke="#e8692e" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M460.0 195.0 L545.0 195.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M545.0 195.0 L725.0 195.0 L725.0 405.0 L175.0 405.0 L175.0 320.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M545.0 195.0 L545.0 335.0 L725.0 335.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M545.0 195.0 L599.0 195.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M671.0 195.0 L725.0 195.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M599.0 195.0 L605.0 204.0 L617.0 186.0 L629.0 204.0 L641.0 186.0 L653.0 204.0 L665.0 186.0 L671.0 195.0" stroke="#e8692e" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M725.0 195.0 L725.0 223.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M725.0 307.0 L725.0 335.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M725.0 223.0 L716.0 230.0 L734.0 244.0 L716.0 258.0 L734.0 272.0 L716.0 286.0 L734.0 300.0 L725.0 307.0" stroke="#e8692e" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M545.0 195.0 L545.0 223.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M545.0 307.0 L545.0 335.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M545.0 223.0 L536.0 230.0 L554.0 244.0 L536.0 258.0 L554.0 272.0 L536.0 286.0 L554.0 300.0 L545.0 307.0" stroke="#e8692e" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M545.0 335.0 L599.0 335.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M671.0 335.0 L725.0 335.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M599.0 335.0 L605.0 344.0 L617.0 326.0 L629.0 344.0 L641.0 326.0 L653.0 344.0 L665.0 326.0 L671.0 335.0" stroke="#e8692e" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="175.0" cy="70.0" r="6" fill="#2b3654"/>
+  <circle cx="175.0" cy="320.0" r="6" fill="#2b3654"/>
+  <circle cx="460.0" cy="195.0" r="6" fill="#2b3654"/>
+  <circle cx="725.0" cy="335.0" r="5" fill="#2b3654"/>
+  <text x="175.0" y="52.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">b</text>
+  <text x="161.0" y="354.0" text-anchor="end" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">c</text>
+  <text x="446.0" y="203.0" text-anchor="end" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">a</text>
+  <text x="112.0" y="50.0" text-anchor="middle" font-size="22" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">2 Ω</text>
+  <text x="112.0" y="358.0" text-anchor="middle" font-size="22" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">2 Ω</text>
+  <text x="86.0" y="203.0" text-anchor="start" font-size="22" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">12 V</text>
+  <text x="250.0" y="36.0" text-anchor="middle" font-size="22" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">8 V</text>
+  <path d="M310.0 70.0 L290.0 62.5 L290.0 77.5 z" fill="#c43030"/>
+  <text x="300.0" y="52.0" text-anchor="middle" font-size="22" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#c43030">I<tspan font-size="15" dy="6">1</tspan></text>
+  <text x="402.0" y="48.0" text-anchor="middle" font-size="22" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">6 Ω</text>
+  <text x="232.0" y="358.0" text-anchor="middle" font-size="22" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">4 Ω</text>
+  <text x="330.0" y="370.0" text-anchor="middle" font-size="22" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">24 V</text>
+  <path d="M370.0 320.0 L350.0 312.5 L350.0 327.5 z" fill="#c43030"/>
+  <text x="360.0" y="300.0" text-anchor="middle" font-size="22" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#c43030">I<tspan font-size="15" dy="6">2</tspan></text>
+  <text x="418.0" y="358.0" text-anchor="middle" font-size="22" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">2 Ω</text>
+  <path d="M515.0 195.0 L495.0 187.5 L495.0 202.5 z" fill="#c43030"/>
+  <text x="505.0" y="179.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#c43030">I</text>
+  <text x="635.0" y="173.0" text-anchor="middle" font-size="22" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">8 Ω</text>
+  <text x="563.0" y="272.0" text-anchor="start" font-size="22" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">4 Ω</text>
+  <text x="707.0" y="272.0" text-anchor="end" font-size="22" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">10 Ω</text>
+  <text x="635.0" y="371.0" text-anchor="middle" font-size="22" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">5 Ω</text>
+</svg>

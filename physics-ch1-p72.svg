@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 330" width="720" height="330">
+  <!-- Physics, chapter 1, PDF question 72 (page 78): battery VB with internal resistance r on the top wire; resistors A (2R) and C (3R) in series on the bottom wire. -->
+  <rect width="720" height="330" fill="#ffffff"/>
+  <path d="M40.0 80.0 L680.0 80.0 L680.0 260.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M40.0 80.0 L40.0 260.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <rect x="352.0" y="74.0" width="16.0" height="12.0" fill="#ffffff"/>
+  <path d="M354.0 54.0V106.0M366.0 66.0V94.0" stroke="#1f4fa0" stroke-width="5"/>
+  <text x="330.0" y="40.0" text-anchor="middle" font-size="22" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">V<tspan font-size="15" dy="6">B</tspan><tspan dy="-6"> , r</tspan></text>
+  <path d="M40.0 260.0 L169.6 260.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M270.4 260.0 L400.0 260.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M169.6 260.0 L178.0 271.0 L194.8 249.0 L211.6 271.0 L228.4 249.0 L245.2 271.0 L262.0 249.0 L270.4 260.0" stroke="#e8692e" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M400.0 260.0 L500.8 260.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M579.2 260.0 L680.0 260.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M500.8 260.0 L507.3 271.0 L520.4 249.0 L533.5 271.0 L546.5 249.0 L559.6 271.0 L572.7 249.0 L579.2 260.0" stroke="#e8692e" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="220.0" y="236.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#6a3d9a">A</text>
+  <text x="220.0" y="306.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">2R</text>
+  <text x="540.0" y="236.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#6a3d9a">C</text>
+  <text x="540.0" y="306.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">3R</text>
+</svg>

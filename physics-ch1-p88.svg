@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 390" width="700" height="390">
+  <!-- Physics, chapter 1, PDF page 94 (question 88): top side: cell VB with r = 0 (positive plate on the left, marked + and -) with a voltmeter V1 across it; the current I leaves to the left. Left side: switch K (closed). Bottom side: ammeter A, then resistor R with voltmeter V2 across it; the current flows to the right. Right side: rheostat Rv; the top wire comes down to its sliding contact, its right end joins the right side, and voltmeter V3 is connected between its left end and the right side. -->
+  <rect width="700" height="390" fill="#ffffff"/>
+  <path d="M50.0 345.0 L50.0 300.0" stroke="#1aa3c9" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M50.0 244.0 L50.0 150.0 L262.0 150.0" stroke="#1aa3c9" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <rect x="260.0" y="144.0" width="20.0" height="12.0" fill="#ffffff"/>
+  <path d="M262.0 120.0V180.0M278.0 132.0V168.0" stroke="#1aa3c9" stroke-width="5"/>
+  <path d="M278.0 150.0 L580.0 150.0 L580.0 196.0" stroke="#1aa3c9" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M580.0 212.0 L572.5 192.0 L587.5 192.0 z" fill="#1aa3c9"/>
+  <path d="M109.0 150.0 L131.0 141.8 L131.0 158.2 z" fill="#1aa3c9"/>
+  <path d="M545.0 222.0 L549.0 222.0" stroke="#1aa3c9" stroke-width="3.5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M621.0 222.0 L625.0 222.0" stroke="#1aa3c9" stroke-width="3.5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M549.0 222.0 L555.0 231.0 L567.0 213.0 L579.0 231.0 L591.0 213.0 L603.0 231.0 L615.0 213.0 L621.0 222.0" stroke="#1aa3c9" stroke-width="3.5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M625.0 222.0 L660.0 222.0 L660.0 345.0" stroke="#1aa3c9" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M545.0 222.0 L535.0 222.0 L535.0 270.0 L566.0 270.0" stroke="#1aa3c9" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="592.0" cy="270.0" r="26" fill="#f3f6fb" stroke="#1aa3c9" stroke-width="3"/>
+  <text x="590.0" y="278.0" text-anchor="middle" font-size="22" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#1aa3c9"><tspan>V</tspan><tspan font-size="15" dy="6">3</tspan></text>
+  <path d="M618.0 270.0 L660.0 270.0" stroke="#1aa3c9" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M50.0 345.0 L149.0 345.0" stroke="#1aa3c9" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="175.0" cy="345.0" r="26" fill="#f3f6fb" stroke="#1aa3c9" stroke-width="3"/>
+  <text x="175.0" y="353.0" text-anchor="middle" font-size="22" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#1aa3c9">A</text>
+  <path d="M201.0 345.0 L300.0 345.0" stroke="#1aa3c9" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M300.0 345.0 L305.1 345.0" stroke="#1aa3c9" stroke-width="3.5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M464.9 345.0 L470.0 345.0" stroke="#1aa3c9" stroke-width="3.5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M305.1 345.0 L315.1 355.0 L335.1 335.0 L355.0 355.0 L375.0 335.0 L395.0 355.0 L415.0 335.0 L434.9 355.0 L454.9 335.0 L464.9 345.0" stroke="#1aa3c9" stroke-width="3.5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M470.0 345.0 L660.0 345.0" stroke="#1aa3c9" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M581.0 345.0 L559.0 336.8 L559.0 353.2 z" fill="#1aa3c9"/>
+  <path d="M300.0 345.0 L300.0 250.0 L359.0 250.0" stroke="#1aa3c9" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="385.0" cy="250.0" r="26" fill="#f3f6fb" stroke="#1aa3c9" stroke-width="3"/>
+  <text x="383.0" y="258.0" text-anchor="middle" font-size="22" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#1aa3c9"><tspan>V</tspan><tspan font-size="15" dy="6">2</tspan></text>
+  <path d="M411.0 250.0 L470.0 250.0 L470.0 345.0" stroke="#1aa3c9" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M200.0 150.0 L200.0 52.0 L249.0 52.0" stroke="#1aa3c9" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="275.0" cy="52.0" r="26" fill="#f3f6fb" stroke="#1aa3c9" stroke-width="3"/>
+  <text x="273.0" y="60.0" text-anchor="middle" font-size="22" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#1aa3c9"><tspan>V</tspan><tspan font-size="15" dy="6">1</tspan></text>
+  <path d="M301.0 52.0 L350.0 52.0 L350.0 150.0" stroke="#1aa3c9" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="50.0" cy="300.0" r="6" fill="#1aa3c9"/>
+  <circle cx="50.0" cy="244.0" r="6" fill="#1aa3c9"/>
+  <path d="M50.0 300.0 L46.0 244.0" stroke="#1aa3c9" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="26.0" y="278.0" text-anchor="end" font-size="22" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">K</text>
+  <text x="236.0" y="124.0" text-anchor="middle" font-size="26" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">+</text>
+  <text x="310.0" y="124.0" text-anchor="middle" font-size="26" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">−</text>
+  <text x="270.0" y="196.0" text-anchor="middle" font-size="24" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#c43030"><tspan>V</tspan><tspan font-size="16" dy="6">B</tspan><tspan dy="-6"> , r = 0</tspan></text>
+  <text x="110.0" y="132.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">I</text>
+  <text x="620.0" y="196.0" text-anchor="start" font-size="22" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#c43030"><tspan>R</tspan><tspan font-size="15" dy="6">v</tspan></text>
+  <text x="385.0" y="381.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#c43030">R</text>
+</svg>

@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 510" width="640" height="510">
+  <!-- Physics, chapter 1, PDF question 75 (page 81): battery VB = 4 V, r = 0.35 ohm on the top wire (long plate on the left) with voltmeter V across it; fixed resistor R on the left side; the metal wire XY is the right side (Y at the top, X at the bottom); all in series. -->
+  <rect width="640" height="510" fill="#ffffff"/>
+  <path d="M60.0 150.0 L470.0 150.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M60.0 470.0 L470.0 470.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <rect x="162.0" y="144.0" width="16.0" height="12.0" fill="#ffffff"/>
+  <path d="M164.0 124.0V176.0M176.0 136.0V164.0" stroke="#1f4fa0" stroke-width="5"/>
+  <path d="M60.0 150.0 L60.0 252.4" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M60.0 367.6 L60.0 470.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M60.0 252.4 L51.0 262.0 L69.0 281.2 L51.0 300.4 L69.0 319.6 L51.0 338.8 L69.0 358.0 L60.0 367.6" stroke="#e8692e" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M60.0 150.0 L60.0 60.0 L151.0 60.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M199.0 60.0 L290.0 60.0 L290.0 150.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="175.0" cy="60.0" r="24" fill="#ffffff" stroke="#2b3654" stroke-width="3"/>
+  <text x="175.0" y="68.0" text-anchor="middle" font-size="22" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">V</text>
+  <circle cx="60.0" cy="150.0" r="5" fill="#2b3654"/>
+  <circle cx="290.0" cy="150.0" r="5" fill="#2b3654"/>
+  <text x="196.0" y="200.0" text-anchor="start" font-size="22" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">V<tspan font-size="15" dy="6">B</tspan><tspan dy="-6"> = 4 V</tspan></text>
+  <text x="206.0" y="234.0" text-anchor="start" font-size="22" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">r = 0.35 Ω</text>
+  <text x="86.0" y="318.0" text-anchor="start" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">R</text>
+  <path d="M470.0 150.0 L470.0 470.0" stroke="#111111" stroke-width="11" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="492.0" y="140.0" text-anchor="start" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">Y</text>
+  <text x="492.0" y="494.0" text-anchor="start" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">X</text>
+  <text x="560.0" y="318.0" text-anchor="middle" font-size="22" font-weight="700" direction="rtl" unicode-bidi="embed" font-family="'Segoe UI', Tahoma, 'Noto Sans Arabic', 'Noto Naskh Arabic', Arial, sans-serif" fill="#2f63b0">سلك معدني</text>
+</svg>

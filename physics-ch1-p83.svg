@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 690 440" width="690" height="440">
+  <!-- Physics, chapter 1, PDF page 89 (question 83): top side: battery (VB)2 = 3 V (positive plate on the right) and battery (VB)1 = 6 V (positive plate on the left), so the two positive plates face each other. Point x on the left side, point y on the right side, resistor R on the bottom side. -->
+  <rect width="690" height="440" fill="#ffffff"/>
+  <path d="M50.0 150.0 L174.0 150.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <rect x="172.0" y="144.0" width="16.0" height="12.0" fill="#ffffff"/>
+  <path d="M174.0 136.0V164.0M186.0 124.0V176.0" stroke="#1d9a3a" stroke-width="5"/>
+  <path d="M186.0 150.0 L514.0 150.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <rect x="512.0" y="144.0" width="16.0" height="12.0" fill="#ffffff"/>
+  <path d="M514.0 124.0V176.0M526.0 136.0V164.0" stroke="#1d9a3a" stroke-width="5"/>
+  <path d="M526.0 150.0 L640.0 150.0 L640.0 400.0 L410.0 400.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M270.0 400.0 L284.0 400.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M396.0 400.0 L410.0 400.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M284.0 400.0 L293.3 409.0 L312.0 391.0 L330.7 409.0 L349.3 391.0 L368.0 409.0 L386.7 391.0 L396.0 400.0" stroke="#2f63b0" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M270.0 400.0 L50.0 400.0 L50.0 150.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="50.0" cy="275.0" r="8" fill="#1d9a3a"/>
+  <circle cx="640.0" cy="275.0" r="8" fill="#1d9a3a"/>
+  <text x="80.0" y="283.0" text-anchor="middle" font-size="28" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2f63b0">x</text>
+  <text x="610.0" y="283.0" text-anchor="middle" font-size="28" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2f63b0">y</text>
+  <text x="180.0" y="92.0" text-anchor="middle" font-size="26" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2f63b0"><tspan>(V</tspan><tspan font-size="18" dy="6">B</tspan><tspan dy="-6">)</tspan><tspan font-size="18" dy="6">2</tspan><tspan dy="-6"> = 3 V</tspan></text>
+  <text x="520.0" y="92.0" text-anchor="middle" font-size="26" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2f63b0"><tspan>(V</tspan><tspan font-size="18" dy="6">B</tspan><tspan dy="-6">)</tspan><tspan font-size="18" dy="6">1</tspan><tspan dy="-6"> = 6 V</tspan></text>
+  <text x="340.0" y="374.0" text-anchor="middle" font-size="26" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2f63b0">R</text>
+</svg>

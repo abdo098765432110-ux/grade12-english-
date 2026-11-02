@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" width="640" height="400">
+  <!-- Physics, chapter 1, PDF page 85 (question 79): the potential difference V (V) between the battery terminals against the current I (A): a straight line from 12 V at I = 0, falling evenly and passing through 8 V at I = 8 A, until it meets the current axis. -->
+  <rect width="640" height="400" fill="#ffffff"/>
+  <path d="M254.0 190.0 L110.0 190.0" stroke="#9aa3b5" stroke-width="2" fill="none" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="7 6"/>
+  <path d="M254.0 190.0 L254.0 350.0" stroke="#9aa3b5" stroke-width="2" fill="none" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="7 6"/>
+  <path d="M110.0 350.0 L110.0 70.0" stroke="#1f6f62" stroke-width="3.5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M110.0 60.0 L102.5 80.0 L117.5 80.0 z" fill="#1f6f62"/>
+  <path d="M110.0 350.0 L590.0 350.0" stroke="#1f6f62" stroke-width="3.5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M600.0 350.0 L580.0 342.5 L580.0 357.5 z" fill="#1f6f62"/>
+  <path d="M110.0 110.0 L542.0 350.0" stroke="#e8692e" stroke-width="4.5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="254.0" cy="190.0" r="6" fill="#e8692e"/>
+  <text x="96.0" y="118.0" text-anchor="end" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">12</text>
+  <text x="96.0" y="198.0" text-anchor="end" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">8</text>
+  <text x="254.0" y="384.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">8</text>
+  <text x="600.0" y="332.0" text-anchor="end" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">I (A)</text>
+  <text x="110.0" y="50.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">V (V)</text>
+  <text x="380.0" y="50.0" text-anchor="middle" font-size="22" font-weight="700" direction="rtl" unicode-bidi="embed" font-family="'Segoe UI', Tahoma, 'Noto Sans Arabic', 'Noto Naskh Arabic', Arial, sans-serif" fill="#2b3654">فرق الجهد بين طرفي البطارية</text>
+</svg>

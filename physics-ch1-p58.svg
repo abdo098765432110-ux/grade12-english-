@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 750 310" width="750" height="310">
+  <!-- Physics, chapter 1, PDF page 63: part of a circuit; current i enters from the left through R1 = R and R2 = 3R in series, then a parallel pair R3 = R (top) and R4 = 2R (bottom). -->
+  <rect width="750" height="310" fill="#ffffff"/>
+  <path d="M10.0 150.0 L110.0 150.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M119.6 150.0 L220.4 150.0" stroke="#ffffff" stroke-width="10" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M110.0 150.0 L119.6 150.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M220.4 150.0 L230.0 150.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M119.6 150.0 L128.0 162.0 L144.8 138.0 L161.6 162.0 L178.4 138.0 L195.2 162.0 L212.0 138.0 L220.4 150.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M230.0 150.0 L300.0 150.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M309.6 150.0 L410.4 150.0" stroke="#ffffff" stroke-width="10" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M300.0 150.0 L309.6 150.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M410.4 150.0 L420.0 150.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M309.6 150.0 L318.0 162.0 L334.8 138.0 L351.6 162.0 L368.4 138.0 L385.2 162.0 L402.0 138.0 L410.4 150.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M420.0 150.0 L500.0 150.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M500.0 70.0 L500.0 230.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M660.0 70.0 L660.0 230.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M660.0 150.0 L740.0 150.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M525.6 70.0 L634.4 70.0" stroke="#ffffff" stroke-width="10" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M500.0 70.0 L525.6 70.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M634.4 70.0 L660.0 70.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M525.6 70.0 L534.7 82.0 L552.8 58.0 L570.9 82.0 L589.1 58.0 L607.2 82.0 L625.3 58.0 L634.4 70.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M525.6 230.0 L634.4 230.0" stroke="#ffffff" stroke-width="10" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M500.0 230.0 L525.6 230.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M634.4 230.0 L660.0 230.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M525.6 230.0 L534.7 242.0 L552.8 218.0 L570.9 242.0 L589.1 218.0 L607.2 242.0 L625.3 218.0 L634.4 230.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M16.0 108.0 L81.6 108.0" stroke="#2f63b0" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M96.0 108.0 L81.6 114.8 L81.6 101.2 z" fill="#2f63b0"/>
+  <text x="52.0" y="92.0" text-anchor="middle" font-size="28" font-weight="600" font-style="italic" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2f63b0">i</text>
+  <text x="132.0" y="202.0" text-anchor="middle" font-size="24" font-weight="600" font-style="italic" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">R<tspan font-size="16" dy="6">1</tspan><tspan dy="-6"> = R</tspan></text>
+  <text x="320.0" y="202.0" text-anchor="middle" font-size="24" font-weight="600" font-style="italic" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">R<tspan font-size="16" dy="6">2</tspan><tspan dy="-6"> = 3R</tspan></text>
+  <text x="548.0" y="36.0" text-anchor="middle" font-size="24" font-weight="600" font-style="italic" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">R<tspan font-size="16" dy="6">3</tspan><tspan dy="-6"> = R</tspan></text>
+  <text x="548.0" y="286.0" text-anchor="middle" font-size="24" font-weight="600" font-style="italic" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">R<tspan font-size="16" dy="6">4</tspan><tspan dy="-6"> = 2R</tspan></text>
+  <circle cx="500.0" cy="150.0" r="5" fill="#2b3654"/>
+  <circle cx="660.0" cy="150.0" r="5" fill="#2b3654"/>
+</svg>

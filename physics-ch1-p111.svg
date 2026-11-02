@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 430" width="700" height="430">
+  <!-- Physics, chapter 1, PDF question 111 (page 120): rectangle a-b-c (top) and f-e-d (bottom). Left side a-f: battery (VB)1 with r1 = 1 ohm, positive at the top (a). Top: I1 = 1.4 A from a through 4 ohm to b, then 4 ohm from b to c. Middle b-e: 10 ohm with I3 = 0.8 A downwards. Right side c-d: battery (VB)2 with r2 = 1 ohm, positive at the top (c), arrow I2 pointing up (from d to c). Bottom wire f-e-d. -->
+  <rect width="700" height="430" fill="#ffffff"/>
+  <path d="M160.0 90.0 L640.0 90.0 L640.0 380.0 L160.0 380.0 L160.0 90.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M410.0 90.0 L410.0 380.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M220.0 90.0 L234.4 90.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M325.6 90.0 L340.0 90.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M234.4 90.0 L242.0 99.0 L257.2 81.0 L272.4 99.0 L287.6 81.0 L302.8 99.0 L318.0 81.0 L325.6 90.0" stroke="#e8692e" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M470.0 90.0 L484.4 90.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M575.6 90.0 L590.0 90.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M484.4 90.0 L492.0 99.0 L507.2 81.0 L522.4 99.0 L537.6 81.0 L552.8 99.0 L568.0 81.0 L575.6 90.0" stroke="#e8692e" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M410.0 175.0 L410.0 187.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M410.0 283.0 L410.0 295.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M410.0 187.0 L401.0 195.0 L419.0 211.0 L401.0 227.0 L419.0 243.0 L401.0 259.0 L419.0 275.0 L410.0 283.0" stroke="#e8692e" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <rect x="154.0" y="218.0" width="12" height="44" fill="#ffffff"/>
+  <path d="M134.0 222.0H186.0" stroke="#2b3654" stroke-width="5"/>
+  <path d="M146.0 234.0H174.0" stroke="#2b3654" stroke-width="5"/>
+  <path d="M134.0 246.0H186.0" stroke="#2b3654" stroke-width="5"/>
+  <path d="M146.0 258.0H174.0" stroke="#2b3654" stroke-width="5"/>
+  <rect x="634.0" y="218.0" width="12" height="44" fill="#ffffff"/>
+  <path d="M614.0 222.0H666.0" stroke="#2b3654" stroke-width="5"/>
+  <path d="M626.0 234.0H654.0" stroke="#2b3654" stroke-width="5"/>
+  <path d="M614.0 246.0H666.0" stroke="#2b3654" stroke-width="5"/>
+  <path d="M626.0 258.0H654.0" stroke="#2b3654" stroke-width="5"/>
+  <circle cx="410.0" cy="90.0" r="5" fill="#2b3654"/>
+  <circle cx="410.0" cy="380.0" r="5" fill="#2b3654"/>
+  <text x="146.0" y="98.0" text-anchor="end" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">a</text>
+  <text x="410.0" y="74.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">b</text>
+  <text x="654.0" y="98.0" text-anchor="start" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">c</text>
+  <text x="654.0" y="388.0" text-anchor="start" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">d</text>
+  <text x="410.0" y="412.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">e</text>
+  <text x="146.0" y="388.0" text-anchor="end" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">f</text>
+  <path d="M205.0 90.0 L185.0 82.5 L185.0 97.5 z" fill="#c43030"/>
+  <text x="178.0" y="56.0" text-anchor="middle" font-size="22" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">I<tspan font-size="15" dy="6">1</tspan><tspan dy="-6"> = 1.4A</tspan></text>
+  <text x="280.0" y="66.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">4 Ω</text>
+  <text x="530.0" y="66.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">4 Ω</text>
+  <path d="M410.0 150.0 L402.5 130.0 L417.5 130.0 z" fill="#c43030"/>
+  <text x="394.0" y="148.0" text-anchor="end" font-size="22" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">I<tspan font-size="15" dy="6">3</tspan><tspan dy="-6"> = 0.8A</tspan></text>
+  <text x="388.0" y="245.0" text-anchor="end" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">10 Ω</text>
+  <path d="M640.0 150.0 L632.5 170.0 L647.5 170.0 z" fill="#c43030"/>
+  <text x="656.0" y="166.0" text-anchor="start" font-size="22" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">I<tspan font-size="15" dy="6">2</tspan></text>
+  <text x="126.0" y="232.0" text-anchor="end" font-size="22" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">(V<tspan font-size="15" dy="6">B</tspan><tspan dy="-6">)₁</tspan></text>
+  <text x="126.0" y="272.0" text-anchor="end" font-size="22" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">r₁ = 1Ω</text>
+  <text x="606.0" y="232.0" text-anchor="end" font-size="22" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">(V<tspan font-size="15" dy="6">B</tspan><tspan dy="-6">)₂</tspan></text>
+  <text x="606.0" y="272.0" text-anchor="end" font-size="22" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">r₂ = 1Ω</text>
+</svg>

@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 380" width="760" height="380">
+  <!-- Physics, chapter 1, PDF question 69 (page 75): a battery VB with internal resistance r (long plate on the right), an ammeter A and a rheostat Rv in series. Next to it, a graph of the current I (A) against the rheostat resistance Rv (ohm): a falling curve through (2 ohm, 3 A) and (4 ohm, 2 A). -->
+  <rect width="760" height="380" fill="#ffffff"/>
+  <path d="M30.0 110.0 L250.0 110.0 L250.0 178.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M250.0 192.0 L242.5 172.0 L257.5 172.0 z" fill="#2b3654"/>
+  <rect x="132.0" y="104.0" width="16.0" height="12.0" fill="#ffffff"/>
+  <path d="M134.0 96.0V124.0M146.0 84.0V136.0" stroke="#1f4fa0" stroke-width="5"/>
+  <text x="132.0" y="70.0" text-anchor="middle" font-size="22" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">V<tspan font-size="15" dy="6">B</tspan></text>
+  <text x="140.0" y="162.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">r</text>
+  <path d="M205.0 200.0 L208.6 200.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M291.4 200.0 L295.0 200.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M208.6 200.0 L215.5 211.0 L229.3 189.0 L243.1 211.0 L256.9 189.0 L270.7 211.0 L284.5 189.0 L291.4 200.0" stroke="#e8692e" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M295.0 200.0 L330.0 200.0 L330.0 300.0 L30.0 300.0 L30.0 229.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M30.0 181.0 L30.0 110.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="30.0" cy="205.0" r="24" fill="#ffffff" stroke="#2b3654" stroke-width="3"/>
+  <text x="30.0" y="213.0" text-anchor="middle" font-size="22" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">A</text>
+  <text x="250.0" y="242.0" text-anchor="middle" font-size="22" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">R<tspan font-size="15" dy="6">V</tspan></text>
+  <path d="M504.0 320.0 L504.0 67.0" stroke="#a9b0bf" stroke-width="2" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M568.0 320.0 L568.0 67.0" stroke="#a9b0bf" stroke-width="2" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M440.0 210.0 L696.0 210.0" stroke="#a9b0bf" stroke-width="2" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M440.0 155.0 L696.0 155.0" stroke="#a9b0bf" stroke-width="2" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M440.0 320.0 L440.0 55.0" stroke="#1f6f62" stroke-width="3.5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M440.0 45.0 L432.5 65.0 L447.5 65.0 z" fill="#1f6f62"/>
+  <path d="M440.0 320.0 L712.0 320.0" stroke="#1f6f62" stroke-width="3.5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M722.0 320.0 L702.0 312.5 L702.0 327.5 z" fill="#1f6f62"/>
+  <path d="M462.4 75.6 L464.0 80.0 L465.6 84.3 L467.2 88.4 L468.8 92.4 L470.4 96.3 L472.0 100.0 L473.6 103.6 L475.2 107.1 L476.8 110.5 L478.4 113.8 L480.0 116.9 L481.6 120.0 L483.2 123.0 L484.8 125.9 L486.4 128.7 L488.0 131.4 L489.6 134.1 L491.2 136.7 L492.8 139.2 L494.4 141.6 L496.0 144.0 L497.6 146.3 L499.2 148.6 L500.8 150.8 L502.4 152.9 L504.0 155.0 L505.6 157.0 L507.2 159.0 L508.8 161.0 L510.4 162.9 L512.0 164.7 L513.6 166.5 L515.2 168.3 L516.8 170.0 L518.4 171.7 L520.0 173.3 L521.6 174.9 L523.2 176.5 L524.8 178.1 L526.4 179.6 L528.0 181.1 L529.6 182.5 L531.2 183.9 L532.8 185.3 L534.4 186.7 L536.0 188.0 L537.6 189.3 L539.2 190.6 L540.8 191.8 L542.4 193.1 L544.0 194.3 L545.6 195.5 L547.2 196.6 L548.8 197.8 L550.4 198.9 L552.0 200.0 L553.6 201.1 L555.2 202.1 L556.8 203.2 L558.4 204.2 L560.0 205.2 L561.6 206.2 L563.2 207.2 L564.8 208.1 L566.4 209.1 L568.0 210.0 L569.6 210.9 L571.2 211.8 L572.8 212.7 L574.4 213.5 L576.0 214.4 L577.6 215.2 L579.2 216.1 L580.8 216.9 L582.4 217.7 L584.0 218.5 L585.6 219.2 L587.2 220.0 L588.8 220.8 L590.4 221.5 L592.0 222.2 L593.6 222.9 L595.2 223.6 L596.8 224.3 L598.4 225.0 L600.0 225.7 L601.6 226.4 L603.2 227.0 L604.8 227.7 L606.4 228.3 L608.0 229.0 L609.6 229.6 L611.2 230.2 L612.8 230.8 L614.4 231.4 L616.0 232.0 L617.6 232.6 L619.2 233.2 L620.8 233.7 L622.4 234.3 L624.0 234.8 L625.6 235.4 L627.2 235.9 L628.8 236.5 L630.4 237.0 L632.0 237.5 L633.6 238.0 L635.2 238.5 L636.8 239.0 L638.4 239.5 L640.0 240.0 L641.6 240.5 L643.2 241.0 L644.8 241.4 L646.4 241.9 L648.0 242.4 L649.6 242.8 L651.2 243.3 L652.8 243.7 L654.4 244.1 L656.0 244.6 L657.6 245.0 L659.2 245.4 L660.8 245.8 L662.4 246.3 L664.0 246.7 L665.6 247.1 L667.2 247.5 L668.8 247.9 L670.4 248.3 L672.0 248.6 L673.6 249.0 L675.2 249.4 L676.8 249.8 L678.4 250.2 L680.0 250.5" stroke="#c43030" stroke-width="3.5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="472.0" cy="100.0" r="6" fill="#111111"/>
+  <circle cx="504.0" cy="155.0" r="6" fill="#111111"/>
+  <circle cx="568.0" cy="210.0" r="6" fill="#111111"/>
+  <circle cx="632.0" cy="237.5" r="6" fill="#111111"/>
+  <text x="446.0" y="36.0" text-anchor="middle" font-size="22" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">I (A)</text>
+  <text x="426.0" y="163.0" text-anchor="end" font-size="22" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">3</text>
+  <text x="426.0" y="218.0" text-anchor="end" font-size="22" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">2</text>
+  <text x="504.0" y="350.0" text-anchor="middle" font-size="22" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">2</text>
+  <text x="568.0" y="350.0" text-anchor="middle" font-size="22" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">4</text>
+  <text x="752.0" y="362.0" text-anchor="end" font-size="22" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">R<tspan font-size="15" dy="6">V</tspan><tspan dy="-6"> (Ω)</tspan></text>
+</svg>

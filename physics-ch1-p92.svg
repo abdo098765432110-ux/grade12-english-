@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 730 340" width="730" height="340">
+  <!-- Physics, chapter 1, PDF question 92 (page 98): battery with internal resistance r (long plate on the left) in series with three parts, left to right: two resistors R in parallel with the open switch K in the lower branch; a resistor R with an ammeter A joined across it; a resistor R with a voltmeter V joined across it. -->
+  <rect width="730" height="340" fill="#ffffff"/>
+  <path d="M30.0 300.0 L30.0 50.0 L700.0 50.0 L700.0 300.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <rect x="357.0" y="44.0" width="16.0" height="12.0" fill="#ffffff"/>
+  <path d="M359.0 20.0V80.0M371.0 34.0V66.0" stroke="#9b2c4a" stroke-width="5"/>
+  <text x="388.0" y="104.0" text-anchor="middle" font-size="26" font-weight="600" font-style="italic" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">r</text>
+  <path d="M30.0 210.0 L85.0 210.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M195.0 210.0 L250.0 210.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M85.0 210.0 L94.2 219.0 L112.5 201.0 L130.8 219.0 L149.2 201.0 L167.5 219.0 L185.8 201.0 L195.0 210.0" stroke="#e8692e" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M30.0 300.0 L48.0 300.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M132.0 300.0 L150.0 300.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M48.0 300.0 L58.5 309.0 L79.5 291.0 L100.5 309.0 L121.5 291.0 L132.0 300.0" stroke="#e8692e" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M150.0 300.0 L180.0 300.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="180.0" cy="300.0" r="5" fill="#2b3654"/>
+  <circle cx="215.0" cy="300.0" r="5" fill="#2b3654"/>
+  <path d="M215.0 300.0 L186.0 276.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M215.0 300.0 L250.0 300.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M250.0 210.0 L250.0 300.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="140.0" y="188.0" text-anchor="middle" font-size="26" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">R</text>
+  <text x="85.0" y="276.0" text-anchor="middle" font-size="26" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">R</text>
+  <text x="222.0" y="266.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">K</text>
+  <path d="M250.0 210.0 L311.6 210.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M408.4 210.0 L470.0 210.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M311.6 210.0 L319.7 219.0 L335.8 201.0 L351.9 219.0 L368.1 201.0 L384.2 219.0 L400.3 201.0 L408.4 210.0" stroke="#e8692e" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M250.0 300.0 L336.0 300.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="360.0" cy="300.0" r="24" fill="#ffffff" stroke="#3b4fb8" stroke-width="3"/>
+  <text x="360.0" y="308.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#3b4fb8">A</text>
+  <path d="M384.0 300.0 L470.0 300.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M470.0 210.0 L470.0 300.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="360.0" y="188.0" text-anchor="middle" font-size="26" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">R</text>
+  <path d="M470.0 210.0 L534.4 210.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M635.6 210.0 L700.0 210.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M534.4 210.0 L542.8 219.0 L559.7 201.0 L576.6 219.0 L593.4 201.0 L610.3 219.0 L627.2 201.0 L635.6 210.0" stroke="#e8692e" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M470.0 300.0 L561.0 300.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="585.0" cy="300.0" r="24" fill="#ffffff" stroke="#3b4fb8" stroke-width="3"/>
+  <text x="585.0" y="308.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#3b4fb8">V</text>
+  <path d="M609.0 300.0 L700.0 300.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="585.0" y="188.0" text-anchor="middle" font-size="26" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">R</text>
+  <circle cx="30.0" cy="210.0" r="5" fill="#2b3654"/>
+  <circle cx="250.0" cy="210.0" r="5" fill="#2b3654"/>
+  <circle cx="470.0" cy="210.0" r="5" fill="#2b3654"/>
+  <circle cx="700.0" cy="210.0" r="5" fill="#2b3654"/>
+  <circle cx="250.0" cy="300.0" r="5" fill="#2b3654"/>
+  <circle cx="470.0" cy="300.0" r="5" fill="#2b3654"/>
+</svg>

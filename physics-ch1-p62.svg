@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 380" width="680" height="380">
+  <!-- Physics, chapter 1, PDF question 62 (page 67): a current of 2 A enters at A. Upper branch: 8 ohm from A to D, then 2 ohm from D to B. Lower branch: 2 ohm from A to C, then 4 ohm from C to B. The current leaves at B. -->
+  <rect width="680" height="380" fill="#ffffff"/>
+  <path d="M20.0 190.0 L150.0 190.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M103.0 190.0 L81.0 181.8 L81.0 198.2 z" fill="#2b3654"/>
+  <text x="70.0" y="170.0" text-anchor="middle" font-size="22" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">I = 2 A</text>
+  <path d="M530.0 190.0 L660.0 190.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M150.0 190.0 L197.5 155.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M292.5 85.0 L340.0 50.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M197.5 155.0 L210.6 160.3 L208.2 132.2 L234.3 142.8 L231.9 114.7 L258.1 125.3 L255.7 97.2 L281.8 107.8 L279.4 79.7 L292.5 85.0" stroke="#e8692e" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M340.0 50.0 L387.5 85.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M482.5 155.0 L530.0 190.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M387.5 85.0 L386.3 99.0 L412.4 88.5 L410.1 116.5 L436.2 106.0 L433.8 134.0 L459.9 123.5 L457.6 151.5 L483.7 141.0 L482.5 155.0" stroke="#e8692e" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M150.0 190.0 L197.5 225.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M292.5 295.0 L340.0 330.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M197.5 225.0 L196.3 239.0 L222.4 228.5 L220.1 256.5 L246.2 246.0 L243.8 274.0 L269.9 263.5 L267.6 291.5 L293.7 281.0 L292.5 295.0" stroke="#e8692e" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M340.0 330.0 L387.5 295.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M482.5 225.0 L530.0 190.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M387.5 295.0 L400.6 300.3 L398.2 272.2 L424.3 282.8 L421.9 254.7 L448.1 265.3 L445.7 237.2 L471.8 247.8 L469.4 219.7 L482.5 225.0" stroke="#e8692e" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="150.0" cy="190.0" r="6" fill="#2b3654"/>
+  <circle cx="340.0" cy="50.0" r="6" fill="#2b3654"/>
+  <circle cx="530.0" cy="190.0" r="6" fill="#2b3654"/>
+  <circle cx="340.0" cy="330.0" r="6" fill="#2b3654"/>
+  <text x="132.0" y="226.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#6a3d9a">A</text>
+  <text x="340.0" y="32.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#6a3d9a">D</text>
+  <text x="545.0" y="170.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#6a3d9a">B</text>
+  <text x="340.0" y="368.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#6a3d9a">C</text>
+  <text x="212.0" y="98.0" text-anchor="middle" font-size="22" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">8 Ω</text>
+  <text x="470.0" y="98.0" text-anchor="middle" font-size="22" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">2 Ω</text>
+  <text x="212.0" y="298.0" text-anchor="middle" font-size="22" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">2 Ω</text>
+  <text x="470.0" y="298.0" text-anchor="middle" font-size="22" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">4 Ω</text>
+</svg>

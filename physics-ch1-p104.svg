@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" width="720" height="300">
+  <!-- Physics, chapter 1, PDF question 104 (page 112): point E is joined to four resistors: R1 to a point at 100 V, 20 ohm to point D at 0 V, R2 to point B at 100 V and 50 ohm to point c at 50 V. -->
+  <rect width="720" height="300" fill="#ffffff"/>
+  <circle cx="50.0" cy="70.0" r="6" fill="#2b3654"/>
+  <path d="M50.0 70.0 L300.0 70.0 L300.0 240.0 L50.0 240.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="50.0" cy="240.0" r="6" fill="#2b3654"/>
+  <path d="M120.0 70.0 L138.0 70.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M222.0 70.0 L240.0 70.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M138.0 70.0 L145.0 79.0 L159.0 61.0 L173.0 79.0 L187.0 61.0 L201.0 79.0 L215.0 61.0 L222.0 70.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M120.0 240.0 L138.0 240.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M222.0 240.0 L240.0 240.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M138.0 240.0 L145.0 249.0 L159.0 231.0 L173.0 249.0 L187.0 231.0 L201.0 249.0 L215.0 231.0 L222.0 240.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M300.0 155.0 L420.0 155.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="360.0" cy="155.0" r="6" fill="#2b3654"/>
+  <path d="M670.0 70.0 L420.0 70.0 L420.0 240.0 L670.0 240.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="670.0" cy="70.0" r="6" fill="#2b3654"/>
+  <circle cx="670.0" cy="240.0" r="6" fill="#2b3654"/>
+  <path d="M480.0 70.0 L498.0 70.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M582.0 70.0 L600.0 70.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M498.0 70.0 L505.0 79.0 L519.0 61.0 L533.0 79.0 L547.0 61.0 L561.0 79.0 L575.0 61.0 L582.0 70.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M480.0 240.0 L498.0 240.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M582.0 240.0 L600.0 240.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M498.0 240.0 L505.0 249.0 L519.0 231.0 L533.0 249.0 L547.0 231.0 L561.0 249.0 L575.0 231.0 L582.0 240.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="180.0" y="44.0" text-anchor="middle" font-size="28" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2f63b0">R<tspan font-size="19" dy="6">1</tspan></text>
+  <text x="540.0" y="44.0" text-anchor="middle" font-size="28" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2f63b0">R<tspan font-size="19" dy="6">2</tspan></text>
+  <text x="180.0" y="216.0" text-anchor="middle" font-size="24" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">20Ω</text>
+  <text x="540.0" y="216.0" text-anchor="middle" font-size="24" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">50Ω</text>
+  <text x="70.0" y="108.0" text-anchor="middle" font-size="22" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">100V</text>
+  <text x="40.0" y="222.0" text-anchor="middle" font-size="22" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">0V</text>
+  <text x="50.0" y="280.0" text-anchor="middle" font-size="24" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">D</text>
+  <text x="686.0" y="52.0" text-anchor="middle" font-size="24" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">B</text>
+  <text x="650.0" y="108.0" text-anchor="middle" font-size="22" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">100V</text>
+  <text x="650.0" y="222.0" text-anchor="middle" font-size="22" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">50V</text>
+  <text x="670.0" y="280.0" text-anchor="middle" font-size="24" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">c</text>
+  <text x="360.0" y="192.0" text-anchor="middle" font-size="24" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">E</text>
+</svg>

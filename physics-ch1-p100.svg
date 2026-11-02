@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 290" width="720" height="290">
+  <!-- Physics, chapter 1, PDF question 100 (page 108): a horizontal wire: 4 A leaves at the left end; at the next junction 3 A leaves down a slanted wire; at the next junction 9 A comes in from above; at the next junction 2 A comes in from below; then the lamp at the right. -->
+  <rect width="720" height="290" fill="#ffffff"/>
+  <path d="M20.0 150.0 L700.0 150.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M51.0 150.0 L73.0 141.8 L73.0 158.2 z" fill="#2f63b0"/>
+  <text x="110.0" y="128.0" text-anchor="middle" font-size="26" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">4 A</text>
+  <path d="M200.0 150.0 L100.0 260.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M132.6 224.1 L141.3 202.3 L153.5 213.4 z" fill="#2f63b0"/>
+  <text x="185.0" y="254.0" text-anchor="start" font-size="26" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">3 A</text>
+  <path d="M370.0 150.0 L370.0 25.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M370.0 71.0 L361.8 49.0 L378.2 49.0 z" fill="#2f63b0"/>
+  <text x="392.0" y="90.0" text-anchor="start" font-size="26" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">9 A</text>
+  <path d="M500.0 150.0 L500.0 275.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M500.0 225.0 L491.8 247.0 L508.2 247.0 z" fill="#2f63b0"/>
+  <text x="522.0" y="252.0" text-anchor="start" font-size="26" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">2 A</text>
+  <circle cx="620.0" cy="150.0" r="22" fill="#fff8e6" stroke="#b07a00" stroke-width="3.5"/>
+  <path d="M604.6 134.6 L635.4 165.4" stroke="#b07a00" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M604.6 165.4 L635.4 134.6" stroke="#b07a00" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="200.0" cy="150.0" r="5" fill="#2b3654"/>
+  <circle cx="370.0" cy="150.0" r="5" fill="#2b3654"/>
+  <circle cx="500.0" cy="150.0" r="5" fill="#2b3654"/>
+</svg>

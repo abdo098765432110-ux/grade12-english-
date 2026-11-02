@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 650 480" width="650" height="480">
+  <!-- Physics, chapter 1, PDF page 96 (question 90): series circuit. Left side: cell VB with internal resistance R (positive plate down), then ammeter A. Bottom side: current flows to the right. Right side, going up: resistor R, then resistor 2R with voltmeter V2 across it. Top side: resistor R with voltmeter V1 across it; current flows to the left. -->
+  <rect width="650" height="480" fill="#ffffff"/>
+  <path d="M150.0 236.0 L150.0 150.0 L450.0 150.0 L450.0 440.0 L150.0 440.0 L150.0 382.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <rect x="255.0" y="139.0" width="90.0" height="22.0" fill="#f7efd9" stroke="#2b3654" stroke-width="3"/>
+  <rect x="144.0" y="234.0" width="12.0" height="16.0" fill="#ffffff"/>
+  <path d="M134.0 236.0H166.0M122.0 248.0H178.0" stroke="#2b3654" stroke-width="5"/>
+  <path d="M150.0 248.0 L150.0 328.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="150.0" cy="355.0" r="28" fill="#f3f6fb" stroke="#2b3654" stroke-width="3"/>
+  <text x="150.0" y="363.0" text-anchor="middle" font-size="22" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">A</text>
+  <rect x="439.0" y="180.0" width="22.0" height="90.0" fill="#f7efd9" stroke="#2b3654" stroke-width="3"/>
+  <rect x="439.0" y="310.0" width="22.0" height="90.0" fill="#f7efd9" stroke="#2b3654" stroke-width="3"/>
+  <path d="M450.0 166.0 L590.0 166.0 L590.0 196.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="590.0" cy="225.0" r="29" fill="#f3f6fb" stroke="#2b3654" stroke-width="3"/>
+  <text x="588.0" y="233.0" text-anchor="middle" font-size="22" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654"><tspan>V</tspan><tspan font-size="15" dy="6">2</tspan></text>
+  <path d="M590.0 254.0 L590.0 290.0 L450.0 290.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="450.0" cy="166.0" r="5" fill="#2b3654"/>
+  <circle cx="450.0" cy="290.0" r="5" fill="#2b3654"/>
+  <path d="M225.0 150.0 L225.0 55.0 L271.0 55.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="300.0" cy="55.0" r="29" fill="#f3f6fb" stroke="#2b3654" stroke-width="3"/>
+  <text x="298.0" y="63.0" text-anchor="middle" font-size="22" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654"><tspan>V</tspan><tspan font-size="15" dy="6">1</tspan></text>
+  <path d="M329.0 55.0 L375.0 55.0 L375.0 150.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="225.0" cy="150.0" r="5" fill="#2b3654"/>
+  <circle cx="375.0" cy="150.0" r="5" fill="#2b3654"/>
+  <path d="M389.0 150.0 L411.0 141.8 L411.0 158.2 z" fill="#2b3654"/>
+  <path d="M391.0 440.0 L369.0 431.8 L369.0 448.2 z" fill="#2b3654"/>
+  <text x="300.0" y="196.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">R</text>
+  <text x="426.0" y="234.0" text-anchor="end" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">2R</text>
+  <text x="426.0" y="364.0" text-anchor="end" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">R</text>
+  <text x="116.0" y="250.0" text-anchor="end" font-size="24" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654"><tspan>V</tspan><tspan font-size="16" dy="6">B</tspan><tspan dy="-6"> , R</tspan></text>
+</svg>

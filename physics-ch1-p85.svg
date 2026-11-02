@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 580" width="540" height="580">
+  <!-- Physics, chapter 1, PDF page 91 (question 85): top side: battery VB1 with internal resistance r1 (positive plate on the left) and a voltmeter V across it. Left side: resistor R. A middle wire with switch K1 (closed) joins the left and right sides. Bottom side: switch K2 (open) and battery VB2 with internal resistance r2 (positive plate on the left). -->
+  <rect width="540" height="580" fill="#ffffff"/>
+  <path d="M80.0 230.0 L80.0 150.0 L204.0 150.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <rect x="202.0" y="144.0" width="16.0" height="12.0" fill="#ffffff"/>
+  <path d="M204.0 124.0V176.0M216.0 136.0V164.0" stroke="#7d7d7d" stroke-width="5"/>
+  <path d="M216.0 150.0 L470.0 150.0 L470.0 520.0 L306.0 520.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M80.0 230.0 L80.0 236.4" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M80.0 303.6 L80.0 310.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M80.0 236.4 L71.0 240.6 L89.0 249.0 L71.0 257.4 L89.0 265.8 L71.0 274.2 L89.0 282.6 L71.0 291.0 L89.0 299.4 L80.0 303.6" stroke="#e8692e" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M80.0 310.0 L80.0 520.0 L120.0 520.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M80.0 380.0 L320.0 380.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="320.0" cy="380.0" r="5" fill="#2b3654"/>
+  <circle cx="372.0" cy="380.0" r="5" fill="#2b3654"/>
+  <path d="M320.0 380.0 L372.0 377.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M372.0 380.0 L470.0 380.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="80.0" cy="380.0" r="5" fill="#2b3654"/>
+  <circle cx="470.0" cy="380.0" r="5" fill="#2b3654"/>
+  <circle cx="120.0" cy="520.0" r="5" fill="#2b3654"/>
+  <circle cx="176.0" cy="520.0" r="5" fill="#2b3654"/>
+  <path d="M120.0 520.0 L170.0 494.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M176.0 520.0 L294.0 520.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <rect x="292.0" y="514.0" width="16.0" height="12.0" fill="#ffffff"/>
+  <path d="M294.0 494.0V546.0M306.0 506.0V534.0" stroke="#7d7d7d" stroke-width="5"/>
+  <path d="M120.0 150.0 L120.0 50.0 L206.0 50.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="230.0" cy="50.0" r="24" fill="#f3f6fb" stroke="#2b3654" stroke-width="3"/>
+  <text x="230.0" y="58.0" text-anchor="middle" font-size="22" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">V</text>
+  <path d="M254.0 50.0 L370.0 50.0 L370.0 150.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="120.0" cy="150.0" r="5" fill="#2b3654"/>
+  <circle cx="370.0" cy="150.0" r="5" fill="#2b3654"/>
+  <text x="210.0" y="104.0" text-anchor="middle" font-size="24" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654"><tspan>V</tspan><tspan font-size="16" dy="6">B1</tspan></text>
+  <text x="212.0" y="200.0" text-anchor="middle" font-size="24" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654"><tspan>r</tspan><tspan font-size="16" dy="6">1</tspan></text>
+  <text x="56.0" y="278.0" text-anchor="end" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">R</text>
+  <text x="346.0" y="422.0" text-anchor="middle" font-size="24" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654"><tspan>K</tspan><tspan font-size="16" dy="6">1</tspan></text>
+  <text x="300.0" y="480.0" text-anchor="middle" font-size="24" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654"><tspan>V</tspan><tspan font-size="16" dy="6">B2</tspan></text>
+  <text x="302.0" y="572.0" text-anchor="middle" font-size="24" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654"><tspan>r</tspan><tspan font-size="16" dy="6">2</tspan></text>
+  <text x="148.0" y="566.0" text-anchor="middle" font-size="24" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654"><tspan>K</tspan><tspan font-size="16" dy="6">2</tspan></text>
+</svg>

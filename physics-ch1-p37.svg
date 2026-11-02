@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400">
+  <!-- Physics, chapter 1, PDF question 37 (page 40): rectangle a (top left), b (bottom left), c (bottom right). Top side a to the top-right corner: plain wire. Right side: R. Left side a-b: 2R. Bottom side b-c: R. Battery VB on the diagonal from a to c, long plate towards a. -->
+  <rect width="600" height="400" fill="#ffffff"/>
+  <path d="M80.0 60.0 L500.0 60.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M500.0 60.0 L500.0 100.5" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M500.0 289.5 L500.0 330.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M500.0 100.5 L491.0 116.2 L509.0 147.8 L491.0 179.2 L509.0 210.8 L491.0 242.2 L509.0 273.8 L500.0 289.5" stroke="#c43030" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M80.0 60.0 L80.0 100.5" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M80.0 289.5 L80.0 330.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M80.0 100.5 L71.0 116.2 L89.0 147.8 L71.0 179.2 L89.0 210.8 L71.0 242.2 L89.0 273.8 L80.0 289.5" stroke="#c43030" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M80.0 330.0 L180.8 330.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M399.2 330.0 L500.0 330.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M180.8 330.0 L199.0 339.0 L235.4 321.0 L271.8 339.0 L308.2 321.0 L344.6 339.0 L381.0 321.0 L399.2 330.0" stroke="#c43030" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M80.0 60.0 L410.1 272.2" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M421.9 279.8 L500.0 330.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M426.3 247.0 L393.9 297.5" stroke="#9b2c4a" stroke-width="5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M430.5 266.3 L413.2 293.2" stroke="#9b2c4a" stroke-width="5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="458.0" y="232.0" text-anchor="middle" font-size="24" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">V<tspan font-size="16" dy="6">B</tspan></text>
+  <text x="118.0" y="205.0" text-anchor="start" font-size="26" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">2R</text>
+  <text x="522.0" y="190.0" text-anchor="start" font-size="26" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">R</text>
+  <text x="290.0" y="378.0" text-anchor="middle" font-size="26" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">R</text>
+  <text x="62.0" y="50.0" text-anchor="middle" font-size="26" font-weight="700" font-style="italic" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">a</text>
+  <text x="62.0" y="352.0" text-anchor="middle" font-size="26" font-weight="700" font-style="italic" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">b</text>
+  <text x="522.0" y="352.0" text-anchor="middle" font-size="26" font-weight="700" font-style="italic" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">c</text>
+</svg>

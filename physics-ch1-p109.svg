@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 750 180" width="750" height="180">
+  <!-- Physics, chapter 1, PDF question 109 (page 118): part of a circuit from b to a: b, 1 ohm, a 4 V cell (long plate, positive, towards the junction), a junction where 1 A enters from above, 2 ohm, a 10 V cell (long plate, positive, towards the junction side; short plate towards a), 0.5 ohm, then a. A current of 2 A enters at a and flows towards b. -->
+  <rect width="750" height="180" fill="#ffffff"/>
+  <path d="M40.0 120.0 L705.0 120.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M70.0 120.0 L82.0 120.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M158.0 120.0 L170.0 120.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M82.0 120.0 L88.3 129.0 L101.0 111.0 L113.7 129.0 L126.3 111.0 L139.0 129.0 L151.7 111.0 L158.0 120.0" stroke="#e8692e" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <rect x="212.0" y="114.0" width="16.0" height="12.0" fill="#ffffff"/>
+  <path d="M214.0 106.0V134.0M226.0 94.0V146.0" stroke="#9b2c4a" stroke-width="5"/>
+  <path d="M300.0 120.0 L312.0 120.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M388.0 120.0 L400.0 120.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M312.0 120.0 L318.3 129.0 L331.0 111.0 L343.7 129.0 L356.3 111.0 L369.0 129.0 L381.7 111.0 L388.0 120.0" stroke="#e8692e" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <rect x="442.0" y="114.0" width="16.0" height="12.0" fill="#ffffff"/>
+  <path d="M444.0 94.0V146.0M456.0 106.0V134.0" stroke="#9b2c4a" stroke-width="5"/>
+  <path d="M500.0 120.0 L513.2 120.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M596.8 120.0 L610.0 120.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M513.2 120.0 L520.2 129.0 L534.1 111.0 L548.0 129.0 L562.0 111.0 L575.9 129.0 L589.8 111.0 L596.8 120.0" stroke="#e8692e" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M270.0 25.0 L270.0 120.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M270.0 70.0 L262.5 50.0 L277.5 50.0 z" fill="#c43030"/>
+  <text x="286.0" y="60.0" text-anchor="start" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">1 A</text>
+  <circle cx="40.0" cy="120.0" r="8" fill="#2b3654"/>
+  <circle cx="705.0" cy="120.0" r="8" fill="#2b3654"/>
+  <circle cx="270.0" cy="120.0" r="5" fill="#2b3654"/>
+  <text x="18.0" y="129.0" text-anchor="middle" font-size="28" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">b</text>
+  <text x="732.0" y="129.0" text-anchor="middle" font-size="28" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">a</text>
+  <path d="M644.0 120.0 L666.0 111.8 L666.0 128.2 z" fill="#c43030"/>
+  <text x="655.0" y="96.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">2 A</text>
+  <text x="120.0" y="170.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">1 Ω</text>
+  <text x="350.0" y="170.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">2 Ω</text>
+  <text x="555.0" y="170.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">0.5 Ω</text>
+  <text x="220.0" y="80.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">4 V</text>
+  <text x="450.0" y="80.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">10 V</text>
+</svg>

@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 470" width="680" height="470">
+  <!-- Physics, chapter 1, PDF question 31 (page 34). Junctions N and M are named for the explanation. A is joined by a wire to a junction; from there 40 ohm to junction N and 40 ohm down to junction M. N: 20 ohm to B; a wire from N down to the junction above the 10 ohm resistor that goes to C. M: 60 ohm to D and 80 ohm to the junction under N. -->
+  <rect width="680" height="470" fill="#ffffff"/>
+  <path d="M270.0 62.0 L270.0 130.0 L270.0 130.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M270.0 130.0 L315.0 130.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M405.0 130.0 L450.0 130.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M315.0 130.0 L322.5 139.0 L337.5 121.0 L352.5 139.0 L367.5 121.0 L382.5 139.0 L397.5 121.0 L405.0 130.0" stroke="#e8692e" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M450.0 130.0 L487.4 130.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M582.6 130.0 L620.0 130.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M487.4 130.0 L495.3 139.0 L511.2 121.0 L527.1 139.0 L542.9 121.0 L558.8 139.0 L574.7 121.0 L582.6 130.0" stroke="#e8692e" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M270.0 130.0 L270.0 177.6" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M270.0 252.4 L270.0 300.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M270.0 177.6 L261.0 183.8 L279.0 196.3 L261.0 208.8 L279.0 221.2 L261.0 233.7 L279.0 246.2 L270.0 252.4" stroke="#e8692e" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M40.0 300.0 L104.4 300.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M205.6 300.0 L270.0 300.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M104.4 300.0 L112.8 309.0 L129.7 291.0 L146.6 309.0 L163.4 291.0 L180.3 309.0 L197.2 291.0 L205.6 300.0" stroke="#e8692e" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M270.0 300.0 L315.0 300.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M405.0 300.0 L450.0 300.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M315.0 300.0 L322.5 309.0 L337.5 291.0 L352.5 309.0 L367.5 291.0 L382.5 309.0 L397.5 291.0 L405.0 300.0" stroke="#e8692e" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M450.0 130.0 L450.0 300.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M450.0 300.0 L450.0 335.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M450.0 405.0 L450.0 440.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M450.0 335.0 L441.0 340.8 L459.0 352.5 L441.0 364.2 L459.0 375.8 L441.0 387.5 L459.0 399.2 L450.0 405.0" stroke="#e8692e" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="270.0" cy="62.0" r="8" fill="#145a4e"/>
+  <circle cx="620.0" cy="130.0" r="8" fill="#145a4e"/>
+  <circle cx="40.0" cy="300.0" r="8" fill="#145a4e"/>
+  <circle cx="450.0" cy="440.0" r="8" fill="#145a4e"/>
+  <circle cx="270.0" cy="130.0" r="5" fill="#2b3654"/>
+  <circle cx="450.0" cy="130.0" r="5" fill="#2b3654"/>
+  <circle cx="270.0" cy="300.0" r="5" fill="#2b3654"/>
+  <circle cx="450.0" cy="300.0" r="5" fill="#2b3654"/>
+  <text x="270.0" y="40.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#6a3d9a">A</text>
+  <text x="652.0" y="138.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#6a3d9a">B</text>
+  <text x="44.0" y="278.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#6a3d9a">D</text>
+  <text x="420.0" y="450.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#6a3d9a">C</text>
+  <text x="360.0" y="172.0" text-anchor="middle" font-size="22" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#6a3d9a">40 Ω</text>
+  <text x="535.0" y="172.0" text-anchor="middle" font-size="22" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#6a3d9a">20 Ω</text>
+  <text x="248.0" y="223.0" text-anchor="end" font-size="22" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#6a3d9a">40 Ω</text>
+  <text x="155.0" y="342.0" text-anchor="middle" font-size="22" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#6a3d9a">60 Ω</text>
+  <text x="360.0" y="342.0" text-anchor="middle" font-size="22" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#6a3d9a">80 Ω</text>
+  <text x="472.0" y="378.0" text-anchor="start" font-size="22" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#6a3d9a">10 Ω</text>
+  <text x="464.0" y="116.0" text-anchor="start" font-size="22" font-weight="600" font-style="italic" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#6b7385">N</text>
+  <text x="258.0" y="330.0" text-anchor="end" font-size="22" font-weight="600" font-style="italic" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#6b7385">M</text>
+</svg>

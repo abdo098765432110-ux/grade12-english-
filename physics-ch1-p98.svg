@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 650 315" width="650" height="315">
+  <!-- Physics, chapter 1, PDF question 98 (page 105): resistor A (3R, top branch) in parallel with resistor B (6R, bottom branch), then resistor C (R) in series. -->
+  <rect width="650" height="315" fill="#ffffff"/>
+  <circle cx="30.0" cy="160.0" r="7" fill="#2b3654"/>
+  <path d="M30.0 160.0 L110.0 160.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M110.0 70.0 L110.0 250.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M370.0 70.0 L370.0 250.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M110.0 70.0 L193.2 70.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M286.8 70.0 L370.0 70.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M193.2 70.0 L201.0 79.0 L216.6 61.0 L232.2 79.0 L247.8 61.0 L263.4 79.0 L279.0 61.0 L286.8 70.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M110.0 250.0 L193.2 250.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M286.8 250.0 L370.0 250.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M193.2 250.0 L201.0 259.0 L216.6 241.0 L232.2 259.0 L247.8 241.0 L263.4 259.0 L279.0 241.0 L286.8 250.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M370.0 160.0 L440.0 160.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M440.0 160.0 L458.0 160.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M572.0 160.0 L590.0 160.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M458.0 160.0 L467.5 169.0 L486.5 151.0 L505.5 169.0 L524.5 151.0 L543.5 169.0 L562.5 151.0 L572.0 160.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M590.0 160.0 L620.0 160.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="620.0" cy="160.0" r="7" fill="#2b3654"/>
+  <text x="240.0" y="40.0" text-anchor="middle" font-size="26" font-weight="700" font-style="italic" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#e8692e">3R</text>
+  <text x="240.0" y="112.0" text-anchor="middle" font-size="26" font-weight="700" font-style="italic" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2f63b0">A</text>
+  <text x="240.0" y="222.0" text-anchor="middle" font-size="26" font-weight="700" font-style="italic" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2f63b0">B</text>
+  <text x="240.0" y="296.0" text-anchor="middle" font-size="26" font-weight="700" font-style="italic" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#e8692e">6R</text>
+  <text x="515.0" y="128.0" text-anchor="middle" font-size="26" font-weight="700" font-style="italic" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2f63b0">C</text>
+  <text x="515.0" y="206.0" text-anchor="middle" font-size="26" font-weight="700" font-style="italic" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#e8692e">R</text>
+</svg>

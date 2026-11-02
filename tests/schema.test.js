@@ -317,7 +317,7 @@ test('physics questions: every question is valid, has its diagram, and the answe
       });
     });
   });
-  assert.equal(ids.size, 33);
+  assert.equal(ids.size, 118);
   // the first five questions added earlier were removed, with their pictures
   for (let n = 1; n <= 5; n += 1) {
     assert.ok(!ids.has('phys-ch1-q' + n), 'phys-ch1-q' + n + ' should be gone');

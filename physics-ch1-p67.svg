@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 450" width="760" height="450">
+  <!-- Physics, chapter 1, PDF question 67 (page 73): battery VB = 6 V, r = 0.6 ohm on the right (positive plate on top), joined to one point on the top wire and one point on the bottom wire of the network; current I leaves the positive terminal and flows left along the top. Top wire: 1.6 ohm left of the feed point, 6 ohm right of it. Left side 12 ohm, and 3 ohm slanting from the top-left corner to the bottom wire. Right side 3 ohm. 18 ohm slanting from the top wire (right of the feed point) to the bottom-right corner. The bottom wire is one plain wire. -->
+  <rect width="760" height="450" fill="#ffffff"/>
+  <path d="M130.0 150.0 L170.0 150.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M250.0 150.0 L290.0 150.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M170.0 150.0 L176.7 159.0 L190.0 141.0 L203.3 159.0 L216.7 141.0 L230.0 159.0 L243.3 141.0 L250.0 150.0" stroke="#e8692e" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M290.0 150.0 L340.0 150.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M340.0 150.0 L379.6 150.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M480.4 150.0 L520.0 150.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M379.6 150.0 L388.0 159.0 L404.8 141.0 L421.6 159.0 L438.4 141.0 L455.2 159.0 L472.0 141.0 L480.4 150.0" stroke="#e8692e" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M130.0 150.0 L130.0 200.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M130.0 300.0 L130.0 350.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M130.0 200.0 L121.0 208.3 L139.0 225.0 L121.0 241.7 L139.0 258.3 L121.0 275.0 L139.0 291.7 L130.0 300.0" stroke="#e8692e" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M130.0 150.0 L157.5 200.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M212.5 300.0 L240.0 350.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M157.5 200.0 L151.3 211.6 L177.5 213.4 L165.0 236.6 L191.2 238.4 L178.8 261.6 L205.0 263.4 L192.5 286.6 L218.7 288.4 L212.5 300.0" stroke="#e8692e" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M340.0 150.0 L385.0 200.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M475.0 300.0 L520.0 350.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M385.0 200.0 L382.4 213.6 L410.1 211.4 L404.9 238.6 L432.6 236.4 L427.4 263.6 L455.1 261.4 L449.9 288.6 L477.6 286.4 L475.0 300.0" stroke="#e8692e" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M520.0 150.0 L520.0 200.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M520.0 300.0 L520.0 350.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M520.0 200.0 L511.0 208.3 L529.0 225.0 L511.0 241.7 L529.0 258.3 L511.0 275.0 L529.0 291.7 L520.0 300.0" stroke="#e8692e" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M130.0 350.0 L520.0 350.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M290.0 150.0 L290.0 60.0 L700.0 60.0 L700.0 420.0 L290.0 420.0 L290.0 350.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <rect x="694.0" y="232.0" width="12.0" height="16.0" fill="#ffffff"/>
+  <path d="M674.0 234.0H726.0M686.0 246.0H714.0" stroke="#1f4fa0" stroke-width="5"/>
+  <path d="M459.0 60.0 L481.0 51.8 L481.0 68.2 z" fill="#2b3654"/>
+  <text x="470.0" y="40.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">I</text>
+  <circle cx="290.0" cy="150.0" r="5" fill="#2b3654"/>
+  <circle cx="290.0" cy="350.0" r="5" fill="#2b3654"/>
+  <circle cx="340.0" cy="150.0" r="5" fill="#2b3654"/>
+  <circle cx="240.0" cy="350.0" r="5" fill="#2b3654"/>
+  <text x="210.0" y="128.0" text-anchor="middle" font-size="22" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">1.6 Ω</text>
+  <text x="430.0" y="126.0" text-anchor="middle" font-size="22" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">6 Ω</text>
+  <text x="75.0" y="258.0" text-anchor="middle" font-size="22" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">12 Ω</text>
+  <text x="224.0" y="240.0" text-anchor="middle" font-size="22" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">3 Ω</text>
+  <text x="398.0" y="290.0" text-anchor="middle" font-size="22" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">18 Ω</text>
+  <text x="540.0" y="258.0" text-anchor="start" font-size="22" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">3 Ω</text>
+  <text x="684.0" y="214.0" text-anchor="end" font-size="22" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">V<tspan font-size="15" dy="6">B</tspan><tspan dy="-6"> = 6V</tspan></text>
+  <text x="684.0" y="290.0" text-anchor="end" font-size="22" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">r = 0.6 Ω</text>
+</svg>

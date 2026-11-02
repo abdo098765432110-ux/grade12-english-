@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 380" width="700" height="380">
+  <!-- Physics, chapter 1, PDF question 42 (page 46): a 30 V battery (r = 0, long plate on the left) in series with 6 ohm, and this branch in parallel with another 6 ohm. Across the same two points: a 6 ohm on the right side, the ammeter A and a 6 ohm on the bottom, all in series. -->
+  <rect width="700" height="380" fill="#ffffff"/>
+  <path d="M40.0 100.0 L150.0 100.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M150.0 100.0 L187.5 100.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M262.5 100.0 L300.0 100.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M187.5 100.0 L193.8 109.0 L206.2 91.0 L218.8 109.0 L231.2 91.0 L243.8 109.0 L256.2 91.0 L262.5 100.0" stroke="#e8692e" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M300.0 100.0 L470.0 100.0 L630.0 100.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <rect x="392.0" y="94.0" width="16.0" height="12.0" fill="#ffffff"/>
+  <path d="M394.0 74.0V126.0M406.0 86.0V114.0" stroke="#9b2c4a" stroke-width="5"/>
+  <path d="M150.0 100.0 L150.0 180.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M150.0 180.0 L195.0 180.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M285.0 180.0 L330.0 180.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M195.0 180.0 L202.5 189.0 L217.5 171.0 L232.5 189.0 L247.5 171.0 L262.5 189.0 L277.5 171.0 L285.0 180.0" stroke="#e8692e" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M330.0 180.0 L470.0 180.0 L470.0 100.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M630.0 100.0 L630.0 179.2" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M630.0 260.8 L630.0 340.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M630.0 179.2 L621.0 186.0 L639.0 199.6 L621.0 213.2 L639.0 226.8 L621.0 240.4 L639.0 254.0 L630.0 260.8" stroke="#e8692e" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M630.0 340.0 L470.0 340.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="450.0" cy="340.0" r="20" fill="#ffffff" stroke="#2b3654" stroke-width="3"/>
+  <text x="450.0" y="348.0" text-anchor="middle" font-size="22" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">A</text>
+  <path d="M430.0 340.0 L300.0 340.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M180.0 340.0 L180.0 340.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M300.0 340.0 L300.0 340.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M180.0 340.0 L190.0 349.0 L210.0 331.0 L230.0 349.0 L250.0 331.0 L270.0 349.0 L290.0 331.0 L300.0 340.0" stroke="#e8692e" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M180.0 340.0 L40.0 340.0 L40.0 100.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="150.0" cy="100.0" r="5" fill="#2b3654"/>
+  <circle cx="470.0" cy="100.0" r="5" fill="#2b3654"/>
+  <text x="225.0" y="76.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">6 Ω</text>
+  <text x="240.0" y="158.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">6 Ω</text>
+  <text x="652.0" y="228.0" text-anchor="start" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">6 Ω</text>
+  <text x="240.0" y="316.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">6 Ω</text>
+  <text x="400.0" y="36.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">30V</text>
+  <text x="400.0" y="62.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">r = 0</text>
+</svg>

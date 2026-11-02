@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 350" width="760" height="350">
+  <!-- Physics, chapter 1, PDF question 65 (page 71): battery VB = 20 V on the top wire. On the bottom wire, left to right: R, then two 2R resistors in parallel, then 2R, all in series with the battery. -->
+  <rect width="760" height="350" fill="#ffffff"/>
+  <path d="M30.0 70.0 L730.0 70.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <rect x="462.0" y="64.0" width="16.0" height="12.0" fill="#ffffff"/>
+  <path d="M464.0 44.0V96.0M476.0 56.0V84.0" stroke="#1f4fa0" stroke-width="5"/>
+  <text x="496.0" y="42.0" text-anchor="start" font-size="22" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">V<tspan font-size="15" dy="6">B</tspan><tspan dy="-6"> = 20V</tspan></text>
+  <path d="M30.0 70.0 L30.0 290.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M730.0 70.0 L730.0 290.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M30.0 290.0 L78.4 290.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M201.6 290.0 L250.0 290.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M78.4 290.0 L88.7 299.0 L109.2 281.0 L129.7 299.0 L150.3 281.0 L170.8 299.0 L191.3 281.0 L201.6 290.0" stroke="#e8692e" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M250.0 210.0 L250.0 320.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M470.0 210.0 L470.0 320.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M250.0 210.0 L305.0 210.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M415.0 210.0 L470.0 210.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M305.0 210.0 L314.2 219.0 L332.5 201.0 L350.8 219.0 L369.2 201.0 L387.5 219.0 L405.8 201.0 L415.0 210.0" stroke="#e8692e" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M250.0 320.0 L305.0 320.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M415.0 320.0 L470.0 320.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M305.0 320.0 L314.2 329.0 L332.5 311.0 L350.8 329.0 L369.2 311.0 L387.5 329.0 L405.8 311.0 L415.0 320.0" stroke="#e8692e" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M470.0 290.0 L527.2 290.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M672.8 290.0 L730.0 290.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M527.2 290.0 L539.3 299.0 L563.6 281.0 L587.9 299.0 L612.1 281.0 L636.4 299.0 L660.7 281.0 L672.8 290.0" stroke="#e8692e" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="250.0" cy="290.0" r="5" fill="#2b3654"/>
+  <circle cx="470.0" cy="290.0" r="5" fill="#2b3654"/>
+  <text x="140.0" y="266.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">R</text>
+  <text x="360.0" y="188.0" text-anchor="middle" font-size="22" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">2R</text>
+  <text x="360.0" y="298.0" text-anchor="middle" font-size="22" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">2R</text>
+  <text x="600.0" y="266.0" text-anchor="middle" font-size="22" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">2R</text>
+</svg>

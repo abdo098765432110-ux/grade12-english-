@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 420" width="640" height="420">
+  <!-- Physics, chapter 1, PDF question 71 (page 77): battery VB with r = 1 ohm on the bottom wire; 3 ohm and 2 ohm in series on the top wire. Voltmeter V is connected across the 2 ohm resistor, and switch K (drawn open) is also connected across the 2 ohm resistor. -->
+  <rect width="640" height="420" fill="#ffffff"/>
+  <path d="M40.0 180.0 L105.0 180.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M235.0 180.0 L300.0 180.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M105.0 180.0 L115.8 189.0 L137.5 171.0 L159.2 189.0 L180.8 171.0 L202.5 189.0 L224.2 171.0 L235.0 180.0" stroke="#e8692e" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M300.0 180.0 L360.0 180.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M480.0 180.0 L540.0 180.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M360.0 180.0 L370.0 189.0 L390.0 171.0 L410.0 189.0 L430.0 171.0 L450.0 189.0 L470.0 171.0 L480.0 180.0" stroke="#e8692e" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M540.0 180.0 L600.0 180.0 L600.0 370.0 L40.0 370.0 L40.0 180.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <rect x="192.0" y="364.0" width="16.0" height="12.0" fill="#ffffff"/>
+  <path d="M194.0 356.0V384.0M206.0 344.0V396.0" stroke="#1f4fa0" stroke-width="5"/>
+  <text x="232.0" y="340.0" text-anchor="start" font-size="22" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">V<tspan font-size="15" dy="6">B</tspan></text>
+  <text x="232.0" y="408.0" text-anchor="start" font-size="22" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">r = 1 Ω</text>
+  <path d="M300.0 180.0 L300.0 80.0 L396.0 80.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M444.0 80.0 L540.0 80.0 L540.0 180.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="420.0" cy="80.0" r="24" fill="#ffffff" stroke="#2b3654" stroke-width="3"/>
+  <text x="420.0" y="88.0" text-anchor="middle" font-size="22" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">V</text>
+  <path d="M300.0 180.0 L300.0 280.0 L395.0 280.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M445.0 280.0 L540.0 280.0 L540.0 180.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M395.0 280.0 L451.0 256.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="395.0" cy="280.0" r="7" fill="#2b3654"/>
+  <circle cx="445.0" cy="280.0" r="7" fill="#2b3654"/>
+  <text x="376.0" y="262.0" text-anchor="end" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">K</text>
+  <circle cx="300.0" cy="180.0" r="5" fill="#2b3654"/>
+  <circle cx="540.0" cy="180.0" r="5" fill="#2b3654"/>
+  <text x="170.0" y="156.0" text-anchor="middle" font-size="22" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">3 Ω</text>
+  <text x="420.0" y="156.0" text-anchor="middle" font-size="22" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">2 Ω</text>
+</svg>

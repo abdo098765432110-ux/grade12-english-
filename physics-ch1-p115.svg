@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 430" width="640" height="430">
+  <!-- Physics, chapter 1, PDF question 115 (page 124): a single loop: an 18 V battery (r = 0.3 ohm, long plate, positive, on the left) on the middle-left wire, the top wire with 1.5 ohm, the right side with battery VB (r = 0.2 ohm, long plate, positive, at the top), then 6 ohm and 3 ohm in parallel back to the 18 V battery. A current of 2 A flows down to and through the 3 ohm resistor. -->
+  <rect width="640" height="430" fill="#ffffff"/>
+  <path d="M60.0 70.0 L520.0 70.0 L520.0 400.0 L330.0 400.0 L330.0 260.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M60.0 70.0 L60.0 260.0 L520.0 260.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M220.0 70.0 L239.6 70.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M340.4 70.0 L360.0 70.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M239.6 70.0 L248.0 79.0 L264.8 61.0 L281.6 79.0 L298.4 61.0 L315.2 79.0 L332.0 61.0 L340.4 70.0" stroke="#e8692e" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M330.0 260.0 L371.8 260.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M478.2 260.0 L520.0 260.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M371.8 260.0 L380.7 269.0 L398.4 251.0 L416.1 269.0 L433.9 251.0 L451.6 269.0 L469.3 251.0 L478.2 260.0" stroke="#e8692e" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M330.0 400.0 L371.8 400.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M478.2 400.0 L520.0 400.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M371.8 400.0 L380.7 409.0 L398.4 391.0 L416.1 409.0 L433.9 391.0 L451.6 409.0 L469.3 391.0 L478.2 400.0" stroke="#e8692e" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <rect x="162.0" y="254.0" width="16.0" height="12.0" fill="#ffffff"/>
+  <path d="M164.0 234.0V286.0M176.0 246.0V274.0" stroke="#2b3654" stroke-width="5"/>
+  <rect x="514.0" y="142.0" width="12.0" height="16.0" fill="#ffffff"/>
+  <path d="M494.0 144.0H546.0M506.0 156.0H534.0" stroke="#2b3654" stroke-width="5"/>
+  <circle cx="330.0" cy="260.0" r="5" fill="#2b3654"/>
+  <circle cx="520.0" cy="260.0" r="5" fill="#2b3654"/>
+  <text x="290.0" y="46.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">1.5 Ω</text>
+  <text x="170.0" y="220.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">18 V</text>
+  <text x="170.0" y="318.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">0.3 Ω</text>
+  <text x="562.0" y="150.0" text-anchor="start" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">V<tspan font-size="16" dy="6">B</tspan></text>
+  <text x="562.0" y="196.0" text-anchor="start" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">0.2 Ω</text>
+  <text x="425.0" y="234.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">6 Ω</text>
+  <text x="425.0" y="374.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">3 Ω</text>
+  <path d="M520.0 341.0 L511.8 319.0 L528.2 319.0 z" fill="#c43030"/>
+  <text x="540.0" y="338.0" text-anchor="start" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#c43030">2 A</text>
+</svg>

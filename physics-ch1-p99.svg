@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 430" width="760" height="430">
+  <!-- Physics, chapter 1, PDF question 99 (page 107; junctions P, M, N and Q are named for the explanation): top resistor carrying 2 A to the right between the top corners; middle wire P-M-N-Q with resistors carrying I2 to the left (P-M), 7 A to the right (M-N) and I4 to the left (N-Q); four upright resistors from the middle wire to the bottom wire: I1 upwards at P, 3 A downwards at M, I3 downwards at N, 4 A downwards at Q. The left and right uprights join the top wire to P and Q. -->
+  <rect width="760" height="430" fill="#ffffff"/>
+  <path d="M110.0 245.0 L110.0 110.0 L650.0 110.0 L650.0 245.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M110.0 245.0 L650.0 245.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M110.0 410.0 L650.0 410.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M110.0 245.0 L110.0 410.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <rect x="96.0" y="285.0" width="28.0" height="86.0" fill="#e9ecf2" stroke="#2b3654" stroke-width="3"/>
+  <path d="M290.0 245.0 L290.0 410.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <rect x="276.0" y="285.0" width="28.0" height="86.0" fill="#e9ecf2" stroke="#2b3654" stroke-width="3"/>
+  <path d="M470.0 245.0 L470.0 410.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <rect x="456.0" y="285.0" width="28.0" height="86.0" fill="#e9ecf2" stroke="#2b3654" stroke-width="3"/>
+  <path d="M650.0 245.0 L650.0 410.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <rect x="636.0" y="285.0" width="28.0" height="86.0" fill="#e9ecf2" stroke="#2b3654" stroke-width="3"/>
+  <rect x="332.0" y="95.0" width="96.0" height="30.0" fill="#e9ecf2" stroke="#2b3654" stroke-width="3"/>
+  <rect x="152.0" y="230.0" width="96.0" height="30.0" fill="#e9ecf2" stroke="#2b3654" stroke-width="3"/>
+  <rect x="332.0" y="230.0" width="96.0" height="30.0" fill="#e9ecf2" stroke="#2b3654" stroke-width="3"/>
+  <rect x="512.0" y="230.0" width="96.0" height="30.0" fill="#e9ecf2" stroke="#2b3654" stroke-width="3"/>
+  <path d="M350.0 72.0 L402.0 72.0" stroke="#2b3654" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M415.0 72.0 L397.0 65.2 L397.0 78.8 z" fill="#2b3654"/>
+  <text x="380.0" y="50.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">2 A</text>
+  <path d="M232.0 200.0 L180.0 200.0" stroke="#2b3654" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M167.0 200.0 L185.0 193.2 L185.0 206.8 z" fill="#2b3654"/>
+  <text x="205.0" y="180.0" text-anchor="middle" font-size="26" font-weight="600" font-style="italic" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">I<tspan font-size="18" dy="6">2</tspan></text>
+  <path d="M354.0 200.0 L406.0 200.0" stroke="#2b3654" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M419.0 200.0 L401.0 193.2 L401.0 206.8 z" fill="#2b3654"/>
+  <text x="380.0" y="180.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">7 A</text>
+  <path d="M592.0 200.0 L540.0 200.0" stroke="#2b3654" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M527.0 200.0 L545.0 193.2 L545.0 206.8 z" fill="#2b3654"/>
+  <text x="565.0" y="180.0" text-anchor="middle" font-size="26" font-weight="600" font-style="italic" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">I<tspan font-size="18" dy="6">4</tspan></text>
+  <path d="M78.0 355.0 L78.0 305.0" stroke="#2b3654" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M78.0 291.0 L71.2 309.0 L84.8 309.0 z" fill="#2b3654"/>
+  <text x="48.0" y="338.0" text-anchor="middle" font-size="26" font-weight="600" font-style="italic" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">I<tspan font-size="18" dy="6">1</tspan></text>
+  <path d="M322.0 300.0 L322.0 352.0" stroke="#2b3654" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M322.0 365.0 L315.2 347.0 L328.8 347.0 z" fill="#2b3654"/>
+  <text x="340.0" y="338.0" text-anchor="start" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">3 A</text>
+  <path d="M502.0 300.0 L502.0 352.0" stroke="#2b3654" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M502.0 365.0 L495.2 347.0 L508.8 347.0 z" fill="#2b3654"/>
+  <text x="530.0" y="338.0" text-anchor="middle" font-size="26" font-weight="600" font-style="italic" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">I<tspan font-size="18" dy="6">3</tspan></text>
+  <path d="M682.0 300.0 L682.0 352.0" stroke="#2b3654" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M682.0 365.0 L675.2 347.0 L688.8 347.0 z" fill="#2b3654"/>
+  <text x="698.0" y="338.0" text-anchor="start" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">4 A</text>
+  <circle cx="110.0" cy="245.0" r="5" fill="#2b3654"/>
+  <circle cx="290.0" cy="245.0" r="5" fill="#2b3654"/>
+  <circle cx="470.0" cy="245.0" r="5" fill="#2b3654"/>
+  <circle cx="650.0" cy="245.0" r="5" fill="#2b3654"/>
+  <text x="96.0" y="233.0" text-anchor="end" font-size="22" font-weight="600" font-style="italic" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#6b7385">P</text>
+  <text x="274.0" y="275.0" text-anchor="end" font-size="22" font-weight="600" font-style="italic" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#6b7385">M</text>
+  <text x="454.0" y="275.0" text-anchor="end" font-size="22" font-weight="600" font-style="italic" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#6b7385">N</text>
+  <text x="664.0" y="233.0" text-anchor="start" font-size="22" font-weight="600" font-style="italic" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#6b7385">Q</text>
+</svg>

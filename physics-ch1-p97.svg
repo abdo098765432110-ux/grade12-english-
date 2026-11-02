@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 360" width="760" height="360">
+  <!-- Physics, chapter 1, PDF question 97 (page 104): three circuits, each with an open gap a-b. (A) 30 V battery, 10 ohm in series with the gap. (B) 40 V battery, 20 ohm in series with a parallel group: 40 ohm in one branch, the gap a-b in the other. (C) 20 V battery, 40 ohm in series with the gap. -->
+  <rect width="760" height="360" fill="#ffffff"/>
+  <path d="M15.0 210.0 L15.0 60.0 L235.0 60.0 L235.0 210.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <rect x="142.0" y="54.0" width="16.0" height="12.0" fill="#ffffff"/>
+  <path d="M144.0 34.0V86.0M156.0 46.0V74.0" stroke="#2b3654" stroke-width="5"/>
+  <text x="164.0" y="46.0" text-anchor="start" font-size="22" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">20V</text>
+  <path d="M15.0 210.0 L70.0 210.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="70.0" cy="210.0" r="5" fill="#2b3654"/>
+  <circle cx="120.0" cy="210.0" r="5" fill="#2b3654"/>
+  <path d="M120.0 210.0 L235.0 210.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M145.0 210.0 L153.0 210.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M217.0 210.0 L225.0 210.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M153.0 210.0 L158.3 219.0 L169.0 201.0 L179.7 219.0 L190.3 201.0 L201.0 219.0 L211.7 201.0 L217.0 210.0" stroke="#e8692e" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="70.0" y="240.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">a</text>
+  <text x="120.0" y="240.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">b</text>
+  <text x="185.0" y="190.0" text-anchor="middle" font-size="22" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">40Ω</text>
+  <text x="125.0" y="340.0" text-anchor="middle" font-size="26" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">(C)</text>
+  <path d="M265.0 210.0 L265.0 60.0 L495.0 60.0 L495.0 210.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <rect x="392.0" y="54.0" width="16.0" height="12.0" fill="#ffffff"/>
+  <path d="M394.0 34.0V86.0M406.0 46.0V74.0" stroke="#2b3654" stroke-width="5"/>
+  <text x="414.0" y="46.0" text-anchor="start" font-size="22" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">40V</text>
+  <path d="M265.0 210.0 L300.0 210.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M300.0 160.0 L300.0 265.0 L325.0 265.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="325.0" cy="265.0" r="5" fill="#2b3654"/>
+  <circle cx="375.0" cy="265.0" r="5" fill="#2b3654"/>
+  <path d="M375.0 265.0 L400.0 265.0 L400.0 160.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M300.0 160.0 L320.0 160.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M380.0 160.0 L400.0 160.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M320.0 160.0 L325.0 169.0 L335.0 151.0 L345.0 169.0 L355.0 151.0 L365.0 169.0 L375.0 151.0 L380.0 160.0" stroke="#e8692e" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="350.0" y="140.0" text-anchor="middle" font-size="22" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">40Ω</text>
+  <path d="M400.0 210.0 L495.0 210.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M410.0 210.0 L417.5 210.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M477.5 210.0 L485.0 210.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M417.5 210.0 L422.5 219.0 L432.5 201.0 L442.5 219.0 L452.5 201.0 L462.5 219.0 L472.5 201.0 L477.5 210.0" stroke="#e8692e" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="447.0" y="190.0" text-anchor="middle" font-size="22" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">20Ω</text>
+  <text x="325.0" y="295.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">a</text>
+  <text x="375.0" y="295.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">b</text>
+  <circle cx="300.0" cy="210.0" r="5" fill="#2b3654"/>
+  <circle cx="400.0" cy="210.0" r="5" fill="#2b3654"/>
+  <text x="380.0" y="340.0" text-anchor="middle" font-size="26" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">(B)</text>
+  <path d="M525.0 210.0 L525.0 60.0 L745.0 60.0 L745.0 210.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <rect x="652.0" y="54.0" width="16.0" height="12.0" fill="#ffffff"/>
+  <path d="M654.0 34.0V86.0M666.0 46.0V74.0" stroke="#2b3654" stroke-width="5"/>
+  <text x="674.0" y="46.0" text-anchor="start" font-size="22" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">30V</text>
+  <path d="M525.0 210.0 L630.0 210.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M530.0 210.0 L538.0 210.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M602.0 210.0 L610.0 210.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M538.0 210.0 L543.3 219.0 L554.0 201.0 L564.7 219.0 L575.3 201.0 L586.0 219.0 L596.7 201.0 L602.0 210.0" stroke="#e8692e" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="630.0" cy="210.0" r="5" fill="#2b3654"/>
+  <circle cx="680.0" cy="210.0" r="5" fill="#2b3654"/>
+  <path d="M680.0 210.0 L745.0 210.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="570.0" y="190.0" text-anchor="middle" font-size="22" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">10Ω</text>
+  <text x="630.0" y="240.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">a</text>
+  <text x="680.0" y="240.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">b</text>
+  <text x="635.0" y="340.0" text-anchor="middle" font-size="26" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">(A)</text>
+</svg>
