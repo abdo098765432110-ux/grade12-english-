@@ -972,6 +972,85 @@ main {
 
 .subject-content { min-height: 14rem; }
 
+/* Physics: where the questions come from, with links to the teachers' channels. */
+.source-notice {
+  margin: 0 0 1.75rem;
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--sun-edge);
+  border-inline-start-width: 5px;
+  border-radius: var(--radius-lg);
+  background: #fffaeb;
+  color: var(--color-text);
+  font-family: var(--font-arabic-ui);
+  line-height: 1.8;
+  text-align: right;
+}
+
+.source-notice p { margin: 0 0 0.35rem; }
+
+.source-notice .source-notice-title {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-bottom: 0.3rem;
+  font-weight: 800;
+  color: var(--sun-ink);
+}
+
+.source-notice-icon {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.9rem;
+  height: 1.9rem;
+  border-radius: 50%;
+  background: var(--sun);
+  border: 2px solid var(--sun-edge);
+  color: var(--sun-ink);
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.source-notice a { color: var(--color-primary-dark); text-underline-offset: 0.2em; }
+
+.source-links {
+  list-style: none;
+  margin: 0.75rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.75rem;
+}
+
+.source-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 2.75rem;
+  padding: 0.4rem 1rem 0.4rem 1.1rem;
+  border: 1.5px solid var(--sky-edge);
+  border-radius: 999px;
+  background: var(--color-surface);
+  color: var(--color-primary-dark);
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 1px 4px rgba(60, 90, 160, 0.1);
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.source-links a:hover { background: var(--color-sky); border-color: var(--color-primary); text-decoration: underline; }
+
+.source-links bdi { white-space: nowrap; }
+
+.source-play { flex: none; fill: var(--color-primary); }
+
+@media (max-width: 40rem) {
+  .source-notice { padding: 0.85rem 0.95rem; font-size: 0.95rem; }
+  .source-links { flex-direction: column; }
+  .source-links a { width: 100%; padding: 0.4rem 0.8rem; font-size: 0.95rem; }
+}
+
 /* Subject page steps: chapter cards, then section cards, then the questions. */
 .subject-cards {
   grid-template-columns: repeat(auto-fill, minmax(min(100%, 18rem), 1fr));
