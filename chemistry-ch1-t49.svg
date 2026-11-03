@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 360" width="520" height="360">
+  <!-- Chemistry ch.1, test A, question 49: maximum oxidation state against atomic number; three equal vertical bars A, B, C in increasing atomic number -->
+  <rect width="520" height="360" fill="#ffffff"/>
+  <path d="M110.0 300.0 L110.0 72.0" stroke="#2b3654" stroke-width="3.5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <polygon points="110.0,56.0 102.5,76.0 117.5,76.0" fill="#2b3654"/>
+  <path d="M110.0 300.0 L470.0 300.0" stroke="#2b3654" stroke-width="3.5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <polygon points="486.0,300.0 466.0,292.5 466.0,307.5" fill="#2b3654"/>
+  <text x="118.0" y="44.0" text-anchor="middle" font-size="21" font-weight="700" direction="rtl" unicode-bidi="embed" font-family="'Segoe UI', Tahoma, 'Noto Sans Arabic', 'Noto Naskh Arabic', Arial, sans-serif" fill="#2b3654">أقصى حالة تأكسد</text>
+  <text x="478.0" y="340.0" text-anchor="start" font-size="21" font-weight="700" direction="rtl" unicode-bidi="embed" font-family="'Segoe UI', Tahoma, 'Noto Sans Arabic', 'Noto Naskh Arabic', Arial, sans-serif" fill="#2b3654">العدد الذري</text>
+  <path d="M200.0 300.0 L200.0 140.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="200.0" y="126.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">A</text>
+  <path d="M300.0 300.0 L300.0 140.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="300.0" y="126.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">B</text>
+  <path d="M400.0 300.0 L400.0 140.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="400.0" y="126.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">C</text>
+</svg>

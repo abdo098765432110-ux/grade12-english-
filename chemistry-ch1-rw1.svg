@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 430" width="560" height="430">
+  <!-- Chemistry ch1, final review written Q1: magnetic moment (no scale values) of four consecutive transition elements A, B, C, D: A on tick 2, B on tick 3, C on tick 6 (highest), D on tick 5. -->
+  <rect width="560" height="430" fill="#ffffff"/>
+  <path d="M120.0 330.0 L120.0 42.0" stroke="#2b3654" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M120.0 34.0 L114.0 50.0 L126.0 50.0 z" fill="#2b3654"/>
+  <path d="M120.0 330.0 L528.0 330.0" stroke="#2b3654" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M536.0 330.0 L520.0 324.0 L520.0 336.0 z" fill="#2b3654"/>
+  <path d="M112.0 286.0 L120.0 286.0" stroke="#2b3654" stroke-width="2.5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M112.0 242.0 L120.0 242.0" stroke="#2b3654" stroke-width="2.5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M112.0 198.0 L120.0 198.0" stroke="#2b3654" stroke-width="2.5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M112.0 154.0 L120.0 154.0" stroke="#2b3654" stroke-width="2.5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M112.0 110.0 L120.0 110.0" stroke="#2b3654" stroke-width="2.5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M112.0 66.0 L120.0 66.0" stroke="#2b3654" stroke-width="2.5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M200.0 330.0 L200.0 338.0" stroke="#2b3654" stroke-width="2.5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="200.0" y="366.0" text-anchor="middle" font-size="24" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">A</text>
+  <path d="M290.0 330.0 L290.0 338.0" stroke="#2b3654" stroke-width="2.5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="290.0" y="366.0" text-anchor="middle" font-size="24" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">B</text>
+  <path d="M380.0 330.0 L380.0 338.0" stroke="#2b3654" stroke-width="2.5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="380.0" y="366.0" text-anchor="middle" font-size="24" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">C</text>
+  <path d="M470.0 330.0 L470.0 338.0" stroke="#2b3654" stroke-width="2.5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="470.0" y="366.0" text-anchor="middle" font-size="24" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">D</text>
+  <path d="M200.0 242.0 L290.0 198.0 L380.0 66.0 L470.0 110.0" stroke="#e8692e" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="200.0" cy="242.0" r="7" fill="#c43030"/>
+  <circle cx="290.0" cy="198.0" r="7" fill="#c43030"/>
+  <circle cx="380.0" cy="66.0" r="7" fill="#c43030"/>
+  <circle cx="470.0" cy="110.0" r="7" fill="#c43030"/>
+  <text transform="translate(66 198.0) rotate(-90)" text-anchor="middle" font-size="22" font-weight="600" direction="rtl" unicode-bidi="embed" font-family="'Segoe UI', Tahoma, 'Noto Sans Arabic', 'Noto Naskh Arabic', Arial, sans-serif" fill="#2b3654">العزم المغناطيسي</text>
+  <text x="330.0" y="406.0" text-anchor="middle" font-size="22" font-weight="600" direction="rtl" unicode-bidi="embed" font-family="'Segoe UI', Tahoma, 'Noto Sans Arabic', 'Noto Naskh Arabic', Arial, sans-serif" fill="#2b3654">الرمز الافتراضي للعنصر</text>
+</svg>

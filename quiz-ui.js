@@ -564,6 +564,7 @@
         textarea = el('textarea', { id: textareaId, dir: 'auto', rows: '5' });
         form.appendChild(el('div', { className: 'form-row' }, [
           el('label', { className: 'question-legend', for: textareaId, dir: 'auto' }, promptNodes(question, null, quiz.index)),
+          figure(question),
           badges,
           el('p', { className: 'hint', id: textareaId + '-hint', text: reviewed
             ? t('Write your answer, then submit it to compare it with the correct answer. Written answers are not scored automatically.')
@@ -1110,6 +1111,7 @@
         textarea = el('textarea', { id: id + '-answer', dir: 'auto', rows: '4', 'data-question': question.id });
         li.appendChild(el('div', { className: 'form-row' }, [
           el('label', { className: 'question-legend', for: id + '-answer', dir: 'auto' }, promptNodes(question, numberText, index)),
+          figure(question),
           G12.badges(question, labels),
           el('p', { className: 'hint', id: id + '-hint', text: t('Written answers are not scored automatically.') }),
           textarea

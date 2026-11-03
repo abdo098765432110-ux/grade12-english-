@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 265" width="760" height="265">
+  <!-- Slide 30: A <-Cl2(g)/heat- Fe -H2SO4 dil-> salt; A -NaOH-> B; salt -heat-> C; B -heat, 230 C-> C. -->
+  <rect width="760" height="265" fill="#ffffff"/>
+  <rect x="20.0" y="27.0" width="110.0" height="56.0" rx="10" fill="#eef4fb" stroke="#2b3654" stroke-width="2.5"/>
+  <text x="75.0" y="63.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">A</text>
+  <rect x="325.0" y="27.0" width="110.0" height="56.0" rx="10" fill="#eef4fb" stroke="#2b3654" stroke-width="2.5"/>
+  <text x="380.0" y="63.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">Fe</text>
+  <rect x="630.0" y="27.0" width="110.0" height="56.0" rx="10" fill="#eef4fb" stroke="#2b3654" stroke-width="2.5"/>
+  <text x="685.0" y="63.0" text-anchor="middle" font-size="23" font-weight="700" direction="rtl" unicode-bidi="embed" font-family="'Segoe UI', Tahoma, 'Noto Sans Arabic', 'Noto Naskh Arabic', Arial, sans-serif" fill="#2b3654">ملح</text>
+  <rect x="20.0" y="187.0" width="110.0" height="56.0" rx="10" fill="#eef4fb" stroke="#2b3654" stroke-width="2.5"/>
+  <text x="75.0" y="223.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">B</text>
+  <rect x="630.0" y="187.0" width="110.0" height="56.0" rx="10" fill="#eef4fb" stroke="#2b3654" stroke-width="2.5"/>
+  <text x="685.0" y="223.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">C</text>
+  <path d="M325.0 55.0 L148.0 55.0" stroke="#2b3654" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M130.0 55.0 L150.0 47.5 L150.0 62.5 z" fill="#2b3654"/>
+  <text x="227.5" y="43.0" text-anchor="middle" font-size="22" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">Cl₂<tspan font-size="16" dy="5">(g)</tspan><tspan dy="-5"> / Δ</tspan></text>
+  <path d="M435.0 55.0 L612.0 55.0" stroke="#2b3654" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M630.0 55.0 L610.0 47.5 L610.0 62.5 z" fill="#2b3654"/>
+  <text x="532.5" y="43.0" text-anchor="middle" font-size="22" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">H₂SO₄</text>
+  <text x="532.5" y="87.0" text-anchor="middle" font-size="22" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">dil</text>
+  <path d="M75.0 83.0 L75.0 169.0" stroke="#2b3654" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M75.0 187.0 L67.5 167.0 L82.5 167.0 z" fill="#2b3654"/>
+  <text x="89.0" y="143.0" text-anchor="start" font-size="22" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">NaOH</text>
+  <path d="M685.0 83.0 L685.0 169.0" stroke="#2b3654" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M685.0 187.0 L677.5 167.0 L692.5 167.0 z" fill="#2b3654"/>
+  <text x="669.0" y="143.0" text-anchor="end" font-size="22" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">Δ</text>
+  <path d="M130.0 215.0 L612.0 215.0" stroke="#2b3654" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M630.0 215.0 L610.0 207.5 L610.0 222.5 z" fill="#2b3654"/>
+  <text x="380.0" y="203.0" text-anchor="middle" font-size="22" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">Δ</text>
+  <text x="380.0" y="247.0" text-anchor="middle" font-size="22" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">230°C</text>
+</svg>

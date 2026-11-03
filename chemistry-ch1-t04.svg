@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 740 450" width="740" height="450">
+  <!-- Q4 (اختبار A): قوة جذب النواة لإلكترونات التكافؤ مقابل عدد تأكسد العنصر A -->
+  <rect width="740" height="450" fill="#ffffff"/>
+  <text x="70.0" y="42.0" text-anchor="start" font-size="22" font-weight="700" font-family="'Segoe UI', Tahoma, 'Noto Sans Arabic', 'Noto Naskh Arabic', Arial, sans-serif" fill="#2b3654">قوة جذب النواة لإلكترونات التكافؤ</text>
+  <path d="M90.0 370.0 L90.0 82.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M90.0 64.0 L81.0 88.0 L99.0 88.0 z" fill="#2b3654"/>
+  <path d="M90.0 370.0 L500.0 370.0" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M518.0 370.0 L494.0 361.0 L494.0 379.0 z" fill="#2b3654"/>
+  <text x="728.0" y="378.0" text-anchor="start" font-size="22" font-weight="700" direction="rtl" unicode-bidi="embed" font-family="'Segoe UI', Tahoma, 'Noto Sans Arabic', 'Noto Naskh Arabic', Arial, sans-serif" fill="#2b3654">عدد تأكسد العنصر A</text>
+  <path d="M165.0 370.0 L165.0 102.0" stroke="#2b3654" stroke-width="5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="165.0" y="418.0" text-anchor="middle" font-size="26" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">A<tspan font-size="20" dy="-11">+x</tspan></text>
+  <path d="M255.0 370.0 L255.0 172.0" stroke="#2b3654" stroke-width="5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="255.0" y="418.0" text-anchor="middle" font-size="26" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">A<tspan font-size="20" dy="-11">+y</tspan></text>
+  <path d="M345.0 370.0 L345.0 142.0" stroke="#2b3654" stroke-width="5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="345.0" y="418.0" text-anchor="middle" font-size="26" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">A<tspan font-size="20" dy="-11">+z</tspan></text>
+  <path d="M435.0 370.0 L435.0 242.0" stroke="#2b3654" stroke-width="5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="435.0" y="418.0" text-anchor="middle" font-size="26" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">A<tspan font-size="20" dy="-11">+m</tspan></text>
+</svg>

@@ -333,6 +333,45 @@ test('physics questions: every question is valid, has its diagram, and the answe
   assert.equal(new Set(prompts).size, prompts.length);
 });
 
+test('chemistry questions: chapter 1 has the review (50 + 2 written) and test A (50), all valid, with their diagrams', () => {
+  const fs = require('fs');
+  const path = require('path');
+  const project = path.join(__dirname, '..');
+  const data = JSON.parse(fs.readFileSync(path.join(project, 'chemistry-questions.json'), 'utf8'));
+  assert.equal(data.chapters.length, 1);
+  assert.equal(data.chapters[0].title, 'الفصل الأول');
+  const sections = data.chapters[0].sections;
+  assert.deepEqual(sections.map((s) => s.title), ['أسئلة المراجعة النهائية على الفصل الأول', 'اختبار (A) على الفصل الأول']);
+  const expected = [
+    Array.from({ length: 50 }, (_, i) => 'chem-ch1-r' + String(i + 1).padStart(2, '0')).concat(['chem-ch1-rw1', 'chem-ch1-rw2']),
+    Array.from({ length: 50 }, (_, i) => 'chem-ch1-t' + String(i + 1).padStart(2, '0'))
+  ];
+  const ids = new Set();
+  sections.forEach((section, s) => {
+    assert.deepEqual(section.questions.map((q) => q.id), expected[s], section.title);
+    section.questions.forEach((question, i) => {
+      assert.deepEqual(Schema.validateItem('questions', question, i).errors, [], question.id);
+      assert.equal(question.lang, 'ar', question.id);
+      assert.equal(question.reviewStatus, 'reviewed', question.id);
+      assert.ok(Schema.hasText(question.explanation), question.id + ' has an explanation');
+      if (question.type === 'mcq') {
+        assert.equal(question.options.length, 4, question.id);
+        assert.ok(question.options.includes(question.answer), question.id);
+      } else {
+        assert.equal(question.type, 'short', question.id);
+        assert.ok(Schema.hasText(question.modelAnswer), question.id);
+      }
+      assert.ok(!ids.has(question.id), 'duplicate id ' + question.id);
+      ids.add(question.id);
+      if (question.image) assert.ok(fs.existsSync(path.join(project, question.image)), question.image);
+    });
+    // no question appears twice in the same section (same text, diagram and choices)
+    const keys = section.questions.map((q) => [q.prompt, q.image || '', (q.options || []).join('|')].join('#').replace(/[‏⁦⁩\s]/g, ''));
+    assert.equal(new Set(keys).size, keys.length, section.title);
+  });
+  assert.equal(ids.size, 102);
+});
+
 test('questions: optional lang, image and imageAlt are checked', () => {
   const question = mcq({ lang: 'ar', image: 'figure.svg', imageAlt: 'وصف الشكل' });
   assert.deepEqual(errorsOf('questions', question), []);

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 740 130" width="740" height="130">
+  <!-- Chemistry ch1, final review Q47: blood-red solution <-(1)- FeCl3 -(2)-> red precipitate. -->
+  <rect width="740" height="130" fill="#ffffff"/>
+  <text x="128.0" y="86.0" text-anchor="middle" font-size="22" font-weight="600" direction="rtl" unicode-bidi="embed" font-family="'Segoe UI', Tahoma, 'Noto Sans Arabic', 'Noto Naskh Arabic', Arial, sans-serif" fill="#2b3654">محلول لونه أحمر دموي</text>
+  <path d="M372.0 78.0 L272.0 78.0" stroke="#2b3654" stroke-width="2.5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M258.0 78.0 L272.0 72.8 L272.0 83.2 z" fill="#2b3654"/>
+  <text x="315.0" y="58.0" text-anchor="middle" font-size="22" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">(1)</text>
+  <text x="420.0" y="87.0" text-anchor="middle" font-size="26" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">FeCl₃</text>
+  <path d="M470.0 78.0 L574.0 78.0" stroke="#2b3654" stroke-width="2.5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M588.0 78.0 L574.0 72.8 L574.0 83.2 z" fill="#2b3654"/>
+  <text x="529.0" y="58.0" text-anchor="middle" font-size="22" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">(2)</text>
+  <text x="668.0" y="86.0" text-anchor="middle" font-size="22" font-weight="600" direction="rtl" unicode-bidi="embed" font-family="'Segoe UI', Tahoma, 'Noto Sans Arabic', 'Noto Naskh Arabic', Arial, sans-serif" fill="#2b3654">راسب أحمر</text>
+</svg>

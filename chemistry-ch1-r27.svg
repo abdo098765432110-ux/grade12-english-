@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 740 300" width="740" height="300">
+  <!-- Slide 27: Fe + A -heat-> Fe3O4 + B; Fe3O4 -heat / O2-> C; C -H2SO4(c), heat-> D. -->
+  <rect width="740" height="300" fill="#ffffff"/>
+  <rect x="20.0" y="32.0" width="100.0" height="56.0" rx="10" fill="#eef4fb" stroke="#2b3654" stroke-width="2.5"/>
+  <text x="70.0" y="68.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">Fe</text>
+  <text x="145.0" y="69.0" text-anchor="middle" font-size="26" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">+</text>
+  <rect x="170.0" y="32.0" width="100.0" height="56.0" rx="10" fill="#eef4fb" stroke="#2b3654" stroke-width="2.5"/>
+  <text x="220.0" y="68.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">A</text>
+  <path d="M270.0 60.0 L367.0 60.0" stroke="#2b3654" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M385.0 60.0 L365.0 52.5 L365.0 67.5 z" fill="#2b3654"/>
+  <text x="325.0" y="48.0" text-anchor="middle" font-size="22" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">Δ</text>
+  <rect x="385.0" y="32.0" width="150.0" height="56.0" rx="10" fill="#eef4fb" stroke="#2b3654" stroke-width="2.5"/>
+  <text x="460.0" y="68.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">Fe₃O₄</text>
+  <text x="565.0" y="69.0" text-anchor="middle" font-size="26" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">+</text>
+  <rect x="600.0" y="32.0" width="100.0" height="56.0" rx="10" fill="#eef4fb" stroke="#2b3654" stroke-width="2.5"/>
+  <text x="650.0" y="68.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">B</text>
+  <path d="M460.0 88.0 L460.0 204.0" stroke="#2b3654" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M460.0 222.0 L452.5 202.0 L467.5 202.0 z" fill="#2b3654"/>
+  <text x="476.0" y="163.0" text-anchor="start" font-size="22" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">Δ / O₂</text>
+  <rect x="410.0" y="222.0" width="100.0" height="56.0" rx="10" fill="#eef4fb" stroke="#2b3654" stroke-width="2.5"/>
+  <text x="460.0" y="258.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">C</text>
+  <rect x="150.0" y="222.0" width="100.0" height="56.0" rx="10" fill="#eef4fb" stroke="#2b3654" stroke-width="2.5"/>
+  <text x="200.0" y="258.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">D</text>
+  <path d="M410.0 250.0 L268.0 250.0" stroke="#2b3654" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M250.0 250.0 L270.0 242.5 L270.0 257.5 z" fill="#2b3654"/>
+  <text x="330.0" y="236.0" text-anchor="middle" font-size="22" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">H₂SO₄<tspan font-size="16" dy="5">(c)</tspan></text>
+  <text x="330.0" y="282.0" text-anchor="middle" font-size="22" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">Δ</text>
+</svg>

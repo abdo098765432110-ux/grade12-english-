@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 505 370" width="505" height="370">
+  <!-- Q34 (source T): magnetic moment of A+2, A+3, A+4 (A+4 on the axis = zero) -->
+  <rect width="505" height="370" fill="#ffffff"/>
+  <path d="M160.0 320.0 L160.0 58.0" stroke="#2b3654" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M160.0 39.0 L151.8 61.0 L168.2 61.0 z" fill="#2b3654"/>
+  <path d="M160.0 320.0 L477.0 320.0" stroke="#2b3654" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M496.0 320.0 L474.0 311.8 L474.0 328.2 z" fill="#2b3654"/>
+  <text x="143.0" y="78.0" text-anchor="start" font-size="22" font-weight="600" direction="rtl" unicode-bidi="embed" font-family="'Segoe UI', Tahoma, 'Noto Sans Arabic', 'Noto Naskh Arabic', Arial, sans-serif" fill="#2b3654">العزم</text>
+  <text x="143.0" y="106.0" text-anchor="start" font-size="22" font-weight="600" direction="rtl" unicode-bidi="embed" font-family="'Segoe UI', Tahoma, 'Noto Sans Arabic', 'Noto Naskh Arabic', Arial, sans-serif" fill="#2b3654">المغناطيسى</text>
+  <path d="M245.0 320.0 L245.0 92.0" stroke="#2b3654" stroke-width="5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="245.0" y="80.0" text-anchor="middle" font-size="24" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">A⁺²</text>
+  <path d="M325.0 320.0 L325.0 150.0" stroke="#2b3654" stroke-width="5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="325.0" y="138.0" text-anchor="middle" font-size="24" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">A⁺³</text>
+  <text x="415.0" y="354.0" text-anchor="middle" font-size="24" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">A⁺⁴</text>
+</svg>

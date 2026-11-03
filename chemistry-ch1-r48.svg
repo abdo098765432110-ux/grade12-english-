@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 130" width="760" height="130">
+  <!-- Chemistry ch1, final review Q48: A (an iron halide) -(X)-> B -heat-> red precipitate -Y-> Fe2(SO4)3. -->
+  <rect width="760" height="130" fill="#ffffff"/>
+  <text x="94.0" y="86.0" text-anchor="middle" font-size="21" font-weight="600" direction="rtl" unicode-bidi="embed" font-family="'Segoe UI', Tahoma, 'Noto Sans Arabic', 'Noto Naskh Arabic', Arial, sans-serif" fill="#2b3654">أحد هاليدات الحديد</text>
+  <text x="203.0" y="88.0" text-anchor="middle" font-size="26" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">A</text>
+  <path d="M224.0 78.0 L288.0 78.0" stroke="#2b3654" stroke-width="2.5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M302.0 78.0 L288.0 72.8 L288.0 83.2 z" fill="#2b3654"/>
+  <text x="263.0" y="58.0" text-anchor="middle" font-size="22" font-weight="600" font-style="italic" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">(X)</text>
+  <text x="323.0" y="88.0" text-anchor="middle" font-size="26" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">B</text>
+  <path d="M344.0 78.0 L408.0 78.0" stroke="#2b3654" stroke-width="2.5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M422.0 78.0 L408.0 72.8 L408.0 83.2 z" fill="#2b3654"/>
+  <text x="383.0" y="58.0" text-anchor="middle" font-size="22" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">Δ</text>
+  <text x="488.0" y="86.0" text-anchor="middle" font-size="21" font-weight="600" direction="rtl" unicode-bidi="embed" font-family="'Segoe UI', Tahoma, 'Noto Sans Arabic', 'Noto Naskh Arabic', Arial, sans-serif" fill="#2b3654">راسب أحمر</text>
+  <path d="M552.0 78.0 L614.0 78.0" stroke="#2b3654" stroke-width="2.5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M628.0 78.0 L614.0 72.8 L614.0 83.2 z" fill="#2b3654"/>
+  <text x="590.0" y="58.0" text-anchor="middle" font-size="22" font-weight="600" font-style="italic" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">Y</text>
+  <text x="694.0" y="88.0" text-anchor="middle" font-size="24" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">Fe₂(SO₄)₃</text>
+</svg>

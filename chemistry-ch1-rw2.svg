@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 440" width="720" height="440">
+  <!-- Chemistry ch1, final review written Q2: Fe + H2O -(500 C)-> A(s) + B(g); A -(550 C, +H2)-> C(s); C -(dil H2SO4)-> D; D -(thermal decomposition)-> E; E -(+CO, >700 C)-> Fe. -->
+  <rect width="720" height="440" fill="#ffffff"/>
+  <rect x="40.0" y="34.0" width="104" height="52" rx="9" fill="#eef4fb" stroke="#2b3654" stroke-width="2.5"/>
+  <text x="92.0" y="69.4" text-anchor="middle" font-size="26" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">Fe</text>
+  <text x="166.0" y="69.0" text-anchor="middle" font-size="28" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">+</text>
+  <rect x="188.0" y="34.0" width="104" height="52" rx="9" fill="#eef4fb" stroke="#2b3654" stroke-width="2.5"/>
+  <text x="240.0" y="69.4" text-anchor="middle" font-size="26" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">H₂O</text>
+  <path d="M298.0 60.0 L406.0 60.0" stroke="#2b3654" stroke-width="2.5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M420.0 60.0 L406.0 54.8 L406.0 65.2 z" fill="#2b3654"/>
+  <text x="359.0" y="46.0" text-anchor="middle" font-size="20" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">500 °C</text>
+  <rect x="428.0" y="34.0" width="104" height="52" rx="9" fill="#eef4fb" stroke="#2b3654" stroke-width="2.5"/>
+  <text x="480.0" y="69.4" text-anchor="middle" font-size="26" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">A<tspan font-size="18" dy="6">(s)</tspan></text>
+  <text x="556.0" y="69.0" text-anchor="middle" font-size="28" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">+</text>
+  <rect x="580.0" y="34.0" width="104" height="52" rx="9" fill="#eef4fb" stroke="#2b3654" stroke-width="2.5"/>
+  <text x="632.0" y="69.4" text-anchor="middle" font-size="26" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">B<tspan font-size="18" dy="6">(g)</tspan></text>
+  <path d="M480.0 87.0 L480.0 188.0" stroke="#2b3654" stroke-width="2.5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M480.0 202.0 L474.8 188.0 L485.2 188.0 z" fill="#2b3654"/>
+  <text x="468.0" y="152.0" text-anchor="end" font-size="20" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">550 °C</text>
+  <text x="492.0" y="152.0" text-anchor="start" font-size="20" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">+ H₂</text>
+  <rect x="428.0" y="204.0" width="104" height="52" rx="9" fill="#eef4fb" stroke="#2b3654" stroke-width="2.5"/>
+  <text x="480.0" y="239.4" text-anchor="middle" font-size="26" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">C<tspan font-size="18" dy="6">(s)</tspan></text>
+  <path d="M480.0 257.0 L480.0 358.0" stroke="#2b3654" stroke-width="2.5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M480.0 372.0 L474.8 358.0 L485.2 358.0 z" fill="#2b3654"/>
+  <text x="468.0" y="322.0" text-anchor="end" font-size="20" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">dil</text>
+  <text x="492.0" y="322.0" text-anchor="start" font-size="20" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">H₂SO₄</text>
+  <rect x="428.0" y="374.0" width="104" height="52" rx="9" fill="#eef4fb" stroke="#2b3654" stroke-width="2.5"/>
+  <text x="480.0" y="409.4" text-anchor="middle" font-size="26" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">D</text>
+  <path d="M427.0 400.0 L160.0 400.0" stroke="#2b3654" stroke-width="2.5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M146.0 400.0 L160.0 394.8 L160.0 405.2 z" fill="#2b3654"/>
+  <text x="285.0" y="386.0" text-anchor="middle" font-size="20" font-weight="600" direction="rtl" unicode-bidi="embed" font-family="'Segoe UI', Tahoma, 'Noto Sans Arabic', 'Noto Naskh Arabic', Arial, sans-serif" fill="#2b3654">انحلال حراري</text>
+  <rect x="40.0" y="374.0" width="104" height="52" rx="9" fill="#eef4fb" stroke="#2b3654" stroke-width="2.5"/>
+  <text x="92.0" y="409.4" text-anchor="middle" font-size="26" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">E</text>
+  <path d="M92.0 373.0 L92.0 102.0" stroke="#2b3654" stroke-width="2.5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M92.0 88.0 L86.8 102.0 L97.2 102.0 z" fill="#2b3654"/>
+  <text x="80.0" y="236.0" text-anchor="end" font-size="20" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">+ CO</text>
+  <text x="104.0" y="236.0" text-anchor="start" font-size="20" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">&gt;700 °C</text>
+</svg>

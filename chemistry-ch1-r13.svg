@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 580 380" width="580" height="380">
+  <!-- Chemistry ch.1, review slides Q13: number of unpaired electrons (y, 1-5) for the ions U3+, W3+, X3+, Y3+, Z3+ (x): 3, 4, 5, 4, 3. -->
+  <rect width="580" height="380" fill="#ffffff"/>
+  <path d="M140.0 42.0 L140.0 330.0" stroke="#c9d0dd" stroke-width="1.5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M180.0 42.0 L180.0 330.0" stroke="#c9d0dd" stroke-width="1.5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M220.0 42.0 L220.0 330.0" stroke="#c9d0dd" stroke-width="1.5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M260.0 42.0 L260.0 330.0" stroke="#c9d0dd" stroke-width="1.5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M300.0 42.0 L300.0 330.0" stroke="#c9d0dd" stroke-width="1.5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M340.0 42.0 L340.0 330.0" stroke="#c9d0dd" stroke-width="1.5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M380.0 42.0 L380.0 330.0" stroke="#c9d0dd" stroke-width="1.5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M420.0 42.0 L420.0 330.0" stroke="#c9d0dd" stroke-width="1.5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M460.0 42.0 L460.0 330.0" stroke="#c9d0dd" stroke-width="1.5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M500.0 42.0 L500.0 330.0" stroke="#c9d0dd" stroke-width="1.5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M540.0 42.0 L540.0 330.0" stroke="#c9d0dd" stroke-width="1.5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M120.0 282.0 L540.0 282.0" stroke="#c9d0dd" stroke-width="1.5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M120.0 234.0 L540.0 234.0" stroke="#c9d0dd" stroke-width="1.5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M120.0 186.0 L540.0 186.0" stroke="#c9d0dd" stroke-width="1.5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M120.0 138.0 L540.0 138.0" stroke="#c9d0dd" stroke-width="1.5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M120.0 90.0 L540.0 90.0" stroke="#c9d0dd" stroke-width="1.5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M120.0 42.0 L540.0 42.0" stroke="#c9d0dd" stroke-width="1.5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M120.0 330.0 L120.0 22.0" stroke="#2b3654" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M120.0 8.0 L112.5 28.0 L127.5 28.0 z" fill="#2b3654"/>
+  <path d="M120.0 330.0 L562.0 330.0" stroke="#2b3654" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M576.0 330.0 L556.0 322.5 L556.0 337.5 z" fill="#2b3654"/>
+  <text x="104.0" y="290.0" text-anchor="end" font-size="22" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">1</text>
+  <text x="104.0" y="242.0" text-anchor="end" font-size="22" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">2</text>
+  <text x="104.0" y="194.0" text-anchor="end" font-size="22" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">3</text>
+  <text x="104.0" y="146.0" text-anchor="end" font-size="22" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">4</text>
+  <text x="104.0" y="98.0" text-anchor="end" font-size="22" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">5</text>
+  <path d="M180.0 186.0 L260.0 138.0 L340.0 90.0 L420.0 138.0 L500.0 186.0" stroke="#e8692e" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="180.0" cy="186.0" r="7" fill="#c0392b"/>
+  <text x="180.0" y="366.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">U³⁺</text>
+  <circle cx="260.0" cy="138.0" r="7" fill="#c0392b"/>
+  <text x="260.0" y="366.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">W³⁺</text>
+  <circle cx="340.0" cy="90.0" r="7" fill="#c0392b"/>
+  <text x="340.0" y="366.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">X³⁺</text>
+  <circle cx="420.0" cy="138.0" r="7" fill="#c0392b"/>
+  <text x="420.0" y="366.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">Y³⁺</text>
+  <circle cx="500.0" cy="186.0" r="7" fill="#c0392b"/>
+  <text x="500.0" y="366.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">Z³⁺</text>
+  <text x="46.0" y="186.0" text-anchor="middle" font-size="22" font-weight="700" direction="rtl" unicode-bidi="embed" transform="rotate(-90 46 186)" font-family="'Segoe UI', Tahoma, 'Noto Sans Arabic', 'Noto Naskh Arabic', Arial, sans-serif" fill="#2b3654">عدد الإلكترونات المفردة</text>
+</svg>

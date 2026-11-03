@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 256" width="520" height="256">
+  <!-- Chemistry ch.1, review slides Q16: periodic-table excerpt, 3 rows x 4 columns. Row 1: X in column 1 (left), Y in column 3. Row 3: W in column 3, Z in column 4. Other cells empty. -->
+  <rect width="520" height="256" fill="#ffffff"/>
+  <rect x="20.0" y="20.0" width="120.0" height="72.0" fill="#eef3fb" stroke="#2b3654" stroke-width="2.5"/>
+  <rect x="140.0" y="20.0" width="120.0" height="72.0" fill="#eef3fb" stroke="#2b3654" stroke-width="2.5"/>
+  <rect x="260.0" y="20.0" width="120.0" height="72.0" fill="#eef3fb" stroke="#2b3654" stroke-width="2.5"/>
+  <rect x="380.0" y="20.0" width="120.0" height="72.0" fill="#eef3fb" stroke="#2b3654" stroke-width="2.5"/>
+  <rect x="20.0" y="92.0" width="120.0" height="72.0" fill="#eef3fb" stroke="#2b3654" stroke-width="2.5"/>
+  <rect x="140.0" y="92.0" width="120.0" height="72.0" fill="#eef3fb" stroke="#2b3654" stroke-width="2.5"/>
+  <rect x="260.0" y="92.0" width="120.0" height="72.0" fill="#eef3fb" stroke="#2b3654" stroke-width="2.5"/>
+  <rect x="380.0" y="92.0" width="120.0" height="72.0" fill="#eef3fb" stroke="#2b3654" stroke-width="2.5"/>
+  <rect x="20.0" y="164.0" width="120.0" height="72.0" fill="#eef3fb" stroke="#2b3654" stroke-width="2.5"/>
+  <rect x="140.0" y="164.0" width="120.0" height="72.0" fill="#eef3fb" stroke="#2b3654" stroke-width="2.5"/>
+  <rect x="260.0" y="164.0" width="120.0" height="72.0" fill="#eef3fb" stroke="#2b3654" stroke-width="2.5"/>
+  <rect x="380.0" y="164.0" width="120.0" height="72.0" fill="#eef3fb" stroke="#2b3654" stroke-width="2.5"/>
+  <text x="80.0" y="67.0" text-anchor="middle" font-size="30" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">X</text>
+  <text x="320.0" y="67.0" text-anchor="middle" font-size="30" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">Y</text>
+  <text x="320.0" y="211.0" text-anchor="middle" font-size="30" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">W</text>
+  <text x="440.0" y="211.0" text-anchor="middle" font-size="30" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">Z</text>
+</svg>

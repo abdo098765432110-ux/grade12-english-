@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 140" width="760" height="140">
+  <!-- Chemistry ch.1, review slides Q3: A reacts with B (arrow '+ B') to give C; C with NaOH (arrow '+ NaOH') gives D; D on heating (arrow 'Δ') gives E. -->
+  <rect width="760" height="140" fill="#ffffff"/>
+  <rect x="12.0" y="52.0" width="96.0" height="64.0" fill="#ffffff" stroke="#2b3654" stroke-width="3"/>
+  <text x="60.0" y="95.0" text-anchor="middle" font-size="30" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">A</text>
+  <rect x="225.0" y="52.0" width="96.0" height="64.0" fill="#ffffff" stroke="#2b3654" stroke-width="3"/>
+  <text x="273.0" y="95.0" text-anchor="middle" font-size="30" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">C</text>
+  <rect x="438.0" y="52.0" width="96.0" height="64.0" fill="#ffffff" stroke="#2b3654" stroke-width="3"/>
+  <text x="486.0" y="95.0" text-anchor="middle" font-size="30" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">D</text>
+  <rect x="651.0" y="52.0" width="96.0" height="64.0" fill="#ffffff" stroke="#2b3654" stroke-width="3"/>
+  <text x="699.0" y="95.0" text-anchor="middle" font-size="30" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">E</text>
+  <path d="M118.0 84.0 L209.0 84.0" stroke="#2b3654" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M221.0 84.0 L201.0 76.5 L201.0 91.5 z" fill="#2b3654"/>
+  <text x="166.5" y="68.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">+ B</text>
+  <path d="M331.0 84.0 L422.0 84.0" stroke="#2b3654" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M434.0 84.0 L414.0 76.5 L414.0 91.5 z" fill="#2b3654"/>
+  <text x="379.5" y="68.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">+ NaOH</text>
+  <path d="M544.0 84.0 L635.0 84.0" stroke="#2b3654" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M647.0 84.0 L627.0 76.5 L627.0 91.5 z" fill="#2b3654"/>
+  <text x="592.5" y="68.0" text-anchor="middle" font-size="24" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">Δ</text>
+</svg>

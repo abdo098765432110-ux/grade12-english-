@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 740 290" width="740" height="290">
+  <!-- Chemistry ch1, final review Q46: C2H6O2 =X=> A =(excess Fe)=> iron(II) oxalate ring; down/left arrow (1) to B; B -(HCl)-> FeCl3. -->
+  <rect width="740" height="290" fill="#ffffff"/>
+  <text x="78.0" y="99.0" text-anchor="middle" font-size="26" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">C₂H₆O₂</text>
+  <path d="M146.0 86.0 L230.0 86.0" stroke="#2b3654" stroke-width="2" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M146.0 94.0 L230.0 94.0" stroke="#2b3654" stroke-width="2" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M222.0 78.0 L236.0 90.0 L222.0 102.0" stroke="#2b3654" stroke-width="2.5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="190.0" y="70.0" text-anchor="middle" font-size="22" font-weight="600" font-style="italic" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">X</text>
+  <text x="262.0" y="99.0" text-anchor="middle" font-size="28" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">A</text>
+  <path d="M290.0 86.0 L492.0 86.0" stroke="#2b3654" stroke-width="2" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M290.0 94.0 L492.0 94.0" stroke="#2b3654" stroke-width="2" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M484.0 78.0 L498.0 90.0 L484.0 102.0" stroke="#2b3654" stroke-width="2.5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="394.0" y="70.0" text-anchor="middle" font-size="22" font-weight="600" direction="rtl" unicode-bidi="embed" font-family="'Segoe UI', Tahoma, 'Noto Sans Arabic', 'Noto Naskh Arabic', Arial, sans-serif" fill="#2b3654">وفرة من Fe</text>
+  <text x="572.0" y="70.0" text-anchor="middle" font-size="24" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">COO</text>
+  <text x="572.0" y="150.0" text-anchor="middle" font-size="24" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">COO</text>
+  <path d="M536.0 78.0 L536.0 126.0" stroke="#2b3654" stroke-width="2.5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M612.0 66.0 L652.0 96.0" stroke="#2b3654" stroke-width="2.5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M612.0 136.0 L652.0 112.0" stroke="#2b3654" stroke-width="2.5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="684.0" y="113.0" text-anchor="middle" font-size="26" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">Fe</text>
+  <path d="M704.0 128.0 L704.0 246.0 L548.0 246.0" stroke="#2b3654" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M534.0 246.0 L550.0 240.0 L550.0 252.0 z" fill="#2b3654"/>
+  <text x="674.0" y="214.0" text-anchor="middle" font-size="22" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">(1)</text>
+  <text x="512.0" y="255.0" text-anchor="middle" font-size="28" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">B</text>
+  <path d="M486.0 246.0 L374.0 246.0" stroke="#2b3654" stroke-width="2.5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M360.0 246.0 L374.0 240.8 L374.0 251.2 z" fill="#2b3654"/>
+  <text x="424.0" y="228.0" text-anchor="middle" font-size="22" font-weight="600" font-style="italic" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">HCl</text>
+  <text x="300.0" y="255.0" text-anchor="middle" font-size="26" font-weight="600" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#2b3654">FeCl₃</text>
+</svg>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 140" width="760" height="140">
+  <!-- Chemistry ch.1, review slides Q5: iron oxide A in the middle; arrow 'process X' from A to iron oxide B (right); arrow 'process Y' from A to iron oxide C (left). -->
+  <rect width="760" height="140" fill="#ffffff"/>
+  <rect x="14.0" y="30.0" width="180.0" height="80.0" fill="#ffffff" stroke="#2b3654" stroke-width="3"/>
+  <text x="104.0" y="79.0" text-anchor="middle" font-size="24" font-weight="700" direction="rtl" unicode-bidi="embed" font-family="'Segoe UI', Tahoma, 'Noto Sans Arabic', 'Noto Naskh Arabic', Arial, sans-serif" fill="#2b3654">أكسيد حديد C</text>
+  <rect x="290.0" y="30.0" width="180.0" height="80.0" fill="#ffffff" stroke="#2b3654" stroke-width="3"/>
+  <text x="380.0" y="79.0" text-anchor="middle" font-size="24" font-weight="700" direction="rtl" unicode-bidi="embed" font-family="'Segoe UI', Tahoma, 'Noto Sans Arabic', 'Noto Naskh Arabic', Arial, sans-serif" fill="#2b3654">أكسيد حديد A</text>
+  <rect x="566.0" y="30.0" width="180.0" height="80.0" fill="#ffffff" stroke="#2b3654" stroke-width="3"/>
+  <text x="656.0" y="79.0" text-anchor="middle" font-size="24" font-weight="700" direction="rtl" unicode-bidi="embed" font-family="'Segoe UI', Tahoma, 'Noto Sans Arabic', 'Noto Naskh Arabic', Arial, sans-serif" fill="#2b3654">أكسيد حديد B</text>
+  <path d="M280.0 70.0 L210.0 70.0" stroke="#2b3654" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M196.0 70.0 L216.0 62.5 L216.0 77.5 z" fill="#2b3654"/>
+  <text x="242.0" y="54.0" text-anchor="middle" font-size="22" font-weight="700" direction="rtl" unicode-bidi="embed" font-family="'Segoe UI', Tahoma, 'Noto Sans Arabic', 'Noto Naskh Arabic', Arial, sans-serif" fill="#2b3654">عملية Y</text>
+  <path d="M480.0 70.0 L550.0 70.0" stroke="#2b3654" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M564.0 70.0 L544.0 62.5 L544.0 77.5 z" fill="#2b3654"/>
+  <text x="518.0" y="54.0" text-anchor="middle" font-size="22" font-weight="700" direction="rtl" unicode-bidi="embed" font-family="'Segoe UI', Tahoma, 'Noto Sans Arabic', 'Noto Naskh Arabic', Arial, sans-serif" fill="#2b3654">عملية X</text>
+</svg>
