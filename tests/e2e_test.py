@@ -1437,6 +1437,66 @@ def contrast():
 
 # ---------------------------------------------------------------- main
 
+# ---------------------------------------------------------------- 11. Sources & References page
+
+SOURCE_LINKS = [
+    "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Secondry/Secondry3/Term1/StudentBook/English_language_Sec3.pdf",
+    "https://shbabbek.com/show/284137",
+    "https://app.minhaji.net/printlesson/13439",
+    "https://app.minhaji.net/printlesson/13440",
+    "https://app.minhaji.net/printlesson/13441",
+]
+
+
+def sources_page(browser, base):
+    context = browser.new_context(viewport={"width": 1280, "height": 900})
+    page = watch(context.new_page())
+    # Every page links to it from the footer (the header navigation is unchanged).
+    pages = sorted(p.name for p in PROJECT.glob("*.html"))
+    missing = []
+    for path in pages:
+        page.goto(base + path)
+        if page.locator(".site-footer a[href='sources.html']").count() != 1:
+            missing.append(path)
+    record("every page has the Sources & References link in its footer", not missing, ", ".join(missing))
+    record("the header navigation does not list the sources page", page.locator("#site-nav a[href='sources.html']").count() == 0)
+    no_errors(page, "every page (footer check)")
+    page.goto(base + "index.html")
+    settle(page)
+    page.click(".site-footer a[href='sources.html']")
+    expect(page).to_have_url(re.compile(r"sources\.html$"))
+    expect(page.locator("h1")).to_have_text("Sources & References")
+    links = page.locator("main a.source-name")
+    hrefs = links.evaluate_all("list => list.map(a => a.href)")
+    record("sources page lists exactly the five sources, each a link to its page", hrefs == SOURCE_LINKS, str(hrefs))
+    record("source links open in a new tab safely",
+           links.evaluate_all("list => list.every(a => a.target === '_blank' && a.rel.includes('noopener'))"))
+    record("sources are grouped: English vocabulary, chemistry chapter 1, the rest of the content",
+           page.locator(".sources-group h2").all_inner_texts() == ["English — Vocabulary", "Chemistry — Chapter 1", "The rest of the content"],
+           str(page.locator(".sources-group h2").all_inner_texts()))
+    record("sources page tab title", page.title() == "Sources & References — Learn for Grade 12", page.title())
+    audit(page, "sources page")
+    page.screenshot(path=str(SHOTS / "30-sources.png"), full_page=True)
+    page.set_viewport_size({"width": 375, "height": 800})
+    page.reload()
+    audit(page, "sources page at phone width")
+    page.screenshot(path=str(SHOTS / "31-sources-phone.png"), full_page=True)
+    page.set_viewport_size({"width": 1280, "height": 900})
+    # Arabic interface: headings translated, source names and addresses kept
+    page.click(".lang-toggle")
+    page.wait_for_function("document.documentElement.lang === 'ar'")
+    record("Arabic sources page: interface translated, links unchanged",
+           page.locator("h1").inner_text() == "المصادر والمراجع"
+           and page.title() == "المصادر والمراجع — Learn for Grade 12"
+           and links.evaluate_all("list => list.map(a => a.href)") == SOURCE_LINKS
+           and "شبابيك" in page.locator("main").inner_text() and "منهاجي" in page.locator("main").inner_text(), page.locator("h1").inner_text())
+    audit(page, "Arabic sources page")
+    page.screenshot(path=str(SHOTS / "32-sources-ar.png"), full_page=True)
+    page.click(".lang-toggle")
+    no_errors(page, "sources page")
+    context.close()
+
+
 def main():
     real_data = {name: (PROJECT / name).read_bytes() for name, _ in DATA_FILES}
     server, base = start_server()
@@ -1467,6 +1527,7 @@ def main():
         run_section("phase 2 content manager", phase2_manager, browser, base)
         run_section("language switch", language_switch, browser, base)
         run_section("Arabic interface", arabic_interface, browser, base)
+        run_section("sources page", sources_page, browser, base)
         browser.close()
     server.shutdown()
     contrast()

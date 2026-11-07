@@ -1501,6 +1501,54 @@ thead th {
 
 .panel > h2:first-child { margin-top: 0; }
 
+/* ---------- Sources & References page (sources.html) ---------- */
+.sources-page h1 { margin-bottom: 0.5rem; }
+
+.sources-group {
+  max-width: 52rem;
+  margin: 1.5rem 0;
+  padding: 1.25rem 1.35rem;
+  border: 1px solid var(--color-border);
+  border-inline-start: 6px solid var(--tone-edge, var(--color-border));
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: var(--shadow);
+}
+
+.sources-group h2 { margin: 0 0 0.35rem; font-size: 1.25rem; }
+.sources-used { margin: 0 0 0.9rem; color: var(--color-muted); }
+
+.source-list { margin: 0; padding: 0; list-style: none; }
+
+.source-item {
+  padding: 0.8rem 1rem;
+  border-radius: var(--radius);
+  background: var(--tone, var(--color-sky));
+}
+
+.source-item + .source-item { margin-top: 0.6rem; }
+
+.source-name {
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.source-host {
+  display: block;
+  margin-top: 0.2rem;
+  font-size: 0.85rem;
+  color: var(--color-muted);
+  /* left-to-right web address, but placed at the start of the line in both languages */
+  width: fit-content;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
+.source-item p { margin: 0.4rem 0 0; }
+
+.sources-note { background: var(--color-bg); box-shadow: none; }
+.sources-note p { margin: 0; }
+
 .form-row { margin-bottom: 1.25rem; }
 
 .form-row > label,

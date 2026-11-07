@@ -122,7 +122,7 @@ test('summaries: an optional PDF file name; a summary with only a PDF is not "em
   });
 });
 
-test('Grammar Summaries: Present Perfect / Present Perfect Continuous is the two-page PDF', () => {
+test('Grammar Summaries: Present Perfect / Present Perfect Continuous is the uploaded four-page bilingual PDF', () => {
   const fs = require('fs');
   const path = require('path');
   const summaries = require('../grammar-summaries.json').summaries;
@@ -135,7 +135,13 @@ test('Grammar Summaries: Present Perfect / Present Perfect Continuous is the two
   assert.deepEqual(Schema.validateItem('summaries', pp, 0).errors, []);
   const pdf = fs.readFileSync(path.join(__dirname, '..', pp.pdf));
   assert.equal(pdf.subarray(0, 5).toString(), '%PDF-');
-  assert.equal((pdf.toString('latin1').match(/\/Type\s*\/Page[^s]/g) || []).length, 2, 'two pages');
+  assert.equal((pdf.toString('latin1').match(/\/Type\s*\/Page[^s]/g) || []).length, 4, 'four pages');
+  // exactly the owner's uploaded file (English + Arabic), unchanged
+  const sha = require('crypto').createHash('sha256').update(pdf).digest('hex');
+  assert.equal(sha, '17c877a138b2f64834be09fb485996fccd728aff7c1ec70f63d3d15f9494ee5d', 'the uploaded file, byte for byte');
+  // the old summary's source page and its PDF builder are gone, so the old version cannot come back
+  assert.ok(!fs.existsSync(path.join(__dirname, '..', 'tools', 'present-perfect-summary.html')), 'old source removed');
+  assert.ok(!fs.existsSync(path.join(__dirname, '..', 'tools', 'grammar_pdfs.py')), 'old builder removed');
 });
 
 test('summaries: optional sections are checked like lesson sections', () => {

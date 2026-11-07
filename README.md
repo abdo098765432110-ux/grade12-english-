@@ -31,7 +31,7 @@ grade12-english/
 ├── practice.html          Grammar Practice  (?unit=<id>, ?topic=<id> preselect)
 ├── reading.html           Reading Comprehension (?unit=<id>, ?passage=<id>)
 ├── vocabulary.html        Vocabulary (?unit=<id> preselect); questions in vocabulary-questions.json, page script vocabulary.js
-├── present-perfect-summary.pdf   The Present Perfect & Present Perfect Continuous summary (two A4 pages; made by tools/grammar_pdfs.py from tools/present-perfect-summary.html)
+├── present-perfect-summary.pdf   The Present Perfect & Present Perfect Continuous summary (English + Arabic, four A4 pages; the owner's file, used as it is)
 ├── manage.html            Content manager (for teachers)
 ├── arabic.html, physics.html, chemistry.html, biology.html   The other four subjects
 ├── subject.js             Subject pages: chapters → sections → questions, with the shared quiz
