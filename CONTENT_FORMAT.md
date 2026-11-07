@@ -14,7 +14,7 @@ node tools/validate-content.js
 | File | List inside it | Used by |
 |---|---|---|
 | `data/units.json` | `units` | All pages (grouping and filtering) |
-| `data/grammar-lessons.json` | `lessons` | Grammar Lessons |
+| `data/grammar-lessons.json` | `lessons` | The grammar topics (titles used by summaries, practice and the content manager) |
 | `data/grammar-summaries.json` | `summaries` | Grammar Summaries |
 | `data/grammar-questions.json` | `questions` | Grammar Practice |
 | `data/reading-passages.json` | `passages` | Reading Comprehension |
@@ -67,15 +67,13 @@ Example: a unit, a topic (lesson) in it, and a question linked to the topic.
 
 | Address | Shows |
 |---|---|
-| `grammar.html` | All lessons, grouped by unit |
-| `grammar.html?unit=<unit id>` | The lessons of one unit |
-| `grammar.html?topic=<topic id>` | One lesson (`?lesson=<id>` also works) |
 | `summaries.html`, `summaries.html?unit=<unit id>` | All summaries / one unit’s summaries |
 | `summaries.html?topic=<topic id>` | The summary of one topic |
 | `practice.html?unit=<unit id>` | Practice with that unit chosen |
 | `practice.html?topic=<topic id>` | Practice with that topic (and its unit) chosen |
 | `reading.html`, `reading.html?unit=<unit id>` | All passages / one unit’s passages |
 | `reading.html?passage=<passage id>` | One passage with its questions |
+| `vocabulary.html?unit=<unit id>` | Vocabulary practice with that unit chosen |
 
 ## Rules for every item
 
@@ -152,6 +150,22 @@ Section types (each may also have an optional `heading`):
 | `difficulty` | no | `"easy"`, `"medium"` or `"hard"`. |
 | `lang` | no | `"ar"` for a question written in Arabic: right to left, with the choices numbered أ) ب) ج) د). |
 | `image`, `imageAlt` | no | A diagram shown under the question (a picture file next to `index.html`), and a text description of it for screen readers. |
+
+### Vocabulary questions (`vocabulary-questions.json`)
+
+The Vocabulary page (`vocabulary.html`) reads its own file, so vocabulary
+questions are never mixed with the grammar practice questions. The questions
+are grouped by English unit and use the same fields as the grammar questions
+above. Students choose a unit, a level and how many questions, then answer
+one at a time or all at once. Write each explanation as one line per choice:
+`✓ …` for the answer, then `✗ …` for each wrong choice (line breaks are kept).
+
+```json
+{ "schemaVersion": 2, "units": [
+  { "id": "unit-1", "title": "Unit 1: Inside the World of Care", "questions": [ … ] } ] }
+```
+
+These questions are edited in the file itself (not in the content manager).
 
 ### Subject questions (`physics-questions.json`)
 

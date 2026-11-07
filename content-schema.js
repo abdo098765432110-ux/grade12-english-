@@ -395,7 +395,16 @@
         sectionCount = summary.sections.length;
       }
     }
-    if (pointCount === 0 && rememberCount === 0 && sectionCount === 0) {
+    // optional PDF file of the summary, next to the pages (for example: present-perfect-summary.pdf)
+    var hasPdf = false;
+    if (summary.pdf !== undefined) {
+      if (typeof summary.pdf !== 'string' || !/^[A-Za-z0-9][A-Za-z0-9._-]*\.pdf$/i.test(summary.pdf.trim())) {
+        report.error(where, tr('pdf must be the name of a PDF file next to the pages, for example: present-perfect-summary.pdf.'));
+      } else {
+        hasPdf = true;
+      }
+    }
+    if (pointCount === 0 && rememberCount === 0 && sectionCount === 0 && !hasPdf) {
       report.warn(where, tr('has no points and nothing in “remember”, so it will look empty.'));
     }
   }

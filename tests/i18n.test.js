@@ -69,7 +69,7 @@ const allKeys = new Set([...used.keys, ...dynamicKeys()]);
 
 test('the key finder sees the interface text in the code and pages', () => {
   assert.ok(used.keys.size > 500, 'expected hundreds of texts, found ' + used.keys.size);
-  ['Grammar Lessons', 'Check my answers', 'Import & export', 'Download backup file', 'id is missing.'].forEach((key) => {
+  ['Grammar Summaries', 'Check my answers', 'Import & export', 'Download backup file', 'id is missing.'].forEach((key) => {
     assert.ok(used.keys.has(key), 'not found: ' + key);
   });
 });
@@ -150,7 +150,7 @@ test('English is the default; Arabic only when chosen', () => {
   assert.equal(en.G12.lang, 'en');
   assert.equal(en.html.lang, 'en');
   assert.equal(en.html.dir, 'ltr');
-  assert.equal(en.G12.t('Grammar Lessons'), 'Grammar Lessons');
+  assert.equal(en.G12.t('Grammar Summaries'), 'Grammar Summaries');
   assert.equal(en.G12.t('Question {n} of {total}', { n: 2, total: 5 }), 'Question 2 of 5');
   assert.equal(en.G12.plural(1, 'summary', 'summaries'), '1 summary');
   assert.equal(en.G12.plural(3, 'summary', 'summaries'), '3 summaries');
@@ -158,7 +158,7 @@ test('English is the default; Arabic only when chosen', () => {
   const arabic = loadI18n('ar');
   assert.equal(arabic.html.lang, 'ar');
   assert.equal(arabic.html.dir, 'rtl');
-  assert.equal(arabic.G12.t('Grammar Lessons'), 'دروس القواعد');
+  assert.equal(arabic.G12.t('Grammar Summaries'), 'ملخصات القواعد');
   assert.equal(arabic.G12.t('Question {n} of {total}', { n: 2, total: 5 }), 'السؤال 2 من 5');
 
   const unknown = loadI18n('fr');
@@ -181,20 +181,20 @@ test('tNodes keeps elements (such as links) in the translated sentence', () => {
 test('setLanguage switches immediately, without reloading, and saves the choice', () => {
   const page = loadI18n(null);
   const redrawn = [];
-  page.G12.onLanguageChange((lang) => redrawn.push(lang + ':' + page.G12.t('Grammar Lessons')));
+  page.G12.onLanguageChange((lang) => redrawn.push(lang + ':' + page.G12.t('Grammar Summaries')));
   assert.equal(page.G12.setLanguage('ar'), true);
   assert.equal(page.html.lang, 'ar');
   assert.equal(page.html.dir, 'rtl');
   assert.equal(page.G12.dir, 'rtl');
   assert.equal(page.store['g12-lang'], 'ar');
-  assert.deepEqual(redrawn, ['ar:دروس القواعد'], 'pages redraw in the new language');
+  assert.deepEqual(redrawn, ['ar:ملخصات القواعد'], 'pages redraw in the new language');
   assert.equal(page.reloads.length, 0, 'the page is not reloaded');
 
   assert.equal(page.G12.setLanguage('en'), true);
   assert.equal(page.html.lang, 'en');
   assert.equal(page.html.dir, 'ltr');
   assert.equal(page.store['g12-lang'], 'en');
-  assert.deepEqual(redrawn, ['ar:دروس القواعد', 'en:Grammar Lessons']);
+  assert.deepEqual(redrawn, ['ar:ملخصات القواعد', 'en:Grammar Summaries']);
 
   assert.equal(page.G12.setLanguage('en'), false, 'already English');
   assert.equal(page.G12.setLanguage('xx'), false, 'unsupported languages are ignored');

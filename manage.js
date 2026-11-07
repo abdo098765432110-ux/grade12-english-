@@ -1280,6 +1280,8 @@
       if (sections.length) item.sections = sections;
       var reminders = Schema.splitLines(remember.control.value);
       if (reminders.length) item.remember = reminders;
+      // a linked PDF file (set in grammar-summaries.json) is kept when the summary is edited here
+      if (summary && hasText(summary.pdf)) item.pdf = summary.pdf;
       if (!errors.length) {
         errors = schemaErrors('summaries', item, function (detail) {
           return detail.meta && detail.meta.section !== undefined ? 'sec-' + detail.meta.section + '-type' : null;

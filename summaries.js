@@ -152,7 +152,6 @@
 
     if (summaries.length === 0) {
       var links = [{ label: t('Show all summaries'), href: PAGE }];
-      if (lesson) links.unshift({ label: t('Read the full lesson'), href: 'grammar.html?topic=' + encodeURIComponent(lesson.id) });
       root.appendChild(G12.emptyState(
         t('No summary for this topic yet'),
         t('A summary of “{topic}” will appear here once it is added in the content manager.', { topic: topicTitle }),
@@ -177,12 +176,30 @@
     return Boolean(first) && /[\u0621-\u064A]/.test(first[0]);
   }
 
+  function pdfPanel(summary) {
+    var file = summary.pdf.trim();
+    return el('div', { className: 'summary-pdf' }, [
+      el('img', { className: 'summary-pdf-icon', src: 'icon-summaries.svg', alt: '', width: '56', height: '56' }),
+      el('div', { className: 'summary-pdf-text' }, [
+        el('p', { className: 'summary-pdf-title', text: t('The full summary is a PDF file you can download.') }),
+        el('p', { className: 'hint', text: t('PDF file, A4 pages') }),
+        el('div', { className: 'actions' }, [
+          el('a', { className: 'btn', href: file, download: '', type: 'application/pdf', text: t('Download the summary (PDF)') }),
+          el('a', { className: 'btn btn--secondary', href: file, target: '_blank', rel: 'noopener', type: 'application/pdf', text: t('Open the PDF') })
+        ])
+      ])
+    ]);
+  }
+
   function renderSummary(content, summary, headingLevel) {
     var headingId = summary.id + '-heading';
     var subLevel = headingLevel === 'h2' ? 'h3' : 'h4';
     var card = el('section', { className: 'summary-card', id: summary.id, 'aria-labelledby': headingId });
     card.appendChild(el(headingLevel, { id: headingId, dir: 'auto', text: summary.title }));
     card.appendChild(G12.badges(summary));
+
+    // a summary kept as a PDF file (for example a designed two-page sheet): download or open it
+    if (hasText(summary.pdf)) card.appendChild(pdfPanel(summary));
 
     var points = Array.isArray(summary.points) ? summary.points : [];
     if (points.length) {
@@ -243,7 +260,6 @@
     var links = [];
     var lesson = hasText(summary.topicId) ? Schema.findById(content.lessons, summary.topicId) : null;
     if (lesson) {
-      links.push(el('a', { className: 'btn btn--secondary', href: 'grammar.html?topic=' + encodeURIComponent(lesson.id), text: t('Read the full lesson') }));
       var count = content.questions.filter(function (q) { return q.topicId === lesson.id; }).length;
       if (count) links.push(el('a', { className: 'btn', href: 'practice.html?topic=' + encodeURIComponent(lesson.id), text: t('Practise ({questions})', { questions: G12.plural(count, 'question') }) }));
     }

@@ -1,0 +1,1511 @@
+{
+  "schemaVersion": 2,
+  "units": [
+    {
+      "id": "unit-1",
+      "title": "Unit 1: Inside the World of Care",
+      "questions": [
+        {
+          "id": "vocab-u1-001",
+          "type": "mcq",
+          "prompt": "Nurse Sarah works from 7 p.m. to 7 a.m. this week, so she is on the night ___.",
+          "options": [
+            "shift",
+            "round",
+            "term",
+            "season"
+          ],
+          "answer": "shift",
+          "difficulty": "medium",
+          "reviewStatus": "unreviewed",
+          "explanation": "✓ shift = a fixed period of working time, especially in hospitals and factories (وردية / نوبة عمل). We say \"on the night shift\" or \"on the day shift\".\n✗ round: a doctor's or nurse's regular visits to the patients in a ward (a ward round), not the whole working period.\n✗ term: a part of the school or university year — not a period of hospital work.\n✗ season: a part of the year (summer, winter) or of a sports competition."
+        },
+        {
+          "id": "vocab-u1-002",
+          "type": "mcq",
+          "prompt": "In which sentence does \"shift\" have the same meaning as in \"Sarah's 12-hour shift starts at seven\"?",
+          "options": [
+            "Press the Shift key to type a capital letter.",
+            "Factory workers get extra pay for the night shift.",
+            "There has been a big shift in people's opinions.",
+            "Can you help me shift this heavy bed?"
+          ],
+          "answer": "Factory workers get extra pay for the night shift.",
+          "difficulty": "hard",
+          "reviewStatus": "unreviewed",
+          "explanation": "✓ \"Factory workers get extra pay for the night shift.\" — as in the story, shift = a set period of working time (وردية).\n✗ \"the Shift key\": the name of a key on a computer keyboard.\n✗ \"a big shift in people's opinions\": here shift = a change.\n✗ \"shift this heavy bed\": here shift is a verb = move something to another place."
+        },
+        {
+          "id": "vocab-u1-003",
+          "type": "mcq",
+          "prompt": "\"The man groaned as the paramedics lifted him onto the stretcher.\" Which word is the closest in meaning to \"groaned\"?",
+          "options": [
+            "moaned",
+            "grinned",
+            "beeped",
+            "grabbed"
+          ],
+          "answer": "moaned",
+          "difficulty": "medium",
+          "reviewStatus": "unreviewed",
+          "explanation": "✓ moaned: to groan (يئن) and to moan (يتأوه) both mean to make a long, low sound because of pain — he was hurt, so being lifted made him groan.\n✗ grinned: smiled widely — not what an injured man does while being lifted.\n✗ beeped: made a short electronic sound, like a machine.\n✗ grabbed: took hold of something quickly — an action with the hands, not a sound."
+        },
+        {
+          "id": "vocab-u1-004",
+          "type": "mcq",
+          "prompt": "From early morning, the hospital is ___ with activity: doctors hurry along the corridors and patients wait to be seen.",
+          "options": [
+            "buzzing",
+            "collapsing",
+            "beeping",
+            "groaning"
+          ],
+          "answer": "buzzing",
+          "difficulty": "medium",
+          "reviewStatus": "unreviewed",
+          "explanation": "✓ buzzing with activity = full of busy people and noise (مليء بالحركة والضجيج). A buzz is the sound of many people talking or machines working.\n✗ collapsing: falling down suddenly — it does not go with \"with activity\".\n✗ beeping: the short, high electronic sound a machine makes — machines beep, but a place is not \"beeping with activity\".\n✗ groaning: making a deep sound of pain — it does not describe a busy place."
+        },
+        {
+          "id": "vocab-u1-005",
+          "type": "mcq",
+          "prompt": "As the guests arrived at the wedding, a happy ___ of conversation filled the hall.",
+          "options": [
+            "groan",
+            "beep",
+            "pulse",
+            "buzz"
+          ],
+          "answer": "buzz",
+          "difficulty": "medium",
+          "reviewStatus": "unreviewed",
+          "explanation": "✓ buzz = the sound of many people talking together (همهمة / ضجيج أصوات). \"A buzz of conversation\" is a common phrase.\n✗ groan: a deep sound that shows pain or unhappiness — it does not fit a happy wedding.\n✗ beep: a short, high sound made by a machine, not by people talking.\n✗ pulse: the beating of the heart, not a sound of conversation."
+        },
+        {
+          "id": "vocab-u1-006",
+          "type": "mcq",
+          "prompt": "In which sentence does \"buzz\" mean \"the sound of many people talking or machines working\"?",
+          "options": [
+            "She gets a real buzz from helping sick children.",
+            "I'll give you a buzz when I get home.",
+            "The boys were told to buzz off and stop shouting.",
+            "The busy factory was full of the buzz of machines."
+          ],
+          "answer": "The busy factory was full of the buzz of machines.",
+          "difficulty": "hard",
+          "reviewStatus": "unreviewed",
+          "explanation": "✓ \"the buzz of machines\" = the continuous sound of machines working (طنين / ضجيج الآلات) — the meaning taught in the unit.\n✗ \"gets a real buzz from\": gets a strong feeling of pleasure and excitement.\n✗ \"give you a buzz\": an informal way of saying \"phone you\".\n✗ \"buzz off\": a rude way of saying \"go away\"."
+        },
+        {
+          "id": "vocab-u1-007",
+          "type": "mcq",
+          "prompt": "Every time a patient presses the call button, a machine at the nurses' desk ___ twice.",
+          "options": [
+            "collapses",
+            "beeps",
+            "groans",
+            "moans"
+          ],
+          "answer": "beeps",
+          "difficulty": "medium",
+          "reviewStatus": "unreviewed",
+          "explanation": "✓ beep = make a short, high electronic sound (يُصدر صفارة / صوت تنبيه). Machines, alarms and monitors beep.\n✗ collapses: falls down suddenly — it is not a sound at all.\n✗ groans: makes a deep sound of pain — a person's sound, not a machine's signal.\n✗ moans: makes a long, low sound of pain or unhappiness — a person does this, not a machine giving a signal."
+        },
+        {
+          "id": "vocab-u1-008",
+          "type": "mcq",
+          "prompt": "Choose the pair that completes the sentence: \"In the emergency room, the monitors were ___, and the waiting area was ___ with voices.\"",
+          "options": [
+            "beeping – buzzing",
+            "buzzing – beeping",
+            "groaning – beeping",
+            "beeping – clutching"
+          ],
+          "answer": "beeping – buzzing",
+          "difficulty": "hard",
+          "reviewStatus": "unreviewed",
+          "explanation": "✓ beeping – buzzing: monitors make short electronic sounds (beep), and a room full of people talking is \"buzzing with voices\" (ضجيج أصوات).\n✗ buzzing – beeping: \"the monitors were buzzing\" is possible, but a waiting area cannot be \"beeping with voices\" — a beep is a machine's sound.\n✗ groaning – beeping: groaning is a sound of pain made by people, not monitors, and voices do not beep.\n✗ beeping – clutching: clutch means hold something tightly — it is not a sound."
+        },
+        {
+          "id": "vocab-u1-009",
+          "type": "mcq",
+          "prompt": "Only a qualified nurse is allowed to ___ this medication to patients.",
+          "options": [
+            "admire",
+            "admit",
+            "administer",
+            "advise"
+          ],
+          "answer": "administer",
+          "difficulty": "medium",
+          "reviewStatus": "unreviewed",
+          "explanation": "✓ administer = give medicine or treatment to someone (يُعطي الدواء / العلاج): \"administer medication to patients\".\n✗ admire: like and respect someone or something.\n✗ admit: accept someone into a hospital (admit a patient to hospital), or agree that something is true.\n✗ advise: tell someone what you think they should do — we advise a patient to take a medicine; we do not \"advise medication to\" patients."
+        },
+        {
+          "id": "vocab-u1-010",
+          "type": "mcq",
+          "prompt": "The ___ of the vaccine must be carried out by trained staff only.",
+          "options": [
+            "administrator",
+            "administrative",
+            "administration",
+            "administer"
+          ],
+          "answer": "administration",
+          "difficulty": "hard",
+          "reviewStatus": "unreviewed",
+          "explanation": "✓ administration (noun) = the act of giving a medicine or treatment (إعطاء). After \"The … of\" we need a noun for an action.\n✗ administrator: a noun, but it is a person who manages an office or organisation — a person cannot \"be carried out\".\n✗ administrative: an adjective (connected with managing an organisation); an adjective cannot stand alone after \"The\" here.\n✗ administer: the verb; a verb cannot follow \"The\"."
+        },
+        {
+          "id": "vocab-u1-011",
+          "type": "mcq",
+          "prompt": "Which sentence uses \"administer\" correctly?",
+          "options": [
+            "He administered that he had made a mistake.",
+            "The nurse administered the old man to the hospital.",
+            "The doctor administered a painkiller to the injured driver.",
+            "The teacher administered the students' beautiful drawings."
+          ],
+          "answer": "The doctor administered a painkiller to the injured driver.",
+          "difficulty": "hard",
+          "reviewStatus": "unreviewed",
+          "explanation": "✓ \"administered a painkiller to the injured driver\" = gave him the medicine (أعطاه الدواء) — the exact meaning in the unit.\n✗ \"administered that he had made a mistake\": the right verb is admitted (agreed that it was true).\n✗ \"administered the old man to the hospital\": the right verb is admitted (accepted him as a patient).\n✗ \"administered the students' beautiful drawings\": the right verb is admired (looked at them with pleasure)."
+        },
+        {
+          "id": "vocab-u1-012",
+          "type": "mcq",
+          "prompt": "The lifeguard ___ first aid to the boy he had pulled out of the sea until the paramedics arrived.",
+          "options": [
+            "admitted",
+            "administered",
+            "assisted",
+            "attended"
+          ],
+          "answer": "administered",
+          "difficulty": "medium",
+          "reviewStatus": "unreviewed",
+          "explanation": "✓ administered first aid = gave first aid (قدّم الإسعافات الأولية). \"Administer\" is used with medicine, treatment and first aid.\n✗ admitted: accepted someone into hospital, or agreed that something was true.\n✗ assisted: we assist a person (assist the doctor), not \"assist first aid to\" someone.\n✗ attended: we attend a course or a meeting (attend a first-aid course), but we do not \"attend first aid to\" someone."
+        },
+        {
+          "id": "vocab-u1-013",
+          "type": "mcq",
+          "prompt": "Mr. Ramy is still recovering from his operation, so he needs extra ___ from the nurses.",
+          "options": [
+            "tension",
+            "attention",
+            "attendance",
+            "intention"
+          ],
+          "answer": "attention",
+          "difficulty": "medium",
+          "reviewStatus": "unreviewed",
+          "explanation": "✓ attention = care given to someone (رعاية / اهتمام). A patient who is recovering needs extra attention.\n✗ tension: a feeling of worry and stress.\n✗ attendance: being present at a place, such as school or a meeting.\n✗ intention: a plan, or something you want to do."
+        },
+        {
+          "id": "vocab-u1-014",
+          "type": "mcq",
+          "prompt": "The victims' injuries were serious and needed immediate medical ___.",
+          "options": [
+            "attention",
+            "attendant",
+            "attendance",
+            "attentive"
+          ],
+          "answer": "attention",
+          "difficulty": "hard",
+          "reviewStatus": "unreviewed",
+          "explanation": "✓ attention (noun): \"immediate medical attention\" = fast medical care (رعاية طبية فورية). This is a very common phrase.\n✗ attendant: a person whose job is to help people (a flight attendant), not the care itself.\n✗ attendance: being present somewhere — injuries do not need \"attendance\".\n✗ attentive: an adjective (careful to listen and help); it cannot end the phrase after \"medical\"."
+        },
+        {
+          "id": "vocab-u1-015",
+          "type": "mcq",
+          "prompt": "The doctor's calm, friendly words ___ the child's attention away from the pain of the injection.",
+          "options": [
+            "made",
+            "drew",
+            "paid",
+            "gave"
+          ],
+          "answer": "drew",
+          "difficulty": "hard",
+          "reviewStatus": "unreviewed",
+          "explanation": "✓ draw someone's attention away from something = make them stop noticing it and notice something else (صرف انتباهه). The doctor helped the child stop thinking about the pain.\n✗ made: \"make attention\" is not an English phrase.\n✗ paid: we \"pay attention to\" something — it describes the person who is listening, and it is not used with \"away from\".\n✗ gave: we can \"give something our attention\", but \"gave the child's attention away\" is not correct English."
+        },
+        {
+          "id": "vocab-u1-016",
+          "type": "mcq",
+          "prompt": "Three passengers were badly hurt, and the accident ___ were rushed to the nearest hospital.",
+          "options": [
+            "culprits",
+            "victims",
+            "volunteers",
+            "witnesses"
+          ],
+          "answer": "victims",
+          "difficulty": "medium",
+          "reviewStatus": "unreviewed",
+          "explanation": "✓ victims = people who are hurt or killed by something bad, such as an accident or a crime (ضحايا). The hurt passengers are the victims.\n✗ culprits: people who are guilty of doing something wrong.\n✗ volunteers: people who offer to help without being paid.\n✗ witnesses: people who see an accident or a crime happen; they are not the ones who were hurt."
+        },
+        {
+          "id": "vocab-u1-017",
+          "type": "mcq",
+          "prompt": "Many elderly people ___ victim to the flu virus last winter.",
+          "options": [
+            "went",
+            "fell",
+            "got",
+            "made"
+          ],
+          "answer": "fell",
+          "difficulty": "hard",
+          "reviewStatus": "unreviewed",
+          "explanation": "✓ fall victim to something = be hurt or harmed by it (وقع ضحية لـ). It is a fixed expression: fall – fell – fallen.\n✗ went: \"go victim to\" is not English.\n✗ got: \"get victim to\" is not English.\n✗ made: \"make victim to\" is not English."
+        },
+        {
+          "id": "vocab-u1-018",
+          "type": "mcq",
+          "prompt": "Which sentence uses \"victim\" correctly?",
+          "options": [
+            "She was the victim of the race and won a gold medal.",
+            "The paramedics were the victims who saved his life.",
+            "The victim stole the old man's wallet.",
+            "Two victims of the fire are still in hospital."
+          ],
+          "answer": "Two victims of the fire are still in hospital.",
+          "difficulty": "medium",
+          "reviewStatus": "unreviewed",
+          "explanation": "✓ \"Two victims of the fire are still in hospital.\" — victims are people who are hurt by something bad, such as a fire, an accident or a crime (ضحايا).\n✗ \"She was the victim of the race and won a gold medal\": a person who wins is the winner, not a victim.\n✗ \"The paramedics were the victims who saved his life\": the paramedics helped; they were not hurt — they were the rescuers.\n✗ \"The victim stole the old man's wallet\": the person who steals is the thief (the culprit); the old man is the victim."
+        },
+        {
+          "id": "vocab-u1-019",
+          "type": "mcq",
+          "prompt": "Despite the ___ in the emergency room, Nurse Noura stayed calm and gave clear instructions.",
+          "options": [
+            "chaos",
+            "harmony",
+            "order",
+            "silence"
+          ],
+          "answer": "chaos",
+          "difficulty": "medium",
+          "reviewStatus": "unreviewed",
+          "explanation": "✓ chaos = a state of complete confusion and disorder (فوضى). \"Despite\" shows a contrast: the room was in disorder, but she stayed calm.\n✗ harmony: peaceful agreement — staying calm in harmony is not a contrast.\n✗ order: everything organised — the opposite of chaos, so there is no contrast.\n✗ silence: no noise — staying calm in silence is not surprising, so \"Despite\" makes no sense."
+        },
+        {
+          "id": "vocab-u1-020",
+          "type": "mcq",
+          "prompt": "After the bus crash, the emergency room was a ___ scene, with injured people and doctors everywhere.",
+          "options": [
+            "chaos",
+            "calm",
+            "chaotic",
+            "chaotically"
+          ],
+          "answer": "chaotic",
+          "difficulty": "medium",
+          "reviewStatus": "unreviewed",
+          "explanation": "✓ chaotic (adjective) = completely confused and disorganised (فوضوي). An adjective is needed before the noun \"scene\".\n✗ chaos: the noun; we say \"There was chaos\", not \"a chaos scene\".\n✗ calm: an adjective, but it is the opposite of what the sentence describes (injured people and doctors everywhere).\n✗ chaotically: an adverb; it describes how something is done, not a noun."
+        },
+        {
+          "id": "vocab-u1-021",
+          "type": "mcq",
+          "prompt": "Which word is the OPPOSITE of \"chaos\"?",
+          "options": [
+            "order",
+            "disorder",
+            "panic",
+            "confusion"
+          ],
+          "answer": "order",
+          "difficulty": "medium",
+          "reviewStatus": "unreviewed",
+          "explanation": "✓ order: a state in which everything is organised and in its correct place (نظام) — the opposite of chaos (فوضى).\n✗ disorder: another synonym of chaos.\n✗ panic: a sudden strong fear; it often happens in chaos, so it is not the opposite.\n✗ confusion: a synonym of chaos, not its opposite."
+        },
+        {
+          "id": "vocab-u1-022",
+          "type": "mcq",
+          "prompt": "It was ___ to see the little boy crying for his lost mother in the busy hospital.",
+          "options": [
+            "heartbroken",
+            "heartbreakingly",
+            "heartbreaking",
+            "heartbreak"
+          ],
+          "answer": "heartbreaking",
+          "difficulty": "hard",
+          "reviewStatus": "unreviewed",
+          "explanation": "✓ heartbreaking = making you feel very sad (مُحزن جدًا). The -ing adjective describes the situation that causes the sadness: \"It was heartbreaking to see…\".\n✗ heartbroken: describes the person who feels very sad (the boy was heartbroken), not the situation.\n✗ heartbreakingly: an adverb (heartbreakingly sad); it cannot follow \"It was\" on its own.\n✗ heartbreak: a noun (great sadness); \"It was heartbreak to see\" is not correct."
+        },
+        {
+          "id": "vocab-u1-023",
+          "type": "mcq",
+          "prompt": "When her grandmother died, Mona was ___ and could not stop crying.",
+          "options": [
+            "heartwarming",
+            "heartbreaking",
+            "rewarding",
+            "heartbroken"
+          ],
+          "answer": "heartbroken",
+          "difficulty": "hard",
+          "reviewStatus": "unreviewed",
+          "explanation": "✓ heartbroken = feeling extremely sad (حزين جدًا / مكسور القلب). It describes how a person feels.\n✗ heartwarming: making you feel happy and pleased — the opposite feeling.\n✗ heartbreaking: describes something that makes others sad; \"Mona was heartbreaking\" would mean she made other people sad.\n✗ rewarding: giving satisfaction because you did something good — it does not fit sad news."
+        },
+        {
+          "id": "vocab-u1-024",
+          "type": "mcq",
+          "prompt": "Which word is the OPPOSITE of \"heartbreaking\"?",
+          "options": [
+            "tragic",
+            "joyful",
+            "upsetting",
+            "painful"
+          ],
+          "answer": "joyful",
+          "difficulty": "medium",
+          "reviewStatus": "unreviewed",
+          "explanation": "✓ joyful = full of happiness (مُبهج) — the opposite of heartbreaking (مُحزن جدًا).\n✗ tragic: very sad — a synonym, not an opposite.\n✗ upsetting: making you unhappy or worried — close in meaning to heartbreaking.\n✗ painful: causing pain or sadness — also close in meaning."
+        },
+        {
+          "id": "vocab-u1-025",
+          "type": "mcq",
+          "prompt": "Nursing is a tiring job, but it is very ___ because you help people every single day.",
+          "options": [
+            "boring",
+            "chaotic",
+            "rewarding",
+            "heartbreaking"
+          ],
+          "answer": "rewarding",
+          "difficulty": "medium",
+          "reviewStatus": "unreviewed",
+          "explanation": "✓ rewarding = giving you a feeling of satisfaction because you help people or achieve something good (مُجزٍ / يمنح الرضا). \"but\" introduces the positive side of a tiring job.\n✗ boring: not interesting — it is negative, so it does not contrast with \"tiring\".\n✗ chaotic: full of disorder — again a negative idea that does not fit \"because you help people\".\n✗ heartbreaking: very sad — it does not explain why helping people is good."
+        },
+        {
+          "id": "vocab-u1-026",
+          "type": "mcq",
+          "prompt": "Teachers often say that seeing their students succeed is the most ___ part of their job.",
+          "options": [
+            "rewards",
+            "awarded",
+            "rewarded",
+            "rewarding"
+          ],
+          "answer": "rewarding",
+          "difficulty": "hard",
+          "reviewStatus": "unreviewed",
+          "explanation": "✓ rewarding = giving satisfaction (مُجزٍ). The -ing adjective describes the part of the job that gives this feeling.\n✗ rewards: a plural noun (prizes or payments); it cannot come between \"the most\" and the noun \"part\".\n✗ awarded: given officially as a prize (\"She was awarded a medal\").\n✗ rewarded: describes a person who receives a reward (\"He was rewarded for his hard work\"), not a part of a job."
+        },
+        {
+          "id": "vocab-u1-027",
+          "type": "mcq",
+          "prompt": "\"Some moments were heartbreaking, but many were rewarding.\" Here, \"rewarding\" means that these moments ___.",
+          "options": [
+            "earned Sarah extra money",
+            "gave Sarah a feeling of satisfaction",
+            "won Sarah a prize",
+            "made Sarah feel very tired"
+          ],
+          "answer": "gave Sarah a feeling of satisfaction",
+          "difficulty": "hard",
+          "reviewStatus": "unreviewed",
+          "explanation": "✓ gave Sarah a feeling of satisfaction: \"rewarding\" means giving pleasure and satisfaction because you helped someone or did something good (مُجزٍ معنويًا).\n✗ earned Sarah extra money: a reward can be money, but \"rewarding\" here is about a good feeling, not payment.\n✗ won Sarah a prize: that would be \"she was awarded a prize\".\n✗ made Sarah feel very tired: that would be \"tiring\" or \"exhausting\"."
+        },
+        {
+          "id": "vocab-u1-028",
+          "type": "mcq",
+          "prompt": "\"Nursing is a never-ending rollercoaster.\" The writer means that nursing is ___.",
+          "options": [
+            "dangerous because of fast machines",
+            "a fun day out at a theme park",
+            "full of emotional ups and downs",
+            "a job that moves you from city to city"
+          ],
+          "answer": "full of emotional ups and downs",
+          "difficulty": "medium",
+          "reviewStatus": "unreviewed",
+          "explanation": "✓ full of emotional ups and downs: a rollercoaster is a situation with many happy and sad moments one after the other (تقلبات مستمرة) — like the sad and rewarding moments of Sarah's day.\n✗ dangerous because of fast machines: the word is used figuratively here, not about real machines.\n✗ a fun day out at a theme park: this is the literal meaning (the ride), not what the writer means.\n✗ a job that moves you from city to city: a rollercoaster has nothing to do with travelling for work."
+        },
+        {
+          "id": "vocab-u1-029",
+          "type": "mcq",
+          "prompt": "Which sentence uses \"rollercoaster\" in the same way as \"Nursing is a never-ending rollercoaster\"?",
+          "options": [
+            "The rollercoaster stopped, and the riders were stuck at the top.",
+            "This year has been a rollercoaster: I failed one exam, then came top in the next.",
+            "The children screamed on the rollercoaster at the theme park.",
+            "A new rollercoaster has opened near the beach."
+          ],
+          "answer": "This year has been a rollercoaster: I failed one exam, then came top in the next.",
+          "difficulty": "medium",
+          "reviewStatus": "unreviewed",
+          "explanation": "✓ \"This year has been a rollercoaster…\" — used figuratively: a time full of ups and downs (تقلبات), just as nursing has sad and rewarding moments.\n✗ \"The rollercoaster stopped… stuck at the top\": the real ride once more, not a situation with ups and downs.\n✗ \"screamed on the rollercoaster at the theme park\": the real ride — the literal meaning.\n✗ \"A new rollercoaster has opened\": again the real ride."
+        },
+        {
+          "id": "vocab-u1-030",
+          "type": "mcq",
+          "prompt": "\"Nursing is full of ups and downs: some moments make Sarah very sad, and others give her great satisfaction.\" Which words describe nursing and these two kinds of moments?",
+          "options": [
+            "a rollercoaster – joyful – tiring",
+            "a rollercoaster – heartbroken – rewarded",
+            "chaos – heartbreaking – rewarding",
+            "a rollercoaster – heartbreaking – rewarding"
+          ],
+          "answer": "a rollercoaster – heartbreaking – rewarding",
+          "difficulty": "hard",
+          "reviewStatus": "unreviewed",
+          "explanation": "✓ a rollercoaster – heartbreaking – rewarding: nursing has many ups and downs (a rollercoaster), the sad moments are heartbreaking (مُحزنة جدًا), and the satisfying ones are rewarding (مُجزية).\n✗ joyful – tiring: joyful is the opposite of very sad, and tiring is not the same as giving satisfaction.\n✗ heartbroken – rewarded: these describe a person (Sarah is heartbroken; she was rewarded), not the moments themselves.\n✗ chaos: complete disorder — it does not mean ups and downs of feeling."
+        },
+        {
+          "id": "vocab-u1-031",
+          "type": "mcq",
+          "prompt": "The hospital's health awareness week will ___ on Sunday with free blood-pressure checks for everyone.",
+          "options": [
+            "kick off",
+            "kick up",
+            "kick out",
+            "kick back"
+          ],
+          "answer": "kick off",
+          "difficulty": "medium",
+          "reviewStatus": "unreviewed",
+          "explanation": "✓ kick off = start or begin (يبدأ / ينطلق). Events, matches and meetings kick off.\n✗ kick up: as in \"kick up a fuss\" = complain loudly; it does not mean start.\n✗ kick out: force someone to leave a place (kick him out of the club).\n✗ kick back: relax."
+        },
+        {
+          "id": "vocab-u1-032",
+          "type": "mcq",
+          "prompt": "In which sentence does \"kick off\" have the same meaning as in \"Nurse Sarah kicks off her day with a cup of coffee\"?",
+          "options": [
+            "The final match kicks off at 9 p.m.",
+            "He kicked off his shoes and lay on the sofa.",
+            "The referee kicked the player off the pitch.",
+            "The painkiller will kick in after twenty minutes."
+          ],
+          "answer": "The final match kicks off at 9 p.m.",
+          "difficulty": "hard",
+          "reviewStatus": "unreviewed",
+          "explanation": "✓ \"The final match kicks off at 9 p.m.\" — kick off = start (يبدأ), the same meaning as starting her day.\n✗ \"kicked off his shoes\": took his shoes off quickly by shaking his feet — a literal meaning.\n✗ \"kicked the player off the pitch\": made him leave — a different meaning.\n✗ \"kick in\": a different phrasal verb; it means start to have an effect (for a medicine)."
+        },
+        {
+          "id": "vocab-u1-033",
+          "type": "mcq",
+          "prompt": "\"The meeting kicked off with a short talk about hospital safety.\" Which has the same meaning as \"kicked off\"?",
+          "options": [
+            "was put off",
+            "broke up",
+            "was called off",
+            "began"
+          ],
+          "answer": "began",
+          "difficulty": "medium",
+          "reviewStatus": "unreviewed",
+          "explanation": "✓ began: kick off = start (يبدأ / ينطلق).\n✗ was put off: was postponed to a later time.\n✗ broke up: ended, and the people left.\n✗ was called off: was cancelled."
+        },
+        {
+          "id": "vocab-u1-034",
+          "type": "mcq",
+          "prompt": "Patients must not stop taking their ___ without asking their doctor first.",
+          "options": [
+            "medication",
+            "dedication",
+            "mediation",
+            "meditation"
+          ],
+          "answer": "medication",
+          "difficulty": "medium",
+          "reviewStatus": "unreviewed",
+          "explanation": "✓ medication = medicine or drugs given to treat an illness (دواء / أدوية).\n✗ dedication: hard work and commitment to something.\n✗ mediation: helping two sides who disagree to reach an agreement.\n✗ meditation: sitting quietly and calming your mind — not something a doctor gives you to take."
+        },
+        {
+          "id": "vocab-u1-035",
+          "type": "mcq",
+          "prompt": "She has been taking a new ___ for her high blood pressure, and it has worked well.",
+          "options": [
+            "medication",
+            "medicinal",
+            "medic",
+            "medical"
+          ],
+          "answer": "medication",
+          "difficulty": "medium",
+          "reviewStatus": "unreviewed",
+          "explanation": "✓ medication (noun) = a medicine you take to treat an illness (دواء).\n✗ medicinal: an adjective (medicinal plants = plants used as medicine); it needs a noun after it.\n✗ medic: a person — a doctor or a paramedic.\n✗ medical: usually an adjective (medical care); as a noun, \"a medical\" is a health check — not something you take every day."
+        },
+        {
+          "id": "vocab-u1-036",
+          "type": "mcq",
+          "prompt": "Choose the pair that completes the sentence: \"Doctors usually ___ medicines, and nurses ___ them to the patients.\"",
+          "options": [
+            "prescribe – administer",
+            "administer – prescribe",
+            "prescribe – admit",
+            "prescribe – stitch"
+          ],
+          "answer": "prescribe – administer",
+          "difficulty": "hard",
+          "reviewStatus": "unreviewed",
+          "explanation": "✓ prescribe – administer: the doctor prescribes (decides which medicine the patient needs and writes it down — يصف), and the nurse administers it (gives it — يُعطي).\n✗ administer – prescribe: the jobs are the wrong way round; nurses usually do not decide which medicine a patient needs.\n✗ prescribe – admit: \"admit\" means accept someone into hospital or agree that something is true; you do not \"admit medicines to\" patients.\n✗ prescribe – stitch: you stitch a cut, not a medicine."
+        },
+        {
+          "id": "vocab-u1-037",
+          "type": "mcq",
+          "prompt": "\"When the injured driver was rushed in, the team sprang into action.\" This means the team ___.",
+          "options": [
+            "jumped up and down with joy",
+            "refused to help the driver",
+            "suddenly started working quickly",
+            "took a short break"
+          ],
+          "answer": "suddenly started working quickly",
+          "difficulty": "medium",
+          "reviewStatus": "unreviewed",
+          "explanation": "✓ spring into action = suddenly start working or responding quickly (بدأ العمل فورًا وبسرعة). It is an idiom, so \"sprang\" does not mean real jumping.\n✗ jumped up and down with joy: this takes \"spring\" literally, and nobody is happy about an accident.\n✗ refused to help the driver: the opposite of what the idiom means.\n✗ took a short break: the opposite — they started working at once."
+        },
+        {
+          "id": "vocab-u1-038",
+          "type": "mcq",
+          "prompt": "Which expression from Unit 1 has the SAME meaning as \"spring into action\"?",
+          "options": [
+            "jump into action",
+            "go the extra mile",
+            "Actions speak louder than words.",
+            "out of action"
+          ],
+          "answer": "jump into action",
+          "difficulty": "medium",
+          "reviewStatus": "unreviewed",
+          "explanation": "✓ jump into action = start doing something quickly and with energy (يبدأ العمل فورًا) — the same idea as spring into action.\n✗ go the extra mile: make more effort than is expected of you.\n✗ \"Actions speak louder than words.\": what you do matters more than what you say — it is not about starting quickly.\n✗ out of action: not working or not able to work, for example because of an injury — almost the opposite."
+        },
+        {
+          "id": "vocab-u1-039",
+          "type": "mcq",
+          "prompt": "The moment the alarm sounded, the firefighters ___. Within seconds, they were in the fire engine.",
+          "options": [
+            "went the extra mile",
+            "sprang into action",
+            "said \"no pain, no gain\"",
+            "were soaked to the skin"
+          ],
+          "answer": "sprang into action",
+          "difficulty": "hard",
+          "reviewStatus": "unreviewed",
+          "explanation": "✓ sprang into action = started working at once, quickly (بدأوا العمل فورًا). \"The moment\" and \"within seconds\" show speed.\n✗ went the extra mile: doing more than is expected — the sentence is about how fast they started, not about extra effort.\n✗ said \"no pain, no gain\": a saying about hard work and its results; it does not describe a fast reaction.\n✗ were soaked to the skin: completely wet — nothing in the sentence is about rain or water."
+        },
+        {
+          "id": "vocab-u1-040",
+          "type": "mcq",
+          "prompt": "\"Teamwork makes the dream work,\" Nurse Sarah often says. She means that ___.",
+          "options": [
+            "you must work hard, even when it is painful, to succeed",
+            "people can achieve great things when they work together",
+            "you should do more than you are asked to do",
+            "one strong leader should make every decision"
+          ],
+          "answer": "people can achieve great things when they work together",
+          "difficulty": "medium",
+          "reviewStatus": "unreviewed",
+          "explanation": "✓ people can achieve great things when they work together: the saying means that working as a team helps you reach your goals (بالعمل الجماعي تتحقق الأحلام). Sarah relies on her colleagues.\n✗ you must work hard, even when it is painful, to succeed: this is the meaning of \"No pain, no gain\" — it says nothing about working together.\n✗ you should do more than you are asked to do: this is \"go the extra mile\".\n✗ one strong leader should make every decision: the opposite idea — the saying is about the whole team working together."
+        },
+        {
+          "id": "vocab-u1-041",
+          "type": "mcq",
+          "prompt": "Which saying is the closest in meaning to \"Teamwork makes the dream work\"?",
+          "options": [
+            "Actions speak louder than words.",
+            "Many hands make light work.",
+            "Better late than never.",
+            "No pain, no gain."
+          ],
+          "answer": "Many hands make light work.",
+          "difficulty": "hard",
+          "reviewStatus": "unreviewed",
+          "explanation": "✓ \"Many hands make light work.\" — when many people help, a job becomes easy. Both sayings praise working together (العمل الجماعي).\n✗ \"Actions speak louder than words.\": what you do matters more than what you say.\n✗ \"Better late than never.\": it is better to do something late than not to do it at all.\n✗ \"No pain, no gain.\": about working hard, even when it is difficult, to succeed — it says nothing about working with others."
+        },
+        {
+          "id": "vocab-u1-042",
+          "type": "mcq",
+          "prompt": "\"Nurse Sarah always goes the extra mile for her patients.\" This means she ___.",
+          "options": [
+            "starts working quickly, without hesitation",
+            "only does what her job requires",
+            "does more than is expected of her",
+            "believes that hard work always brings success"
+          ],
+          "answer": "does more than is expected of her",
+          "difficulty": "medium",
+          "reviewStatus": "unreviewed",
+          "explanation": "✓ go the extra mile = make more effort than is expected of you (يبذل جهدًا أكبر من المطلوب).\n✗ starts working quickly, without hesitation: this is \"spring / jump into action\" — about speed, not extra effort.\n✗ only does what her job requires: the opposite — going the extra mile means doing more than that.\n✗ believes that hard work always brings success: this is closer to \"No pain, no gain\"."
+        },
+        {
+          "id": "vocab-u1-043",
+          "type": "mcq",
+          "prompt": "The paramedic didn't just take the old man to hospital; she ___ and stayed with him until his family arrived.",
+          "options": [
+            "jumped into action",
+            "was soaked to the skin",
+            "was pale as a ghost",
+            "went the extra mile"
+          ],
+          "answer": "went the extra mile",
+          "difficulty": "hard",
+          "reviewStatus": "unreviewed",
+          "explanation": "✓ went the extra mile = did more than her job required (بذلت جهدًا أكبر من المطلوب). Taking him to hospital was her job; staying with him was extra. \"didn't just …\" shows this.\n✗ jumped into action: starting to work quickly — the sentence is about doing more, not about speed.\n✗ was soaked to the skin: completely wet — it has no link with staying with the patient.\n✗ was pale as a ghost: very pale because of fear or illness — it does not explain why she stayed."
+        },
+        {
+          "id": "vocab-u1-044",
+          "type": "mcq",
+          "prompt": "Which situation is the best example of \"No pain, no gain\"?",
+          "options": [
+            "Omar hurt his knee, so he stopped training and felt better.",
+            "Omar took a painkiller before the match.",
+            "Omar trained hard every day for months and finally joined the national team.",
+            "Omar won the match easily without any training."
+          ],
+          "answer": "Omar trained hard every day for months and finally joined the national team.",
+          "difficulty": "hard",
+          "reviewStatus": "unreviewed",
+          "explanation": "✓ Omar trained hard for months and then succeeded: \"No pain, no gain\" means you must work hard, even when it is difficult or painful, to achieve something (لا نجاح بدون تعب).\n✗ He stopped training and felt better: there is no hard work and no achievement here.\n✗ He took a painkiller: this takes \"pain\" literally; the saying is about effort, not medicine.\n✗ He won without any training: this is gain without effort — the opposite of the saying."
+        },
+        {
+          "id": "vocab-u1-045",
+          "type": "mcq",
+          "prompt": "According to Unit 1, an idiom is ___.",
+          "options": [
+            "a short story that teaches a moral lesson",
+            "a word that has the same meaning as another word",
+            "a fixed group of words whose meaning can't be guessed from the meanings of the separate words",
+            "a word made from the first letters of other words, such as CPR"
+          ],
+          "answer": "a fixed group of words whose meaning can't be guessed from the meanings of the separate words",
+          "difficulty": "medium",
+          "reviewStatus": "unreviewed",
+          "explanation": "✓ An idiom (تعبير اصطلاحي) is a fixed expression whose meaning is different from the meanings of its single words — \"raining cats and dogs\" has nothing to do with animals.\n✗ a short story that teaches a lesson: this is a fable, a story with a moral.\n✗ a word with the same meaning as another word: this is a synonym.\n✗ a word made from first letters, such as CPR: this is an abbreviation (CPR = cardiopulmonary resuscitation)."
+        },
+        {
+          "id": "vocab-u1-046",
+          "type": "mcq",
+          "prompt": "Which of these would a nurse most likely describe as \"rewarding\"?",
+          "options": [
+            "seeing a patient she cared for leave the hospital healthy",
+            "arriving at work soaked to the skin",
+            "filling in the same form again and again",
+            "watching a family hear very bad news"
+          ],
+          "answer": "seeing a patient she cared for leave the hospital healthy",
+          "difficulty": "medium",
+          "reviewStatus": "unreviewed",
+          "explanation": "✓ seeing a patient she cared for leave healthy: this gives her satisfaction because she helped someone (مُجزٍ).\n✗ arriving at work soaked to the skin: being completely wet from the rain is unpleasant, not rewarding.\n✗ filling in the same form again and again: boring, repeated work — it does not give the feeling of having helped someone.\n✗ watching a family hear very bad news: this is heartbreaking, not rewarding."
+        },
+        {
+          "id": "vocab-u1-047",
+          "type": "mcq",
+          "prompt": "After running up ten flights of stairs, the old man felt dizzy and suddenly ___ on the floor.",
+          "options": [
+            "collapsed",
+            "elapsed",
+            "collected",
+            "collided"
+          ],
+          "answer": "collapsed",
+          "difficulty": "medium",
+          "reviewStatus": "unreviewed",
+          "explanation": "✓ collapsed = fell down suddenly, usually because of illness or weakness (انهار / سقط فجأة).\n✗ elapsed: (of time) passed — \"Two hours elapsed\".\n✗ collected: brought things together, or picked something up.\n✗ collided: crashed into something or someone (two cars collided)."
+        },
+        {
+          "id": "vocab-u1-048",
+          "type": "mcq",
+          "prompt": "The sudden ___ of the company left hundreds of workers without jobs.",
+          "options": [
+            "collection",
+            "collision",
+            "collapse",
+            "consciousness"
+          ],
+          "answer": "collapse",
+          "difficulty": "medium",
+          "reviewStatus": "unreviewed",
+          "explanation": "✓ collapse (noun) = a sudden failure (انهيار). People and buildings collapse (fall down), and companies and plans collapse too (fail suddenly) — exams use both meanings.\n✗ collection: a group of things gathered together (a stamp collection).\n✗ collision: a crash between two moving things, such as two cars.\n✗ consciousness: being awake and aware — a company cannot lose or have it."
+        },
+        {
+          "id": "vocab-u1-049",
+          "type": "mcq",
+          "prompt": "A building can collapse, a person can collapse, and a plan can collapse. In all three, \"collapse\" means ___.",
+          "options": [
+            "become weaker slowly over many years",
+            "stop for a short time and then start again",
+            "fall down or fail suddenly",
+            "be pushed over by someone else"
+          ],
+          "answer": "fall down or fail suddenly",
+          "difficulty": "medium",
+          "reviewStatus": "unreviewed",
+          "explanation": "✓ fall down or fail suddenly (ينهار / يسقط فجأة): a building falls down, a person falls because of weakness, and a plan fails.\n✗ become weaker slowly over many years: collapse is sudden, not slow.\n✗ stop for a short time and then start again: that is a pause; something that collapses does not just carry on.\n✗ be pushed over by someone else: collapse happens because of weakness or failure, not because someone pushes."
+        },
+        {
+          "id": "vocab-u1-050",
+          "type": "mcq",
+          "prompt": "When the old man started to fall, his grandson quickly ___ his arm and held him up.",
+          "options": [
+            "grieved",
+            "grabbed",
+            "grazed",
+            "graded"
+          ],
+          "answer": "grabbed",
+          "difficulty": "medium",
+          "reviewStatus": "unreviewed",
+          "explanation": "✓ grabbed = took hold of something quickly and strongly (أمسك بسرعة وبقوة) — that is how you stop someone from falling.\n✗ grieved: felt very sad because someone died.\n✗ grazed: scraped the skin lightly (grazed his knee) — it cannot hold anyone up.\n✗ graded: gave a mark or level, as a teacher grades exams."
+        },
+        {
+          "id": "vocab-u1-051",
+          "type": "mcq",
+          "prompt": "\"The lifeguard managed to grab the swimmer's hand just before the big wave hit.\" Which verb is the closest in meaning to \"grab\"?",
+          "options": [
+            "release",
+            "shake",
+            "stroke",
+            "seize"
+          ],
+          "answer": "seize",
+          "difficulty": "hard",
+          "reviewStatus": "unreviewed",
+          "explanation": "✓ seize = take hold of something suddenly and firmly (يمسك بقوة) — very close to grab.\n✗ release: let go of something — the opposite.\n✗ shake: move something up and down; \"shake someone's hand\" is a greeting, not catching them quickly.\n✗ stroke: move your hand gently over something, for example a cat."
+        },
+        {
+          "id": "vocab-u1-052",
+          "type": "mcq",
+          "prompt": "\"The sudden beep grabbed the nurse's attention.\" This means the beep ___.",
+          "options": [
+            "made her feel pain",
+            "was ignored by her",
+            "took her phone away from her",
+            "quickly made her notice it"
+          ],
+          "answer": "quickly made her notice it",
+          "difficulty": "hard",
+          "reviewStatus": "unreviewed",
+          "explanation": "✓ quickly made her notice it: \"grab someone's attention\" = make them notice something quickly (لفت انتباهها فورًا). Here \"grab\" is not about hands.\n✗ made her feel pain: a beep is a sound; it does not cause pain.\n✗ was ignored by her: the opposite — she noticed it at once.\n✗ took her phone away from her: this takes \"grab\" literally (take something quickly with the hand)."
+        },
+        {
+          "id": "vocab-u1-053",
+          "type": "mcq",
+          "prompt": "After a moment's ___, the young doctor agreed to stitch the wound herself.",
+          "options": [
+            "hesitant",
+            "hesitantly",
+            "hesitation",
+            "hesitate"
+          ],
+          "answer": "hesitation",
+          "difficulty": "medium",
+          "reviewStatus": "unreviewed",
+          "explanation": "✓ hesitation (noun) = a short pause because you are not sure (تردد). After \"a moment's\" we need a noun.\n✗ hesitant: an adjective (She was hesitant) — it needs a noun after it.\n✗ hesitantly: an adverb (She answered hesitantly) — it describes a verb, not \"a moment's\".\n✗ hesitate: the verb (Don't hesitate to ask) — a verb cannot follow \"a moment's\"."
+        },
+        {
+          "id": "vocab-u1-054",
+          "type": "mcq",
+          "prompt": "CPR helps someone whose heart has stopped. It is done by pressing hard and fast on the centre of the person's ___.",
+          "options": [
+            "forehead",
+            "wrist",
+            "back",
+            "chest"
+          ],
+          "answer": "chest",
+          "difficulty": "medium",
+          "reviewStatus": "unreviewed",
+          "explanation": "✓ chest: CPR (الإنعاش القلبي الرئوي) uses chest compressions — pushing down on the centre of the chest again and again — to keep the blood moving.\n✗ forehead: part of the face; pressing it does not help the heart.\n✗ wrist: where you can feel the pulse, but you do not press on it during CPR.\n✗ back: the person lies on their back during CPR; you press on the front of the body, not the back."
+        },
+        {
+          "id": "vocab-u1-055",
+          "type": "mcq",
+          "prompt": "The nurse placed two fingers on the patient's wrist to feel his ___.",
+          "options": [
+            "pupil",
+            "purse",
+            "pulse",
+            "pause"
+          ],
+          "answer": "pulse",
+          "difficulty": "medium",
+          "reviewStatus": "unreviewed",
+          "explanation": "✓ pulse = the regular beating of the heart that you can feel on your wrist or neck (النبض).\n✗ pupil: the black circle in the middle of the eye, or a school student.\n✗ purse: a small bag for money.\n✗ pause: a short stop in speaking or doing something."
+        },
+        {
+          "id": "vocab-u1-056",
+          "type": "mcq",
+          "prompt": "The doctor ___ the boy's pulse and found that his heart was beating very fast.",
+          "options": [
+            "made",
+            "did",
+            "gave",
+            "took"
+          ],
+          "answer": "took",
+          "difficulty": "hard",
+          "reviewStatus": "unreviewed",
+          "explanation": "✓ take someone's pulse = measure how fast their heart is beating (يقيس النبض). You can also say \"check someone's pulse\".\n✗ made: we do not say \"make someone's pulse\".\n✗ did: we do not say \"do someone's pulse\".\n✗ gave: we do not say \"give someone's pulse\"."
+        },
+        {
+          "id": "vocab-u1-057",
+          "type": "mcq",
+          "prompt": "Which is the correct meaning of \"pulse\"?",
+          "options": [
+            "the force of the blood pushing against the walls of the blood vessels",
+            "the regular beating of the heart that you can feel on your wrist or neck",
+            "the sound of hospital machines working",
+            "the amount of air that your lungs can hold"
+          ],
+          "answer": "the regular beating of the heart that you can feel on your wrist or neck",
+          "difficulty": "medium",
+          "reviewStatus": "unreviewed",
+          "explanation": "✓ the regular beating of the heart that you can feel on your wrist or neck = pulse (النبض).\n✗ the force of the blood pushing against the blood vessels: this is blood pressure (ضغط الدم), a different measurement.\n✗ the sound of hospital machines working: this is a buzz (or beeping), not a pulse.\n✗ the amount of air your lungs can hold: this is lung capacity."
+        },
+        {
+          "id": "vocab-u1-058",
+          "type": "mcq",
+          "prompt": "You should start CPR immediately if a person ___.",
+          "options": [
+            "has a very fast pulse after running",
+            "is not breathing and has no pulse",
+            "has fainted but is breathing normally",
+            "is clutching his chest but can still talk"
+          ],
+          "answer": "is not breathing and has no pulse",
+          "difficulty": "hard",
+          "reviewStatus": "unreviewed",
+          "explanation": "✓ is not breathing and has no pulse: CPR (الإنعاش القلبي الرئوي) is for someone whose heart has stopped.\n✗ has a very fast pulse after running: a fast pulse after exercise is normal — the heart is working.\n✗ has fainted but is breathing normally: the heart is still working; lay the person on their side and call for help — CPR is not needed.\n✗ is clutching his chest but can still talk: he needs an ambulance at once, but his heart is still beating, so CPR is not started."
+        },
+        {
+          "id": "vocab-u1-059",
+          "type": "mcq",
+          "prompt": "The injured man lost ___ and didn't wake up for two hours.",
+          "options": [
+            "conscience",
+            "consciousness",
+            "consequence",
+            "confidence"
+          ],
+          "answer": "consciousness",
+          "difficulty": "medium",
+          "reviewStatus": "unreviewed",
+          "explanation": "✓ consciousness = the state of being awake and aware of what is happening around you (الوعي). \"Lose consciousness\" = faint, become unconscious.\n✗ conscience: the feeling inside you that tells you what is right and wrong (الضمير).\n✗ consequence: a result of something.\n✗ confidence: belief in yourself (الثقة) — \"lost confidence\" is correct English, but it does not explain why he didn't wake up."
+        },
+        {
+          "id": "vocab-u1-060",
+          "type": "mcq",
+          "prompt": "The patient was ___ when the paramedics arrived, so they couldn't ask him any questions.",
+          "options": [
+            "unconscious",
+            "conscientious",
+            "conscious",
+            "self-conscious"
+          ],
+          "answer": "unconscious",
+          "difficulty": "hard",
+          "reviewStatus": "unreviewed",
+          "explanation": "✓ unconscious = not awake and not aware of what is happening (فاقد الوعي). That is why he couldn't answer questions.\n✗ conscientious: careful to do your work well and correctly.\n✗ conscious: awake and aware — then they could ask him questions.\n✗ self-conscious: worried about what other people think of you."
+        },
+        {
+          "id": "vocab-u1-061",
+          "type": "mcq",
+          "prompt": "After ten minutes of CPR, the woman finally ___ consciousness.",
+          "options": [
+            "returned",
+            "repaired",
+            "remained",
+            "regained"
+          ],
+          "answer": "regained",
+          "difficulty": "hard",
+          "reviewStatus": "unreviewed",
+          "explanation": "✓ regain consciousness = become awake and aware again (استعاد الوعي) — the opposite of \"lose consciousness\".\n✗ returned: we can say \"her consciousness returned\", but not \"she returned consciousness\".\n✗ repaired: fixed something that was broken, such as a machine.\n✗ remained: stayed in the same state; \"remained consciousness\" is wrong (we say \"remained conscious\")."
+        },
+        {
+          "id": "vocab-u1-062",
+          "type": "mcq",
+          "prompt": "My legs ached after every training session, but I kept going — \"___\", as my coach says — and in the end I won the race.",
+          "options": [
+            "Pale as a ghost",
+            "No pain, no gain",
+            "It's raining cats and dogs",
+            "Teamwork makes the dream work"
+          ],
+          "answer": "No pain, no gain",
+          "difficulty": "medium",
+          "reviewStatus": "unreviewed",
+          "explanation": "✓ No pain, no gain: you must work hard and accept difficulty to succeed (لا نجاح بدون تعب) — the aching legs led to winning the race.\n✗ Pale as a ghost: describes a very pale face from fear or illness, not hard work.\n✗ It's raining cats and dogs: about very heavy rain — nothing to do with training.\n✗ Teamwork makes the dream work: about working together; a race won by one runner after training alone is not teamwork."
+        },
+        {
+          "id": "vocab-u1-063",
+          "type": "mcq",
+          "prompt": "Within minutes of the call, the ___ arrived in an ambulance and gave the injured cyclist emergency care.",
+          "options": [
+            "surgeons",
+            "receptionists",
+            "paramedics",
+            "pharmacists"
+          ],
+          "answer": "paramedics",
+          "difficulty": "medium",
+          "reviewStatus": "unreviewed",
+          "explanation": "✓ paramedics = medical workers who give emergency care and take people to hospital by ambulance (المسعفون).\n✗ surgeons: doctors who do operations in a hospital; they do not usually come in ambulances.\n✗ receptionists: people who welcome visitors and answer the phone.\n✗ pharmacists: people who prepare and sell medicines in a pharmacy."
+        },
+        {
+          "id": "vocab-u1-064",
+          "type": "mcq",
+          "prompt": "Which of these is NOT usually part of a paramedic's job?",
+          "options": [
+            "doing CPR on someone who has collapsed",
+            "taking patients to hospital by ambulance",
+            "doing major operations in a hospital operating theatre",
+            "giving emergency care at the scene of an accident"
+          ],
+          "answer": "doing major operations in a hospital operating theatre",
+          "difficulty": "medium",
+          "reviewStatus": "unreviewed",
+          "explanation": "✓ doing major operations in an operating theatre: this is the work of surgeons in hospital, not of paramedics (المسعفون).\n✗ doing CPR on someone who has collapsed: paramedics are trained to do this.\n✗ taking patients to hospital by ambulance: also part of a paramedic's job.\n✗ giving emergency care at the scene: this is a paramedic's main job."
+        },
+        {
+          "id": "vocab-u1-065",
+          "type": "mcq",
+          "prompt": "In Egypt, call 123 for an ambulance only in an ___ — for example, when someone has collapsed or is not breathing.",
+          "options": [
+            "urgent",
+            "urgency",
+            "agency",
+            "emergency"
+          ],
+          "answer": "emergency",
+          "difficulty": "hard",
+          "reviewStatus": "unreviewed",
+          "explanation": "✓ emergency (noun) = a sudden, dangerous situation that needs action at once (حالة طوارئ). We say \"in an emergency\" — the lesson is called \"Emergency Call\".\n✗ urgent: an adjective; it cannot follow \"an\" without a noun.\n✗ urgency: the need to act quickly — a quality or feeling, not a situation, so \"in an urgency\" is wrong.\n✗ agency: a business that provides a service (a travel agency)."
+        },
+        {
+          "id": "vocab-u1-066",
+          "type": "mcq",
+          "prompt": "Choose the pair that completes the sentence: \"When a visitor ___ in the waiting room, a nurse checked his ___ and started CPR.\"",
+          "options": [
+            "collapsed – scope",
+            "swallowed – shift",
+            "collapsed – pulse",
+            "clutched – pulse"
+          ],
+          "answer": "collapsed – pulse",
+          "difficulty": "hard",
+          "reviewStatus": "unreviewed",
+          "explanation": "✓ collapsed – pulse: he fell down suddenly (انهار), so the nurse checked his heartbeat (النبض) before starting CPR.\n✗ collapsed – scope: a scope is an instrument for looking inside the body; you do not \"check someone's scope\" before CPR.\n✗ swallowed – shift: swallowing is not a reason for CPR, and \"checked his shift\" (his working period) makes no sense here.\n✗ clutched – pulse: \"clutch\" needs an object (clutched his chest); \"a visitor clutched in the waiting room\" is incomplete."
+        },
+        {
+          "id": "vocab-u1-067",
+          "type": "mcq",
+          "prompt": "Choose the pair that completes the sentence: \"By the time the ___ arrived, the man had already lost ___.\"",
+          "options": [
+            "paramedics – conscious",
+            "paramedics – consciousness",
+            "pulses – consciousness",
+            "paramedics – conscience"
+          ],
+          "answer": "paramedics – consciousness",
+          "difficulty": "hard",
+          "reviewStatus": "unreviewed",
+          "explanation": "✓ paramedics – consciousness: the emergency workers (المسعفون) arrived after he had become unconscious (فقد الوعي).\n✗ paramedics – conscious: \"conscious\" is an adjective; after \"lost\" we need the noun \"consciousness\".\n✗ pulses – consciousness: pulses are heartbeats; they do not \"arrive\".\n✗ paramedics – conscience: conscience is your sense of right and wrong; \"lose consciousness\" is the phrase for fainting."
+        },
+        {
+          "id": "vocab-u1-068",
+          "type": "mcq",
+          "prompt": "The cut on the patient's forehead was deep, so Dr. Maha had to ___ it.",
+          "options": [
+            "snatch",
+            "stretch",
+            "stitch",
+            "switch"
+          ],
+          "answer": "stitch",
+          "difficulty": "medium",
+          "reviewStatus": "unreviewed",
+          "explanation": "✓ stitch = sew the edges of a wound together with a special needle and thread (يخيط الجرح).\n✗ snatch: take something quickly and rudely from someone.\n✗ stretch: pull something to make it longer or wider — this would make a cut worse.\n✗ switch: turn a machine on or off, or change from one thing to another."
+        },
+        {
+          "id": "vocab-u1-069",
+          "type": "mcq",
+          "prompt": "\"Dr. Maha prepared to stitch a deep cut.\" Here, \"stitch\" means ___.",
+          "options": [
+            "clean the cut with water",
+            "close the cut by sewing its edges together",
+            "give an injection to stop the pain",
+            "cover the cut with a bandage"
+          ],
+          "answer": "close the cut by sewing its edges together",
+          "difficulty": "medium",
+          "reviewStatus": "unreviewed",
+          "explanation": "✓ close the cut by sewing its edges together: stitching uses a needle and thread to close a deep wound (يخيط).\n✗ clean the cut with water: doctors clean a wound before stitching it, but that is not what \"stitch\" means.\n✗ give an injection to stop the pain: this is giving an anaesthetic, not stitching.\n✗ cover the cut with a bandage: this is bandaging; it covers a wound but does not close it."
+        },
+        {
+          "id": "vocab-u1-070",
+          "type": "mcq",
+          "prompt": "The cut was so deep that he needed six ___.",
+          "options": [
+            "stitches",
+            "scopes",
+            "switches",
+            "pulses"
+          ],
+          "answer": "stitches",
+          "difficulty": "medium",
+          "reviewStatus": "unreviewed",
+          "explanation": "✓ stitches (noun) = the small pieces of thread that close a wound (غُرز): \"He needed six stitches.\"\n✗ scopes: medical instruments for looking inside the body — they do not close cuts.\n✗ switches: buttons for turning machines on and off.\n✗ pulses: heartbeats."
+        },
+        {
+          "id": "vocab-u1-071",
+          "type": "mcq",
+          "prompt": "The flat part of the face between the eyebrows and the hair is the ___.",
+          "options": [
+            "chin",
+            "neck",
+            "cheek",
+            "forehead"
+          ],
+          "answer": "forehead",
+          "difficulty": "medium",
+          "reviewStatus": "unreviewed",
+          "explanation": "✓ forehead = the part of the face above the eyes (الجبهة).\n✗ chin: the part of the face below the mouth (الذقن).\n✗ neck: the part of the body between the head and the shoulders (الرقبة).\n✗ cheek: the soft part of the face below each eye (الخد)."
+        },
+        {
+          "id": "vocab-u1-072",
+          "type": "mcq",
+          "prompt": "Which is the best description of CPR?",
+          "options": [
+            "a medicine given to someone who has lost consciousness",
+            "a test that measures how fast your pulse is",
+            "an emergency procedure that uses chest compressions to help someone whose heart has stopped",
+            "a machine that beeps when a patient's heart stops"
+          ],
+          "answer": "an emergency procedure that uses chest compressions to help someone whose heart has stopped",
+          "difficulty": "medium",
+          "reviewStatus": "unreviewed",
+          "explanation": "✓ CPR (الإنعاش القلبي الرئوي) is an emergency procedure: you press hard and fast on the chest (chest compressions) to help someone whose heart has stopped.\n✗ a medicine: CPR is not medication — nothing is swallowed or injected.\n✗ a test that measures your pulse: that is taking someone's pulse.\n✗ a machine that beeps: that is a heart monitor; CPR is something people do with their hands, not a machine."
+        },
+        {
+          "id": "vocab-u1-073",
+          "type": "mcq",
+          "prompt": "The football player lay on the grass, ___ with pain and holding his knee.",
+          "options": [
+            "glowing",
+            "growing",
+            "groaning",
+            "grinning"
+          ],
+          "answer": "groaning",
+          "difficulty": "medium",
+          "reviewStatus": "unreviewed",
+          "explanation": "✓ groaning = making a long, deep sound because of pain (يئن).\n✗ glowing: shining with a soft light, or looking happy and healthy.\n✗ growing: becoming bigger.\n✗ grinning: smiling widely — not what you do when you are in pain."
+        },
+        {
+          "id": "vocab-u1-074",
+          "type": "mcq",
+          "prompt": "\"A teenager with a broken arm moaned quietly.\" \"Moaned\" means he ___.",
+          "options": [
+            "shouted angrily at the nurse",
+            "held his arm very tightly",
+            "smiled because he felt better",
+            "made a long, low sound because he was in pain"
+          ],
+          "answer": "made a long, low sound because he was in pain",
+          "difficulty": "medium",
+          "reviewStatus": "unreviewed",
+          "explanation": "✓ made a long, low sound because he was in pain: to moan (يتأوه / يئن) is to make this sound of pain or unhappiness.\n✗ shouted angrily at the nurse: moaning is quiet and low, not loud and angry.\n✗ held his arm very tightly: that is \"clutch\", not \"moan\".\n✗ smiled because he felt better: a teenager with a broken arm who is moaning is not smiling."
+        },
+        {
+          "id": "vocab-u1-075",
+          "type": "mcq",
+          "prompt": "In which sentence does \"moan\" have the same meaning as in \"A teenager with a broken arm moaned quietly\"?",
+          "options": [
+            "He's always moaning about the hospital food.",
+            "She moaned that the bus was late again.",
+            "The injured man moaned as they lifted him onto the bed.",
+            "Stop moaning and do your homework!"
+          ],
+          "answer": "The injured man moaned as they lifted him onto the bed.",
+          "difficulty": "hard",
+          "reviewStatus": "unreviewed",
+          "explanation": "✓ \"The injured man moaned as they lifted him onto the bed.\" — a long, low sound of pain (يتأوه), as in the story.\n✗ \"always moaning about the hospital food\": here moan = complain again and again (يتذمر) — a different meaning.\n✗ \"She moaned that the bus was late again\": moan that… = complain that… — not a sound of pain.\n✗ \"Stop moaning and do your homework!\": stop complaining — again the meaning \"complain\"."
+        },
+        {
+          "id": "vocab-u1-076",
+          "type": "mcq",
+          "prompt": "The moment the heart monitor beeped, the nurses ___ and started CPR.",
+          "options": [
+            "were soaked to the skin",
+            "kicked back",
+            "jumped into action",
+            "went the extra mile"
+          ],
+          "answer": "jumped into action",
+          "difficulty": "medium",
+          "reviewStatus": "unreviewed",
+          "explanation": "✓ jumped into action = started doing something at once, quickly and with energy (بدأوا العمل فورًا) — \"The moment … beeped\" shows how fast they reacted.\n✗ were soaked to the skin: completely wet from the rain — nothing to do with the monitor.\n✗ kicked back: relaxed — the opposite of starting CPR.\n✗ went the extra mile: did more than expected — the sentence is about a fast reaction, not extra effort."
+        },
+        {
+          "id": "vocab-u1-077",
+          "type": "mcq",
+          "prompt": "Pale and frightened, the injured worker ___ his bleeding hand, trying not to cry out.",
+          "options": [
+            "clicked",
+            "clutched",
+            "clattered",
+            "clapped"
+          ],
+          "answer": "clutched",
+          "difficulty": "medium",
+          "reviewStatus": "unreviewed",
+          "explanation": "✓ clutched = held tightly, usually because of fear or pain (قبض على / أمسك بإحكام).\n✗ clicked: made a short, sharp sound, or pressed a computer mouse.\n✗ clattered: made a loud noise of hard things hitting each other.\n✗ clapped: hit his hands together, for example to show he liked a performance."
+        },
+        {
+          "id": "vocab-u1-078",
+          "type": "mcq",
+          "prompt": "\"The old man clutched his chest and sat down.\" \"Clutched\" means he ___.",
+          "options": [
+            "washed it carefully",
+            "hit it hard",
+            "held it tightly",
+            "hid it under his coat"
+          ],
+          "answer": "held it tightly",
+          "difficulty": "medium",
+          "reviewStatus": "unreviewed",
+          "explanation": "✓ held it tightly (قبض عليه بإحكام): people often clutch a part of the body that hurts.\n✗ washed it carefully: nothing to do with clutch.\n✗ hit it hard: clutch means holding, not hitting.\n✗ hid it under his coat: clutch is about holding tightly, not hiding."
+        },
+        {
+          "id": "vocab-u1-079",
+          "type": "mcq",
+          "prompt": "In which sentence does \"clutch\" have the same meaning as in \"He clutched his bleeding hand\"?",
+          "options": [
+            "Press the clutch before you change gear.",
+            "She carried a small silver clutch to the party.",
+            "The bird sat on a clutch of five eggs.",
+            "The scared boy clutched the rope as the boat rocked."
+          ],
+          "answer": "The scared boy clutched the rope as the boat rocked.",
+          "difficulty": "hard",
+          "reviewStatus": "unreviewed",
+          "explanation": "✓ \"clutched the rope\" = held it tightly because he was afraid (قبض على) — the same meaning as in the story.\n✗ \"Press the clutch\": a pedal in a car.\n✗ \"a small silver clutch\": a small handbag with no strap.\n✗ \"a clutch of five eggs\": a group of eggs laid at the same time."
+        },
+        {
+          "id": "vocab-u1-080",
+          "type": "mcq",
+          "prompt": "The toddler had ___ a coin, so the doctors used a flexible scope to take it out.",
+          "options": [
+            "swallowed",
+            "swollen",
+            "followed",
+            "hollowed"
+          ],
+          "answer": "swallowed",
+          "difficulty": "medium",
+          "reviewStatus": "unreviewed",
+          "explanation": "✓ swallowed = made something go down the throat (بلع).\n✗ swollen: the past participle of \"swell\" (become bigger) — \"had swollen a coin\" is not possible.\n✗ followed: went after someone or something.\n✗ hollowed: made empty inside."
+        },
+        {
+          "id": "vocab-u1-081",
+          "type": "mcq",
+          "prompt": "In which sentence is \"swallow\" a verb meaning \"make food or drink go down your throat\"?",
+          "options": [
+            "One swallow does not make a summer.",
+            "A swallow has built a nest under our roof.",
+            "We watched the swallows fly south for the winter.",
+            "My throat hurts every time I swallow."
+          ],
+          "answer": "My throat hurts every time I swallow.",
+          "difficulty": "medium",
+          "reviewStatus": "unreviewed",
+          "explanation": "✓ \"My throat hurts every time I swallow.\" — a verb: making food or drink go down the throat (يبلع).\n✗ \"One swallow does not make a summer\": a saying; here \"swallow\" is a noun — the bird.\n✗ \"A swallow has built a nest\": a noun — a small bird (طائر السنونو).\n✗ \"the swallows fly south\": the bird again, in the plural."
+        },
+        {
+          "id": "vocab-u1-082",
+          "type": "mcq",
+          "prompt": "The child couldn't ___ the big pill, so the nurse crushed it and mixed it with juice.",
+          "options": [
+            "sway",
+            "sweep",
+            "swell",
+            "swallow"
+          ],
+          "answer": "swallow",
+          "difficulty": "medium",
+          "reviewStatus": "unreviewed",
+          "explanation": "✓ swallow = make something go down the throat (يبلع). A big pill can be hard to swallow.\n✗ sway: move slowly from side to side.\n✗ sweep: clean a floor with a brush.\n✗ swell: become bigger, like a swollen ankle."
+        },
+        {
+          "id": "vocab-u1-083",
+          "type": "mcq",
+          "prompt": "Using a long, flexible ___ with a tiny camera, the doctor looked inside the patient's stomach.",
+          "options": [
+            "scoop",
+            "scope",
+            "scale",
+            "slope"
+          ],
+          "answer": "scope",
+          "difficulty": "medium",
+          "reviewStatus": "unreviewed",
+          "explanation": "✓ scope = a medical instrument with a long, thin tube (often with a camera) used to look inside the body (منظار طبي).\n✗ scoop: a deep spoon for ice cream or flour — it cannot go inside the body.\n✗ scale: a machine for weighing things.\n✗ slope: a surface that goes up or down, like the side of a hill."
+        },
+        {
+          "id": "vocab-u1-084",
+          "type": "mcq",
+          "prompt": "\"Using a flexible scope, the doctors carefully removed the coin.\" Here, \"scope\" means ___.",
+          "options": [
+            "a strong medicine that stops pain",
+            "a small, sharp knife used in operations",
+            "a medical instrument used to see inside the body",
+            "the range of things that a subject deals with"
+          ],
+          "answer": "a medical instrument used to see inside the body",
+          "difficulty": "hard",
+          "reviewStatus": "unreviewed",
+          "explanation": "✓ a medical instrument used to see inside the body (منظار): with it, the doctors could see the coin and remove it.\n✗ a strong medicine that stops pain: this is a painkiller.\n✗ a small, sharp knife used in operations: this is a scalpel.\n✗ the range of things that a subject deals with: \"scope\" has this meaning too (the scope of a project), but not in this sentence — you cannot remove a coin \"using a range\"."
+        },
+        {
+          "id": "vocab-u1-085",
+          "type": "mcq",
+          "prompt": "The patient needs ___ treatment; he could die if we wait any longer.",
+          "options": [
+            "urgent",
+            "urge",
+            "urgency",
+            "urgently"
+          ],
+          "answer": "urgent",
+          "difficulty": "medium",
+          "reviewStatus": "unreviewed",
+          "explanation": "✓ urgent (adjective) = needing to be dealt with immediately (عاجل). An adjective is needed before the noun \"treatment\".\n✗ urge: a verb (urge someone to do something) or a noun (a strong wish) — \"urge treatment\" is wrong here.\n✗ urgency: a noun (the need to act quickly) — \"urgency treatment\" is wrong.\n✗ urgently: an adverb (He needs treatment urgently) — it cannot come before a noun."
+        },
+        {
+          "id": "vocab-u1-086",
+          "type": "mcq",
+          "prompt": "There is always a real sense of ___ in the emergency room at night.",
+          "options": [
+            "urgently",
+            "chaotic",
+            "urgent",
+            "urgency"
+          ],
+          "answer": "urgency",
+          "difficulty": "medium",
+          "reviewStatus": "unreviewed",
+          "explanation": "✓ a sense of urgency = the feeling that things must be done quickly (إحساس بضرورة الإسراع). After \"a sense of\" we need a noun.\n✗ urgently: an adverb — it cannot follow \"a sense of\".\n✗ chaotic: an adjective (we would need the noun \"chaos\").\n✗ urgent: an adjective — \"a sense of urgent\" is wrong."
+        },
+        {
+          "id": "vocab-u1-087",
+          "type": "mcq",
+          "prompt": "\"The night in the emergency room was full of fear and urgency.\" Here, \"urgency\" means ___.",
+          "options": [
+            "a lack of interest",
+            "a long period of waiting",
+            "a feeling of calm and peace",
+            "the need to deal with something quickly"
+          ],
+          "answer": "the need to deal with something quickly",
+          "difficulty": "medium",
+          "reviewStatus": "unreviewed",
+          "explanation": "✓ the need to deal with something quickly (ضرورة الإسراع / الإلحاح): in an emergency room, lives depend on fast action.\n✗ a lack of interest: this is indifference.\n✗ a long period of waiting: urgency is about acting fast, not waiting.\n✗ a feeling of calm and peace: the opposite of a night full of fear and urgency."
+        },
+        {
+          "id": "vocab-u1-088",
+          "type": "mcq",
+          "prompt": "Choose the pair that completes the sentence: \"There was ___ all around the crash site, but the young paramedic worked calmly with a sense of ___.\"",
+          "options": [
+            "order – urgency",
+            "chaos – urgency",
+            "chaos – pulse",
+            "chaotic – urgent"
+          ],
+          "answer": "chaos – urgency",
+          "difficulty": "hard",
+          "reviewStatus": "unreviewed",
+          "explanation": "✓ chaos – urgency: \"but\" contrasts the disorder at the crash site (فوضى) with the paramedic's calm, fast work (إحساس بضرورة الإسراع).\n✗ order – urgency: if everything was in order, \"but … calmly\" would not be a contrast.\n✗ chaos – pulse: a pulse is a heartbeat; \"a sense of pulse\" makes no sense.\n✗ chaotic – urgent: both are adjectives; we need nouns after \"There was\" and \"a sense of\"."
+        },
+        {
+          "id": "vocab-u1-089",
+          "type": "mcq",
+          "prompt": "He bit his lip, trying not to ___ in pain as the nurse cleaned the wound.",
+          "options": [
+            "cry out",
+            "cry off",
+            "call off",
+            "carry out"
+          ],
+          "answer": "cry out",
+          "difficulty": "hard",
+          "reviewStatus": "unreviewed",
+          "explanation": "✓ cry out = shout or make a loud sound suddenly because of pain or fear (يصرخ).\n✗ cry off: (informal) decide not to do something you agreed to do.\n✗ call off: cancel an event (call off the match).\n✗ carry out: do a task (carry out an operation)."
+        },
+        {
+          "id": "vocab-u1-090",
+          "type": "mcq",
+          "prompt": "\"The worker clutched his bleeding hand, trying not to cry out.\" \"Cry out\" means ___.",
+          "options": [
+            "weep quietly with tears",
+            "complain about something again and again",
+            "phone someone for help",
+            "shout suddenly because of pain or fear"
+          ],
+          "answer": "shout suddenly because of pain or fear",
+          "difficulty": "hard",
+          "reviewStatus": "unreviewed",
+          "explanation": "✓ shout suddenly because of pain or fear (يصرخ): cry out = make a sudden loud sound.\n✗ weep quietly with tears: this is a meaning of \"cry\" on its own; \"cry out\" is about a loud sound, not tears.\n✗ complain about something again and again: this is \"moan about\".\n✗ phone someone for help: that is \"call for help\"."
+        },
+        {
+          "id": "vocab-u1-091",
+          "type": "mcq",
+          "prompt": "\"Outside, it was raining cats and dogs.\" This means ___.",
+          "options": [
+            "the weather was cold but dry",
+            "it was raining a little",
+            "animals were running in the rain",
+            "it was raining very heavily"
+          ],
+          "answer": "it was raining very heavily",
+          "difficulty": "medium",
+          "reviewStatus": "unreviewed",
+          "explanation": "✓ it was raining very heavily (تمطر بغزارة): \"rain cats and dogs\" is an idiom; it has nothing to do with animals.\n✗ the weather was cold but dry: it was raining, so it was not dry.\n✗ it was raining a little: that is drizzle — the opposite of heavy rain.\n✗ animals were running in the rain: this takes the idiom literally."
+        },
+        {
+          "id": "vocab-u1-092",
+          "type": "mcq",
+          "prompt": "Which sentence uses the idiom correctly?",
+          "options": [
+            "There's only a light drizzle; it's raining cats and dogs.",
+            "After the operation, the patient was raining cats and dogs.",
+            "It's raining cats and dogs, so let's sit in the garden and enjoy the sun.",
+            "Take an umbrella — it's raining cats and dogs out there."
+          ],
+          "answer": "Take an umbrella — it's raining cats and dogs out there.",
+          "difficulty": "hard",
+          "reviewStatus": "unreviewed",
+          "explanation": "✓ \"Take an umbrella — it's raining cats and dogs out there.\" — the idiom means raining very heavily (تمطر بغزارة), so an umbrella makes sense.\n✗ \"There's only a light drizzle; it's raining cats and dogs\": a light drizzle is very light rain — the opposite of the idiom.\n✗ \"the patient was raining cats and dogs\": the idiom describes the weather, not a person.\n✗ \"…so let's sit in the garden and enjoy the sun\": heavy rain and sitting in the sun do not go together."
+        },
+        {
+          "id": "vocab-u1-093",
+          "type": "mcq",
+          "prompt": "Dr. Basem had left his umbrella at home, so in the heavy rain he arrived at the hospital ___.",
+          "options": [
+            "as pale as a ghost",
+            "soaked to the skin",
+            "as dry as a bone",
+            "on a rollercoaster"
+          ],
+          "answer": "soaked to the skin",
+          "difficulty": "medium",
+          "reviewStatus": "unreviewed",
+          "explanation": "✓ soaked to the skin = completely wet, from head to toe (مبلل تمامًا) — what happens in heavy rain without an umbrella.\n✗ as pale as a ghost: very pale because of fear, shock or illness — leaving an umbrella at home does not cause this.\n✗ as dry as a bone: completely dry — the opposite.\n✗ on a rollercoaster: a ride, or a situation with ups and downs; it has nothing to do with rain."
+        },
+        {
+          "id": "vocab-u1-094",
+          "type": "mcq",
+          "prompt": "Choose the pair that completes the sentence: \"Outside, it was ___, and Dr. Basem ran into the hospital ___.\"",
+          "options": [
+            "raining cats and dogs – going the extra mile",
+            "raining cats and dogs – soaked to the skin",
+            "springing into action – soaked to the skin",
+            "soaked to the skin – raining cats and dogs"
+          ],
+          "answer": "raining cats and dogs – soaked to the skin",
+          "difficulty": "hard",
+          "reviewStatus": "unreviewed",
+          "explanation": "✓ raining cats and dogs – soaked to the skin: it was raining very heavily, so he was completely wet (تمطر بغزارة – مبلل تمامًا).\n✗ raining cats and dogs – going the extra mile: \"going the extra mile\" means making extra effort; it does not describe how he looked after the rain.\n✗ springing into action – soaked to the skin: \"it was springing into action\" makes no sense for the weather.\n✗ soaked to the skin – raining cats and dogs: the weather cannot be \"soaked to the skin\", and a person cannot be \"raining cats and dogs\"."
+        },
+        {
+          "id": "vocab-u1-095",
+          "type": "mcq",
+          "prompt": "When she saw the X-ray of her son's broken leg, her face went as pale as a ___.",
+          "options": [
+            "tomato",
+            "beetroot",
+            "rose",
+            "ghost"
+          ],
+          "answer": "ghost",
+          "difficulty": "medium",
+          "reviewStatus": "unreviewed",
+          "explanation": "✓ as pale as a ghost = extremely pale, usually because of fear, shock or illness (شاحب جدًا).\n✗ tomato: we say \"as red as a tomato\" — red, for example from shyness, not pale.\n✗ beetroot: we say \"as red as a beetroot\" — again red, not pale.\n✗ rose: roses are usually red or pink; we do not use them to mean pale."
+        },
+        {
+          "id": "vocab-u1-096",
+          "type": "mcq",
+          "prompt": "Mr. Ramy made a quick ___ after his surgery and went home after a week.",
+          "options": [
+            "recovery",
+            "recover",
+            "recovered",
+            "discovery"
+          ],
+          "answer": "recovery",
+          "difficulty": "medium",
+          "reviewStatus": "unreviewed",
+          "explanation": "✓ recovery (noun) = the process of getting well again (التعافي / الشفاء). \"make a quick recovery\" is a common phrase.\n✗ recover: the verb (He recovered quickly) — a verb cannot follow \"a quick\".\n✗ recovered: the past form of the verb — not a noun.\n✗ discovery: finding something for the first time — it sounds similar but has a different meaning."
+        },
+        {
+          "id": "vocab-u1-097",
+          "type": "mcq",
+          "prompt": "\"Without hesitation, the team jumped into action.\" This means the team acted ___.",
+          "options": [
+            "immediately, without pausing because they were unsure",
+            "only after the doctor arrived",
+            "slowly and very carefully",
+            "unwillingly, after a long argument"
+          ],
+          "answer": "immediately, without pausing because they were unsure",
+          "difficulty": "medium",
+          "reviewStatus": "unreviewed",
+          "explanation": "✓ immediately, without pausing because they were unsure: hesitation (تردد) is a pause before you do something because you are not sure; \"without hesitation\" = at once.\n✗ only after the doctor arrived: this would mean they waited — the sentence says they acted at once.\n✗ slowly and very carefully: the opposite of acting without hesitation.\n✗ unwillingly, after a long argument: acting unwillingly is the opposite of acting without hesitation."
+        },
+        {
+          "id": "vocab-u1-098",
+          "type": "mcq",
+          "prompt": "Mr. Ramy has been ___ from heart surgery for a week, and he is slowly getting stronger.",
+          "options": [
+            "recovering",
+            "uncovering",
+            "covering",
+            "discovering"
+          ],
+          "answer": "recovering",
+          "difficulty": "medium",
+          "reviewStatus": "unreviewed",
+          "explanation": "✓ recover from = get well again after an illness or an operation (يتعافى / يتماثل للشفاء).\n✗ uncovering: removing a cover, or finding out a secret.\n✗ covering: putting something over something else.\n✗ discovering: finding something for the first time."
+        },
+        {
+          "id": "vocab-u1-099",
+          "type": "mcq",
+          "prompt": "Choose the pair that completes the sentence: \"The nurse ___ the medication, but the little boy refused to ___ it.\"",
+          "options": [
+            "administered – swallow",
+            "groaned – swallow",
+            "admitted – swallow",
+            "administered – stitch"
+          ],
+          "answer": "administered – swallow",
+          "difficulty": "hard",
+          "reviewStatus": "unreviewed",
+          "explanation": "✓ administered – swallow: the nurse gave the medicine (أعطت الدواء), but the boy would not let it go down his throat (يبلع).\n✗ groaned – swallow: \"groan\" (make a sound of pain) does not take an object such as \"the medication\".\n✗ admitted – swallow: \"admit\" means accept someone into hospital or agree that something is true; you do not admit a medicine.\n✗ administered – stitch: you stitch a cut, not a medicine."
+        },
+        {
+          "id": "vocab-u1-100",
+          "type": "mcq",
+          "prompt": "Which sentence describes CHAOS, not just a BUZZ?",
+          "options": [
+            "People were running and shouting in every direction, and nobody knew what to do.",
+            "The café was full of the happy sound of people chatting.",
+            "There was excitement in the class before the school trip.",
+            "The machines in the factory were humming steadily."
+          ],
+          "answer": "People were running and shouting in every direction, and nobody knew what to do.",
+          "difficulty": "hard",
+          "reviewStatus": "unreviewed",
+          "explanation": "✓ People running and shouting in every direction, with nobody knowing what to do = complete confusion and disorder (فوضى).\n✗ the happy sound of people chatting: this is a buzz of conversation — busy and noisy, but not disorder.\n✗ excitement in the class before the trip: a buzz of excitement — lively, but not complete disorder.\n✗ machines humming steadily: the buzz of machines working — organised, not chaotic."
+        }
+      ]
+    }
+  ]
+}

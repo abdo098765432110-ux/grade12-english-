@@ -70,7 +70,7 @@ test('absolute paths and full site addresses are reported', () => {
   const page = path.join(folder, 'index.html');
   let html = fs.readFileSync(page, 'utf8');
   html = html.replace('href="style.css"', 'href="/style.css"');
-  html = html.replace('href="grammar.html"', 'href="https://someone.github.io/grade12-english/grammar.html"');
+  html = html.replace('href="summaries.html"', 'href="https://someone.github.io/grade12-english/summaries.html"');
   fs.writeFileSync(page, html);
   const result = check(folder);
   assert.equal(result.code, 1);

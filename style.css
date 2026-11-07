@@ -436,10 +436,10 @@ html[dir="rtl"] .subject-menu .subject-list { right: auto; left: 0; }
 }
 
 /* The current page takes its section's colour. */
-.nav-list a[aria-current="page"][href="grammar.html"] { background: var(--sky); border-color: var(--sky-edge); color: var(--sky-ink); }
 .nav-list a[aria-current="page"][href="summaries.html"] { background: var(--mint); border-color: var(--mint-edge); color: var(--mint-ink); }
 .nav-list a[aria-current="page"][href="practice.html"] { background: var(--sun); border-color: var(--sun-edge); color: var(--sun-ink); }
 .nav-list a[aria-current="page"][href="reading.html"] { background: var(--lavender); border-color: var(--lavender-edge); color: var(--lavender-ink); }
+.nav-list a[aria-current="page"][href="vocabulary.html"] { background: var(--peach); border-color: var(--peach-edge); color: var(--peach-ink); }
 
 /* Menu button: hidden in the HTML and shown by common.js on small screens.
    Without JavaScript the full navigation is always visible. */
@@ -1405,6 +1405,29 @@ thead th {
 .summary-card h2 { margin-top: 0; }
 
 .summary-card h3 { font-size: 1.05rem; margin-top: 1rem; }
+
+/* A summary kept as a PDF file: download or open it. */
+.summary-pdf {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 0.9rem 0 0.25rem;
+  padding: 1rem 1.1rem;
+  border: 1.5px solid var(--mint-edge);
+  border-radius: var(--radius);
+  background: var(--mint);
+}
+
+.summary-pdf-icon { flex: none; width: 56px; height: 56px; }
+.summary-pdf-text { flex: 1 1 auto; min-width: 0; }
+.summary-pdf-title { margin: 0; font-weight: 700; color: var(--mint-ink); }
+.summary-pdf .hint { margin: 0.15rem 0 0; }
+.summary-pdf .actions { margin-top: 0.75rem; }
+
+@media (max-width: 40rem) {
+  .summary-pdf { flex-direction: column; align-items: flex-start; }
+  .summary-pdf .actions .btn { flex: 1 1 100%; }
+}
 
 /* Sections inside a summary (written like lesson sections): part titles,
    tables, and coloured boxes for key rules (note) and exam tips (tip). */

@@ -112,6 +112,32 @@ test('summaries: rule is required for each point; empty summary is a warning', (
   assert.match(empty.warnings.join(), /will look empty/);
 });
 
+test('summaries: an optional PDF file name; a summary with only a PDF is not "empty"', () => {
+  const ok = Schema.validateItem('summaries', { id: 's1', title: 'T', reviewStatus: 'reviewed', pdf: 'present-perfect-summary.pdf' }, 0);
+  assert.deepEqual(ok.errors, []);
+  assert.deepEqual(ok.warnings, []);
+  ['', 'summary.docx', '/summary.pdf', 'https://example.com/a.pdf', 'files/summary.pdf', 42].forEach((pdf) => {
+    const bad = Schema.validateItem('summaries', { id: 's1', title: 'T', reviewStatus: 'reviewed', pdf: pdf }, 0);
+    assert.equal(bad.errors.length, 1, JSON.stringify(pdf));
+  });
+});
+
+test('Grammar Summaries: Present Perfect / Present Perfect Continuous is the two-page PDF', () => {
+  const fs = require('fs');
+  const path = require('path');
+  const summaries = require('../grammar-summaries.json').summaries;
+  const pp = summaries.find((s) => s.id === 'present-perfect-vs-present-perfect-continuous');
+  assert.ok(pp, 'summary kept');
+  assert.equal(pp.title, 'Present Perfect vs Present Perfect Continuous');
+  assert.equal(pp.pdf, 'present-perfect-summary.pdf');
+  assert.equal(pp.sections, undefined, 'old content removed');
+  assert.equal(pp.remember, undefined, 'old content removed');
+  assert.deepEqual(Schema.validateItem('summaries', pp, 0).errors, []);
+  const pdf = fs.readFileSync(path.join(__dirname, '..', pp.pdf));
+  assert.equal(pdf.subarray(0, 5).toString(), '%PDF-');
+  assert.equal((pdf.toString('latin1').match(/\/Type\s*\/Page[^s]/g) || []).length, 2, 'two pages');
+});
+
 test('summaries: optional sections are checked like lesson sections', () => {
   const summary = { id: 's1', title: 'Test summary', reviewStatus: 'unreviewed', sections: [
     { type: 'text', heading: 'Part 1', paragraphs: [] },
@@ -370,6 +396,40 @@ test('chemistry questions: chapter 1 has the review (50 + 2 written) and test A 
     assert.equal(new Set(keys).size, keys.length, section.title);
   });
   assert.equal(ids.size, 102);
+});
+
+test('vocabulary: Unit 1 has exactly 100 valid questions, medium and hard only, in their own file', () => {
+  const fs = require('fs');
+  const path = require('path');
+  const project = path.join(__dirname, '..');
+  const data = JSON.parse(fs.readFileSync(path.join(project, 'vocabulary-questions.json'), 'utf8'));
+  assert.equal(data.units.length, 1);
+  assert.equal(data.units[0].id, 'unit-1');
+  assert.equal(data.units[0].title, 'Unit 1: Inside the World of Care');
+  const questions = data.units[0].questions;
+  assert.equal(questions.length, 100);
+  assert.deepEqual(questions.map((q) => q.id), Array.from({ length: 100 }, (_, i) => 'vocab-u1-' + String(i + 1).padStart(3, '0')));
+  questions.forEach((question, i) => {
+    assert.deepEqual(Schema.validateItem('questions', question, i).errors, [], question.id);
+    assert.equal(question.type, 'mcq', question.id);
+    assert.ok(['medium', 'hard'].includes(question.difficulty), question.id + ' is medium or hard');
+    assert.equal(question.options.length, 4, question.id);
+    assert.ok(question.options.includes(question.answer), question.id);
+    // the explanation says why the answer is right (✓) and why each other choice is wrong (✗)
+    const lines = question.explanation.split('\n');
+    assert.ok(lines[0].startsWith('✓'), question.id + ' explains the answer');
+    assert.ok(lines.slice(1).length >= 1 && lines.slice(1).every((line) => line.startsWith('✗')), question.id + ' explains the wrong choices');
+  });
+  // no question twice, and the answers are spread over A, B, C and D
+  assert.equal(new Set(questions.map((q) => q.prompt)).size, 100);
+  const letters = [0, 0, 0, 0];
+  questions.forEach((q) => { letters[q.options.indexOf(q.answer)] += 1; });
+  assert.ok(letters.every((n) => n >= 15), 'answer positions ' + letters);
+  // kept apart from the grammar practice questions
+  const grammar = require('../grammar-questions.json').questions;
+  const ids = new Set(questions.map((q) => q.id));
+  const prompts = new Set(questions.map((q) => q.prompt));
+  assert.ok(grammar.every((q) => !ids.has(q.id) && !prompts.has(q.prompt)), 'no vocabulary question in grammar-questions.json');
 });
 
 test('questions: optional lang, image and imageAlt are checked', () => {

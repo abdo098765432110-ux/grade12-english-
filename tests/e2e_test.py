@@ -9,8 +9,9 @@ Requirements:  pip install playwright  &&  python -m playwright install chromium
 Run:           python tests/e2e_test.py
 
 The tests start from an empty website: they serve a temporary copy of the
-project in which the five data files are empty, so the real lessons and
-questions are never read or changed.
+project in which the data files (the five content files and the vocabulary
+questions) are empty, so the real lessons and questions are never read or
+changed.
 
 All test content is typed into the content manager during the test (or
 served from inside this script). It is placeholder text such as
@@ -53,7 +54,8 @@ class QuietHandler(http.server.SimpleHTTPRequestHandler):
 
 
 DATA_FILES = [("units.json", "units"), ("grammar-lessons.json", "lessons"), ("grammar-summaries.json", "summaries"),
-              ("grammar-questions.json", "questions"), ("reading-passages.json", "passages")]
+              ("grammar-questions.json", "questions"), ("reading-passages.json", "passages"),
+              ("vocabulary-questions.json", "units")]
 
 
 def empty_copy():
@@ -149,8 +151,8 @@ def draft(page):
     return json.loads(raw)["library"] if raw else None
 
 
-# The five data files (they are at the top level, next to index.html).
-DATA_ROUTE = re.compile(r".*/(units|grammar-lessons|grammar-summaries|grammar-questions|reading-passages)\.json(\?.*)?$")
+# The data files: the five content files and the vocabulary questions (at the top level, next to index.html).
+DATA_ROUTE = re.compile(r".*/(units|grammar-lessons|grammar-summaries|grammar-questions|reading-passages|vocabulary-questions)\.json(\?.*)?$")
 # Every stylesheet, script and data file of the site.
 ASSET_ROUTE = re.compile(r".*/[^/]+\.(css|js|json)(\?.*)?$")
 
@@ -169,26 +171,29 @@ def empty_site(browser, base):
     page = watch(context.new_page())
     pages = {
         "index.html": ("No content added yet", "manage.html"),
-        "grammar.html": ("No lessons added yet", "manage.html#lessons/new"),
         "summaries.html": ("No summaries added yet", "manage.html#summaries/new"),
         "practice.html": ("No practice questions added yet", "manage.html#questions/new"),
         "reading.html": ("No reading passages added yet", "manage.html#passages/new"),
+        "vocabulary.html": ("No vocabulary questions yet", None),
     }
     for path, (heading, href) in pages.items():
         page.goto(base + path)
         expect(page.locator(".empty-state h2")).to_have_text(heading)
-        link = page.locator(".empty-state a").first
-        record("empty state on " + path, link.get_attribute("href") == href, "button links to " + str(link.get_attribute("href")))
+        if href is None:  # vocabulary questions are added to their file, not in the content manager
+            record("empty state on " + path, page.locator(".empty-state a").count() == 0)
+        else:
+            link = page.locator(".empty-state a").first
+            record("empty state on " + path, link.get_attribute("href") == href, "button links to " + str(link.get_attribute("href")))
         audit(page, path + " (empty)")
         no_errors(page, path + " (empty)")
     page.goto(base + "index.html")
     page.screenshot(path=str(SHOTS / "01-home-empty.png"), full_page=True)
-    # Unknown lesson / passage ids show a friendly message.
-    page.goto(base + "grammar.html?lesson=does-not-exist")
-    expect(page.locator("h1")).to_have_text("Lesson not found")
+    # An unknown passage id shows a friendly message.
     page.goto(base + "reading.html?passage=does-not-exist")
     expect(page.locator("h1")).to_have_text("Passage not found")
-    record("unknown lesson and passage show 'not found'", True)
+    record("unknown passage shows 'not found'", True)
+    # The Grammar Lessons page was removed from the website.
+    record("the Grammar Lessons page is gone", not (PROJECT / "grammar.html").exists() and not (PROJECT / "grammar.js").exists())
     no_errors(page, "not-found pages")
     context.close()
 
@@ -409,26 +414,17 @@ def student_pages_in_preview(page, base):
 
     page.goto(base + "index.html")
     expect(page.locator("#preview-banner")).to_be_visible()
-    counts = [page.inner_text("[data-count='%s']" % k) for k in ["lessons", "summaries", "questions", "passages"]]
-    record("home page counts in preview", counts == ["1 lesson", "1 summary", "3 questions", "1 passage"], str(counts))
+    counts = [page.inner_text("[data-count='%s']" % k) for k in ["summaries", "questions", "passages", "vocabulary"]]
+    record("home page counts in preview", counts == ["1 summary", "3 questions", "1 passage", "No questions yet"], str(counts))
+    record("home page has no Grammar Lessons card", page.locator("[data-count='lessons'], a[href^='grammar.html']").count() == 0)
 
-    page.goto(base + "grammar.html")
-    page.click("text=Read lesson")
-    expect(page.locator("h1")).to_have_text("Test lesson one")
-    expect(page.locator(".lesson-body h2").first).to_have_text("Heading A")
-    record("lesson sections render (text, table, mistakes, Arabic note)",
-           page.locator(".lesson-body p").first.inner_text() == "Paragraph one."
-           and page.locator(".lesson-body table tbody tr").count() == 2
-           and page.locator(".mistake-list li").count() == 1
-           and page.locator(".lesson-section[lang='ar'][dir='rtl']").count() == 1)
-    expect(page.locator(".next-steps")).to_contain_text("Practise this topic (3 questions)")
-    audit(page, "lesson page")
-    page.screenshot(path=str(SHOTS / "04-lesson-page.png"), full_page=True)
-
-    page.click("text=Read the summary")
-    expect(page).to_have_url(re.compile(r"summaries\.html\?topic=renamed-lesson$"))
+    page.goto(base + "summaries.html?topic=renamed-lesson")
+    expect(page.locator(".summary-card h2, .summary-card h3").first).to_have_text("Test summary")
     expect(page.locator(".summary-card tbody tr")).to_have_count(2)
+    record("summary links to practice, not to a lesson page",
+           page.locator("a[href^='grammar.html']").count() == 0 and page.locator("a[href^='practice.html?topic=renamed-lesson']").count() >= 1)
     audit(page, "summaries page")
+    page.screenshot(path=str(SHOTS / "04-summaries-page.png"), full_page=True)
 
     # --- Practice: unreviewed wording, retry, reviewed wording, short answer, results
     page.goto(base + "practice.html?topic=renamed-lesson")
@@ -504,7 +500,7 @@ def student_pages_in_preview(page, base):
 
     # --- Phone width
     page.set_viewport_size({"width": 375, "height": 800})
-    for path in ["index.html", "grammar.html?lesson=renamed-lesson", "summaries.html", "practice.html", "reading.html?passage=test-passage", "manage.html#lessons/edit/renamed-lesson"]:
+    for path in ["index.html", "summaries.html", "practice.html", "reading.html?passage=test-passage", "vocabulary.html", "manage.html#lessons/edit/renamed-lesson"]:
         page.goto(base + path)
         page.wait_for_timeout(250)
         audit(page, "phone width " + path)
@@ -515,9 +511,9 @@ def student_pages_in_preview(page, base):
     page.set_viewport_size({"width": 1280, "height": 900})
 
     # --- Stop preview: back to the (empty) published files
-    page.goto(base + "grammar.html")
+    page.goto(base + "summaries.html")
     page.click("#preview-banner button:has-text('Stop preview')")
-    expect(page.locator(".empty-state h2")).to_have_text("No lessons added yet")
+    expect(page.locator(".empty-state h2")).to_have_text("No summaries added yet")
     record("stopping preview shows the published files again", page.locator("#preview-banner").count() == 0)
     no_errors(page, "student pages in preview")
 
@@ -561,8 +557,8 @@ def published_site(browser, base, files):
     for key, path in files.items():
         context.route("**/" + path.name, serve_json(path.read_text(encoding="utf-8")))
     page = watch(context.new_page())
-    page.goto(base + "grammar.html")
-    expect(page.locator(".card h2")).to_have_text("Test lesson one")
+    page.goto(base + "summaries.html")
+    expect(page.locator(".summary-card").first).to_contain_text("Test summary")
     record("published files show on the student pages without preview", page.locator("#preview-banner").count() == 0)
     page.goto(base + "manage.html")
     expect(page.locator(".status-bar")).to_contain_text("No unpublished changes")
@@ -587,12 +583,15 @@ def published_site(browser, base, files):
     # Invalid JSON and a missing file show a clear message instead of a blank page.
     context = browser.new_context()
     context.route("**/reading-passages.json", serve_json("{ not json"))
-    context.route("**/grammar-lessons.json", serve_json("missing", status=404))
+    context.route("**/grammar-summaries.json", serve_json("missing", status=404))
+    context.route("**/vocabulary-questions.json", serve_json("{ not json"))
     page = context.new_page()
     page.goto(base + "reading.html")
     expect(page.locator(".notice--error")).to_contain_text("contains invalid JSON")
-    page.goto(base + "grammar.html")
+    page.goto(base + "summaries.html")
     expect(page.locator(".notice--error")).to_contain_text("HTTP 404")
+    page.goto(base + "vocabulary.html")
+    expect(page.locator(".notice--error")).to_contain_text("contains invalid JSON")
     record("invalid or missing data files show an error message", True)
     context.close()
 
@@ -654,7 +653,7 @@ def missing_files_and_states(browser, base):
     context = browser.new_context()
     context.route(ASSET_ROUTE, serve_json("Not found", status=404))
     page = context.new_page()
-    for path in ["index.html", "grammar.html"]:
+    for path in ["index.html", "vocabulary.html"]:
         page.goto(base + path)
         alert = page.locator("#load-failure")
         expect(alert).to_be_visible()
@@ -676,9 +675,9 @@ def missing_files_and_states(browser, base):
     context = browser.new_context()
     context.route("**/style.css", serve_json("Not found", status=404))
     page = context.new_page()
-    page.goto(base + "grammar.html")
+    page.goto(base + "summaries.html")
     expect(page.locator("#load-failure")).to_contain_text("style.css")
-    expect(page.locator(".empty-state h2")).to_have_text("No lessons added yet")
+    expect(page.locator(".empty-state h2")).to_have_text("No summaries added yet")
     record("missing stylesheet only: message shown and page content still loads", True)
     context.close()
 
@@ -686,8 +685,8 @@ def missing_files_and_states(browser, base):
     context = browser.new_context()
     context.route(DATA_ROUTE, serve_json("Not found", status=404))
     page = watch(context.new_page())
-    titles = {"grammar.html": "Grammar Lessons", "summaries.html": "Grammar Summaries",
-              "practice.html": "Grammar Practice", "reading.html": "Reading Comprehension"}
+    titles = {"summaries.html": "Grammar Summaries", "practice.html": "Grammar Practice",
+              "reading.html": "Reading Comprehension", "vocabulary.html": "Vocabulary"}
     for path, title in titles.items():
         page.goto(base + path)
         expect(page.locator(".error-state h2")).to_have_text("This content could not be loaded")
@@ -707,15 +706,16 @@ def missing_files_and_states(browser, base):
     page.goto(base + "index.html")
     expect(page.locator("#home-status .error-state")).to_be_visible()
     record("data missing: home page shows the error and 'Could not load' counts",
-           page.locator("[data-count='lessons']").inner_text() == "Could not load"
+           page.locator("[data-count='summaries']").inner_text() == "Could not load"
+           and page.locator("[data-count='vocabulary']").inner_text() == "Could not load"
            and page.locator("#home-status a:has-text('Go to the home page')").count() == 0)
     page.screenshot(path=str(SHOTS / "11-error-state.png"))
     # Try again reloads and works once the files are back.
-    page.goto(base + "grammar.html")
+    page.goto(base + "summaries.html")
     expect(page.locator(".error-state")).to_be_visible()  # wait until the failed load is shown
     context.unroute(DATA_ROUTE)
     page.click("button:has-text('Try again')")
-    expect(page.locator(".empty-state h2")).to_have_text("No lessons added yet")
+    expect(page.locator(".empty-state h2")).to_have_text("No summaries added yet")
     record("'Try again' reloads the page and recovers", True)
     page.errors.clear()  # the 404s above were intentional
     context.close()
@@ -726,7 +726,7 @@ def missing_files_and_states(browser, base):
     context.route(DATA_ROUTE, lambda route: held.append(route))  # hold every data request (never answer)
     page = context.new_page()
     page.clock.install()
-    page.goto(base + "grammar.html")
+    page.goto(base + "summaries.html")
     loading = page.locator("#page-root .loading")
     expect(loading).to_have_text("Loading…")
     record("loading state shows a spinner",
@@ -746,16 +746,16 @@ def missing_files_and_states(browser, base):
 # ---------------------------------------------------------------- 7. navigation and mobile menu
 
 def navigation(browser, base):
-    labels = ["Home", "Grammar Lessons", "Grammar Summaries", "Grammar Practice", "Reading Comprehension"]
+    labels = ["Home", "Grammar Summaries", "Grammar Practice", "Reading Comprehension", "Vocabulary"]
     context = browser.new_context(viewport={"width": 1280, "height": 900})
     page = watch(context.new_page())
     page.goto(base + "index.html")
     links = page.locator("#site-nav a")
-    record("navigation has the five sections in order", links.all_inner_texts() == labels, str(links.all_inner_texts()))
+    record("navigation: Home, then the four English sections in order (Vocabulary fourth)", links.all_inner_texts() == labels, str(links.all_inner_texts()))
     record("desktop: menu button hidden, links visible",
            not page.is_visible(".nav-toggle") and page.is_visible("#site-nav"))
-    for href, label in [("grammar.html", "Grammar Lessons"), ("summaries.html", "Grammar Summaries"),
-                        ("practice.html", "Grammar Practice"), ("reading.html", "Reading Comprehension"), ("index.html", "Home")]:
+    for href, label in [("summaries.html", "Grammar Summaries"), ("practice.html", "Grammar Practice"),
+                        ("reading.html", "Reading Comprehension"), ("vocabulary.html", "Vocabulary"), ("index.html", "Home")]:
         settle(page)
         page.click("#site-nav a:has-text('%s')" % label)
         expect(page).to_have_url(re.compile(re.escape(href) + "$"))
@@ -801,7 +801,7 @@ def navigation(browser, base):
     page.goto(base + "index.html")
     record("no JavaScript: navigation visible, menu button hidden",
            page.is_visible("#site-nav") and not page.is_visible(".nav-toggle") and page.locator("#site-nav a").count() == 5)
-    page.goto(base + "grammar.html")
+    page.goto(base + "vocabulary.html")
     record("no JavaScript: page explains that JavaScript is needed", "needs JavaScript" in page.inner_text("main"))
     context.close()
 
@@ -841,6 +841,14 @@ PHASE2_DATA = {
                        fixture_question("rq3", answer="Opt C")]},
         {"id": "p2", "title": "Plain passage", "showParagraphNumbers": False, "reviewStatus": "unreviewed",
          "paragraphs": ["Only paragraph"], "questions": []}]},
+    "vocabulary-questions.json": {"schemaVersion": 2, "units": [
+        {"id": "vu1", "title": "Test vocabulary unit one", "questions": [
+            fixture_question("v1", difficulty="medium", explanation="✓ Opt B: placeholder\n✗ Opt A: placeholder\n✗ Opt C: placeholder"),
+            fixture_question("v2", difficulty="hard"),
+            fixture_question("v3", difficulty="medium"),
+            fixture_question("v4", answer="Not an option")]},
+        {"id": "vu2", "title": "Test vocabulary unit two", "questions": [fixture_question("v5", difficulty="hard")]},
+        {"id": "vu3", "title": "Test unit without questions", "questions": []}]},
 }
 
 
@@ -850,35 +858,45 @@ def phase2_pages(browser, base):
         context.route("**/" + name, serve_json(json.dumps(body)))
     page = watch(context.new_page())
 
-    # Grammar lessons by unit and topic
-    page.goto(base + "grammar.html")
+    # Vocabulary: its own file and page, units with counts, levels and explained answers
+    page.goto(base + "vocabulary.html")
     settle(page)
-    nav = page.locator(".unit-nav a").all_inner_texts()
-    record("lessons: unit filter links", nav == ["All units", "Test unit one (1)", "Test unit two"], str(nav))
-    sections = page.locator(".unit-section > h2").all_inner_texts()
-    record("lessons: grouped by unit, with an 'Other topics' group", sections == ["Test unit one", "Test unit two", "Other topics"], str(sections))
-    record("lessons: empty unit says so", "No lessons in this unit yet." in page.locator("#unit-u2").locator("xpath=..").inner_text())
-    audit(page, "lessons by unit")
-    page.goto(base + "grammar.html?unit=u2")
+    expect(page.locator("main")).to_contain_text("1 item could not be shown")
+    options = page.locator("#vocabulary-unit option").all_inner_texts()
+    record("vocabulary: units listed with counts (a unit without questions is hidden)",
+           options == ["All units (4)", "Test vocabulary unit one (3)", "Test vocabulary unit two (1)"], str(options))
+    record("vocabulary: no easy questions, so Easy is disabled",
+           page.is_disabled("#vocabulary-level-easy") and page.locator("label[for='vocabulary-level-medium']").inner_text() == "Medium (2)",
+           page.locator("label[for='vocabulary-level-medium']").inner_text())
+    audit(page, "vocabulary setup")
+    page.goto(base + "vocabulary.html?unit=vu2")
     settle(page)
-    expect(page.locator(".empty-state h3")).to_have_text("No lessons in this unit yet")
-    record("lessons: ?unit= filter with an empty unit shows an empty state",
-           page.locator(".unit-nav a[aria-current='page']").inner_text() == "Test unit two")
-    page.goto(base + "grammar.html?unit=missing")
-    settle(page)
-    expect(page.locator(".empty-state h2")).to_have_text("Unit not found")
-    page.goto(base + "grammar.html?topic=l1")
-    settle(page)
-    crumbs = page.locator(".breadcrumb li").all_inner_texts()
-    record("lessons: ?topic= opens the lesson with its unit in the breadcrumb", crumbs == ["Grammar Lessons", "Test unit one", "Test topic one"], str(crumbs))
-    paragraph = page.locator(".lesson-body p").first
-    record("lessons: line breaks in the text are kept",
-           paragraph.evaluate("p => getComputedStyle(p).whiteSpace") == "pre-line" and "\n" in paragraph.evaluate("p => p.textContent"))
-    page.goto(base + "grammar.html?lesson=l1")
-    settle(page)
-    expect(page.locator("h1")).to_have_text("Test topic one")
-    record("lessons: old ?lesson= links still work", True)
-    record("lessons: a broken practice question does not trigger a notice here", page.locator("text=could not be shown").count() == 0)
+    record("vocabulary: ?unit= preselects the unit", page.input_value("#vocabulary-unit") == "vu2")
+    page.select_option("#vocabulary-unit", "vu1")
+    page.check("#vocabulary-count-all")
+    page.click("button:has-text('Start practice')")
+    expect(page.locator(".quiz-progress-text")).to_have_text("Question 1 of 3")
+    expect(page.locator(".vocabulary-unit")).to_contain_text("Test vocabulary unit one")
+    for _ in range(3):
+        legend = page.locator(".question-legend").inner_text()
+        answer_current(page, "Opt B")
+        expect(page.locator(".feedback")).to_contain_text("matches the suggested answer")
+        if "v1" in legend:
+            text = page.locator(".feedback .explanation-text").evaluate("e => e.textContent")
+            spacing = page.locator(".feedback .explanation-text").evaluate("e => getComputedStyle(e).whiteSpace")
+            record("vocabulary: the explanation keeps one line per choice", text.count("\n") == 2 and spacing == "pre-line", repr(text) + " " + spacing)
+            audit(page, "vocabulary question")
+        page.click(".actions button:has-text('Next question'), .actions button:has-text('See results')")
+    expect(page.locator(".score-number")).to_have_text("3 / 3")
+    record("vocabulary: one-at-a-time practice and score work", True)
+    page.click("text=← Change practice settings")
+    page.check("#vocabulary-mode-all")
+    page.click("button:has-text('Start practice')")
+    expect(page.locator(".worksheet-q")).to_have_count(3)
+    record("vocabulary: answer-all mode works", True)
+    page.set_viewport_size({"width": 375, "height": 800})
+    audit(page, "vocabulary answer-all at phone width")
+    page.set_viewport_size({"width": 1280, "height": 900})
 
     # Summaries by unit and topic (old field name lessonId is upgraded)
     page.goto(base + "summaries.html?topic=l1")
@@ -981,9 +999,9 @@ def phase2_pages(browser, base):
     context = browser.new_context()
     context.route("**/units.json", serve_json("Not found", status=404))
     page = watch(context.new_page())
-    page.goto(base + "grammar.html")
+    page.goto(base + "summaries.html")
     settle(page)
-    expect(page.locator(".empty-state h2")).to_have_text("No lessons added yet")
+    expect(page.locator(".empty-state h2")).to_have_text("No summaries added yet")
     page.errors = [e for e in page.errors if "units.json" not in e]
     record("missing units.json is treated as 'no units'", page.locator(".error-state").count() == 0)
     context.close()
@@ -1096,10 +1114,10 @@ def phase2_manager(browser, base):
 
 # ---------------------------------------------------------------- 10. Arabic / English interface
 
-PAGES = ["index.html", "grammar.html", "summaries.html", "practice.html", "reading.html", "manage.html"]
-NAV_HREFS = ["index.html", "grammar.html", "summaries.html", "practice.html", "reading.html"]
-NAV_EN = ["Home", "Grammar Lessons", "Grammar Summaries", "Grammar Practice", "Reading Comprehension"]
-NAV_AR = ["الرئيسية", "دروس القواعد", "ملخصات القواعد", "تدريبات القواعد", "القراءة والفهم"]
+PAGES = ["index.html", "summaries.html", "practice.html", "reading.html", "vocabulary.html", "manage.html"]
+NAV_HREFS = ["index.html", "summaries.html", "practice.html", "reading.html", "vocabulary.html"]
+NAV_EN = ["Home", "Grammar Summaries", "Grammar Practice", "Reading Comprehension", "Vocabulary"]
+NAV_AR = ["الرئيسية", "ملخصات القواعد", "تدريبات القواعد", "القراءة والفهم", "المفردات"]
 ARABIC = re.compile(r"[؀-ۿ]")
 
 
@@ -1137,8 +1155,9 @@ def language_switch(browser, base):
            page.evaluate("window.__samePage === true"))
     record("Arabic: the page content changes too, not only the button",
            page.locator(".empty-state h2").inner_text() == "لم يُضف أي محتوى بعد"
-           and page.locator("[data-count='lessons']").inner_text() == "لا توجد دروس بعد"
-           and page.locator(".card h2").first.inner_text() == "دروس القواعد"
+           and page.locator("[data-count='summaries']").inner_text() == "لا توجد ملخصات بعد"
+           and page.locator(".card h2").first.inner_text() == "ملخصات القواعد"
+           and page.locator(".card h2").nth(3).inner_text() == "المفردات"
            and page.locator(".site-footer p").first.inner_text().startswith("مصدر مجاني"),
            page.locator(".empty-state h2").inner_text())
     focused = page.evaluate("document.activeElement.classList.contains('lang-toggle')")
@@ -1164,7 +1183,7 @@ def language_switch(browser, base):
            and page.locator("#site-nav a").all_inner_texts() == NAV_EN
            and page.locator("h1").inner_text() == "Free English practice for Grade 12"
            and page.locator(".empty-state h2").inner_text() == "No content added yet"
-           and page.locator("[data-count='lessons']").inner_text() == "No lessons yet"
+           and page.locator("[data-count='summaries']").inner_text() == "No summaries yet"
            and page.locator(".lang-toggle").inner_text() == "العربية" and page.title() == "Learn for Grade 12")
     page.click(".lang-toggle")
     page.wait_for_function("document.documentElement.lang === 'ar'")
@@ -1199,13 +1218,13 @@ def language_switch(browser, base):
     page.set_viewport_size({"width": 1280, "height": 900})
 
     # Back to English.
-    page.goto(base + "grammar.html")
+    page.goto(base + "vocabulary.html")
     settle(page)
     page.click(".lang-toggle")
     page.wait_for_function("document.documentElement.lang === 'en'")
     settle(page)
     record("switching back to English", page_language(page) == ["en", "ltr", "en"]
-           and page.locator("#site-nav a").all_inner_texts() == NAV_EN and page.url.endswith("grammar.html"))
+           and page.locator("#site-nav a").all_inner_texts() == NAV_EN and page.url.endswith("vocabulary.html"))
     no_errors(page, "language switch back")
     context.close()
 
@@ -1213,10 +1232,10 @@ def language_switch(browser, base):
     context = browser.new_context()
     context.add_init_script("Object.defineProperty(window, 'localStorage', { get() { throw new Error('blocked'); } });")
     page = watch(context.new_page())
-    page.goto(base + "grammar.html")
+    page.goto(base + "summaries.html")
     settle(page)
     record("storage blocked: pages still load in English with the language button",
-           page.locator(".empty-state h2").inner_text() == "No lessons added yet" and page.locator(".lang-toggle").is_visible())
+           page.locator(".empty-state h2").inner_text() == "No summaries added yet" and page.locator(".lang-toggle").is_visible())
     page.errors.clear()
     context.close()
 
@@ -1242,30 +1261,26 @@ def arabic_interface(browser, base):
 
     page.goto(base + "index.html")
     settle(page)
-    counts = [page.inner_text("[data-count='%s']" % k) for k in ["lessons", "summaries", "questions", "passages"]]
-    record("Arabic home: counted words use Arabic plural forms", counts == ["درسان", "ملخص واحد", "4 أسئلة", "قطعتان"], str(counts))
+    counts = [page.inner_text("[data-count='%s']" % k) for k in ["summaries", "questions", "passages", "vocabulary"]]
+    record("Arabic home: counted words use Arabic plural forms", counts == ["ملخص واحد", "4 أسئلة", "قطعتان", "4 أسئلة"], str(counts))
 
-    page.goto(base + "grammar.html?topic=l1")
+    page.goto(base + "vocabulary.html")
     settle(page)
-    crumbs = page.locator(".breadcrumb li").all_inner_texts()
-    paragraph = page.locator(".lesson-body p").first
-    record("Arabic lesson page: interface in Arabic, lesson text unchanged and left-to-right",
-           crumbs == ["دروس القواعد", "Test unit one", "Test topic one"] and page.locator("h1").inner_text() == "Test topic one"
-           and paragraph.evaluate("p => p.textContent") == "Line one\nLine two"
-           and paragraph.evaluate("p => getComputedStyle(p).direction") == "ltr", str(crumbs))
-    audit(page, "Arabic lesson page")
-    page.evaluate("window.__samePage = true")
-    page.click(".lang-toggle")
-    page.wait_for_function("document.documentElement.lang === 'en'")
-    english_crumbs = page.locator(".breadcrumb li").all_inner_texts()
-    same_text = page.locator(".lesson-body p").first.evaluate("p => p.textContent") == "Line one\nLine two"
-    page.click(".lang-toggle")
-    page.wait_for_function("document.documentElement.lang === 'ar'")
-    record("lesson page: switching languages on the page changes only the interface; the lesson stays exactly as written",
-           page.evaluate("window.__samePage === true") and same_text
-           and english_crumbs == ["Grammar Lessons", "Test unit one", "Test topic one"]
-           and page.locator(".breadcrumb li").all_inner_texts() == crumbs
-           and page.locator(".lesson-body p").first.evaluate("p => p.textContent") == "Line one\nLine two", str(english_crumbs))
+    options = page.locator("#vocabulary-unit option").all_inner_texts()
+    record("Arabic vocabulary setup: labels translated, unit titles unchanged and left-to-right",
+           options == ["كل الوحدات (4)", "Test vocabulary unit one (3)", "Test vocabulary unit two (1)"]
+           and page.locator("h1").inner_text() == "المفردات"
+           and page.locator("label[for='vocabulary-unit']").inner_text() == "الوحدة"
+           and page.locator("#vocabulary-unit").evaluate("s => getComputedStyle(s).direction") == "ltr", str(options))
+    audit(page, "Arabic vocabulary setup")
+    page.select_option("#vocabulary-unit", "vu2")
+    page.click("button:has-text('ابدأ التدريب')")
+    expect(page.locator(".question-legend")).to_contain_text("Test prompt v5")
+    record("Arabic vocabulary: the unit title and the question stay exactly as written, left-to-right",
+           "Test vocabulary unit two" in page.locator(".vocabulary-unit").inner_text()
+           and page.locator(".question-form fieldset").evaluate("f => getComputedStyle(f).direction") == "ltr")
+    audit(page, "Arabic vocabulary question")
+    page.screenshot(path=str(SHOTS / "22-ar-vocabulary.png"), full_page=True)
 
     page.goto(base + "practice.html")
     settle(page)

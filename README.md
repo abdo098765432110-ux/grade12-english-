@@ -27,10 +27,11 @@ no `css`, `js` or `data` folders).
 ```
 grade12-english/
 ├── index.html             Home
-├── grammar.html           Grammar Lessons   (?unit=<id> one unit, ?topic=<id> one lesson)
 ├── summaries.html         Grammar Summaries (?unit=<id>, ?topic=<id>)
 ├── practice.html          Grammar Practice  (?unit=<id>, ?topic=<id> preselect)
 ├── reading.html           Reading Comprehension (?unit=<id>, ?passage=<id>)
+├── vocabulary.html        Vocabulary (?unit=<id> preselect); questions in vocabulary-questions.json, page script vocabulary.js
+├── present-perfect-summary.pdf   The Present Perfect & Present Perfect Continuous summary (two A4 pages; made by tools/grammar_pdfs.py from tools/present-perfect-summary.html)
 ├── manage.html            Content manager (for teachers)
 ├── arabic.html, physics.html, chemistry.html, biology.html   The other four subjects
 ├── subject.js             Subject pages: chapters → sections → questions, with the shared quiz
@@ -43,7 +44,7 @@ grade12-english/
 ├── style.css              All styles
 ├── logo.svg               Logo (header, footer and browser tab)
 ├── home-hero.svg          Home page illustration
-├── icon-lessons.svg, icon-summaries.svg, icon-practice.svg, icon-reading.svg   Home page section pictures
+├── icon-summaries.svg, icon-practice.svg, icon-reading.svg, icon-vocabulary.svg   Home page section pictures
 ├── subject-arabic.svg, subject-english.svg, subject-physics.svg, subject-chemistry.svg, subject-biology.svg   Subject menu pictures
 ├── i18n.js                Interface language: the English/Arabic button, page direction, saved choice
 ├── i18n-en.js             English interface text
