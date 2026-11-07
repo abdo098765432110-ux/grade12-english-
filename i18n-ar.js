@@ -279,7 +279,6 @@
       "Written answer (not scored)": "إجابة مكتوبة (لا تُحتسب في الدرجة)",
       "Your answer: {answer}": "إجابتك: {answer}",
       "Model answer: {answer}": "الإجابة النموذجية: {answer}",
-      "Not yet reviewed by a teacher.": "لم يراجعها معلم بعد.",
       "Retry missed questions ({n})": "أعد محاولة الأسئلة التي أخطأت فيها ({n})",
       "{title} ({n})": "{title} ({n})",
       "Missed questions": "الأسئلة التي أخطأت فيها",

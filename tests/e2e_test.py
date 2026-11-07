@@ -432,6 +432,8 @@ def student_pages_in_preview(page, base):
     expect(page.locator("label[for='practice-count-all']")).to_have_text("All available questions (3)")
     audit(page, "practice setup")
     page.click("button:has-text('Start practice')")
+    record("practice: no review label next to the question",
+           page.locator(".quiz .badge--reviewed, .quiz .badge--unreviewed").count() == 0)
     seen = set()
     for _ in range(3):
         legend = page.locator(".question-legend").inner_text()
@@ -872,15 +874,23 @@ def phase2_pages(browser, base):
     page.goto(base + "vocabulary.html?unit=vu2")
     settle(page)
     record("vocabulary: ?unit= preselects the unit", page.input_value("#vocabulary-unit") == "vu2")
+    main_text = page.inner_text("main")
+    record("vocabulary: no 'not yet reviewed' warning on the page",
+           "reviewed" not in main_text.lower() and "checked by a teacher" not in main_text and "suggestions" not in main_text, main_text[:200])
     page.select_option("#vocabulary-unit", "vu1")
     page.check("#vocabulary-count-all")
     page.click("button:has-text('Start practice')")
     expect(page.locator(".quiz-progress-text")).to_have_text("Question 1 of 3")
     expect(page.locator(".vocabulary-unit")).to_contain_text("Test vocabulary unit one")
+    record("vocabulary: no review label next to the question",
+           page.locator(".quiz .badge--reviewed, .quiz .badge--unreviewed").count() == 0
+           and "reviewed" not in page.locator(".quiz").inner_text().lower())
     for _ in range(3):
         legend = page.locator(".question-legend").inner_text()
         answer_current(page, "Opt B")
-        expect(page.locator(".feedback")).to_contain_text("matches the suggested answer")
+        expect(page.locator(".feedback-title")).to_have_text("Correct!")
+        record("vocabulary: answers shown as the answer key, with no 'not reviewed' note",
+               page.locator(".feedback .review-note").count() == 0 and "suggested" not in page.locator(".feedback").inner_text().lower())
         if "v1" in legend:
             text = page.locator(".feedback .explanation-text").evaluate("e => e.textContent")
             spacing = page.locator(".feedback .explanation-text").evaluate("e => getComputedStyle(e).whiteSpace")
@@ -1497,6 +1507,25 @@ def sources_page(browser, base):
     context.close()
 
 
+# ---------------------------------------------------------------- 12. No review-status labels next to questions
+
+def no_review_labels(browser, base):
+    context = browser.new_context(viewport={"width": 1280, "height": 900})
+    page = watch(context.new_page())
+    for subject, file in [("physics.html", "physics-questions.json"), ("chemistry.html", "chemistry-questions.json")]:
+        data = json.loads((PROJECT / file).read_text(encoding="utf-8"))
+        for chapter in data["chapters"]:
+            for section in chapter["sections"]:
+                page.goto(base + "%s?chapter=%s&section=%s" % (subject, chapter["id"], section["id"]))
+                page.wait_for_selector(".quiz .question-legend")
+                labels = page.locator(".quiz .badges").all_inner_texts()
+                record("no review label next to questions: %s / %s" % (subject, section["id"]),
+                       page.locator(".quiz .badge--reviewed, .quiz .badge--unreviewed").count() == 0
+                       and not any("reviewed" in label.lower() or "مراجع" in label for label in labels), str(labels))
+    no_errors(page, "question pages without review labels")
+    context.close()
+
+
 def main():
     real_data = {name: (PROJECT / name).read_bytes() for name, _ in DATA_FILES}
     server, base = start_server()
@@ -1528,6 +1557,7 @@ def main():
         run_section("language switch", language_switch, browser, base)
         run_section("Arabic interface", arabic_interface, browser, base)
         run_section("sources page", sources_page, browser, base)
+        run_section("no review labels", no_review_labels, browser, base)
         browser.close()
     server.shutdown()
     contrast()

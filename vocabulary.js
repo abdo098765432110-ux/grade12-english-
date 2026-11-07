@@ -39,6 +39,17 @@
 
   function list(value) { return Array.isArray(value) ? value : []; }
 
+  /* The vocabulary answers are the answer key (each one was checked against
+     dictionaries), so this page shows them as the correct answers — "Correct!",
+     "Correct answer: …" — with no "suggested answer" notes. The file itself is
+     not changed. */
+  function asAnswerKey(question) {
+    var copy = {};
+    Object.keys(question).forEach(function (key) { copy[key] = question[key]; });
+    copy.reviewStatus = 'reviewed';
+    return copy;
+  }
+
   /* Units with an id, a title and at least one working question. */
   function readUnits(data) {
     var used = {};
@@ -49,7 +60,7 @@
         if (ok) used[question.id] = true;
         else skipped += 1;
         return ok;
-      });
+      }).map(asAnswerKey);
       return questions.length ? { id: unit.id, title: unit.title, questions: questions } : null;
     }).filter(Boolean);
   }
@@ -122,8 +133,6 @@
       return;
     }
 
-    var review = G12.listReviewNotice(pool(''));
-    if (review) root.appendChild(review);
     root.appendChild(setupArea);
     root.appendChild(quizArea);
     if (running) startPractice(running, true);

@@ -276,7 +276,6 @@
       "Written answer (not scored)": "Written answer (not scored)",
       "Your answer: {answer}": "Your answer: {answer}",
       "Model answer: {answer}": "Model answer: {answer}",
-      "Not yet reviewed by a teacher.": "Not yet reviewed by a teacher.",
       "Retry missed questions ({n})": "Retry missed questions ({n})",
       "{title} ({n})": "{title} ({n})",
       "Missed questions": "Missed questions",

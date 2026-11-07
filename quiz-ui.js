@@ -86,6 +86,16 @@
     return el('bdi', { dir: 'ltr', text: score + ' / ' + total });
   }
 
+  /* The labels shown with a question (its difficulty, and in the worksheet
+     its unit or passage). No review-status label is shown next to questions. */
+  function questionLabels(labels) {
+    labels = (labels || []).filter(Boolean);
+    if (!labels.length) return null;
+    return el('ul', { className: 'badges', 'aria-label': t('Labels') }, labels.map(function (label) {
+      return el('li', { className: 'badge', dir: 'auto', text: label });
+    }));
+  }
+
   function difficultyLabels(question) {
     return question.difficulty ? [t('Difficulty: {level}', { level: t(question.difficulty) })] : [];
   }
@@ -525,7 +535,7 @@
       var progress = el('progress', { max: quiz.total, value: navigator ? quiz.answeredCount() : quiz.index, 'aria-hidden': 'true' });
       view.appendChild(progress);
 
-      var badges = G12.badges(question, difficultyLabels(question));
+      var badges = questionLabels(difficultyLabels(question));
 
       var form = el('form', { className: 'question-form', novalidate: true });
       var feedback = el('div', { className: 'feedback', tabindex: '-1' });
@@ -847,7 +857,6 @@
         }
         var explanation = explanationParagraph(question, entry.reviewed);
         if (explanation) li.appendChild(explanation);
-        if (!entry.reviewed) li.appendChild(el('p', { className: 'hint', text: t('Not yet reviewed by a teacher.') }));
         list.appendChild(li);
       });
       view.appendChild(list);
@@ -1104,7 +1113,7 @@
         li.appendChild(el('fieldset', { dir: 'auto' }, [
           el('legend', { className: 'question-legend' }, promptNodes(question, numberText, index)),
           figure(question),
-          G12.badges(question, labels),
+          questionLabels(labels),
           optionList
         ]));
       } else {
@@ -1112,7 +1121,7 @@
         li.appendChild(el('div', { className: 'form-row' }, [
           el('label', { className: 'question-legend', for: id + '-answer', dir: 'auto' }, promptNodes(question, numberText, index)),
           figure(question),
-          G12.badges(question, labels),
+          questionLabels(labels),
           el('p', { className: 'hint', id: id + '-hint', text: t('Written answers are not scored automatically.') }),
           textarea
         ]));

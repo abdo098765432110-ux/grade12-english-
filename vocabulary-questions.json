@@ -58,12 +58,12 @@
             "buzzing",
             "collapsing",
             "beeping",
-            "groaning"
+            "moaning"
           ],
           "answer": "buzzing",
           "difficulty": "medium",
           "reviewStatus": "unreviewed",
-          "explanation": "✓ buzzing with activity = full of busy people and noise (مليء بالحركة والضجيج). A buzz is the sound of many people talking or machines working.\n✗ collapsing: falling down suddenly — it does not go with \"with activity\".\n✗ beeping: the short, high electronic sound a machine makes — machines beep, but a place is not \"beeping with activity\".\n✗ groaning: making a deep sound of pain — it does not describe a busy place."
+          "explanation": "✓ buzzing with activity = full of busy people and noise (مليء بالحركة والضجيج). A buzz is the sound of many people talking or machines working.\n✗ collapsing: falling down suddenly — it does not go with \"with activity\".\n✗ beeping: the short, high electronic sound a machine makes — machines beep, but a place is not \"beeping with activity\".\n✗ moaning: making a long, low sound of pain or unhappiness — a person's sound; it does not describe a busy place."
         },
         {
           "id": "vocab-u1-005",
@@ -318,7 +318,7 @@
           "answer": "order",
           "difficulty": "medium",
           "reviewStatus": "unreviewed",
-          "explanation": "✓ order: a state in which everything is organised and in its correct place (نظام) — the opposite of chaos (فوضى).\n✗ disorder: another synonym of chaos.\n✗ panic: a sudden strong fear; it often happens in chaos, so it is not the opposite.\n✗ confusion: a synonym of chaos, not its opposite."
+          "explanation": "✓ order: a state in which everything is organised and in its correct place (نظام) — the opposite of chaos (فوضى).\n✗ disorder: a synonym of chaos (a state with no order), not its opposite.\n✗ panic: a sudden strong fear; it often happens in chaos, so it is not the opposite.\n✗ confusion: a synonym of chaos, not its opposite."
         },
         {
           "id": "vocab-u1-022",
@@ -363,7 +363,7 @@
           "answer": "joyful",
           "difficulty": "medium",
           "reviewStatus": "unreviewed",
-          "explanation": "✓ joyful = full of happiness (مُبهج) — the opposite of heartbreaking (مُحزن جدًا).\n✗ tragic: very sad — a synonym, not an opposite.\n✗ upsetting: making you unhappy or worried — close in meaning to heartbreaking.\n✗ painful: causing pain or sadness — also close in meaning."
+          "explanation": "✓ joyful = very happy, or causing people to be happy (مُبهج / مُفرح) — the opposite of heartbreaking (مُحزن جدًا).\n✗ tragic: very sad — a synonym, not an opposite.\n✗ upsetting: making you unhappy or worried — close in meaning to heartbreaking.\n✗ painful: causing pain or sadness — also close in meaning."
         },
         {
           "id": "vocab-u1-025",
@@ -438,7 +438,7 @@
           "answer": "This year has been a rollercoaster: I failed one exam, then came top in the next.",
           "difficulty": "medium",
           "reviewStatus": "unreviewed",
-          "explanation": "✓ \"This year has been a rollercoaster…\" — used figuratively: a time full of ups and downs (تقلبات), just as nursing has sad and rewarding moments.\n✗ \"The rollercoaster stopped… stuck at the top\": the real ride once more, not a situation with ups and downs.\n✗ \"screamed on the rollercoaster at the theme park\": the real ride — the literal meaning.\n✗ \"A new rollercoaster has opened\": again the real ride."
+          "explanation": "✓ \"This year has been a rollercoaster…\" — used figuratively: a time full of ups and downs (تقلبات), just as nursing has sad and rewarding moments.\n✗ \"The rollercoaster stopped… stuck at the top\": the real ride — the literal meaning, not a situation with ups and downs.\n✗ \"screamed on the rollercoaster at the theme park\": the real ride — the literal meaning.\n✗ \"A new rollercoaster has opened\": the real ride — the literal meaning."
         },
         {
           "id": "vocab-u1-030",
@@ -528,7 +528,7 @@
           "answer": "medication",
           "difficulty": "medium",
           "reviewStatus": "unreviewed",
-          "explanation": "✓ medication (noun) = a medicine you take to treat an illness (دواء).\n✗ medicinal: an adjective (medicinal plants = plants used as medicine); it needs a noun after it.\n✗ medic: a person — a doctor or a paramedic.\n✗ medical: usually an adjective (medical care); as a noun, \"a medical\" is a health check — not something you take every day."
+          "explanation": "✓ medication (noun) = a medicine you take to treat an illness (دواء).\n✗ medicinal: an adjective (medicinal plants = plants used as medicine); it needs a noun after it.\n✗ medic: a person, not a medicine — an informal word for a doctor or a medical student.\n✗ medical: usually an adjective (medical care); as a noun, \"a medical\" is a health check — not something you take every day."
         },
         {
           "id": "vocab-u1-036",
@@ -563,7 +563,7 @@
         {
           "id": "vocab-u1-038",
           "type": "mcq",
-          "prompt": "Which expression from Unit 1 has the SAME meaning as \"spring into action\"?",
+          "prompt": "Which expression has the SAME meaning as \"spring into action\"?",
           "options": [
             "jump into action",
             "go the extra mile",
@@ -678,7 +678,7 @@
           "answer": "a fixed group of words whose meaning can't be guessed from the meanings of the separate words",
           "difficulty": "medium",
           "reviewStatus": "unreviewed",
-          "explanation": "✓ An idiom (تعبير اصطلاحي) is a fixed expression whose meaning is different from the meanings of its single words — \"raining cats and dogs\" has nothing to do with animals.\n✗ a short story that teaches a lesson: this is a fable, a story with a moral.\n✗ a word with the same meaning as another word: this is a synonym.\n✗ a word made from first letters, such as CPR: this is an abbreviation (CPR = cardiopulmonary resuscitation)."
+          "explanation": "✓ An idiom (تعبير اصطلاحي) is a fixed expression whose meaning is different from the meanings of its single words — \"raining cats and dogs\" has nothing to do with animals.\n✗ a short story that teaches a lesson: this is a fable, a story with a moral.\n✗ a word with the same meaning as another word: this is a synonym.\n✗ a word made from first letters, such as CPR: this is an acronym, a kind of abbreviation (CPR = cardiopulmonary resuscitation, said letter by letter) — not an idiom."
         },
         {
           "id": "vocab-u1-046",
@@ -723,7 +723,7 @@
           "answer": "collapse",
           "difficulty": "medium",
           "reviewStatus": "unreviewed",
-          "explanation": "✓ collapse (noun) = a sudden failure (انهيار). People and buildings collapse (fall down), and companies and plans collapse too (fail suddenly) — exams use both meanings.\n✗ collection: a group of things gathered together (a stamp collection).\n✗ collision: a crash between two moving things, such as two cars.\n✗ consciousness: being awake and aware — a company cannot lose or have it."
+          "explanation": "✓ collapse (noun) = a sudden failure (انهيار). People and buildings collapse (fall down), and companies and plans collapse too (fail suddenly) — exams use both meanings.\n✗ collection: a group of things gathered together (a stamp collection).\n✗ collision: a crash in which two vehicles or people hit each other, or one hits something (a collision between two cars).\n✗ consciousness: being awake and aware — a company cannot lose or have it."
         },
         {
           "id": "vocab-u1-049",
@@ -858,7 +858,7 @@
           "answer": "the regular beating of the heart that you can feel on your wrist or neck",
           "difficulty": "medium",
           "reviewStatus": "unreviewed",
-          "explanation": "✓ the regular beating of the heart that you can feel on your wrist or neck = pulse (النبض).\n✗ the force of the blood pushing against the blood vessels: this is blood pressure (ضغط الدم), a different measurement.\n✗ the sound of hospital machines working: this is a buzz (or beeping), not a pulse.\n✗ the amount of air your lungs can hold: this is lung capacity."
+          "explanation": "✓ the regular beating of the heart that you can feel on your wrist or neck = pulse (النبض).\n✗ the force of the blood pushing against the walls of the blood vessels: this is blood pressure (ضغط الدم), a different measurement.\n✗ the sound of hospital machines working: this is a buzz (or beeping), not a pulse.\n✗ the amount of air that your lungs can hold: this is lung capacity."
         },
         {
           "id": "vocab-u1-058",
@@ -873,7 +873,7 @@
           "answer": "is not breathing and has no pulse",
           "difficulty": "hard",
           "reviewStatus": "unreviewed",
-          "explanation": "✓ is not breathing and has no pulse: CPR (الإنعاش القلبي الرئوي) is for someone whose heart has stopped.\n✗ has a very fast pulse after running: a fast pulse after exercise is normal — the heart is working.\n✗ has fainted but is breathing normally: the heart is still working; lay the person on their side and call for help — CPR is not needed.\n✗ is clutching his chest but can still talk: he needs an ambulance at once, but his heart is still beating, so CPR is not started."
+          "explanation": "✓ is not breathing and has no pulse: CPR (الإنعاش القلبي الرئوي) is for someone whose heart has stopped.\n✗ has a very fast pulse after running: a fast pulse after exercise is normal — the heart is working.\n✗ has fainted but is breathing normally: the heart is still working, so CPR is not needed — lay the person on their back, raise their legs, and call for help if they do not wake up within a minute.\n✗ is clutching his chest but can still talk: he needs an ambulance at once, but his heart is still beating, so CPR is not started."
         },
         {
           "id": "vocab-u1-059",
@@ -933,7 +933,7 @@
           "answer": "No pain, no gain",
           "difficulty": "medium",
           "reviewStatus": "unreviewed",
-          "explanation": "✓ No pain, no gain: you must work hard and accept difficulty to succeed (لا نجاح بدون تعب) — the aching legs led to winning the race.\n✗ Pale as a ghost: describes a very pale face from fear or illness, not hard work.\n✗ It's raining cats and dogs: about very heavy rain — nothing to do with training.\n✗ Teamwork makes the dream work: about working together; a race won by one runner after training alone is not teamwork."
+          "explanation": "✓ No pain, no gain: you must work hard and accept difficulty to succeed (لا نجاح بدون تعب) — the aching legs led to winning the race.\n✗ Pale as a ghost: describes a very pale face from fear or illness, not hard work.\n✗ It's raining cats and dogs: about very heavy rain — nothing to do with training.\n✗ Teamwork makes the dream work: about people working together; this sentence is about one runner's own hard training and pain, not about teamwork."
         },
         {
           "id": "vocab-u1-063",
@@ -993,7 +993,7 @@
           "answer": "collapsed – pulse",
           "difficulty": "hard",
           "reviewStatus": "unreviewed",
-          "explanation": "✓ collapsed – pulse: he fell down suddenly (انهار), so the nurse checked his heartbeat (النبض) before starting CPR.\n✗ collapsed – scope: a scope is an instrument for looking inside the body; you do not \"check someone's scope\" before CPR.\n✗ swallowed – shift: swallowing is not a reason for CPR, and \"checked his shift\" (his working period) makes no sense here.\n✗ clutched – pulse: \"clutch\" needs an object (clutched his chest); \"a visitor clutched in the waiting room\" is incomplete."
+          "explanation": "✓ collapsed – pulse: he fell down suddenly (انهار), so the nurse checked his heartbeat (النبض) before starting CPR.\n✗ collapsed – scope: a scope is an instrument for looking inside the body; you do not \"check someone's scope\" before CPR.\n✗ swallowed – shift: swallowing is not a reason for CPR, and \"checked his shift\" (his working period) makes no sense here.\n✗ clutched – pulse: \"clutch\" needs something that is held (clutched his chest / clutched at the chair); \"a visitor clutched in the waiting room\" is incomplete."
         },
         {
           "id": "vocab-u1-067",
@@ -1188,7 +1188,7 @@
           "answer": "The scared boy clutched the rope as the boat rocked.",
           "difficulty": "hard",
           "reviewStatus": "unreviewed",
-          "explanation": "✓ \"clutched the rope\" = held it tightly because he was afraid (قبض على) — the same meaning as in the story.\n✗ \"Press the clutch\": a pedal in a car.\n✗ \"a small silver clutch\": a small handbag with no strap.\n✗ \"a clutch of five eggs\": a group of eggs laid at the same time."
+          "explanation": "✓ \"clutched the rope\" = held it tightly because he was afraid (قبض على) — the same meaning as in the story.\n✗ \"Press the clutch\": a pedal in a car.\n✗ \"a small silver clutch\": a clutch bag — a small, flat bag that you carry in your hand, especially at formal events.\n✗ \"a clutch of five eggs\": a group of eggs laid at the same time."
         },
         {
           "id": "vocab-u1-080",
@@ -1248,7 +1248,7 @@
           "answer": "scope",
           "difficulty": "medium",
           "reviewStatus": "unreviewed",
-          "explanation": "✓ scope = a medical instrument with a long, thin tube (often with a camera) used to look inside the body (منظار طبي).\n✗ scoop: a deep spoon for ice cream or flour — it cannot go inside the body.\n✗ scale: a machine for weighing things.\n✗ slope: a surface that goes up or down, like the side of a hill."
+          "explanation": "✓ scope = a medical instrument with a long, thin tube (often with a camera) used to look inside the body (منظار طبي).\n✗ scoop: a tool like a large, deep spoon, used for picking up flour or serving ice cream — it has no camera for looking inside the stomach.\n✗ scale: a machine for weighing things.\n✗ slope: a surface that goes up or down, like the side of a hill."
         },
         {
           "id": "vocab-u1-084",
@@ -1338,7 +1338,7 @@
           "answer": "cry out",
           "difficulty": "hard",
           "reviewStatus": "unreviewed",
-          "explanation": "✓ cry out = shout or make a loud sound suddenly because of pain or fear (يصرخ).\n✗ cry off: (informal) decide not to do something you agreed to do.\n✗ call off: cancel an event (call off the match).\n✗ carry out: do a task (carry out an operation)."
+          "explanation": "✓ cry out = shout or make a loud sound suddenly because of pain or fear (يصرخ).\n✗ cry off: (British, informal) say that you cannot do something you promised to do.\n✗ call off: cancel an event (call off the match).\n✗ carry out: do a task (carry out an operation)."
         },
         {
           "id": "vocab-u1-090",
@@ -1428,7 +1428,7 @@
           "answer": "ghost",
           "difficulty": "medium",
           "reviewStatus": "unreviewed",
-          "explanation": "✓ as pale as a ghost = extremely pale, usually because of fear, shock or illness (شاحب جدًا).\n✗ tomato: we say \"as red as a tomato\" — red, for example from shyness, not pale.\n✗ beetroot: we say \"as red as a beetroot\" — again red, not pale.\n✗ rose: roses are usually red or pink; we do not use them to mean pale."
+          "explanation": "✓ as pale as a ghost = extremely pale, usually because of fear, shock or illness (شاحب جدًا).\n✗ tomato: a tomato is red, so this comparison would describe a red face (for example from embarrassment), not a pale one.\n✗ beetroot: we say \"as red as a beetroot\" (British English) — a red face, for example from anger or embarrassment, not a pale one.\n✗ rose: roses are usually red or pink; we do not use them to mean pale."
         },
         {
           "id": "vocab-u1-096",
@@ -1463,7 +1463,7 @@
         {
           "id": "vocab-u1-098",
           "type": "mcq",
-          "prompt": "Mr. Ramy has been ___ from heart surgery for a week, and he is slowly getting stronger.",
+          "prompt": "Mr. Ramy has been ___ from heart surgery for a few days, and he is getting stronger every day.",
           "options": [
             "recovering",
             "uncovering",
