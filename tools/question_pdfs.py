@@ -1,5 +1,6 @@
-"""Builds the downloadable question PDFs, with the correct answer after every
-question (development tool — the website itself only links to the finished files):
+"""Builds the downloadable question PDFs: the questions first, then an answer
+key on the last page (development tool — the website itself only links to the
+finished files):
 
   english-questions.pdf      every English question on the website: Grammar
                              Practice (grammar-questions.json) and Vocabulary
@@ -34,19 +35,23 @@ SITE = pathlib.Path(__file__).resolve().parent.parent
 ENGLISH_PDF = "english-questions.pdf"
 SITE_NAME = "Learn for Grade 12"
 
-# Colours of each subject on the website (style.css: --sky, --sun, --mint).
+# Soft colours for each subject (calmer versions of the website's --sky, --sun, --mint).
 TONES = {
-    "english": {"ink": "#23559f", "soft": "#dcebff", "edge": "#a9cbff"},
-    "chemistry": {"ink": "#744b00", "soft": "#fff0b3", "edge": "#ffd25c"},
-    "biology": {"ink": "#1b6b49", "soft": "#d3f4e4", "edge": "#93dfbd"},
+    "english": {"ink": "#335c8a", "soft": "#e8f0fa", "edge": "#c6d8ee"},
+    "chemistry": {"ink": "#7d5418", "soft": "#fbf1dc", "edge": "#ead3a1"},
+    "biology": {"ink": "#2e6b52", "soft": "#e5f3eb", "edge": "#b9dbc8"},
 }
 
 # Words that depend on the language of the document.
 WORDS = {
-    "ar": {"letters": "أبجد", "answer": "الإجابة الصحيحة:", "model": "الإجابة النموذجية:",
-           "count": "%d سؤال", "contents": "محتوى الملف", "page": "صفحة", "of": "من"},
-    "en": {"letters": "ABCD", "answer": "Correct answer:", "model": "Model answer:",
-           "count": "%d questions", "contents": "In this file", "page": "Page", "of": "of"},
+    "ar": {"letters": "أبجد", "contents": "محتوى الملف",
+           "page": "صفحة", "of": "من", "key": "مفتاح الإجابات", "key_note": "مفتاح الإجابات في آخر الملف",
+           "key_help": "رقم السؤال وبجانبه حرف الإجابة الصحيحة. الشرح الكامل لكل سؤال موجود على الموقع.",
+           "written": "مقالي", "written_head": "إجابات الأسئلة المقالية", "question": "سؤال %d"},
+    "en": {"letters": "ABCD", "contents": "In this file",
+           "page": "Page", "of": "of", "key": "Answer Key", "key_note": "Answer key at the end",
+           "key_help": "Question number and the letter of the correct answer. Each question is explained on the website.",
+           "written": "written", "written_head": "Answers to the written questions", "question": "Question %d"},
 }
 
 
@@ -59,6 +64,24 @@ def serve(folder):
 
 def text(value):
     return html.escape(value, quote=False)
+
+
+def how_many(lang, n, noun):
+    """"10 أسئلة", "40 سؤالًا", "100 سؤال" (Arabic number agreement) or "40 questions"."""
+    if lang == "en":
+        return "%d %s" % (n, noun + ("" if n == 1 else "s"))
+    forms = {"question": ("سؤال واحد", "سؤالان", "أسئلة", "سؤالًا", "سؤال"),
+             "section": ("قسم واحد", "قسمان", "أقسام", "قسمًا", "قسم")}[noun]
+    if n == 1:
+        return forms[0]
+    if n == 2:
+        return forms[1]
+    rest = n % 100
+    if 3 <= rest <= 10:
+        return "%d %s" % (n, forms[2])
+    if 11 <= rest <= 99:
+        return "%d %s" % (n, forms[3])
+    return "%d %s" % (n, forms[4])
 
 
 # A short run of Latin text inside Arabic (for example "A = Ti" or "FeO ،X"), kept
@@ -74,35 +97,68 @@ def css(tone, lang, running_title):
     return """
 @page {
   size: A4;
-  margin: 16mm 14mm 16mm;
-  @top-center { content: "%(running)s"; font-family: "DejaVu Sans", sans-serif; font-size: 8.5pt; color: #6b7590; }
-  @bottom-center { content: "%(page)s " counter(page) " %(of)s " counter(pages); font-family: "DejaVu Sans", sans-serif; font-size: 9pt; color: #6b7590; }
+  margin: 17mm 15mm 16mm;
+  background: #f7f6f2;
+  @top-center { content: "%(running)s"; font-family: "DejaVu Sans", sans-serif; font-size: 8pt; color: #8a8f9b; }
+  @bottom-center { content: "%(page)s " counter(page) " %(of)s " counter(pages); font-family: "DejaVu Sans", sans-serif; font-size: 8.5pt; color: #8a8f9b; }
 }
 * { box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-html, body { margin: 0; background: #fff; }
-body { font-family: "DejaVu Sans", sans-serif; font-size: %(size)s; line-height: 1.6; color: #23304d; }
-.head { padding-bottom: 7pt; margin-bottom: 9pt; border-bottom: 2.5pt solid %(edge)s; }
-.head h1 { margin: 0; font-size: 17pt; line-height: 1.35; color: %(ink)s; }
-.head p { margin: 3pt 0 0; color: #56617c; font-size: 9.5pt; }
-.contents { margin: 0 0 6pt; padding: 6pt 10pt; border: 0.8pt solid %(edge)s; border-radius: 5pt; background: #fbfcff; font-size: 9.5pt; }
-.contents b { color: %(ink)s; }
-.contents ol { margin: 3pt 0 0; padding-inline-start: 16pt; }
-.part { break-before: auto; }
-.part h2 { break-after: avoid; margin: 12pt 0 4pt; padding: 5pt 9pt; border-radius: 5pt; background: %(soft)s; border-inline-start: 4pt solid %(edge)s; color: %(ink)s; font-size: 12.5pt; line-height: 1.35; }
-.q { break-inside: avoid; padding: 7pt 0 8pt; border-bottom: 0.7pt solid #e3e8f3; }
-.q-head { display: flex; gap: 7pt; align-items: flex-start; }
-.num { flex: none; min-width: 21pt; height: 19pt; padding: 0 4pt; border-radius: 5pt; background: %(soft)s; color: %(ink)s; font-weight: 700; font-size: 9.5pt; display: flex; align-items: center; justify-content: center; direction: ltr; }
-.prompt { white-space: pre-line; font-weight: 700; padding-top: 1pt; min-width: 0; }
-.fig { margin: 5pt 0 3pt; text-align: center; }
+html, body { margin: 0; background: transparent; }
+body { font-family: "DejaVu Sans", sans-serif; font-size: %(size)s; line-height: 1.7; color: #3a414e; }
+
+/* the title block on page 1 */
+.cover { padding: 15pt 17pt 13pt; border: 1pt solid %(edge)s; border-radius: 12pt; background: linear-gradient(135deg, %(soft)s 0%%, #ffffff 85%%); }
+.cover .kicker { margin: 0; font-size: 9pt; font-weight: 700; color: %(ink)s; opacity: 0.85; }
+.cover h1 { margin: 3pt 0 2pt; font-size: 19pt; line-height: 1.35; color: %(ink)s; }
+.cover .sub { margin: 0; font-size: 10.5pt; color: #59606d; }
+.chips { display: flex; flex-wrap: wrap; gap: 5pt; margin: 9pt 0 0; padding: 0; list-style: none; }
+.chips li { padding: 1.5pt 9pt; border-radius: 20pt; background: #ffffff; border: 0.8pt solid %(edge)s; color: %(ink)s; font-size: 8.5pt; font-weight: 700; }
+.chips li.site { background: transparent; border-color: transparent; color: #8a8f9b; font-weight: 400; }
+
+/* contents */
+.contents { margin: 10pt 0 4pt; padding: 9pt 13pt; border-radius: 10pt; background: #ffffff; border: 0.8pt solid #e4e1d8; }
+.contents h2 { margin: 0 0 4pt; font-size: 10pt; color: %(ink)s; }
+.contents ol { margin: 0; padding: 0; list-style: none; counter-reset: c; }
+.contents li { counter-increment: c; display: flex; align-items: baseline; gap: 6pt; padding: 2.5pt 0; border-bottom: 0.6pt dashed #e4e1d8; font-size: 9.5pt; }
+.contents li:last-child { border-bottom: 0; }
+.contents li::before { content: counter(c); flex: none; width: 15pt; height: 15pt; border-radius: 50%%; background: %(soft)s; color: %(ink)s; font-size: 8pt; font-weight: 700; text-align: center; line-height: 15pt; }
+.contents .name { flex: 1 1 auto; }
+.contents .n { flex: none; color: #7a808c; font-size: 8.5pt; }
+
+/* one part (a section of the website) */
+.part + .part, .key { break-before: page; }
+.part-head { break-after: avoid; display: flex; align-items: center; gap: 8pt; margin: 14pt 0 9pt; padding: 7pt 12pt; border-radius: 10pt; background: %(soft)s; border: 0.8pt solid %(edge)s; }
+.part + .part .part-head, .key .part-head { margin-top: 0; }
+.part-head h2 { flex: 1 1 auto; margin: 0; font-size: 12.5pt; line-height: 1.4; color: %(ink)s; }
+.part-head .n { flex: none; padding: 1pt 8pt; border-radius: 20pt; background: #ffffff; color: %(ink)s; font-size: 8.5pt; font-weight: 700; }
+
+/* one question */
+.q { break-inside: avoid; margin: 0 0 7pt; padding: 9pt 11pt 8pt; border-radius: 9pt; background: #ffffff; border: 0.8pt solid #e6e3da; }
+.q-head { display: flex; gap: 8pt; align-items: flex-start; }
+.num { flex: none; min-width: 22pt; height: 20pt; padding: 0 5pt; border-radius: 7pt; background: %(soft)s; color: %(ink)s; font-weight: 700; font-size: 9.5pt; display: flex; align-items: center; justify-content: center; direction: ltr; }
+.prompt { white-space: pre-line; font-weight: 700; color: #343b48; padding-top: 1pt; min-width: 0; }
+.fig { margin: 7pt 0 3pt; padding: 5pt; text-align: center; border-radius: 7pt; background: #ffffff; border: 0.6pt solid #eeebe3; }
 .fig img { max-width: 100%%; object-fit: contain; }
-.opts { list-style: none; margin: 4pt 0 0; padding-block: 0; padding-inline: 28pt 0; display: grid; gap: 2pt 14pt; }
+.opts { list-style: none; margin: 6pt 0 0; padding-block: 0; padding-inline: 30pt 0; display: grid; gap: 4pt 16pt; }
 .opts.two { grid-template-columns: 1fr 1fr; }
-.opts li { display: flex; gap: 5pt; align-items: baseline; break-inside: avoid; }
-.opts .l { flex: none; font-weight: 700; color: %(ink)s; }
+.opts li { display: flex; gap: 6pt; align-items: baseline; break-inside: avoid; }
+.opts .l { flex: none; width: 15pt; height: 15pt; border-radius: 50%%; background: %(soft)s; color: %(ink)s; font-weight: 700; font-size: 8.5pt; line-height: 15pt; text-align: center; }
 .opts .t { white-space: pre-line; unicode-bidi: plaintext; }
-.ans { margin: 5pt 0 0; margin-inline-start: 28pt; padding: 3pt 8pt; border-radius: 4pt; background: #e9f7ef; border-inline-start: 3pt solid #2f9e5f; color: #17633a; font-size: 0.95em; }
-.ans b { font-weight: 700; }
-.ans .t { white-space: pre-line; unicode-bidi: plaintext; }
+
+/* the answer key */
+.key-help { margin: -3pt 0 8pt; color: #6b7280; font-size: 8.5pt; }
+.key h3 { break-after: avoid; margin: 9pt 0 4pt; font-size: 10pt; color: %(ink)s; }
+.grid { width: 100%%; border-collapse: separate; border-spacing: 2pt; table-layout: fixed; }
+.grid tr { break-inside: avoid; }
+.grid td { padding: 2pt 0; border-radius: 5pt; background: #ffffff; border: 0.6pt solid #e6e3da; text-align: center; font-size: 9.5pt; line-height: 1.45; white-space: nowrap; }
+.grid td.empty { background: transparent; border-color: transparent; }
+.grid .qn { display: inline-block; min-width: 15pt; color: #8a8f9b; font-size: 8pt; direction: ltr; }
+.grid .a { display: inline-block; min-width: 12pt; color: %(ink)s; font-weight: 700; }
+.grid .w { color: %(ink)s; font-size: 7.5pt; font-weight: 700; }
+.written { margin: 6pt 0 0; padding: 0; list-style: none; }
+.written li { break-inside: avoid; margin: 0 0 5pt; padding: 7pt 10pt; border-radius: 8pt; background: #ffffff; border: 0.8pt solid #e6e3da; font-size: 9pt; }
+.written b { color: %(ink)s; }
+.written .t { white-space: pre-line; unicode-bidi: plaintext; }
 """ % {"running": running_title.replace('"', "'"), "size": "10pt" if lang == "ar" else "10.2pt",
        "page": WORDS[lang]["page"], "of": WORDS[lang]["of"],
        "ink": tone["ink"], "soft": tone["soft"], "edge": tone["edge"]}
@@ -118,48 +174,80 @@ def figure_size(path):
     return width * scale, height * scale
 
 
+def shower(words):
+    """The words of a question, exactly as in the data (in Arabic, short Latin runs kept on one line)."""
+    return (lambda value: text(keep_together(value))) if words is WORDS["ar"] else text
+
+
 def question_block(number, question, words):
     letters = words["letters"]
-    # the words of the question, exactly as in the data (in Arabic, short Latin runs kept on one line)
-    show = (lambda value: text(keep_together(value))) if words is WORDS["ar"] else text
+    show = shower(words)
     figure = ""
     if question.get("image"):
         width, height = figure_size(SITE / question["image"])
         figure = '<div class="fig"><img src="%s" alt="%s" style="width:%.1fmm;height:%.1fmm"></div>' % (
             text(question["image"]), text(question.get("imageAlt", "")), width, height)
     options = question.get("options") or []
+    body = ""
     if options:
         short = all(len(option) <= 30 and "\n" not in option for option in options)
-        items = "".join('<li><span class="l">%s)</span><span class="t" dir="auto">%s</span></li>' % (letters[i], show(option))
+        items = "".join('<li><span class="l">%s</span><span class="t" dir="auto">%s</span></li>' % (letters[i], show(option))
                         for i, option in enumerate(options))
         body = '<ul class="opts%s">%s</ul>' % (" two" if short else "", items)
-        k = options.index(question["answer"])
-        answer = '<p class="ans"><b>%s</b> %s) <span class="t" dir="auto">%s</span></p>' % (words["answer"], letters[k], show(question["answer"]))
-    else:  # a written-answer question: its model answer
-        body = ""
-        answer = '<p class="ans"><b>%s</b> <span class="t" dir="auto">%s</span></p>' % (words["model"], show(question["modelAnswer"]))
-    return '<section class="q"><div class="q-head"><span class="num">%d</span><div class="prompt" dir="auto">%s</div></div>%s%s%s</section>' % (
-        number, show(question["prompt"]), figure, body, answer)
+    return '<section class="q"><div class="q-head"><span class="num">%d</span><div class="prompt" dir="auto">%s</div></div>%s%s</section>' % (
+        number, show(question["prompt"]), figure, body)
 
 
-def document(lang, tone, title, subtitle, parts, base_url):
-    """parts: [(heading, [questions])]; numbering starts again at 1 in each part."""
+def answer_key(parts, words):
+    """The last page(s): for each part, a grid of question numbers with the
+    letter of the correct answer, then the model answers of written questions."""
+    letters = words["letters"]
+    show = shower(words)
+    blocks = []
+    for heading, questions in parts:
+        cells, written = [], []
+        for number, question in enumerate(questions, 1):
+            if question.get("options"):
+                letter = letters[question["options"].index(question["answer"])]
+                cells.append('<td><span class="qn">%d</span> <span class="a">%s</span></td>' % (number, letter))
+            else:
+                cells.append('<td><span class="qn">%d</span> <span class="w">%s</span></td>' % (number, words["written"]))
+                written.append('<li><b>%s:</b> <span class="t" dir="auto">%s</span></li>' % (words["question"] % number, show(question["modelAnswer"])))
+        cells += ['<td class="empty"></td>'] * (-len(cells) % 10)
+        rows = "".join("<tr>%s</tr>" % "".join(cells[k:k + 10]) for k in range(0, len(cells), 10))
+        block = '<h3>%s</h3><table class="grid">%s</table>' % (text(heading), rows)
+        if written:
+            block += '<h3>%s</h3><ul class="written">%s</ul>' % (words["written_head"], "".join(written))
+        blocks.append(block)
+    return ('<section class="key"><div class="part-head"><h2>%s</h2></div><p class="key-help">%s</p>%s</section>'
+            % (words["key"], words["key_help"], "".join(blocks)))
+
+
+def document(lang, tone, title, kicker, heading, subtitle, parts, base_url):
+    """parts: [(heading, [questions])]; numbering starts again at 1 in each part,
+    as on the website. The answers are all in the answer key at the end."""
     words = WORDS[lang]
     total = sum(len(questions) for _, questions in parts)
-    contents = "".join("<li>%s — %s</li>" % (text(heading), words["count"] % len(questions)) for heading, questions in parts)
+    contents = "".join('<li><span class="name">%s</span><span class="n">%s</span></li>' % (text(name), how_many(lang, len(questions), "question"))
+                       for name, questions in parts)
+    contents += '<li><span class="name">%s</span><span class="n"></span></li>' % words["key"]
     sections = []
-    for heading, questions in parts:
+    for name, questions in parts:
         blocks = "".join(question_block(n, q, words) for n, q in enumerate(questions, 1))
-        sections.append('<section class="part"><h2>%s <span dir="ltr">(%d)</span></h2>%s</section>' % (text(heading), len(questions), blocks))
+        sections.append('<section class="part"><div class="part-head"><h2>%s</h2><span class="n">%s</span></div>%s</section>'
+                        % (text(name), how_many(lang, len(questions), "question"), blocks))
+    chips = [how_many(lang, total, "question"), how_many(lang, len(parts), "section"), words["key_note"]]
     return """<!DOCTYPE html>
 <html lang="%s" dir="%s"><head><meta charset="utf-8"><base href="%s"><title>%s</title><style>%s</style></head>
 <body>
-<header class="head"><h1>%s</h1><p>%s · %s · <span dir="ltr">%s</span></p></header>
-<div class="contents"><b>%s</b><ol>%s</ol></div>
+<header class="cover"><p class="kicker">%s</p><h1>%s</h1><p class="sub">%s</p>
+<ul class="chips">%s<li class="site" dir="ltr">%s</li></ul></header>
+<nav class="contents"><h2>%s</h2><ol>%s</ol></nav>
+%s
 %s
 </body></html>""" % (lang, "rtl" if lang == "ar" else "ltr", base_url, text(title), css(tone, lang, title),
-                    text(title), text(subtitle), words["count"] % total, SITE_NAME,
-                    words["contents"], contents, "\n".join(sections))
+                    text(kicker), text(heading), text(subtitle), "".join("<li>%s</li>" % c for c in chips), SITE_NAME,
+                    words["contents"], contents, "\n".join(sections), answer_key(parts, words))
 
 
 def load(name):
@@ -186,19 +274,21 @@ def jobs(base):
     """(file name, html, the questions in it) for each PDF."""
     grammar = load("grammar-questions.json")["questions"]
     vocabulary = [q for unit in load("vocabulary-questions.json")["units"] for q in unit["questions"]]
-    out = [(ENGLISH_PDF, document("en", TONES["english"], "English — All Questions with Answers",
-                                  "Grade 12 · Grammar Practice and Vocabulary", english_parts(), base),
+    out = [(ENGLISH_PDF, document("en", TONES["english"], "English — Question Bank with Answer Key",
+                                  "English · Grade 12", "English Question Bank", "Grammar Practice and Vocabulary",
+                                  english_parts(), base),
             grammar + vocabulary)]
     chemistry = load("chemistry-questions.json")
     parts = [(chapter["title"] + " — " + section["title"], section["questions"])
              for chapter in chemistry["chapters"] for section in chapter["sections"]]
-    out.append((chemistry["pdf"], document("ar", TONES["chemistry"], "الكيمياء — جميع الأسئلة بالإجابات",
-                                           "الصف الثالث الثانوي", parts, base),
+    chapters = "، ".join(chapter["title"] for chapter in chemistry["chapters"])
+    out.append((chemistry["pdf"], document("ar", TONES["chemistry"], "الكيمياء — بنك الأسئلة ومفتاح الإجابات",
+                                           "الكيمياء · الصف الثالث الثانوي", "بنك أسئلة الكيمياء", chapters, parts, base),
                 [q for _, questions in parts for q in questions]))
     for chapter in load("biology-questions.json")["chapters"]:
         parts = [(section["title"], section["questions"]) for section in chapter["sections"]]
         out.append((chapter["pdf"], document("ar", TONES["biology"], "الأحياء — " + chapter["title"],
-                                             "الصف الثالث الثانوي · جميع الأسئلة بالإجابات", parts, base),
+                                             "الأحياء · الصف الثالث الثانوي", "بنك أسئلة الأحياء", chapter["title"], parts, base),
                     [q for _, questions in parts for q in questions]))
     return out
 

@@ -114,7 +114,7 @@
       icon ? el('img', { className: 'summary-pdf-icon', src: icon.getAttribute('src'), alt: '', width: '56', height: '56' }) : null,
       el('div', { className: 'summary-pdf-text' }, [
         el('p', { className: 'summary-pdf-title', text: title }),
-        el('p', { className: 'hint', text: t('{questions} · the correct answer after each question · PDF file, A4 pages', { questions: G12.plural(count, 'question') }) }),
+        el('p', { className: 'hint', text: t('{questions} · answer key at the end · PDF file, A4 pages', { questions: G12.plural(count, 'question') }) }),
         el('div', { className: 'actions' }, [
           el('a', { className: 'btn', href: file, target: '_blank', rel: 'noopener', type: 'application/pdf', text: t('View PDF') }),
           el('a', { className: 'btn btn--secondary', href: file, download: '', type: 'application/pdf', text: t('Download PDF') })

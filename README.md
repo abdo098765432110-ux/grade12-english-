@@ -42,7 +42,7 @@ grade12-english/
 ├── biology-questions.json Biology questions (الفصل الأول والثاني: سهلة / متوسطة / صعبة جدًا)
 ├── physics-ch1-laws.html  Revision sheet «مراجعة أهم قوانين الفصل الأول» (A4, printable; styles in sheet.css, print button in sheet.js)
 ├── physics-ch1-laws.pdf, physics-ch1-questions.pdf   Downloadable PDFs: the revision sheet, and all chapter 1 questions (made by tools/physics_pdfs.py)
-├── english-questions.pdf, chemistry-questions.pdf, biology-ch1-questions.pdf, biology-ch2-questions.pdf   All the questions with the correct answer after each one (made by tools/question_pdfs.py; question-pdfs.json records what each was made from)
+├── english-questions.pdf, chemistry-questions.pdf, biology-ch1-questions.pdf, biology-ch2-questions.pdf   All the questions, with an answer key on the last page (made by tools/question_pdfs.py; question-pdfs.json records what each was made from)
 ├── physics-ch1-p02.svg … physics-ch1-p118.svg   Diagrams for the physics questions taken from the review PDF (questions 1–118; only those that have a figure or table)
 ├── physics-ch1-q6.svg … physics-ch1-q11.svg   Diagrams for the earlier physics questions (no picture for q8)
 ├── .nojekyll              Empty file: tells GitHub Pages to serve files as they are
