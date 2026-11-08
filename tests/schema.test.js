@@ -438,6 +438,43 @@ test('vocabulary: Unit 1 has exactly 100 valid questions, medium and hard only, 
   assert.ok(grammar.every((q) => !ids.has(q.id) && !prompts.has(q.prompt)), 'no vocabulary question in grammar-questions.json');
 });
 
+test('biology: chapters 1 and 2 each have 100 questions — 10 easy, 40 medium, 50 very hard', () => {
+  const fs = require('fs');
+  const path = require('path');
+  const data = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'biology-questions.json'), 'utf8'));
+  assert.deepEqual(data.chapters.map((c) => c.id), ['chapter-1', 'chapter-2']);
+  const levels = [['easy', 10], ['medium', 40], ['very-hard', 50]];
+  const ids = new Set();
+  data.chapters.forEach((chapter, c) => {
+    assert.deepEqual(chapter.sections.map((s) => s.id), levels.map(([level]) => chapter.id + '-' + level), chapter.title);
+    chapter.sections.forEach((section, s) => {
+      const [level, count] = levels[s];
+      assert.equal(section.questions.length, count, section.title);
+      const letters = [0, 0, 0, 0];
+      section.questions.forEach((question, i) => {
+        assert.deepEqual(Schema.validateItem('questions', question, i).errors, [], question.id);
+        assert.equal(question.type, 'mcq', question.id);
+        assert.equal(question.lang, 'ar', question.id);
+        assert.equal(question.difficulty, level, question.id);
+        assert.equal(question.options.length, 4, question.id);
+        assert.equal(new Set(question.options).size, 4, question.id + ' has four different options');
+        assert.ok(question.options.includes(question.answer), question.id);
+        letters[question.options.indexOf(question.answer)] += 1;
+        // the explanation covers all four options: one ✓ and three ✗
+        assert.equal((question.explanation.match(/✓/g) || []).length, 1, question.id + ' ✓');
+        assert.equal((question.explanation.match(/✗/g) || []).length, 3, question.id + ' ✗');
+        assert.ok(!ids.has(question.id), 'duplicate id ' + question.id);
+        ids.add(question.id);
+      });
+      // the correct answers are spread over the four positions
+      assert.ok(letters.every((n) => n >= Math.floor(count / 4) - 1), section.id + ' answer positions ' + letters);
+      const prompts = section.questions.map((q) => q.prompt.replace(/\s+/g, ' '));
+      assert.equal(new Set(prompts).size, prompts.length, section.id + ' has no repeated question');
+    });
+  });
+  assert.equal(ids.size, 200);
+});
+
 test('questions: optional lang, image and imageAlt are checked', () => {
   const question = mcq({ lang: 'ar', image: 'figure.svg', imageAlt: 'وصف الشكل' });
   assert.deepEqual(errorsOf('questions', question), []);

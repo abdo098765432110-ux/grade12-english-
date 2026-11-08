@@ -60,7 +60,7 @@
   var REVIEW_STATUSES = ['unreviewed', 'reviewed'];
   var SECTION_TYPES = ['text', 'note', 'tip', 'list', 'examples', 'table', 'mistakes'];
   var QUESTION_TYPES = ['mcq', 'short'];
-  var DIFFICULTIES = ['easy', 'medium', 'hard'];
+  var DIFFICULTIES = ['easy', 'medium', 'hard', 'very-hard'];
   var LANGUAGES = ['en', 'ar'];
   var ID_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
   var MIN_OPTIONS = 2;
@@ -470,7 +470,7 @@
     checkLinkId(question, 'unitId', report, where);
     checkLinkId(question, 'topicId', report, where);
     if (question.difficulty !== undefined && DIFFICULTIES.indexOf(question.difficulty) === -1) {
-      report.error(where, tr('difficulty must be "easy", "medium" or "hard" (or left out).'), meta);
+      report.error(where, tr('difficulty must be "easy", "medium", "hard" or "very-hard" (or left out).'), meta);
     }
 
     if (QUESTION_TYPES.indexOf(question.type) === -1) {

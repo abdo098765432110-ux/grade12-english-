@@ -147,7 +147,7 @@ Section types (each may also have an optional `heading`):
 | `answer` | for `mcq` | **The full text of the correct option, exactly as written in `options`.** |
 | `modelAnswer` | for `short` | Students compare their own answer with it. |
 | `explanation` | no | Shown after answering. |
-| `difficulty` | no | `"easy"`, `"medium"` or `"hard"`. |
+| `difficulty` | no | `"easy"`, `"medium"`, `"hard"` or `"very-hard"` (shown as "very hard"; used by the Biology bank). |
 | `lang` | no | `"ar"` for a question written in Arabic: right to left, with the choices numbered أ) ب) ج) د). |
 | `image`, `imageAlt` | no | A diagram shown under the question (a picture file next to `index.html`), and a text description of it for screen readers. |
 

@@ -9,8 +9,10 @@ A free learning website for Egyptian Grade 12 students. The subject menu
   comprehension.
 - **Physics**: الفصل الأول → أسئلة على الفصل الأول: interactive questions,
   with the correct answer and an explanation after each answer.
-- **Arabic, chemistry and biology**: one page each, with an empty content
-  area ready for future lessons.
+- **Chemistry**: Chapter 1 questions (chemistry-questions.json).
+- **Biology**: Chapters 1 and 2 question banks — each chapter has 10 easy,
+  40 medium and 50 very hard questions (biology-questions.json).
+- **Arabic**: one page with an empty content area ready for future lessons.
 
 - Plain HTML, CSS, JavaScript and JSON. No build step, frameworks, packages,
   database, accounts, paid services or AI APIs.
@@ -36,6 +38,8 @@ grade12-english/
 ├── arabic.html, physics.html, chemistry.html, biology.html   The other four subjects
 ├── subject.js             Subject pages: chapters → sections → questions, with the shared quiz
 ├── physics-questions.json Physics questions (الفصل الأول → حل أسئلة الفصل الأول, and the chapter's revision sheet)
+├── chemistry-questions.json Chemistry questions (الفصل الأول)
+├── biology-questions.json Biology questions (الفصل الأول والثاني: سهلة / متوسطة / صعبة جدًا)
 ├── physics-ch1-laws.html  Revision sheet «مراجعة أهم قوانين الفصل الأول» (A4, printable; styles in sheet.css, print button in sheet.js)
 ├── physics-ch1-laws.pdf, physics-ch1-questions.pdf   Downloadable PDFs: the revision sheet, and all chapter 1 questions (made by tools/physics_pdfs.py)
 ├── physics-ch1-p02.svg … physics-ch1-p118.svg   Diagrams for the physics questions taken from the review PDF (questions 1–118; only those that have a figure or table)

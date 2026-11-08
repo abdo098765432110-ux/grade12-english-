@@ -1526,6 +1526,42 @@ def no_review_labels(browser, base):
     context.close()
 
 
+# ---------------------------------------------------------------- 13. Biology question bank
+
+def biology_bank(browser, base):
+    context = browser.new_context(viewport={"width": 1280, "height": 900})
+    page = watch(context.new_page())
+    page.goto(base + "biology.html")
+    page.wait_for_selector(".subject-cards .card")
+    chapters = page.locator(".subject-cards .card h2").all_inner_texts()
+    counts = page.locator(".subject-cards .card .card-count").all_inner_texts()
+    record("biology: two chapters of 100 questions each",
+           chapters == ["الفصل الأول: الدعامة والحركة في الكائنات الحية", "الفصل الثاني: التنسيق الهرموني في الكائنات الحية"]
+           and counts == ["100 questions", "100 questions"], str(chapters) + str(counts))
+    for chapter in ["chapter-1", "chapter-2"]:
+        page.goto(base + "biology.html?chapter=" + chapter)
+        page.wait_for_selector(".subject-cards .card")
+        titles = page.locator(".subject-cards .card h3").all_inner_texts()
+        counts = page.locator(".subject-cards .card .card-count").all_inner_texts()
+        record("biology %s: easy 10, medium 40, very hard 50" % chapter,
+               titles == ["أسئلة سهلة", "أسئلة متوسطة", "أسئلة صعبة جدًا"] and counts == ["10 questions", "40 questions", "50 questions"],
+               str(titles) + str(counts))
+        page.goto(base + "biology.html?chapter=%s&section=%s-very-hard" % (chapter, chapter))
+        page.wait_for_selector(".quiz .question-legend")
+        labels = page.locator(".quiz .badges").all_inner_texts()
+        record("biology %s very hard: the question is labelled 'very hard', with no review label" % chapter,
+               any("very hard" in label for label in labels) and page.locator(".quiz .badge--reviewed, .quiz .badge--unreviewed").count() == 0,
+               str(labels))
+        audit(page, "biology %s very-hard section" % chapter)
+    page.set_viewport_size({"width": 375, "height": 800})
+    page.goto(base + "biology.html?chapter=chapter-2&section=chapter-2-medium")
+    page.wait_for_selector(".quiz .question-legend")
+    audit(page, "biology section at phone width")
+    page.screenshot(path=str(SHOTS / "40-biology-phone.png"), full_page=True)
+    no_errors(page, "biology pages")
+    context.close()
+
+
 def main():
     real_data = {name: (PROJECT / name).read_bytes() for name, _ in DATA_FILES}
     server, base = start_server()
@@ -1558,6 +1594,7 @@ def main():
         run_section("Arabic interface", arabic_interface, browser, base)
         run_section("sources page", sources_page, browser, base)
         run_section("no review labels", no_review_labels, browser, base)
+        run_section("biology question bank", biology_bank, browser, base)
         browser.close()
     server.shutdown()
     contrast()
