@@ -1,5 +1,6 @@
 {
   "schemaVersion": 2,
+  "pdf": "chemistry-questions.pdf",
   "chapters": [
     {
       "id": "chapter-1",

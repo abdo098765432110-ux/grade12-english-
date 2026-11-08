@@ -12,7 +12,10 @@
      physics.html?chapter=chapter-1&section=<id>         the questions of that section
    A section may name a PDF of its questions ("pdf"); a chapter may have a
    revision sheet ("revision": { title, page, pdf }), shown as a second card
-   on the chapter page with "open", "download" and "print". 
+   on the chapter page with "open", "download" and "print". A PDF of all the
+   questions with their answers ("pdf" at the top of the file, or on a chapter;
+   made by tools/question_pdfs.py) is shown under the cards with "view" and
+   "download".
    The questions use the shared quiz (quiz-ui.js): one question at a time, with
    instant feedback, the correct answer and the explanation, and a panel of
    question numbers to jump to any question. Questions use the
@@ -103,8 +106,25 @@
 
   function hasText(value) { return typeof value === 'string' && value.trim() !== ''; }
 
+  /* A PDF of all the questions with their answers ("pdf" at the top of the data
+     file, or on a chapter): view it in the browser or download it. */
+  function answersPdf(file, title, count) {
+    var icon = titleBox ? titleBox.querySelector('img') : null;
+    return el('div', { className: 'summary-pdf questions-pdf' + (tone ? ' ' + tone : '') }, [
+      icon ? el('img', { className: 'summary-pdf-icon', src: icon.getAttribute('src'), alt: '', width: '56', height: '56' }) : null,
+      el('div', { className: 'summary-pdf-text' }, [
+        el('p', { className: 'summary-pdf-title', text: title }),
+        el('p', { className: 'hint', text: t('{questions} · the correct answer after each question · PDF file, A4 pages', { questions: G12.plural(count, 'question') }) }),
+        el('div', { className: 'actions' }, [
+          el('a', { className: 'btn', href: file, target: '_blank', rel: 'noopener', type: 'application/pdf', text: t('View PDF') }),
+          el('a', { className: 'btn btn--secondary', href: file, download: '', type: 'application/pdf', text: t('Download PDF') })
+        ])
+      ])
+    ]);
+  }
+
   /* Step 1: the chapters. */
-  function drawChapters(chapters) {
+  function drawChapters(chapters, data) {
     G12.setTitle(subjectName);
     if (!chapters.length) {
       area.appendChild(el('div', { className: 'empty-state' }, [
@@ -116,6 +136,10 @@
     area.appendChild(el('ul', { className: 'card-grid subject-cards', 'aria-label': subjectName }, chapters.map(function (chapter) {
       return card('h2', chapter.title, hrefFor(chapter), countOf(sectionsOf(chapter)), t('Open the chapter'));
     })));
+    if (hasText(data && data.pdf)) {
+      var total = chapters.reduce(function (sum, chapter) { return sum + countOf(sectionsOf(chapter)); }, 0);
+      area.appendChild(answersPdf(data.pdf, t('All the questions with their answers'), total));
+    }
   }
 
   /* Step 2: the sections of one chapter. */
@@ -135,6 +159,9 @@
       cards.push(card('h3', sheet.title, sheet.page, 0, t('Open the revision sheet'), t('Laws and key ideas · A4'), extra));
     }
     area.appendChild(el('ul', { className: 'card-grid subject-cards', 'aria-label': chapter.title }, cards));
+    if (hasText(chapter.pdf)) {
+      area.appendChild(answersPdf(chapter.pdf, t('All the questions of this chapter with their answers'), countOf(sectionsOf(chapter))));
+    }
   }
 
   /* Step 3: the questions of one section. */
@@ -175,7 +202,7 @@
     var chapterId = G12.param('chapter');
     var sectionId = G12.param('section');
     if (!chapterId) {
-      drawChapters(chapters);
+      drawChapters(chapters, data);
       return;
     }
     var chapter = find(chapters, chapterId);

@@ -4,6 +4,7 @@
     {
       "id": "chapter-1",
       "title": "الفصل الأول: الدعامة والحركة في الكائنات الحية",
+      "pdf": "biology-ch1-questions.pdf",
       "sections": [
         {
           "id": "chapter-1-easy",
@@ -1628,6 +1629,7 @@
     {
       "id": "chapter-2",
       "title": "الفصل الثاني: التنسيق الهرموني في الكائنات الحية",
+      "pdf": "biology-ch2-questions.pdf",
       "sections": [
         {
           "id": "chapter-2-easy",

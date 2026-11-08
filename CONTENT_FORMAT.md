@@ -191,6 +191,14 @@ shown as a second card on the chapter page with «افتح المراجعة», �
 and «طباعة المراجعة». After changing the questions or the revision sheet, make the
 PDFs again with `python tools/physics_pdfs.py`.
 
+A PDF of all the questions with their answers can be named at the top of the
+file (`"pdf": "chemistry-questions.pdf"`, shown on the subject page) or on a
+chapter (`"pdf": "biology-ch1-questions.pdf"`, shown on the chapter page), with
+«عرض ملف PDF» and «تحميل ملف PDF». These PDFs (and `english-questions.pdf`,
+linked from the English home page) are made by `python3 tools/question_pdfs.py`;
+run it again after changing the English, Chemistry or Biology questions (the tests
+fail until you do).
+
 Addresses: `physics.html` (chapters), `physics.html?chapter=chapter-1`
 (its sections), `physics.html?chapter=chapter-1&section=chapter-1-questions`
 (the questions). The questions use the same fields as the grammar questions above.

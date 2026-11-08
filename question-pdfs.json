@@ -1,0 +1,24 @@
+{
+  "files": [
+    {
+      "pdf": "english-questions.pdf",
+      "questions": 288,
+      "fingerprint": "102b19d14ebf22cf"
+    },
+    {
+      "pdf": "chemistry-questions.pdf",
+      "questions": 102,
+      "fingerprint": "bf0774c5a5d987f3"
+    },
+    {
+      "pdf": "biology-ch1-questions.pdf",
+      "questions": 100,
+      "fingerprint": "9f80fd7355596dfc"
+    },
+    {
+      "pdf": "biology-ch2-questions.pdf",
+      "questions": 100,
+      "fingerprint": "c1350f0900941ea0"
+    }
+  ]
+}
