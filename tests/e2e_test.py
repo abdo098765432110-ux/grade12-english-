@@ -1466,6 +1466,8 @@ def sources_page(browser, base):
     missing = []
     for path in pages:
         page.goto(base + path)
+        # Let each page finish loading its questions, so leaving it doesn't cancel a request.
+        page.wait_for_load_state("networkidle")
         if page.locator(".site-footer a[href='sources.html']").count() != 1:
             missing.append(path)
     record("every page has the Sources & References link in its footer", not missing, ", ".join(missing))
