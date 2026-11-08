@@ -1564,6 +1564,59 @@ def biology_bank(browser, base):
     context.close()
 
 
+def question_pdfs(browser, base):
+    """The four PDFs of questions with answers: a panel with "View PDF" and
+    "Download PDF" where they belong, on a computer and on a phone."""
+    pages = [("English home", "index.html", "english-questions.pdf"),
+             ("Chemistry", "chemistry.html", "chemistry-questions.pdf"),
+             ("Biology chapter 1", "biology.html?chapter=chapter-1", "biology-ch1-questions.pdf"),
+             ("Biology chapter 2", "biology.html?chapter=chapter-2", "biology-ch2-questions.pdf")]
+    for device, options in [("computer", {"viewport": {"width": 1280, "height": 900}}),
+                            ("phone", {"viewport": {"width": 390, "height": 664}, "device_scale_factor": 3, "is_mobile": True, "has_touch": True,
+                                       "user_agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Mobile/15E148 Safari/604.1"})]:
+        context = browser.new_context(accept_downloads=True, **options)
+        page = watch(context.new_page())
+        for name, url, pdf in pages:
+            page.goto(base + url)
+            page.wait_for_selector(".questions-pdf")
+            panel = page.locator(".questions-pdf")
+            view = panel.locator("a[target=_blank]")
+            download_link = panel.locator("a[download]")
+            record("%s (%s): one PDF panel with View PDF and Download PDF" % (name, device),
+                   panel.count() == 1 and view.inner_text() == "View PDF" and download_link.inner_text() == "Download PDF"
+                   and view.get_attribute("href") == pdf and download_link.get_attribute("href") == pdf,
+                   "%d panels" % panel.count())
+            response = page.request.get(base + pdf)
+            record("%s (%s): the PDF opens (200, application/pdf, a real PDF)" % (name, device),
+                   response.status == 200 and response.headers.get("content-type", "").startswith("application/pdf")
+                   and response.body()[:5] == b"%PDF-", "%s %s" % (response.status, response.headers.get("content-type")))
+            # (headless Chromium has no PDF viewer, so the new tab hands the file over as a download;
+            # a normal browser shows it)
+            with context.expect_event("request", lambda request: request.url == base + pdf) as asked:
+                with page.expect_popup() as popup:
+                    view.click()
+            opened = popup.value
+            record("%s (%s): View PDF opens a new tab that loads the file" % (name, device),
+                   asked.value.frame.page == opened, asked.value.url)
+            opened.close()
+            with page.expect_download() as info:
+                download_link.click()
+            saved = info.value
+            size = pathlib.Path(saved.path()).stat().st_size
+            record("%s (%s): Download PDF saves %s" % (name, device, pdf),
+                   saved.suggested_filename == pdf and size == (PROJECT / pdf).stat().st_size, "%s %d bytes" % (saved.suggested_filename, size))
+            audit(page, "%s page with the PDF panel (%s)" % (name, device))
+        page.goto(base + "physics.html?chapter=chapter-1")
+        page.wait_for_selector(".subject-cards .card")
+        record("Physics (%s): unchanged, no answers PDF panel" % device, page.locator(".questions-pdf").count() == 0)
+        if device == "phone":
+            page.goto(base + "biology.html?chapter=chapter-1")
+            page.wait_for_selector(".questions-pdf")
+            page.screenshot(path=str(SHOTS / "41-biology-pdf-panel-phone.png"), full_page=True)
+        no_errors(page, "pages with question PDFs (%s)" % device)
+        context.close()
+
+
 def main():
     real_data = {name: (PROJECT / name).read_bytes() for name, _ in DATA_FILES}
     server, base = start_server()
@@ -1597,6 +1650,7 @@ def main():
         run_section("sources page", sources_page, browser, base)
         run_section("no review labels", no_review_labels, browser, base)
         run_section("biology question bank", biology_bank, browser, base)
+        run_section("question PDFs", question_pdfs, browser, base)
         browser.close()
     server.shutdown()
     contrast()

@@ -481,3 +481,39 @@ test('questions: optional lang, image and imageAlt are checked', () => {
   assert.match(errorsOf('questions', mcq({ lang: 'fr' })).join(), /lang must be/);
   assert.match(errorsOf('questions', mcq({ image: 3 })).join(), /image must be text/);
 });
+
+test('question PDFs: English, Chemistry and Biology chapters 1 and 2 are linked, are PDFs, and match the questions', () => {
+  const fs = require('fs');
+  const path = require('path');
+  const crypto = require('crypto');
+  const root = path.join(__dirname, '..');
+  const read = (name) => JSON.parse(fs.readFileSync(path.join(root, name), 'utf8'));
+  // the same code as fingerprint() in tools/question_pdfs.py
+  const fingerprint = (questions) => {
+    const digest = crypto.createHash('sha256');
+    questions.forEach((q) => {
+      const fields = [q.prompt].concat(q.options || [], [q.answer || '', q.modelAnswer || '', q.image || '']);
+      digest.update(fields.join('\x1f') + '\x1e', 'utf8');
+    });
+    return digest.digest('hex').slice(0, 16);
+  };
+  const all = (chapters) => chapters.reduce((list, c) => list.concat(...c.sections.map((s) => s.questions)), []);
+  const chemistry = read('chemistry-questions.json');
+  const biology = read('biology-questions.json');
+  const expected = [
+    ['english-questions.pdf', read('grammar-questions.json').questions.concat(...read('vocabulary-questions.json').units.map((u) => u.questions))],
+    [chemistry.pdf, all(chemistry.chapters)],
+    [biology.chapters[0].pdf, all([biology.chapters[0]])],
+    [biology.chapters[1].pdf, all([biology.chapters[1]])]
+  ];
+  assert.deepEqual(expected.map(([name]) => name), ['english-questions.pdf', 'chemistry-questions.pdf', 'biology-ch1-questions.pdf', 'biology-ch2-questions.pdf']);
+  assert.match(fs.readFileSync(path.join(root, 'index.html'), 'utf8'), /href="english-questions\.pdf"[^>]*download/);
+  const made = read('question-pdfs.json').files;
+  assert.equal(made.length, 4);
+  expected.forEach(([name, questions], i) => {
+    assert.equal(fs.readFileSync(path.join(root, name)).subarray(0, 5).toString(), '%PDF-', name + ' is a PDF file');
+    assert.equal(made[i].pdf, name);
+    assert.equal(made[i].questions, questions.length, name + ': number of questions');
+    assert.equal(made[i].fingerprint, fingerprint(questions), name + ' is older than its questions: run python3 tools/question_pdfs.py');
+  });
+});

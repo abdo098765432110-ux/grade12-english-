@@ -1424,6 +1424,11 @@ thead th {
 .summary-pdf .hint { margin: 0.15rem 0 0; }
 .summary-pdf .actions { margin-top: 0.75rem; }
 
+/* A PDF of questions with their answers (English home, subject and chapter pages):
+   the same panel, in the colour of the subject. */
+.questions-pdf { margin: 1.25rem 0 0.5rem; background: var(--tone, var(--mint)); border-color: var(--tone-edge, var(--mint-edge)); }
+.questions-pdf .summary-pdf-title { color: var(--tone-ink, var(--mint-ink)); }
+
 @media (max-width: 40rem) {
   .summary-pdf { flex-direction: column; align-items: flex-start; }
   .summary-pdf .actions .btn { flex: 1 1 100%; }
