@@ -558,3 +558,25 @@ test('Arabic Unit 3: 100 questions on the site (arabic-questions.json), the PDFs
     assert.ok(page.includes('href="' + pdf + '" download type="application/pdf">' + label + '</a>'), pdf + ' can be downloaded: ' + label);
   });
 });
+
+test('dhikr: the list of adhkar, and the font has every character they use', () => {
+  const fs = require('fs');
+  const path = require('path');
+  const root = path.join(__dirname, '..');
+  const source = fs.readFileSync(path.join(root, 'dhikr.js'), 'utf8');
+  const items = [...source.matchAll(/\{ text: '([^']*)', source: '([^']*)' \}/g)].map((m) => ({ text: m[1], source: m[2] }));
+  assert.ok(items.length >= 30, 'at least 30 adhkar');
+  assert.equal(new Set(items.map((i) => i.text)).size, items.length, 'no dhikr twice');
+  items.forEach((item) => {
+    assert.ok(/[؀-ۿ]/.test(item.text) && !/[A-Za-z0-9]/.test(item.text), 'Arabic text: ' + item.text);
+    assert.ok(item.source.trim(), 'a source or label: ' + item.text);
+    if (item.text.startsWith('﴿')) assert.match(item.source, /^سورة .+: [٠-٩–]+$/, 'a verse gives its sura and number: ' + item.text);
+  });
+  const fontCharacters = new Set(JSON.parse(fs.readFileSync(path.join(root, 'tools', 'dhikr_font.json'), 'utf8')).characters);
+  const missing = [...new Set(items.map((i) => i.text).join(''))].filter((c) => !fontCharacters.has(c));
+  assert.deepEqual(missing, [], 'dhikr-amiri.woff lacks some characters: run python3 tools/dhikr_font.py');
+  assert.ok(fs.statSync(path.join(root, 'dhikr-amiri.woff')).size > 1000);
+  fs.readdirSync(root).filter((f) => f.endsWith('.html')).forEach((page) => {
+    assert.ok(fs.readFileSync(path.join(root, page), 'utf8').includes('<script src="dhikr.js"></script>'), page + ' loads dhikr.js');
+  });
+});

@@ -64,6 +64,7 @@ grade12-english/
 ├── common.js              Shared helpers: data loading, unit links, empty and error states, menu
 ├── quiz-engine.js         Quiz rules: answer keys, scoring, unanswered questions
 ├── quiz-ui.js             Quiz screens: one at a time, or all questions then check
+├── dhikr.js, dhikr-amiri.woff   On every page: a random dhikr or dua in a small card for about 3.5 seconds (the font is Amiri, cut to the letters used; made by tools/dhikr_font.py)
 ├── home.js, grammar.js, summaries.js, practice.js, reading.js, manage.js   One script per page
 ├── units.json             The content (empty to start)
 ├── grammar-lessons.json
@@ -71,7 +72,7 @@ grade12-english/
 ├── grammar-questions.json
 ├── reading-passages.json
 ├── docs/                  Data format reference and the first-upload diagnosis
-├── tools/                 check-site.js, validate-content.js, physics_pdfs.py, question_pdfs.py, arabic_unit3/, fonts/ (for developers)
+├── tools/                 check-site.js, validate-content.js, physics_pdfs.py, question_pdfs.py, dhikr_font.py, arabic_unit3/, fonts/ (for developers)
 ├── tests/                 Automated tests (for developers, not used by the site)
 ├── README.md
 └── PROJECT_STATUS.md

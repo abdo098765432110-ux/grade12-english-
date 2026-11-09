@@ -24,6 +24,7 @@ import json
 import os
 import pathlib
 import re
+import time
 import shutil
 import subprocess
 import sys
@@ -1732,6 +1733,49 @@ def arabic_quiz(browser, base):
         context.close()
 
 
+def dhikr(browser, base):
+    """The dhikr card: on every page a dhikr from the list appears when the page
+    opens, stays about 3.5 seconds, then disappears; a refresh shows a different
+    one; it lets clicks through and fits a phone screen."""
+    pages = sorted(p.name for p in PROJECT.glob("*.html"))
+    phone = {"viewport": {"width": 390, "height": 664}, "device_scale_factor": 2, "is_mobile": True, "has_touch": True}
+    for device, options, which in [("computer", {"viewport": {"width": 1280, "height": 900}}, pages),
+                                   ("phone", phone, ["index.html", "arabic.html?chapter=unit-3&section=unit-3-kana", "biology.html", "practice.html"])]:
+        context = browser.new_context(**options)
+        page = watch(context.new_page())
+        for path in which:
+            page.goto(base + path)
+            page.wait_for_selector(".dhikr.is-shown", timeout=3000)
+            shown_at = time.monotonic()
+            card = page.evaluate("""() => { const c = document.querySelector('.dhikr'); const r = c.getBoundingClientRect();
+                return { text: c.querySelector('.dhikr-text').textContent, source: c.querySelector('.dhikr-source').textContent,
+                         listed: window.G12Dhikr.items.some(i => i.text === c.querySelector('.dhikr-text').textContent),
+                         lang: c.lang, dir: c.dir, pointer: getComputedStyle(c).pointerEvents,
+                         through: document.elementFromPoint(r.left + r.width / 2, r.top + r.height / 2) !== c && !c.contains(document.elementFromPoint(r.left + r.width / 2, r.top + r.height / 2)),
+                         inside: r.left >= 0 && r.right <= innerWidth && r.bottom <= innerHeight,
+                         overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth }; }""")
+            if device == "phone" and path.startswith("arabic"):
+                page.screenshot(path=str(SHOTS / "44-dhikr-phone.png"))
+            page.wait_for_selector(".dhikr", state="detached", timeout=6000)
+            visible = time.monotonic() - shown_at
+            record("dhikr (%s, %s): a listed dhikr in Arabic, clicks pass through, on screen" % (device, path),
+                   card["listed"] and card["source"] and card["lang"] == "ar" and card["dir"] == "rtl" and card["pointer"] == "none"
+                   and card["through"] and card["inside"] and card["overflow"] <= 0, json.dumps(card, ensure_ascii=False))
+            record("dhikr (%s, %s): disappears by itself after about 3–4 seconds" % (device, path), 3.0 <= visible <= 4.5, "%.2f s" % visible)
+        no_errors(page, "dhikr (%s)" % device)
+        context.close()
+    # refreshing shows a different dhikr each time
+    context = browser.new_context(viewport={"width": 1280, "height": 900})
+    page = watch(context.new_page())
+    texts = []
+    for _ in range(6):
+        page.goto(base + "index.html") if not texts else page.reload()
+        page.wait_for_selector(".dhikr")
+        texts.append(page.locator(".dhikr-text").inner_text())
+    record("dhikr: each refresh shows a different dhikr", all(a != b for a, b in zip(texts, texts[1:])), " | ".join(texts))
+    context.close()
+
+
 def main():
     real_data = {name: (PROJECT / name).read_bytes() for name, _ in DATA_FILES}
     server, base = start_server()
@@ -1768,6 +1812,7 @@ def main():
         run_section("question PDFs", question_pdfs, browser, base)
         run_section("Arabic Unit 3 PDFs", arabic_unit3, browser, base)
         run_section("Arabic Unit 3 questions on the site", arabic_quiz, browser, base)
+        run_section("dhikr card", dhikr, browser, base)
         browser.close()
     server.shutdown()
     contrast()
