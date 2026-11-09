@@ -286,7 +286,9 @@ def jobs(base):
                                            "الكيمياء · الصف الثالث الثانوي", "بنك أسئلة الكيمياء", chapters, parts, base),
                 [q for _, questions in parts for q in questions]))
     for chapter in load("biology-questions.json")["chapters"]:
-        parts = [(section["title"], section["questions"]) for section in chapter["sections"]]
+        # sections with a PDF of their own ("morePdfs", made by tools/bio_ch2_bank/build.py) are not in the chapter PDF
+        own = {sid for item in chapter.get("morePdfs", []) for sid in item["sections"]}
+        parts = [(section["title"], section["questions"]) for section in chapter["sections"] if section["id"] not in own]
         out.append((chapter["pdf"], document("ar", TONES["biology"], "الأحياء — " + chapter["title"],
                                              "الأحياء · الصف الثالث الثانوي", "بنك أسئلة الأحياء", chapter["title"], parts, base),
                     [q for _, questions in parts for q in questions]))

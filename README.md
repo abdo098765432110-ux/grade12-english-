@@ -48,6 +48,7 @@ grade12-english/
 ├── physics-ch1-laws.html  Revision sheet «مراجعة أهم قوانين الفصل الأول» (A4, printable; styles in sheet.css, print button in sheet.js)
 ├── physics-ch1-laws.pdf, physics-ch1-questions.pdf   Downloadable PDFs: the revision sheet, and all chapter 1 questions (made by tools/physics_pdfs.py)
 ├── english-questions.pdf, chemistry-questions.pdf, biology-ch1-questions.pdf, biology-ch2-questions.pdf   All the questions, with an answer key on the last page (made by tools/question_pdfs.py; question-pdfs.json records what each was made from)
+├── biology-ch2-essay-image-questions.pdf, bio-ch2-img01.png … bio-ch2-img50.png   Biology Chapter 2: 50 essay and 50 picture questions with model answers (sections «الأسئلة المقالية» and «أسئلة على الصور»; made by tools/bio_ch2_bank/build.py)
 ├── physics-ch1-p02.svg … physics-ch1-p118.svg   Diagrams for the physics questions taken from the review PDF (questions 1–118; only those that have a figure or table)
 ├── physics-ch1-q6.svg … physics-ch1-q11.svg   Diagrams for the earlier physics questions (no picture for q8)
 ├── .nojekyll              Empty file: tells GitHub Pages to serve files as they are
@@ -72,7 +73,7 @@ grade12-english/
 ├── grammar-questions.json
 ├── reading-passages.json
 ├── docs/                  Data format reference and the first-upload diagnosis
-├── tools/                 check-site.js, validate-content.js, physics_pdfs.py, question_pdfs.py, dhikr_font.py, arabic_unit3/, fonts/ (for developers)
+├── tools/                 check-site.js, validate-content.js, physics_pdfs.py, question_pdfs.py, dhikr_font.py, arabic_unit3/, bio_ch2_bank/, fonts/ (for developers)
 ├── tests/                 Automated tests (for developers, not used by the site)
 ├── README.md
 └── PROJECT_STATUS.md

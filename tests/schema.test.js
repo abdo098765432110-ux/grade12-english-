@@ -438,7 +438,7 @@ test('vocabulary: Unit 1 has exactly 100 valid questions, medium and hard only, 
   assert.ok(grammar.every((q) => !ids.has(q.id) && !prompts.has(q.prompt)), 'no vocabulary question in grammar-questions.json');
 });
 
-test('biology: chapters 1 and 2 each have 100 questions — 10 easy, 40 medium, 50 very hard', () => {
+test('biology: chapters 1 and 2 each have 100 multiple-choice questions — 10 easy, 40 medium, 50 very hard', () => {
   const fs = require('fs');
   const path = require('path');
   const data = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'biology-questions.json'), 'utf8'));
@@ -446,8 +446,10 @@ test('biology: chapters 1 and 2 each have 100 questions — 10 easy, 40 medium, 
   const levels = [['easy', 10], ['medium', 40], ['very-hard', 50]];
   const ids = new Set();
   data.chapters.forEach((chapter, c) => {
-    assert.deepEqual(chapter.sections.map((s) => s.id), levels.map(([level]) => chapter.id + '-' + level), chapter.title);
-    chapter.sections.forEach((section, s) => {
+    // chapter 2 also has its essay and picture sections after these (checked in the next test)
+    const extra = chapter.id === 'chapter-2' ? ['chapter-2-essay', 'chapter-2-images'] : [];
+    assert.deepEqual(chapter.sections.map((s) => s.id), levels.map(([level]) => chapter.id + '-' + level).concat(extra), chapter.title);
+    chapter.sections.slice(0, 3).forEach((section, s) => {
       const [level, count] = levels[s];
       assert.equal(section.questions.length, count, section.title);
       const letters = [0, 0, 0, 0];
@@ -475,6 +477,51 @@ test('biology: chapters 1 and 2 each have 100 questions — 10 easy, 40 medium, 
   assert.equal(ids.size, 200);
 });
 
+test('biology chapter 2: 50 essay questions and 50 picture questions with model answers, their pictures and their PDF', () => {
+  const fs = require('fs');
+  const path = require('path');
+  const crypto = require('crypto');
+  const root = path.join(__dirname, '..');
+  const data = JSON.parse(fs.readFileSync(path.join(root, 'biology-questions.json'), 'utf8'));
+  const chapter = data.chapters[1];
+  const [essay, pictures] = chapter.sections.slice(3);
+  assert.equal(essay.id, 'chapter-2-essay');
+  assert.equal(essay.title, 'الأسئلة المقالية – 50 سؤالًا');
+  assert.equal(pictures.id, 'chapter-2-images');
+  assert.equal(pictures.title, 'أسئلة على الصور – 50 سؤالًا');
+  assert.equal(essay.questions.length, 50);
+  assert.equal(pictures.questions.length, 50);
+  const all = essay.questions.concat(pictures.questions);
+  all.forEach((q, i) => {
+    assert.deepEqual(Schema.validateItem('questions', q, i).errors, [], q.id + ': valid');
+    assert.equal(q.type, 'short', q.id + ': written answer');
+    assert.equal(q.lang, 'ar', q.id);
+    assert.equal(q.reviewStatus, 'reviewed', q.id);
+    assert.ok(['hard', 'very-hard'].includes(q.difficulty), q.id + ': hard or very hard only');
+    assert.ok(q.modelAnswer.trim().length > 40, q.id + ': model answer');
+  });
+  assert.equal(new Set(all.map((q) => q.id)).size, 100, 'different ids');
+  assert.equal(new Set(all.map((q) => q.prompt)).size, 100, 'no question twice');
+  essay.questions.forEach((q) => assert.ok(!q.image, q.id + ': essay questions have no picture'));
+  // every picture question has its own picture, a real PNG next to index.html, with a description
+  pictures.questions.forEach((q, i) => {
+    assert.equal(q.image, 'bio-ch2-img' + String(i + 1).padStart(2, '0') + '.png', q.id);
+    const png = fs.readFileSync(path.join(root, q.image));
+    assert.equal(png.subarray(1, 4).toString(), 'PNG', q.image + ' is a PNG');
+    assert.ok(png.readUInt32BE(16) >= 1200, q.image + ' is large (at least 1200 pixels wide)');
+    assert.ok(q.imageAlt.trim().length > 20, q.id + ': picture description');
+  });
+  assert.equal(new Set(pictures.questions.map((q) => q.image)).size, 50, 'fifty different pictures');
+  // the PDF: shown on the chapter page as its own panel; made from these questions
+  assert.deepEqual(chapter.morePdfs, [{ file: 'biology-ch2-essay-image-questions.pdf', title: '100 سؤال مقالي وعلى الصور مع الإجابات النموذجية', sections: ['chapter-2-essay', 'chapter-2-images'] }]);
+  const built = JSON.parse(fs.readFileSync(path.join(root, 'tools', 'bio_ch2_bank', 'built.json'), 'utf8'));
+  assert.equal(built.pdf, chapter.morePdfs[0].file);
+  assert.equal(fs.readFileSync(path.join(root, built.pdf)).subarray(0, 5).toString(), '%PDF-');
+  const digest = crypto.createHash('sha256');
+  all.forEach((q) => digest.update([q.prompt, q.modelAnswer, q.image || ''].join('\x1f') + '\x1e', 'utf8'));
+  assert.equal(built.fingerprint, digest.digest('hex').slice(0, 16), 'the PDF is older than the questions: run python3 tools/bio_ch2_bank/build.py');
+});
+
 test('questions: optional lang, image and imageAlt are checked', () => {
   const question = mcq({ lang: 'ar', image: 'figure.svg', imageAlt: 'وصف الشكل' });
   assert.deepEqual(errorsOf('questions', question), []);
@@ -497,7 +544,11 @@ test('question PDFs: English, Chemistry and Biology chapters 1 and 2 are linked,
     });
     return digest.digest('hex').slice(0, 16);
   };
-  const all = (chapters) => chapters.reduce((list, c) => list.concat(...c.sections.map((s) => s.questions)), []);
+  // (sections listed in a chapter's "morePdfs" have a PDF of their own)
+  const all = (chapters) => chapters.reduce((list, c) => {
+    const own = new Set([].concat(...(c.morePdfs || []).map((item) => item.sections)));
+    return list.concat(...c.sections.filter((s) => !own.has(s.id)).map((s) => s.questions));
+  }, []);
   const chemistry = read('chemistry-questions.json');
   const biology = read('biology-questions.json');
   const expected = [

@@ -11,10 +11,10 @@ const { spawnSync } = require('child_process');
 
 const PROJECT = path.join(__dirname, '..');
 const CHECKER = path.join(PROJECT, 'tools', 'check-site.js');
-/* Website files: the pages, .nojekyll, and every .css, .js, .json, .svg, .pdf and
-   .woff file at the top level (there are no css, js, data or image folders). */
+/* Website files: the pages, .nojekyll, and every .css, .js, .json, .svg, .png, .pdf
+   and .woff file at the top level (there are no css, js, data or image folders). */
 const SITE_ITEMS = fs.readdirSync(PROJECT).filter((name) =>
-  /\.(html|css|js|json|svg|pdf|woff)$/.test(name) || name === '.nojekyll');
+  /\.(html|css|js|json|svg|png|pdf|woff)$/.test(name) || name === '.nojekyll');
 
 function copySite(skip) {
   const folder = fs.mkdtempSync(path.join(os.tmpdir(), 'g12-site-'));
