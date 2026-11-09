@@ -1,12 +1,12 @@
 {
   "pdf": "biology-ch2-essay-image-questions.pdf",
-  "pages": 82,
+  "pages": 84,
   "starts": {
     "essay": 3,
-    "images": 16,
-    "answers": 66
+    "images": 17,
+    "answers": 67
   },
   "questions": 100,
-  "fingerprint": "74c3def550bc306c",
-  "sources": "d4d284fc28df4583"
+  "fingerprint": "003d1f2be34e5467",
+  "sources": "526362cc7aa8f53a"
 }

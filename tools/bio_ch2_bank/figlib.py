@@ -285,7 +285,7 @@ def cell_ring(s, cx, cy, r_in, r_out, n, fill, stroke=INK, nucleus=None, sw=2):
 
 
 def blob(cx, cy, r, wob=0.12, n=10, seed=1):
-    """A slightly irregular round outline (cells, organs)."""
+    """A slightly irregular round outline (cells, organs), smooth all the way round."""
     import random
     rnd = random.Random(seed)
     pts = []
@@ -293,7 +293,11 @@ def blob(cx, cy, r, wob=0.12, n=10, seed=1):
         a = 2 * math.pi * i / n
         rr = r * (1 + rnd.uniform(-wob, wob))
         pts.append((cx + rr * math.cos(a), cy + rr * math.sin(a)))
-    pts.append(pts[0])
-    pts = pts + [pts[1]]
-    d = smooth(pts[:-1] + [pts[0]], 0.2)
+    t = 0.18
+    d = "M%s %s" % (f(pts[0][0]), f(pts[0][1]))
+    for i in range(n):
+        p0, p1, p2, p3 = pts[i - 1], pts[i], pts[(i + 1) % n], pts[(i + 2) % n]
+        c1 = (p1[0] + (p2[0] - p0[0]) * t, p1[1] + (p2[1] - p0[1]) * t)
+        c2 = (p2[0] - (p3[0] - p1[0]) * t, p2[1] - (p3[1] - p1[1]) * t)
+        d += " C%s %s %s %s %s %s" % (f(c1[0]), f(c1[1]), f(c2[0]), f(c2[1]), f(p2[0]), f(p2[1]))
     return d + " Z"
