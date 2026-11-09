@@ -84,11 +84,34 @@
       <h1>اللغة العربية</h1>
     </div>
 
-    <!-- Content area for this subject: empty for now, ready for lessons in a future update. -->
-    <section class="subject-content" aria-labelledby="subject-content-heading">
-      <div class="empty-state">
-        <h2 id="subject-content-heading" data-i18n="No content added yet">No content added yet</h2>
-        <p data-i18n="Lessons for this subject will appear here when they are added.">Lessons for this subject will appear here when they are added.</p>
+    <!-- Content area for this subject. Unit 3 «النواسخ»: two PDFs made by tools/arabic_unit3/build.py,
+         each with "view" (opens in the browser) and "download". Arabic-only content, like the subject title. -->
+    <section class="subject-content arabic-unit" aria-labelledby="subject-content-heading" lang="ar" dir="rtl">
+      <h2 id="subject-content-heading" class="arabic-unit-title">الوحدة الثالثة: النواسخ</h2>
+      <p class="hint">كان وأخواتها · أفعال المقاربة والرجاء والشروع · إنّ وأخواتها · لا النافية للجنس — وفق كتاب الوزارة للصف الثالث الثانوي. يمكنك عرض كل ملف في المتصفح أو تحميله.</p>
+
+      <div class="summary-pdf questions-pdf tone-peach" id="arabic-unit3-questions">
+        <img class="summary-pdf-icon" src="icon-practice.svg" alt="" width="56" height="56">
+        <div class="summary-pdf-text">
+          <p class="summary-pdf-title">100 سؤال على الوحدة الثالثة</p>
+          <p class="hint">أسئلة اختيار من متعدد متوسطة وصعبة، مع مفتاح الإجابات وتعليل كل إجابة · ملف PDF بمقاس A4</p>
+          <div class="actions">
+            <a class="btn" href="arabic-unit3-questions.pdf" target="_blank" rel="noopener" type="application/pdf">عرض الأسئلة</a>
+            <a class="btn btn--secondary" href="arabic-unit3-questions.pdf" download type="application/pdf">تحميل 100 سؤال على الوحدة الثالثة</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="summary-pdf questions-pdf tone-peach" id="arabic-unit3-summary">
+        <img class="summary-pdf-icon" src="icon-summaries.svg" alt="" width="56" height="56">
+        <div class="summary-pdf-text">
+          <p class="summary-pdf-title">ملخص الوحدة الثالثة</p>
+          <p class="hint">صفحتان: أهم القواعد والأمثلة ونماذج الإعراب وفخاخ الامتحان · ملف PDF بمقاس A4</p>
+          <div class="actions">
+            <a class="btn" href="arabic-unit3-summary.pdf" target="_blank" rel="noopener" type="application/pdf">عرض الملخص</a>
+            <a class="btn btn--secondary" href="arabic-unit3-summary.pdf" download type="application/pdf">تحميل ملخص الوحدة الثالثة</a>
+          </div>
+        </div>
       </div>
     </section>
   </main>

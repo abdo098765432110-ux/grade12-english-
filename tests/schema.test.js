@@ -517,3 +517,34 @@ test('question PDFs: English, Chemistry and Biology chapters 1 and 2 are linked,
     assert.equal(made[i].fingerprint, fingerprint(questions), name + ' is older than its questions: run python3 tools/question_pdfs.py');
   });
 });
+
+test('Arabic Unit 3: 100 checked questions, two up-to-date PDFs, linked from the Arabic page', () => {
+  const fs = require('fs');
+  const path = require('path');
+  const crypto = require('crypto');
+  const root = path.join(__dirname, '..');
+  const folder = path.join(root, 'tools', 'arabic_unit3');
+  const questions = JSON.parse(fs.readFileSync(path.join(folder, 'questions.json'), 'utf8'));
+  assert.equal(questions.length, 100);
+  const counts = {};
+  questions.forEach((q) => {
+    counts[q.section] = (counts[q.section] || 0) + 1;
+    assert.ok(['medium', 'hard'].includes(q.difficulty), q.id + ': medium or hard only');
+    assert.equal(q.options.length, 4, q.id + ': four options');
+    assert.equal(new Set(q.options.map((o) => o.trim())).size, 4, q.id + ': different options');
+    assert.ok(q.options.includes(q.answer), q.id + ': the answer is one of the options');
+    assert.ok(q.prompt.trim() && q.explanation.trim(), q.id + ': prompt and explanation');
+  });
+  assert.deepEqual(counts, { kana: 22, kada: 14, inna: 30, la: 14, mixed: 20 });
+  assert.equal(new Set(questions.map((q) => q.id)).size, 100, 'unique ids');
+  const built = JSON.parse(fs.readFileSync(path.join(folder, 'built.json'), 'utf8'));
+  const source = Buffer.concat([fs.readFileSync(path.join(folder, 'questions.json')), Buffer.from([0]), fs.readFileSync(path.join(folder, 'summary.html'))]);
+  assert.equal(built.fingerprint, crypto.createHash('sha256').update(source).digest('hex').slice(0, 16),
+    'the Arabic PDFs are older than their sources: run python3 tools/arabic_unit3/build.py');
+  const page = fs.readFileSync(path.join(root, 'arabic.html'), 'utf8');
+  [[built.questions_pdf, 'تحميل 100 سؤال على الوحدة الثالثة'], [built.summary_pdf, 'تحميل ملخص الوحدة الثالثة']].forEach(([pdf, label]) => {
+    assert.equal(fs.readFileSync(path.join(root, pdf)).subarray(0, 5).toString(), '%PDF-', pdf + ' is a PDF file');
+    assert.ok(page.includes('href="' + pdf + '" target="_blank"'), pdf + ' can be viewed');
+    assert.ok(page.includes('href="' + pdf + '" download type="application/pdf">' + label + '</a>'), pdf + ' can be downloaded: ' + label);
+  });
+});

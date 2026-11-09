@@ -1617,6 +1617,53 @@ def question_pdfs(browser, base):
         context.close()
 
 
+def arabic_unit3(browser, base):
+    """The Arabic page: Unit 3 with its questions PDF and summary PDF, each with
+    a "view" link and a clearly labelled "download" link, on a computer and a phone."""
+    files = [("arabic-unit3-questions.pdf", "عرض الأسئلة", "تحميل 100 سؤال على الوحدة الثالثة"),
+             ("arabic-unit3-summary.pdf", "عرض الملخص", "تحميل ملخص الوحدة الثالثة")]
+    for device, options in [("computer", {"viewport": {"width": 1280, "height": 900}}),
+                            ("phone", {"viewport": {"width": 390, "height": 664}, "device_scale_factor": 3, "is_mobile": True, "has_touch": True,
+                                       "user_agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Mobile/15E148 Safari/604.1"})]:
+        context = browser.new_context(accept_downloads=True, **options)
+        page = watch(context.new_page())
+        page.goto(base + "arabic.html")
+        record("Arabic page (%s): Unit 3 heading" % device, page.locator(".arabic-unit h2").inner_text() == "الوحدة الثالثة: النواسخ")
+        record("Arabic page (%s): no 'no content' message any more" % device, page.locator(".empty-state").count() == 0)
+        for pdf, view_text, download_text in files:
+            view = page.locator(".arabic-unit a[target=_blank][href='%s']" % pdf)
+            download_link = page.locator(".arabic-unit a[download][href='%s']" % pdf)
+            record("Arabic page (%s): %s has a view and a download link" % (device, pdf),
+                   view.count() == 1 and download_link.count() == 1 and view.inner_text() == view_text
+                   and download_link.inner_text() == download_text, "%d / %d" % (view.count(), download_link.count()))
+            response = page.request.get(base + pdf)
+            record("Arabic page (%s): %s opens (200, application/pdf, a real PDF)" % (device, pdf),
+                   response.status == 200 and response.headers.get("content-type", "").startswith("application/pdf")
+                   and response.body()[:5] == b"%PDF-")
+            with context.expect_event("request", lambda request: request.url == base + pdf) as asked:
+                with page.expect_popup() as popup:
+                    view.click()
+            opened = popup.value
+            record("Arabic page (%s): «%s» opens %s in a new tab" % (device, view_text, pdf), asked.value.frame.page == opened)
+            opened.close()
+            with page.expect_download() as info:
+                download_link.click()
+            saved = info.value
+            size = pathlib.Path(saved.path()).stat().st_size
+            record("Arabic page (%s): «%s» saves %s" % (device, download_text, pdf),
+                   saved.suggested_filename == pdf and size == (PROJECT / pdf).stat().st_size, "%s %d bytes" % (saved.suggested_filename, size))
+        for lang in ("en", "ar"):  # the Unit 3 content stays Arabic whatever the interface language
+            page.evaluate("lang => localStorage.setItem('g12-lang', lang)", lang)
+            page.reload()
+            record("Arabic page (%s, %s interface): download labels unchanged" % (device, lang),
+                   page.locator(".arabic-unit a[download]").all_inner_texts() == [f[2] for f in files])
+            audit(page, "Arabic page with Unit 3 (%s, %s)" % (device, lang))
+        if device == "phone":
+            page.screenshot(path=str(SHOTS / "42-arabic-unit3-phone.png"), full_page=True)
+        no_errors(page, "Arabic page with Unit 3 (%s)" % device)
+        context.close()
+
+
 def main():
     real_data = {name: (PROJECT / name).read_bytes() for name, _ in DATA_FILES}
     server, base = start_server()
@@ -1651,6 +1698,7 @@ def main():
         run_section("no review labels", no_review_labels, browser, base)
         run_section("biology question bank", biology_bank, browser, base)
         run_section("question PDFs", question_pdfs, browser, base)
+        run_section("Arabic Unit 3 PDFs", arabic_unit3, browser, base)
         browser.close()
     server.shutdown()
     contrast()
