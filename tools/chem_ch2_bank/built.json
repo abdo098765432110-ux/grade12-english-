@@ -2,13 +2,13 @@
   "files": [
     {
       "pdf": "chemistry-ch2-mcq.pdf",
-      "pages": 32,
+      "pages": 33,
       "starts": [
         3,
         19
       ],
       "questions": 100,
-      "fingerprint": "5592b186b7be3ce3"
+      "fingerprint": "9bce8aad40aa33c3"
     },
     {
       "pdf": "chemistry-ch2-essay.pdf",
@@ -17,7 +17,7 @@
         3
       ],
       "questions": 50,
-      "fingerprint": "2646510aaae1d8df"
+      "fingerprint": "3472c5555fd85530"
     },
     {
       "pdf": "chemistry-ch2-answer-key.pdf",
@@ -29,8 +29,8 @@
         30
       ],
       "questions": 150,
-      "fingerprint": "0eb3b7e84b83850b"
+      "fingerprint": "eb9733c4c469e04b"
     }
   ],
-  "sources": "8b65bed9e1b77a1a"
+  "sources": "f11e354b4c9504a8"
 }

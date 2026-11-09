@@ -73,11 +73,13 @@ def trim(run):
     lead, tail = "", ""
     while True:
         changed = False
-        if run and run[-1] in " .,:":
+        if run and run[-1] in " .,:=":
             tail = run[-1] + tail; run = run[:-1]; changed = True
         if run and run[-1] in ")]" and run.count(run[-1]) > run.count("(" if run[-1] == ")" else "["):
             tail = run[-1] + tail; run = run[:-1]; changed = True
         if run and run[0] in "([" and run.count(run[0]) > run.count(")" if run[0] == "(" else "]"):
+            lead += run[0]; run = run[1:]; changed = True
+        if run and run[0] in "= ":
             lead += run[0]; run = run[1:]; changed = True
         if run and run[-1] in "([":
             tail = run[-1] + tail; run = run[:-1]; changed = True
