@@ -1,0 +1,36 @@
+{
+  "files": [
+    {
+      "pdf": "chemistry-ch2-mcq.pdf",
+      "pages": 33,
+      "starts": [
+        3,
+        19
+      ],
+      "questions": 100,
+      "fingerprint": "1124704748143676"
+    },
+    {
+      "pdf": "chemistry-ch2-essay.pdf",
+      "pages": 19,
+      "starts": [
+        3
+      ],
+      "questions": 50,
+      "fingerprint": "f35a9b29ee6b0ab4"
+    },
+    {
+      "pdf": "chemistry-ch2-answer-key.pdf",
+      "pages": 47,
+      "starts": [
+        3,
+        4,
+        17,
+        30
+      ],
+      "questions": 150,
+      "fingerprint": "3c18eadb92d6c67f"
+    }
+  ],
+  "sources": "fe3e483ae72363bc"
+}

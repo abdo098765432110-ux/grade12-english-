@@ -5,7 +5,9 @@ finished files):
   english-questions.pdf      every English question on the website: Grammar
                              Practice (grammar-questions.json) and Vocabulary
                              (vocabulary-questions.json)
-  chemistry-questions.pdf    every question in chemistry-questions.json
+  chemistry-questions.pdf    every question in chemistry-questions.json, except the
+                             sections with PDFs of their own (Chapter 2, made by
+                             tools/chem_ch2_bank/build.py)
   biology-ch1-questions.pdf  every question of Biology Chapter 1
   biology-ch2-questions.pdf  every question of Biology Chapter 2
                              (biology-questions.json; the two chapters stay separate)
@@ -279,9 +281,12 @@ def jobs(base):
                                   english_parts(), base),
             grammar + vocabulary)]
     chemistry = load("chemistry-questions.json")
+    # sections with a PDF of their own ("morePdfs") are not in the subject PDF
+    own = {sid for chapter in chemistry["chapters"] for item in chapter.get("morePdfs", []) for sid in item["sections"]}
     parts = [(chapter["title"] + " — " + section["title"], section["questions"])
-             for chapter in chemistry["chapters"] for section in chapter["sections"]]
-    chapters = "، ".join(chapter["title"] for chapter in chemistry["chapters"])
+             for chapter in chemistry["chapters"] for section in chapter["sections"] if section["id"] not in own]
+    chapters = "، ".join(chapter["title"] for chapter in chemistry["chapters"]
+                         if any(section["id"] not in own for section in chapter["sections"]))
     out.append((chemistry["pdf"], document("ar", TONES["chemistry"], "الكيمياء — بنك الأسئلة ومفتاح الإجابات",
                                            "الكيمياء · الصف الثالث الثانوي", "بنك أسئلة الكيمياء", chapters, parts, base),
                 [q for _, questions in parts for q in questions]))
