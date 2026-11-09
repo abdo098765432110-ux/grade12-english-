@@ -15,7 +15,9 @@
    on the chapter page with "open", "download" and "print". A PDF of all the
    questions with their answers ("pdf" at the top of the file, or on a chapter;
    made by tools/question_pdfs.py) is shown under the cards with "view" and
-   "download".
+   "download". Optional, on the page: data-open-label on the content area
+   (the chapter button's text) and data-subject-home on any part of the page
+   that should show only on the first step (the Arabic page's PDFs).
    The questions use the shared quiz (quiz-ui.js): one question at a time, with
    instant feedback, the correct answer and the explanation, and a panel of
    question numbers to jump to any question. Questions use the
@@ -134,7 +136,7 @@
       return;
     }
     area.appendChild(el('ul', { className: 'card-grid subject-cards', 'aria-label': subjectName }, chapters.map(function (chapter) {
-      return card('h2', chapter.title, hrefFor(chapter), countOf(sectionsOf(chapter)), t('Open the chapter'));
+      return card('h2', chapter.title, hrefFor(chapter), countOf(sectionsOf(chapter)), area.getAttribute('data-open-label') || t('Open the chapter'));
     })));
     if (hasText(data && data.pdf)) {
       var total = chapters.reduce(function (sum, chapter) { return sum + countOf(sectionsOf(chapter)); }, 0);
@@ -201,6 +203,8 @@
     var chapters = chaptersOf(data);
     var chapterId = G12.param('chapter');
     var sectionId = G12.param('section');
+    // parts of the page marked data-subject-home show only on the first step
+    Array.prototype.forEach.call(document.querySelectorAll('[data-subject-home]'), function (node) { node.hidden = !!chapterId; });
     if (!chapterId) {
       drawChapters(chapters, data);
       return;

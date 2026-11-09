@@ -84,11 +84,16 @@
       <h1>اللغة العربية</h1>
     </div>
 
-    <!-- Content area for this subject. Unit 3 «النواسخ»: two PDFs made by tools/arabic_unit3/build.py,
-         each with "view" (opens in the browser) and "download". Arabic-only content, like the subject title. -->
-    <section class="subject-content arabic-unit" aria-labelledby="subject-content-heading" lang="ar" dir="rtl">
-      <h2 id="subject-content-heading" class="arabic-unit-title">الوحدة الثالثة: النواسخ</h2>
-      <p class="hint">كان وأخواتها · أفعال المقاربة والرجاء والشروع · إنّ وأخواتها · لا النافية للجنس — وفق كتاب الوزارة للصف الثالث الثانوي. يمكنك عرض كل ملف في المتصفح أو تحميله.</p>
+    <!-- Unit 3 «النواسخ»: the 100 questions to solve here (arabic-questions.json, drawn by subject.js:
+         the unit, then its five sections, then the questions), and below, on this first step only,
+         the two PDFs made by tools/arabic_unit3/build.py from the same questions. Arabic-only content. -->
+    <div class="subject-content" data-questions="arabic-questions.json" data-open-label="حلّ أسئلة الوحدة" lang="ar" dir="rtl">
+      <p class="loading" role="status" data-i18n="Loading content…">Loading content…</p>
+    </div>
+
+    <section class="arabic-unit" aria-labelledby="arabic-unit-files" lang="ar" dir="rtl" data-subject-home>
+      <h2 id="arabic-unit-files" class="arabic-unit-title">ملفات الوحدة الثالثة: النواسخ</h2>
+      <p class="hint">الأسئلة نفسها في ملف PDF مع مفتاح الإجابات، وملخص الوحدة — وفق كتاب الوزارة للصف الثالث الثانوي. يمكنك عرض كل ملف في المتصفح أو تحميله.</p>
 
       <div class="summary-pdf questions-pdf tone-peach" id="arabic-unit3-questions">
         <img class="summary-pdf-icon" src="icon-practice.svg" alt="" width="56" height="56">
@@ -130,5 +135,8 @@
   <script src="content-schema.js"></script>
   <script src="content-store.js"></script>
   <script src="common.js"></script>
+  <script src="quiz-engine.js"></script>
+  <script src="quiz-ui.js"></script>
+  <script src="subject.js"></script>
 </body>
 </html>

@@ -142,8 +142,10 @@ def no_errors(page, label):
 
 
 def settle(page):
-    """Wait until the page has finished loading its content."""
+    """Wait until the page has finished loading its content (and its data
+    requests are done, so leaving the page does not cancel one)."""
     page.wait_for_function("!document.querySelector('.loading')")
+    page.wait_for_load_state("networkidle")
 
 
 def draft(page):
@@ -1137,6 +1139,7 @@ def page_language(page):
 
 def use_arabic(page, base):
     page.goto(base + "index.html")
+    settle(page)  # let the page finish loading, so the next page.goto does not cancel its requests
     page.evaluate("() => localStorage.setItem('g12-lang', 'ar')")
 
 
@@ -1628,7 +1631,11 @@ def arabic_unit3(browser, base):
         context = browser.new_context(accept_downloads=True, **options)
         page = watch(context.new_page())
         page.goto(base + "arabic.html")
-        record("Arabic page (%s): Unit 3 heading" % device, page.locator(".arabic-unit h2").inner_text() == "الوحدة الثالثة: النواسخ")
+        page.wait_for_selector(".subject-cards .card")
+        record("Arabic page (%s): Unit 3 card to solve the questions" % device,
+               page.locator(".subject-cards .card h2").inner_text() == "الوحدة الثالثة: النواسخ"
+               and page.locator(".subject-cards .card .btn").inner_text() == "حلّ أسئلة الوحدة")
+        record("Arabic page (%s): PDF files heading" % device, page.locator(".arabic-unit h2").inner_text() == "ملفات الوحدة الثالثة: النواسخ")
         record("Arabic page (%s): no 'no content' message any more" % device, page.locator(".empty-state").count() == 0)
         for pdf, view_text, download_text in files:
             view = page.locator(".arabic-unit a[target=_blank][href='%s']" % pdf)
@@ -1661,6 +1668,67 @@ def arabic_unit3(browser, base):
         if device == "phone":
             page.screenshot(path=str(SHOTS / "42-arabic-unit3-phone.png"), full_page=True)
         no_errors(page, "Arabic page with Unit 3 (%s)" % device)
+        context.close()
+
+
+def arabic_quiz(browser, base):
+    """All 100 Arabic Unit 3 questions solved on the site: on a computer every
+    question is answered correctly and must be marked correct; on a phone every
+    question is answered wrongly first, must be marked incorrect, and "show the
+    correct answer" must show the key. Each question's text and choices must be
+    exactly those in arabic-questions.json (the file the PDF is made from)."""
+    data = json.loads((PROJECT / "arabic-questions.json").read_text(encoding="utf-8"))
+    chapter = data["chapters"][0]
+    total = sum(len(s["questions"]) for s in chapter["sections"])
+    record("Arabic quiz: 100 questions in 5 sections", total == 100 and len(chapter["sections"]) == 5, str(total))
+    phone = {"viewport": {"width": 390, "height": 664}, "device_scale_factor": 3, "is_mobile": True, "has_touch": True}
+    for device, options, right in [("computer", {"viewport": {"width": 1280, "height": 900}}, True), ("phone", phone, False)]:
+        context = browser.new_context(**options)
+        page = watch(context.new_page())
+        page.goto(base + "arabic.html")
+        page.evaluate("() => localStorage.setItem('g12-lang', 'en')")
+        page.goto(base + "arabic.html?chapter=" + chapter["id"])
+        cards = page.locator(".subject-cards .card")
+        record("Arabic quiz (%s): the unit shows its five sections" % device,
+               cards.count() == 5 and [c.strip() for c in page.locator(".subject-cards .card h3").all_inner_texts()] == [s["title"] for s in chapter["sections"]])
+        for section in chapter["sections"]:
+            page.goto(base + "arabic.html?chapter=%s&section=%s" % (chapter["id"], section["id"]))
+            page.wait_for_selector(".quiz .prompt-text")
+            problems = []
+            for n, q in enumerate(section["questions"], 1):
+                shown = page.locator(".prompt-text").first.evaluate("e => e.textContent")
+                choices = page.locator(".options .option-text").evaluate_all("els => els.map(e => e.textContent)")
+                if shown != q["prompt"] or choices != q["options"]:
+                    problems.append("%d: text differs" % n)
+                key = q["options"].index(q["answer"])
+                pick = key if right else (key + 1) % 4
+                page.check(".options input[data-index='%d']" % pick)
+                page.click("button:has-text('Submit answer')")
+                title = page.locator(".feedback-title").inner_text().strip()
+                if right and title != "Correct!":
+                    problems.append("%d: right answer marked '%s'" % (n, title))
+                if not right:
+                    if title != "Not correct.":
+                        problems.append("%d: wrong answer marked '%s'" % (n, title))
+                    page.click("button:has-text('Show correct answer')")
+                    shown_key = page.locator(".feedback-title").inner_text().strip()
+                    if shown_key != "Correct answer: " + q["answer"]:
+                        problems.append("%d: shows '%s'" % (n, shown_key))
+                if page.locator(".feedback .explanation-text").count() != 1:
+                    problems.append("%d: no explanation" % n)
+                page.click(".actions button:has-text('Next question'), .actions button:has-text('See results')")
+            record("Arabic quiz (%s): %s — all %d questions %s" % (device, section["title"], len(section["questions"]),
+                   "marked correct when right" if right else "marked incorrect when wrong, and show the key"),
+                   not problems, "; ".join(problems[:5]))
+        page.goto(base + "arabic.html?chapter=%s&section=%s" % (chapter["id"], chapter["sections"][2]["id"]))
+        page.wait_for_selector(".quiz .prompt-text")
+        overflow = page.evaluate("() => document.documentElement.scrollWidth - document.documentElement.clientWidth")
+        record("Arabic quiz (%s): no sideways scrolling, text right to left" % device,
+               overflow <= 0 and page.locator(".prompt-text").first.evaluate("e => getComputedStyle(e).direction") == "rtl", "overflow %d" % overflow)
+        audit(page, "Arabic quiz (%s)" % device)
+        if device == "phone":
+            page.screenshot(path=str(SHOTS / "43-arabic-quiz-phone.png"), full_page=True)
+        no_errors(page, "Arabic quiz (%s)" % device)
         context.close()
 
 
@@ -1699,6 +1767,7 @@ def main():
         run_section("biology question bank", biology_bank, browser, base)
         run_section("question PDFs", question_pdfs, browser, base)
         run_section("Arabic Unit 3 PDFs", arabic_unit3, browser, base)
+        run_section("Arabic Unit 3 questions on the site", arabic_quiz, browser, base)
         browser.close()
     server.shutdown()
     contrast()

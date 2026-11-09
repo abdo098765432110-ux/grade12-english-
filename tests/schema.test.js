@@ -518,30 +518,40 @@ test('question PDFs: English, Chemistry and Biology chapters 1 and 2 are linked,
   });
 });
 
-test('Arabic Unit 3: 100 checked questions, two up-to-date PDFs, linked from the Arabic page', () => {
+test('Arabic Unit 3: 100 questions on the site (arabic-questions.json), the PDFs made from them, linked from the Arabic page', () => {
   const fs = require('fs');
   const path = require('path');
   const crypto = require('crypto');
   const root = path.join(__dirname, '..');
   const folder = path.join(root, 'tools', 'arabic_unit3');
-  const questions = JSON.parse(fs.readFileSync(path.join(folder, 'questions.json'), 'utf8'));
-  assert.equal(questions.length, 100);
-  const counts = {};
-  questions.forEach((q) => {
-    counts[q.section] = (counts[q.section] || 0) + 1;
+  const data = JSON.parse(fs.readFileSync(path.join(root, 'arabic-questions.json'), 'utf8'));
+  assert.equal(data.schemaVersion, 2);
+  assert.equal(data.chapters.length, 1);
+  const unit = data.chapters[0];
+  assert.equal(unit.id, 'unit-3');
+  assert.deepEqual(unit.sections.map((s) => [s.id, s.questions.length]),
+    [['unit-3-kana', 22], ['unit-3-kada', 14], ['unit-3-inna', 30], ['unit-3-la', 14], ['unit-3-mixed', 20]]);
+  const ids = [];
+  unit.sections.forEach((section) => section.questions.forEach((q, i) => {
+    ids.push(q.id);
+    assert.equal(Schema.validateItem('questions', q, i).errors.length, 0, q.id + ': valid question');
+    assert.equal(q.type, 'mcq');
+    assert.equal(q.lang, 'ar');
+    assert.equal(q.reviewStatus, 'reviewed');
     assert.ok(['medium', 'hard'].includes(q.difficulty), q.id + ': medium or hard only');
     assert.equal(q.options.length, 4, q.id + ': four options');
     assert.equal(new Set(q.options.map((o) => o.trim())).size, 4, q.id + ': different options');
-    assert.ok(q.options.includes(q.answer), q.id + ': the answer is one of the options');
-    assert.ok(q.prompt.trim() && q.explanation.trim(), q.id + ': prompt and explanation');
-  });
-  assert.deepEqual(counts, { kana: 22, kada: 14, inna: 30, la: 14, mixed: 20 });
-  assert.equal(new Set(questions.map((q) => q.id)).size, 100, 'unique ids');
+    assert.equal(q.options.filter((o) => o === q.answer).length, 1, q.id + ': the answer is exactly one of the options');
+    assert.ok(q.explanation.trim(), q.id + ': explanation');
+    assert.ok(!/[A-Za-z0-9]/.test(q.prompt + q.options.join('') + q.explanation), q.id + ': no Latin letters or Western digits (as in the PDF)');
+  }));
+  assert.equal(new Set(ids).size, 100, 'unique ids');
   const built = JSON.parse(fs.readFileSync(path.join(folder, 'built.json'), 'utf8'));
-  const source = Buffer.concat([fs.readFileSync(path.join(folder, 'questions.json')), Buffer.from([0]), fs.readFileSync(path.join(folder, 'summary.html'))]);
+  const source = Buffer.concat([fs.readFileSync(path.join(root, 'arabic-questions.json')), Buffer.from([0]), fs.readFileSync(path.join(folder, 'summary.html'))]);
   assert.equal(built.fingerprint, crypto.createHash('sha256').update(source).digest('hex').slice(0, 16),
-    'the Arabic PDFs are older than their sources: run python3 tools/arabic_unit3/build.py');
+    'the Arabic PDFs are older than the questions or the summary: run python3 tools/arabic_unit3/build.py');
   const page = fs.readFileSync(path.join(root, 'arabic.html'), 'utf8');
+  assert.ok(page.includes('data-questions="arabic-questions.json"'), 'the Arabic page shows the questions');
   [[built.questions_pdf, 'تحميل 100 سؤال على الوحدة الثالثة'], [built.summary_pdf, 'تحميل ملخص الوحدة الثالثة']].forEach(([pdf, label]) => {
     assert.equal(fs.readFileSync(path.join(root, pdf)).subarray(0, 5).toString(), '%PDF-', pdf + ' is a PDF file');
     assert.ok(page.includes('href="' + pdf + '" target="_blank"'), pdf + ' can be viewed');

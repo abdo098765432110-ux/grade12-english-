@@ -4,7 +4,8 @@ website only links to the finished files):
   arabic-unit3-questions.pdf  «100 سؤال على الوحدة الثالثة – اللغة العربية»:
                               a cover, the questions in five sections, and the
                               answer key with a short reason for every answer
-                              (from tools/arabic_unit3/questions.json)
+                              (from arabic-questions.json — the same questions the
+                              Arabic page shows, in the same order and numbering)
   arabic-unit3-summary.pdf    the summary of the unit, in the same design
                               (from tools/arabic_unit3/summary.html)
 
@@ -28,6 +29,7 @@ from pypdf import PdfReader
 
 HERE = pathlib.Path(__file__).resolve().parent
 SITE = HERE.parent.parent
+DATA = "arabic-questions.json"
 QUESTIONS_PDF = "arabic-unit3-questions.pdf"
 SUMMARY_PDF = "arabic-unit3-summary.pdf"
 TITLE = "100 سؤال على الوحدة الثالثة – اللغة العربية"
@@ -201,9 +203,17 @@ QUESTIONS_CSS = """
 
 
 def load_questions():
-    items = json.loads((HERE / "questions.json").read_text(encoding="utf-8"))
-    by_section = {key: [q for q in items if q["section"] == key] for key, *_ in SECTIONS}
-    assert sum(map(len, by_section.values())) == len(items) == 100, "need exactly 100 questions in the five sections"
+    """The questions of the website (arabic-questions.json), by section — the PDF
+    shows exactly these, in the same order and with the same numbers."""
+    data = json.loads((SITE / DATA).read_text(encoding="utf-8"))
+    chapter = data["chapters"][0]
+    by_id = {section["id"]: section for section in chapter["sections"]}
+    by_section = {}
+    for key, no, name, _ in SECTIONS:
+        section = by_id["unit-3-" + key]
+        assert section["title"] == no + ": " + name, "section title differs from the PDF: " + section["title"]
+        by_section[key] = section["questions"]
+    assert len(chapter["sections"]) == len(SECTIONS) and sum(map(len, by_section.values())) == 100, "need exactly 100 questions in the five sections"
     return by_section
 
 
@@ -220,11 +230,9 @@ def questions_document(by_section, pages=None):
     """The parts of the questions PDF, in order: [(name, html)]. pages: the first
     page of each section and of the key, once known (for the contents page)."""
     pages = pages or {}
-    numbering = {}  # question id -> its number in the PDF (1..100, through the whole book)
-    n = 0
+    numbering = {}  # question id -> its number: 1, 2, … again in each section, as on the website
     for key, *_ in SECTIONS:
-        for q in by_section[key]:
-            n += 1
+        for n, q in enumerate(by_section[key], 1):
             numbering[q["id"]] = n
     medium = sum(q["difficulty"] == "medium" for qs in by_section.values() for q in qs)
     cover = """
@@ -260,6 +268,7 @@ def questions_document(by_section, pages=None):
       <li>الأسئلة كلها من الوحدة الثالثة «النواسخ» في كتاب الوزارة، ومستواها متوسط وصعب.</li>
       <li>اقرأ الجملة كاملة قبل الاختيار، وحدّد الناسخ واسمه وخبره أولًا، ثم انظر إلى موقع الكلمة المسؤول عنها.</li>
       <li>اختر إجابة واحدة لكل سؤال، ثم راجع إجاباتك من مفتاح الإجابات في آخر الكراسة، واقرأ تعليل ما أخطأت فيه.</li>
+      <li>الأسئلة نفسها موجودة على الموقع لتحلّها وتعرف نتيجتك فورًا، بالأقسام والترقيم نفسيهما.</li>
     </ul>
     <div class="legend">مستوى السؤال: <span class="chip teal">متوسط</span> %s <span class="chip clay">صعب</span> %s</div>
   </div>
@@ -397,7 +406,7 @@ def main():
     finally:
         server.shutdown()
     # what the PDFs were made from (tests/schema.test.js fails when they are older than their sources)
-    source = (HERE / "questions.json").read_bytes() + b"\x00" + (HERE / "summary.html").read_bytes()
+    source = (SITE / DATA).read_bytes() + b"\x00" + (HERE / "summary.html").read_bytes()
     (HERE / "built.json").write_text(json.dumps({"questions_pdf": QUESTIONS_PDF, "summary_pdf": SUMMARY_PDF,
                                                  "fingerprint": hashlib.sha256(source).hexdigest()[:16]}, indent=2) + "\n", encoding="utf-8")
 
