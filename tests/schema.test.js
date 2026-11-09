@@ -370,7 +370,7 @@ test('chemistry questions: chapter 1 has the review (50 + 2 written) and test A 
   const path = require('path');
   const project = path.join(__dirname, '..');
   const data = JSON.parse(fs.readFileSync(path.join(project, 'chemistry-questions.json'), 'utf8'));
-  assert.equal(data.chapters.length, 1);
+  assert.deepEqual(data.chapters.map((c) => c.id), ['chapter-1', 'chapter-2']);
   assert.equal(data.chapters[0].title, 'الفصل الأول');
   const sections = data.chapters[0].sections;
   assert.deepEqual(sections.map((s) => s.title), ['أسئلة المراجعة النهائية على الفصل الأول', 'اختبار (A) على الفصل الأول']);
@@ -402,6 +402,79 @@ test('chemistry questions: chapter 1 has the review (50 + 2 written) and test A 
     assert.equal(new Set(keys).size, keys.length, section.title);
   });
   assert.equal(ids.size, 102);
+});
+
+test('chemistry chapter 2: 100 multiple-choice questions (50 hard, 50 very hard) and 50 essay questions, with their three PDFs', () => {
+  const fs = require('fs');
+  const path = require('path');
+  const crypto = require('crypto');
+  const root = path.join(__dirname, '..');
+  const data = JSON.parse(fs.readFileSync(path.join(root, 'chemistry-questions.json'), 'utf8'));
+  const chapter = data.chapters[1];
+  assert.equal(chapter.id, 'chapter-2');
+  assert.equal(chapter.title, 'الفصل الثاني: التحليل الكيميائي');
+  const [hard, veryHard, essay] = chapter.sections;
+  assert.deepEqual(chapter.sections.map((s) => [s.id, s.questions.length]),
+    [['chapter-2-hard', 50], ['chapter-2-very-hard', 50], ['chapter-2-essay', 50]]);
+  const plain = (s) => s.replace(/[‏⁦⁩]/g, '');
+  const letters = [0, 0, 0, 0];
+  [[hard, 'hard', 'h'], [veryHard, 'very-hard', 'v']].forEach(([section, level, tag]) => {
+    section.questions.forEach((q, i) => {
+      assert.equal(q.id, 'chem-ch2-' + tag + String(i + 1).padStart(2, '0'));
+      assert.deepEqual(Schema.validateItem('questions', q, i).errors, [], q.id + ': valid');
+      assert.equal(q.type, 'mcq', q.id);
+      assert.equal(q.lang, 'ar', q.id);
+      assert.equal(q.difficulty, level, q.id);
+      assert.equal(q.reviewStatus, 'reviewed', q.id);
+      assert.equal(q.options.length, 4, q.id + ': four options');
+      assert.equal(new Set(q.options.map(plain)).size, 4, q.id + ': four different options');
+      assert.equal(q.options.filter((o) => o === q.answer).length, 1, q.id + ': the answer is exactly one of the options');
+      assert.ok(plain(q.explanation).length > 120, q.id + ': a detailed explanation');
+      letters[q.options.indexOf(q.answer)] += 1;
+    });
+  });
+  // the correct answer is spread over the four letters
+  letters.forEach((n) => assert.ok(n >= 20 && n <= 30, 'answers by letter: ' + letters));
+  essay.questions.forEach((q, i) => {
+    assert.equal(q.id, 'chem-ch2-e' + String(i + 1).padStart(2, '0'));
+    assert.deepEqual(Schema.validateItem('questions', q, i).errors, [], q.id + ': valid');
+    assert.equal(q.type, 'short', q.id + ': written answer');
+    assert.ok(['hard', 'very-hard'].includes(q.difficulty), q.id + ': hard or very hard');
+    assert.equal(q.reviewStatus, 'reviewed', q.id);
+    assert.ok(plain(q.modelAnswer).length > 150, q.id + ': a detailed model answer');
+  });
+  const all = hard.questions.concat(veryHard.questions, essay.questions);
+  assert.equal(new Set(all.map((q) => q.id)).size, 150, 'different ids');
+  assert.equal(new Set(all.map((q) => plain(q.prompt))).size, 150, 'no question twice');
+  assert.equal(new Set(chapter.sections.map((s) => s.id)).size, 3);
+  // the three PDFs: one panel each on the chapter page, made from exactly these questions
+  assert.deepEqual(chapter.morePdfs.map((p) => [p.file, p.sections]), [
+    ['chemistry-ch2-mcq.pdf', ['chapter-2-hard', 'chapter-2-very-hard']],
+    ['chemistry-ch2-essay.pdf', ['chapter-2-essay']],
+    ['chemistry-ch2-answer-key.pdf', ['chapter-2-hard', 'chapter-2-very-hard', 'chapter-2-essay']]]);
+  chapter.morePdfs.forEach((p) => assert.ok(p.title && p.note, p.file + ': title and note'));
+  assert.equal(chapter.pdf, undefined, 'no chapter-wide PDF: the three PDFs cover Chapter 2');
+  // the same code as fingerprint() in tools/chem_ch2_bank/build.py
+  const fingerprint = (questions) => {
+    const digest = crypto.createHash('sha256');
+    questions.forEach((q) => {
+      const fields = [q.prompt].concat(q.options || [], [q.answer || '', q.explanation || '', q.modelAnswer || '']);
+      digest.update(fields.join('\x1f') + '\x1e', 'utf8');
+    });
+    return digest.digest('hex').slice(0, 16);
+  };
+  const built = JSON.parse(fs.readFileSync(path.join(root, 'tools', 'chem_ch2_bank', 'built.json'), 'utf8')).files;
+  const expected = [['chemistry-ch2-mcq.pdf', hard.questions.concat(veryHard.questions)],
+    ['chemistry-ch2-essay.pdf', essay.questions], ['chemistry-ch2-answer-key.pdf', all]];
+  assert.deepEqual(built.map((b) => b.pdf), expected.map(([name]) => name));
+  expected.forEach(([name, questions], i) => {
+    assert.equal(fs.readFileSync(path.join(root, name)).subarray(0, 5).toString(), '%PDF-', name + ' is a PDF file');
+    assert.equal(built[i].questions, questions.length, name + ': number of questions');
+    assert.equal(built[i].fingerprint, fingerprint(questions), name + ' is older than the questions: run python3 tools/chem_ch2_bank/build.py');
+  });
+  // the PDF on the Chemistry page keeps Chapter 1 only, and says so
+  assert.equal(data.pdf, 'chemistry-questions.pdf');
+  assert.equal(data.pdfTitle, 'أسئلة الفصل الأول مع مفتاح الإجابات');
 });
 
 test('vocabulary: Unit 1 has exactly 100 valid questions, medium and hard only, in their own file', () => {

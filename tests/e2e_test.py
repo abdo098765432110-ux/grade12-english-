@@ -1701,6 +1701,117 @@ def biology_written(browser, base):
         context.close()
 
 
+def chemistry_ch2(browser, base):
+    """Chemistry Chapter 2: the 100 multiple-choice questions and the 50 essay questions.
+    The Chemistry page shows the new chapter and its own PDF stays Chapter 1 only; the
+    chapter page shows its three sections and three PDF panels (each PDF opens). On a
+    computer every multiple-choice question is answered correctly (marked correct, score
+    50 / 50); on a phone every one is answered wrongly (marked incorrect, the key shown,
+    score 0 / 50). Every question, choice, explanation and model answer on the screen is
+    exactly the text in chemistry-questions.json, the file the three PDFs are made from."""
+    data = json.loads((PROJECT / "chemistry-questions.json").read_text(encoding="utf-8"))
+    chapter = data["chapters"][1]
+    built = json.loads((PROJECT / "tools" / "chem_ch2_bank" / "built.json").read_text(encoding="utf-8"))["files"]
+    record("chemistry chapter 2: 50 hard + 50 very hard multiple choice + 50 essay questions",
+           [(s["id"], len(s["questions"])) for s in chapter["sections"]] == [("chapter-2-hard", 50), ("chapter-2-very-hard", 50), ("chapter-2-essay", 50)])
+    phone = {"viewport": {"width": 390, "height": 664}, "device_scale_factor": 3, "is_mobile": True, "has_touch": True}
+    for device, options, right in [("computer", {"viewport": {"width": 1280, "height": 900}}, True), ("phone", phone, False)]:
+        context = browser.new_context(**options)
+        page = watch(context.new_page())
+        page.goto(base + "chemistry.html")
+        page.evaluate("() => localStorage.setItem('g12-lang', 'en')")
+        page.goto(base + "chemistry.html")
+        page.wait_for_selector(".subject-cards .card")
+        names = [c.strip() for c in page.locator(".subject-cards .card h2").all_inner_texts()]
+        counts = page.locator(".subject-cards .card .card-count").all_inner_texts()
+        title = page.locator(".questions-pdf .summary-pdf-title").all_inner_texts()
+        hint = page.locator(".questions-pdf .hint").all_inner_texts()
+        record("chemistry (%s): the page shows both chapters (102 and 150 questions); its PDF panel is Chapter 1's (102 questions)" % device,
+               names == ["الفصل الأول", chapter["title"]] and counts == ["102 questions", "150 questions"]
+               and title == [data["pdfTitle"]] and len(hint) == 1 and hint[0].startswith("102 questions"), str(names) + str(counts) + str(title) + str(hint))
+        page.goto(base + "chemistry.html?chapter=chapter-2")
+        page.wait_for_selector(".questions-pdf")
+        cards = [c.strip() for c in page.locator(".subject-cards .card h3").all_inner_texts()]
+        panels = page.locator(".questions-pdf")
+        titles = page.locator(".questions-pdf .summary-pdf-title").all_inner_texts()
+        hints = page.locator(".questions-pdf .hint").all_inner_texts()
+        hrefs = [(panels.nth(i).locator("a[target=_blank]").get_attribute("href"), panels.nth(i).locator("a[download]").get_attribute("href"))
+                 for i in range(panels.count())]
+        files = [p["file"] for p in chapter["morePdfs"]]
+        record("chemistry chapter 2 (%s): three sections and three PDF panels (100, 50 and 150 questions) with View and Download" % device,
+               cards == [s["title"] for s in chapter["sections"]] and titles == [p["title"] for p in chapter["morePdfs"]]
+               and [h.split(" · ")[0] for h in hints] == ["100 questions", "50 questions", "150 questions"]
+               and all(p["note"] in h for p, h in zip(chapter["morePdfs"], hints)) and hrefs == [(f, f) for f in files],
+               str(cards) + str(titles) + str(hints) + str(hrefs))
+        for f, b in zip(files, built):
+            response = page.request.get(base + f)
+            record("chemistry chapter 2 (%s): %s opens (200, application/pdf, %d pages, made from the questions on the site)" % (device, f, b["pages"]),
+                   response.status == 200 and "application/pdf" in response.headers.get("content-type", "")
+                   and response.body()[:5] == b"%PDF-" and b["pdf"] == f, "%d %s" % (response.status, response.headers.get("content-type")))
+        for section in chapter["sections"][:2]:
+            page.goto(base + "chemistry.html?chapter=chapter-2&section=" + section["id"])
+            page.wait_for_selector(".quiz .prompt-text")
+            heading = page.locator(".question-section-title").inner_text().strip()
+            problems = []
+            for n, q in enumerate(section["questions"], 1):
+                shown = page.locator(".prompt-text").first.evaluate("e => e.textContent")
+                choices = page.locator(".options .option-text").evaluate_all("els => els.map(e => e.textContent)")
+                if shown != q["prompt"] or choices != q["options"]:
+                    problems.append("%d: text differs" % n)
+                key = q["options"].index(q["answer"])
+                page.check(".options input[data-index='%d']" % (key if right else (key + 1) % 4))
+                page.click("button:has-text('Submit answer')")
+                verdict = page.locator(".feedback-title").inner_text().strip()
+                if right and verdict != "Correct!":
+                    problems.append("%d: right answer marked '%s'" % (n, verdict))
+                if not right:
+                    if verdict != "Not correct.":
+                        problems.append("%d: wrong answer marked '%s'" % (n, verdict))
+                    page.click("button:has-text('Show correct answer')")
+                    shown_key = page.locator(".feedback-title").evaluate("e => e.textContent")
+                    if not shown_key.startswith("Correct answer:") or q["answer"] not in shown_key:
+                        problems.append("%d: the key is not shown" % n)
+                explanation = page.locator(".feedback .explanation-text")
+                if explanation.count() != 1 or explanation.evaluate("e => e.textContent") != q["explanation"]:
+                    problems.append("%d: explanation differs" % n)
+                page.click(".actions button:has-text('Next question'), .actions button:has-text('See results')")
+            page.wait_for_selector(".score-number")
+            score = page.locator(".score-number").first.inner_text().strip()
+            record("chemistry chapter 2 (%s): %s — all 50 questions, choices and explanations as in the PDFs; %s; score %s" % (
+                   device, section["title"], "every right answer marked correct" if right else "every wrong answer marked incorrect with the key shown", score),
+                   heading == section["title"] and not problems and score == ("50 / 50" if right else "0 / 50"), "; ".join(problems[:5]))
+        essay = chapter["sections"][2]
+        page.goto(base + "chemistry.html?chapter=chapter-2&section=" + essay["id"])
+        page.wait_for_selector(".quiz .prompt-text")
+        problems = []
+        for n, q in enumerate(essay["questions"], 1):
+            if page.locator(".prompt-text").first.evaluate("e => e.textContent") != q["prompt"]:
+                problems.append("%d: text differs" % n)
+            page.fill(".quiz textarea", "إجابتي")
+            page.click("button:has-text('Submit answer')")
+            if page.locator(".feedback p[dir=auto]").first.evaluate("e => e.textContent") != q["modelAnswer"]:
+                problems.append("%d: model answer differs" % n)
+            page.click(".actions button:has-text('Next question'), .actions button:has-text('See results')")
+        record("chemistry chapter 2 (%s): %s — all 50 questions take a written answer and show the model answer of the PDF" % (device, essay["title"]),
+               not problems, "; ".join(problems[:5]))
+        page.goto(base + "chemistry.html?chapter=chapter-2&section=chapter-2-very-hard")
+        page.wait_for_selector(".quiz .prompt-text")
+        page.check(".options input[data-index='0']")
+        page.click("button:has-text('Submit answer')")
+        overflow = page.evaluate("() => document.documentElement.scrollWidth - document.documentElement.clientWidth")
+        record("chemistry chapter 2 (%s): no sideways scrolling, question and explanation right to left" % device,
+               overflow <= 0 and page.locator(".prompt-text").first.evaluate("e => getComputedStyle(e).direction") == "rtl"
+               and page.locator(".feedback .explanation-text").evaluate("e => getComputedStyle(e).direction") == "rtl", "overflow %d" % overflow)
+        audit(page, "chemistry chapter 2 question (%s)" % device)
+        if device == "phone":
+            page.screenshot(path=str(SHOTS / "47-chemistry-ch2-question-phone.png"), full_page=True)
+            page.goto(base + "chemistry.html?chapter=chapter-2")
+            page.wait_for_selector(".questions-pdf")
+            page.screenshot(path=str(SHOTS / "48-chemistry-ch2-chapter-phone.png"), full_page=True)
+        no_errors(page, "chemistry chapter 2 (%s)" % device)
+        context.close()
+
+
 def arabic_unit3(browser, base):
     """The Arabic page: Unit 3 with its questions PDF and summary PDF, each with
     a "view" link and a clearly labelled "download" link, on a computer and a phone."""
@@ -1891,6 +2002,7 @@ def main():
         run_section("biology question bank", biology_bank, browser, base)
         run_section("question PDFs", question_pdfs, browser, base)
         run_section("biology essay and picture questions", biology_written, browser, base)
+        run_section("chemistry chapter 2 questions", chemistry_ch2, browser, base)
         run_section("Arabic Unit 3 PDFs", arabic_unit3, browser, base)
         run_section("Arabic Unit 3 questions on the site", arabic_quiz, browser, base)
         run_section("dhikr card", dhikr, browser, base)

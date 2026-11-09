@@ -15,8 +15,11 @@
    on the chapter page with "open", "download" and "print". A PDF of all the
    questions with their answers ("pdf" at the top of the file, or on a chapter;
    made by tools/question_pdfs.py) is shown under the cards with "view" and
-   "download"; a chapter may also list PDFs of some of its sections ("morePdfs",
-   with "pdfTitle" naming the chapter PDF), each shown as one more panel.
+   "download"; a chapter may also list PDFs of some of its sections ("morePdfs":
+   { file, title, sections, note? }, with "pdfTitle" naming the chapter PDF), each
+   shown as one more panel ("note" replaces the line under its title). Sections
+   listed in "morePdfs" are not counted for the chapter PDF or for the PDF at the
+   top of the file, which "pdfTitle" at the top of the file may name.
    Optional, on the page: data-open-label on the content area
    (the chapter button's text) and data-subject-home on any part of the page
    that should show only on the first step (the Arabic page's PDFs).
@@ -112,13 +115,15 @@
 
   /* A PDF of all the questions with their answers ("pdf" at the top of the data
      file, or on a chapter): view it in the browser or download it. */
-  function answersPdf(file, title, count) {
+  function answersPdf(file, title, count, note) {
     var icon = titleBox ? titleBox.querySelector('img') : null;
     return el('div', { className: 'summary-pdf questions-pdf' + (tone ? ' ' + tone : '') }, [
       icon ? el('img', { className: 'summary-pdf-icon', src: icon.getAttribute('src'), alt: '', width: '56', height: '56' }) : null,
       el('div', { className: 'summary-pdf-text' }, [
         el('p', { className: 'summary-pdf-title', dir: 'auto', lang: langOf(title), text: title }),
-        el('p', { className: 'hint', text: t('{questions} · answer key at the end · PDF file, A4 pages', { questions: G12.plural(count, 'question') }) }),
+        hasText(note)
+          ? el('p', { className: 'hint', dir: 'auto', lang: langOf(note), text: G12.plural(count, 'question') + ' · ' + note })
+          : el('p', { className: 'hint', text: t('{questions} · answer key at the end · PDF file, A4 pages', { questions: G12.plural(count, 'question') }) }),
         el('div', { className: 'actions' }, [
           el('a', { className: 'btn', href: file, target: '_blank', rel: 'noopener', type: 'application/pdf', text: t('View PDF') }),
           el('a', { className: 'btn btn--secondary', href: file, download: '', type: 'application/pdf', text: t('Download PDF') })
@@ -141,9 +146,19 @@
       return card('h2', chapter.title, hrefFor(chapter), countOf(sectionsOf(chapter)), area.getAttribute('data-open-label') || t('Open the chapter'));
     })));
     if (hasText(data && data.pdf)) {
-      var total = chapters.reduce(function (sum, chapter) { return sum + countOf(sectionsOf(chapter)); }, 0);
-      area.appendChild(answersPdf(data.pdf, t('All the questions with their answers'), total));
+      // sections with a PDF of their own (a chapter's "morePdfs") are not in this one
+      var total = chapters.reduce(function (sum, chapter) {
+        var own = {};
+        morePdfsOf(chapter).forEach(function (item) { item.sections.forEach(function (id) { own[id] = true; }); });
+        return sum + countOf(sectionsOf(chapter).filter(function (section) { return !own[section.id]; }));
+      }, 0);
+      area.appendChild(answersPdf(data.pdf, hasText(data.pdfTitle) ? data.pdfTitle : t('All the questions with their answers'), total));
     }
+  }
+
+  /* The extra PDFs of a chapter ("morePdfs"), leaving out broken entries. */
+  function morePdfsOf(chapter) {
+    return list(chapter.morePdfs).filter(function (item) { return item && hasText(item.file) && hasText(item.title) && Array.isArray(item.sections); });
   }
 
   /* Step 2: the sections of one chapter. */
@@ -165,7 +180,7 @@
     area.appendChild(el('ul', { className: 'card-grid subject-cards', 'aria-label': chapter.title }, cards));
     // More PDFs for some sections only ("morePdfs": [{ file, title, sections: [ids] }]);
     // the chapter PDF then counts the other sections, under its own title ("pdfTitle") if given.
-    var more = list(chapter.morePdfs).filter(function (item) { return item && hasText(item.file) && hasText(item.title) && Array.isArray(item.sections); });
+    var more = morePdfsOf(chapter);
     var elsewhere = {};
     more.forEach(function (item) { item.sections.forEach(function (id) { elsewhere[id] = true; }); });
     if (hasText(chapter.pdf)) {
@@ -174,7 +189,7 @@
     }
     more.forEach(function (item) {
       area.appendChild(answersPdf(item.file, item.title,
-        countOf(sectionsOf(chapter).filter(function (section) { return item.sections.indexOf(section.id) !== -1; }))));
+        countOf(sectionsOf(chapter).filter(function (section) { return item.sections.indexOf(section.id) !== -1; })), item.note));
     });
   }
 

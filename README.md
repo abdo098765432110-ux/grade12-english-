@@ -9,7 +9,7 @@ A free learning website for Egyptian Grade 12 students. The subject menu
   comprehension.
 - **Physics**: الفصل الأول → أسئلة على الفصل الأول: interactive questions,
   with the correct answer and an explanation after each answer.
-- **Chemistry**: Chapter 1 questions (chemistry-questions.json).
+- **Chemistry**: Chapter 1 questions, and Chapter 2 «التحليل الكيميائي» (100 multiple-choice + 50 essay questions with three PDFs) (chemistry-questions.json).
 - **Biology**: Chapters 1 and 2 question banks — each chapter has 10 easy,
   40 medium and 50 very hard questions (biology-questions.json).
 - **Arabic**: Unit 3 «النواسخ»: two PDFs to view or download — 100 medium and hard
@@ -43,12 +43,13 @@ grade12-english/
 ├── arabic-unit3-questions.pdf, arabic-unit3-summary.pdf   Arabic Unit 3: 100 questions with answer key, and the summary
 ├── subject.js             Subject pages: chapters → sections → questions, with the shared quiz
 ├── physics-questions.json Physics questions (الفصل الأول → حل أسئلة الفصل الأول, and the chapter's revision sheet)
-├── chemistry-questions.json Chemistry questions (الفصل الأول)
+├── chemistry-questions.json Chemistry questions (الفصل الأول، الفصل الثاني: التحليل الكيميائي)
 ├── biology-questions.json Biology questions (الفصل الأول والثاني: سهلة / متوسطة / صعبة جدًا)
 ├── physics-ch1-laws.html  Revision sheet «مراجعة أهم قوانين الفصل الأول» (A4, printable; styles in sheet.css, print button in sheet.js)
 ├── physics-ch1-laws.pdf, physics-ch1-questions.pdf   Downloadable PDFs: the revision sheet, and all chapter 1 questions (made by tools/physics_pdfs.py)
 ├── english-questions.pdf, chemistry-questions.pdf, biology-ch1-questions.pdf, biology-ch2-questions.pdf   All the questions, with an answer key on the last page (made by tools/question_pdfs.py; question-pdfs.json records what each was made from)
 ├── biology-ch2-essay-image-questions.pdf, bio-ch2-img01.png … bio-ch2-img50.png   Biology Chapter 2: 50 essay and 50 picture questions with model answers (sections «الأسئلة المقالية» and «أسئلة على الصور»; made by tools/bio_ch2_bank/build.py)
+├── chemistry-ch2-mcq.pdf, chemistry-ch2-essay.pdf, chemistry-ch2-answer-key.pdf   Chemistry Chapter 2 «التحليل الكيميائي»: 100 multiple-choice questions (50 hard, 50 very hard), 50 essay questions, and the full answer key with explanations and model answers (the same questions as on the site; made by tools/chem_ch2_bank/build.py)
 ├── physics-ch1-p02.svg … physics-ch1-p118.svg   Diagrams for the physics questions taken from the review PDF (questions 1–118; only those that have a figure or table)
 ├── physics-ch1-q6.svg … physics-ch1-q11.svg   Diagrams for the earlier physics questions (no picture for q8)
 ├── .nojekyll              Empty file: tells GitHub Pages to serve files as they are
@@ -73,7 +74,7 @@ grade12-english/
 ├── grammar-questions.json
 ├── reading-passages.json
 ├── docs/                  Data format reference and the first-upload diagnosis
-├── tools/                 check-site.js, validate-content.js, physics_pdfs.py, question_pdfs.py, dhikr_font.py, arabic_unit3/, bio_ch2_bank/, fonts/ (for developers)
+├── tools/                 check-site.js, validate-content.js, physics_pdfs.py, question_pdfs.py, dhikr_font.py, arabic_unit3/, bio_ch2_bank/, chem_ch2_bank/, fonts/ (for developers)
 ├── tests/                 Automated tests (for developers, not used by the site)
 ├── README.md
 └── PROJECT_STATUS.md
