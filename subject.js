@@ -15,7 +15,9 @@
    on the chapter page with "open", "download" and "print". A PDF of all the
    questions with their answers ("pdf" at the top of the file, or on a chapter;
    made by tools/question_pdfs.py) is shown under the cards with "view" and
-   "download". Optional, on the page: data-open-label on the content area
+   "download"; a chapter may also list PDFs of some of its sections ("morePdfs",
+   with "pdfTitle" naming the chapter PDF), each shown as one more panel.
+   Optional, on the page: data-open-label on the content area
    (the chapter button's text) and data-subject-home on any part of the page
    that should show only on the first step (the Arabic page's PDFs).
    The questions use the shared quiz (quiz-ui.js): one question at a time, with
@@ -115,7 +117,7 @@
     return el('div', { className: 'summary-pdf questions-pdf' + (tone ? ' ' + tone : '') }, [
       icon ? el('img', { className: 'summary-pdf-icon', src: icon.getAttribute('src'), alt: '', width: '56', height: '56' }) : null,
       el('div', { className: 'summary-pdf-text' }, [
-        el('p', { className: 'summary-pdf-title', text: title }),
+        el('p', { className: 'summary-pdf-title', dir: 'auto', lang: langOf(title), text: title }),
         el('p', { className: 'hint', text: t('{questions} · answer key at the end · PDF file, A4 pages', { questions: G12.plural(count, 'question') }) }),
         el('div', { className: 'actions' }, [
           el('a', { className: 'btn', href: file, target: '_blank', rel: 'noopener', type: 'application/pdf', text: t('View PDF') }),
@@ -161,9 +163,19 @@
       cards.push(card('h3', sheet.title, sheet.page, 0, t('Open the revision sheet'), t('Laws and key ideas · A4'), extra));
     }
     area.appendChild(el('ul', { className: 'card-grid subject-cards', 'aria-label': chapter.title }, cards));
+    // More PDFs for some sections only ("morePdfs": [{ file, title, sections: [ids] }]);
+    // the chapter PDF then counts the other sections, under its own title ("pdfTitle") if given.
+    var more = list(chapter.morePdfs).filter(function (item) { return item && hasText(item.file) && hasText(item.title) && Array.isArray(item.sections); });
+    var elsewhere = {};
+    more.forEach(function (item) { item.sections.forEach(function (id) { elsewhere[id] = true; }); });
     if (hasText(chapter.pdf)) {
-      area.appendChild(answersPdf(chapter.pdf, t('All the questions of this chapter with their answers'), countOf(sectionsOf(chapter))));
+      area.appendChild(answersPdf(chapter.pdf, hasText(chapter.pdfTitle) ? chapter.pdfTitle : t('All the questions of this chapter with their answers'),
+        countOf(sectionsOf(chapter).filter(function (section) { return !elsewhere[section.id]; }))));
     }
+    more.forEach(function (item) {
+      area.appendChild(answersPdf(item.file, item.title,
+        countOf(sectionsOf(chapter).filter(function (section) { return item.sections.indexOf(section.id) !== -1; }))));
+    });
   }
 
   /* Step 3: the questions of one section. */

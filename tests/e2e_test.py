@@ -1541,16 +1541,19 @@ def biology_bank(browser, base):
     page.wait_for_selector(".subject-cards .card")
     chapters = page.locator(".subject-cards .card h2").all_inner_texts()
     counts = page.locator(".subject-cards .card .card-count").all_inner_texts()
-    record("biology: two chapters of 100 questions each",
+    record("biology: chapter 1 has 100 questions, chapter 2 has 200 (100 multiple choice + 50 essay + 50 on pictures)",
            chapters == ["الفصل الأول: الدعامة والحركة في الكائنات الحية", "الفصل الثاني: التنسيق الهرموني في الكائنات الحية"]
-           and counts == ["100 questions", "100 questions"], str(chapters) + str(counts))
+           and counts == ["100 questions", "200 questions"], str(chapters) + str(counts))
     for chapter in ["chapter-1", "chapter-2"]:
         page.goto(base + "biology.html?chapter=" + chapter)
         page.wait_for_selector(".subject-cards .card")
         titles = page.locator(".subject-cards .card h3").all_inner_texts()
         counts = page.locator(".subject-cards .card .card-count").all_inner_texts()
-        record("biology %s: easy 10, medium 40, very hard 50" % chapter,
-               titles == ["أسئلة سهلة", "أسئلة متوسطة", "أسئلة صعبة جدًا"] and counts == ["10 questions", "40 questions", "50 questions"],
+        extra_titles = ["الأسئلة المقالية – 50 سؤالًا", "أسئلة على الصور – 50 سؤالًا"] if chapter == "chapter-2" else []
+        extra_counts = ["50 questions", "50 questions"] if chapter == "chapter-2" else []
+        record("biology %s: easy 10, medium 40, very hard 50%s" % (chapter, ", essay 50, pictures 50" if extra_titles else ""),
+               titles == ["أسئلة سهلة", "أسئلة متوسطة", "أسئلة صعبة جدًا"] + extra_titles
+               and counts == ["10 questions", "40 questions", "50 questions"] + extra_counts,
                str(titles) + str(counts))
         page.goto(base + "biology.html?chapter=%s&section=%s-very-hard" % (chapter, chapter))
         page.wait_for_selector(".quiz .question-legend")
@@ -1571,25 +1574,28 @@ def biology_bank(browser, base):
 def question_pdfs(browser, base):
     """The four PDFs of questions with answers: a panel with "View PDF" and
     "Download PDF" where they belong, on a computer and on a phone."""
-    pages = [("English home", "index.html", "english-questions.pdf"),
-             ("Chemistry", "chemistry.html", "chemistry-questions.pdf"),
-             ("Biology chapter 1", "biology.html?chapter=chapter-1", "biology-ch1-questions.pdf"),
-             ("Biology chapter 2", "biology.html?chapter=chapter-2", "biology-ch2-questions.pdf")]
+    # (page name, address, PDF, which panel on the page, how many panels the page has)
+    pages = [("English home", "index.html", "english-questions.pdf", 0, 1),
+             ("Chemistry", "chemistry.html", "chemistry-questions.pdf", 0, 1),
+             ("Biology chapter 1", "biology.html?chapter=chapter-1", "biology-ch1-questions.pdf", 0, 1),
+             ("Biology chapter 2", "biology.html?chapter=chapter-2", "biology-ch2-questions.pdf", 0, 2),
+             ("Biology chapter 2 essay and picture questions", "biology.html?chapter=chapter-2", "biology-ch2-essay-image-questions.pdf", 1, 2)]
     for device, options in [("computer", {"viewport": {"width": 1280, "height": 900}}),
                             ("phone", {"viewport": {"width": 390, "height": 664}, "device_scale_factor": 3, "is_mobile": True, "has_touch": True,
                                        "user_agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Mobile/15E148 Safari/604.1"})]:
         context = browser.new_context(accept_downloads=True, **options)
         page = watch(context.new_page())
-        for name, url, pdf in pages:
+        for name, url, pdf, which, how_many in pages:
             page.goto(base + url)
             page.wait_for_selector(".questions-pdf")
-            panel = page.locator(".questions-pdf")
+            panels = page.locator(".questions-pdf")
+            panel = panels.nth(which)
             view = panel.locator("a[target=_blank]")
             download_link = panel.locator("a[download]")
-            record("%s (%s): one PDF panel with View PDF and Download PDF" % (name, device),
-                   panel.count() == 1 and view.inner_text() == "View PDF" and download_link.inner_text() == "Download PDF"
+            record("%s (%s): %s with View PDF and Download PDF" % (name, device, "one PDF panel" if how_many == 1 else "PDF panel %d of %d" % (which + 1, how_many)),
+                   panels.count() == how_many and view.inner_text() == "View PDF" and download_link.inner_text() == "Download PDF"
                    and view.get_attribute("href") == pdf and download_link.get_attribute("href") == pdf,
-                   "%d panels" % panel.count())
+                   "%d panels" % panels.count())
             response = page.request.get(base + pdf)
             record("%s (%s): the PDF opens (200, application/pdf, a real PDF)" % (name, device),
                    response.status == 200 and response.headers.get("content-type", "").startswith("application/pdf")
@@ -1618,6 +1624,80 @@ def question_pdfs(browser, base):
             page.wait_for_selector(".questions-pdf")
             page.screenshot(path=str(SHOTS / "41-biology-pdf-panel-phone.png"), full_page=True)
         no_errors(page, "pages with question PDFs (%s)" % device)
+        context.close()
+
+
+def biology_written(browser, base):
+    """Biology Chapter 2: the 50 essay questions and the 50 questions on pictures.
+    On a computer and on a phone every question is opened, shows exactly the text of
+    biology-questions.json (the file the PDF is made from), takes a written answer
+    and then shows its model answer; every picture loads, is sharp (at least 1200
+    pixels wide) and fits the screen. The chapter page shows both PDF panels with
+    the right numbers of questions."""
+    data = json.loads((PROJECT / "biology-questions.json").read_text(encoding="utf-8"))
+    chapter = data["chapters"][1]
+    sections = chapter["sections"][3:]
+    record("biology written: 50 essay and 50 picture questions",
+           [s["id"] for s in sections] == ["chapter-2-essay", "chapter-2-images"] and [len(s["questions"]) for s in sections] == [50, 50])
+    phone = {"viewport": {"width": 390, "height": 664}, "device_scale_factor": 3, "is_mobile": True, "has_touch": True}
+    for device, options in [("computer", {"viewport": {"width": 1280, "height": 900}}), ("phone", phone)]:
+        context = browser.new_context(**options)
+        page = watch(context.new_page())
+        page.goto(base + "biology.html")
+        page.evaluate("() => localStorage.setItem('g12-lang', 'en')")
+        page.goto(base + "biology.html?chapter=chapter-2")
+        page.wait_for_selector(".questions-pdf")
+        titles = page.locator(".questions-pdf .summary-pdf-title").all_inner_texts()
+        hints = page.locator(".questions-pdf .hint").all_inner_texts()
+        record("biology written (%s): the chapter page has the multiple-choice PDF (100 questions) and the new PDF (100 questions)" % device,
+               titles == [chapter["pdfTitle"], chapter["morePdfs"][0]["title"]]
+               and all(h.startswith("100 questions") for h in hints) and len(hints) == 2, str(titles) + str(hints))
+        for section in sections:
+            page.goto(base + "biology.html?chapter=chapter-2&section=" + section["id"])
+            page.wait_for_selector(".quiz .prompt-text")
+            heading = page.locator(".question-section-title").inner_text().strip()
+            problems = []
+            for n, q in enumerate(section["questions"], 1):
+                shown = page.locator(".prompt-text").first.evaluate("e => e.textContent")
+                if shown != q["prompt"]:
+                    problems.append("%d: text differs" % n)
+                img = page.locator(".quiz .question-figure img")
+                if "image" in q:
+                    if img.count() != 1:
+                        problems.append("%d: no picture" % n)
+                    else:
+                        img.scroll_into_view_if_needed()
+                        page.wait_for_function("() => { const i = document.querySelector('.quiz .question-figure img'); return i && i.complete && i.naturalWidth > 0; }")
+                        info = img.evaluate("i => ({src: i.getAttribute('src'), w: i.naturalWidth, shown: i.getBoundingClientRect().width, right: i.getBoundingClientRect().right, alt: i.alt})")
+                        if info["src"] != q["image"] or info["w"] < 1200 or info["alt"] != q["imageAlt"]:
+                            problems.append("%d: picture %s" % (n, info))
+                        if info["right"] > page.viewport_size["width"] + 1 or info["shown"] < (300 if device == "phone" else 600):
+                            problems.append("%d: picture %d px wide on screen" % (n, info["shown"]))
+                elif img.count() != 0:
+                    problems.append("%d: an essay question shows a picture" % n)
+                page.fill(".quiz textarea", "إجابتي")
+                page.click("button:has-text('Submit answer')")
+                model = page.locator(".feedback p[dir=auto]").first.evaluate("e => e.textContent")
+                if model != q["modelAnswer"]:
+                    problems.append("%d: model answer differs" % n)
+                page.click(".actions button:has-text('Next question'), .actions button:has-text('See results')")
+            record("biology written (%s): %s — all %d questions show their text%s and their model answer" % (
+                   device, section["title"], len(section["questions"]), " and picture" if section["id"].endswith("images") else ""),
+                   heading == section["title"] and not problems, "; ".join(problems[:5]))
+        page.goto(base + "biology.html?chapter=chapter-2&section=chapter-2-images")
+        page.wait_for_selector(".quiz .question-figure img")
+        page.wait_for_function("() => document.querySelector('.quiz .question-figure img').complete")
+        overflow = page.evaluate("() => document.documentElement.scrollWidth - document.documentElement.clientWidth")
+        record("biology written (%s): no sideways scrolling on a picture question" % device, overflow <= 0, "overflow %d" % overflow)
+        audit(page, "biology picture question (%s)" % device)
+        if device == "phone":
+            page.screenshot(path=str(SHOTS / "45-biology-picture-question-phone.png"), full_page=True)
+            page.goto(base + "biology.html?chapter=chapter-2&section=chapter-2-essay")
+            page.wait_for_selector(".quiz textarea")
+            page.fill(".quiz textarea", "إجابتي")
+            page.click("button:has-text('Submit answer')")
+            page.screenshot(path=str(SHOTS / "46-biology-essay-answer-phone.png"), full_page=True)
+        no_errors(page, "biology written questions (%s)" % device)
         context.close()
 
 
@@ -1810,6 +1890,7 @@ def main():
         run_section("no review labels", no_review_labels, browser, base)
         run_section("biology question bank", biology_bank, browser, base)
         run_section("question PDFs", question_pdfs, browser, base)
+        run_section("biology essay and picture questions", biology_written, browser, base)
         run_section("Arabic Unit 3 PDFs", arabic_unit3, browser, base)
         run_section("Arabic Unit 3 questions on the site", arabic_quiz, browser, base)
         run_section("dhikr card", dhikr, browser, base)
