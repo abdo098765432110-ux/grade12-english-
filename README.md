@@ -12,7 +12,11 @@ A free learning website for Egyptian Grade 12 students. The subject menu
 - **Chemistry**: Chapter 1 questions (chemistry-questions.json).
 - **Biology**: Chapters 1 and 2 question banks — each chapter has 10 easy,
   40 medium and 50 very hard questions (biology-questions.json).
-- **Arabic**: one page with an empty content area ready for future lessons.
+- **Arabic**: Unit 3 «النواسخ»: two PDFs to view or download — 100 medium and hard
+  questions with an answer key (`arabic-unit3-questions.pdf`) and a two-page summary
+  (`arabic-unit3-summary.pdf`), made by `python3 tools/arabic_unit3/build.py` from
+  `tools/arabic_unit3/questions.json` and `tools/arabic_unit3/summary.html` (fonts in
+  `tools/fonts`, SIL Open Font License).
 
 - Plain HTML, CSS, JavaScript and JSON. No build step, frameworks, packages,
   database, accounts, paid services or AI APIs.
@@ -36,6 +40,7 @@ grade12-english/
 ├── present-perfect-summary.pdf   The Present Perfect & Present Perfect Continuous summary (English + Arabic, four A4 pages; the owner's file, used as it is)
 ├── manage.html            Content manager (for teachers)
 ├── arabic.html, physics.html, chemistry.html, biology.html   The other four subjects
+├── arabic-unit3-questions.pdf, arabic-unit3-summary.pdf   Arabic Unit 3: 100 questions with answer key, and the summary
 ├── subject.js             Subject pages: chapters → sections → questions, with the shared quiz
 ├── physics-questions.json Physics questions (الفصل الأول → حل أسئلة الفصل الأول, and the chapter's revision sheet)
 ├── chemistry-questions.json Chemistry questions (الفصل الأول)
@@ -66,7 +71,7 @@ grade12-english/
 ├── grammar-questions.json
 ├── reading-passages.json
 ├── docs/                  Data format reference and the first-upload diagnosis
-├── tools/                 check-site.js, validate-content.js, physics_pdfs.py, question_pdfs.py (for developers)
+├── tools/                 check-site.js, validate-content.js, physics_pdfs.py, question_pdfs.py, arabic_unit3/, fonts/ (for developers)
 ├── tests/                 Automated tests (for developers, not used by the site)
 ├── README.md
 └── PROJECT_STATUS.md

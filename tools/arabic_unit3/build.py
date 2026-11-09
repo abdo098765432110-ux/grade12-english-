@@ -20,6 +20,7 @@ import html
 import http.server
 import json
 import pathlib
+import re
 import threading
 
 from playwright.sync_api import sync_playwright
@@ -49,6 +50,16 @@ def ar(n):
 
 def text(value):
     return html.escape(value, quote=False)
+
+
+QURAN = re.compile("﴿[^﴾]*﴾")
+
+
+def body_text(value):
+    """Question text for the page: escaped, with Arabic-Indic digits, and each
+    Qur'an quotation ﴿…﴾ set in Amiri."""
+    value = text(value).translate(str.maketrans("0123456789", "٠١٢٣٤٥٦٧٨٩"))
+    return QURAN.sub(lambda m: '<span class="quran">%s</span>' % m.group(0), value)
 
 
 def how_many(n):
@@ -98,6 +109,7 @@ h1, h2, h3, h4 { font-weight: 700; margin: 0; }
 .chip.clay { background: var(--clay-soft); color: var(--clay); }
 .chip.gold { background: var(--gold-soft); color: #7d5f2c; }
 .rule { height: 0; border: 0; border-top: 1.2pt solid var(--gold); width: 46pt; margin: 8pt 0; }
+.quran { font-family: "Amiri", serif; font-size: 1.08em; font-weight: 400; color: #1f4f53; }
 """
 
 
@@ -198,10 +210,10 @@ def load_questions():
 def question_html(number, q):
     options = q["options"]
     short = all(len(o) <= 28 and "\n" not in o for o in options)
-    items = "".join('<li><span class="l">%s</span><span class="t">%s</span></li>' % (LETTERS[i], text(o)) for i, o in enumerate(options))
+    items = "".join('<li><span class="l">%s</span><span class="t">%s</span></li>' % (LETTERS[i], body_text(o)) for i, o in enumerate(options))
     tag = '<span class="chip %s level">%s</span>' % ("clay" if q["difficulty"] == "hard" else "teal", LEVEL[q["difficulty"]])
     return ('<article class="q"><div class="q-top"><span class="num">%s</span><div class="prompt">%s</div>%s</div>'
-            '<ul class="opts%s">%s</ul></article>') % (ar(number), text(q["prompt"]), tag, " two" if short else "", items)
+            '<ul class="opts%s">%s</ul></article>') % (ar(number), body_text(q["prompt"]), tag, " two" if short else "", items)
 
 
 def questions_document(by_section, pages=None):
@@ -230,7 +242,7 @@ def questions_document(by_section, pages=None):
   </div>
   <div class="foot">وفق كتاب «اللغة العربية» للصف الثالث الثانوي — وزارة التربية والتعليم، العام الدراسي ٢٠٢٦/٢٠٢٧<br>
   مع مفتاح إجابات كامل وتعليل مختصر لكل إجابة<br><span class="site">%s</span></div>
-</div></div></section>""" % (text(TITLE), ar(100), ar(len(SECTIONS)), SITE_NAME)
+</div></div></section>""" % (text(TITLE).replace(" – ", "<br>– ", 1), ar(100), ar(len(SECTIONS)), SITE_NAME)
     rows = []
     for key, no, name, _ in SECTIONS:
         rows.append('<div class="row"><span class="no">%s</span><span class="name">%s</span><span class="count">%s</span><span class="pg">%s</span></div>'
@@ -271,7 +283,7 @@ def questions_document(by_section, pages=None):
             k = numbering[q["id"]]
             letter = LETTERS[q["options"].index(q["answer"])]
             cells.append('<td><span class="n">%s</span><span class="a">%s</span></td>' % (ar(k), letter))
-            items.append('<li><b>%s</b> <span class="ans">(%s) %s</span> — %s</li>' % (ar(k), letter, text(q["answer"]), text(q["explanation"])))
+            items.append('<li><b>%s</b> <span class="ans">(%s) %s</span> — %s</li>' % (ar(k), letter, body_text(q["answer"]), body_text(q["explanation"])))
         cells += ['<td class="empty"></td>'] * (-len(cells) % 10)
         table = "".join("<tr>%s</tr>" % "".join(cells[i:i + 10]) for i in range(0, len(cells), 10))
         grids.append('<div class="grid-title">%s: %s</div><table class="grid">%s</table>' % (no, name, table))
@@ -337,6 +349,7 @@ body { font-size: 9.7pt; line-height: 1.68; }
 
 def summary_document():
     body = (HERE / "summary.html").read_text(encoding="utf-8")
+    body = QURAN.sub(lambda m: '<span class="quran">%s</span>' % m.group(0), body)
     return """<!DOCTYPE html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><base href="__BASE__"><title>ملخص الوحدة الثالثة: النواسخ — اللغة العربية</title>
 <style>%s%s%s</style></head><body>%s</body></html>""" % (BASE_CSS, page_css("", first_blank=False), SUMMARY_CSS, body)
 
