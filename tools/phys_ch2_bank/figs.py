@@ -399,8 +399,8 @@ def loop_tangent():
     loop_ccw(s, cx, cy, r, "2 A", start=45)
     s.dot(cx, cy, 5.5)
     s.text(cx - 10, cy - 10, "O", 20, "end")
-    s.line(cx, cy, cx + r * 0.7071, cy - r * 0.7071, SOFT, 2)
-    s.text(cx + 30, cy - 40, "5 cm", 18, "end", SOFT)
+    s.line(cx, cy, cx + r, cy, SOFT, 2)
+    s.text(cx + r / 2, cy - 10, "5 cm", 18, "middle", SOFT)
     yw = cy + r
     s.line(30, yw, 430, yw, WIRE, 4)
     s.text(420, yw + 32, "3 A", 21, "end", CUR)
@@ -507,18 +507,18 @@ def three_wires_field():
 
 
 def frame_in_field():
-    s = SVG(500, 340, "rectangular loop abcd in the page (a top-left, b top-right, c bottom-right, d bottom-left), clockwise current, in a uniform field B to the right.")
-    s.field_lines(20, 470, [40, 100, 160, 220, 280], FIELD)
-    s.text(470, 28, "B", 22, "end", FIELD, italic=True)
-    a, b, c, d = (130, 80), (370, 80), (370, 250), (130, 250)
+    s = SVG(500, 340, "rectangular loop abcd in the page (a top-left, b top-right, c bottom-right, d bottom-left), clockwise current, in a uniform field B into the page (crosses).")
+    field_into(s, 40, 56, 470, 320, 48)
+    s.tag(452, 30, "B ⊗", 20, FIELD)
+    a, b, c, d = (112, 80), (352, 80), (352, 272), (112, 272)
     s.poly([a, b, c, d], WIRE, 5, True)
     s.mid_head(*a, *b, 0.5, CUR, 18)
     s.mid_head(*b, *c, 0.5, CUR, 18)
     s.mid_head(*c, *d, 0.5, CUR, 18)
     s.mid_head(*d, *a, 0.5, CUR, 18)
-    for (x, y), lab, dx, dy in ((a, "a", -14, -10), (b, "b", 14, -10), (c, "c", 14, 18), (d, "d", -14, 18)):
-        s.text(x + dx, y + dy, lab, 22, "end" if dx < 0 else "start", PURPLE)
-    s.text(250, 140, "I", 22, "middle", CUR)
+    for (x, y), lab, dx, dy in ((a, "a", -16, -6), (b, "b", 16, -6), (c, "c", 16, 26), (d, "d", -16, 26)):
+        s.tag(x + dx, y + dy, lab, 21, PURPLE, pad=3)
+    s.tag(232, 186, "I", 22, CUR, pad=4)
     return s.save("physics-ch2-e-frame-in-field.svg")
 
 

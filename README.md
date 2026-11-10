@@ -7,8 +7,22 @@ A free learning website for Egyptian Grade 12 students. The subject menu
 - **English** (the home page and the pages below): grammar lessons, grammar
   summaries, grammar practice with feedback and scoring, and reading
   comprehension.
-- **Physics**: الفصل الأول → أسئلة على الفصل الأول: interactive questions,
-  with the correct answer and an explanation after each answer.
+- **Physics** (physics-questions.json):
+  - الفصل الأول → حل أسئلة الفصل الأول: interactive questions, with the correct
+    answer and an explanation after each answer.
+  - الفصل الثاني «التأثير المغناطيسي للتيار الكهربي وأجهزة القياس الكهربي»: 200 new
+    questions written from the Ministry book 2026/2027, in 8 lessons (الدرس الأول …
+    الدرس الثامن, in the book's order). Each lesson has its multiple-choice questions
+    (150 in all; easy to very hard, each with the worked solution and why each of the
+    four choices is right or wrong) and its essay questions (50 in all; hard and very
+    hard, model answer shown at any time). A random exam (`?chapter=chapter-2&exam=1`):
+    the student picks the number of questions and Easy, Medium, Hard (with the very hard
+    ones) or Mixed; no question twice; score and a review at the end. ONE PDF,
+    `physics-ch2-question-bank.pdf`: part 1 the MCQs by lesson, part 2 the essays with
+    space to write, part 3 the answer key (numbers start at 1 in each lesson, as on the
+    site). Sources in `tools/phys_ch2_bank/` (`common.py` the lessons, `mcq_*.py`,
+    `essay.py`, `figs.py` the diagrams `physics-ch2-*.svg`); run
+    `python3 -B tools/phys_ch2_bank/figs.py` then `python3 -B tools/phys_ch2_bank/build.py`.
 - **Chemistry**: Chapter 1 questions, and Chapter 2 «التحليل الكيميائي» (100 multiple-choice + 50 essay questions with three PDFs) (chemistry-questions.json).
 - **Biology**: Chapters 1 and 2 question banks — each chapter has 10 easy,
   40 medium and 50 very hard questions (biology-questions.json).
@@ -51,7 +65,7 @@ grade12-english/
 ├── arabic-unit2-mcq.pdf, arabic-unit2-essay.pdf   Arabic Unit 2: 50 multiple-choice questions with answer key, 50 written questions with model answers
 ├── arabic-unit3-questions.pdf, arabic-unit3-summary.pdf   Arabic Unit 3: 100 questions with answer key, and the summary
 ├── subject.js             Subject pages: chapters → sections → questions, with the shared quiz
-├── physics-questions.json Physics questions (الفصل الأول → حل أسئلة الفصل الأول, and the chapter's revision sheet)
+├── physics-questions.json Physics questions (الفصل الأول → حل أسئلة الفصل الأول, and the chapter's revision sheet; الفصل الثاني in 8 lessons, with its exam and PDF)
 ├── chemistry-questions.json Chemistry questions (الفصل الأول، الفصل الثاني: التحليل الكيميائي)
 ├── biology-questions.json Biology questions (الفصل الأول والثاني: سهلة / متوسطة / صعبة جدًا)
 ├── physics-ch1-laws.html  Revision sheet «مراجعة أهم قوانين الفصل الأول» (A4, printable; styles in sheet.css, print button in sheet.js)
@@ -61,6 +75,8 @@ grade12-english/
 ├── chemistry-ch2-mcq.pdf, chemistry-ch2-essay.pdf, chemistry-ch2-answer-key.pdf   Chemistry Chapter 2 «التحليل الكيميائي»: 100 multiple-choice questions (50 hard, 50 very hard), 50 essay questions, and the full answer key with explanations and model answers (the same questions as on the site; made by tools/chem_ch2_bank/build.py)
 ├── physics-ch1-p02.svg … physics-ch1-p118.svg   Diagrams for the physics questions taken from the review PDF (questions 1–118; only those that have a figure or table)
 ├── physics-ch1-q6.svg … physics-ch1-q11.svg   Diagrams for the earlier physics questions (no picture for q8)
+├── physics-ch2-question-bank.pdf   Physics Chapter 2: the 150 MCQs and 50 essays by lesson, and the answer key (one PDF; made by tools/phys_ch2_bank/build.py)
+├── physics-ch2-*.svg      Diagrams for the Physics Chapter 2 questions (drawn by tools/phys_ch2_bank/figs.py)
 ├── .nojekyll              Empty file: tells GitHub Pages to serve files as they are
 ├── style.css              All styles
 ├── logo.svg               Logo (header, footer and browser tab)
@@ -83,7 +99,7 @@ grade12-english/
 ├── grammar-questions.json
 ├── reading-passages.json
 ├── docs/                  Data format reference and the first-upload diagnosis
-├── tools/                 check-site.js, validate-content.js, physics_pdfs.py, question_pdfs.py, dhikr_font.py, arabic_unit2/, arabic_unit3/, bio_ch2_bank/, chem_ch2_bank/, fonts/ (for developers)
+├── tools/                 check-site.js, validate-content.js, physics_pdfs.py, question_pdfs.py, dhikr_font.py, arabic_unit2/, arabic_unit3/, bio_ch2_bank/, chem_ch2_bank/, phys_ch2_bank/, fonts/ (for developers)
 ├── tests/                 Automated tests (for developers, not used by the site)
 ├── README.md
 └── PROJECT_STATUS.md

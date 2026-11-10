@@ -9,8 +9,8 @@
   <text x="313.6" y="54.4" text-anchor="start" font-size="21" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, Tahoma, 'Noto Sans Arabic', sans-serif" fill="#c43030">2 A</text>
   <circle cx="230" cy="140" r="5.5" fill="#2b3654"/>
   <text x="220" y="130" text-anchor="end" font-size="20" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, Tahoma, 'Noto Sans Arabic', sans-serif" fill="#2b3654">O</text>
-  <path d="M230 140 L304.2 65.8" stroke="#6b7385" stroke-width="2" fill="none" stroke-linecap="round"/>
-  <text x="260" y="100" text-anchor="end" font-size="18" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, Tahoma, 'Noto Sans Arabic', sans-serif" fill="#6b7385">5 cm</text>
+  <path d="M230 140 L335 140" stroke="#6b7385" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <text x="282.5" y="130" text-anchor="middle" font-size="18" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, Tahoma, 'Noto Sans Arabic', sans-serif" fill="#6b7385">5 cm</text>
   <path d="M30 245 L430 245" stroke="#2b3654" stroke-width="4" fill="none" stroke-linecap="round"/>
   <text x="420" y="277" text-anchor="end" font-size="21" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, Tahoma, 'Noto Sans Arabic', sans-serif" fill="#c43030">3 A</text>
 </svg>

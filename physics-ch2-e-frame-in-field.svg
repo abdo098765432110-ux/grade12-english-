@@ -1,25 +1,129 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 340" width="500" height="340">
-  <!-- Physics, chapter 2: rectangular loop abcd in the page (a top-left, b top-right, c bottom-right, d bottom-left), clockwise current, in a uniform field B to the right. -->
+  <!-- Physics, chapter 2: rectangular loop abcd in the page (a top-left, b top-right, c bottom-right, d bottom-left), clockwise current, in a uniform field B into the page (crosses). -->
   <rect width="500" height="340" fill="#ffffff"/>
-  <path d="M20 40 L464 40" stroke="#2f63b0" stroke-width="2" fill="none" stroke-linecap="round"/>
-  <path d="M470 40 L458 44.6 L458 35.4 z" fill="#2f63b0"/>
-  <path d="M20 100 L464 100" stroke="#2f63b0" stroke-width="2" fill="none" stroke-linecap="round"/>
-  <path d="M470 100 L458 104.6 L458 95.4 z" fill="#2f63b0"/>
-  <path d="M20 160 L464 160" stroke="#2f63b0" stroke-width="2" fill="none" stroke-linecap="round"/>
-  <path d="M470 160 L458 164.6 L458 155.4 z" fill="#2f63b0"/>
-  <path d="M20 220 L464 220" stroke="#2f63b0" stroke-width="2" fill="none" stroke-linecap="round"/>
-  <path d="M470 220 L458 224.6 L458 215.4 z" fill="#2f63b0"/>
-  <path d="M20 280 L464 280" stroke="#2f63b0" stroke-width="2" fill="none" stroke-linecap="round"/>
-  <path d="M470 280 L458 284.6 L458 275.4 z" fill="#2f63b0"/>
-  <text x="470" y="28" text-anchor="end" font-size="22" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, Tahoma, 'Noto Sans Arabic', sans-serif" fill="#2f63b0" font-style="italic">B</text>
-  <path d="M130 80 L370 80 L370 250 L130 250 z" stroke="#2b3654" stroke-width="5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
-  <path d="M259 80 L241 86.8 L241 73.2 z" fill="#c43030"/>
-  <path d="M370 174 L363.2 156 L376.8 156 z" fill="#c43030"/>
-  <path d="M241 250 L259 243.2 L259 256.8 z" fill="#c43030"/>
-  <path d="M130 156 L136.8 174 L123.2 174 z" fill="#c43030"/>
-  <text x="116" y="70" text-anchor="end" font-size="22" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, Tahoma, 'Noto Sans Arabic', sans-serif" fill="#6a3d9a">a</text>
-  <text x="384" y="70" text-anchor="start" font-size="22" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, Tahoma, 'Noto Sans Arabic', sans-serif" fill="#6a3d9a">b</text>
-  <text x="384" y="268" text-anchor="start" font-size="22" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, Tahoma, 'Noto Sans Arabic', sans-serif" fill="#6a3d9a">c</text>
-  <text x="116" y="268" text-anchor="end" font-size="22" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, Tahoma, 'Noto Sans Arabic', sans-serif" fill="#6a3d9a">d</text>
-  <text x="250" y="140" text-anchor="middle" font-size="22" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, Tahoma, 'Noto Sans Arabic', sans-serif" fill="#c43030">I</text>
+  <path d="M34 50 L46 62" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M34 62 L46 50" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M82 50 L94 62" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M82 62 L94 50" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M130 50 L142 62" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M130 62 L142 50" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M178 50 L190 62" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M178 62 L190 50" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M226 50 L238 62" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M226 62 L238 50" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M274 50 L286 62" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M274 62 L286 50" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M322 50 L334 62" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M322 62 L334 50" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M370 50 L382 62" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M370 62 L382 50" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M418 50 L430 62" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M418 62 L430 50" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M34 98 L46 110" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M34 110 L46 98" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M82 98 L94 110" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M82 110 L94 98" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M130 98 L142 110" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M130 110 L142 98" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M178 98 L190 110" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M178 110 L190 98" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M226 98 L238 110" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M226 110 L238 98" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M274 98 L286 110" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M274 110 L286 98" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M322 98 L334 110" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M322 110 L334 98" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M370 98 L382 110" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M370 110 L382 98" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M418 98 L430 110" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M418 110 L430 98" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M34 146 L46 158" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M34 158 L46 146" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M82 146 L94 158" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M82 158 L94 146" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M130 146 L142 158" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M130 158 L142 146" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M178 146 L190 158" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M178 158 L190 146" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M226 146 L238 158" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M226 158 L238 146" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M274 146 L286 158" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M274 158 L286 146" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M322 146 L334 158" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M322 158 L334 146" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M370 146 L382 158" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M370 158 L382 146" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M418 146 L430 158" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M418 158 L430 146" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M34 194 L46 206" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M34 206 L46 194" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M82 194 L94 206" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M82 206 L94 194" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M130 194 L142 206" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M130 206 L142 194" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M178 194 L190 206" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M178 206 L190 194" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M226 194 L238 206" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M226 206 L238 194" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M274 194 L286 206" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M274 206 L286 194" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M322 194 L334 206" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M322 206 L334 194" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M370 194 L382 206" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M370 206 L382 194" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M418 194 L430 206" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M418 206 L430 194" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M34 242 L46 254" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M34 254 L46 242" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M82 242 L94 254" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M82 254 L94 242" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M130 242 L142 254" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M130 254 L142 242" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M178 242 L190 254" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M178 254 L190 242" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M226 242 L238 254" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M226 254 L238 242" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M274 242 L286 254" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M274 254 L286 242" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M322 242 L334 254" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M322 254 L334 242" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M370 242 L382 254" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M370 254 L382 242" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M418 242 L430 254" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M418 254 L430 242" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M34 290 L46 302" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M34 302 L46 290" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M82 290 L94 302" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M82 302 L94 290" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M130 290 L142 302" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M130 302 L142 290" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M178 290 L190 302" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M178 302 L190 290" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M226 290 L238 302" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M226 302 L238 290" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M274 290 L286 302" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M274 302 L286 290" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M322 290 L334 302" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M322 302 L334 290" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M370 290 L382 302" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M370 302 L382 290" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M418 290 L430 302" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M418 302 L430 290" stroke="#2f63b0" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <rect x="427.4" y="11" width="49.2" height="27" rx="5" fill="#ffffff"/>
+  <text x="452" y="30" text-anchor="middle" font-size="20" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, Tahoma, 'Noto Sans Arabic', sans-serif" fill="#2f63b0">B ⊗</text>
+  <path d="M112 80 L352 80 L352 272 L112 272 z" stroke="#2b3654" stroke-width="5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M241 80 L223 86.8 L223 73.2 z" fill="#c43030"/>
+  <path d="M352 185 L345.2 167 L358.8 167 z" fill="#c43030"/>
+  <path d="M223 272 L241 265.2 L241 278.8 z" fill="#c43030"/>
+  <path d="M112 167 L118.8 185 L105.2 185 z" fill="#c43030"/>
+  <rect x="86.5" y="54" width="19" height="28.4" rx="5" fill="#ffffff"/>
+  <text x="96" y="74" text-anchor="middle" font-size="21" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, Tahoma, 'Noto Sans Arabic', sans-serif" fill="#6a3d9a">a</text>
+  <rect x="358.5" y="54" width="19" height="28.4" rx="5" fill="#ffffff"/>
+  <text x="368" y="74" text-anchor="middle" font-size="21" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, Tahoma, 'Noto Sans Arabic', sans-serif" fill="#6a3d9a">b</text>
+  <rect x="358.5" y="278.1" width="19" height="28.4" rx="5" fill="#ffffff"/>
+  <text x="368" y="298" text-anchor="middle" font-size="21" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, Tahoma, 'Noto Sans Arabic', sans-serif" fill="#6a3d9a">c</text>
+  <rect x="86.5" y="278.1" width="19" height="28.4" rx="5" fill="#ffffff"/>
+  <text x="96" y="298" text-anchor="middle" font-size="21" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, Tahoma, 'Noto Sans Arabic', sans-serif" fill="#6a3d9a">d</text>
+  <rect x="221.2" y="165.1" width="21.6" height="29.7" rx="5" fill="#ffffff"/>
+  <text x="232" y="186" text-anchor="middle" font-size="22" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, Tahoma, 'Noto Sans Arabic', sans-serif" fill="#c43030">I</text>
 </svg>
