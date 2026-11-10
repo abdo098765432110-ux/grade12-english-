@@ -541,6 +541,12 @@
       var feedback = el('div', { className: 'feedback', tabindex: '-1' });
       var submitButton = el('button', { type: 'submit', className: 'btn', text: t('Submit answer') });
       var actions = el('div', { className: 'actions' }, [submitButton]);
+      // A written question with "revealAnytime": the student may also show the model
+      // answer straight away, with or without writing an answer first.
+      var revealAnytime = question.type !== 'mcq' && question.revealAnytime === true && reviewed;
+      if (revealAnytime) {
+        actions.appendChild(el('button', { type: 'button', className: 'btn btn--secondary', text: t('Show the model answer'), onclick: revealWritten }));
+      }
 
       var inputs = [];
       var optionItems = [];
@@ -576,9 +582,11 @@
           el('label', { className: 'question-legend', for: textareaId, dir: 'auto' }, promptNodes(question, null, quiz.index)),
           figure(question),
           badges,
-          el('p', { className: 'hint', id: textareaId + '-hint', text: reviewed
-            ? t('Write your answer, then submit it to compare it with the correct answer. Written answers are not scored automatically.')
-            : t('Write your answer, then submit it to compare it with the suggested answer. Written answers are not scored automatically.') }),
+          el('p', { className: 'hint', id: textareaId + '-hint', text: revealAnytime
+            ? t('Write your answer and submit it to compare it with the model answer, or show the model answer whenever you like. Written answers are not scored automatically.')
+            : reviewed
+              ? t('Write your answer, then submit it to compare it with the correct answer. Written answers are not scored automatically.')
+              : t('Write your answer, then submit it to compare it with the suggested answer. Written answers are not scored automatically.') }),
           textarea
         ]));
         textarea.setAttribute('aria-describedby', textareaId + '-hint');
@@ -734,6 +742,13 @@
           return;
         }
         quiz.submit(textarea.value);
+        answered();
+        showWritten();
+      }
+
+      function revealWritten() {
+        if (textarea.value.trim()) quiz.submit(textarea.value);
+        else quiz.reveal();
         answered();
         showWritten();
       }

@@ -241,6 +241,8 @@
       "Question {n} of {total}": "Question {n} of {total}",
       "Restart quiz": "Restart quiz",
       "Submit answer": "Submit answer",
+      "Show the model answer": "Show the model answer",
+      "Write your answer and submit it to compare it with the model answer, or show the model answer whenever you like. Written answers are not scored automatically.": "Write your answer and submit it to compare it with the model answer, or show the model answer whenever you like. Written answers are not scored automatically.",
       "Write your answer, then submit it to compare it with the correct answer. Written answers are not scored automatically.": "Write your answer, then submit it to compare it with the correct answer. Written answers are not scored automatically.",
       "Write your answer, then submit it to compare it with the suggested answer. Written answers are not scored automatically.": "Write your answer, then submit it to compare it with the suggested answer. Written answers are not scored automatically.",
       "See results": "See results",

@@ -244,6 +244,8 @@
       "Question {n} of {total}": "السؤال {n} من {total}",
       "Restart quiz": "أعد الاختبار من البداية",
       "Submit answer": "أرسل الإجابة",
+      "Show the model answer": "اعرض الإجابة النموذجية",
+      "Write your answer and submit it to compare it with the model answer, or show the model answer whenever you like. Written answers are not scored automatically.": "اكتب إجابتك وأرسلها لمقارنتها بالإجابة النموذجية، أو اعرض الإجابة النموذجية متى شئت. الإجابات المكتوبة لا تُصحَّح تلقائيًا.",
       "Write your answer, then submit it to compare it with the correct answer. Written answers are not scored automatically.": "اكتب إجابتك ثم أرسلها لمقارنتها بالإجابة الصحيحة. الإجابات المكتوبة لا تُصحَّح تلقائيًا.",
       "Write your answer, then submit it to compare it with the suggested answer. Written answers are not scored automatically.": "اكتب إجابتك ثم أرسلها لمقارنتها بالإجابة المقترحة. الإجابات المكتوبة لا تُصحَّح تلقائيًا.",
       "See results": "عرض النتيجة",
