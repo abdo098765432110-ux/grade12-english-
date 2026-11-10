@@ -12,11 +12,19 @@ A free learning website for Egyptian Grade 12 students. The subject menu
 - **Chemistry**: Chapter 1 questions, and Chapter 2 «التحليل الكيميائي» (100 multiple-choice + 50 essay questions with three PDFs) (chemistry-questions.json).
 - **Biology**: Chapters 1 and 2 question banks — each chapter has 10 easy,
   40 medium and 50 very hard questions (biology-questions.json).
-- **Arabic**: Unit 3 «النواسخ»: two PDFs to view or download — 100 medium and hard
-  questions with an answer key (`arabic-unit3-questions.pdf`) and a two-page summary
-  (`arabic-unit3-summary.pdf`), made by `python3 tools/arabic_unit3/build.py` from
-  `tools/arabic_unit3/questions.json` and `tools/arabic_unit3/summary.html` (fonts in
-  `tools/fonts`, SIL Open Font License).
+- **Arabic** (arabic-questions.json, solved on the site):
+  - Unit 2 «الأبنية»: 50 multiple-choice questions (medium, hard, very hard; scored
+    with a percentage and an explanation for each) and 50 written questions (إعراب،
+    استخرج، صوّب، علّل، أعد الصياغة، أكمل، تطبيقات) whose model answer can be shown at
+    any time. Two PDFs: `arabic-unit2-mcq.pdf` (answer key at the end) and
+    `arabic-unit2-essay.pdf` (model answers at the end). Questions in
+    `tools/arabic_unit2/mcq.py` and `essay.py`; `python3 tools/arabic_unit2/build.py`
+    writes the unit into the JSON file and makes the PDFs.
+  - Unit 3 «النواسخ»: 100 medium and hard questions, and two PDFs to view or download —
+    the questions with an answer key (`arabic-unit3-questions.pdf`) and a two-page
+    summary (`arabic-unit3-summary.pdf`), made by `python3 tools/arabic_unit3/build.py`
+    from the same questions and `tools/arabic_unit3/summary.html` (fonts in
+    `tools/fonts`, SIL Open Font License).
 
 - Plain HTML, CSS, JavaScript and JSON. No build step, frameworks, packages,
   database, accounts, paid services or AI APIs.
@@ -40,6 +48,7 @@ grade12-english/
 ├── present-perfect-summary.pdf   The Present Perfect & Present Perfect Continuous summary (English + Arabic, four A4 pages; the owner's file, used as it is)
 ├── manage.html            Content manager (for teachers)
 ├── arabic.html, physics.html, chemistry.html, biology.html   The other four subjects
+├── arabic-unit2-mcq.pdf, arabic-unit2-essay.pdf   Arabic Unit 2: 50 multiple-choice questions with answer key, 50 written questions with model answers
 ├── arabic-unit3-questions.pdf, arabic-unit3-summary.pdf   Arabic Unit 3: 100 questions with answer key, and the summary
 ├── subject.js             Subject pages: chapters → sections → questions, with the shared quiz
 ├── physics-questions.json Physics questions (الفصل الأول → حل أسئلة الفصل الأول, and the chapter's revision sheet)
@@ -74,7 +83,7 @@ grade12-english/
 ├── grammar-questions.json
 ├── reading-passages.json
 ├── docs/                  Data format reference and the first-upload diagnosis
-├── tools/                 check-site.js, validate-content.js, physics_pdfs.py, question_pdfs.py, dhikr_font.py, arabic_unit3/, bio_ch2_bank/, chem_ch2_bank/, fonts/ (for developers)
+├── tools/                 check-site.js, validate-content.js, physics_pdfs.py, question_pdfs.py, dhikr_font.py, arabic_unit2/, arabic_unit3/, bio_ch2_bank/, chem_ch2_bank/, fonts/ (for developers)
 ├── tests/                 Automated tests (for developers, not used by the site)
 ├── README.md
 └── PROJECT_STATUS.md
