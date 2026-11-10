@@ -1579,7 +1579,8 @@ def question_pdfs(browser, base):
              ("Chemistry", "chemistry.html", "chemistry-questions.pdf", 0, 1),
              ("Biology chapter 1", "biology.html?chapter=chapter-1", "biology-ch1-questions.pdf", 0, 1),
              ("Biology chapter 2", "biology.html?chapter=chapter-2", "biology-ch2-questions.pdf", 0, 2),
-             ("Biology chapter 2 essay and picture questions", "biology.html?chapter=chapter-2", "biology-ch2-essay-image-questions.pdf", 1, 2)]
+             ("Biology chapter 2 essay and picture questions", "biology.html?chapter=chapter-2", "biology-ch2-essay-image-questions.pdf", 1, 2),
+             ("Physics chapter 2", "physics.html?chapter=chapter-2", "physics-ch2-question-bank.pdf", 0, 1)]
     for device, options in [("computer", {"viewport": {"width": 1280, "height": 900}}),
                             ("phone", {"viewport": {"width": 390, "height": 664}, "device_scale_factor": 3, "is_mobile": True, "has_touch": True,
                                        "user_agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Mobile/15E148 Safari/604.1"})]:
@@ -2071,6 +2072,223 @@ def arabic_unit2_quiz(browser, base):
         context.close()
 
 
+def physics_ch2(browser, base):
+    """Physics Chapter 2 on a computer and a phone. The chapter page shows its 8 lessons
+    (number, «الدرس …» and the lesson's name, a button for its MCQs and one for its
+    essays, with their counts), the random-exam card and ONE PDF panel. Every one of the
+    150 MCQs is answered (on a computer every fourth one wrongly, on a phone all
+    wrongly): the text, choices, diagram and explanation are exactly those in
+    physics-questions.json (the PDF's source), each answer is marked right or wrong, and
+    each lesson ends with its score. Every one of the 50 essays has a writing box and
+    its model answer (shown on request on a computer, after writing on a phone). The
+    exam: Hard with 10 questions (hard and very hard only, no repeats, score and a review
+    of the 10 answers with explanations), a new exam with the same settings, Easy with
+    more questions than there are (a notice, then all of them), and Mixed with 20."""
+    data = json.loads((PROJECT / "physics-questions.json").read_text(encoding="utf-8"))
+    chapter = data["chapters"][1]
+    sections = {s["id"]: s for s in chapter["sections"]}
+    by_text = {}
+    for s in chapter["sections"]:
+        for q in s["questions"]:
+            by_text[(q["prompt"], tuple(q.get("options") or []))] = q
+    mcq_all = [q for s in chapter["sections"] for q in s["questions"] if q["type"] == "mcq"]
+    for device, options, every in [("computer", {"viewport": {"width": 1280, "height": 900}}, 4), ("phone", PHONE, 1)]:
+        context = browser.new_context(**options)
+        page = watch(context.new_page())
+        page.goto(base + "physics.html")
+        page.evaluate("() => localStorage.setItem('g12-lang', 'en')")
+        page.goto(base + "physics.html")
+        page.wait_for_selector(".subject-cards .card")
+        names = [c.strip() for c in page.locator(".subject-cards .card h2").all_inner_texts()]
+        counts = page.locator(".subject-cards .card .card-count").all_inner_texts()
+        record("physics (%s): both chapters (118 and 200 questions)" % device,
+               names == ["الفصل الأول", chapter["title"]] and counts == ["118 questions", "200 questions"], str(names) + str(counts))
+        page.goto(base + "physics.html?chapter=chapter-2")
+        page.wait_for_selector(".lesson-card")
+        cards = page.locator(".lesson-card")
+        problems = []
+        for i, lesson in enumerate(chapter["lessons"]):
+            card = cards.nth(i)
+            number = card.locator(".lesson-number").inner_text().strip()
+            kicker = card.locator(".lesson-kicker").inner_text().strip()
+            title = card.locator(".lesson-title").inner_text().strip()
+            buttons = card.locator("a.btn")
+            hrefs = buttons.evaluate_all("els => els.map(e => e.getAttribute('href'))")
+            texts = [b.strip() for b in buttons.all_inner_texts()]
+            want = ["%s (%d)" % (sections[sid]["label"], len(sections[sid]["questions"])) for sid in lesson["sections"]]
+            if (number, kicker, title) != (str(i + 1), lesson["number"], lesson["title"]) or texts != want \
+                    or hrefs != ["physics.html?chapter=chapter-2&section=" + sid for sid in lesson["sections"]]:
+                problems.append("%d: %s %s %s %s %s" % (i + 1, number, kicker, title, texts, hrefs))
+        exam_card = page.locator(".subject-cards .card:not(.lesson-card)")
+        panels = page.locator(".questions-pdf")
+        record("physics chapter 2 (%s): 8 lesson cards (number, «الدرس …», name, MCQ and essay buttons with counts)" % device,
+               cards.count() == 8 and not problems, "; ".join(problems[:4]))
+        record("physics chapter 2 (%s): the random-exam card (150 questions to choose from)" % device,
+               exam_card.count() == 1 and exam_card.locator("h3").inner_text().strip() == chapter["exam"]["title"]
+               and exam_card.locator(".card-count").inner_text().strip() == "150 questions to choose from"
+               and exam_card.locator("a.btn").get_attribute("href") == "physics.html?chapter=chapter-2&exam=1")
+        record("physics chapter 2 (%s): ONE PDF panel — 200 questions, View and Download %s" % (device, chapter["pdf"]),
+               panels.count() == 1 and panels.locator(".summary-pdf-title").inner_text() == chapter["pdfTitle"]
+               and panels.locator(".hint").inner_text().startswith("200 questions")
+               and panels.locator("a[target=_blank]").get_attribute("href") == chapter["pdf"]
+               and panels.locator("a[download]").get_attribute("href") == chapter["pdf"])
+        overflow = page.evaluate("() => document.documentElement.scrollWidth - document.documentElement.clientWidth")
+        record("physics chapter 2 (%s): no sideways scrolling on the chapter page" % device, overflow <= 0, "overflow %d" % overflow)
+        audit(page, "physics chapter 2 page (%s)" % device)
+        if device == "phone":
+            page.screenshot(path=str(SHOTS / "49-physics-ch2-lessons-phone.png"), full_page=True)
+        # the 8 lessons: MCQs, then essays
+        right_total = 0
+        for n, lesson in enumerate(chapter["lessons"], 1):
+            mcq, essay = sections[lesson["sections"][0]], sections[lesson["sections"][1]]
+            page.goto(base + "physics.html?chapter=chapter-2&section=" + mcq["id"])
+            page.wait_for_selector(".quiz .prompt-text")
+            banner_ok = (page.locator(".lesson-banner .lesson-number").inner_text().strip() == str(n)
+                         and page.locator(".lesson-banner .lesson-title").inner_text().strip() == lesson["title"]
+                         and page.locator(".question-section-title").inner_text().strip() == mcq["label"])
+            problems, right_count = [], 0
+            for k, q in enumerate(mcq["questions"], 1):
+                shown = page.locator(".prompt-text").first.evaluate("e => e.textContent")
+                choices = page.locator(".options .option-text").evaluate_all("els => els.map(e => e.textContent)")
+                if shown != q["prompt"] or choices != q["options"]:
+                    problems.append("%d: text differs" % k)
+                image = page.locator(".quiz figure img")
+                if (image.count() == 1) != bool(q.get("image")) or (q.get("image") and image.get_attribute("src") != q["image"]):
+                    problems.append("%d: diagram" % k)
+                key = q["options"].index(q["answer"])
+                right = k % every != 0
+                right_count += right
+                page.check(".options input[data-index='%d']" % (key if right else (key + 1) % 4))
+                page.click("button:has-text('Submit answer')")
+                verdict = page.locator(".feedback-title").inner_text().strip()
+                if verdict != ("Correct!" if right else "Not correct."):
+                    problems.append("%d: marked '%s'" % (k, verdict))
+                if not right:
+                    page.click("button:has-text('Show correct answer')")
+                    if page.locator(".feedback-title").evaluate("e => e.textContent") != "Correct answer: " + q["answer"]:
+                        problems.append("%d: key not shown" % k)
+                if page.locator(".feedback .explanation-text").evaluate_all("els => els.map(e => e.textContent)") != [q["explanation"]]:
+                    problems.append("%d: explanation" % k)
+                page.click(".actions button:has-text('Next question'), .actions button:has-text('See results')")
+            page.wait_for_selector(".score-number")
+            score = page.locator(".score-number").inner_text().strip()
+            right_total += right_count
+            record("physics chapter 2 (%s): lesson %d MCQs — %d questions as in the file and the PDF, marked right/wrong with explanations, score %s" % (
+                   device, n, len(mcq["questions"]), score),
+                   banner_ok and not problems and score == "%d / %d" % (right_count, len(mcq["questions"])), "; ".join(problems[:5]))
+            page.goto(base + "physics.html?chapter=chapter-2&section=" + essay["id"])
+            page.wait_for_selector(".quiz .prompt-text")
+            problems = []
+            for k, q in enumerate(essay["questions"], 1):
+                if page.locator(".prompt-text").first.evaluate("e => e.textContent") != q["prompt"]:
+                    problems.append("%d: text differs" % k)
+                box = page.locator(".quiz textarea")
+                if box.count() != 1 or box.get_attribute("rows") != "9" or not box.is_visible():
+                    problems.append("%d: no writing box" % k)
+                if device == "computer":
+                    page.click("button:has-text('Show the model answer')")
+                else:
+                    box.fill("إجابتي")
+                    page.click("button:has-text('Submit answer')")
+                if q["modelAnswer"] not in page.locator(".feedback p").evaluate_all("els => els.map(e => e.textContent)"):
+                    problems.append("%d: model answer not shown" % k)
+                page.click(".actions button:has-text('Next question'), .actions button:has-text('See results')")
+            page.wait_for_selector(".review-list")
+            record("physics chapter 2 (%s): lesson %d essays — %d questions as in the file, writing box, model answer %s" % (
+                   device, n, len(essay["questions"]), "on request" if device == "computer" else "after writing"),
+                   not problems and page.locator(".lesson-banner .lesson-title").inner_text().strip() == lesson["title"], "; ".join(problems[:5]))
+        expected = sum(len(sections[l["sections"][0]]["questions"]) - len(sections[l["sections"][0]]["questions"]) // every for l in chapter["lessons"])
+        record("physics chapter 2 (%s): all 150 MCQs answered (%d right)" % (device, right_total), right_total == expected, str(right_total))
+        if device == "phone":
+            page.screenshot(path=str(SHOTS / "50-physics-ch2-essay-results-phone.png"), full_page=True)
+
+        # the random exam
+        def solve_exam(level_label, count_choice=None, custom=None, wrong_every=0):
+            page.goto(base + "physics.html?chapter=chapter-2&exam=1")
+            page.wait_for_selector(".exam-form")
+            page.check("#chapter-exam-level-" + level_label)
+            if custom is not None:
+                page.check("#chapter-exam-count-custom")
+                page.fill("#chapter-exam-count-number", str(custom))
+            else:
+                page.check("#chapter-exam-count-" + str(count_choice))
+            page.click(".exam-form button[type=submit]")
+            page.wait_for_selector(".quiz .prompt-text")
+            return run_exam(wrong_every)
+
+        def run_exam(wrong_every=0):
+            seen, problems, right = [], [], 0
+            total = int(page.locator(".quiz .quiz-progress-text").first.inner_text().split(" of ")[-1].split()[0])
+            for k in range(1, total + 1):
+                shown = page.locator(".prompt-text").first.evaluate("e => e.textContent")
+                choices = page.locator(".options .option-text").evaluate_all("els => els.map(e => e.textContent)")
+                q = by_text.get((shown, tuple(choices)))
+                if not q or q["type"] != "mcq":
+                    problems.append("%d: not one of the chapter's MCQs" % k)
+                    break
+                seen.append(q)
+                key = q["options"].index(q["answer"])
+                ok = not (wrong_every and k % wrong_every == 0)
+                right += ok
+                page.check(".options input[data-index='%d']" % (key if ok else (key + 1) % 4))
+                page.click("button:has-text('Submit answer')")
+                if not ok:
+                    page.click("button:has-text('Show correct answer')")
+                if page.locator(".feedback .explanation-text").evaluate_all("els => els.map(e => e.textContent)") != [q["explanation"]]:
+                    problems.append("%d: explanation" % k)
+                page.click(".actions button:has-text('Next question'), .actions button:has-text('See results')")
+            page.wait_for_selector(".score-number")
+            return seen, problems, right, page.locator(".score-number").inner_text().strip()
+
+        seen, problems, right, score = solve_exam("hard", 10, wrong_every=5)
+        review = page.locator(".review-list > li")
+        explained = page.locator(".review-list .explanation-text").count()
+        record("physics exam (%s): Hard, 10 questions — only hard and very hard, no repeats, score %s, review of the 10 answers with explanations" % (device, score),
+               len(seen) == 10 and len({q["id"] for q in seen}) == 10 and all(q["difficulty"] in ("hard", "very-hard") for q in seen)
+               and not problems and score == "8 / 10" and review.count() == 10 and explained == 10,
+               "%s %s %s review %d explained %d" % ([q["difficulty"] for q in seen], problems[:3], score, review.count(), explained))
+        first = {q["id"] for q in seen}
+        page.click("button:has-text('New exam with the same settings')")
+        page.wait_for_selector(".quiz .prompt-text")
+        seen2, problems, right, score = run_exam()
+        record("physics exam (%s): «New exam with the same settings» — 10 new hard questions, score %s" % (device, score),
+               len(seen2) == 10 and len({q["id"] for q in seen2}) == 10 and all(q["difficulty"] in ("hard", "very-hard") for q in seen2)
+               and {q["id"] for q in seen2} != first and score == "10 / 10" and not problems)
+        page.click("button:has-text('Change exam settings')")
+        page.wait_for_selector(".exam-form")
+        record("physics exam (%s): «Change exam settings» returns to the settings, Hard still chosen" % device,
+               page.locator("#chapter-exam-level-hard").is_checked())
+        easy = sum(1 for q in mcq_all if q["difficulty"] == "easy")
+        seen, problems, right, score = solve_exam("easy", custom=40)
+        notice = page.locator(".exam-notice")
+        record("physics exam (%s): Easy with 40 asked — a notice, then all %d easy questions once" % (device, easy),
+               notice.count() == 1 and len(seen) == easy and len({q["id"] for q in seen}) == easy
+               and all(q["difficulty"] == "easy" for q in seen) and score == "%d / %d" % (easy, easy) and not problems)
+        seen, problems, right, score = solve_exam("mixed", 20)
+        levels = {q["difficulty"] for q in seen}
+        record("physics exam (%s): Mixed, 20 questions from the four levels and several lessons, no repeats" % device,
+               len(seen) == 20 and len({q["id"] for q in seen}) == 20 and levels == {"easy", "medium", "hard", "very-hard"}
+               and len({q["id"].split("-")[2] for q in seen}) >= 4 and score == "20 / 20" and not problems, str(sorted(levels)))
+        overflow = page.evaluate("() => document.documentElement.scrollWidth - document.documentElement.clientWidth")
+        record("physics exam (%s): no sideways scrolling" % device, overflow <= 0, "overflow %d" % overflow)
+        audit(page, "physics exam results (%s)" % device)
+        if device == "phone":
+            page.screenshot(path=str(SHOTS / "51-physics-ch2-exam-results-phone.png"), full_page=True)
+        # the exam page in the Arabic interface
+        page.evaluate("() => localStorage.setItem('g12-lang', 'ar')")
+        page.goto(base + "physics.html?chapter=chapter-2&exam=1")
+        page.wait_for_selector(".exam-form")
+        record("physics exam (%s): Arabic interface — levels with their counts and «ابدأ الامتحان»" % device,
+               page.locator(".exam-form button[type=submit]").inner_text().strip() == "ابدأ الامتحان"
+               and "صعب (%d)" % sum(1 for q in mcq_all if q["difficulty"] in ("hard", "very-hard")) in page.locator(".level-choice").inner_text()
+               and "سهل (%d)" % easy in page.locator(".level-choice").inner_text() and "مختلط (150)" in page.locator(".level-choice").inner_text(),
+               page.locator(".level-choice").inner_text())
+        if device == "phone":
+            page.screenshot(path=str(SHOTS / "52-physics-ch2-exam-form-ar-phone.png"), full_page=True)
+        no_errors(page, "physics chapter 2 (%s)" % device)
+        context.close()
+
+
 def dhikr(browser, base):
     """The dhikr card: on every page a dhikr from the list appears when the page
     opens, stays about 3.5 seconds, then disappears; a refresh shows a different
@@ -2154,6 +2372,7 @@ def main():
         run_section("Arabic Unit 3 questions on the site", arabic_quiz, browser, base)
         run_section("Arabic Unit 2 page and PDFs", arabic_unit2_page, browser, base)
         run_section("Arabic Unit 2 questions on the site", arabic_unit2_quiz, browser, base)
+        run_section("Physics Chapter 2 lessons, questions and exam", physics_ch2, browser, base)
         run_section("dhikr card", dhikr, browser, base)
         browser.close()
     server.shutdown()

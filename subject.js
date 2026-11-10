@@ -183,8 +183,13 @@
     }).filter(Boolean);
   }
 
+  /* The lesson a section belongs to, with its place in the chapter (1, 2, …). */
   function lessonOf(chapter, section) {
-    return lessonsOf(chapter).filter(function (lesson) { return lesson.sections.indexOf(section) !== -1; })[0] || null;
+    var lessons = lessonsOf(chapter);
+    for (var i = 0; i < lessons.length; i++) {
+      if (lessons[i].sections.indexOf(section) !== -1) return { lesson: lessons[i], position: i + 1 };
+    }
+    return null;
   }
 
   /* The lesson's name above its questions, or as the head of its card. */
@@ -286,12 +291,12 @@
       { label: chapter.title, href: hrefFor(chapter) },
       { label: section.title }
     ]));
-    var lesson = lessonOf(chapter, section);
+    var found = lessonOf(chapter, section);
     var headingId = 'questions-' + section.id;
     var quizArea = el('div', { className: 'section-quiz' });
-    var heading = lesson && hasText(section.label) ? section.label : section.title;
+    var heading = found && hasText(section.label) ? section.label : section.title;
     area.appendChild(el('section', { className: 'question-section', 'aria-labelledby': headingId }, [
-      lesson ? el('div', { className: 'lesson-banner' + (tone ? ' ' + tone : '') }, [lessonHead(lesson, lessonsOf(chapter).indexOf(lesson) + 1, 'p')]) : null,
+      found ? el('div', { className: 'lesson-banner' + (tone ? ' ' + tone : '') }, [lessonHead(found.lesson, found.position, 'p')]) : null,
       el('h2', { id: headingId, className: 'question-section-title', dir: 'auto', lang: langOf(heading), text: heading }),
       hasText(section.pdf) ? el('div', { className: 'section-downloads' }, [
         downloadLink(section.pdf, t('Download Questions'), 'btn btn--secondary'),

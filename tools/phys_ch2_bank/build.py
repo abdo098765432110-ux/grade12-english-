@@ -73,6 +73,7 @@ START = "A-Za-z0-9μπθτφΩΔ√⊙⊗ℓ∞|"
 RUN = re.compile(r"[\(\[]*[+−\-]?[" + START + r"][A-Za-z0-9₀-₉⁰-⁹¹²³⁺⁻().,/+×÷=%°→\-−–:\[\] μπθτφΩΔ√≈∝′⊙⊗⊥ℓ∞|_½⟸]*")
 ARABIC = re.compile(r"[؀-ۿ]")
 STRONG = re.compile(r"[A-Za-z؀-ۿμπθτφΩΔℓ]")
+UNIT_GAP = re.compile(r"(?<=[0-9⁰¹²³⁴-⁹]) (?=(?:k|M|m|μ|c)?(?:A|T|m|Ω|V|N|Wb|g|deg)(?![A-Za-z]))")
 STEP = re.compile(r"^(\s*(?:\d+\)|\([؀-ۿ]+\))\s*)")
 
 
@@ -128,7 +129,8 @@ def isolate(text):
         lead, run, tail = trim(m.group(0))
         if not re.search(r"[A-Za-z0-9μπθτφΩ√⊙⊗ℓ∞]", run):
             return m.group(0)
-        return lead + LRI + run.replace("⟸", "⟹") + PDI + tail
+        run = UNIT_GAP.sub("\u00a0", run.replace("⟸", "⟹"))   # a number stays on the same line as its unit
+        return lead + LRI + run + PDI + tail
 
     lines = []
     for line in text.split("\n"):
