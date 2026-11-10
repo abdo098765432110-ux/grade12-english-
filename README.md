@@ -91,6 +91,9 @@ grade12-english/
 ├── common.js              Shared helpers: data loading, unit links, empty and error states, menu
 ├── quiz-engine.js         Quiz rules: answer keys, scoring, unanswered questions
 ├── quiz-ui.js             Quiz screens: one at a time, or all questions then check
+├── visitor-config.js      The visitor register's address: the Supabase Project URL and the PUBLISHABLE key (never a secret key)
+├── visitor.js             On every page (first, right after <body>): the welcome and registration screen (full three-part Arabic name)
+├── founder.html, founder.js   The founder's private dashboard: sign-in, number of students, list, search, sort, history (not linked from the menus; protected by the sign-in and the database rules, not by its address)
 ├── dhikr.js, dhikr-amiri.woff   On every page: a random dhikr or dua in a small card for about 3.5 seconds (the font is Amiri, cut to the letters used; made by tools/dhikr_font.py)
 ├── home.js, grammar.js, summaries.js, practice.js, reading.js, manage.js   One script per page
 ├── units.json             The content (empty to start)
@@ -195,6 +198,34 @@ Notes:
 
 The data format is described in [docs/CONTENT_FORMAT.md](docs/CONTENT_FORMAT.md).
 
+## Visitor register (welcome screen and founder dashboard)
+
+- A first visit on a device shows a welcome screen (Arabic) that asks for the
+  full three-part Arabic name (الاسم الثلاثي) before the website opens. The
+  name is saved in a free **Supabase** database with an id made on that device.
+  The device remembers the student (browser storage), so refreshing, other
+  pages and closing the browser never ask again. A new browser session counts a
+  return visit on the same record (last visit time, number of visits): no
+  second record. «تسجيل طالب آخر» in the footer lets another student use a
+  shared device. If the database can not be reached, the student still enters
+  and the name is sent on the next page.
+- `founder.html` is the founder's dashboard: sign in with the founder's Supabase
+  account (email and password). It shows the number of unique registered
+  students, new registrations (today, 7 days), visits, the most recent visitors,
+  the visit history day by day, and the full list (search, sort, refresh,
+  automatic refresh every 30 seconds).
+- Security: the website only has the public (publishable) key. The database
+  rules (`tools/visitors/supabase-setup.sql`, Row Level Security) let that key
+  only add a name or count a return visit; reading the register is allowed only
+  to an account listed in `public.founders`. Nobody can change or delete rows
+  through the API. Public sign-ups must be switched off in Supabase.
+- Setup (once): create a free Supabase project, run
+  `tools/visitors/supabase-setup.sql` in its SQL Editor, add the founder user
+  (Authentication → Users → Add user), run the `insert into public.founders …`
+  line from the end of that file with the founder's email, switch off "Allow new
+  users to sign up", then put the Project URL and the publishable key in
+  `visitor-config.js`. Until then the welcome screen is off.
+
 ## Checks (need Node.js; no packages to install)
 
 ```
@@ -207,7 +238,12 @@ node tools/validate-content.js  # after editing the .json data files by hand
 ```
 node --test tests/*.test.js     # unit tests (Node.js 18+), including a check that every interface text has Arabic
 python tests/e2e_test.py        # browser tests; needs: pip install playwright && python -m playwright install chromium
+python tests/visitors_sql_test.py /tmp/pg 5432   # the register's SQL and its rules, on a local PostgreSQL 16 (initdb + pg_ctl start)
 ```
+
+The browser tests never use the real register: the registration screen is
+tested against a stand-in (`tests/mock_supabase.py`), and every other test
+loads an empty `visitor-config.js`.
 
 The browser tests serve the site from a subfolder (like GitHub Pages), type
 placeholder test text into the content manager, and never change the

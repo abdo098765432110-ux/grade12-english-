@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>لوحة المؤسس — سجل زوار الموقع</title>
+  <link rel="icon" href="logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="founder-page">
+  <a class="skip-link" href="#main">انتقل إلى المحتوى</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html"><img class="brand-logo" src="logo.svg" alt="" width="44" height="44"><span class="brand-text"><span class="brand-name" lang="en" dir="ltr">Learn for Grade 12</span> <span class="brand-tagline">لوحة المؤسس الخاصة</span></span></a>
+    </div>
+  </header>
+
+  <!-- The founder's private dashboard: the register of every student who
+       registered on the website. The page itself is public, like every file of
+       the website; what protects the register is the founder's sign-in
+       (Supabase Auth) and the database's Row Level Security: only the founder's
+       account can read the rows (see tools/visitors/supabase-setup.sql). -->
+  <main id="main" class="container" tabindex="-1">
+    <h1>لوحة المؤسس: سجل زوار الموقع</h1>
+    <div id="founder-root">
+      <p class="loading" role="status">جارٍ التحميل…</p>
+    </div>
+  </main>
+
+  <script src="visitor-config.js"></script>
+  <script src="visitor.js" data-no-gate></script>
+  <script src="dhikr.js"></script>
+  <script src="founder.js"></script>
+</body>
+</html>

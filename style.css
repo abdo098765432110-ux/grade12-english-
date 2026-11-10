@@ -2813,3 +2813,139 @@ input[type="file"] { font: inherit; max-width: 100%; }
 @media print {
   .dhikr { display: none; }
 }
+
+/* ---------- The welcome and registration screen (visitor.js) ----------
+   Covers the page until the student writes his three-part name. */
+.visitor-locked,
+.visitor-locked body { overflow: hidden; }
+.visitor-gate {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  overflow-y: auto;
+  background:
+    radial-gradient(circle at 15% 15%, rgba(255, 255, 255, 0.9) 0, rgba(255, 255, 255, 0) 40%),
+    radial-gradient(circle at 85% 85%, rgba(232, 222, 255, 0.85) 0, rgba(232, 222, 255, 0) 45%),
+    linear-gradient(160deg, #eaf3ff 0%, #f4f0ff 55%, #fff4ea 100%);
+  font-family: var(--font-arabic-ui);
+}
+.visitor-card {
+  width: min(31rem, 100%);
+  margin: auto;
+  padding: 1.6rem 1.5rem 1.3rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: 0 12px 40px rgba(60, 90, 160, 0.16);
+  text-align: right;
+}
+.visitor-brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-bottom: 0.6rem;
+  font-weight: 800;
+  color: var(--color-primary);
+}
+.visitor-title {
+  margin: 0 0 0.4rem;
+  font-size: 1.45rem;
+  line-height: 1.5;
+  text-align: center;
+  color: var(--color-text);
+}
+.visitor-lead { margin: 0 0 1.1rem; text-align: center; color: var(--color-muted); line-height: 1.8; }
+.visitor-form { display: flex; flex-direction: column; gap: 0.45rem; }
+.visitor-label { font-weight: 800; font-size: 1.05rem; }
+.visitor-form input[type="text"] {
+  max-width: none;
+  min-height: 3.1rem;
+  font-size: 1.15rem;
+  border-radius: 14px;
+}
+.visitor-hint { margin: 0; font-size: 0.92rem; color: var(--color-muted); }
+.visitor-error {
+  margin: 0.2rem 0 0;
+  padding: 0.5rem 0.75rem;
+  border-radius: 12px;
+  background: #fdeeee;
+  border: 1px solid #f2b8b5;
+  color: #8f1d17;
+  font-weight: 700;
+}
+.visitor-actions { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 0.6rem; }
+.visitor-actions .visitor-enter { flex: 1 1 12rem; }
+.visitor-privacy {
+  margin: 1.1rem 0 0;
+  padding: 0.65rem 0.85rem;
+  border-radius: 12px;
+  background: #f0f7f1;
+  border: 1px solid #cfe6d3;
+  color: #24553a;
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+.visitor-who { font-family: var(--font-arabic-ui); }
+.visitor-switch {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--color-link, var(--color-primary));
+  font: inherit;
+  text-decoration: underline;
+  cursor: pointer;
+}
+@media (max-width: 30rem) {
+  .visitor-card { padding: 1.25rem 1rem 1.1rem; }
+  .visitor-title { font-size: 1.25rem; }
+}
+@media print {
+  .visitor-gate { display: none; }
+}
+
+/* ---------- The founder's dashboard (founder.html) ---------- */
+.founder-page { font-family: var(--font-arabic-ui); }
+.founder-panel {
+  margin: 1rem 0;
+  padding: 1.2rem 1.25rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: var(--shadow);
+}
+.founder-login { max-width: 26rem; margin-inline: auto; }
+.founder-login form { display: flex; flex-direction: column; gap: 0.45rem; }
+.founder-login input { width: 100%; max-width: none; padding: 0.55rem 0.65rem; border: 2px solid var(--color-border); border-radius: var(--radius); font: inherit; }
+.founder-login input:focus-visible { border-color: var(--color-primary); }
+.founder-message { padding: 0.6rem 0.8rem; border-radius: 12px; background: #fdeeee; border: 1px solid #f2b8b5; color: #8f1d17; font-weight: 700; }
+.founder-message.is-info { background: #eef4ff; border-color: #c9d9f5; color: #1e3f78; }
+.founder-top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.6rem; }
+.founder-top h2 { margin: 0; }
+.founder-stats { list-style: none; margin: 1rem 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 10.5rem), 1fr)); gap: 0.75rem; }
+.founder-stat { padding: 0.9rem 1rem; border-radius: 18px; border: 1px solid var(--color-border); background: linear-gradient(135deg, #f3f7ff, #fbf8ff); }
+.founder-stat b { display: block; font-size: 2rem; line-height: 1.2; color: var(--color-primary); }
+.founder-stat.is-main { background: linear-gradient(135deg, #2f63b0, #6a4fc2); border-color: transparent; color: #fff; }
+.founder-stat.is-main b { color: #fff; font-size: 2.6rem; }
+.founder-tools { display: flex; flex-wrap: wrap; gap: 0.6rem; align-items: end; margin: 0.5rem 0 0.8rem; }
+.founder-tools label { display: flex; flex-direction: column; gap: 0.2rem; font-weight: 700; font-size: 0.92rem; }
+.founder-tools input[type="search"], .founder-tools select { min-width: 12rem; min-height: 2.75rem; padding: 0.4rem 0.6rem; border: 2px solid var(--color-border); border-radius: var(--radius); background: var(--color-surface); font: inherit; }
+.founder-tools .founder-auto { flex-direction: row; align-items: center; gap: 0.4rem; font-weight: 600; }
+.founder-updated { margin: 0; color: var(--color-muted); font-size: 0.9rem; }
+.founder-table-wrap { overflow-x: auto; border: 1px solid var(--color-border); border-radius: 16px; }
+.founder-table { width: 100%; border-collapse: collapse; min-width: 34rem; }
+.founder-table th, .founder-table td { padding: 0.6rem 0.75rem; text-align: right; border-bottom: 1px solid var(--color-border); vertical-align: top; }
+.founder-table th { background: #f3f7ff; font-size: 0.92rem; position: sticky; top: 0; }
+.founder-table tbody tr:nth-child(even) { background: #fafcff; }
+.founder-table td.num { color: var(--color-muted); width: 3rem; }
+.founder-badge { display: inline-block; margin-inline-start: 0.4rem; padding: 0 0.5rem; border-radius: 999px; font-size: 0.78rem; font-weight: 800; background: #e8f6ec; color: #1f6b3a; border: 1px solid #bfe3cb; }
+.founder-badge.is-same { background: #fff4e5; color: #8a4b08; border-color: #f3d2a5; }
+.founder-columns { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr)); gap: 1rem; }
+.founder-list { list-style: none; margin: 0; padding: 0; }
+.founder-list li { display: flex; justify-content: space-between; gap: 0.75rem; padding: 0.45rem 0; border-bottom: 1px dashed var(--color-border); }
+.founder-list time, .founder-list .when { color: var(--color-muted); font-size: 0.9rem; white-space: nowrap; }
+.founder-day { margin: 0.8rem 0 0.2rem; font-size: 1rem; color: var(--color-primary); }

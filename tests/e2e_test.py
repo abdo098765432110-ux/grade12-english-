@@ -31,6 +31,7 @@ import sys
 import tempfile
 import threading
 import traceback
+import uuid
 
 from playwright.sync_api import expect, sync_playwright
 
@@ -2289,6 +2290,329 @@ def physics_ch2(browser, base):
         context.close()
 
 
+REGISTER_OFF = "window.G12_VISITORS = { url: '', key: '' };"
+
+
+def register_off(browser):
+    """Every test context loads visitor-config.js with no address, so the
+    registration screen stays off in the other sections (and no test writes to
+    the real register). visitor_register() turns it on against a stand-in."""
+    if getattr(browser, "plain_context", None):
+        return
+    plain = browser.new_context
+
+    def new_context(**options):
+        context = plain(**options)
+        context.route("**/visitor-config.js", lambda route: route.fulfill(
+            status=200, content_type="application/javascript", body=REGISTER_OFF))
+        return context
+    browser.plain_context = plain
+    browser.new_context = new_context
+
+
+def visitor_register(browser, base):
+    """The welcome and registration screen, and the founder's dashboard, against
+    a stand-in register (tests/mock_supabase.py; the SQL itself is tested by
+    tests/visitors_sql_test.py on a real PostgreSQL):
+    first visit (screen, three-part name rules), refresh and other pages (no
+    screen, no second record), a new browser session (a return visit: same
+    record, visits + 1), another student on a shared device, another device,
+    the register unreachable (the student enters, the name is sent later), a
+    device whose record is missing, storage blocked, a secret key refused, the
+    phone layout; then the dashboard: sign-in (wrong password, another account,
+    the founder), counters, list, search, sort, refresh, automatic refresh,
+    history, sign-out."""
+    sys.path.insert(0, str(PROJECT / "tests"))
+    import mock_supabase
+    mock = mock_supabase.Mock()
+    config = "window.G12_VISITORS = { url: '%s', key: '%s' };" % (mock.url, mock_supabase.KEY)
+
+    def context_with(options=None, config_body=config):
+        context = browser.plain_context(**(options or {"viewport": {"width": 1280, "height": 900}}))
+        context.route("**/visitor-config.js", lambda route: route.fulfill(status=200, content_type="application/javascript", body=config_body))
+        return context
+
+    def wait_for(test, timeout=5.0):
+        end = time.time() + timeout
+        while time.time() < end:
+            if test():
+                return True
+            time.sleep(0.05)
+        return test()
+
+    def gate_shown(page):
+        return page.locator(".visitor-gate").count() == 1 and page.locator(".visitor-gate").is_visible()
+
+    def enter(page, name):
+        page.fill("#visitor-name", name)
+        page.click(".visitor-enter")
+
+    def stored(page):
+        return page.evaluate("() => JSON.parse(localStorage.getItem('g12-visitor-v1') || 'null')")
+
+    try:
+        # ---------------------------------------------------------------- the first visit (computer)
+        context = context_with()
+        page = watch(context.new_page())
+        page.goto(base + "index.html")
+        page.wait_for_selector(".visitor-gate")
+        locked = page.evaluate("() => !!document.getElementById('main').closest('[inert]') && document.documentElement.classList.contains('visitor-locked')")
+        texts = page.locator(".visitor-gate").inner_text()
+        record("register: a first visit shows the welcome screen before the website (the page behind it is locked)",
+               gate_shown(page) and locked and page.locator(".visitor-gate").get_attribute("dir") == "rtl", texts[:120])
+        record("register: Arabic welcome, «الاسم الثلاثي» field (required), «دخول الموقع» button, privacy notice",
+               "أهلًا بك" in texts and page.locator("label[for=visitor-name]").inner_text() == "الاسم الثلاثي"
+               and page.locator("#visitor-name").get_attribute("aria-required") == "true"
+               and page.locator(".visitor-enter").inner_text() == "دخول الموقع"
+               and "سجل زوار الموقع" in page.locator(".visitor-privacy").inner_text()
+               and page.evaluate("() => document.activeElement && document.activeElement.id") == "visitor-name")
+        page.screenshot(path=str(SHOTS / "53-register-screen-computer.png"))
+        bad = [("", "اكتب اسمك الثلاثي أولًا."), ("أحمد", "ثلاثة أسماء"), ("أحمد محمد", "ثلاثة أسماء"),
+               ("Ahmed Mohamed Ali", "بالحروف العربية"), ("أحمد م علي", "حرفين"), ("أحمد محمد 12", "أرقام"), ("أحمد محمد @علي", "بدون رموز")]
+        problems = []
+        for name, word in bad:
+            enter(page, name)
+            error = page.locator("#visitor-name-error")
+            if not (error.is_visible() and word in error.inner_text() and gate_shown(page)
+                    and page.locator("#visitor-name").get_attribute("aria-invalid") == "true"):
+                problems.append("%r → %s" % (name, error.inner_text() if error.is_visible() else "no message"))
+        record("register: names with fewer than three parts (or not Arabic) are refused with a clear message, and nothing is sent",
+               not problems and mock.count("/rest/v1/rpc/register_visitor") == 0, "; ".join(problems))
+        enter(page, "  أحمد   محمد عليّ ")
+        ok = wait_for(lambda: mock.count("/rest/v1/rpc/register_visitor") == 1 and len(mock.visitors) == 1)
+        ok = ok and wait_for(lambda: (stored(page) or {}).get("synced") is True)
+        row = next(iter(mock.visitors.values()), {})
+        saved = stored(page)
+        record("register: a three-part name lets the student in; the register gets ONE record with the cleaned name, the times and an id",
+               ok and not gate_shown(page) and not page.evaluate("() => !!document.getElementById('main').closest('[inert]')")
+               and row.get("full_name") == "أحمد محمد علي" and row.get("first_seen") and row.get("last_seen") and row.get("visits") == 1
+               and saved and saved["id"] == row.get("id") and saved["synced"] is True, json.dumps(row, ensure_ascii=False))
+        page.wait_for_selector("#visitor-who")
+        record("register: the footer shows «مسجّل باسم: أحمد محمد علي · تسجيل طالب آخر»",
+               page.locator("#visitor-who").inner_text().startswith("مسجّل باسم: أحمد محمد علي") and page.locator(".visitor-switch").count() == 1)
+        calls = len(mock.calls)
+        page.reload()
+        page.wait_for_selector("#visitor-who")
+        for url in ("physics.html?chapter=chapter-2", "arabic.html", "practice.html", "physics-ch1-laws.html", "sources.html"):
+            page.goto(base + url)
+            page.wait_for_load_state("networkidle")
+        record("register: after a refresh and on other pages — no screen, no request, still one record",
+               not gate_shown(page) and len(mock.calls) == calls and len(mock.visitors) == 1)
+        no_errors(page, "registration (computer)")
+        # a new browser session (the website closed and opened again)
+        again = watch(context.new_page())
+        again.goto(base + "index.html")
+        again.wait_for_selector("#visitor-who")
+        ok = wait_for(lambda: mock.count("/rest/v1/rpc/touch_visitor") == 1)
+        row = next(iter(mock.visitors.values()))
+        record("register: opening the website again — no screen; the same record gets its last visit time and visits = 2 (no second record)",
+               ok and not gate_shown(again) and len(mock.visitors) == 1 and row["visits"] == 2 and row["last_seen"] > row["first_seen"],
+               json.dumps(row, ensure_ascii=False))
+        page.close()
+        # another student on this (shared) device
+        again.click(".visitor-switch")
+        again.wait_for_selector(".visitor-gate")
+        title = again.locator("#visitor-title").inner_text()
+        again.click(".visitor-cancel")
+        record("register: «تسجيل طالب آخر» opens the screen for a new student; «رجوع» keeps the current student",
+               title == "تسجيل طالب آخر على هذا الجهاز" and not gate_shown(again) and len(mock.visitors) == 1
+               and stored(again)["name"] == "أحمد محمد علي")
+        again.click(".visitor-switch")
+        enter(again, "سارة محمود حسن")
+        ok = wait_for(lambda: len(mock.visitors) == 2)
+        record("register: a second student on the shared device gets his own record; the footer shows his name",
+               ok and again.locator("#visitor-who strong").inner_text() == "سارة محمود حسن" and stored(again)["name"] == "سارة محمود حسن"
+               and sorted(v["full_name"] for v in mock.visitors.values()) == sorted(["أحمد محمد علي", "سارة محمود حسن"]))
+        no_errors(again, "registration, shared device")
+        context.close()
+
+        # ---------------------------------------------------------------- another device (a phone), the same name
+        context = context_with(PHONE)
+        page = watch(context.new_page())
+        page.goto(base + "index.html")
+        page.wait_for_selector(".visitor-gate")
+        width = page.evaluate("() => document.documentElement.scrollWidth - window.innerWidth")
+        box = page.locator(".visitor-card").bounding_box()
+        page.screenshot(path=str(SHOTS / "54-register-screen-phone.png"))
+        record("register (phone): the screen fits the phone (no sideways scrolling, the card inside the screen)",
+               gate_shown(page) and width <= 0 and box["x"] >= 0 and box["x"] + box["width"] <= 391, "width %d box %s" % (width, box))
+        enter(page, "أحمد محمد علي")
+        ok = wait_for(lambda: len(mock.visitors) == 3)
+        record("register (phone): another device is another record (3 students), even with the same name",
+               ok and not gate_shown(page))
+        no_errors(page, "registration (phone)")
+        context.close()
+
+        # ---------------------------------------------------------------- the register unreachable
+        context = context_with()
+        page = watch(context.new_page())
+        mock.down = True
+        page.goto(base + "index.html")
+        page.wait_for_selector(".visitor-gate")
+        enter(page, "منى سعيد عبد الرحمن")
+        page.wait_for_selector("#visitor-who")
+        time.sleep(0.5)
+        pending = stored(page)
+        record("register: if the register can not be reached, the student still enters and the name waits on the device",
+               not gate_shown(page) and pending and pending["synced"] is False and len(mock.visitors) == 3)
+        mock.down = False
+        page.reload()
+        ok = wait_for(lambda: len(mock.visitors) == 4)
+        record("register: … and it is sent on the next page (4 students), once",
+               ok and wait_for(lambda: (stored(page) or {}).get("synced") is True) and not gate_shown(page)
+               and sum(1 for v in mock.visitors.values() if v["full_name"] == "منى سعيد عبد الرحمن") == 1)
+        page.errors.clear()   # the 503 answers are logged by the browser
+        context.close()
+
+        # a device whose record is not in the register (for example removed by the founder)
+        context = context_with()
+        context.add_init_script("localStorage.setItem('g12-visitor-v1', JSON.stringify({id: '%s', name: 'خالد عمر يوسف', at: '2026-01-01T00:00:00Z', synced: true}));" % uuid.uuid4())
+        page = watch(context.new_page())
+        page.goto(base + "index.html")
+        ok = wait_for(lambda: len(mock.visitors) == 5)
+        record("register: a device whose record is missing registers again by itself (no screen)",
+               ok and not gate_shown(page) and any(v["full_name"] == "خالد عمر يوسف" for v in mock.visitors.values()))
+        context.close()
+
+        # storage blocked: the student could not be remembered, so no screen
+        context = context_with()
+        context.add_init_script("Object.defineProperty(window, 'localStorage', { get() { throw new Error('blocked'); } });")
+        page = context.new_page()
+        page.goto(base + "index.html")
+        page.wait_for_load_state("networkidle")
+        record("register: with storage blocked the website still opens (no screen)", not gate_shown(page) and page.locator(".site-header").is_visible())
+        context.close()
+
+        # a secret key in visitor-config.js is refused
+        context = context_with(config_body="window.G12_VISITORS = { url: '%s', key: 'sb_secret_abc123' };" % mock.url)
+        page = watch(context.new_page())
+        calls = len(mock.calls)
+        page.goto(base + "index.html")
+        page.wait_for_load_state("networkidle")
+        record("register: a secret key in visitor-config.js is refused (no screen, no request, a console message)",
+               not gate_shown(page) and len(mock.calls) == calls and any("secret key" in e for e in page.errors), "; ".join(page.errors[:2]))
+        context.close()
+
+        # ---------------------------------------------------------------- the founder's dashboard
+        context = context_with()
+        page = watch(context.new_page())
+        page.goto(base + "founder.html")
+        page.wait_for_selector("#founder-email")
+        record("dashboard: founder.html asks for the founder's sign-in (no registration screen there)",
+               not gate_shown(page) and page.locator("#founder-password").get_attribute("type") == "password")
+        direct = page.evaluate("""async (u) => { const r = await fetch(u + '/rest/v1/visitors?select=*', { headers: { apikey: '%s' } }); return r.status; }""" % mock_supabase.KEY, mock.url)
+        record("dashboard: the register can not be read with the public key alone", direct == 401, str(direct))
+        page.fill("#founder-email", mock_supabase.FOUNDER[0])
+        page.fill("#founder-password", "wrong-password")
+        page.click(".founder-login button[type=submit]")
+        page.wait_for_selector(".founder-message")
+        record("dashboard: a wrong password is refused", "غير صحيحة" in page.locator(".founder-message").inner_text()
+               and page.locator("#founder-table").count() == 0)
+        page.fill("#founder-email", mock_supabase.OTHER[0])
+        page.fill("#founder-password", mock_supabase.OTHER[1])
+        page.click(".founder-login button[type=submit]")
+        page.wait_for_selector(".founder-message >> text=ليس حساب مؤسس")
+        record("dashboard: another account signs in but sees no register («ليس حساب مؤسس الموقع») and is signed out",
+               page.locator("#founder-table").count() == 0 and page.locator("#founder-email").count() == 1
+               and page.evaluate("() => sessionStorage.getItem('g12-founder-session')") is None)
+        page.errors.clear()   # the browser logs the refused sign-in (400)
+        page.fill("#founder-email", mock_supabase.FOUNDER[0])
+        page.fill("#founder-password", mock_supabase.FOUNDER[1])
+        page.click(".founder-login button[type=submit]")
+        page.wait_for_selector("#founder-table")
+        names = page.locator("#founder-table tbody .founder-name").all_inner_texts()
+        record("dashboard: the founder sees the counter of unique students (5) and every student in the table",
+               page.locator("#founder-total").inner_text() == "5" and sorted(names) == sorted(v["full_name"] for v in mock.visitors.values()),
+               str(names))
+        cells = page.locator("#founder-table thead th").all_inner_texts()
+        first = page.locator("#founder-table tbody tr").first.locator("td").all_inner_texts()
+        record("dashboard: columns — name, first registration, last visit, visits (dates and times shown)",
+               cells == ["#", "الاسم الثلاثي", "أول تسجيل", "آخر زيارة", "عدد الزيارات"] and re.search(r"\d{1,2}:\d{2}", first[2]) and re.search(r"\d{4}", first[2]), str(first))
+        record("dashboard: statistics — new today, new in 7 days, visits today, all visits",
+               page.locator("#founder-new-today").inner_text() == "5" and page.locator("#founder-new-week").inner_text() == "5"
+               and page.locator("#founder-visits-total").inner_text() == str(sum(v["visits"] for v in mock.visitors.values()))
+               and page.locator("#founder-visits-today").inner_text() == str(len(mock.visits)))
+        record("dashboard: the same name from two devices is marked «اسم مكرر»", page.locator("#founder-table .founder-badge.is-same").count() == 2)
+        history = page.locator("#founder-history").inner_text()
+        kinds = page.locator("#founder-history .founder-badge").all_inner_texts()
+        times = page.locator("#founder-history time").evaluate_all("els => els.map(e => e.getAttribute('datetime'))")
+        record("dashboard: the visit history (every visit, newest first, by day) and the most recent visitors",
+               kinds.count("تسجيل جديد") == 5 and kinds.count("زيارة") == len(mock.visits) - 5 and times == sorted(times, reverse=True)
+               and page.locator("#founder-history h3").count() == 1 and page.locator("#founder-recent li").count() == 5,
+               "%s | %s | recent %d" % (kinds, history[:80], page.locator("#founder-recent li").count()))
+        page.fill("#founder-search", "سارة")
+        one = page.locator("#founder-table tbody tr").count()
+        page.fill("#founder-search", "احمد")   # without the hamza
+        two = page.locator("#founder-table tbody tr").count()
+        page.fill("#founder-search", "")
+        record("dashboard: search by name (also without hamza)", one == 1 and two == 2, "%d %d" % (one, two))
+        page.select_option("#founder-sort", "first-asc")
+        oldest = page.locator("#founder-table tbody .founder-name").first.inner_text()
+        page.select_option("#founder-sort", "name")
+        by_name = page.locator("#founder-table tbody .founder-name").all_inner_texts()
+        page.select_option("#founder-sort", "first-desc")
+        newest = page.locator("#founder-table tbody .founder-name").first.inner_text()
+        record("dashboard: sort by registration date (oldest / newest first) and by name",
+               oldest == "أحمد محمد علي" and newest == "خالد عمر يوسف" and by_name == sorted(by_name, key=lambda n: n), "%s %s" % (oldest, newest))
+        mock.register(str(uuid.uuid4()), "يوسف إبراهيم سالم")
+        page.click("#founder-refresh")
+        page.wait_for_function("document.getElementById('founder-total').textContent === '6'")
+        record("dashboard: «تحديث السجل» shows a new registration at once, marked «جديد»",
+               page.locator("#founder-table tbody tr", has_text="يوسف إبراهيم سالم").locator(".founder-badge", has_text="جديد").count() == 1)
+        no_errors(page, "founder dashboard")
+        page.close()
+        # the automatic refresh (the clock moved on 31 seconds)
+        page = watch(context.new_page())
+        page.clock.install()
+        page.goto(base + "founder.html")
+        page.fill("#founder-email", mock_supabase.FOUNDER[0])
+        page.fill("#founder-password", mock_supabase.FOUNDER[1])
+        page.click(".founder-login button[type=submit]")
+        page.wait_for_selector("#founder-table")
+        mock.register(str(uuid.uuid4()), "هدى علي حسن")
+        page.clock.run_for(31000)
+        auto = wait_for(lambda: page.locator("#founder-total").inner_text() == "7")
+        page.reload()
+        page.wait_for_selector("#founder-table")
+        record("dashboard: a new registration appears by itself (automatic refresh every 30 seconds); a reload keeps the session (same tab)",
+               auto and page.locator("#founder-total").inner_text() == "7", page.locator("#founder-total").inner_text())
+        before = mock.count("/auth/v1/logout")
+        tokens = len(mock.tokens)
+        page.click("#founder-signout")
+        page.wait_for_selector("#founder-email")
+        page.wait_for_load_state("networkidle")   # the sign-out request ends the token on the server too
+        signed_out = mock.count("/auth/v1/logout") == before + 1 and len(mock.tokens) == tokens - 1
+        page.reload()
+        page.wait_for_selector("#founder-email")
+        record("dashboard: «تسجيل الخروج» ends the session (sign-in asked again, even after a reload)",
+               signed_out and page.locator("#founder-table").count() == 0 and page.evaluate("() => sessionStorage.getItem('g12-founder-session')") is None)
+        no_errors(page, "founder dashboard, sign-out")
+        context.close()
+        # the dashboard on a phone
+        context = context_with(PHONE)
+        page = watch(context.new_page())
+        page.goto(base + "founder.html")
+        page.fill("#founder-email", mock_supabase.FOUNDER[0])
+        page.fill("#founder-password", mock_supabase.FOUNDER[1])
+        page.click(".founder-login button[type=submit]")
+        page.wait_for_selector("#founder-table")
+        width = page.evaluate("() => document.documentElement.scrollWidth - window.innerWidth")
+        page.screenshot(path=str(SHOTS / "55-founder-dashboard-phone.png"), full_page=True)
+        record("dashboard (phone): no sideways scrolling of the page (the table scrolls inside its box)", width <= 0, "width %d" % width)
+        audit(page, "founder dashboard (phone)")
+        no_errors(page, "founder dashboard (phone)")
+        context.close()
+        # not set up: a clear message
+        context = context_with(config_body=REGISTER_OFF)
+        page = context.new_page()
+        page.goto(base + "founder.html")
+        record("dashboard: before the setup it says the database is not connected yet",
+               "غير متصلة" in page.locator("#founder-root").inner_text())
+        context.close()
+    finally:
+        mock.close()
+
+
 def dhikr(browser, base):
     """The dhikr card: on every page a dhikr from the list appears when the page
     opens, stays about 3.5 seconds, then disappears; a refresh shows a different
@@ -2338,6 +2662,7 @@ def main():
     print("Serving the site from a subfolder: " + base)
     with sync_playwright() as playwright:
         browser = playwright.chromium.launch()
+        register_off(browser)
         run_section("empty site", empty_site, browser, base)
         context = browser.new_context(accept_downloads=True)
         page = None
@@ -2373,6 +2698,7 @@ def main():
         run_section("Arabic Unit 2 page and PDFs", arabic_unit2_page, browser, base)
         run_section("Arabic Unit 2 questions on the site", arabic_unit2_quiz, browser, base)
         run_section("Physics Chapter 2 lessons, questions and exam", physics_ch2, browser, base)
+        run_section("visitor register and founder dashboard", visitor_register, browser, base)
         run_section("dhikr card", dhikr, browser, base)
         browser.close()
     server.shutdown()
