@@ -115,6 +115,34 @@
   window.G12Visitors = { config: config, headers: headers, rpc: rpc, cleanName: cleanName, nameProblem: nameProblem };
   if (noGate) return;
 
+  /* ---------------------------------------------------------------- the founder's button
+     A «لوحة المؤسس» button on every page, only on a device where the founder
+     signed in to founder.html (founder.js saves 'on'; the dashboard can hide
+     it again). Students never see it. It is a shortcut, not a lock: the
+     register still needs the founder's sign-in. */
+  (function founderButton() {
+    var on = false;
+    try { on = window.localStorage.getItem('g12-founder-device') === 'on'; } catch (error) { return; }
+    if (!on) return;
+    function draw() {
+      if (document.getElementById('founder-shortcut')) return;
+      var link = document.createElement('a');
+      link.id = 'founder-shortcut';
+      link.className = 'founder-shortcut';
+      link.href = 'founder.html';
+      link.lang = 'ar';
+      link.dir = 'rtl';
+      link.title = 'لوحة المؤسس: سجل زوار الموقع (تظهر على جهازك فقط)';
+      link.innerHTML = '<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">' +
+        '<rect x="3" y="3" width="18" height="18" rx="4" fill="none" stroke="currentColor" stroke-width="2"/>' +
+        '<path d="M8 16v-4M12 16V8M16 16v-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>' +
+        '<span>لوحة المؤسس</span>';
+      document.body.appendChild(link);
+    }
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', draw);
+    else draw();
+  })();
+
   /* ---------------------------------------------------------------- this device */
   var cfg = config();
   if (!cfg) return;

@@ -2512,9 +2512,10 @@ def visitor_register(browser, base):
         page.fill("#founder-password", mock_supabase.OTHER[1])
         page.click(".founder-login button[type=submit]")
         page.wait_for_selector(".founder-message >> text=ليس حساب مؤسس")
-        record("dashboard: another account signs in but sees no register («ليس حساب مؤسس الموقع») and is signed out",
+        record("dashboard: another account signs in but sees no register («ليس حساب مؤسس الموقع») and is signed out (and gets no founder's button)",
                page.locator("#founder-table").count() == 0 and page.locator("#founder-email").count() == 1
-               and page.evaluate("() => sessionStorage.getItem('g12-founder-session')") is None)
+               and page.evaluate("() => sessionStorage.getItem('g12-founder-session')") is None
+               and page.evaluate("() => localStorage.getItem('g12-founder-device')") is None)
         page.errors.clear()   # the browser logs the refused sign-in (400)
         page.fill("#founder-email", mock_supabase.FOUNDER[0])
         page.fill("#founder-password", mock_supabase.FOUNDER[1])
@@ -2587,6 +2588,57 @@ def visitor_register(browser, base):
         record("dashboard: «تسجيل الخروج» ends the session (sign-in asked again, even after a reload)",
                signed_out and page.locator("#founder-table").count() == 0 and page.evaluate("() => sessionStorage.getItem('g12-founder-session')") is None)
         no_errors(page, "founder dashboard, sign-out")
+        # ---------------------------------------------------------------- the founder's button
+        device = page.evaluate("() => localStorage.getItem('g12-founder-device')")
+        other = context_with()   # a student's device
+        student = other.new_page()
+        student.goto(base + "index.html")
+        student.wait_for_selector(".visitor-gate")
+        enter(student, "أحمد محمد علي")
+        student.wait_for_selector(".visitor-gate", state="detached")
+        student.goto(base + "physics.html")
+        student.wait_for_load_state("load")
+        record("founder's button: never on a student's device", student.locator("#founder-shortcut").count() == 0)
+        other.close()
+        page = watch(context.new_page())
+        page.goto(base + "physics.html")
+        page.wait_for_selector(".visitor-gate")
+        page.wait_for_selector("#founder-shortcut", state="attached")
+        covered = page.evaluate("() => { const b = document.getElementById('founder-shortcut'); return !!b && !!b.closest('[inert]'); }")
+        enter(page, "مؤسس الموقع الكريم")
+        page.wait_for_selector(".visitor-gate", state="detached")
+        shortcut = page.locator("#founder-shortcut")
+        record("founder's button: on the founder's device after his sign-in (also with the session ended), on every page; under the registration screen until it closes",
+               device == "on" and covered and shortcut.is_visible() and shortcut.get_attribute("href") == "founder.html"
+               and "لوحة المؤسس" in shortcut.inner_text(), "device %s, covered %s" % (device, covered))
+        page.goto(base + "index.html")
+        page.wait_for_selector("#founder-shortcut")
+        page.screenshot(path=str(SHOTS / "56-founder-button.png"))
+        page.click("#founder-shortcut")
+        page.wait_for_selector("#founder-email")
+        record("founder's button: opens founder.html, which still asks for the founder's sign-in",
+               page.url.endswith("/founder.html") and page.locator("#founder-table").count() == 0 and page.locator("#founder-shortcut").count() == 0)
+        page.fill("#founder-email", mock_supabase.FOUNDER[0])
+        page.fill("#founder-password", mock_supabase.FOUNDER[1])
+        page.click(".founder-login button[type=submit]")
+        page.wait_for_selector("#founder-device")
+        shown_state = page.locator("#founder-device-state").inner_text()
+        page.click("#founder-device")
+        hidden_state = page.locator("#founder-device-state").inner_text()
+        hidden = page.evaluate("() => localStorage.getItem('g12-founder-device')")
+        page.goto(base + "index.html")
+        page.wait_for_load_state("load")
+        gone = page.locator("#founder-shortcut").count() == 0
+        page.goto(base + "founder.html")
+        page.wait_for_selector("#founder-device")   # the same tab: still signed in
+        kept = page.evaluate("() => localStorage.getItem('g12-founder-device')") == "off"
+        page.click("#founder-device")
+        page.goto(base + "vocabulary.html")
+        page.wait_for_selector("#founder-shortcut")
+        record("founder's button: the dashboard hides it on this device (the choice stays after signing in again) and shows it again",
+               "ظاهر" in shown_state and "مخفي" in hidden_state and hidden == "off" and gone and kept and page.locator("#founder-shortcut").is_visible(),
+               "%s | %s | %s gone %s kept %s" % (shown_state, hidden_state, hidden, gone, kept))
+        no_errors(page, "founder's button")
         context.close()
         # the dashboard on a phone
         context = context_with(PHONE)
@@ -2601,6 +2653,17 @@ def visitor_register(browser, base):
         record("dashboard (phone): no sideways scrolling of the page (the table scrolls inside its box)", width <= 0, "width %d" % width)
         audit(page, "founder dashboard (phone)")
         no_errors(page, "founder dashboard (phone)")
+        page.goto(base + "index.html")
+        page.wait_for_selector(".visitor-gate")
+        enter(page, "مؤسس الموقع الكريم")
+        page.wait_for_selector(".visitor-gate", state="detached")
+        box = page.locator("#founder-shortcut").bounding_box()
+        width = page.evaluate("() => document.documentElement.scrollWidth - window.innerWidth")
+        page.screenshot(path=str(SHOTS / "57-founder-button-phone.png"))
+        record("founder's button (phone): inside the screen, big enough to tap, no sideways scrolling",
+               box is not None and box["x"] >= 0 and box["x"] + box["width"] <= 390 and box["y"] + box["height"] <= 664
+               and box["height"] >= 44 and width <= 0, "%s width %d" % (box, width))
+        no_errors(page, "founder's button (phone)")
         context.close()
         # not set up: a clear message
         context = context_with(config_body=REGISTER_OFF)

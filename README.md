@@ -93,7 +93,7 @@ grade12-english/
 ├── quiz-ui.js             Quiz screens: one at a time, or all questions then check
 ├── visitor-config.js      The visitor register's address: the Supabase Project URL and the PUBLISHABLE key (never a secret key)
 ├── visitor.js             On every page (first, right after <body>): the welcome and registration screen (full three-part Arabic name)
-├── founder.html, founder.js   The founder's private dashboard: sign-in, number of students, list, search, sort, history (not linked from the menus; protected by the sign-in and the database rules, not by its address)
+├── founder.html, founder.js   The founder's private dashboard: sign-in, number of students, list, search, sort, history (not linked from the menus; a «لوحة المؤسس» button appears only on the founder's own device; protected by the sign-in and the database rules, not by its address)
 ├── dhikr.js, dhikr-amiri.woff   On every page: a random dhikr or dua in a small card for about 3.5 seconds (the font is Amiri, cut to the letters used; made by tools/dhikr_font.py)
 ├── home.js, grammar.js, summaries.js, practice.js, reading.js, manage.js   One script per page
 ├── units.json             The content (empty to start)
@@ -214,6 +214,12 @@ The data format is described in [docs/CONTENT_FORMAT.md](docs/CONTENT_FORMAT.md)
   students, new registrations (today, 7 days), visits, the most recent visitors,
   the visit history day by day, and the full list (search, sort, refresh,
   automatic refresh every 30 seconds).
+- The «لوحة المؤسس» button: after the founder signs in to `founder.html` on a
+  device, every page of the website shows a small button (bottom left) that
+  opens the dashboard, on that device only (browser storage
+  `g12-founder-device`). Students never see it. The dashboard can hide it again
+  on that device. It is a shortcut, not a lock: the register still needs the
+  founder's sign-in.
 - Security: the website only has the public (publishable) key. The database
   rules (`tools/visitors/supabase-setup.sql`, Row Level Security) let that key
   only add a name or count a return visit; reading the register is allowed only

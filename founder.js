@@ -11,6 +11,10 @@
       a return visit never adds a record), new registrations, the most recent
       visitors, the visit history day by day and the full list, with search,
       sorting, a refresh button and an automatic refresh every 30 seconds.
+   4. After the founder's first sign-in on a device, that device shows a
+      «لوحة المؤسس» button on every page of the website (visitor.js), and only
+      that device. It is a shortcut, not a lock: the register still needs the
+      founder's sign-in. The dashboard can hide it again on this device.
    ========================================================================== */
 (function () {
   'use strict';
@@ -19,6 +23,7 @@
   var root = document.getElementById('founder-root');
   var cfg = V && V.config();
   var SESSION_KEY = 'g12-founder-session';
+  var DEVICE_KEY = 'g12-founder-device';   // 'on' / 'off': the «لوحة المؤسس» button on this device (visitor.js)
   var AUTO_MS = 30000;
   var PAGE = 1000;          // rows per request (the API gives at most 1000 at once)
   var FIRST_ROWS = 50;      // rows shown before "عرض القائمة كاملة"
@@ -85,6 +90,35 @@
       if (value) sessionStorage.setItem(SESSION_KEY, JSON.stringify(value));
       else sessionStorage.removeItem(SESSION_KEY);
     } catch (error) { /* the session lives in memory only */ }
+  }
+
+  /* ------------------------------------------------------------ the button on this device */
+  function deviceButton() {
+    try { return localStorage.getItem(DEVICE_KEY); } catch (error) { return null; }
+  }
+
+  function setDeviceButton(value) {
+    try { localStorage.setItem(DEVICE_KEY, value); } catch (error) { /* storage blocked: no button */ }
+  }
+
+  /* "زرار لوحة المؤسس في صفحات الموقع: ظاهر على هذا الجهاز" + show / hide. */
+  function devicePanel() {
+    var state = el('strong', { id: 'founder-device-state' });
+    var button = el('button', { type: 'button', className: 'btn btn--secondary', id: 'founder-device' });
+    function draw() {
+      var on = deviceButton() === 'on';
+      state.textContent = on ? 'ظاهر على هذا الجهاز فقط' : 'مخفي على هذا الجهاز';
+      button.textContent = on ? 'إخفاء الزرار من هذا الجهاز' : 'إظهار الزرار على هذا الجهاز';
+    }
+    button.addEventListener('click', function () {
+      setDeviceButton(deviceButton() === 'on' ? 'off' : 'on');
+      draw();
+    });
+    draw();
+    return el('div', { className: 'founder-device' }, [
+      el('p', { className: 'founder-updated' }, ['زرار «لوحة المؤسس» في صفحات الموقع: ', state]),
+      button
+    ]);
   }
 
   function fromAuth(body) {
@@ -217,6 +251,8 @@
         signOut('هذا الحساب ليس حساب مؤسس الموقع، لذلك لا يمكنه رؤية السجل.');
         return;
       }
+      // the founder's first sign-in on this device: show the button on this device
+      if (deviceButton() === null) setDeviceButton('on');
       return refresh().then(startAuto);
     }).catch(failed);
   }
@@ -314,7 +350,8 @@
           refresh().catch(failed);
         } }),
         el('button', { type: 'button', className: 'btn btn--secondary', id: 'founder-signout', text: 'تسجيل الخروج', onclick: function () { signOut(); } })
-      ])
+      ]),
+      devicePanel()
     ]));
 
     // the numbers
