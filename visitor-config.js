@@ -19,6 +19,6 @@
    website works as before.
    ========================================================================== */
 window.G12_VISITORS = {
-  url: '',
-  key: ''
+  url: 'https://xzapygzpuzthozjkgndx.supabase.co',
+  key: 'sb_publishable_Yjl6s3ecq6EVK6FmyjMN6Q_a2jEUBhD'
 };
