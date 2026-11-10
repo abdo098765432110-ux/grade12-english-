@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 400" width="460" height="400">
+  <!-- Physics, chapter 2: two insulated wires crossing at O in the page; horizontal 2 A to the right, vertical 6 A downward; quadrants numbered. -->
+  <rect width="460" height="400" fill="#ffffff"/>
+  <path d="M40 205 L420 205" stroke="#2b3654" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <path d="M230 30 L230 380" stroke="#2b3654" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <path d="M330 205 L384.2 205" stroke="#c43030" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <path d="M395 205 L377 211.8 L377 198.2 z" fill="#c43030"/>
+  <text x="382" y="189" text-anchor="middle" font-size="21" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, Tahoma, 'Noto Sans Arabic', sans-serif" fill="#c43030">2 A</text>
+  <path d="M230 290 L230 347.2" stroke="#c43030" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <path d="M230 358 L223.2 340 L236.8 340 z" fill="#c43030"/>
+  <text x="244" y="352" text-anchor="start" font-size="21" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, Tahoma, 'Noto Sans Arabic', sans-serif" fill="#c43030">6 A</text>
+  <circle cx="230" cy="205" r="6" fill="#2b3654"/>
+  <text x="216" y="235" text-anchor="end" font-size="20" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, Tahoma, 'Noto Sans Arabic', sans-serif" fill="#2b3654">O</text>
+  <text x="330" y="110" text-anchor="middle" font-size="20" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, Tahoma, 'Noto Sans Arabic', sans-serif" fill="#6a3d9a">الربع الأول</text>
+  <text x="118" y="110" text-anchor="middle" font-size="20" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, Tahoma, 'Noto Sans Arabic', sans-serif" fill="#6a3d9a">الربع الثاني</text>
+  <text x="118" y="310" text-anchor="middle" font-size="20" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, Tahoma, 'Noto Sans Arabic', sans-serif" fill="#6a3d9a">الربع الثالث</text>
+  <text x="330" y="310" text-anchor="middle" font-size="20" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, Tahoma, 'Noto Sans Arabic', sans-serif" fill="#6a3d9a">الربع الرابع</text>
+</svg>

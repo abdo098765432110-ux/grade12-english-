@@ -1,0 +1,69 @@
+{
+  "pdf": "physics-ch2-question-bank.pdf",
+  "pages": 154,
+  "starts": {
+    "p1l1": 3,
+    "p1l2": 12,
+    "p1l3": 18,
+    "p1l4": 23,
+    "p1l5": 29,
+    "p1l6": 33,
+    "p1l7": 40,
+    "p1l8": 46,
+    "p2l1": 49,
+    "p2l2": 54,
+    "p2l3": 57,
+    "p2l4": 61,
+    "p2l5": 65,
+    "p2l6": 69,
+    "p2l7": 72,
+    "p2l8": 76,
+    "p3grid": 78,
+    "p3mcq": 80,
+    "p3essay": 136
+  },
+  "lessons": [
+    {
+      "key": "l1",
+      "mcq": 28,
+      "essay": 8
+    },
+    {
+      "key": "l2",
+      "mcq": 20,
+      "essay": 5
+    },
+    {
+      "key": "l3",
+      "mcq": 16,
+      "essay": 8
+    },
+    {
+      "key": "l4",
+      "mcq": 18,
+      "essay": 7
+    },
+    {
+      "key": "l5",
+      "mcq": 12,
+      "essay": 5
+    },
+    {
+      "key": "l6",
+      "mcq": 26,
+      "essay": 7
+    },
+    {
+      "key": "l7",
+      "mcq": 20,
+      "essay": 7
+    },
+    {
+      "key": "l8",
+      "mcq": 10,
+      "essay": 3
+    }
+  ],
+  "fingerprint": "8b922a690fe7c0a1",
+  "sources": "d0b470cf90ad8465"
+}

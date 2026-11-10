@@ -27,6 +27,27 @@ TOPICS = [
     ("ohmmeter", "الأوميتر"),
 ]
 
+# The lessons of the chapter (on the website and in the PDF the questions are grouped
+# by lesson): key, ordinal, title, the topics of its MCQs.
+LESSONS = [
+    ("l1", "الدرس الأول", "المجال المغناطيسي لتيار يمر في سلك مستقيم", ["wire"]),
+    ("l2", "الدرس الثاني", "المجال المغناطيسي لتيار يمر في ملف دائري", ["loop"]),
+    ("l3", "الدرس الثالث", "المجال المغناطيسي لتيار يمر في ملف لولبي", ["solenoid"]),
+    ("l4", "الدرس الرابع", "القوة المغناطيسية المؤثرة على سلك يمر به تيار", ["force"]),
+    ("l5", "الدرس الخامس", "القوة المتبادلة بين سلكين متوازيين يمر بهما تيار", ["parallel"]),
+    ("l6", "الدرس السادس", "عزم الازدواج والجلفانومتر ذو الملف المتحرك", ["torque", "galv"]),
+    ("l7", "الدرس السابع", "الأميتر والفولتميتر", ["ammeter", "voltmeter"]),
+    ("l8", "الدرس الثامن", "الأوميتر", ["ohmmeter"]),
+]
+
+
+def lesson(key, items):
+    """Marks the essay questions of one lesson."""
+    assert key in [k for k, *_ in LESSONS], key
+    for item in items:
+        item["lesson"] = key
+    return items
+
 
 def Q(level, topic, prompt, options, solution, fig=None, alt=None, numeric=False):
     assert level in (E_, M_, H_, V_), level

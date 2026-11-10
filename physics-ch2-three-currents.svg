@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 200" width="520" height="200">
+  <!-- Physics, chapter 2: three long parallel wires perpendicular to the page, equal spacing d on a horizontal line: Y (left, out of page), X (middle, out of page), Z (right, into page). -->
+  <rect width="520" height="200" fill="#ffffff"/>
+  <path d="M70 96 L450 96" stroke="#9aa3b5" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-dasharray="6 5"/>
+  <circle cx="110" cy="96" r="20" stroke="#2b3654" stroke-width="3" fill="#ffffff"/>
+  <circle cx="110" cy="96" r="5.6" fill="#2b3654"/>
+  <circle cx="260" cy="96" r="20" stroke="#2b3654" stroke-width="3" fill="#ffffff"/>
+  <circle cx="260" cy="96" r="5.6" fill="#2b3654"/>
+  <circle cx="410" cy="96" r="20" stroke="#2b3654" stroke-width="3" fill="#ffffff"/>
+  <path d="M397.6 83.6 L422.4 108.4" stroke="#2b3654" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <path d="M397.6 108.4 L422.4 83.6" stroke="#2b3654" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <text x="110" y="62" text-anchor="middle" font-size="23" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, Tahoma, 'Noto Sans Arabic', sans-serif" fill="#2b3654">Y</text>
+  <text x="260" y="62" text-anchor="middle" font-size="23" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, Tahoma, 'Noto Sans Arabic', sans-serif" fill="#2b3654">X</text>
+  <text x="410" y="62" text-anchor="middle" font-size="23" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, Tahoma, 'Noto Sans Arabic', sans-serif" fill="#2b3654">Z</text>
+  <path d="M136 140 L234 140" stroke="#6b7385" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M134 140 L144 136.2 L144 143.8 z" fill="#6b7385"/>
+  <path d="M236 140 L226 143.8 L226 136.2 z" fill="#6b7385"/>
+  <text x="185" y="168" text-anchor="middle" font-size="21" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, Tahoma, 'Noto Sans Arabic', sans-serif" fill="#6b7385" font-style="italic">d</text>
+  <path d="M286 140 L384 140" stroke="#6b7385" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M284 140 L294 136.2 L294 143.8 z" fill="#6b7385"/>
+  <path d="M386 140 L376 143.8 L376 136.2 z" fill="#6b7385"/>
+  <text x="335" y="168" text-anchor="middle" font-size="21" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, Tahoma, 'Noto Sans Arabic', sans-serif" fill="#6b7385" font-style="italic">d</text>
+</svg>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 340" width="460" height="340">
+  <!-- Physics, chapter 2: right angle at P: PA = 3 cm, PB = 4 cm; wires perpendicular to the page at A (4.5 A) and B (8 A). -->
+  <rect width="460" height="340" fill="#ffffff"/>
+  <path d="M90 270 L90 90 L330 270 z" stroke="#2b3654" stroke-width="2.5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M90 248 L112 248 L112 270" stroke="#2b3654" stroke-width="2" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="90" cy="270" r="6" fill="#2b3654"/>
+  <text x="76" y="296" text-anchor="end" font-size="22" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, Tahoma, 'Noto Sans Arabic', sans-serif" fill="#2b3654">P</text>
+  <circle cx="90" cy="90" r="13" stroke="#2b3654" stroke-width="3" fill="#2b3654"/>
+  <circle cx="330" cy="270" r="13" stroke="#2b3654" stroke-width="3" fill="#2b3654"/>
+  <text x="68" y="84" text-anchor="end" font-size="22" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, Tahoma, 'Noto Sans Arabic', sans-serif" fill="#2b3654">A</text>
+  <text x="112" y="80" text-anchor="start" font-size="21" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, Tahoma, 'Noto Sans Arabic', sans-serif" fill="#c43030">4.5 A</text>
+  <text x="334" y="308" text-anchor="middle" font-size="22" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, Tahoma, 'Noto Sans Arabic', sans-serif" fill="#2b3654">B</text>
+  <text x="354" y="254" text-anchor="start" font-size="21" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, Tahoma, 'Noto Sans Arabic', sans-serif" fill="#c43030">8 A</text>
+  <text x="74" y="187" text-anchor="end" font-size="20" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, Tahoma, 'Noto Sans Arabic', sans-serif" fill="#6b7385">3 cm</text>
+  <text x="210" y="302" text-anchor="middle" font-size="20" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, Tahoma, 'Noto Sans Arabic', sans-serif" fill="#6b7385">4 cm</text>
+</svg>

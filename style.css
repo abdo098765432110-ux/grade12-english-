@@ -1099,6 +1099,56 @@ main {
 .subject-cards .btn.btn--secondary { background: var(--color-surface); }
 .subject-cards .btn.btn--secondary:hover { background: var(--tone, var(--color-primary-light)); }
 
+/* A chapter's lessons (Physics Chapter 2): one card per lesson with its number and
+   name, and a button for each kind of question in it; the same head above the
+   questions of a lesson. */
+.lesson-list { grid-template-columns: repeat(auto-fill, minmax(min(100%, 21rem), 1fr)); }
+.subject-cards .lesson-card { gap: 1.1rem; }
+.lesson-head { display: flex; align-items: center; gap: 0.85rem; }
+.lesson-number {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 3.1rem;
+  height: 3.1rem;
+  border-radius: 50%;
+  background: var(--tone-ink, var(--color-primary));
+  color: #fff;
+  font-family: var(--font-arabic-ui);
+  font-size: 1.4rem;
+  font-weight: 800;
+  box-shadow: 0 0 0 4px var(--tone, var(--color-primary-light));
+}
+.lesson-name { display: flex; flex-direction: column; align-items: flex-start; gap: 0.25rem; min-width: 0; }
+.lesson-kicker {
+  padding: 0.05rem 0.75rem;
+  border-radius: 999px;
+  background: var(--tone, var(--color-primary-light));
+  border: 1px solid var(--tone-edge, var(--color-border));
+  color: var(--tone-ink, var(--color-primary-dark));
+  font-family: var(--font-arabic-ui);
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+.subject-cards .lesson-title,
+.lesson-banner .lesson-title {
+  margin: 0;
+  font-family: var(--font-arabic-ui);
+  font-size: 1.25rem;
+  font-weight: 800;
+  line-height: 1.5;
+  color: var(--tone-ink, var(--color-primary));
+}
+.subject-cards .lesson-actions { flex-direction: column; gap: 0.55rem; }
+.lesson-banner {
+  margin: 0 0 1rem;
+  padding: 0.9rem 1.1rem;
+  border: 2px solid var(--tone-edge, var(--color-border));
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, var(--tone, var(--color-primary-light)), var(--color-surface));
+}
+.exam-form .exam-level-note { margin: 0.25rem 0 0.75rem; }
+
 /* "Download Questions" above the questions of a section. */
 .section-downloads {
   display: flex;

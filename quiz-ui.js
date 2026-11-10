@@ -297,7 +297,9 @@
      settings.elements   the two fieldsets, to put in a form
      settings.read()     { level, count } (count null = all) or { error }
      Every question needs a difficulty for Easy/Medium/Hard; questions
-     without one are only used in Mixed exams.
+     without one are only used in Mixed exams. Optional: levelOf(question)
+     gives the level a question counts as (for example 'hard' for a
+     'very-hard' question), the same function given to buildExam.
      ========================================================================== */
   G12.examLevels = function () {
     return [
@@ -315,8 +317,9 @@
   G12.examSettings = function (config) {
     var questions = config.questions || [];
     var name = config.id;
+    var levelOf = config.levelOf || function (q) { return q.difficulty; };
     function sizeOf(level) {
-      return level === 'mixed' ? questions.length : questions.filter(function (q) { return q.difficulty === level; }).length;
+      return level === 'mixed' ? questions.length : questions.filter(function (q) { return levelOf(q) === level; }).length;
     }
     var level = config.level && sizeOf(config.level) > 0 ? config.level : 'mixed';
 

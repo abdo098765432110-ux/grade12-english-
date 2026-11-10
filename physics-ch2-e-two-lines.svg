@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 340" width="520" height="340">
+  <!-- Physics, chapter 2: B (x10^-5 T) against I (A): line (1) at the centre of a one-turn loop through (10, 2 pi); line (2) near a long wire through (10, 1). -->
+  <rect width="520" height="340" fill="#ffffff"/>
+  <path d="M143.8 284 L143.8 50" stroke="#9aa3b5" stroke-width="1.3" fill="none" stroke-linecap="round" stroke-dasharray="6 5"/>
+  <path d="M201.6 284 L201.6 50" stroke="#9aa3b5" stroke-width="1.3" fill="none" stroke-linecap="round" stroke-dasharray="6 5"/>
+  <path d="M259.3 284 L259.3 50" stroke="#9aa3b5" stroke-width="1.3" fill="none" stroke-linecap="round" stroke-dasharray="6 5"/>
+  <path d="M317.1 284 L317.1 50" stroke="#9aa3b5" stroke-width="1.3" fill="none" stroke-linecap="round" stroke-dasharray="6 5"/>
+  <path d="M374.9 284 L374.9 50" stroke="#9aa3b5" stroke-width="1.3" fill="none" stroke-linecap="round" stroke-dasharray="6 5"/>
+  <path d="M86 250.1 L440 250.1" stroke="#9aa3b5" stroke-width="1.3" fill="none" stroke-linecap="round" stroke-dasharray="6 5"/>
+  <path d="M86 216.2 L440 216.2" stroke="#9aa3b5" stroke-width="1.3" fill="none" stroke-linecap="round" stroke-dasharray="6 5"/>
+  <path d="M86 182.3 L440 182.3" stroke="#9aa3b5" stroke-width="1.3" fill="none" stroke-linecap="round" stroke-dasharray="6 5"/>
+  <path d="M86 148.4 L440 148.4" stroke="#9aa3b5" stroke-width="1.3" fill="none" stroke-linecap="round" stroke-dasharray="6 5"/>
+  <path d="M86 71.1 L440 71.1" stroke="#9aa3b5" stroke-width="1.3" fill="none" stroke-linecap="round" stroke-dasharray="6 5"/>
+  <path d="M86 284 L86 26" stroke="#1f6f62" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+  <path d="M86 18 L92.8 36 L79.2 36 z" fill="#1f6f62"/>
+  <path d="M86 284 L464 284" stroke="#1f6f62" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+  <path d="M474 284 L456 290.8 L456 277.2 z" fill="#1f6f62"/>
+  <text x="143.8" y="314" text-anchor="middle" font-size="19" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, Tahoma, 'Noto Sans Arabic', sans-serif" fill="#2b3654">2</text>
+  <text x="201.6" y="314" text-anchor="middle" font-size="19" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, Tahoma, 'Noto Sans Arabic', sans-serif" fill="#2b3654">4</text>
+  <text x="259.3" y="314" text-anchor="middle" font-size="19" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, Tahoma, 'Noto Sans Arabic', sans-serif" fill="#2b3654">6</text>
+  <text x="317.1" y="314" text-anchor="middle" font-size="19" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, Tahoma, 'Noto Sans Arabic', sans-serif" fill="#2b3654">8</text>
+  <text x="374.9" y="314" text-anchor="middle" font-size="19" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, Tahoma, 'Noto Sans Arabic', sans-serif" fill="#2b3654">10</text>
+  <text x="72" y="257.1" text-anchor="end" font-size="19" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, Tahoma, 'Noto Sans Arabic', sans-serif" fill="#2b3654">1</text>
+  <text x="72" y="223.2" text-anchor="end" font-size="19" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, Tahoma, 'Noto Sans Arabic', sans-serif" fill="#2b3654">2</text>
+  <text x="72" y="189.3" text-anchor="end" font-size="19" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, Tahoma, 'Noto Sans Arabic', sans-serif" fill="#2b3654">3</text>
+  <text x="72" y="155.4" text-anchor="end" font-size="19" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, Tahoma, 'Noto Sans Arabic', sans-serif" fill="#2b3654">4</text>
+  <text x="72" y="78.1" text-anchor="end" font-size="19" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, Tahoma, 'Noto Sans Arabic', sans-serif" fill="#2b3654">2π</text>
+  <text x="80" y="18" text-anchor="start" font-size="19" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, Tahoma, 'Noto Sans Arabic', sans-serif" fill="#2b3654">B (× 10⁻⁵ T)</text>
+  <text x="480" y="268" text-anchor="end" font-size="19" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, Tahoma, 'Noto Sans Arabic', sans-serif" fill="#2b3654">I (A)</text>
+  <text x="72" y="314" text-anchor="end" font-size="19" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, Tahoma, 'Noto Sans Arabic', sans-serif" fill="#2b3654">0</text>
+  <path d="M86 284 L374.9 71.1" stroke="#e8692e" stroke-width="4.5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="374.9" cy="71.1" r="5.5" fill="#e8692e"/>
+  <text x="386.9" y="77.1" text-anchor="start" font-size="21" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, Tahoma, 'Noto Sans Arabic', sans-serif" fill="#e8692e">(1)</text>
+  <path d="M86 284 L374.9 250.1" stroke="#2f63b0" stroke-width="4.5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="374.9" cy="250.1" r="5.5" fill="#2f63b0"/>
+  <text x="386.9" y="256.1" text-anchor="start" font-size="21" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, Tahoma, 'Noto Sans Arabic', sans-serif" fill="#2f63b0">(2)</text>
+</svg>

@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 330" width="560" height="330">
+  <!-- Physics, chapter 2: uniform field B to the right in the page; four equal wire segments: (a) current up, (b) current down, (c) current to the right, (d) current at 30 deg above B. -->
+  <rect width="560" height="330" fill="#ffffff"/>
+  <path d="M20 36 L534 36" stroke="#2f63b0" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M540 36 L528 40.6 L528 31.4 z" fill="#2f63b0"/>
+  <path d="M20 300 L534 300" stroke="#2f63b0" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M540 300 L528 304.6 L528 295.4 z" fill="#2f63b0"/>
+  <text x="536" y="70" text-anchor="end" font-size="22" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, Tahoma, 'Noto Sans Arabic', sans-serif" fill="#2f63b0" font-style="italic">B</text>
+  <path d="M80 245 L80 95" stroke="#2b3654" stroke-width="5" fill="none" stroke-linecap="round"/>
+  <path d="M80 152.5 L87.6 172.5 L72.4 172.5 z" fill="#c43030"/>
+  <path d="M190 95 L190 245" stroke="#2b3654" stroke-width="5" fill="none" stroke-linecap="round"/>
+  <path d="M190 187.5 L182.4 167.5 L197.6 167.5 z" fill="#c43030"/>
+  <path d="M260 250 L410 250" stroke="#2b3654" stroke-width="5" fill="none" stroke-linecap="round"/>
+  <path d="M352.5 250 L332.5 257.6 L332.5 242.4 z" fill="#c43030"/>
+  <text x="80" y="278" text-anchor="middle" font-size="20" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, Tahoma, 'Noto Sans Arabic', sans-serif" fill="#6a3d9a">(a)</text>
+  <text x="190" y="278" text-anchor="middle" font-size="20" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, Tahoma, 'Noto Sans Arabic', sans-serif" fill="#6a3d9a">(b)</text>
+  <text x="335" y="232" text-anchor="middle" font-size="20" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, Tahoma, 'Noto Sans Arabic', sans-serif" fill="#6a3d9a">(c)</text>
+  <path d="M340 190 L469.9 115" stroke="#2b3654" stroke-width="5" fill="none" stroke-linecap="round"/>
+  <path d="M420.1 143.8 L406.6 160.3 L399 147.2 z" fill="#c43030"/>
+  <path d="M340 190 L420 190" stroke="#9aa3b5" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-dasharray="5 4"/>
+  <path d="M390 190 A 50 50 0 0 0 383.3 165" stroke="#6a3d9a" stroke-width="2" fill="none"/>
+  <text x="398" y="182" text-anchor="start" font-size="18" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, Tahoma, 'Noto Sans Arabic', sans-serif" fill="#6a3d9a">30°</text>
+  <text x="475.9" y="107" text-anchor="start" font-size="20" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, Tahoma, 'Noto Sans Arabic', sans-serif" fill="#6a3d9a">(d)</text>
+</svg>

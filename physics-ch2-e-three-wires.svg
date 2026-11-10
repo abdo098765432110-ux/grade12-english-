@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 330" width="520" height="330">
+  <!-- Physics, chapter 2: three long parallel vertical wires in one plane: A 10 A up, B 5 A up (10 cm from A), C 15 A up (20 cm from B). -->
+  <rect width="520" height="330" fill="#ffffff"/>
+  <path d="M110 40 L110 250" stroke="#2b3654" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <path d="M220 40 L220 250" stroke="#2b3654" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <path d="M440 40 L440 250" stroke="#2b3654" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <path d="M110 175 L110 115.8" stroke="#c43030" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <path d="M110 105 L116.8 123 L103.2 123 z" fill="#c43030"/>
+  <path d="M220 175 L220 115.8" stroke="#c43030" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <path d="M220 105 L226.8 123 L213.2 123 z" fill="#c43030"/>
+  <path d="M440 175 L440 115.8" stroke="#c43030" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <path d="M440 105 L446.8 123 L433.2 123 z" fill="#c43030"/>
+  <text x="98" y="145" text-anchor="end" font-size="20" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, Tahoma, 'Noto Sans Arabic', sans-serif" fill="#c43030">10 A</text>
+  <text x="232" y="145" text-anchor="start" font-size="20" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, Tahoma, 'Noto Sans Arabic', sans-serif" fill="#c43030">5 A</text>
+  <text x="452" y="145" text-anchor="start" font-size="20" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, Tahoma, 'Noto Sans Arabic', sans-serif" fill="#c43030">15 A</text>
+  <text x="110" y="28" text-anchor="middle" font-size="22" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, Tahoma, 'Noto Sans Arabic', sans-serif" fill="#2b3654">A</text>
+  <text x="220" y="28" text-anchor="middle" font-size="22" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, Tahoma, 'Noto Sans Arabic', sans-serif" fill="#2b3654">B</text>
+  <text x="440" y="28" text-anchor="middle" font-size="22" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, Tahoma, 'Noto Sans Arabic', sans-serif" fill="#2b3654">C</text>
+  <path d="M113 282 L217 282" stroke="#6b7385" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M111 282 L121 278.2 L121 285.8 z" fill="#6b7385"/>
+  <path d="M219 282 L209 285.8 L209 278.2 z" fill="#6b7385"/>
+  <text x="165" y="312" text-anchor="middle" font-size="19" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, Tahoma, 'Noto Sans Arabic', sans-serif" fill="#6b7385">10 cm</text>
+  <path d="M223 282 L437 282" stroke="#6b7385" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M221 282 L231 278.2 L231 285.8 z" fill="#6b7385"/>
+  <path d="M439 282 L429 285.8 L429 278.2 z" fill="#6b7385"/>
+  <text x="330" y="312" text-anchor="middle" font-size="19" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, Tahoma, 'Noto Sans Arabic', sans-serif" fill="#6b7385">20 cm</text>
+</svg>

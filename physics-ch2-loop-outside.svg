@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 300" width="420" height="300">
+  <!-- Physics, chapter 2: circular coil in the page, anticlockwise current, field out of the page at the centre O; point Q just outside the loop on its right. -->
+  <rect width="420" height="300" fill="#ffffff"/>
+  <circle cx="190" cy="150" r="100" stroke="#2b3654" stroke-width="4" fill="none"/>
+  <path d="M254.3 72.9 L273.9 81.7 L263.1 92.4 z" fill="#c43030"/>
+  <path d="M112.9 85.7 L121.7 66.1 L132.4 76.9 z" fill="#c43030"/>
+  <path d="M125.7 227.1 L106.1 218.3 L116.9 207.6 z" fill="#c43030"/>
+  <path d="M267.1 214.3 L258.3 233.9 L247.6 223.1 z" fill="#c43030"/>
+  <text x="270" y="68" text-anchor="start" font-size="21" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, Tahoma, 'Noto Sans Arabic', sans-serif" fill="#c43030">I</text>
+  <circle cx="190" cy="150" r="14" stroke="#2f63b0" stroke-width="3" fill="#ffffff"/>
+  <circle cx="190" cy="150" r="3.9" fill="#2f63b0"/>
+  <text x="168" y="180" text-anchor="end" font-size="20" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, Tahoma, 'Noto Sans Arabic', sans-serif" fill="#2b3654">O</text>
+  <circle cx="308" cy="150" r="6" fill="#6a3d9a"/>
+  <text x="320" y="157" text-anchor="start" font-size="22" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, Tahoma, 'Noto Sans Arabic', sans-serif" fill="#6a3d9a">Q</text>
+</svg>

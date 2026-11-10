@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 470" width="400" height="470">
+  <!-- Physics, chapter 2: long vertical wire (10 A up) on the left; rectangular loop to its right: near side 5 cm away (current up), far side 15 cm away (current down), sides 30 cm, loop current 5 A. -->
+  <rect width="400" height="470" fill="#ffffff"/>
+  <path d="M90 15 L90 355" stroke="#2b3654" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <path d="M90 230 L90 160.8" stroke="#c43030" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <path d="M90 150 L96.8 168 L83.2 168 z" fill="#c43030"/>
+  <text x="78" y="195" text-anchor="end" font-size="20" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, Tahoma, 'Noto Sans Arabic', sans-serif" fill="#c43030">10 A</text>
+  <path d="M140 40 L240 40 L240 340 L140 340 z" stroke="#2b3654" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M140 181 L146.8 199 L133.2 199 z" fill="#c43030"/>
+  <path d="M199 40 L181 46.8 L181 33.2 z" fill="#c43030"/>
+  <path d="M240 199 L233.2 181 L246.8 181 z" fill="#c43030"/>
+  <path d="M181 340 L199 333.2 L199 346.8 z" fill="#c43030"/>
+  <text x="190" y="198" text-anchor="middle" font-size="21" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, Tahoma, 'Noto Sans Arabic', sans-serif" fill="#c43030">5 A</text>
+  <text x="254" y="198" text-anchor="start" font-size="19" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, Tahoma, 'Noto Sans Arabic', sans-serif" fill="#6b7385">30 cm</text>
+  <path d="M90 362 L90 440" stroke="#9aa3b5" stroke-width="1.3" fill="none" stroke-linecap="round" stroke-dasharray="5 4"/>
+  <path d="M93 380 L137 380" stroke="#6b7385" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M91 380 L101 376.2 L101 383.8 z" fill="#6b7385"/>
+  <path d="M139 380 L129 383.8 L129 376.2 z" fill="#6b7385"/>
+  <text x="115" y="406" text-anchor="middle" font-size="19" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, Tahoma, 'Noto Sans Arabic', sans-serif" fill="#6b7385">5 cm</text>
+  <path d="M240 346 L240 438" stroke="#9aa3b5" stroke-width="1.3" fill="none" stroke-linecap="round" stroke-dasharray="5 4"/>
+  <path d="M93 430 L237 430" stroke="#6b7385" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M91 430 L101 426.2 L101 433.8 z" fill="#6b7385"/>
+  <path d="M239 430 L229 433.8 L229 426.2 z" fill="#6b7385"/>
+  <text x="165" y="456" text-anchor="middle" font-size="19" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, Tahoma, 'Noto Sans Arabic', sans-serif" fill="#6b7385">15 cm</text>
+</svg>

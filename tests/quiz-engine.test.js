@@ -390,6 +390,18 @@ test('buildExam: mixed takes questions from every level, in proportion', () => {
   assert.equal(buildExam(levelled(3, 3, 3, 3), { level: 'mixed', count: null }).questions.length, 12);
 });
 
+test('buildExam: levelOf can put very hard questions in the Hard exam', () => {
+  const bank = levelled(10, 10, 5).concat([1, 2, 3, 4].map((i) => ({ id: 'vh' + i, difficulty: 'very-hard' })));
+  const levelOf = (q) => (q.difficulty === 'very-hard' ? 'hard' : q.difficulty);
+  const exam = buildExam(bank, { level: 'hard', count: null, levelOf });
+  assert.equal(exam.questions.length, 9);
+  assert.equal(new Set(exam.questions.map((q) => q.id)).size, 9, 'no repeats');
+  assert.equal(exam.questions.filter((q) => q.difficulty === 'very-hard').length, 4);
+  assert.equal(buildExam(bank, { level: 'hard', count: 6, levelOf }).questions.length, 6);
+  // without levelOf, Hard has only the hard questions
+  assert.equal(buildExam(bank, { level: 'hard', count: null }).questions.length, 5);
+});
+
 test('buildExam: all questions, or more than there are, gives every question once (adjusted when too many)', () => {
   const bank = levelled(59, 96, 33);
   const all = buildExam(bank, { level: 'mixed', count: null });

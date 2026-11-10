@@ -204,6 +204,15 @@
       "Choose another unit or topic.": "Choose another unit or topic.",
       "← Change practice settings": "← Change practice settings",
       "Change practice settings": "Change practice settings",
+      /* ---- A chapter's random exam (subject pages) ---- */
+      "Set up the exam": "Set up the exam",
+      "{questions} to choose from": "{questions} to choose from",
+      "Exam settings": "Exam settings",
+      "“Hard” includes the hard and the very hard questions.": "“Hard” includes the hard and the very hard questions.",
+      "Start the exam": "Start the exam",
+      "← Change exam settings": "← Change exam settings",
+      "Change exam settings": "Change exam settings",
+      "New exam with the same settings": "New exam with the same settings",
       "Grammar practice": "Grammar practice",
       "Practice questions": "Practice questions",
       /* ---- Quiz settings ---- */

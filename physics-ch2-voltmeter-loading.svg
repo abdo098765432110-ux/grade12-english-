@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 330" width="520" height="330">
+  <!-- Physics, chapter 2: a 12 V battery with negligible internal resistance in series with two 10 kOhm resistors; a 10 kOhm voltmeter in parallel with the second resistor. -->
+  <rect width="520" height="330" fill="#ffffff"/>
+  <path d="M100 90 L114 90" stroke="#2b3654" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <path d="M114 90 L125.5 78 L137 102 L148.5 78 L160 102 L171.5 78 L183 102 L194.5 78 L206 90" stroke="#2b3654" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M206 90 L220 90" stroke="#2b3654" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <text x="160" y="68" text-anchor="middle" font-size="19" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, Tahoma, 'Noto Sans Arabic', sans-serif" fill="#2b3654">10 kΩ</text>
+  <path d="M300 90 L314 90" stroke="#2b3654" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <path d="M314 90 L325.5 78 L337 102 L348.5 78 L360 102 L371.5 78 L383 102 L394.5 78 L406 90" stroke="#2b3654" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M406 90 L420 90" stroke="#2b3654" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <text x="360" y="68" text-anchor="middle" font-size="19" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, Tahoma, 'Noto Sans Arabic', sans-serif" fill="#2b3654">10 kΩ</text>
+  <path d="M60 90 L100 90" stroke="#2b3654" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <path d="M220 90 L300 90" stroke="#2b3654" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <path d="M420 90 L460 90" stroke="#2b3654" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <path d="M60 90 L60 280" stroke="#2b3654" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <path d="M460 90 L460 280" stroke="#2b3654" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <path d="M60 280 L235 280" stroke="#2b3654" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <path d="M255 280 L460 280" stroke="#2b3654" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <path d="M235 252 L235 308" stroke="#2b3654" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <path d="M255 265 L255 295" stroke="#2b3654" stroke-width="7" fill="none" stroke-linecap="round"/>
+  <text x="245" y="240" text-anchor="middle" font-size="19" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, Tahoma, 'Noto Sans Arabic', sans-serif" fill="#2b3654">12 V</text>
+  <circle cx="280" cy="90" r="5" fill="#2b3654"/>
+  <circle cx="440" cy="90" r="5" fill="#2b3654"/>
+  <path d="M280 90 L280 180 L335 180" stroke="#2b3654" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M385 180 L440 180 L440 90" stroke="#2b3654" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="360" cy="180" r="25" stroke="#2b3654" stroke-width="3" fill="#ffffff"/>
+  <text x="360" y="188" text-anchor="middle" font-size="22" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, Tahoma, 'Noto Sans Arabic', sans-serif" fill="#6a3d9a">V</text>
+  <text x="360" y="232" text-anchor="middle" font-size="18" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, Tahoma, 'Noto Sans Arabic', sans-serif" fill="#6b7385">10 kΩ</text>
+</svg>

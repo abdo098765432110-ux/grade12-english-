@@ -341,8 +341,10 @@
 
   /**
    * Builds an exam from a question bank.
-   *   buildExam(questions, { level: 'easy' | 'medium' | 'hard' | 'mixed', count: n or null (all), random })
-   * - easy / medium / hard: only questions with that difficulty.
+   *   buildExam(questions, { level: 'easy' | 'medium' | 'hard' | 'mixed', count: n or null (all), random, levelOf })
+   * - easy / medium / hard: only questions with that difficulty (or, with
+   *   levelOf(question), the questions it puts at that level: for example
+   *   'hard' for 'very-hard' questions too).
    * - mixed: questions from every level; when fewer than all are asked for,
    *   each level gets its share (in proportion to its size, and at least
    *   one question from each level when the count allows it).
@@ -356,7 +358,8 @@
     var random = options.random || Math.random;
     var level = options.level || 'mixed';
     var list = (questions || []).slice();
-    var pool = level === 'mixed' ? list : list.filter(function (q) { return q.difficulty === level; });
+    var levelOf = options.levelOf || function (q) { return q.difficulty; };
+    var pool = level === 'mixed' ? list : list.filter(function (q) { return levelOf(q) === level; });
     var count = options.count === null || options.count === undefined ? null : options.count;
     if (count !== null && (typeof count !== 'number' || count < 1 || Math.floor(count) !== count)) {
       throw new Error('The number of questions must be a whole number of at least 1.');

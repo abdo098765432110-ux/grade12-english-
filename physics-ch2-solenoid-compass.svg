@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 340" width="560" height="340">
+  <!-- Physics, chapter 2: horizontal solenoid seen from the front, left end to the + terminal, right end to the - terminal; current in the front turns flows upward; small compass inside on the axis. -->
+  <rect width="560" height="340" fill="#ffffff"/>
+  <path d="M140 70 L160 190" stroke="#9aa3b5" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-dasharray="5 4"/>
+  <path d="M180 70 L200 190" stroke="#9aa3b5" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-dasharray="5 4"/>
+  <path d="M220 70 L240 190" stroke="#9aa3b5" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-dasharray="5 4"/>
+  <path d="M260 70 L280 190" stroke="#9aa3b5" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-dasharray="5 4"/>
+  <path d="M300 70 L320 190" stroke="#9aa3b5" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-dasharray="5 4"/>
+  <path d="M340 70 L360 190" stroke="#9aa3b5" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-dasharray="5 4"/>
+  <path d="M380 70 L400 190" stroke="#9aa3b5" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-dasharray="5 4"/>
+  <path d="M420 70 L440 190" stroke="#9aa3b5" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-dasharray="5 4"/>
+  <path d="M120 190 L140 70" stroke="#2b3654" stroke-width="3.4" fill="none" stroke-linecap="round"/>
+  <path d="M160 190 L180 70" stroke="#2b3654" stroke-width="3.4" fill="none" stroke-linecap="round"/>
+  <path d="M172.2 116.6 L175.4 132.3 L164.1 130.5 z" fill="#c43030"/>
+  <path d="M200 190 L220 70" stroke="#2b3654" stroke-width="3.4" fill="none" stroke-linecap="round"/>
+  <path d="M240 190 L260 70" stroke="#2b3654" stroke-width="3.4" fill="none" stroke-linecap="round"/>
+  <path d="M252.2 116.6 L255.4 132.3 L244.1 130.5 z" fill="#c43030"/>
+  <path d="M280 190 L300 70" stroke="#2b3654" stroke-width="3.4" fill="none" stroke-linecap="round"/>
+  <path d="M320 190 L340 70" stroke="#2b3654" stroke-width="3.4" fill="none" stroke-linecap="round"/>
+  <path d="M332.2 116.6 L335.4 132.3 L324.1 130.5 z" fill="#c43030"/>
+  <path d="M360 190 L380 70" stroke="#2b3654" stroke-width="3.4" fill="none" stroke-linecap="round"/>
+  <path d="M400 190 L420 70" stroke="#2b3654" stroke-width="3.4" fill="none" stroke-linecap="round"/>
+  <path d="M412.2 116.6 L415.4 132.3 L404.1 130.5 z" fill="#c43030"/>
+  <path d="M124 130 L436 130" stroke="#9aa3b5" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-dasharray="3 5"/>
+  <circle cx="290" cy="130" r="22" stroke="#6a3d9a" stroke-width="2.5" fill="#ffffff"/>
+  <text x="290" y="138" text-anchor="middle" font-size="22" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, Tahoma, 'Noto Sans Arabic', sans-serif" fill="#6a3d9a">?</text>
+  <path d="M120 190 L70 190 L70 285 L250 285" stroke="#2b3654" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M440 190 L490 190 L490 285 L310 285" stroke="#2b3654" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M250 255 L250 315" stroke="#2b3654" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <path d="M310 269 L310 301" stroke="#2b3654" stroke-width="7" fill="none" stroke-linecap="round"/>
+  <path d="M250 285 L250 285" stroke="#2b3654" stroke-width="1" fill="none" stroke-linecap="round"/>
+  <text x="232" y="263" text-anchor="middle" font-size="26" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, Tahoma, 'Noto Sans Arabic', sans-serif" fill="#c43030">+</text>
+  <text x="330" y="263" text-anchor="middle" font-size="26" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, Tahoma, 'Noto Sans Arabic', sans-serif" fill="#2b3654">−</text>
+</svg>

@@ -207,6 +207,15 @@
       "Choose another unit or topic.": "اختر وحدة أو موضوعًا آخر.",
       "← Change practice settings": "→ تغيير إعدادات التدريب",
       "Change practice settings": "تغيير إعدادات التدريب",
+      /* ---- A chapter's random exam (subject pages) ---- */
+      "Set up the exam": "جهّز الامتحان",
+      "{questions} to choose from": "{questions} للاختيار منها",
+      "Exam settings": "إعدادات الامتحان",
+      "“Hard” includes the hard and the very hard questions.": "مستوى «صعب» يشمل الأسئلة الصعبة والصعبة جدًا.",
+      "Start the exam": "ابدأ الامتحان",
+      "← Change exam settings": "→ تغيير إعدادات الامتحان",
+      "Change exam settings": "تغيير إعدادات الامتحان",
+      "New exam with the same settings": "امتحان جديد بالإعدادات نفسها",
       "Grammar practice": "تدريب القواعد",
       "Practice questions": "أسئلة التدريب",
       /* ---- Quiz settings ---- */

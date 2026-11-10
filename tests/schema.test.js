@@ -343,7 +343,8 @@ test('physics questions: every question is valid, has its diagram, and the answe
   assert.ok(fs.existsSync(path.join(project, data.chapters[0].revision.page)), 'revision page');
   assert.ok(fs.existsSync(path.join(project, data.chapters[0].revision.pdf)), 'revision PDF');
   const ids = new Set();
-  data.chapters.forEach((chapter) => {
+  // Chapter 1 (Chapter 2 has its own test below)
+  [data.chapters[0]].forEach((chapter) => {
     chapter.sections.forEach((section) => {
       section.questions.forEach((question, i) => {
         assert.deepEqual(Schema.validateItem('questions', question, i).errors, [], question.id);
@@ -363,6 +364,115 @@ test('physics questions: every question is valid, has its diagram, and the answe
   // no question appears twice under another id
   const prompts = data.chapters[0].sections[0].questions.map((q) => q.prompt.replace(/[\u200f\u2066\u2069\s]/g, ''));
   assert.equal(new Set(prompts).size, prompts.length);
+});
+
+test('physics chapter 2: 8 lessons with 150 multiple-choice and 50 essay questions, the random exam and ONE PDF', () => {
+  const fs = require('fs');
+  const path = require('path');
+  const crypto = require('crypto');
+  const root = path.join(__dirname, '..');
+  const data = JSON.parse(fs.readFileSync(path.join(root, 'physics-questions.json'), 'utf8'));
+  const plain = (s) => s.replace(/[‏⁦⁩\s]/g, '');
+  assert.deepEqual(data.chapters.map((c) => c.id), ['chapter-1', 'chapter-2']);
+  assert.equal(data.chapters[0].sections[0].questions.length, 118, 'Chapter 1 is unchanged');
+  const chapter = data.chapters[1];
+  assert.equal(chapter.title, 'الفصل الثاني: التأثير المغناطيسي للتيار الكهربي وأجهزة القياس الكهربي');
+  // the lessons, in the order of the book, each with its MCQ section and its essay section
+  const ordinals = ['الأول', 'الثاني', 'الثالث', 'الرابع', 'الخامس', 'السادس', 'السابع', 'الثامن'];
+  assert.deepEqual(chapter.lessons.map((l) => l.number), ordinals.map((o) => 'الدرس ' + o));
+  assert.deepEqual(chapter.lessons.map((l) => l.title), [
+    'المجال المغناطيسي لتيار يمر في سلك مستقيم', 'المجال المغناطيسي لتيار يمر في ملف دائري',
+    'المجال المغناطيسي لتيار يمر في ملف لولبي', 'القوة المغناطيسية المؤثرة على سلك يمر به تيار',
+    'القوة المتبادلة بين سلكين متوازيين يمر بهما تيار', 'عزم الازدواج والجلفانومتر ذو الملف المتحرك',
+    'الأميتر والفولتميتر', 'الأوميتر']);
+  chapter.lessons.forEach((lesson, i) => {
+    const n = i + 1;
+    assert.deepEqual(lesson.sections, ['chapter-2-l' + n + '-mcq', 'chapter-2-l' + n + '-essay']);
+  });
+  assert.deepEqual(chapter.sections.map((s) => s.id), [].concat(...chapter.lessons.map((l) => l.sections)), 'every section is in a lesson');
+  const mcq = [];
+  const essays = [];
+  const letters = [0, 0, 0, 0];
+  chapter.sections.forEach((section, k) => {
+    const n = Math.floor(k / 2) + 1;
+    const kind = k % 2 ? 'essay' : 'mcq';
+    const lesson = chapter.lessons[n - 1];
+    assert.equal(section.label, kind === 'mcq' ? 'أسئلة الاختيار من متعدد' : 'الأسئلة المقالية');
+    assert.ok(section.title.startsWith(lesson.number + ': ' + lesson.title), section.id + ': the title names the lesson');
+    assert.equal(section.pdf, undefined, 'no other PDF');
+    assert.ok(section.questions.length > 0, section.id);
+    section.questions.forEach((q, i) => {
+      assert.equal(q.id, 'phys-ch2-l' + n + '-' + kind + '-' + String(i + 1).padStart(2, '0'));
+      assert.deepEqual(Schema.validateItem('questions', q, i).errors, [], q.id + ': valid');
+      assert.equal(q.lang, 'ar', q.id);
+      assert.equal(q.reviewStatus, 'reviewed', q.id);
+      if (q.image) {
+        assert.ok(fs.existsSync(path.join(root, q.image)), q.image);
+        assert.ok(plain(q.imageAlt).length > 40, q.id + ': the diagram is described');
+      }
+      if (kind === 'mcq') {
+        assert.equal(q.type, 'mcq', q.id);
+        assert.ok(['easy', 'medium', 'hard', 'very-hard'].includes(q.difficulty), q.id);
+        assert.equal(q.options.length, 4, q.id + ': four options');
+        assert.equal(new Set(q.options.map(plain)).size, 4, q.id + ': four different options');
+        assert.equal(q.options.filter((o) => o === q.answer).length, 1, q.id + ': the answer is exactly one of the options');
+        // the explanation: the solution, then why each of the four choices is right or wrong
+        const review = q.explanation.split('نراجع الاختيارات:');
+        assert.equal(review.length, 2, q.id + ': reviews the choices');
+        assert.ok(plain(review[0]).length > 40, q.id + ': a worked solution');
+        const lines = review[1].trim().split('\n');
+        assert.equal(lines.length, 4, q.id + ': one line per choice');
+        lines.forEach((line, j) => {
+          assert.ok(line.startsWith((j === q.options.indexOf(q.answer) ? '✓' : '✗') + ' (' + 'أبجد'[j] + ') '), q.id + ': ' + line.slice(0, 30));
+          assert.ok(plain(line).includes(plain(q.options[j])), q.id + ': the line names its choice');
+        });
+        letters[q.options.indexOf(q.answer)] += 1;
+        mcq.push(q);
+      } else {
+        assert.equal(q.type, 'short', q.id);
+        assert.equal(q.revealAnytime, true, q.id + ': the model answer can be shown at any time');
+        assert.ok(['hard', 'very-hard'].includes(q.difficulty), q.id + ': hard or very hard');
+        assert.ok(plain(q.modelAnswer).length > 150, q.id + ': a complete model answer');
+        essays.push(q);
+      }
+    });
+  });
+  assert.equal(mcq.length, 150);
+  assert.equal(essays.length, 50);
+  letters.forEach((n) => assert.ok(n >= 32 && n <= 44, 'answers by letter: ' + letters));
+  const hardish = mcq.filter((q) => q.difficulty === 'hard' || q.difficulty === 'very-hard').length;
+  assert.ok(hardish > 75, 'most questions are hard or very hard: ' + hardish);
+  ['easy', 'medium', 'hard', 'very-hard'].forEach((level) => assert.ok(mcq.some((q) => q.difficulty === level), level));
+  assert.ok(essays.some((q) => q.difficulty === 'very-hard') && essays.some((q) => q.difficulty === 'hard'));
+  const all = mcq.concat(essays);
+  assert.equal(new Set(all.map((q) => q.id)).size, 200, 'different ids');
+  assert.equal(new Set(mcq.map((q) => plain(q.prompt) + '#' + q.options.map(plain).join('|'))).size, 150, 'no MCQ twice');
+  assert.equal(new Set(essays.map((q) => plain(q.prompt))).size, 50, 'no essay question twice');
+  // the random exam draws from the multiple-choice sections of the eight lessons
+  assert.deepEqual(chapter.exam.sections, chapter.lessons.map((l) => l.sections[0]));
+  assert.ok(chapter.exam.title && chapter.exam.note && chapter.exam.presets.length);
+  // ONE PDF for the whole chapter (questions, essays and the answer key), made from these questions
+  assert.equal(chapter.pdf, 'physics-ch2-question-bank.pdf');
+  assert.equal(chapter.morePdfs, undefined);
+  const pdf = fs.readFileSync(path.join(root, chapter.pdf));
+  assert.equal(pdf.slice(0, 5).toString(), '%PDF-');
+  const fingerprint = (questions) => {      // the same code as fingerprint() in tools/phys_ch2_bank/build.py
+    const digest = crypto.createHash('sha256');
+    questions.forEach((q) => {
+      const fields = [q.prompt].concat(q.options || [], [q.answer || '', q.explanation || '', q.modelAnswer || '']);
+      digest.update(fields.join('\x1f') + '\x1e', 'utf8');
+    });
+    return digest.digest('hex').slice(0, 16);
+  };
+  const built = JSON.parse(fs.readFileSync(path.join(root, 'tools', 'phys_ch2_bank', 'built.json'), 'utf8'));
+  assert.equal(built.pdf, chapter.pdf);
+  const inOrder = [].concat(...chapter.sections.map((s) => s.questions));
+  assert.equal(built.fingerprint, fingerprint(inOrder), 'the PDF was made from the questions on the website');
+  assert.deepEqual(built.lessons.map((l) => [l.mcq, l.essay]),
+    chapter.lessons.map((l) => l.sections.map((id) => chapter.sections.find((s) => s.id === id).questions.length)));
+  const starts = Object.values(built.starts);
+  assert.ok(starts.every((page, i) => i === 0 || page > starts[i - 1]), 'the parts and lessons follow each other');
+  assert.ok(built.pages > starts[starts.length - 1] && built.pages >= 100, 'pages: ' + built.pages);
 });
 
 test('chemistry questions: chapter 1 has the review (50 + 2 written) and test A (50), all valid, with their diagrams', () => {

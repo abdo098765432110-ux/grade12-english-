@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 330" width="560" height="330">
+  <!-- Physics, chapter 2: uniform field B to the right; wire 1 vertical length L, wire 2 at 30 deg to B length 2L, wire 3 horizontal length 3L; equal currents I. -->
+  <rect width="560" height="330" fill="#ffffff"/>
+  <path d="M20 30 L534 30" stroke="#2f63b0" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M540 30 L528 34.6 L528 25.4 z" fill="#2f63b0"/>
+  <path d="M20 300 L534 300" stroke="#2f63b0" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M540 300 L528 304.6 L528 295.4 z" fill="#2f63b0"/>
+  <text x="536" y="60" text-anchor="end" font-size="22" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, Tahoma, 'Noto Sans Arabic', sans-serif" fill="#2f63b0" font-style="italic">B</text>
+  <path d="M70 220 L70 116" stroke="#2b3654" stroke-width="5" fill="none" stroke-linecap="round"/>
+  <path d="M70 160 L76.1 176 L63.9 176 z" fill="#c43030"/>
+  <text x="70" y="250" text-anchor="middle" font-size="19" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, Tahoma, 'Noto Sans Arabic', sans-serif" fill="#2b3654">(1)  L</text>
+  <path d="M140 220 L320.1 116" stroke="#2b3654" stroke-width="5" fill="none" stroke-linecap="round"/>
+  <path d="M237 164 L226.2 177.3 L220.1 166.7 z" fill="#c43030"/>
+  <path d="M140 220 L230 220" stroke="#9aa3b5" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-dasharray="5 4"/>
+  <path d="M196 220 A 56 56 0 0 0 188.5 192" stroke="#6a3d9a" stroke-width="2" fill="none"/>
+  <text x="206" y="210" text-anchor="start" font-size="18" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, Tahoma, 'Noto Sans Arabic', sans-serif" fill="#6a3d9a">30°</text>
+  <text x="224.1" y="250" text-anchor="middle" font-size="19" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, Tahoma, 'Noto Sans Arabic', sans-serif" fill="#2b3654">(2)  2L</text>
+  <path d="M230 275 L542 275" stroke="#2b3654" stroke-width="5" fill="none" stroke-linecap="round"/>
+  <path d="M394 275 L378 281.1 L378 268.9 z" fill="#c43030"/>
+  <text x="386" y="262" text-anchor="middle" font-size="19" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, Tahoma, 'Noto Sans Arabic', sans-serif" fill="#2b3654">(3)  3L</text>
+</svg>

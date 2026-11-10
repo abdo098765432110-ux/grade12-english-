@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 320" width="500" height="320">
+  <!-- Physics, chapter 2: uniform field B to the right; an L-shaped wire: 40 cm part parallel to B, then 30 cm part perpendicular to B; current 2 A. -->
+  <rect width="500" height="320" fill="#ffffff"/>
+  <path d="M30 45 L464 45" stroke="#2f63b0" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M470 45 L458 49.6 L458 40.4 z" fill="#2f63b0"/>
+  <path d="M30 115 L464 115" stroke="#2f63b0" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M470 115 L458 119.6 L458 110.4 z" fill="#2f63b0"/>
+  <path d="M30 185 L464 185" stroke="#2f63b0" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M470 185 L458 189.6 L458 180.4 z" fill="#2f63b0"/>
+  <path d="M30 300 L464 300" stroke="#2f63b0" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M470 300 L458 304.6 L458 295.4 z" fill="#2f63b0"/>
+  <text x="470" y="33" text-anchor="end" font-size="22" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, Tahoma, 'Noto Sans Arabic', sans-serif" fill="#2f63b0" font-style="italic">B</text>
+  <path d="M90 250 L370 250 L370 40" stroke="#2b3654" stroke-width="5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M239 250 L221 256.8 L221 243.2 z" fill="#c43030"/>
+  <path d="M370 136 L376.8 154 L363.2 154 z" fill="#c43030"/>
+  <text x="230" y="236" text-anchor="middle" font-size="19" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, Tahoma, 'Noto Sans Arabic', sans-serif" fill="#2b3654">40 cm</text>
+  <text x="382" y="175" text-anchor="start" font-size="19" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, Tahoma, 'Noto Sans Arabic', sans-serif" fill="#2b3654">30 cm</text>
+  <text x="90" y="236" text-anchor="start" font-size="19" font-weight="700" font-family="'Segoe UI', 'Helvetica Neue', Arial, Tahoma, 'Noto Sans Arabic', sans-serif" fill="#c43030">I = 2 A</text>
+</svg>
