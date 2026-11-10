@@ -1824,10 +1824,10 @@ def arabic_unit3(browser, base):
         page = watch(context.new_page())
         page.goto(base + "arabic.html")
         page.wait_for_selector(".subject-cards .card")
-        record("Arabic page (%s): Unit 3 card to solve the questions" % device,
-               page.locator(".subject-cards .card h2").inner_text() == "الوحدة الثالثة: النواسخ"
-               and page.locator(".subject-cards .card .btn").inner_text() == "حلّ أسئلة الوحدة")
-        record("Arabic page (%s): PDF files heading" % device, page.locator(".arabic-unit h2").inner_text() == "ملفات الوحدة الثالثة: النواسخ")
+        record("Arabic page (%s): Unit 2 and Unit 3 cards to solve the questions" % device,
+               [c.strip() for c in page.locator(".subject-cards .card h2").all_inner_texts()] == ["الوحدة الثانية – اللغة العربية: الأبنية", "الوحدة الثالثة: النواسخ"]
+               and page.locator(".subject-cards .card .btn").all_inner_texts() == ["حلّ أسئلة الوحدة"] * 2)
+        record("Arabic page (%s): PDF files heading" % device, page.locator("#arabic-unit-files").inner_text() == "ملفات الوحدة الثالثة: النواسخ")
         record("Arabic page (%s): no 'no content' message any more" % device, page.locator(".empty-state").count() == 0)
         for pdf, view_text, download_text in files:
             view = page.locator(".arabic-unit a[target=_blank][href='%s']" % pdf)
@@ -1855,7 +1855,7 @@ def arabic_unit3(browser, base):
             page.evaluate("lang => localStorage.setItem('g12-lang', lang)", lang)
             page.reload()
             record("Arabic page (%s, %s interface): download labels unchanged" % (device, lang),
-                   page.locator(".arabic-unit a[download]").all_inner_texts() == [f[2] for f in files])
+                   page.locator("section[aria-labelledby=arabic-unit-files] a[download]").all_inner_texts() == [f[2] for f in files])
             audit(page, "Arabic page with Unit 3 (%s, %s)" % (device, lang))
         if device == "phone":
             page.screenshot(path=str(SHOTS / "42-arabic-unit3-phone.png"), full_page=True)
@@ -1870,7 +1870,7 @@ def arabic_quiz(browser, base):
     correct answer" must show the key. Each question's text and choices must be
     exactly those in arabic-questions.json (the file the PDF is made from)."""
     data = json.loads((PROJECT / "arabic-questions.json").read_text(encoding="utf-8"))
-    chapter = data["chapters"][0]
+    chapter = next(c for c in data["chapters"] if c["id"] == "unit-3")
     total = sum(len(s["questions"]) for s in chapter["sections"])
     record("Arabic quiz: 100 questions in 5 sections", total == 100 and len(chapter["sections"]) == 5, str(total))
     phone = {"viewport": {"width": 390, "height": 664}, "device_scale_factor": 3, "is_mobile": True, "has_touch": True}
@@ -1921,6 +1921,153 @@ def arabic_quiz(browser, base):
         if device == "phone":
             page.screenshot(path=str(SHOTS / "43-arabic-quiz-phone.png"), full_page=True)
         no_errors(page, "Arabic quiz (%s)" % device)
+        context.close()
+
+
+PHONE = {"viewport": {"width": 390, "height": 664}, "device_scale_factor": 3, "is_mobile": True, "has_touch": True,
+         "user_agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Mobile/15E148 Safari/604.1"}
+
+
+def arabic_unit2_page(browser, base):
+    """The Arabic page, on a computer and a phone: Unit 2 «الأبنية» first, its
+    heading «الوحدة الثانية – اللغة العربية», and for each part (multiple choice,
+    written) a button to solve it on the site, a "view" link and a "download" link
+    to its PDF; the chapter page lists the two parts and the two PDFs."""
+    data = json.loads((PROJECT / "arabic-questions.json").read_text(encoding="utf-8"))
+    chapter = data["chapters"][0]
+    record("Arabic Unit 2: the first unit, 50 multiple-choice and 50 written questions",
+           chapter["id"] == "unit-2" and [len(s["questions"]) for s in chapter["sections"]] == [50, 50])
+    parts = [("arabic-unit2-mcq.pdf", "تحميل أسئلة الاختيار من متعدد", chapter["sections"][0]),
+             ("arabic-unit2-essay.pdf", "تحميل الأسئلة المقالية", chapter["sections"][1])]
+    for device, options in [("computer", {"viewport": {"width": 1280, "height": 900}}), ("phone", PHONE)]:
+        context = browser.new_context(accept_downloads=True, **options)
+        page = watch(context.new_page())
+        page.goto(base + "arabic.html")
+        page.wait_for_selector(".subject-cards .card")
+        unit = page.locator("section[aria-labelledby=arabic-unit2-files]")
+        record("Arabic page (%s): Unit 2 heading, above Unit 3's files" % device,
+               unit.locator("h2").inner_text() == "الوحدة الثانية – اللغة العربية" and unit.is_visible()
+               and page.evaluate("() => document.querySelector('#arabic-unit2-files').compareDocumentPosition(document.querySelector('#arabic-unit-files')) & 4") != 0)
+        for pdf, label, section in parts:
+            panel = unit.locator(".summary-pdf:has(a[href='%s'])" % pdf)
+            solve = panel.locator("a.btn:not(.btn--secondary)")
+            view = panel.locator("a[target=_blank]")
+            download_link = panel.locator("a[download]")
+            record("Arabic page (%s): %s — solve, view and download buttons" % (device, pdf),
+                   panel.count() == 1 and solve.inner_text() == "حلّ الأسئلة على الموقع" and view.inner_text() == "عرض ملف PDF"
+                   and download_link.inner_text() == label and view.get_attribute("href") == pdf)
+            response = page.request.get(base + pdf)
+            record("Arabic page (%s): %s opens (200, application/pdf, a real PDF)" % (device, pdf),
+                   response.status == 200 and response.headers.get("content-type", "").startswith("application/pdf") and response.body()[:5] == b"%PDF-")
+            with context.expect_event("request", lambda request: request.url == base + pdf) as asked:
+                with page.expect_popup() as popup:
+                    view.click()
+            record("Arabic page (%s): «عرض ملف PDF» opens %s in a new tab" % (device, pdf), asked.value.frame.page == popup.value)
+            popup.value.close()
+            with page.expect_download() as info:
+                download_link.click()
+            saved = info.value
+            size = pathlib.Path(saved.path()).stat().st_size
+            record("Arabic page (%s): «%s» saves %s" % (device, label, pdf),
+                   saved.suggested_filename == pdf and size == (PROJECT / pdf).stat().st_size, "%s %d bytes" % (saved.suggested_filename, size))
+            solve.click()
+            page.wait_for_selector(".quiz .prompt-text")
+            record("Arabic page (%s): «حلّ الأسئلة على الموقع» opens %s" % (device, section["title"]),
+                   page.url.endswith("chapter=unit-2&section=" + section["id"]) and page.locator(".question-section-title").inner_text() == section["title"])
+            page.goto(base + "arabic.html")
+            page.wait_for_selector(".subject-cards .card")
+        overflow = page.evaluate("() => document.documentElement.scrollWidth - document.documentElement.clientWidth")
+        record("Arabic page (%s): no sideways scrolling with Unit 2" % device, overflow <= 0, "overflow %d" % overflow)
+        audit(page, "Arabic page with Unit 2 (%s)" % device)
+        if device == "phone":
+            unit.screenshot(path=str(SHOTS / "45-arabic-unit2-files-phone.png"))
+        # the unit's own page: its two parts, then its two PDFs
+        page.goto(base + "arabic.html?chapter=unit-2")
+        page.wait_for_selector(".subject-cards .card")
+        record("Arabic Unit 2 page (%s): the two parts and the two PDFs" % device,
+               [c.strip() for c in page.locator(".subject-cards .card h3").all_inner_texts()] == [s["title"] for s in chapter["sections"]]
+               and page.locator(".subject-content .questions-pdf a[download]").evaluate_all("els => els.map(e => e.getAttribute('href'))") == [p[0] for p in parts]
+               and page.locator("section[aria-labelledby=arabic-unit2-files]").is_hidden())
+        no_errors(page, "Arabic page with Unit 2 (%s)" % device)
+        context.close()
+
+
+def arabic_unit2_quiz(browser, base):
+    """All 100 Unit 2 questions on the site. Multiple choice: on a computer every
+    fifth question is answered wrongly and the others rightly — each marked so, with
+    an explanation — and the results must say 40 / 50 (80%); on a phone every
+    question is answered wrongly, shows the key, and the results say 0 / 50 (0%).
+    Written: each has a writing box; on a computer the model answer is shown without
+    writing, on a phone after writing an answer; the results do not score them. The
+    texts must be exactly those in arabic-questions.json (the PDFs' source)."""
+    data = json.loads((PROJECT / "arabic-questions.json").read_text(encoding="utf-8"))
+    mcq, essay = data["chapters"][0]["sections"]
+    for device, options, every in [("computer", {"viewport": {"width": 1280, "height": 900}}, 5), ("phone", PHONE, 1)]:
+        context = browser.new_context(**options)
+        page = watch(context.new_page())
+        page.goto(base + "arabic.html")
+        page.evaluate("() => localStorage.setItem('g12-lang', 'en')")
+        page.goto(base + "arabic.html?chapter=unit-2&section=" + mcq["id"])
+        page.wait_for_selector(".quiz .prompt-text")
+        problems, right_count = [], 0
+        for n, q in enumerate(mcq["questions"], 1):
+            shown = page.locator(".prompt-text").first.evaluate("e => e.textContent")
+            choices = page.locator(".options .option-text").evaluate_all("els => els.map(e => e.textContent)")
+            if shown != q["prompt"] or choices != q["options"]:
+                problems.append("%d: text differs" % n)
+            key = q["options"].index(q["answer"])
+            right = n % every != 0
+            right_count += right
+            page.check(".options input[data-index='%d']" % (key if right else (key + 1) % 4))
+            page.click("button:has-text('Submit answer')")
+            title = page.locator(".feedback-title").inner_text().strip()
+            if title != ("Correct!" if right else "Not correct."):
+                problems.append("%d: marked '%s'" % (n, title))
+            if not right:
+                page.click("button:has-text('Show correct answer')")
+                if page.locator(".feedback-title").inner_text().strip() != "Correct answer: " + q["answer"]:
+                    problems.append("%d: key not shown" % n)
+            if page.locator(".feedback .explanation-text").evaluate_all("els => els.map(e => e.textContent)") != [q["explanation"]]:
+                problems.append("%d: explanation" % n)
+            page.click(".actions button:has-text('Next question'), .actions button:has-text('See results')")
+        record("Arabic Unit 2 multiple choice (%s): all 50 questions as in the file, marked right or wrong, explanation after each" % device,
+               not problems, "; ".join(problems[:5]))
+        page.wait_for_selector(".score-number")
+        score = page.locator(".score-number").inner_text().strip()
+        percent = round(100 * right_count / 50)
+        record("Arabic Unit 2 multiple choice (%s): score %d / 50 and %d%%" % (device, right_count, percent),
+               score == "%d / 50" % right_count and ("(%d%%)" % percent) in page.locator(".quiz").inner_text(), score)
+        if device == "phone":
+            page.screenshot(path=str(SHOTS / "46-arabic-unit2-results-phone.png"), full_page=True)
+        # the written questions
+        page.goto(base + "arabic.html?chapter=unit-2&section=" + essay["id"])
+        page.wait_for_selector(".quiz .prompt-text")
+        problems = []
+        for n, q in enumerate(essay["questions"], 1):
+            if page.locator(".prompt-text").first.evaluate("e => e.textContent") != q["prompt"]:
+                problems.append("%d: text differs" % n)
+            box = page.locator(".quiz textarea")
+            if box.count() != 1 or box.get_attribute("rows") != "9" or not box.is_visible():
+                problems.append("%d: no writing box" % n)
+            if device == "computer":
+                page.click("button:has-text('Show the model answer')")
+            else:
+                box.fill("إجابتي: اسم مقصور")
+                page.click("button:has-text('Submit answer')")
+            shown = page.locator(".feedback p").evaluate_all("els => els.map(e => e.textContent)")
+            if q["modelAnswer"] not in shown:
+                problems.append("%d: model answer not shown" % n)
+            if n == 1 and device == "phone":
+                page.screenshot(path=str(SHOTS / "47-arabic-unit2-written-phone.png"), full_page=True)
+            page.click(".actions button:has-text('Next question'), .actions button:has-text('See results')")
+        record("Arabic Unit 2 written (%s): all 50 questions as in the file, a writing box, the model answer %s" % (
+            device, "shown on request without writing" if device == "computer" else "shown after writing an answer"), not problems, "; ".join(problems[:5]))
+        record("Arabic Unit 2 written (%s): the results do not score written answers" % device,
+               "50 written answers are not scored" in page.locator(".quiz").inner_text())
+        overflow = page.evaluate("() => document.documentElement.scrollWidth - document.documentElement.clientWidth")
+        record("Arabic Unit 2 (%s): no sideways scrolling" % device, overflow <= 0, "overflow %d" % overflow)
+        audit(page, "Arabic Unit 2 results (%s)" % device)
+        no_errors(page, "Arabic Unit 2 questions (%s)" % device)
         context.close()
 
 
@@ -2005,6 +2152,8 @@ def main():
         run_section("chemistry chapter 2 questions", chemistry_ch2, browser, base)
         run_section("Arabic Unit 3 PDFs", arabic_unit3, browser, base)
         run_section("Arabic Unit 3 questions on the site", arabic_quiz, browser, base)
+        run_section("Arabic Unit 2 page and PDFs", arabic_unit2_page, browser, base)
+        run_section("Arabic Unit 2 questions on the site", arabic_unit2_quiz, browser, base)
         run_section("dhikr card", dhikr, browser, base)
         browser.close()
     server.shutdown()

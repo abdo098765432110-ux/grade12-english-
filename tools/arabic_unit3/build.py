@@ -202,11 +202,29 @@ QUESTIONS_CSS = """
 """
 
 
+def unit_chapter():
+    """Unit 3 in arabic-questions.json (the file also holds other units)."""
+    data = json.loads((SITE / DATA).read_text(encoding="utf-8"))
+    return next(chapter for chapter in data["chapters"] if chapter["id"] == "unit-3")
+
+
+def fingerprint():
+    """What the PDFs are made from: Unit 3 (written compactly, as JSON.stringify
+    does in tests/schema.test.js) and the summary."""
+    unit = json.dumps(unit_chapter(), ensure_ascii=False, separators=(",", ":")).encode("utf-8")
+    return hashlib.sha256(unit + b"\x00" + (HERE / "summary.html").read_bytes()).hexdigest()[:16]
+
+
+def write_built():
+    """built.json: the tests fail when the PDFs are older than their sources."""
+    (HERE / "built.json").write_text(json.dumps({"questions_pdf": QUESTIONS_PDF, "summary_pdf": SUMMARY_PDF,
+                                                 "fingerprint": fingerprint()}, indent=2) + "\n", encoding="utf-8")
+
+
 def load_questions():
     """The questions of the website (arabic-questions.json), by section — the PDF
     shows exactly these, in the same order and with the same numbers."""
-    data = json.loads((SITE / DATA).read_text(encoding="utf-8"))
-    chapter = data["chapters"][0]
+    chapter = unit_chapter()
     by_id = {section["id"]: section for section in chapter["sections"]}
     by_section = {}
     for key, no, name, _ in SECTIONS:
@@ -405,10 +423,7 @@ def main():
             browser.close()
     finally:
         server.shutdown()
-    # what the PDFs were made from (tests/schema.test.js fails when they are older than their sources)
-    source = (SITE / DATA).read_bytes() + b"\x00" + (HERE / "summary.html").read_bytes()
-    (HERE / "built.json").write_text(json.dumps({"questions_pdf": QUESTIONS_PDF, "summary_pdf": SUMMARY_PDF,
-                                                 "fingerprint": hashlib.sha256(source).hexdigest()[:16]}, indent=2) + "\n", encoding="utf-8")
+    write_built()
 
 
 if __name__ == "__main__":

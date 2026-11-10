@@ -577,7 +577,8 @@
         ]));
       } else {
         var textareaId = fieldName + '-answer';
-        textarea = el('textarea', { id: textareaId, dir: 'auto', rows: '5' });
+        // revealAnytime questions are longer exercises (several parts), so a bigger box
+        textarea = el('textarea', { id: textareaId, dir: 'auto', rows: revealAnytime ? '9' : '5' });
         form.appendChild(el('div', { className: 'form-row' }, [
           el('label', { className: 'question-legend', for: textareaId, dir: 'auto' }, promptNodes(question, null, quiz.index)),
           figure(question),

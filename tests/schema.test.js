@@ -650,9 +650,8 @@ test('Arabic Unit 3: 100 questions on the site (arabic-questions.json), the PDFs
   const folder = path.join(root, 'tools', 'arabic_unit3');
   const data = JSON.parse(fs.readFileSync(path.join(root, 'arabic-questions.json'), 'utf8'));
   assert.equal(data.schemaVersion, 2);
-  assert.equal(data.chapters.length, 1);
-  const unit = data.chapters[0];
-  assert.equal(unit.id, 'unit-3');
+  assert.deepEqual(data.chapters.map((c) => c.id), ['unit-2', 'unit-3'], 'Unit 2, then Unit 3');
+  const unit = data.chapters.find((c) => c.id === 'unit-3');
   assert.deepEqual(unit.sections.map((s) => [s.id, s.questions.length]),
     [['unit-3-kana', 22], ['unit-3-kada', 14], ['unit-3-inna', 30], ['unit-3-la', 14], ['unit-3-mixed', 20]]);
   const ids = [];
@@ -671,7 +670,8 @@ test('Arabic Unit 3: 100 questions on the site (arabic-questions.json), the PDFs
   }));
   assert.equal(new Set(ids).size, 100, 'unique ids');
   const built = JSON.parse(fs.readFileSync(path.join(folder, 'built.json'), 'utf8'));
-  const source = Buffer.concat([fs.readFileSync(path.join(root, 'arabic-questions.json')), Buffer.from([0]), fs.readFileSync(path.join(folder, 'summary.html'))]);
+  // the same as fingerprint() in tools/arabic_unit3/build.py: Unit 3 written compactly, then the summary
+  const source = Buffer.concat([Buffer.from(JSON.stringify(unit), 'utf8'), Buffer.from([0]), fs.readFileSync(path.join(folder, 'summary.html'))]);
   assert.equal(built.fingerprint, crypto.createHash('sha256').update(source).digest('hex').slice(0, 16),
     'the Arabic PDFs are older than the questions or the summary: run python3 tools/arabic_unit3/build.py');
   const page = fs.readFileSync(path.join(root, 'arabic.html'), 'utf8');
@@ -681,6 +681,78 @@ test('Arabic Unit 3: 100 questions on the site (arabic-questions.json), the PDFs
     assert.ok(page.includes('href="' + pdf + '" target="_blank"'), pdf + ' can be viewed');
     assert.ok(page.includes('href="' + pdf + '" download type="application/pdf">' + label + '</a>'), pdf + ' can be downloaded: ' + label);
   });
+});
+
+test('Arabic Unit 2: 50 multiple-choice and 50 written questions on the site, before Unit 3, and the two PDFs made from them', () => {
+  const fs = require('fs');
+  const path = require('path');
+  const crypto = require('crypto');
+  const root = path.join(__dirname, '..');
+  const data = JSON.parse(fs.readFileSync(path.join(root, 'arabic-questions.json'), 'utf8'));
+  assert.equal(data.chapters[0].id, 'unit-2', 'Unit 2 comes first, before Unit 3');
+  const unit = data.chapters[0];
+  assert.equal(unit.title, 'الوحدة الثانية – اللغة العربية: الأبنية');
+  assert.deepEqual(unit.sections.map((s) => [s.id, s.questions.length]), [['unit-2-mcq', 50], ['unit-2-essay', 50]]);
+  const [mcq, essay] = unit.sections.map((s) => s.questions);
+  const noLatin = (q, textOf) => assert.ok(!/[A-Za-z0-9]/.test(textOf), q.id + ': no Latin letters or Western digits (as in the PDF)');
+  mcq.forEach((q, i) => {
+    assert.equal(Schema.validateItem('questions', q, i).errors.length, 0, q.id + ': valid question');
+    assert.equal(q.id, 'ar-u2-mcq-' + String(i + 1).padStart(2, '0'));
+    assert.equal(q.type, 'mcq');
+    assert.equal(q.lang, 'ar');
+    assert.equal(q.reviewStatus, 'reviewed');
+    assert.equal(q.options.length, 4, q.id + ': four options');
+    assert.equal(new Set(q.options.map((o) => o.trim())).size, 4, q.id + ': different options');
+    assert.equal(q.options.filter((o) => o === q.answer).length, 1, q.id + ': the answer is exactly one of the options');
+    assert.ok(q.explanation.trim(), q.id + ': explanation');
+    noLatin(q, q.prompt + q.options.join('') + q.explanation);
+  });
+  assert.deepEqual(['medium', 'hard', 'very-hard'].map((d) => mcq.some((q) => q.difficulty === d)), [true, true, true], 'medium, hard and very hard questions');
+  const places = [0, 1, 2, 3].map((k) => mcq.filter((q) => q.options.indexOf(q.answer) === k).length);
+  assert.ok(Math.min(...places) >= 12 && Math.max(...places) <= 13, 'the right answer is in each place about equally often: ' + places);
+  essay.forEach((q, i) => {
+    assert.equal(Schema.validateItem('questions', q, i).errors.length, 0, q.id + ': valid question');
+    assert.equal(q.id, 'ar-u2-essay-' + String(i + 1).padStart(2, '0'));
+    assert.equal(q.type, 'short');
+    assert.equal(q.lang, 'ar');
+    assert.equal(q.reviewStatus, 'reviewed');
+    assert.equal(q.revealAnytime, true, q.id + ': the model answer can be shown at any time');
+    assert.ok(['hard', 'very-hard'].includes(q.difficulty), q.id + ': hard or very hard');
+    assert.ok(q.modelAnswer.trim().length > 40, q.id + ': a model answer');
+    noLatin(q, q.prompt + q.modelAnswer);
+  });
+  const all = data.chapters.flatMap((c) => c.sections.flatMap((s) => s.questions));
+  assert.equal(new Set(all.map((q) => q.id)).size, all.length, 'unique ids in the Arabic file');
+  assert.equal(new Set(all.map((q) => q.prompt.trim())).size, all.length, 'no question twice in the Arabic file');
+  // the PDFs: listed on the unit's page ("morePdfs"), made from these questions (tools/arabic_unit2/build.py)
+  assert.deepEqual(unit.morePdfs.map((p) => [p.file, p.sections]), [['arabic-unit2-mcq.pdf', ['unit-2-mcq']], ['arabic-unit2-essay.pdf', ['unit-2-essay']]]);
+  unit.morePdfs.forEach((p) => assert.ok(p.title && p.note, p.file + ': title and note'));
+  // the same code as fingerprint() in tools/arabic_unit2/build.py
+  const fingerprint = (questions) => {
+    const digest = crypto.createHash('sha256');
+    questions.forEach((q) => {
+      const fields = [q.prompt].concat(q.options || [], [q.answer || '', q.explanation || '', q.modelAnswer || '', q.difficulty]);
+      digest.update(fields.join('\x1f') + '\x1e', 'utf8');
+    });
+    return digest.digest('hex').slice(0, 16);
+  };
+  const built = JSON.parse(fs.readFileSync(path.join(root, 'tools', 'arabic_unit2', 'built.json'), 'utf8')).files;
+  [['arabic-unit2-mcq.pdf', mcq], ['arabic-unit2-essay.pdf', essay]].forEach(([name, questions], i) => {
+    assert.equal(built[i].pdf, name);
+    assert.equal(fs.readFileSync(path.join(root, name)).subarray(0, 5).toString(), '%PDF-', name + ' is a PDF file');
+    assert.equal(built[i].questions, 50, name + ': 50 questions');
+    assert.equal(built[i].fingerprint, fingerprint(questions), name + ' is older than the questions: run python3 tools/arabic_unit2/build.py');
+  });
+  // and on the Arabic page itself, with the title the owner asked for
+  const page = fs.readFileSync(path.join(root, 'arabic.html'), 'utf8');
+  assert.ok(page.includes('>الوحدة الثانية – اللغة العربية</h2>'), 'the Unit 2 heading on the Arabic page');
+  [['arabic-unit2-mcq.pdf', 'عرض ملف PDF', 'تحميل أسئلة الاختيار من متعدد'],
+    ['arabic-unit2-essay.pdf', 'عرض ملف PDF', 'تحميل الأسئلة المقالية']].forEach(([pdf, view, label]) => {
+    assert.ok(page.includes('href="' + pdf + '" target="_blank" rel="noopener" type="application/pdf">' + view + '</a>'), pdf + ' can be viewed: ' + view);
+    assert.ok(page.includes('href="' + pdf + '" download type="application/pdf">' + label + '</a>'), pdf + ' can be downloaded: ' + label);
+  });
+  assert.ok(page.includes('href="arabic.html?chapter=unit-2&amp;section=unit-2-mcq"') && page.includes('href="arabic.html?chapter=unit-2&amp;section=unit-2-essay"'),
+    'buttons to solve each part online');
 });
 
 test('dhikr: the list of adhkar, and the font has every character they use', () => {
