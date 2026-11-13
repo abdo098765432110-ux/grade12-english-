@@ -1479,8 +1479,8 @@ thead th {
 .questions-pdf { margin: 1.25rem 0 0.5rem; background: var(--tone, var(--mint)); border-color: var(--tone-edge, var(--mint-edge)); }
 .questions-pdf .summary-pdf-title { color: var(--tone-ink, var(--mint-ink)); }
 
-/* The Arabic page: Unit 3 with its two PDFs. */
-.arabic-unit-title { margin: 1.5rem 0 0.25rem; }
+/* The Arabic page: Unit 3 with its two PDFs; the Biology page: the revision booklet. */
+.arabic-unit-title, .subject-files-title { margin: 1.5rem 0 0.25rem; }
 .arabic-unit .questions-pdf { margin-top: 0.9rem; }
 
 @media (max-width: 40rem) {

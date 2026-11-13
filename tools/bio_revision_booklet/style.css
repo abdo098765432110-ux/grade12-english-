@@ -1,0 +1,266 @@
+/* Handwritten revision notebook — A4 pages */
+@font-face { font-family: "Ruqaa"; src: url("f/ArefRuqaa-Regular.ttf"); font-weight: 400; }
+@font-face { font-family: "Ruqaa"; src: url("f/ArefRuqaa-Bold.ttf"); font-weight: 700; }
+@font-face { font-family: "Pen"; src: url("f/Pen-400.ttf"); font-weight: 400; }
+@font-face { font-family: "Pen"; src: url("f/Pen-500.ttf"); font-weight: 500; }
+@font-face { font-family: "Pen"; src: url("f/Pen-600.ttf"); font-weight: 600; }
+@font-face { font-family: "Pen"; src: url("f/Pen-650.ttf"); font-weight: 650; }
+@font-face { font-family: "Pen"; src: url("f/Pen-700.ttf"); font-weight: 700; }
+@font-face { font-family: "Marker"; src: url("f/Marker-700.ttf"); font-weight: 700; }
+@font-face { font-family: "Hand"; src: url("f/Hand-700.ttf"); font-weight: 700; }
+
+:root {
+  --ink: #26355f;          /* the pen */
+  --ink-soft: #4a5a86;
+  --turq: #14a8a8;
+  --turq-l: #c8f1ef;
+  --blue: #3b9ee0;
+  --blue-l: #d6edff;
+  --mint: #2fb57f;
+  --mint-l: #d5f6e6;
+  --yellow: #ffd84d;
+  --yellow-l: #fff4bf;
+  --peach: #ff9f6e;
+  --peach-l: #ffe3d1;
+  --coral: #f2706b;
+  --coral-l: #ffdedb;
+  --lav: #8f74e6;
+  --lav-l: #ebe4ff;
+  --paper: #fffdf6;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body { background: #e9e6df; font-family: "Pen", sans-serif; color: var(--ink); }
+
+@page { size: A4; margin: 0; }
+
+.page {
+  position: relative;
+  width: 210mm; height: 297mm;
+  overflow: hidden;
+  margin: 0 auto 8mm;
+  background-color: var(--paper);
+  background-image: radial-gradient(circle, #bfe3df 0.85px, transparent 1.25px);
+  background-size: 5mm 5mm;
+  background-position: 2.5mm 2.5mm;
+  page-break-after: always;
+  break-after: page;
+  direction: rtl;
+}
+@media print { body { background: none; } .page { margin: 0; } }
+
+/* the notebook margin (on the right, as in an Arabic notebook) */
+.page::before {
+  content: ""; position: absolute; top: 0; bottom: 0; right: 11mm; width: 0;
+  border-right: 1.4px solid rgba(242, 112, 107, 0.55);
+  box-shadow: 3px 0 0 rgba(242, 112, 107, 0.25);
+}
+.sheet { position: absolute; top: 15mm; bottom: 9mm; right: 15mm; left: 10mm; }
+
+.hdr {
+  position: absolute; top: 4.5mm; right: 15mm; left: 10mm; height: 8mm;
+  display: flex; align-items: center; justify-content: space-between;
+  font-family: "Ruqaa"; font-weight: 700; font-size: 15px; color: var(--turq);
+}
+.hdr .pg {
+  font-family: "Hand"; font-weight: 700; font-size: 19px; color: #fff;
+  width: 9mm; height: 9mm; border-radius: 50% 46% 52% 48%; background: var(--coral);
+  display: grid; place-items: center; transform: rotate(-6deg); direction: ltr;
+}
+.hdr .tape {
+  position: absolute; left: 32%; top: -3mm; width: 26mm; height: 6mm; transform: rotate(-3deg);
+  background: repeating-linear-gradient(45deg, rgba(255,216,77,.55) 0 6px, rgba(255,240,170,.55) 6px 12px);
+}
+
+/* ---------------------------------------------------------------- text */
+p, li { font-size: 13.3px; line-height: 1.57; margin: 0 0 2px; }
+ul, ol { margin: 0 0 4px; padding-right: 17px; padding-left: 0; }
+li { margin-bottom: 1px; }
+ul li::marker { color: var(--coral); }
+ol li::marker { color: var(--turq); font-family: "Hand"; font-weight: 700; }
+b, strong { font-weight: 650; }
+.lat { font-family: "Hand"; font-weight: 700; font-size: 1.22em; direction: ltr; unicode-bidi: isolate; color: var(--ink-soft); letter-spacing: .2px; }
+.n { direction: ltr; unicode-bidi: isolate; }
+
+h1.ch {
+  font-family: "Ruqaa"; font-weight: 700; font-size: 31px; line-height: 1.2; margin: 0 0 6px;
+  color: #fff; display: inline-block; padding: 3px 16px 7px 20px;
+  background: var(--turq); border-radius: 18px 6px 22px 8px / 8px 22px 6px 18px; transform: rotate(-1deg);
+  box-shadow: 3px 3px 0 var(--yellow);
+}
+h1.ch small { font-size: 17px; display: block; color: var(--yellow-l); font-weight: 400; }
+
+h2 {
+  font-family: "Ruqaa"; font-weight: 700; font-size: 23px; line-height: 1.22; margin: 5px 0 2px;
+  color: var(--turq); display: inline-block; position: relative; padding: 0 2px 2px;
+}
+h2::after {
+  content: ""; position: absolute; right: -3px; left: -6px; bottom: 1px; height: 8px; z-index: -1;
+  background: var(--yellow-l); border-radius: 8px 3px 10px 4px; transform: rotate(-.6deg);
+}
+h2.c-coral { color: var(--coral); } h2.c-coral::after { background: var(--coral-l); }
+h2.c-lav { color: var(--lav); } h2.c-lav::after { background: var(--lav-l); }
+h2.c-blue { color: var(--blue); } h2.c-blue::after { background: var(--blue-l); }
+h2.c-mint { color: var(--mint); } h2.c-mint::after { background: var(--mint-l); }
+h2.c-peach { color: var(--peach); } h2.c-peach::after { background: var(--peach-l); }
+h2 .num { font-family: "Hand"; font-size: 1.05em; margin-left: 4px; }
+
+h3 { font-family: "Pen"; font-weight: 700; font-size: 15px; margin: 6px 0 2px; color: var(--lav); }
+h3.c-coral { color: var(--coral); } h3.c-turq { color: var(--turq); } h3.c-blue { color: var(--blue); }
+h3.c-mint { color: var(--mint); } h3.c-peach { color: #e9844f; }
+h3::before { content: "✎ "; font-size: .85em; opacity: .8; }
+
+/* highlighter strokes */
+.hy, .hm, .hb, .hp, .hl, .hc {
+  padding: 0 3px; margin: 0 -1px; border-radius: 3px 8px 4px 9px; -webkit-box-decoration-break: clone; box-decoration-break: clone;
+}
+.hy { background: linear-gradient(100deg, rgba(255,216,77,.15) 1%, rgba(255,216,77,.75) 4%, rgba(255,216,77,.5) 92%, rgba(255,216,77,.8) 97%, rgba(255,216,77,.1) 100%); }
+.hm { background: linear-gradient(100deg, rgba(47,181,127,.08) 1%, rgba(124,226,178,.65) 4%, rgba(124,226,178,.45) 92%, rgba(124,226,178,.7) 97%, rgba(47,181,127,.05) 100%); }
+.hb { background: linear-gradient(100deg, rgba(59,158,224,.08) 1%, rgba(140,203,250,.6) 4%, rgba(140,203,250,.42) 92%, rgba(140,203,250,.65) 97%, rgba(59,158,224,.05) 100%); }
+.hp { background: linear-gradient(100deg, rgba(255,159,110,.08) 1%, rgba(255,190,150,.65) 4%, rgba(255,190,150,.45) 92%, rgba(255,190,150,.7) 97%, rgba(255,159,110,.05) 100%); }
+.hl { background: linear-gradient(100deg, rgba(143,116,230,.06) 1%, rgba(196,180,255,.6) 4%, rgba(196,180,255,.42) 92%, rgba(196,180,255,.65) 97%, rgba(143,116,230,.04) 100%); }
+.hc { background: linear-gradient(100deg, rgba(242,112,107,.06) 1%, rgba(255,170,165,.55) 4%, rgba(255,170,165,.4) 92%, rgba(255,170,165,.6) 97%, rgba(242,112,107,.04) 100%); }
+.u { text-decoration: underline wavy var(--coral); text-decoration-thickness: 1.3px; text-underline-offset: 4px; }
+.ut { text-decoration: underline var(--turq); text-decoration-thickness: 2px; text-underline-offset: 4px; }
+.k { color: var(--coral); font-weight: 700; }
+.kt { color: var(--turq); font-weight: 700; }
+.kl { color: var(--lav); font-weight: 700; }
+.kb { color: var(--blue); font-weight: 700; }
+.km { color: var(--mint); font-weight: 700; }
+.big { font-family: "Hand"; font-weight: 700; font-size: 1.35em; color: var(--coral); direction: ltr; unicode-bidi: isolate; }
+
+/* ---------------------------------------------------------------- boxes */
+.box {
+  border: 2px solid var(--turq); padding: 4px 10px 5px; margin: 4px 0 5px;
+  border-radius: 14px 4px 16px 5px / 5px 16px 4px 14px; background: rgba(255,255,255,.72);
+}
+.box.mint { border-color: var(--mint); background: rgba(213,246,230,.55); }
+.box.blue { border-color: var(--blue); background: rgba(214,237,255,.55); }
+.box.lav { border-color: var(--lav); background: rgba(235,228,255,.6); }
+.box.peach { border-color: var(--peach); background: rgba(255,227,209,.55); }
+.box.yellow { border-color: #e6b800; background: rgba(255,244,191,.6); }
+.box.dash { border-style: dashed; }
+
+.def { position: relative; padding-top: 7px; }
+.def > .tag {
+  position: absolute; top: -10px; right: 12px; font-family: "Ruqaa"; font-weight: 700; font-size: 14px;
+  background: var(--mint); color: #fff; padding: 0 9px 1px; border-radius: 8px 3px 9px 3px; transform: rotate(-2deg);
+}
+
+/* the three note labels — the only special labels in the booklet */
+.note {
+  position: relative; margin: 10px 2px 5px; padding: 13px 10px 4px; border-radius: 3px 12px 4px 10px;
+  box-shadow: 2px 3px 0 rgba(38,53,95,.12);
+}
+.note::before {
+  position: absolute; top: -11px; right: 10px; font-family: "Marker"; font-weight: 700; font-size: 13.5px;
+  padding: 0 9px 2px; border-radius: 9px 4px 10px 4px; color: #fff; transform: rotate(-2.5deg);
+}
+.note.focus { background: #fff6c9; border: 1.6px solid #f0c419; }
+.note.focus::before { content: "★ ركز هنا!"; background: #f0b90b; }
+.note.warn { background: #ffe8dc; border: 1.6px solid var(--peach); }
+.note.warn::before { content: "⚠ خد بالك!"; background: #f3884f; }
+.note.trap { background: #efe8ff; border: 1.6px solid var(--lav); }
+.note.trap::before { content: "✗ فخ امتحان!"; background: var(--lav); }
+.note p, .note li { font-size: 12.8px; line-height: 1.5; }
+.note.tilt { transform: rotate(-.7deg); }
+.note.tilt2 { transform: rotate(.6deg); }
+
+/* questions and answers */
+.qa { margin: 7px 0 5px; border: 2px dashed var(--blue); border-radius: 12px 5px 14px 6px / 6px 14px 5px 12px; padding: 6px 10px 5px; background: rgba(255,255,255,.75); }
+.qa .q { font-weight: 600; font-size: 13.3px; line-height: 1.6; margin-bottom: 3px; }
+.qa .q .qn {
+  font-family: "Ruqaa"; font-weight: 700; color: #fff; background: var(--blue); padding: 0 8px 1px; margin-left: 6px;
+  border-radius: 50% 40% 55% 45%; display: inline-block; transform: rotate(-4deg); font-size: 14px;
+}
+.qa ol.opts { list-style: none; padding: 0; margin: 2px 0 4px; display: grid; grid-template-columns: 1fr 1fr; gap: 0 14px; }
+.qa ol.opts.one { grid-template-columns: 1fr; }
+.qa ol.opts li { font-size: 12.9px; line-height: 1.5; }
+.qa ol.opts li b.o { font-family: "Ruqaa"; color: var(--blue); margin-left: 4px; }
+.ans { position: relative; background: #eaf8f1; border-right: 4px solid var(--mint); padding: 13px 10px 4px; margin-top: 7px; border-radius: 4px 10px 4px 12px; }
+.ans::before {
+  content: "Answer"; position: absolute; top: -9px; right: 8px; font-family: "Hand"; font-weight: 700; font-size: 19px; line-height: 1;
+  color: var(--mint); background: var(--paper); padding: 0 6px; transform: rotate(-3deg); direction: ltr;
+}
+.ans p, .ans li { font-size: 12.6px; line-height: 1.5; }
+.ans .ok { color: var(--mint); font-weight: 700; }
+.ans .no { color: var(--coral); font-weight: 700; }
+
+/* tables */
+table.t { width: 100%; border-collapse: separate; border-spacing: 0; margin: 5px 0 7px; font-size: 12.6px; line-height: 1.45;
+  border: 2px solid var(--turq); border-radius: 12px 4px 14px 5px / 5px 14px 4px 12px; overflow: hidden; background: rgba(255,255,255,.8); }
+table.t th { background: var(--turq-l); color: #0c7f80; font-weight: 700; padding: 4px 6px; text-align: right; border-bottom: 1.6px solid var(--turq); }
+table.t td { padding: 3px 6px; border-bottom: 1px dashed #b7dcdc; vertical-align: top; }
+table.t tr:last-child td { border-bottom: 0; }
+table.t td + td, table.t th + th { border-right: 1px dashed #b7dcdc; }
+table.t td:first-child { font-weight: 650; color: var(--ink); }
+table.t.lav { border-color: var(--lav); } table.t.lav th { background: var(--lav-l); color: #6a50c9; border-bottom-color: var(--lav); }
+table.t.coral { border-color: var(--coral); } table.t.coral th { background: var(--coral-l); color: #c9504b; border-bottom-color: var(--coral); }
+table.t.blue { border-color: var(--blue); } table.t.blue th { background: var(--blue-l); color: #2275b0; border-bottom-color: var(--blue); }
+table.t.mint { border-color: var(--mint); } table.t.mint th { background: var(--mint-l); color: #1f8a5e; border-bottom-color: var(--mint); }
+table.t.peach { border-color: var(--peach); } table.t.peach th { background: var(--peach-l); color: #d0703f; border-bottom-color: var(--peach); }
+table.t.small { font-size: 12px; }
+
+/* layout */
+.cols { display: grid; grid-template-columns: 1fr 1fr; gap: 0 12px; align-items: start; }
+.cols.w60 { grid-template-columns: 1.45fr 1fr; }
+.cols.w40 { grid-template-columns: 1fr 1.45fr; }
+.cols.c3 { grid-template-columns: 1fr 1fr 1fr; }
+.fig { text-align: center; margin: 3px 0 4px; }
+.fig svg { display: block; margin: 0 auto; overflow: visible; direction: rtl; }
+.cap { font-family: "Ruqaa"; font-size: 13px; color: var(--ink-soft); margin-top: 1px; }
+.flow { display: flex; flex-wrap: wrap; align-items: center; gap: 3px 2px; margin: 4px 0 6px; }
+.flow .st { border: 1.8px solid var(--blue); background: rgba(214,237,255,.6); border-radius: 10px 4px 12px 5px; padding: 1px 8px; font-size: 12.4px; line-height: 1.45; }
+.flow .st.m { border-color: var(--mint); background: rgba(213,246,230,.7); }
+.flow .st.p { border-color: var(--peach); background: rgba(255,227,209,.7); }
+.flow .st.l { border-color: var(--lav); background: rgba(235,228,255,.7); }
+.flow .st.y { border-color: #e6b800; background: rgba(255,244,191,.8); }
+.flow .st.c { border-color: var(--coral); background: rgba(255,222,219,.75); }
+.flow .ar { font-family: "Hand"; font-weight: 700; color: var(--coral); font-size: 19px; line-height: 1; }
+.flow.v { flex-direction: column; align-items: stretch; }
+.flow.v .ar { text-align: center; }
+.sp { height: 4px; }
+.mini { font-size: 12px !important; }
+.center { text-align: center; }
+.tilt-l { transform: rotate(-.8deg); } .tilt-r { transform: rotate(.7deg); }
+.doodle { position: absolute; pointer-events: none; }
+
+/* svg drawing styles */
+svg text { font-family: "Pen"; fill: var(--ink); }
+svg .lbl { font-size: 11.5px; font-weight: 500; }
+svg .lbl-s { font-size: 10.3px; font-weight: 500; }
+svg .lbl-b { font-size: 12.5px; font-weight: 700; }
+svg .lat { font-family: "Hand"; font-weight: 700; font-size: 14px; fill: var(--ink-soft); }
+svg .ln { stroke: var(--ink-soft); stroke-width: 1.1; fill: none; }
+svg .ln-d { stroke: var(--ink-soft); stroke-width: 1.1; fill: none; stroke-dasharray: 3 2.5; }
+svg .ar-c { stroke: var(--coral); stroke-width: 2; fill: none; }
+
+/* page 1 title line */
+.booktitle { font-family: "Ruqaa"; font-size: 14px; color: var(--lav); margin: 0 0 4px; }
+.roadmap { margin-top: 2px; }
+/* chips */
+.chips { display: flex; flex-wrap: wrap; gap: 5px 7px; margin: 2px 0 6px; }
+.chip { font-size: 12.6px; font-weight: 600; padding: 1px 10px 2px; border-radius: 12px 5px 13px 6px; border: 1.6px solid; }
+.chip.c1 { background: var(--turq-l); border-color: var(--turq); } .chip.c2 { background: var(--mint-l); border-color: var(--mint); }
+.chip.c3 { background: var(--yellow-l); border-color: #e6b800; } .chip.c4 { background: var(--peach-l); border-color: var(--peach); }
+.chip.c5 { background: var(--lav-l); border-color: var(--lav); }
+/* tree */
+.tree { margin: 4px 0 6px; text-align: center; }
+.tree .root { display: inline-block; font-family: "Ruqaa"; font-weight: 700; font-size: 16px; color: #fff; background: var(--coral); padding: 1px 14px 3px; border-radius: 12px 4px 14px 5px; transform: rotate(-1deg); }
+.tree .branches { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 10px; position: relative; }
+.tree .branches::before { content: ""; position: absolute; top: -8px; right: 25%; left: 25%; height: 8px; border: 2px solid var(--coral); border-bottom: 0; border-radius: 8px 8px 0 0; }
+.tree .br { border: 2px solid; border-radius: 12px 4px 14px 5px / 5px 14px 4px 12px; padding: 2px 8px 4px; }
+.tree .br.b1 { border-color: var(--turq); background: var(--turq-l); } .tree .br.b2 { border-color: var(--lav); background: var(--lav-l); }
+.tree .bt { font-family: "Ruqaa"; font-weight: 700; font-size: 16px; }
+.tree .b1 .bt { color: #0c7f80; } .tree .b2 .bt { color: #6a50c9; }
+.tree .bl { font-size: 12.6px; }
+/* segmented bar */
+.bar { display: flex; height: 26px; border: 2px solid var(--ink-soft); border-radius: 8px 3px 9px 4px; overflow: hidden; margin-top: 8px; direction: rtl; }
+.bar span { display: grid; place-items: center; font-family: "Hand"; font-weight: 700; font-size: 17px; color: var(--ink); border-left: 1.5px dashed rgba(38,53,95,.35); }
+.bar .s1 { background: #c8f1ef; } .bar .s2 { background: #fff1a8; } .bar .s3 { background: #ffd2bb; } .bar .s4 { background: #e0d6ff; } .bar .s5 { background: #ffc9c5; }
+.barlab { display: flex; text-align: center; font-size: 10.5px; color: var(--ink-soft); margin: 1px 2px 6px; }
+.sub { font-family: "Ruqaa"; font-weight: 700; font-size: 16.5px; color: var(--coral); margin: 2px 0 1px; }
+ol.steps { padding-right: 20px; }
+ol.steps li { margin-bottom: 3px; }
+.ok-c { color: var(--mint); font-weight: 700; }

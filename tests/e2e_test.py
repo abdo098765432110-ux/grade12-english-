@@ -1563,7 +1563,32 @@ def biology_bank(browser, base):
                any("very hard" in label for label in labels) and page.locator(".quiz .badge--reviewed, .quiz .badge--unreviewed").count() == 0,
                str(labels))
         audit(page, "biology %s very-hard section" % chapter)
+    # the revision booklet of Chapters 1 and 2: on the first step only
+    booklet = "biology-ch1-ch2-revision-booklet.pdf"
+    page.goto(base + "biology.html")
+    page.wait_for_selector(".subject-cards .card")
+    panel = page.locator("#biology-revision-booklet")
+    view, download = panel.locator("a[target=_blank]"), panel.locator("a[download]")
+    response = page.request.get(base + booklet)
+    from pypdf import PdfReader
+    reader = PdfReader(str(PROJECT / booklet))
+    a4 = all(abs(float(pg.mediabox.width) - 595) < 2 and abs(float(pg.mediabox.height) - 842) < 2 for pg in reader.pages)
+    record("biology booklet: on the Biology page with «عرض المذكرة» and «تحميل المذكرة»; the PDF opens (200, a real PDF); at most 20 A4 pages",
+           panel.is_visible() and view.inner_text() == "عرض المذكرة" and download.inner_text() == "تحميل المذكرة"
+           and view.get_attribute("href") == booklet and download.get_attribute("href") == booklet
+           and response.status == 200 and response.headers.get("content-type", "").startswith("application/pdf")
+           and response.body()[:5] == b"%PDF-" and len(reader.pages) <= 20 and a4,
+           "%s %s, %d pages, A4 %s" % (response.status, response.headers.get("content-type"), len(reader.pages), a4))
+    audit(page, "biology page with the revision booklet")
+    page.goto(base + "biology.html?chapter=chapter-1")
+    page.wait_for_selector(".subject-cards .card")
+    record("biology booklet: not shown on a chapter page", not page.locator("#biology-revision-booklet").is_visible())
     page.set_viewport_size({"width": 375, "height": 800})
+    page.goto(base + "biology.html")
+    page.wait_for_selector("#biology-revision-booklet")
+    width = page.evaluate("() => document.documentElement.scrollWidth - window.innerWidth")
+    record("biology booklet (phone): the panel fits, no sideways scrolling", page.locator("#biology-revision-booklet").is_visible() and width <= 0, "overflow %d" % width)
+    page.screenshot(path=str(SHOTS / "46-biology-booklet-phone.png"), full_page=True)
     page.goto(base + "biology.html?chapter=chapter-2&section=chapter-2-medium")
     page.wait_for_selector(".quiz .question-legend")
     audit(page, "biology section at phone width")

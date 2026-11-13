@@ -25,7 +25,15 @@ A free learning website for Egyptian Grade 12 students. The subject menu
     `python3 -B tools/phys_ch2_bank/figs.py` then `python3 -B tools/phys_ch2_bank/build.py`.
 - **Chemistry**: Chapter 1 questions, and Chapter 2 «التحليل الكيميائي» (100 multiple-choice + 50 essay questions with three PDFs) (chemistry-questions.json).
 - **Biology**: Chapters 1 and 2 question banks — each chapter has 10 easy,
-  40 medium and 50 very hard questions (biology-questions.json).
+  40 medium and 50 very hard questions (biology-questions.json). On the Biology
+  page's first step: a 20-page revision booklet of both chapters in a colourful,
+  handwriting style (`biology-ch1-ch2-revision-booklet.pdf`: notes following the
+  Ministry book, diagrams, comparison tables, the notes «ركز هنا!», «خد بالك!» and
+  «فخ امتحان!», and 30 hard questions each with its "Answer"). Sources in
+  `tools/bio_revision_booklet/` (`content/ch1.html`, `ch2.html`, `ch3.html`; fonts in
+  `fonts/`, SIL Open Font License); `python3 tools/bio_revision_booklet/build.py`
+  (needs Playwright, fontTools, pypdf) remakes the PDF and fails if it has more
+  than 20 pages or anything runs off a page.
 - **Arabic** (arabic-questions.json, solved on the site):
   - Unit 2 «الأبنية»: 50 multiple-choice questions (medium, hard, very hard; scored
     with a percentage and an explanation for each) and 50 written questions (إعراب،
@@ -72,6 +80,7 @@ grade12-english/
 ├── physics-ch1-laws.pdf, physics-ch1-questions.pdf   Downloadable PDFs: the revision sheet, and all chapter 1 questions (made by tools/physics_pdfs.py)
 ├── english-questions.pdf, chemistry-questions.pdf, biology-ch1-questions.pdf, biology-ch2-questions.pdf   All the questions, with an answer key on the last page (made by tools/question_pdfs.py; question-pdfs.json records what each was made from)
 ├── biology-ch2-essay-image-questions.pdf, bio-ch2-img01.png … bio-ch2-img50.png   Biology Chapter 2: 50 essay and 50 picture questions with model answers (sections «الأسئلة المقالية» and «أسئلة على الصور»; made by tools/bio_ch2_bank/build.py)
+├── biology-ch1-ch2-revision-booklet.pdf   Biology Chapters 1 and 2: a 20-page handwriting-style revision booklet (notes, diagrams, «ركز هنا! / خد بالك! / فخ امتحان!», 30 questions with answers), on the Biology page's first step (made by tools/bio_revision_booklet/build.py)
 ├── chemistry-ch2-mcq.pdf, chemistry-ch2-essay.pdf, chemistry-ch2-answer-key.pdf   Chemistry Chapter 2 «التحليل الكيميائي»: 100 multiple-choice questions (50 hard, 50 very hard), 50 essay questions, and the full answer key with explanations and model answers (the same questions as on the site; made by tools/chem_ch2_bank/build.py)
 ├── physics-ch1-p02.svg … physics-ch1-p118.svg   Diagrams for the physics questions taken from the review PDF (questions 1–118; only those that have a figure or table)
 ├── physics-ch1-q6.svg … physics-ch1-q11.svg   Diagrams for the earlier physics questions (no picture for q8)
@@ -102,7 +111,7 @@ grade12-english/
 ├── grammar-questions.json
 ├── reading-passages.json
 ├── docs/                  Data format reference and the first-upload diagnosis
-├── tools/                 check-site.js, validate-content.js, physics_pdfs.py, question_pdfs.py, dhikr_font.py, arabic_unit2/, arabic_unit3/, bio_ch2_bank/, chem_ch2_bank/, phys_ch2_bank/, fonts/ (for developers)
+├── tools/                 check-site.js, validate-content.js, physics_pdfs.py, question_pdfs.py, dhikr_font.py, arabic_unit2/, arabic_unit3/, bio_ch2_bank/, bio_revision_booklet/, chem_ch2_bank/, phys_ch2_bank/, fonts/ (for developers)
 ├── tests/                 Automated tests (for developers, not used by the site)
 ├── README.md
 └── PROJECT_STATUS.md
