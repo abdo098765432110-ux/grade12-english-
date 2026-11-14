@@ -83,7 +83,33 @@
     drawVocabulary();
   });
 
+  /* The quizzes of all five subjects (quizzes-<subject>.json): null while
+     loading, then the number of quizzes, or -1 if no file could be loaded. */
+  var quizzes = null;
+
+  function drawQuizzes() {
+    if (quizzes === null) return;
+    setCount('quizzes', quizzes < 0 ? t('Could not load')
+      : quizzes ? G12.plural(quizzes, 'quiz', 'quizzes') : t('Coming soon'));
+  }
+
+  if (G12.Quizzes) {
+    // each file gives its number of quizzes, or -1 if it could not be loaded
+    Promise.all(G12.Quizzes.SUBJECTS.map(function (info) {
+      return G12.loadJSON(info.file).then(function (data) {
+        return G12.Quizzes.readFile(data, info.id).quizzes.length;
+      }, function () {
+        return -1;
+      });
+    })).then(function (counts) {
+      var found = counts.filter(function (count) { return count >= 0; });
+      quizzes = found.length ? found.reduce(function (sum, count) { return sum + count; }, 0) : -1;
+      drawQuizzes();
+    });
+  }
+
   G12.onLanguageChange(function () {
+    drawQuizzes();
     drawVocabulary();
     if (loaded) draw(loaded);
     else if (failed) drawError(failed);

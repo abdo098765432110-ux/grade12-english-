@@ -1,0 +1,270 @@
+{
+  "subject": "physics",
+  "lang": "ar",
+  "quizzes": [
+    {
+      "id": "physics-ch1-quiz-1",
+      "title": "اختبار الفصل الأول — التيار الكهربي وقانون أوم وقانونا كيرشوف",
+      "chapter": "الفصل الأول: التيار الكهربي وقانون أوم وقانونا كيرشوف",
+      "difficulty": "Very Hard",
+      "questions": [
+        {
+          "id": "q1",
+          "skill": "الفهم العميق لشدة التيار وحركة الإلكترونات الحرة (بقاء الشحنة في الموصلات المتصلة على التوالي)",
+          "question": "موصل معدني مكوَّن من جزأين متصلين على التوالي: الجزء X من النحاس ومساحة مقطعه كبيرة، والجزء Y من النيكروم ومساحة مقطعه صغيرة جدًّا. وُصِّل طرفا الموصل بقطبي بطارية فمرَّ فيه تيار كهربي شدته `0.8 A`. أيُّ العبارات الآتية صحيحة؟ (شحنة الإلكترون `e = 1.6 × 10^{-19} C`)",
+          "options": [
+            "يعبر أيَّ مقطع في X عددٌ قدره `5 × 10^{18}` إلكترون في الثانية، ويعبر أيَّ مقطع في Y عددٌ أقل؛ لأن جزءًا من التيار يُستهلك في التغلب على مقاومة النيكروم الكبيرة.",
+            "عدد الإلكترونات التي تعبر أيَّ مقطع في Y في الثانية أكبر من عددها الذي يعبر أيَّ مقطع في X؛ لأن الإلكترونات تتزاحم في المقطع الأصغر.",
+            "يعبر أيَّ مقطع في X أو في Y عددٌ قدره `5 × 10^{18}` إلكترون في الثانية، وتتحرك الإلكترونات الحرة في الموصل من الطرف المتصل بالقطب السالب للبطارية نحو الطرف المتصل بقطبها الموجب.",
+            "يعبر أيَّ مقطع في X أو في Y عددٌ قدره `5 × 10^{18}` إلكترون في الثانية، وتتحرك الإلكترونات الحرة في الموصل من الطرف المتصل بالقطب الموجب للبطارية نحو الطرف المتصل بقطبها السالب."
+          ],
+          "correctIndex": 2,
+          "explanation": [
+            "الجزآن X و Y متصلين على التوالي، يعني مفيش غير طريق واحد للتيار، فشدة التيار واحدة في الجزأين: `I = 0.8 A` في X وفي Y.",
+            "الشحنة ما بتتخلقش وما بتضيعش (بقاء الشحنة): كل إلكترون بيدخل الجزء Y لازم يخرج منه، فمفيش شحنة بتتراكم ولا بتتستهلك. المقاومة الكبيرة بتقلل التيار في الدائرة كلها مرة واحدة، مش في جزء منها بس.",
+            "عدد الإلكترونات اللي بتعدي أي مقطع في الثانية: `n/t = I/e`، يعني `0.8 ÷ (1.6 × 10^{-19}) = 5 × 10^{18}` إلكترون في الثانية، وهو نفس العدد في X وفي Y لأن التيار واحد.",
+            "اتجاه التيار الاصطلاحي برّه البطارية من القطب الموجب للسالب، والإلكترونات بتتحرك عكسه: من الطرف المتصل بالقطب السالب ناحية الطرف المتصل بالقطب الموجب. يبقى الاختيار (ج) هو الصح."
+          ],
+          "whyWrong": [
+            "غلطة مشهورة: التيار ما بيتستهلكش في المقاومة. اللي بيتستهلك هو الطاقة (بتتحول لحرارة)، لكن عدد الإلكترونات اللي بتعدي في الثانية واحد في كل مقطع على التوالي.",
+            "المقطع الصغير ما بيزودش عدد الإلكترونات اللي بتعدي في الثانية؛ `n/t = I/e` والتيار واحد في الجزأين، فالعدد واحد.",
+            "",
+            "العدد صح، لكن الاتجاه غلط: ده اتجاه التيار الاصطلاحي (من الموجب للسالب برّه البطارية)، والإلكترونات بتتحرك عكسه."
+          ]
+        },
+        {
+          "id": "q2",
+          "skill": "الاستدلال النسبي: أثر تقطيع السلك وسحبه (مع ثبات الحجم) على مقاومته",
+          "question": "سلك منتظم مقاومته `R` قُطِع إلى جزأين النسبة بين طوليهما `1 : 3`، ثم سُحِب الجزء القصير بانتظام (دون أن يتغير حجمه) حتى أصبح طوله مساويًا لطول الجزء الطويل، ثم وُصِّل الجزآن معًا على التوازي. المقاومة المكافئة لهذه التوصيلة تساوي:",
+          "options": [
+            "`9R/16`",
+            "`3R/8`",
+            "`9R/13`",
+            "`3R`"
+          ],
+          "correctIndex": 0,
+          "explanation": [
+            "قبل السحب: الطول اتقسم بنسبة `1 : 3`، والمقاومة بتتناسب طرديًّا مع الطول (نفس المادة ونفس المقطع)، فمقاومة الجزء القصير `R/4` ومقاومة الطويل `3R/4`.",
+            "سحب الجزء القصير: طوله زاد من `L/4` لـ `3L/4`، يعني بقى 3 أمثال طوله. وبما إن الحجم ثابت (`L × A` ثابت)، مساحة مقطعه قلّت للتلت.",
+            "`R = ρ_{e} L/A`: الطول اتضرب في 3 والمساحة اتقسمت على 3، فالمقاومة بتتضرب في `3 × 3 = 9`: مقاومة الجزء القصير بقت `9 × R/4 = 9R/4`.",
+            "التوازي: `R_{eq} = (9R/4 × 3R/4) ÷ (9R/4 + 3R/4)`، يعني `(27R²/16) ÷ 3R = 9R/16`.",
+            "تأكيد: المكافئة على التوازي لازم تبقى أصغر من أصغر مقاومة فيهم (`3R/4 = 12R/16`)، و `9R/16` أصغر منها فعلًا."
+          ],
+          "whyWrong": [
+            "",
+            "ده لو اعتبرت السحب زي استبدال السلك بسلك أطول بنفس المقطع، فضربت في 3 بس (`3R/4`) ونسيت إن المساحة كمان قلّت. السحب لـ n أمثال الطول بيضرب المقاومة في `n²`.",
+            "ده لو ضربت مقاومة السلك كله `R` في 9 (`9R`) بدل ما تضرب مقاومة الجزء القصير `R/4`.",
+            "ده مجموع المقاومتين `9R/4 + 3R/4`، يعني حسبتهم توالي مع إن الجزأين متوصلين توازي."
+          ]
+        },
+        {
+          "id": "q3",
+          "skill": "المقارنة بين سلكين من مادتين مختلفتين باستخدام التوصيلية الكهربية والطول والقطر",
+          "question": "سلكان X و Y متصلان على التوازي بين قطبي بطارية. التوصيلية الكهربية لمادة السلك X تساوي `3 × 10^{7} Ω⁻¹.m⁻¹` ولمادة السلك Y تساوي `6 × 10^{7} Ω⁻¹.m⁻¹`، وطول X يساوي `1.5` مثل طول Y، وقطر X يساوي `3` أمثال قطر Y. النسبة بين شدة التيار في X إلى شدة التيار في Y `(I_{X} : I_{Y})` تساوي:",
+          "options": [
+            "`12 : 1`",
+            "`1 : 1`",
+            "`1 : 3`",
+            "`3 : 1`"
+          ],
+          "correctIndex": 3,
+          "explanation": [
+            "بما إن `ρ_{e} = 1/σ`، تبقى مقاومة السلك `R = L/(σA)`. ومساحة المقطع `A = πd²/4`، يعني المساحة بتتناسب مع مربع القطر.",
+            "نسبة المقاومتين: `R_{X}/R_{Y} = (L_{X}/L_{Y}) × (σ_{Y}/σ_{X}) × (A_{Y}/A_{X})`.",
+            "نعوّض: `L_{X}/L_{Y} = 1.5` و `σ_{Y}/σ_{X} = 2` و `A_{Y}/A_{X} = 1/3² = 1/9`، فـ `R_{X}/R_{Y} = 1.5 × 2 × 1/9 = 1/3`.",
+            "على التوازي فرق الجهد واحد على السلكين، فالتيار بيتناسب عكسيًّا مع المقاومة: `I_{X}/I_{Y} = R_{Y}/R_{X} = 3`، يعني `I_{X} : I_{Y} = 3 : 1`.",
+            "لاحظ: X أطول ومادته توصيلها أقل، لكن قطره الكبير (المساحة 9 أمثال) غلب الاتنين، فمقاومته أقل وتياره أكبر."
+          ],
+          "whyWrong": [
+            "ده لو عاملت التوصيلية كأنها مقاومة نوعية، فضربت في `σ_{X}/σ_{Y} = 1/2` بدل `σ_{Y}/σ_{X} = 2`. المقاومة بتتناسب عكسيًّا مع التوصيلية.",
+            "ده لو اعتبرت المساحة بتتناسب مع القطر نفسه (3 أمثال) بدل مربع القطر (9 أمثال).",
+            "دي نسبة المقاومتين `R_{X} : R_{Y}`، مش نسبة التيارين. على التوازي التيار بيتوزع عكس المقاومات.",
+            ""
+          ]
+        },
+        {
+          "id": "q4",
+          "skill": "تحليل منحنى (التيار – فرق الجهد) واستنتاج المقاومة من الميل مع الانتباه لترتيب المحاور",
+          "question": "الشكل يوضح العلاقة البيانية بين شدة التيار `I` (على المحور الرأسي) وفرق الجهد `V` (على المحور الأفقي) لسلكين X و Y من نفس المادة ولهما نفس الطول وعند نفس درجة الحرارة. النسبة بين قطر السلك X إلى قطر السلك Y `(d_{X} : d_{Y})` تساوي:",
+          "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 460 290\" width=\"460\" height=\"290\" direction=\"ltr\"><path d=\"M132 250L132 50\" stroke=\"#e3e9f5\" stroke-width=\"1.5\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M202 250L202 50\" stroke=\"#e3e9f5\" stroke-width=\"1.5\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M272 250L272 50\" stroke=\"#e3e9f5\" stroke-width=\"1.5\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M342 250L342 50\" stroke=\"#e3e9f5\" stroke-width=\"1.5\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M412 250L412 50\" stroke=\"#e3e9f5\" stroke-width=\"1.5\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M62 210L412 210\" stroke=\"#e3e9f5\" stroke-width=\"1.5\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M62 170L412 170\" stroke=\"#e3e9f5\" stroke-width=\"1.5\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M62 130L412 130\" stroke=\"#e3e9f5\" stroke-width=\"1.5\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M62 90L412 90\" stroke=\"#e3e9f5\" stroke-width=\"1.5\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M62 50L412 50\" stroke=\"#e3e9f5\" stroke-width=\"1.5\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M62 250L436.5 250\" stroke=\"#2b3654\" stroke-width=\"2.5\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M62 250L62 26\" stroke=\"#2b3654\" stroke-width=\"2.5\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M446.5 250L436.5 244L436.5 256Z\" fill=\"#2b3654\"/><path d=\"M62 16L56 26L68 26Z\" fill=\"#2b3654\"/><text x=\"132\" y=\"272\" text-anchor=\"middle\" font-size=\"18\" font-weight=\"500\" font-family=\"'Segoe UI', 'Helvetica Neue', Arial, sans-serif\" fill=\"#56617c\">1</text><text x=\"202\" y=\"272\" text-anchor=\"middle\" font-size=\"18\" font-weight=\"500\" font-family=\"'Segoe UI', 'Helvetica Neue', Arial, sans-serif\" fill=\"#56617c\">2</text><text x=\"272\" y=\"272\" text-anchor=\"middle\" font-size=\"18\" font-weight=\"500\" font-family=\"'Segoe UI', 'Helvetica Neue', Arial, sans-serif\" fill=\"#56617c\">3</text><text x=\"342\" y=\"272\" text-anchor=\"middle\" font-size=\"18\" font-weight=\"500\" font-family=\"'Segoe UI', 'Helvetica Neue', Arial, sans-serif\" fill=\"#56617c\">4</text><text x=\"412\" y=\"272\" text-anchor=\"middle\" font-size=\"18\" font-weight=\"500\" font-family=\"'Segoe UI', 'Helvetica Neue', Arial, sans-serif\" fill=\"#56617c\">5</text><text x=\"54\" y=\"215\" text-anchor=\"end\" font-size=\"18\" font-weight=\"500\" font-family=\"'Segoe UI', 'Helvetica Neue', Arial, sans-serif\" fill=\"#56617c\">0.2</text><text x=\"54\" y=\"175\" text-anchor=\"end\" font-size=\"18\" font-weight=\"500\" font-family=\"'Segoe UI', 'Helvetica Neue', Arial, sans-serif\" fill=\"#56617c\">0.4</text><text x=\"54\" y=\"135\" text-anchor=\"end\" font-size=\"18\" font-weight=\"500\" font-family=\"'Segoe UI', 'Helvetica Neue', Arial, sans-serif\" fill=\"#56617c\">0.6</text><text x=\"54\" y=\"95\" text-anchor=\"end\" font-size=\"18\" font-weight=\"500\" font-family=\"'Segoe UI', 'Helvetica Neue', Arial, sans-serif\" fill=\"#56617c\">0.8</text><text x=\"54\" y=\"55\" text-anchor=\"end\" font-size=\"18\" font-weight=\"500\" font-family=\"'Segoe UI', 'Helvetica Neue', Arial, sans-serif\" fill=\"#56617c\">1.0</text><text x=\"54\" y=\"272\" text-anchor=\"end\" font-size=\"18\" font-weight=\"500\" font-family=\"'Segoe UI', 'Helvetica Neue', Arial, sans-serif\" fill=\"#56617c\">0</text><text x=\"68\" y=\"24\" text-anchor=\"start\" font-size=\"21\" font-weight=\"700\" font-family=\"'Segoe UI', 'Helvetica Neue', Arial, sans-serif\" fill=\"#2b3654\">I (A)</text><text x=\"450.5\" y=\"236\" text-anchor=\"end\" font-size=\"21\" font-weight=\"700\" font-family=\"'Segoe UI', 'Helvetica Neue', Arial, sans-serif\" fill=\"#2b3654\">V (V)</text><path d=\"M62 250L237 50\" stroke=\"#6a4fb0\" stroke-width=\"3.5\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M62 250L412 150\" stroke=\"#d4691e\" stroke-width=\"3.5\" fill=\"none\" stroke-linecap=\"round\"/><text x=\"251\" y=\"58\" text-anchor=\"middle\" font-size=\"24\" font-weight=\"700\" font-family=\"'Segoe UI', 'Helvetica Neue', Arial, sans-serif\" fill=\"#6a4fb0\">X</text><text x=\"426\" y=\"156\" text-anchor=\"middle\" font-size=\"24\" font-weight=\"700\" font-family=\"'Segoe UI', 'Helvetica Neue', Arial, sans-serif\" fill=\"#d4691e\">Y</text><path d=\"M202 90L202 250\" stroke=\"#6a4fb0\" stroke-width=\"1.8\" fill=\"none\" stroke-linecap=\"round\" stroke-dasharray=\"5 5\"/><path d=\"M202 90L62 90\" stroke=\"#6a4fb0\" stroke-width=\"1.8\" fill=\"none\" stroke-linecap=\"round\" stroke-dasharray=\"5 5\"/><circle cx=\"202\" cy=\"90\" r=\"5.5\" fill=\"#6a4fb0\"/><path d=\"M342 170L342 250\" stroke=\"#d4691e\" stroke-width=\"1.8\" fill=\"none\" stroke-linecap=\"round\" stroke-dasharray=\"5 5\"/><path d=\"M342 170L62 170\" stroke=\"#d4691e\" stroke-width=\"1.8\" fill=\"none\" stroke-linecap=\"round\" stroke-dasharray=\"5 5\"/><circle cx=\"342\" cy=\"170\" r=\"5.5\" fill=\"#d4691e\"/></svg>",
+          "svgAlt": "رسم بياني: المحور الرأسي شدة التيار I بالأمبير، والمحور الأفقي فرق الجهد V بالفولت. خطان مستقيمان يبدآن من نقطة الأصل: الخط X يمر بالنقطة (2 V ، 0.8 A)، والخط Y يمر بالنقطة (4 V ، 0.4 A).",
+          "options": [
+            "`1 : 2`",
+            "`2 : 1`",
+            "`4 : 1`",
+            "`1 : 4`"
+          ],
+          "correctIndex": 1,
+          "explanation": [
+            "خد بالك من المحاور: التيار على المحور الرأسي وفرق الجهد على الأفقي، فالميل = `I/V = 1/R`، مش `R`. يعني الخط الأكثر ميلًا مقاومته أصغر.",
+            "من الرسم: `R_{X} = V/I = 2/0.8 = 2.5 Ω` و `R_{Y} = 4/0.4 = 10 Ω`.",
+            "نفس المادة ونفس الطول، فالمقاومة بتتناسب عكسيًّا مع مساحة المقطع: `A_{X}/A_{Y} = R_{Y}/R_{X} = 10/2.5 = 4`.",
+            "المساحة بتتناسب مع مربع القطر، فـ `d_{X}/d_{Y} = √4 = 2`، يعني `d_{X} : d_{Y} = 2 : 1` (السلك X هو الأتخن)."
+          ],
+          "whyWrong": [
+            "ده لو اعتبرت الميل هو المقاومة فقلبت النسبة. هنا التيار على المحور الرأسي، فالميل = `1/R`.",
+            "",
+            "دي نسبة مساحتي المقطع `A_{X} : A_{Y}`، والمطلوب نسبة القطرين، فلازم تاخد الجذر التربيعي.",
+            "هنا الغلطتين مع بعض: اعتبرت الميل هو المقاومة، ونسيت الجذر التربيعي."
+          ]
+        },
+        {
+          "id": "q5",
+          "skill": "إيجاد المقاومة المكافئة لدائرة غير مباشرة (أسلاك توصيل تغيّر طريقة التوصيل)",
+          "question": "في الشكل: ثلاث مقاومات `R_{1} = 4 Ω` و `R_{2} = 6 Ω` و `R_{3} = 12 Ω` مرسومة في صفٍّ واحد بين النقطتين A و B، وسلك مقاومته مهملة يصل النقطة A بالنقطة D، وسلك آخر مقاومته مهملة يصل النقطة C بالنقطة B. المقاومة المكافئة بين النقطتين A و B تساوي:",
+          "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 540 250\" width=\"540\" height=\"250\" direction=\"ltr\"><path d=\"M46 130L75 130\" stroke=\"#2b3654\" stroke-width=\"3\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M75 130L81.6667 140L88.3333 120L95 140L101.667 120L108.333 140L115 120L121.667 140L128.333 120L135 140L141.667 120L148.333 140L155 130\" stroke=\"#6a4fb0\" stroke-width=\"3\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><path d=\"M155 130L225 130\" stroke=\"#2b3654\" stroke-width=\"3\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M225 130L231.667 140L238.333 120L245 140L251.667 120L258.333 140L265 120L271.667 140L278.333 120L285 140L291.667 120L298.333 140L305 130\" stroke=\"#6a4fb0\" stroke-width=\"3\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><path d=\"M305 130L375 130\" stroke=\"#2b3654\" stroke-width=\"3\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M375 130L381.667 140L388.333 120L395 140L401.667 120L408.333 140L415 120L421.667 140L428.333 120L435 140L441.667 120L448.333 140L455 130\" stroke=\"#6a4fb0\" stroke-width=\"3\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><path d=\"M455 130L494 130\" stroke=\"#2b3654\" stroke-width=\"3\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M40 124L40 45L345 45L345 130\" stroke=\"#2b3654\" stroke-width=\"3\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><path d=\"M195 130L195 215L500 215L500 136\" stroke=\"#2b3654\" stroke-width=\"3\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"195\" cy=\"130\" r=\"5\" fill=\"#2b3654\"/><circle cx=\"345\" cy=\"130\" r=\"5\" fill=\"#2b3654\"/><circle cx=\"40\" cy=\"130\" r=\"6\" fill=\"#ffffff\" stroke=\"#2b3654\" stroke-width=\"3\"/><circle cx=\"500\" cy=\"130\" r=\"6\" fill=\"#ffffff\" stroke=\"#2b3654\" stroke-width=\"3\"/><text x=\"20\" y=\"137\" text-anchor=\"middle\" font-size=\"27\" font-weight=\"700\" font-family=\"'Segoe UI', 'Helvetica Neue', Arial, sans-serif\" fill=\"#2b3654\">A</text><text x=\"522\" y=\"137\" text-anchor=\"middle\" font-size=\"27\" font-weight=\"700\" font-family=\"'Segoe UI', 'Helvetica Neue', Arial, sans-serif\" fill=\"#2b3654\">B</text><text x=\"207\" y=\"116\" text-anchor=\"start\" font-size=\"24\" font-weight=\"700\" font-family=\"'Segoe UI', 'Helvetica Neue', Arial, sans-serif\" fill=\"#2b3654\">C</text><text x=\"333\" y=\"116\" text-anchor=\"end\" font-size=\"24\" font-weight=\"700\" font-family=\"'Segoe UI', 'Helvetica Neue', Arial, sans-serif\" fill=\"#2b3654\">D</text><text x=\"115\" y=\"170\" text-anchor=\"middle\" font-size=\"22\" font-weight=\"600\" font-family=\"'Segoe UI', 'Helvetica Neue', Arial, sans-serif\" fill=\"#6a4fb0\">R₁ = 4 Ω</text><text x=\"265\" y=\"170\" text-anchor=\"middle\" font-size=\"22\" font-weight=\"600\" font-family=\"'Segoe UI', 'Helvetica Neue', Arial, sans-serif\" fill=\"#6a4fb0\">R₂ = 6 Ω</text><text x=\"415\" y=\"170\" text-anchor=\"middle\" font-size=\"22\" font-weight=\"600\" font-family=\"'Segoe UI', 'Helvetica Neue', Arial, sans-serif\" fill=\"#6a4fb0\">R₃ = 12 Ω</text></svg>",
+          "svgAlt": "دائرة: من النقطة A مقاومة R1 = 4 Ω إلى النقطة C، ثم R2 = 6 Ω من C إلى النقطة D، ثم R3 = 12 Ω من D إلى النقطة B. سلك فوق المقاومات يصل A بـ D، وسلك تحتها يصل C بـ B.",
+          "options": [
+            "`22 Ω`",
+            "`12 Ω`",
+            "`2 Ω`",
+            "صفر"
+          ],
+          "correctIndex": 2,
+          "explanation": [
+            "أي نقطتين بينهم سلك مقاومته مهملة ليهم نفس الجهد، فنعتبرهم نقطة واحدة: السلك اللي فوق بيخلّي D هي نفسها A، والسلك اللي تحت بيخلّي C هي نفسها B.",
+            "نشوف طرفي كل مقاومة: `R_{1}` بين A و C يعني بين A و B. و `R_{2}` بين C و D يعني بين B و A. و `R_{3}` بين D و B يعني بين A و B.",
+            "يبقى التلات مقاومات متوصلين على التوازي بين A و B: `1/R_{eq} = 1/4 + 1/6 + 1/12 = (3 + 2 + 1)/12 = 1/2`، يعني `R_{eq} = 2 Ω`.",
+            "تأكيد: المكافئة على التوازي أصغر من أصغر مقاومة (`4 Ω`)، و `2 Ω` أصغر منها فعلًا. ومفيش دائرة قصر بين A و B، لأن مفيش سلك لوحده بيوصل A بـ B على طول."
+          ],
+          "whyWrong": [
+            "ده مجموع المقاومات `4 + 6 + 12` كأنهم توالي، يعني تجاهلت السلكين خالص.",
+            "ده لو قلت إن السلك من A لـ D عمل قصر لـ `R_{1}` و `R_{2}` فشلتهم، وفضلت `R_{3}` لوحدها. لكن C متوصلة بـ B بالسلك التاني، فـ `R_{1}` و `R_{2}` ما اتعملهمش قصر؛ هما بقوا بين A و B.",
+            "",
+            "ده لو افتكرت إن السلكين عملوا قصر لكل المقاومات. القصر بيحصل لما سلك يوصل طرفي مقاومة ببعض، وهنا كل مقاومة طرفيها بقوا A و B (نقطتين مختلفتين)، فمفيش مقاومة اتعملها قصر."
+          ]
+        },
+        {
+          "id": "q6",
+          "skill": "القوة الدافعة الكهربية والمقاومة الداخلية: استنتاج V_{B} و r ثم حالتا الدائرة المفتوحة ودائرة القصر",
+          "question": "بطارية متصلة بمقاومة خارجية متغيرة، وفولتميتر مثالي متصل بين قطبي البطارية. عندما كانت المقاومة الخارجية `5 Ω` قرأ الفولتميتر `10 V`، وعندما أصبحت `2 Ω` قرأ `8 V`. ما قراءة الفولتميتر إذا فُتِحت الدائرة، وما شدة التيار إذا وُصِّل قطبا البطارية مباشرة بسلك مقاومته مهملة (دائرة قصر)؟",
+          "options": [
+            "`0 V` و `12 A`",
+            "`12 V` وتيار لا نهائي",
+            "`10 V` و `10 A`",
+            "`12 V` و `12 A`"
+          ],
+          "correctIndex": 3,
+          "explanation": [
+            "الفولتميتر على قطبي البطارية بيقيس `V = V_{B} − Ir`، والتيار نجيبه من المقاومة الخارجية: `I = V/R`.",
+            "الحالة الأولى: `I_{1} = 10/5 = 2 A`، فـ `V_{B} = 10 + 2r`. الحالة التانية: `I_{2} = 8/2 = 4 A`، فـ `V_{B} = 8 + 4r`.",
+            "نساوي المعادلتين: `10 + 2r = 8 + 4r`، يعني `r = 1 Ω`، و `V_{B} = 10 + 2 × 1 = 12 V`.",
+            "الدائرة مفتوحة: مفيش تيار، فمفيش فرق جهد ضايع جوه البطارية (`Ir = 0`)، والفولتميتر بيقرأ `V_{B} = 12 V`.",
+            "دائرة القصر: المقاومة الخارجية صفر، والمقاومة الوحيدة في الدائرة هي `r`: `I = V_{B}/r = 12/1 = 12 A`."
+          ],
+          "whyWrong": [
+            "التيار صح، لكن الفولتميتر في الدائرة المفتوحة ما بيقراش صفر؛ بيقرا القوة الدافعة كلها `V_{B}` لأن مفيش فرق جهد ضايع جوه البطارية.",
+            "قراءة الفولتميتر صح، لكن التيار مش لا نهائي: المقاومة الداخلية `r = 1 Ω` هي اللي بتحدد التيار، فهو `V_{B}/r`.",
+            "ده لو اعتبرت أكبر قراءة للفولتميتر (`10 V`) هي القوة الدافعة. أي قراءة والتيار ماشي بتكون أقل من `V_{B}` بمقدار `Ir`.",
+            ""
+          ]
+        },
+        {
+          "id": "q7",
+          "skill": "تحليل أثر تغيير الدائرة (غلق مفتاح يضيف فرعًا) على قراءات الأميتر والفولتميتر",
+          "question": "في الدائرة المبينة بالشكل: بطارية قوتها الدافعة `V_{B}` ومقاومتها الداخلية `r` لا تساوي صفرًا، والأميتر `A_{1}` في الخط الرئيسي، والأميتر `A_{2}` في فرع المقاومة `R_{2}`، والفولتميتر V متصل بين قطبي البطارية (الأجهزة مثالية). عند غلق المفتاح S، كيف تتغير قراءات الأجهزة الثلاثة؟",
+          "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 530 310\" width=\"530\" height=\"310\" direction=\"ltr\"><path d=\"M110 50L110 150\" stroke=\"#2b3654\" stroke-width=\"3\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M88 150L132 150\" stroke=\"#b07a2e\" stroke-width=\"4\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M99 162L121 162\" stroke=\"#b07a2e\" stroke-width=\"8\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M110 162L110 280\" stroke=\"#2b3654\" stroke-width=\"3\" fill=\"none\" stroke-linecap=\"round\"/><text x=\"140\" y=\"162\" text-anchor=\"start\" font-size=\"22\" font-weight=\"600\" font-family=\"'Segoe UI', 'Helvetica Neue', Arial, sans-serif\" fill=\"#b07a2e\">V<tspan font-size=\"15\" dy=\"6\">B</tspan><tspan dy=\"-6\"> , r</tspan></text><text x=\"78\" y=\"152\" text-anchor=\"middle\" font-size=\"22\" font-weight=\"700\" font-family=\"'Segoe UI', 'Helvetica Neue', Arial, sans-serif\" fill=\"#b07a2e\">+</text><text x=\"78\" y=\"176\" text-anchor=\"middle\" font-size=\"22\" font-weight=\"700\" font-family=\"'Segoe UI', 'Helvetica Neue', Arial, sans-serif\" fill=\"#b07a2e\">−</text><path d=\"M110 95L40 95L40 146\" stroke=\"#2b3654\" stroke-width=\"3\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"40\" cy=\"165\" r=\"21\" fill=\"#ffffff\" stroke=\"#2f63b0\" stroke-width=\"3\"/><text x=\"40\" y=\"171\" text-anchor=\"middle\" font-size=\"21\" font-weight=\"700\" font-family=\"'Segoe UI', 'Helvetica Neue', Arial, sans-serif\" fill=\"#2f63b0\">V</text><path d=\"M40 184L40 235L110 235\" stroke=\"#2b3654\" stroke-width=\"3\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><circle cx=\"110\" cy=\"95\" r=\"5\" fill=\"#2b3654\"/><circle cx=\"110\" cy=\"235\" r=\"5\" fill=\"#2b3654\"/><path d=\"M110 50L151 50\" stroke=\"#2b3654\" stroke-width=\"3\" fill=\"none\" stroke-linecap=\"round\"/><circle cx=\"170\" cy=\"50\" r=\"21\" fill=\"#ffffff\" stroke=\"#2f63b0\" stroke-width=\"3\"/><text x=\"168\" y=\"56\" text-anchor=\"middle\" font-size=\"21\" font-weight=\"700\" font-family=\"'Segoe UI', 'Helvetica Neue', Arial, sans-serif\" fill=\"#2f63b0\">A<tspan font-size=\"14\" dy=\"5\">1</tspan></text><path d=\"M189 50L220 50\" stroke=\"#2b3654\" stroke-width=\"3\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M220 50L225.833 60L231.667 40L237.5 60L243.333 40L249.167 60L255 40L260.833 60L266.667 40L272.5 60L278.333 40L284.167 60L290 50\" stroke=\"#6a4fb0\" stroke-width=\"3\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><text x=\"255\" y=\"30\" text-anchor=\"middle\" font-size=\"22\" font-weight=\"600\" font-family=\"'Segoe UI', 'Helvetica Neue', Arial, sans-serif\" fill=\"#6a4fb0\">R₁</text><path d=\"M290 50L470 50\" stroke=\"#2b3654\" stroke-width=\"3\" fill=\"none\" stroke-linecap=\"round\"/><circle cx=\"330\" cy=\"50\" r=\"5\" fill=\"#2b3654\"/><path d=\"M330 50L330 90\" stroke=\"#2b3654\" stroke-width=\"3\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M330 90L340 95.8333L320 101.667L340 107.5L320 113.333L340 119.167L320 125L340 130.833L320 136.667L340 142.5L320 148.333L340 154.167L330 160\" stroke=\"#6a4fb0\" stroke-width=\"3\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><text x=\"348\" y=\"132\" text-anchor=\"start\" font-size=\"22\" font-weight=\"600\" font-family=\"'Segoe UI', 'Helvetica Neue', Arial, sans-serif\" fill=\"#6a4fb0\">R₂</text><path d=\"M330 160L330 196\" stroke=\"#2b3654\" stroke-width=\"3\" fill=\"none\" stroke-linecap=\"round\"/><circle cx=\"330\" cy=\"215\" r=\"21\" fill=\"#ffffff\" stroke=\"#2f63b0\" stroke-width=\"3\"/><text x=\"328\" y=\"221\" text-anchor=\"middle\" font-size=\"21\" font-weight=\"700\" font-family=\"'Segoe UI', 'Helvetica Neue', Arial, sans-serif\" fill=\"#2f63b0\">A<tspan font-size=\"14\" dy=\"5\">2</tspan></text><path d=\"M330 234L330 280\" stroke=\"#2b3654\" stroke-width=\"3\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M470 50L470 90\" stroke=\"#2b3654\" stroke-width=\"3\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M470 90L480 95.8333L460 101.667L480 107.5L460 113.333L480 119.167L460 125L480 130.833L460 136.667L480 142.5L460 148.333L480 154.167L470 160\" stroke=\"#6a4fb0\" stroke-width=\"3\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><text x=\"488\" y=\"132\" text-anchor=\"start\" font-size=\"22\" font-weight=\"600\" font-family=\"'Segoe UI', 'Helvetica Neue', Arial, sans-serif\" fill=\"#6a4fb0\">R₃</text><path d=\"M470 160L470 200\" stroke=\"#2b3654\" stroke-width=\"3\" fill=\"none\" stroke-linecap=\"round\"/><circle cx=\"470\" cy=\"200\" r=\"4.5\" fill=\"#ffffff\" stroke=\"#2b3654\" stroke-width=\"2.5\"/><path d=\"M470 200L494 232\" stroke=\"#2b3654\" stroke-width=\"3\" fill=\"none\" stroke-linecap=\"round\"/><circle cx=\"470\" cy=\"242\" r=\"4.5\" fill=\"#ffffff\" stroke=\"#2b3654\" stroke-width=\"2.5\"/><text x=\"500\" y=\"250\" text-anchor=\"start\" font-size=\"22\" font-weight=\"700\" font-family=\"'Segoe UI', 'Helvetica Neue', Arial, sans-serif\" fill=\"#2b3654\">S</text><path d=\"M470 246L470 280\" stroke=\"#2b3654\" stroke-width=\"3\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M110 280L470 280\" stroke=\"#2b3654\" stroke-width=\"3\" fill=\"none\" stroke-linecap=\"round\"/><circle cx=\"330\" cy=\"280\" r=\"5\" fill=\"#2b3654\"/></svg>",
+          "svgAlt": "دائرة: بطارية (V_B و r) وعلى طرفيها فولتميتر V. في الخط الرئيسي الأميتر A1 ثم المقاومة R1، ثم فرعان على التوازي: فرع فيه R2 والأميتر A2، وفرع فيه R3 والمفتاح S وهو مفتوح.",
+          "options": [
+            "قراءة `A_{1}` تزداد، وقراءة `A_{2}` تقل، وقراءة V تقل",
+            "قراءة `A_{1}` تزداد، وقراءة `A_{2}` تزداد، وقراءة V تقل",
+            "قراءة `A_{1}` تزداد، وقراءة `A_{2}` لا تتغير، وقراءة V لا تتغير",
+            "قراءة `A_{1}` تقل، وقراءة `A_{2}` تقل، وقراءة V تزداد"
+          ],
+          "correctIndex": 0,
+          "explanation": [
+            "قفل المفتاح بيضيف الفرع `R_{3}` على التوازي مع `R_{2}`، وإضافة فرع على التوازي بتقلل المقاومة المكافئة للمجموعة، فالمقاومة الكلية للدائرة بتقل.",
+            "التيار الكلي `I = V_{B}/(R_{total} + r)` بيزيد، فقراءة `A_{1}` بتزيد.",
+            "فرق الجهد بين قطبي البطارية `V = V_{B} − Ir`: لما `I` يزيد، `Ir` بيزيد، فقراءة الفولتميتر بتقل.",
+            "فرق الجهد على مجموعة التوازي = `V − IR_{1}`: الـ `V` قلّت و `IR_{1}` زادت، فالجهد على `R_{2}` قلّ، وتيارها `V_{2}/R_{2}` قلّ؛ قراءة `A_{2}` بتقل. التيار الكلي زاد، لكن نصيب `R_{2}` منه قلّ لأن جزء منه راح للفرع الجديد."
+          ],
+          "whyWrong": [
+            "",
+            "مش كل التيارات بتزيد: التيار الكلي زاد، لكن فرق الجهد على `R_{2}` قلّ، فتيارها قلّ.",
+            "ده كان هيبقى صح بس لو `r = 0` ومفيش `R_{1}` في الخط الرئيسي (ساعتها الفرع `R_{2}` متوصل على `V_{B}` مباشرة). هنا `r ≠ 0` فزيادة التيار بتقلل جهد البطارية، و `R_{1}` بتاخد جهد أكبر.",
+            "ده لو افتكرت إن إضافة مقاومة بتزود المقاومة الكلية دايمًا (زي التوالي). الفرع الجديد على التوازي، فبيقلل المقاومة الكلية ويزود التيار."
+          ]
+        },
+        {
+          "id": "q8",
+          "skill": "تطبيق قانون كيرشوف الأول على نقطتي تفرع وتفسير الإشارة السالبة للتيار",
+          "question": "الشكل يمثل جزءًا من دائرة كهربية، والنقطتان P و Q نقطتا تفرع. الأسهم على التيارات المعلومة (`3 A` و `7 A` و `2 A`) تمثل اتجاهاتها الحقيقية، أما السهمان على `I_{1}` و `I_{2}` فاتجاهان مفروضان. مقدار واتجاه كلٍّ من `I_{1}` و `I_{2}` هما:",
+          "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 520 290\" width=\"520\" height=\"290\" direction=\"ltr\"><path d=\"M30 150L50 150\" stroke=\"#9aa6c4\" stroke-width=\"3\" fill=\"none\" stroke-linecap=\"round\" stroke-dasharray=\"4 6\"/><path d=\"M50 150L180 150\" stroke=\"#2b3654\" stroke-width=\"3\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M121 150L105 142L105 158Z\" fill=\"#2f63b0\"/><text x=\"112\" y=\"134\" text-anchor=\"middle\" font-size=\"22\" font-weight=\"700\" font-family=\"'Segoe UI', 'Helvetica Neue', Arial, sans-serif\" fill=\"#2f63b0\">3 A</text><path d=\"M180 150L180 52\" stroke=\"#2b3654\" stroke-width=\"3\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M180 52L180 32\" stroke=\"#9aa6c4\" stroke-width=\"3\" fill=\"none\" stroke-linecap=\"round\" stroke-dasharray=\"4 6\"/><path d=\"M180 89L172 105L188 105Z\" fill=\"#2f63b0\"/><text x=\"196\" y=\"104\" text-anchor=\"start\" font-size=\"22\" font-weight=\"700\" font-family=\"'Segoe UI', 'Helvetica Neue', Arial, sans-serif\" fill=\"#2f63b0\">7 A</text><path d=\"M180 150L340 150\" stroke=\"#2b3654\" stroke-width=\"3\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M271 150L255 142L255 158Z\" fill=\"#b2392e\"/><text x=\"262\" y=\"134\" text-anchor=\"middle\" font-size=\"23\" font-weight=\"700\" font-family=\"'Segoe UI', 'Helvetica Neue', Arial, sans-serif\" fill=\"#b2392e\">I₁</text><path d=\"M340 248L340 150\" stroke=\"#2b3654\" stroke-width=\"3\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M340 268L340 248\" stroke=\"#9aa6c4\" stroke-width=\"3\" fill=\"none\" stroke-linecap=\"round\" stroke-dasharray=\"4 6\"/><path d=\"M340 196L332 212L348 212Z\" fill=\"#2f63b0\"/><text x=\"356\" y=\"211\" text-anchor=\"start\" font-size=\"22\" font-weight=\"700\" font-family=\"'Segoe UI', 'Helvetica Neue', Arial, sans-serif\" fill=\"#2f63b0\">2 A</text><path d=\"M340 150L470 150\" stroke=\"#2b3654\" stroke-width=\"3\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M470 150L490 150\" stroke=\"#9aa6c4\" stroke-width=\"3\" fill=\"none\" stroke-linecap=\"round\" stroke-dasharray=\"4 6\"/><path d=\"M419 150L403 142L403 158Z\" fill=\"#b2392e\"/><text x=\"410\" y=\"134\" text-anchor=\"middle\" font-size=\"23\" font-weight=\"700\" font-family=\"'Segoe UI', 'Helvetica Neue', Arial, sans-serif\" fill=\"#b2392e\">I₂</text><circle cx=\"180\" cy=\"150\" r=\"6.5\" fill=\"#2b3654\"/><circle cx=\"340\" cy=\"150\" r=\"6.5\" fill=\"#2b3654\"/><text x=\"168\" y=\"176\" text-anchor=\"end\" font-size=\"24\" font-weight=\"700\" font-family=\"'Segoe UI', 'Helvetica Neue', Arial, sans-serif\" fill=\"#2b3654\">P</text><text x=\"328\" y=\"176\" text-anchor=\"end\" font-size=\"24\" font-weight=\"700\" font-family=\"'Segoe UI', 'Helvetica Neue', Arial, sans-serif\" fill=\"#2b3654\">Q</text></svg>",
+          "svgAlt": "جزء من دائرة: النقطة P على اليسار والنقطة Q على اليمين يصل بينهما سلك عليه سهم I1 من P إلى Q. تيار 3 A يدخل P من اليسار، وتيار 7 A يخرج من P إلى أعلى. تيار 2 A يدخل Q من أسفل، وسهم I2 خارج من Q إلى اليمين.",
+          "options": [
+            "`I_{1} = 4 A` من P إلى Q، و `I_{2} = 6 A` خارج من Q في اتجاه السهم",
+            "`I_{1} = 4 A` من Q إلى P، و `I_{2} = 2 A` داخل إلى Q (عكس اتجاه السهم)",
+            "`I_{1} = 4 A` من Q إلى P، و `I_{2} = 2 A` خارج من Q في اتجاه السهم",
+            "`I_{1} = 10 A` من P إلى Q، و `I_{2} = 12 A` خارج من Q في اتجاه السهم"
+          ],
+          "correctIndex": 1,
+          "explanation": [
+            "قانون كيرشوف الأول عند أي نقطة تفرع: مجموع التيارات الداخلة = مجموع التيارات الخارجة. نبدأ بالنقطة P لأن فيها مجهول واحد بس.",
+            "عند P: الداخل `3 A`، والخارج `7 A` و `I_{1}` (حسب السهم المفروض): `3 = 7 + I_{1}`، يعني `I_{1} = −4 A`. الإشارة السالبة معناها إن الاتجاه الحقيقي عكس السهم: `4 A` من Q إلى P.",
+            "عند Q (وبنستخدم `I_{1}` بإشارته): الداخل `I_{1} + 2 = −4 + 2`، والخارج `I_{2}`، فـ `I_{2} = −2 A`، يعني `2 A` داخل إلى Q (عكس السهم).",
+            "تأكيد بطريقة تانية: نعتبر الجزء اللي فيه P و Q «نقطة تفرع كبيرة»: الداخل المعلوم `3 + 2 = 5 A` والخارج `7 A`، فلازم `2 A` كمان تدخل من فرع `I_{2}`. نفس النتيجة."
+          ],
+          "whyWrong": [
+            "ده لو حسبت `I_{1} = 7 − 3 = 4 A` وخليته في اتجاه السهم (من P لـ Q). لكن الخارج من P (`7 A`) أكبر من الداخل (`3 A`)، فالفرق لازم يدخل P، مش يخرج منها.",
+            "",
+            "`I_{1}` صح، لكن عند Q: `I_{1}` الحقيقي (`4 A`) خارج من Q ناحية P، والداخل `2 A` بس، فالفرق `2 A` لازم يدخل Q من فرع `I_{2}` (عكس السهم)، مش يخرج.",
+            "ده لو جمعت التيارات المعلومة كأنها كلها داخلة (`3 + 7 = 10` ثم `10 + 2 = 12`)، مع إن الـ `7 A` خارج من P."
+          ]
+        },
+        {
+          "id": "q9",
+          "skill": "تطبيق قانون كيرشوف الثاني على مسارين مغلقين فيهما بطاريتان وتحديد حالة كل بطارية",
+          "question": "في الدائرة المبينة بالشكل: `V_{B1} = 12 V` و `V_{B2} = 6 V` (المقاومة الداخلية لكلٍّ منهما مهملة)، و `R_{1} = 2 Ω` و `R_{2} = 4 Ω` و `R_{3} = 2 Ω`. شدة التيار المار في البطارية `V_{B2}` وحالتها هما:",
+          "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 520 320\" width=\"520\" height=\"320\" direction=\"ltr\"><path d=\"M80 50L440 50\" stroke=\"#2b3654\" stroke-width=\"3\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M80 290L440 290\" stroke=\"#2b3654\" stroke-width=\"3\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M80 50L80 95\" stroke=\"#2b3654\" stroke-width=\"3\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M80 95L90 100.833L70 106.667L90 112.5L70 118.333L90 124.167L70 130L90 135.833L70 141.667L90 147.5L70 153.333L90 159.167L80 165\" stroke=\"#6a4fb0\" stroke-width=\"3\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><text x=\"106\" y=\"136\" text-anchor=\"start\" font-size=\"22\" font-weight=\"600\" font-family=\"'Segoe UI', 'Helvetica Neue', Arial, sans-serif\" fill=\"#6a4fb0\">R₁ = 2 Ω</text><path d=\"M80 165L80 195\" stroke=\"#2b3654\" stroke-width=\"3\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M58 195L102 195\" stroke=\"#b07a2e\" stroke-width=\"4\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M69 207L91 207\" stroke=\"#b07a2e\" stroke-width=\"8\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M80 207L80 290\" stroke=\"#2b3654\" stroke-width=\"3\" fill=\"none\" stroke-linecap=\"round\"/><text x=\"112\" y=\"212\" text-anchor=\"start\" font-size=\"22\" font-weight=\"600\" font-family=\"'Segoe UI', 'Helvetica Neue', Arial, sans-serif\" fill=\"#b07a2e\">V<tspan font-size=\"15\" dy=\"6\">B1</tspan><tspan dy=\"-6\"> = 12 V</tspan></text><text x=\"48\" y=\"199\" text-anchor=\"middle\" font-size=\"22\" font-weight=\"700\" font-family=\"'Segoe UI', 'Helvetica Neue', Arial, sans-serif\" fill=\"#b07a2e\">+</text><text x=\"48\" y=\"223\" text-anchor=\"middle\" font-size=\"22\" font-weight=\"700\" font-family=\"'Segoe UI', 'Helvetica Neue', Arial, sans-serif\" fill=\"#b07a2e\">−</text><path d=\"M440 50L440 95\" stroke=\"#2b3654\" stroke-width=\"3\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M440 95L450 100.833L430 106.667L450 112.5L430 118.333L450 124.167L430 130L450 135.833L430 141.667L450 147.5L430 153.333L450 159.167L440 165\" stroke=\"#6a4fb0\" stroke-width=\"3\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><text x=\"414\" y=\"136\" text-anchor=\"end\" font-size=\"22\" font-weight=\"600\" font-family=\"'Segoe UI', 'Helvetica Neue', Arial, sans-serif\" fill=\"#6a4fb0\">R₃ = 2 Ω</text><path d=\"M440 165L440 195\" stroke=\"#2b3654\" stroke-width=\"3\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M418 195L462 195\" stroke=\"#b07a2e\" stroke-width=\"4\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M429 207L451 207\" stroke=\"#b07a2e\" stroke-width=\"8\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M440 207L440 290\" stroke=\"#2b3654\" stroke-width=\"3\" fill=\"none\" stroke-linecap=\"round\"/><text x=\"408\" y=\"212\" text-anchor=\"end\" font-size=\"22\" font-weight=\"600\" font-family=\"'Segoe UI', 'Helvetica Neue', Arial, sans-serif\" fill=\"#b07a2e\">V<tspan font-size=\"15\" dy=\"6\">B2</tspan><tspan dy=\"-6\"> = 6 V</tspan></text><text x=\"472\" y=\"199\" text-anchor=\"middle\" font-size=\"22\" font-weight=\"700\" font-family=\"'Segoe UI', 'Helvetica Neue', Arial, sans-serif\" fill=\"#b07a2e\">+</text><text x=\"472\" y=\"223\" text-anchor=\"middle\" font-size=\"22\" font-weight=\"700\" font-family=\"'Segoe UI', 'Helvetica Neue', Arial, sans-serif\" fill=\"#b07a2e\">−</text><path d=\"M260 50L260 130\" stroke=\"#2b3654\" stroke-width=\"3\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M260 130L270 136.667L250 143.333L270 150L250 156.667L270 163.333L250 170L270 176.667L250 183.333L270 190L250 196.667L270 203.333L260 210\" stroke=\"#6a4fb0\" stroke-width=\"3\" fill=\"none\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><path d=\"M260 210L260 290\" stroke=\"#2b3654\" stroke-width=\"3\" fill=\"none\" stroke-linecap=\"round\"/><text x=\"280\" y=\"176\" text-anchor=\"start\" font-size=\"22\" font-weight=\"600\" font-family=\"'Segoe UI', 'Helvetica Neue', Arial, sans-serif\" fill=\"#6a4fb0\">R₂ = 4 Ω</text><circle cx=\"260\" cy=\"50\" r=\"5\" fill=\"#2b3654\"/><circle cx=\"260\" cy=\"290\" r=\"5\" fill=\"#2b3654\"/></svg>",
+          "svgAlt": "دائرة فيها ثلاثة فروع بين سلك علوي وسلك سفلي: الفرع الأيسر فيه R1 = 2 Ω والبطارية VB1 = 12 V وقطبها الموجب لأعلى، والفرع الأوسط فيه R2 = 4 Ω، والفرع الأيمن فيه R3 = 2 Ω والبطارية VB2 = 6 V وقطبها الموجب لأعلى.",
+          "options": [
+            "`0.6 A`، والبطارية تُفرَّغ (تمد الدائرة بالتيار)",
+            "`1.5 A`، والبطارية تُشحن",
+            "`4.2 A`، والبطارية تُفرَّغ",
+            "`0.6 A`، والبطارية تُشحن (التيار يدخلها من قطبها الموجب)"
+          ],
+          "correctIndex": 3,
+          "explanation": [
+            "نفرض التيارات: `I_{1}` لفوق في فرع `V_{B1}`، و `I_{2}` لتحت في `R_{2}`، و `I_{3}` لتحت في فرع `V_{B2}`. قانون كيرشوف الأول عند نقطة التفرع اللي فوق: `I_{1} = I_{2} + I_{3}`.",
+            "المسار المغلق الشمال (`V_{B1}` و `R_{1}` و `R_{2}`)، ماشيين لفوق في فرع `V_{B1}` (من السالب للموجب، فهي `+12`): `12 = 2I_{1} + 4I_{2}`.",
+            "المسار المغلق اليمين: ماشيين لتحت في `R_{2}` (مع `I_{2}`: `+4I_{2}`)، ولفوق في فرع `V_{B2}`: بنعدي البطارية من السالب للموجب (`+6`)، وبنعدي `R_{3}` عكس `I_{3}` (`−2I_{3}`): `6 = 4I_{2} − 2I_{3}`.",
+            "نحل: نعوّض `I_{1} = I_{2} + I_{3}` في المعادلة الأولى: `12 = 6I_{2} + 2I_{3}`، ونجمعها مع `6 = 4I_{2} − 2I_{3}`: `18 = 10I_{2}`، يعني `I_{2} = 1.8 A`، و `I_{3} = (4 × 1.8 − 6)/2 = 0.6 A`، و `I_{1} = 2.4 A`.",
+            "`I_{3}` طالع موجب، يعني اتجاهه زي ما فرضنا: لتحت في فرع `V_{B2}`، فبيدخل البطارية من قطبها الموجب (اللي فوق). البطارية اللي التيار بيدخلها من قطبها الموجب بتتشحن، والبطارية الكبيرة `V_{B1}` هي اللي بتفرّغ.",
+            "تأكيد بطريقة تانية (فرق الجهد بين السلك اللي فوق واللي تحت لازم يطلع واحد من أي فرع): من الفرع الأوسط `1.8 × 4 = 7.2 V`، ومن الشمال `12 − 2.4 × 2 = 7.2 V`، ومن اليمين `6 + 0.6 × 2 = 7.2 V`."
+          ],
+          "whyWrong": [
+            "المقدار صح، لكن الحالة غلط: `I_{3}` موجب ولتحت، يعني بيدخل `V_{B2}` من قطبها الموجب، ودي حالة شحن مش تفريغ.",
+            "ده لو اعتبرت البطاريتين في مسار مقفول واحد وتجاهلت الفرع اللي في النص: `(12 − 6)/(2 + 2) = 1.5 A`. الفرع `R_{2}` بياخد جزء من التيار، فلازم قانونا كيرشوف.",
+            "ده بييجي من غلطة إشارة: لو اعتبرت `V_{B2}` موجبة وانت بتعدي فيها من الموجب للسالب (كأنها بتساعد `V_{B1}`)، المعادلات بتطلّع `4.2 A`. خد بالك: `V_{B}` موجبة بس لما المسار يعدي فيها من السالب للموجب.",
+            ""
+          ]
+        },
+        {
+          "id": "q10",
+          "skill": "الربط بين القدرة والمقاومة وطريقة التوصيل (مقارنة إضاءة مصباحين على التوالي)",
+          "question": "مصباحان كهربيان: المصباح X مكتوب عليه `(220 V, 100 W)` والمصباح Y مكتوب عليه `(220 V, 25 W)`. وُصِّل المصباحان على التوالي بمصدر فرق جهده `220 V` مقاومته الداخلية مهملة. باعتبار أن مقاومة كل مصباح ثابتة، أيُّ العبارات الآتية صحيحة؟",
+          "options": [
+            "المصباح X أشد إضاءة، والقدرة الكلية المستهلكة `125 W`",
+            "المصباح Y أشد إضاءة، والقدرة الكلية المستهلكة `20 W`",
+            "المصباحان لهما نفس الإضاءة لأن التيار المار فيهما واحد، والقدرة الكلية المستهلكة `20 W`",
+            "المصباح X أشد إضاءة، والقدرة الكلية المستهلكة `20 W`"
+          ],
+          "correctIndex": 1,
+          "explanation": [
+            "بيانات المصباح هي قيم تشغيله الطبيعي، ومنها نحسب مقاومته: `R = V²/P`. يعني `R_{X} = 220²/100 = 484 Ω` و `R_{Y} = 220²/25 = 1936 Ω` (مقاومة Y أربع أضعاف X).",
+            "على التوالي: المقاومة الكلية `484 + 1936 = 2420 Ω`، والتيار `I = 220/2420 = 1/11 A` (حوالي `0.09 A`)، وهو نفس التيار في المصباحين.",
+            "الإضاءة بتعتمد على القدرة المستهلكة فعلًا: `P = I²R`، يعني `P_{X} = (1/11)² × 484 = 4 W` و `P_{Y} = (1/11)² × 1936 = 16 W`. فـ Y أشد إضاءة (على التوالي القدرة بتتناسب طرديًّا مع المقاومة).",
+            "القدرة الكلية = `4 + 16 = 20 W`. وتأكيد بطريقة تانية: `P = V²/R_{total} = 220²/2420 = 20 W`.",
+            "لاحظ: لو كانوا على التوازي على `220 V`، كل مصباح كان هيشتغل على قدرته المكتوبة، و X (`100 W`) كان هيبقى الأشد إضاءة. طريقة التوصيل هي اللي بتقلب الإجابة."
+          ],
+          "whyWrong": [
+            "ده لو افتكرت إن كل مصباح بيشتغل على القدرة المكتوبة عليه. على التوالي جهد المصدر بيتقسم عليهم، فكل مصباح بياخد أقل من `220 V` وقدرته أقل بكتير من المكتوبة.",
+            "",
+            "التيار فعلًا واحد، لكن الإضاءة بتعتمد على القدرة `P = I²R`، ومقاومة Y أربع أضعاف X، فقدرته أربع أضعاف.",
+            "القدرة الكلية صح، لكن المقارنة بـ `P = V²/R` (الأقل مقاومة أقوى) تنفع على التوازي بس (نفس الجهد). على التوالي التيار واحد فنستخدم `P = I²R`: الأكبر مقاومة هو الأشد إضاءة."
+          ]
+        }
+      ]
+    }
+  ]
+}

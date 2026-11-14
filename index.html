@@ -74,6 +74,7 @@
         <li><a class="tone-mint" href="biology.html"><img src="subject-biology.svg" alt="" width="40" height="40"><span>الأحياء</span></a></li>
         </ul>
       </details>
+      <a class="quizzes-link" href="quizzes.html"><span data-i18n="Quizzes">Quizzes</span></a>
       <div class="header-tools">
         <button type="button" class="lang-toggle" lang="ar" hidden>العربية</button>
         <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="site-nav" hidden>
@@ -140,6 +141,16 @@
         <p class="card-count" data-count="vocabulary"><span data-i18n="Loading…">Loading…</span></p>
         <div class="card-actions"><a class="btn" href="vocabulary.html" data-i18n="Practise vocabulary">Practise vocabulary</a></div>
       </li>
+      <!-- Quizzes in every subject (quizzes.html); the number is counted from the quizzes-<subject>.json files. -->
+      <li class="card tone-sun home-card--quizzes">
+        <img class="card-icon" src="icon-quizzes.svg" alt="" width="64" height="64">
+        <div class="home-card-text">
+          <h2 data-i18n="Quizzes">Quizzes</h2>
+          <p data-i18n="Test yourself in every subject: one question at a time, then your score and a step-by-step explanation of every question.">Test yourself in every subject: one question at a time, then your score and a step-by-step explanation of every question.</p>
+          <p class="card-count" data-count="quizzes"><span data-i18n="Loading…">Loading…</span></p>
+        </div>
+        <div class="card-actions"><a class="btn" href="quizzes.html" data-i18n="Open quizzes">Open quizzes</a></div>
+      </li>
     </ul>
 
     <!-- All the English questions (Grammar Practice and Vocabulary) with their answers; made by tools/question_pdfs.py -->
@@ -181,6 +192,7 @@
   <script src="content-store.js"></script>
   <script src="common.js"></script>
   <script src="dhikr.js"></script>
+  <script src="quizzes-data.js"></script>
   <script src="home.js"></script>
 </body>
 </html>

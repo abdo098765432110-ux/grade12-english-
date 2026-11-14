@@ -2984,3 +2984,405 @@ input[type="file"] { font: inherit; max-width: 100%; }
 @media print {
   .founder-shortcut { display: none; }
 }
+
+/* ==========================================================================
+   Quizzes (quizzes.html, quiz.html, quizzes.js)
+   ========================================================================== */
+
+/* "Quizzes" in the header of every page, beside «المواد الدراسية»: a sunny
+   pastel pill with a small clipboard. */
+.quizzes-link {
+  order: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 2.75rem;
+  padding: 0.4rem 1.05rem;
+  border: 2px solid var(--sun-edge);
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--sun), var(--peach));
+  color: var(--sun-ink);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.4;
+  text-decoration: none;
+  white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(60, 90, 160, 0.12);
+}
+
+.quizzes-link:hover { background: var(--sun-hover); color: var(--sun-ink); }
+
+.quizzes-link[aria-current] { border-color: #e0a21a; box-shadow: 0 0 0 3px #ffe7a3; }
+
+.quizzes-link::before {
+  content: "";
+  flex-shrink: 0;
+  width: 1.1rem;
+  height: 1.1rem;
+  background: currentColor;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M5 1.5h6v2H5z'/%3E%3Cpath fill-rule='evenodd' d='M3.5 2.5H4V4.5h8V2.5h.5A1.5 1.5 0 0 1 14 4v10a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 14V4a1.5 1.5 0 0 1 1.5-1.5zm1.2 6.3 1.1 1.1 2-2.3.9.8-2.9 3.2-2-1.9zm4.8-.3h2.5v1.3H9.5zm-4.8 4 1.1 1.1 2-2.3.9.8-2.9 3.2-2-1.9zm4.8-.3h2.5v1.3H9.5z'/%3E%3C/svg%3E") center / contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M5 1.5h6v2H5z'/%3E%3Cpath fill-rule='evenodd' d='M3.5 2.5H4V4.5h8V2.5h.5A1.5 1.5 0 0 1 14 4v10a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 14V4a1.5 1.5 0 0 1 1.5-1.5zm1.2 6.3 1.1 1.1 2-2.3.9.8-2.9 3.2-2-1.9zm4.8-.3h2.5v1.3H9.5zm-4.8 4 1.1 1.1 2-2.3.9.8-2.9 3.2-2-1.9zm4.8-.3h2.5v1.3H9.5z'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+/* When one row is too narrow (subject pages up to 54rem, the English pages
+   with their page menu up to 60rem): the website name and the buttons on the
+   first row, «المواد الدراسية» and "Quizzes" side by side on the second row.
+   An empty, full-width item (::after) makes the line break; the second row
+   moves up by one gap so the header is no taller than before. */
+@media (max-width: 54rem) {
+  .header-inner:has(> .quizzes-link)::after {
+    content: "";
+    order: 1;
+    flex-basis: 100%;
+    height: 0;
+  }
+  .subject-menu:has(+ .quizzes-link) {
+    order: 2;
+    flex: 1 1 auto;
+    margin-inline-start: 0;
+    margin-top: -0.5rem;
+  }
+  .subject-menu:has(+ .quizzes-link) .subject-menu-button {
+    width: 100%;
+    justify-content: center;
+    white-space: nowrap;
+  }
+  .quizzes-link { order: 2; flex: 1 1 auto; margin-top: -0.5rem; }
+}
+
+@media (max-width: 60rem) {
+  .has-menu .header-inner:has(> .quizzes-link)::after {
+    content: "";
+    order: 1;
+    flex-basis: 100%;
+    height: 0;
+  }
+  .has-menu .subject-menu:has(+ .quizzes-link) {
+    order: 2;
+    flex: 1 1 auto;
+    margin-inline-start: 0;
+    margin-top: -0.5rem;
+  }
+  .has-menu .subject-menu:has(+ .quizzes-link) .subject-menu-button {
+    width: 100%;
+    justify-content: center;
+    white-space: nowrap;
+  }
+  .has-menu .quizzes-link { order: 2; flex: 1 1 auto; margin-top: -0.5rem; }
+}
+
+/* Phones: the subject list opens inside the page, so while it is open it
+   takes the whole row and "Quizzes" moves under it. */
+@media (max-width: 40rem) {
+  .subject-menu[open]:has(+ .quizzes-link) { flex-basis: 100%; }
+  .subject-menu[open] + .quizzes-link { margin-top: 0; }
+}
+
+/* Very small phones: slimmer buttons, so both still fit on one row. */
+@media (max-width: 23.5rem) {
+  .subject-menu:has(+ .quizzes-link) .subject-menu-button,
+  .quizzes-link { padding-inline: 0.65rem; gap: 0.4rem; font-size: 0.95rem; }
+  .quizzes-link::before { display: none; }
+}
+
+/* The home page card: the whole width under the four English sections. */
+.home-cards .home-card--quizzes {
+  grid-column: 1 / -1;
+  flex-direction: row;
+  align-items: center;
+  gap: 1.5rem;
+  background: linear-gradient(135deg, var(--color-surface) 50%, #fff8d9 80%, var(--peach));
+}
+
+.home-card--quizzes .card-icon { margin-bottom: 0; flex-shrink: 0; }
+.home-card--quizzes .home-card-text { flex: 1; min-width: 0; }
+.home-card--quizzes .home-card-text p:not(.card-count) { margin: 0 0 0.75rem; }
+.home-card--quizzes .card-count { width: fit-content; margin-bottom: 0; }
+.home-card--quizzes .card-actions { margin-top: 0; flex: 0 0 15rem; }
+
+@media (max-width: 52rem) {
+  .home-cards .home-card--quizzes { flex-direction: column; align-items: stretch; }
+  .home-card--quizzes .card-icon { margin-bottom: 0.25rem; }
+  .home-card--quizzes .card-actions { flex-basis: auto; }
+}
+
+/* quizzes.html: the five subjects. */
+.quizzes-page,
+.quiz-page { padding-bottom: 3.5rem; }
+
+.quizzes-page h1 { margin-top: 1.5rem; }
+
+.home-cards.quiz-subjects {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  margin-top: 1.5rem;
+}
+
+.quiz-subjects h2 { font-family: var(--font-arabic-ui); }
+
+@media (max-width: 64rem) {
+  .home-cards.quiz-subjects { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+@media (max-width: 44rem) {
+  .home-cards.quiz-subjects { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 30rem) {
+  .home-cards.quiz-subjects { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* quizzes.html?subject=…: the subject, then its quizzes. */
+.quiz-breadcrumb { margin-top: 1rem; }
+
+.quiz-subject-title { margin-top: 0.75rem; }
+.quiz-subject-name { min-width: 0; }
+
+.quiz-kicker {
+  margin: 0;
+  color: var(--tone-ink);
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.quiz-subject-title h1 {
+  margin: 0;
+  color: var(--tone-ink);
+  font-family: var(--font-arabic-ui);
+  font-size: clamp(1.7rem, 1.3rem + 1.4vw, 2.3rem);
+}
+
+.quiz-list-title { margin: 1.75rem 0 0.75rem; }
+
+.quiz-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 21rem), 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.quiz-card { border: 2px solid var(--tone); }
+
+.quiz-card h3 {
+  margin: 0 0 0.35rem;
+  font-size: 1.2rem;
+  line-height: 1.5;
+}
+
+.quiz-chapter {
+  margin: 0 0 0.6rem;
+  color: var(--color-muted);
+}
+
+.quiz-card .badges { margin-bottom: 0.6rem; }
+
+.quiz-card .badge {
+  background: var(--tone);
+  border-color: var(--tone-edge);
+  color: var(--tone-ink);
+}
+
+.quiz-last-score {
+  margin: 0 0 1rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.quiz-card .btn { width: 100%; }
+
+/* quiz.html: the quiz title, then the question card. */
+.quiz-intro {
+  margin: 0.75rem 0 1.25rem;
+  padding: 1.15rem 1.4rem 0.6rem;
+  border: 2px solid var(--tone-edge);
+  border-radius: var(--radius-lg);
+  background: var(--tone);
+  max-width: 46rem;
+}
+
+.quiz-intro h1 {
+  margin: 0 0 0.35rem;
+  color: var(--tone-ink);
+  font-size: clamp(1.35rem, 1.1rem + 0.9vw, 1.8rem);
+  line-height: 1.45;
+}
+
+.quiz-intro .quiz-chapter { color: var(--tone-ink); }
+
+.quiz-intro .badge { background: var(--color-surface); border-color: var(--tone-edge); color: var(--tone-ink); }
+
+.quiz-answered {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.quiz-take progress { margin-bottom: 1rem; }
+
+/* The question numbers: one row of small tiles (they wrap on a phone). */
+.quiz-jump {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0 0 1.25rem;
+  padding: 0;
+  list-style: none;
+}
+
+.quiz-jump li { width: 2.5rem; }
+
+.quiz-take fieldset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  min-width: 0;
+}
+
+.quiz-actions {
+  justify-content: space-between;
+  margin-top: 1.25rem;
+}
+
+.quiz-actions .btn { min-width: 8.5rem; }
+
+.quiz-warning .actions { margin-top: 0.75rem; }
+
+/* Formulas: left to right even inside Arabic text. A short one ("20 W")
+   stays on one line; a long one may continue on the next line. */
+.math {
+  unicode-bidi: isolate;
+  font-family: "Cambria Math", "STIX Two Math", "Segoe UI", system-ui, sans-serif;
+}
+
+.math--short { white-space: nowrap; }
+
+.quiz-take sub,
+.quiz-take sup,
+.quiz-card sub,
+.quiz-card sup {
+  font-size: 0.72em;
+  line-height: 0;
+}
+
+/* A circuit drawing: as wide as the card, never wider than its own size. */
+.quiz-figure {
+  margin: 0.25rem 0 1rem;
+  padding: 0.5rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background: #ffffff;
+  text-align: center;
+}
+
+.quiz-figure svg {
+  display: block;
+  width: 100%;
+  max-width: 30rem;
+  height: auto;
+  margin: 0 auto;
+  direction: ltr;
+}
+
+/* Results */
+.quiz-score .quiz-percent {
+  margin: 0.15rem 0 0;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-primary-dark);
+}
+
+.quiz-score .quiz-message { margin: 0.35rem 0 0.5rem; font-weight: 600; }
+
+.quiz-review-title { margin-top: 2rem; }
+
+.quiz-review {
+  padding: 0;
+  list-style: none;
+}
+
+.quiz-review > li {
+  margin-bottom: 1.25rem;
+  padding: 1.1rem 1.15rem;
+  border: 1px solid var(--color-border);
+  border-inline-start: 5px solid var(--color-border);
+  border-radius: var(--radius);
+  background: var(--color-surface);
+}
+
+.quiz-review > .quiz-review-item--match { border-inline-start-color: #6cc596; }
+.quiz-review > .quiz-review-item--differs { border-inline-start-color: #ec9a94; }
+.quiz-review > .quiz-review-item--skipped { border-inline-start-color: #f2c25b; }
+
+.quiz-review-head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.25rem 1rem;
+  margin-bottom: 0.5rem !important;
+}
+
+.quiz-review-number { font-weight: 700; color: var(--color-primary-dark); }
+
+.quiz-review-question p { margin: 0 0 0.25rem; font-size: 1.08rem; line-height: 1.7; }
+
+.quiz-review-options { margin-top: 0.5rem; }
+
+.quiz-review-options .option { margin-bottom: 0.45rem; }
+
+.option-row {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 0.25rem 0.75rem;
+  padding: 0.6rem 0.95rem;
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius);
+  background: var(--color-surface);
+}
+
+.option--match .option-row { border-color: #8fd4ae; background: var(--color-success-bg); }
+.option--tried .option-row { border-color: #f0aaa5; background: var(--color-danger-bg); }
+
+.option-row .option-text { flex: 1 1 10rem; }
+
+.quiz-skill { margin: 0.75rem 0 0.25rem !important; }
+
+.quiz-explanation {
+  margin-top: 0.5rem;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius);
+  background: var(--color-info-bg);
+}
+
+.quiz-steps,
+.quiz-why ul {
+  margin: 0.35rem 0 0;
+  padding-inline-start: 1.5rem;
+  line-height: 1.8;
+}
+
+.quiz-steps li + li,
+.quiz-why li + li { margin-top: 0.3rem; }
+
+.quiz-why {
+  margin-top: 0.6rem;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius);
+  background: var(--color-danger-bg);
+}
+
+.quiz-why ul { list-style: none; padding-inline-start: 0; }
+
+.quiz-why .option-letter { color: var(--color-danger); }
+
+@media (max-width: 40rem) {
+  .quiz-take { padding: 1.15rem; }
+  .quiz-intro { padding: 1rem 1.1rem 0.5rem; }
+  .quiz-actions .btn { flex: 1 1 0; min-width: 0; }
+  .quiz-review > li { padding: 0.9rem 0.85rem; }
+  .quiz-explanation,
+  .quiz-why { padding: 0.65rem 0.75rem; }
+}

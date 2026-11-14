@@ -48,6 +48,14 @@ A free learning website for Egyptian Grade 12 students. The subject menu
     from the same questions and `tools/arabic_unit3/summary.html` (fonts in
     `tools/fonts`, SIL Open Font License).
 
+- **Quizzes** (the «Quizzes» button in the header of every page, and a card on the
+  home page): `quizzes.html` shows the five subjects with the number of quizzes
+  each has; a subject shows its quizzes (title, chapter, number of questions,
+  difficulty, last score); `quiz.html` takes a quiz one question at a time, then
+  shows the score, the percentage and a review of every question. One JSON file
+  per subject (`quizzes-physics.json` …); see [Quizzes](#quizzes) below. Physics
+  has the first quiz: Chapter 1, 10 very hard questions.
+
 - Plain HTML, CSS, JavaScript and JSON. No build step, frameworks, packages,
   database, accounts, paid services or AI APIs.
 - Works on GitHub Pages, including inside a repository subfolder
@@ -73,6 +81,10 @@ grade12-english/
 ├── arabic-unit2-mcq.pdf, arabic-unit2-essay.pdf   Arabic Unit 2: 50 multiple-choice questions with answer key, 50 written questions with model answers
 ├── arabic-unit3-questions.pdf, arabic-unit3-summary.pdf   Arabic Unit 3: 100 questions with answer key, and the summary
 ├── subject.js             Subject pages: chapters → sections → questions, with the shared quiz
+├── quizzes.html, quiz.html   Quizzes: the subjects and their quizzes (?subject=<id>), and taking one quiz (?subject=<id>&quiz=<id>)
+├── quizzes.js, quizzes-data.js   Quizzes pages; reading and checking the quiz files and the last score (quizzes-data.js is also used by the home page and the tests)
+├── quizzes-arabic.json, quizzes-english.json, quizzes-physics.json, quizzes-chemistry.json, quizzes-biology.json   The quizzes, one file per subject (see "Quizzes")
+├── icon-quizzes.svg       Picture of the home page Quizzes card
 ├── physics-questions.json Physics questions (الفصل الأول → حل أسئلة الفصل الأول, and the chapter's revision sheet; الفصل الثاني in 8 lessons, with its exam and PDF)
 ├── chemistry-questions.json Chemistry questions (الفصل الأول، الفصل الثاني: التحليل الكيميائي)
 ├── biology-questions.json Biology questions (الفصل الأول والثاني: سهلة / متوسطة / صعبة جدًا)
@@ -111,7 +123,7 @@ grade12-english/
 ├── grammar-questions.json
 ├── reading-passages.json
 ├── docs/                  Data format reference and the first-upload diagnosis
-├── tools/                 check-site.js, validate-content.js, physics_pdfs.py, question_pdfs.py, dhikr_font.py, arabic_unit2/, arabic_unit3/, bio_ch2_bank/, bio_revision_booklet/, chem_ch2_bank/, phys_ch2_bank/, fonts/ (for developers)
+├── tools/                 check-site.js, validate-content.js, verify_physics_ch1_quiz.py, physics_pdfs.py, question_pdfs.py, dhikr_font.py, arabic_unit2/, arabic_unit3/, bio_ch2_bank/, bio_revision_booklet/, chem_ch2_bank/, phys_ch2_bank/, fonts/ (for developers)
 ├── tests/                 Automated tests (for developers, not used by the site)
 ├── README.md
 └── PROJECT_STATUS.md
@@ -206,6 +218,90 @@ Notes:
   browser’s site data deletes the draft, so download backups.
 
 The data format is described in [docs/CONTENT_FORMAT.md](docs/CONTENT_FORMAT.md).
+
+## Quizzes
+
+The quizzes are read from five files at the top level, one per subject:
+
+| Subject | File |
+|---|---|
+| اللغة العربية | `quizzes-arabic.json` |
+| اللغة الإنجليزية | `quizzes-english.json` |
+| الفيزياء | `quizzes-physics.json` |
+| الكيمياء | `quizzes-chemistry.json` |
+| الأحياء | `quizzes-biology.json` |
+
+The number of quizzes on the Quizzes page and on the home page is counted from
+these files. A subject with no quizzes shows "No quizzes available yet — coming
+soon." Nothing else needs changing: no code, no page.
+
+### Adding a quiz
+
+1. Open the subject's file, for example `quizzes-chemistry.json`.
+2. Copy one quiz from the example below (from `{ "id": …` down to its closing
+   `}`) into the file's list `"quizzes": [ … ]`. If the list already has a quiz,
+   put a comma `,` after that quiz's closing `}` first.
+3. Change the texts. Give the quiz an `id` that no other quiz in the file has
+   (English letters, numbers and `-` only, for example `chemistry-ch2-quiz-1`).
+4. Check the file at <https://jsonlint.com> (paste it in), or run
+   `node --test tests/quizzes.test.js` on a computer.
+5. Upload the file to GitHub (top level, next to `index.html`) and commit.
+
+```json
+{
+  "subject": "chemistry",
+  "lang": "ar",
+  "quizzes": [
+    {
+      "id": "chemistry-ch2-quiz-1",
+      "title": "عنوان الاختبار",
+      "chapter": "اسم الفصل",
+      "difficulty": "Hard",
+      "questions": [
+        {
+          "id": "q1",
+          "skill": "اسم المهارة التي يقيسها السؤال",
+          "question": "نص السؤال؟",
+          "options": ["الاختيار الأول", "الاختيار الثاني", "الاختيار الثالث", "الاختيار الرابع"],
+          "correctIndex": 2,
+          "explanation": ["الخطوة الأولى من الشرح", "الخطوة الثانية", "الخطوة الثالثة"],
+          "whyWrong": ["لماذا الاختيار الأول خطأ", "لماذا الاختيار الثاني خطأ", "", "لماذا الاختيار الرابع خطأ"]
+        }
+      ]
+    }
+  ]
+}
+```
+
+What each field means:
+
+- `subject` the file's subject (`arabic`, `english`, `physics`, `chemistry`,
+  `biology`); `lang` the language of the quiz text: `"ar"` (right to left, choices
+  أ ب ج د) or `"en"` (left to right, choices A B C D).
+- `difficulty`: `"Easy"`, `"Medium"`, `"Hard"` or `"Very Hard"` (shown in the
+  interface language).
+- `correctIndex`: the number of the correct choice **counting from 0**: 0 = the
+  first choice (أ), 1 = the second (ب), 2 = the third (ج), 3 = the fourth (د).
+- `explanation`: the steps of the solution, one text per step (or one text).
+- `whyWrong` (optional): one text per choice saying why it is wrong; `""` for the
+  correct one.
+- `svg` and `svgAlt` (optional): a drawing (a whole `<svg …>…</svg>`, written on
+  one line, with `\"` instead of `"` inside it) and a sentence describing it for
+  screen readers.
+- In any text: `` `R = V/I` `` keeps a formula left to right inside Arabic text,
+  `V_{B}` writes B below the line, `10^{-19}` writes −19 above it. Symbols such
+  as Ω, ε, ρ, σ, →, ² and ⁻¹ can be typed as they are.
+
+A question with a mistake (for example a missing `skill`, or a `correctIndex`
+that is not 0–3) is not shown, and the reason is written in the browser
+console; the other questions still work.
+
+Each student's last score of each quiz is kept in their own browser only
+(`localStorage`, key `g12-quiz-scores`: the score and the date, nothing else).
+
+The Physics Chapter 1 quiz (`physics-ch1-quiz-1`) is checked by
+`python3 tools/verify_physics_ch1_quiz.py`: it solves every question by two
+different methods and stops if the answer in the file is not the one both give.
 
 ## Visitor register (welcome screen and founder dashboard)
 

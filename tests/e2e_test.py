@@ -2744,6 +2744,264 @@ def dhikr(browser, base):
     context.close()
 
 
+def quizzes(browser, base):
+    """The Quizzes section. The header button on every page and the home page card;
+    quizzes.html with the five subjects and their counts (from the quiz files); each
+    subject's list (the subjects with no quiz say so); the Physics Chapter 1 quiz answered
+    to the end (one question at a time, Previous / Next, the numbers, changing an answer,
+    the unanswered warning, the score, the percentage and the review of every question with
+    its skill, steps and drawings); the last score; Retake; the language button keeping the
+    answers; a phone; blocked storage; a file with a mistake; links that lead nowhere."""
+    files = {s: json.loads((PROJECT / ("quizzes-%s.json" % s)).read_text(encoding="utf-8"))
+             for s in ["arabic", "english", "physics", "chemistry", "biology"]}
+    total = sum(len(d["quizzes"]) for d in files.values())
+    quiz = next(q for q in files["physics"]["quizzes"] if q["id"] == "physics-ch1-quiz-1")
+    questions = quiz["questions"]
+    letters = "أبجد"
+
+    context = browser.new_context(viewport={"width": 1280, "height": 900})
+    page = watch(context.new_page())
+    # the header button on every page that has the subject menu
+    missing = []
+    for path in sorted(p.name for p in PROJECT.glob("*.html")):
+        if 'class="subject-menu"' not in (PROJECT / path).read_text(encoding="utf-8"):
+            continue
+        page.goto(base + path)
+        page.wait_for_load_state("networkidle")
+        link = page.locator(".site-header a.quizzes-link")
+        if link.count() != 1 or not link.is_visible() or link.get_attribute("href") != "quizzes.html" or link.inner_text().strip() != "Quizzes":
+            missing.append(path)
+    record("quizzes: every page has the Quizzes button in its header", not missing, ", ".join(missing))
+    no_errors(page, "quizzes: header button on every page")
+
+    page.goto(base + "index.html")
+    settle(page)
+    card = page.locator(".home-card--quizzes")
+    record("quizzes: home page card with the number of quizzes counted from the files",
+           card.locator("h2").inner_text() == "Quizzes" and card.locator("[data-count='quizzes']").inner_text() == ("%d quiz" % total if total == 1 else "%d quizzes" % total),
+           card.locator("[data-count='quizzes']").inner_text())
+    page.screenshot(path=str(SHOTS / "50-quizzes-home-card.png"), full_page=True)
+    card.locator("a.btn").click()
+    expect(page).to_have_url(re.compile(r"quizzes\.html$"))
+    settle(page)
+    names = page.locator(".quiz-subjects li h2").all_inner_texts()
+    counts = page.locator(".quiz-subjects .card-count").all_inner_texts()
+    expected = []
+    for s in ["arabic", "english", "physics", "chemistry", "biology"]:
+        n = len(files[s]["quizzes"])
+        expected.append("No quizzes yet" if n == 0 else ("1 quiz" if n == 1 else "%d quizzes" % n))
+    record("quizzes: five subject cards (menu order), each with an icon and its own count",
+           names == ["اللغة العربية", "اللغة الإنجليزية", "الفيزياء", "الكيمياء", "الأحياء"] and counts == expected
+           and page.locator(".quiz-subjects li img.card-icon").count() == 5 and page.locator(".quizzes-link[aria-current]").count() == 1,
+           "%s %s" % (names, counts))
+    record("quizzes: page title", page.title() == "Quizzes — Learn for Grade 12", page.title())
+    audit(page, "quizzes page")
+    page.screenshot(path=str(SHOTS / "51-quizzes-subjects.png"), full_page=True)
+
+    for i, s in enumerate(["arabic", "english", "physics", "chemistry", "biology"]):
+        page.goto(base + "quizzes.html")
+        settle(page)
+        page.locator(".quiz-subjects li").nth(i).locator("a.btn").click()
+        expect(page).to_have_url(re.compile(r"quizzes\.html\?subject=%s$" % s))
+        settle(page)
+        if not files[s]["quizzes"]:
+            record("quizzes: %s has no quizzes and says so (nothing invented)" % s,
+                   page.locator(".empty-state h2").inner_text() == "No quizzes available yet — coming soon."
+                   and page.locator(".quiz-card").count() == 0, page.locator("main").inner_text()[:120])
+        else:
+            cards = page.locator(".quiz-card")
+            record("quizzes: %s lists its %d quizzes" % (s, len(files[s]["quizzes"])), cards.count() == len(files[s]["quizzes"]))
+        audit(page, "quizzes of %s" % s)
+    page.goto(base + "quizzes.html?subject=physics")
+    settle(page)
+    card = page.locator(".quiz-card[data-quiz='physics-ch1-quiz-1']")
+    record("quizzes: the physics quiz card shows title, chapter, questions, difficulty, no score yet",
+           card.locator("h3").inner_text() == quiz["title"] and card.locator(".quiz-chapter").inner_text() == quiz["chapter"]
+           and card.locator(".badge").all_inner_texts() == ["10 questions", "Difficulty: Very Hard"]
+           and card.locator(".quiz-last-score").inner_text() == "Not taken yet on this device"
+           and card.locator("a.btn").inner_text() == "Start Quiz", card.inner_text())
+    page.screenshot(path=str(SHOTS / "52-quizzes-physics.png"), full_page=True)
+    no_errors(page, "quizzes: subject pages")
+
+    # Taking the quiz: right answers except questions 2 and 7 (wrong), 5 and 9 left out at first.
+    card.locator("a.btn").click()
+    expect(page).to_have_url(re.compile(r"quiz\.html\?subject=physics&quiz=physics-ch1-quiz-1$"))
+    page.wait_for_selector(".question-form")
+    heading = page.locator(".quiz-progress-text")
+    record("quizzes: question 1 of 10, progress bar, Previous off on the first question",
+           heading.inner_text() == "Question 1 of 10" and page.locator(".quiz-take progress").get_attribute("value") == "1"
+           and page.locator(".quiz-take progress").get_attribute("max") == "10" and page.locator(".quiz-actions .btn").first.is_disabled()
+           and page.locator(".quiz-forward").inner_text() == "Next" and page.locator(".options li").count() == 4)
+    record("quizzes: the question is shown right to left with أ ب ج د and its own text",
+           page.locator(".question-form fieldset").get_attribute("dir") == "rtl"
+           and page.locator(".option-letter").all_inner_texts() == ["أ)", "ب)", "ج)", "د)"]
+           and page.locator(".prompt-text").inner_text().startswith(questions[0]["question"][:20]))
+    record("quizzes: formulas run left to right with real subscripts and superscripts",
+           page.locator(".prompt-text bdi.math[dir='ltr'] sup").first.inner_text() == "-19")
+    plan = {}
+    for n, q in enumerate(questions):
+        plan[n] = None if n in (4, 8) else (q["correctIndex"] + 1) % 4 if n in (1, 6) else q["correctIndex"]
+    for n in range(10):
+        if plan[n] is not None:
+            page.locator(".options label").nth(plan[n]).click()
+        if n == 3:
+            figure = page.locator(".quiz-figure svg")
+            record("quizzes: a question's drawing is shown inline, scaled, described for screen readers",
+                   figure.count() == 1 and figure.get_attribute("role") == "img" and figure.get_attribute("aria-label") == questions[3]["svgAlt"]
+                   and 200 < figure.bounding_box()["width"] <= 480)
+        if n == 1:
+            page.locator(".quiz-actions .btn").first.click()   # Previous
+            record("quizzes: Previous goes back and the answer is still chosen",
+                   heading.inner_text() == "Question 1 of 10" and page.locator(".options input").nth(plan[0]).is_checked())
+            page.locator(".options label").nth((plan[0] + 2) % 4).click()   # change it …
+            page.locator(".options label").nth(plan[0]).click()             # … and back
+            page.locator(".quiz-forward").click()
+            record("quizzes: Next comes back to question 2 with its answer", heading.inner_text() == "Question 2 of 10"
+                   and page.locator(".options input").nth(plan[1]).is_checked())
+        if n < 9:
+            page.locator(".quiz-forward").click()
+    record("quizzes: the last question has Submit", page.locator(".quiz-forward").inner_text() == "Submit"
+           and page.locator(".quiz-answered").inner_text() == "Answered: 8 of 10")
+    page.locator(".quiz-forward").click()
+    warning = page.locator(".quiz-warning")
+    record("quizzes: Submit with unanswered questions warns and names them",
+           warning.is_visible() and "2 questions have not been answered yet." in warning.inner_text() and "5, 9" in warning.inner_text(),
+           warning.inner_text() if warning.count() else "")
+    page.screenshot(path=str(SHOTS / "53-quiz-warning.png"), full_page=True)
+    warning.locator(".btn").first.click()
+    record("quizzes: the warning leads to the first unanswered question", heading.inner_text() == "Question 5 of 10")
+    page.locator(".options label").nth(questions[4]["correctIndex"]).click()
+    plan[4] = questions[4]["correctIndex"]
+    page.locator(".quiz-jump button[data-index='9']").click()
+    record("quizzes: the question numbers jump to any question", heading.inner_text() == "Question 10 of 10")
+    page.locator(".quiz-forward").click()
+    page.locator(".quiz-warning .btn").nth(1).click()   # Submit anyway (question 9 left out)
+    page.wait_for_selector(".quiz-review")
+    right = sum(1 for n, q in enumerate(questions) if plan[n] == q["correctIndex"])
+    record("quizzes: score and percentage", page.locator(".score-number").inner_text() == "%d / 10" % right
+           and page.locator(".quiz-percent").inner_text() == "%d%% correct" % round(right * 10)
+           and page.locator(".score-breakdown li").all_inner_texts() == ["Correct: %d" % right, "Not correct: 2", "Not answered: 1"],
+           page.locator(".quiz-score").inner_text())
+    items = page.locator(".quiz-review > li")
+    ok = items.count() == 10
+    problems = []
+    for n, q in enumerate(questions):
+        item = items.nth(n)
+        outcome = item.locator(".review-outcome").inner_text()
+        want = "— Not answered" if plan[n] is None else "✓ Correct" if plan[n] == q["correctIndex"] else "✗ Wrong"
+        match = item.locator(".option--match")
+        tried = item.locator(".option--tried")
+        if outcome != want: problems.append("%d outcome %s" % (n + 1, outcome))
+        if match.count() != 1 or match.locator(".option-letter").inner_text() != letters[q["correctIndex"]] + ")": problems.append("%d green" % (n + 1))
+        if plan[n] not in (None, q["correctIndex"]) and (tried.count() != 1 or "Your answer" not in tried.inner_text()): problems.append("%d red" % (n + 1))
+        if (plan[n] is None or plan[n] == q["correctIndex"]) and tried.count() != 0: problems.append("%d red extra" % (n + 1))
+        skill = re.sub(r"[_^]\{([^{}]*)\}", r"\1", q["skill"]).replace("`", "")   # V_{B} is shown as V with a small B
+        if skill not in item.locator(".quiz-skill").inner_text(): problems.append("%d skill" % (n + 1))
+        if item.locator(".quiz-steps li").count() != len(q["explanation"]): problems.append("%d steps" % (n + 1))
+        if item.locator(".quiz-why li").count() != 3: problems.append("%d why" % (n + 1))
+        if ("svg" in q) != (item.locator(".quiz-figure svg").count() == 1): problems.append("%d drawing" % (n + 1))
+    record("quizzes: review of every question: your answer, the right one in green, a wrong one in red, skill, steps, why the others are wrong",
+           ok and not problems, ", ".join(problems))
+    record("quizzes: green and red colours", items.nth(1).locator(".option--match .option-row").evaluate("e => getComputedStyle(e).backgroundColor") == "rgb(226, 246, 234)"
+           and items.nth(1).locator(".option--tried .option-row").evaluate("e => getComputedStyle(e).backgroundColor") == "rgb(253, 236, 235)")
+    saved = json.loads(page.evaluate("() => localStorage.getItem('g12-quiz-scores')"))
+    record("quizzes: the last score is saved in this browser (score and date only)",
+           list(saved) == ["physics/physics-ch1-quiz-1"] and saved["physics/physics-ch1-quiz-1"]["score"] == right
+           and sorted(saved["physics/physics-ch1-quiz-1"]) == ["date", "percent", "score", "total"]
+           and page.locator(".quiz-saved").inner_text() == "Your score is saved on this device.", json.dumps(saved))
+    audit(page, "quiz results")
+    page.screenshot(path=str(SHOTS / "54-quiz-results.png"), full_page=True)
+    page.locator(".quiz-score ~ .actions .btn").first.click()   # Retake Quiz
+    record("quizzes: Retake Quiz starts again with no answers",
+           heading.inner_text() == "Question 1 of 10" and page.locator(".options input:checked").count() == 0
+           and page.locator(".quiz-answered").inner_text() == "Answered: 0 of 10")
+    page.locator(".options label").nth(1).click()
+    page.locator(".quiz-forward").click()
+    page.locator(".options label").nth(2).click()
+    page.click(".lang-toggle")
+    page.wait_for_function("document.documentElement.lang === 'ar'")
+    record("quizzes: the language button redraws the question in Arabic and keeps the answers",
+           heading.inner_text() == "السؤال 2 من 10" and page.locator(".options input").nth(2).is_checked()
+           and page.locator(".quiz-answered").inner_text() == "تمت الإجابة: 2 من 10" and page.locator(".quiz-forward").inner_text() == "التالي")
+    audit(page, "Arabic quiz")
+    page.screenshot(path=str(SHOTS / "55-quiz-ar.png"), full_page=True)
+    page.click(".lang-toggle")
+    page.goto(base + "quizzes.html?subject=physics")
+    settle(page)
+    record("quizzes: the quiz card shows the last score", page.locator(".quiz-card .quiz-last-score").inner_text() == "Your last score: %d / 10 (%d%%)" % (right, right * 10),
+           page.locator(".quiz-card .quiz-last-score").inner_text())
+    for path, title in [("quiz.html?subject=physics&quiz=nope", "Quiz not found"), ("quiz.html", "Quiz not found"), ("quizzes.html?subject=nope", "Subject not found")]:
+        page.goto(base + path)
+        page.wait_for_load_state("networkidle")
+        record("quizzes: %s says %s, with a way back" % (path, title), page.locator("h1").inner_text() == title and page.locator(".empty-state a[href='quizzes.html']").count() == 1)
+    no_errors(page, "quizzes: taking the quiz")
+    context.close()
+
+    # A phone: the header buttons, the subjects, a question with a drawing and the results.
+    context = browser.new_context(**PHONE)
+    page = watch(context.new_page())
+    page.goto(base + "quizzes.html")
+    settle(page)
+    box = lambda sel: page.locator(sel).bounding_box()
+    brand, lang, menu, link = box(".brand"), box(".lang-toggle"), box(".subject-menu-button"), box(".quizzes-link")
+    record("quizzes (phone): the name and the language button on the first row, «المواد الدراسية» and Quizzes side by side under them",
+           abs(brand["y"] + brand["height"] / 2 - (lang["y"] + lang["height"] / 2)) < 25 and abs(menu["y"] - link["y"]) < 4
+           and menu["y"] > brand["y"] + brand["height"] - 4 and link["x"] + link["width"] <= 390 and menu["x"] >= 0,
+           "%s %s %s %s" % (brand, lang, menu, link))
+    audit(page, "quizzes page at phone width")
+    page.screenshot(path=str(SHOTS / "56-quizzes-phone.png"), full_page=True)
+    page.goto(base + "quiz.html?subject=physics&quiz=physics-ch1-quiz-1")
+    page.wait_for_selector(".question-form")
+    for n in range(4):
+        page.locator(".options label").nth(questions[n]["correctIndex"]).click()
+        if n < 3:
+            page.locator(".quiz-forward").click()
+    audit(page, "quiz question with a drawing at phone width")
+    page.screenshot(path=str(SHOTS / "57-quiz-phone-q4.png"), full_page=True)
+    page.locator(".quiz-jump button[data-index='9']").click()
+    page.locator(".quiz-forward").click()
+    page.locator(".quiz-warning .btn").nth(1).click()
+    page.wait_for_selector(".quiz-review")
+    record("quizzes (phone): results", page.locator(".score-number").inner_text() == "4 / 10")
+    audit(page, "quiz results at phone width")
+    page.screenshot(path=str(SHOTS / "58-quiz-phone-results.png"), full_page=True)
+    no_errors(page, "quizzes (phone)")
+    context.close()
+
+    # Storage blocked: the quiz still works and says the score could not be saved.
+    context = browser.new_context(viewport={"width": 1280, "height": 900})
+    context.add_init_script("Object.defineProperty(window, 'localStorage', { get() { throw new Error('blocked'); } });")
+    page = watch(context.new_page())
+    page.goto(base + "quiz.html?subject=physics&quiz=physics-ch1-quiz-1")
+    page.wait_for_selector(".question-form")
+    page.locator(".quiz-jump button[data-index='9']").click()
+    page.locator(".quiz-forward").click()
+    page.locator(".quiz-warning .btn").nth(1).click()
+    page.wait_for_selector(".quiz-review")
+    record("quizzes: with storage blocked the quiz works and says the score was not saved",
+           page.locator(".score-number").inner_text() == "0 / 10" and "could not be saved" in page.locator(".quiz-saved").inner_text())
+    no_errors(page, "quizzes with storage blocked")
+    context.close()
+
+    # A quiz file with one broken question: that question is left out, the rest works.
+    broken = json.loads(json.dumps(files["chemistry"]))
+    broken["quizzes"] = [{"id": "test-quiz", "title": "Test quiz", "chapter": "Test chapter", "difficulty": "Easy", "questions": [
+        {"id": "t1", "skill": "Test skill", "question": "Test question one?", "options": ["Test A", "Test B", "Test C", "Test D"], "correctIndex": 0, "explanation": "Test step"},
+        {"id": "t2", "skill": "", "question": "Test question two?", "options": ["Test A", "Test B", "Test C", "Test D"], "correctIndex": 7, "explanation": "Test step"}]}]
+    context = browser.new_context(viewport={"width": 1280, "height": 900})
+    context.route("**/quizzes-chemistry.json*", lambda route: route.fulfill(status=200, content_type="application/json", body=json.dumps(broken)))
+    page = watch(context.new_page())
+    warnings = []
+    page.on("console", lambda m: warnings.append(m.text) if m.type == "warning" and "[quizzes]" in m.text else None)
+    page.goto(base + "quizzes.html?subject=chemistry")
+    settle(page)
+    record("quizzes: a broken question is left out with a notice; the quiz still opens with the good one",
+           page.locator(".quiz-card .badge").first.inner_text() == "1 question" and page.locator(".notice").count() == 1
+           and any('"skill" is missing' in w for w in warnings), "; ".join(warnings))
+    no_errors(page, "quizzes: broken file")
+    context.close()
+
+
 def main():
     real_data = {name: (PROJECT / name).read_bytes() for name, _ in DATA_FILES}
     server, base = start_server()
@@ -2788,6 +3046,7 @@ def main():
         run_section("Physics Chapter 2 lessons, questions and exam", physics_ch2, browser, base)
         run_section("visitor register and founder dashboard", visitor_register, browser, base)
         run_section("dhikr card", dhikr, browser, base)
+        run_section("quizzes", quizzes, browser, base)
         browser.close()
     server.shutdown()
     contrast()
