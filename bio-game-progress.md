@@ -69,8 +69,21 @@ edit those, then run `python3 tools/bio_game/build.py` and `npm test`.
    printing only and never saved), and the album of the people met.
 6. ⏳ Full check against the booklet, desktop + phone, publish, send the link.
 
+## Where it stopped (15 Nov 2026, «وقف»)
+
+Stage 6 was started:
+- done: `npm test` (113 pass) and the site checks pass; the game was played
+  in the browser on desktop and phone for every place (5 places) and for the
+  daily challenge, the exam, the certificate (print) and the album — no
+  console errors, no sideways scrolling;
+- not finished: the page-wide browser checks (`tests/e2e_test.py` sections
+  sources_page, dhikr, navigation, language_switch, arabic_interface,
+  no_review_labels, visitor_register, quizzes) were stopped after 40 checks
+  passed and none failed — run them again to the end;
+- then check the live page after the GitHub Pages deploy and send the owner
+  the direct link: https://abdo098765432110-ux.github.io/grade12-english-/bio-game.html
+
 ## Next step
 
-Stage 6: full check (content against the booklet, desktop + phone, no
-console errors), then send the owner the direct link. Do not add the game to
-the site menus until the owner approves.
+Finish stage 6 (above). Do not add the game to the site menus until the
+owner approves.
