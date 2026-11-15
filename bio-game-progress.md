@@ -43,7 +43,8 @@ direct link, until the owner approves).
 | `bio-game-art-ch1-farm.js` | Chapter 1 farm close-ups (stem cross-section, mimosa, pea tendril, narcissus bulb, the two pulls, tropisms, Elodea cell) |
 | `bio-game.js` | the screens: entrance, shift, case, summary, mastery map |
 | `bio-game-ch1.json` | Chapter 1 content |
-| `bio-game-ch2.json` | Chapter 2 content (empty for now — shows «قريبًا») |
+| `bio-game-art-ch2.js` | Chapter 2 close-ups (glands map, pituitary, thyroid, adrenal, pancreas, blood-sugar chart, calcium, digestive hormones, Starling, lab report, auxin, growth hormone) |
+| `bio-game-ch2.json` | Chapter 2 content |
 | `tests/bio-game.test.js` | content checks + rules (part of `npm test`) |
 
 The content JSON files are generated from the Python files in
@@ -58,15 +59,14 @@ edit those, then run `python3 tools/bio_game/build.py` and `npm test`.
 3. ✅ Chapter 1 — farm: 15 ideas, 54 cases (cuticle / suberin / cellulose /
    lignin, mimosa touch and sleep, tropisms, tendrils, contractile roots,
    Elodea), levels 1–6, with 7 farm drawings.
-4. ⏳ Chapter 2 — hospital (pituitary, thyroid, parathyroid, adrenal,
-   pancreas, testes, GI hormones), lab reports (incl. the female-hormone
-   parts, no female character), farm (auxins, Boysen-Jensen), Starling,
-   hormone properties, gland types; Chapter 2 drawings.
+4. ✅ Chapter 2 — 3 places, 36 ideas, 108 cases: the endocrine clinic (22
+   ideas), the lab (8 ideas: FSH/LH, prolactin, oxytocin, oestrogen,
+   progesterone, relaxin, adrenal sex hormones, sources — lab reports only,
+   no female character), the auxin farm (6 ideas); 12 drawings.
 5. ⏳ Final exam, certificate, patient album, daily challenge.
 6. ⏳ Full check against the booklet, desktop + phone, publish, send the link.
 
 ## Next step
 
-Stage 4: Chapter 2 — write `tools/bio_game/ch2_hospital.py`, `ch2_lab.py`
-and `ch2_farm.py` (tracks for chapter 2), and `bio-game-art-ch2.js`
-(glands, hormone effects, lab reports).
+Stage 5: the final exam (mixed cases from all places), a certificate, the
+patient album (people met, cases solved), and the daily challenge.

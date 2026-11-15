@@ -234,7 +234,7 @@
     root.appendChild(topBar());
 
     var stage = el('div', { className: 'bg-stage' });
-    var wide = art(person ? A.scene({ who: story.who, bg: story.bg || type.bg, mood: story.mood || 'neutral' })
+    var wide = art(person ? A.scene({ who: story.who, bg: story.bg || type.bg, mood: story.mood || 'neutral', signs: story.signs })
       : (story.view ? A.view(story.view, story.opts || {}) : A.scene({ who: 'murad', bg: type.bg })), 'bg-shot is-on');
     stage.appendChild(wide);
     stage.appendChild(el('span', { className: 'bg-chip', text: type.name }));

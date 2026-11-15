@@ -74,6 +74,8 @@
     s.push('<g transform="translate(0,' + (child ? 6 : 0) + ') scale(' + (child ? 0.82 : 1) + ',1)">' + clothes(p, g) + '</g>');
     // neck
     s.push('<path d="M-29,38 C-29,62 -31,78 -35,96 L35,96 C31,78 29,62 29,38 Z" fill="url(#' + g.neck + ')"/>');
+    // a swollen front of the neck (goitre), only when a case asks for it
+    if (p.goiter) s.push('<path d="M-30,70 C-34,58 -20,52 0,56 C20,52 34,58 30,70 C34,86 18,94 0,92 C-18,94 -34,86 -30,70 Z" fill="url(#' + g.neck + ')" stroke="' + skin[2] + '" stroke-width="1.5"/><path d="M-22,84 C-10,90 10,90 22,84" stroke="' + skin[2] + '" stroke-width="1.5" fill="none" opacity="0.6"/>');
     s.push('<path d="M-12,70 C-8,82 -6,90 -8,96 M12,70 C8,82 6,90 8,96" stroke="' + skin[2] + '" stroke-width="1.4" fill="none" opacity="0.15"/>');
     s.push('<path d="M-30,92 C-18,98 18,98 30,92 L32,100 L-32,100 Z" fill="' + skin[2] + '" opacity="0.35"/>');
     s.push('<path d="M-24,50 C-12,62 12,62 24,50 L24,62 C12,72 -12,72 -24,62 Z" fill="' + skin[2] + '" opacity="0.5"/>');
@@ -380,6 +382,7 @@
 
   function scene(options) {
     var p = CAST[options.who] || CAST.karim;
+    if (options.signs) p = Object.assign({}, p, options.signs);   // signs of a disease (eyes, neck)
     var s = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 320" class="bg-art" role="img" aria-label="' + p.name + '، ' + p.role + '">';
     s += background(options.bg || 'clinic');
     s += '<ellipse cx="240" cy="318" rx="150" ry="18" fill="#000" opacity="0.08"/>';
