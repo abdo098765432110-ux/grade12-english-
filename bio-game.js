@@ -131,6 +131,7 @@
     }
     list.forEach(function (t) { places.appendChild(trackCard(t)); });
     root.appendChild(places);
+    root.appendChild(extras());
 
     root.appendChild(el('details', { className: 'bg-help' }, [
       el('summary', { text: 'إزاي تلعب؟' }),
@@ -154,6 +155,32 @@
       ]));
     } }));
     root.appendChild(reset);
+  }
+
+  /* The daily challenge, the final exam and the album. */
+  function extras() {
+    var today = E.dayOf();
+    var d = state.daily || {};
+    var doneToday = d.day === today;
+    var ex = state.exam || {};
+    var met = E.album(idx, state);
+    var metCount = Object.keys(A.CAST).filter(function (k) { return met[k]; }).length;
+    function card(icon, title, text, button, onclick, extra) {
+      return el('article', { className: 'bg-extra' + (extra ? ' ' + extra : '') }, [
+        el('h2', null, [el('span', { 'aria-hidden': 'true', text: icon + ' ' }), title]),
+        el('p', { text: text }),
+        el('button', { type: 'button', className: 'btn btn--secondary', text: button, onclick: onclick })
+      ]);
+    }
+    return el('section', { className: 'bg-extras', 'aria-label': 'تحديات وإضافات' }, [
+      card('📅', 'تحدي اليوم', doneToday
+        ? 'اتعمل النهارده: ' + d.right + ' من ' + d.total + (d.streak > 1 ? ' — سلسلة ' + d.streak + ' أيام ورا بعض 🔥' : '') + '. التحدي الجاي بكرة.'
+        : E.DAILY_SIZE + ' حالات من كل الأماكن، بتتغير كل يوم.' + (d.streak ? ' سلسلتك: ' + d.streak + (d.streak === 1 ? ' يوم' : ' أيام') + '.' : ''),
+        doneToday ? 'اعمله تاني' : 'ابدأ تحدي اليوم', function () { startMixed('daily'); }, 'bg-extra--daily'),
+      card('🎓', 'الامتحان النهائي', E.EXAM_SIZE + ' حالة صعبة (ليفل 3 لـ 6) من الفصلين. ' + E.PASS + '% أو أكتر = شهادة.' + (ex.best !== undefined ? ' أحسن نتيجة ليك: ' + ex.best + '%.' : ''),
+        ex.passed ? 'امتحن تاني' : 'ادخل الامتحان', function () { startMixed('exam'); }, 'bg-extra--exam'),
+      card('📒', 'ألبوم الحالات', 'قابلت ' + metCount + ' من ' + Object.keys(A.CAST).length + ' شخصية في الحالات.', 'افتح الألبوم', showAlbum, 'bg-extra--album')
+    ]);
   }
 
   function trackCard(t) {
@@ -194,14 +221,24 @@
     E.startShift(state);
     var made = E.newShift(idx, state, trackId);
     if (!made.items.length) { showLobby(); return; }
-    shift = { track: trackId, level: made.level, items: made.items, at: 0, results: [],
+    shift = { mode: 'track', track: trackId, level: made.level, items: made.items, at: 0, results: [],
       levelBefore: E.trackProgress(idx, state, trackId) };
     save();
     showCase();
   }
 
+  function startMixed(kind) {
+    E.startShift(state);
+    var made = kind === 'daily' ? E.dailyShift(idx, state, E.dayOf()) : E.examShift(idx, state);
+    if (!made.items.length) { showLobby(); return; }
+    shift = { mode: kind, track: null, level: null, items: made.items, at: 0, results: [] };
+    save();
+    showCase();
+    scrollTop();
+  }
+
   function topBar() {
-    var t = idx.tracks[shift.track];
+    var t = shift.track ? idx.tracks[shift.track] : null;
     var dots = el('ol', { className: 'bg-dots', 'aria-hidden': 'true' });
     shift.items.forEach(function (_, i) {
       var r = shift.results[i];
@@ -210,11 +247,11 @@
     return el('div', { className: 'bg-top' }, [
       el('button', { type: 'button', className: 'bg-exit', text: '✕ خروج', 'aria-label': 'اخرج من الوردية', onclick: showLobby }),
       el('div', { className: 'bg-top-text' }, [
-        el('p', { className: 'bg-top-title' }, [
+        el('p', { className: 'bg-top-title' }, t ? [
           PLACE[t.place].icon + ' ',
           el('span', { className: 'bg-top-track', text: t.name + ' — ' }),
           shift.level ? 'الليفل ' + shift.level + ': ' + E.LEVEL_NAMES[shift.level] : 'مراجعة'
-        ]),
+        ] : [shift.mode === 'daily' ? '📅 تحدي اليوم' : '🎓 الامتحان النهائي']),
         el('p', { className: 'bg-top-count', text: 'حالة ' + (shift.at + 1) + ' من ' + shift.items.length })
       ]),
       dots
@@ -358,6 +395,7 @@
   /* ---------- End of the shift ---------- */
 
   function showSummary() {
+    if (shift.mode !== 'track') { showMixedSummary(); return; }
     var t = idx.tracks[shift.track];
     var right = shift.results.filter(function (r) { return r && r.right; }).length;
     var gained = shift.results.filter(function (r) { return r && r.starsAfter > r.starsBefore; }).length;
@@ -403,6 +441,106 @@
       el('button', { type: 'button', className: 'btn btn--secondary', text: '🗺️ خريطة الإتقان', onclick: showMap })
     ]));
     shift = null;
+    G12.focus(heading);
+  }
+
+  function showMixedSummary() {
+    var right = shift.results.filter(function (r) { return r && r.right; }).length;
+    var total = shift.results.length;
+    var exam = shift.mode === 'exam';
+    var result = exam ? E.finishExam(state, right, total) : E.finishDaily(state, E.dayOf(), right, total);
+    save();
+    var weak = [];
+    shift.results.forEach(function (r) { if (r && !r.right && weak.indexOf(r.idea) === -1) weak.push(r.idea); });
+    G12.clear(root);
+    G12.setTitle('الدكتور والمزارع — ' + (exam ? 'نتيجة الامتحان' : 'نتيجة تحدي اليوم'));
+    var heading = el('h1', { tabindex: '-1', text: exam ? 'نتيجة الامتحان النهائي' : 'خلصت تحدي اليوم!' });
+    var lines = [heading, el('p', { className: 'bg-score' }, [el('bdi', { dir: 'ltr', text: right + ' / ' + total }), ' إجابات صح' + (exam ? ' — ' + result.percent + '%' : '')])];
+    if (exam) {
+      lines.push(el('p', { text: result.passed ? '🎉 مبروك! عديت الامتحان، وتقدر تطلع شهادتك.' : 'محتاج ' + E.PASS + '% علشان الشهادة. راجع الأفكار اللي تحت وارجع امتحن تاني. أحسن نتيجة ليك: ' + result.best + '%.' }));
+    } else {
+      lines.push(el('p', { text: result.streak > 1 ? '🔥 سلسلة ' + result.streak + ' أيام ورا بعض! ارجع بكرة علشان تكمّلها.' : 'ارجع بكرة لتحدي جديد وابدأ سلسلة أيام.' }));
+    }
+    var host = exam ? 'murad' : 'hassan';
+    var box = el('section', { className: 'bg-summary' }, [
+      art(A.scene({ who: host, bg: exam ? 'clinic' : 'farm', mood: right / Math.max(1, total) >= 0.6 ? 'happy' : 'neutral' }), 'bg-art bg-summary-art'),
+      el('div', { className: 'bg-summary-body' }, lines)
+    ]);
+    root.appendChild(box);
+    var body = box.querySelector('.bg-summary-body');
+    if (weak.length) {
+      body.appendChild(el('div', { className: 'bg-weak' }, [
+        el('p', null, [el('strong', { text: 'أفكار محتاجة مراجعة:' })]),
+        el('ul', null, weak.map(function (id) {
+          var idea = idx.ideas[id];
+          return el('li', null, [el('strong', { text: idea.name + ': ' }), idea.note || '']);
+        }))
+      ]));
+    }
+    var actions = [];
+    if (exam && result.passed) actions.push(el('button', { type: 'button', className: 'btn', text: '🎓 اطلع الشهادة', onclick: function () { showCertificate(result.percent); } }));
+    actions.push(el('button', { type: 'button', className: 'btn btn--secondary', text: 'ارجع للمدخل', onclick: showLobby }));
+    actions.push(el('button', { type: 'button', className: 'btn btn--secondary', text: '🗺️ خريطة الإتقان', onclick: showMap }));
+    body.appendChild(el('div', { className: 'actions' }, actions));
+    shift = null;
+    G12.focus(heading);
+  }
+
+  /* ---------- The certificate (the name is typed for printing only; it is not saved) ---------- */
+
+  function showCertificate(percent) {
+    G12.clear(root);
+    G12.setTitle('الدكتور والمزارع — الشهادة');
+    var all = E.overall(idx, state);
+    var nameOut = el('p', { className: 'bg-cert-name', text: '..................' });
+    var input = el('input', { type: 'text', id: 'bg-cert-input', maxlength: '40', autocomplete: 'off', placeholder: 'اكتب اسمك هنا' });
+    input.addEventListener('input', function () { nameOut.textContent = input.value.trim() || '..................'; });
+    var heading = el('h1', { tabindex: '-1', className: 'bg-cert-title', text: 'شهادة إتقان' });
+    var d = new Date();
+    root.appendChild(el('div', { className: 'bg-cert-tools' }, [
+      el('label', { for: 'bg-cert-input', text: 'اسمك على الشهادة (مش بيتحفظ في أي مكان):' }),
+      input,
+      el('div', { className: 'actions' }, [
+        el('button', { type: 'button', className: 'btn', text: '🖨️ اطبع الشهادة', onclick: function () { window.print(); } }),
+        el('button', { type: 'button', className: 'btn btn--secondary', text: 'ارجع للمدخل', onclick: showLobby })
+      ])
+    ]));
+    root.appendChild(el('section', { className: 'bg-cert' }, [
+      art(A.scene({ who: 'murad', bg: 'clinic', mood: 'happy' }) + A.scene({ who: 'abdelrahman', bg: 'farm', mood: 'happy' }), 'bg-art bg-hero-pair bg-cert-art'),
+      heading,
+      el('p', { text: 'لعبة «الدكتور والمزارع» — أحياء تالتة ثانوي' }),
+      el('p', { text: 'بنشهد إن' }),
+      nameOut,
+      el('p', { text: 'عدّى الامتحان النهائي بنسبة ' + percent + '%، في الدعامة والحركة والتنسيق الهرموني، واتفرم عنده ' + all.mastered + ' فكرة من ' + all.ideas + '.' }),
+      el('p', { className: 'bg-cert-date', text: 'التاريخ: ' + d.getDate() + ' / ' + (d.getMonth() + 1) + ' / ' + d.getFullYear() }),
+      el('p', { className: 'bg-cert-sign', text: 'د. مراد (رئيس القسم) — الحاج عبد الرحمن (شيخ المزارعين)' })
+    ]));
+    G12.focus(heading);
+  }
+
+  /* ---------- The album of the people met ---------- */
+
+  function showAlbum() {
+    shift = null;
+    G12.clear(root);
+    G12.setTitle('الدكتور والمزارع — ألبوم الحالات');
+    var met = E.album(idx, state);
+    var heading = el('h1', { tabindex: '-1', text: '📒 ألبوم الحالات' });
+    root.appendChild(el('div', { className: 'bg-map-head' }, [
+      heading,
+      el('p', { text: 'كل الناس اللي قابلتهم في الحالات. اللي لسه رمادي ما قابلتوش؛ كمّل الورديات وهتقابلهم.' }),
+      el('button', { type: 'button', className: 'btn btn--secondary', text: '← ارجع للمدخل', onclick: showLobby })
+    ]));
+    var bgs = { abdelrahman: 'farm', hassan: 'farm', ramadan: 'farm', mahmoud: 'lab' };
+    root.appendChild(el('ul', { className: 'bg-album' }, Object.keys(A.CAST).map(function (k) {
+      var p = A.CAST[k];
+      var m = met[k];
+      return el('li', { className: 'bg-album-card' + (m ? '' : ' is-locked') }, [
+        art(A.scene({ who: k, bg: bgs[k] || 'clinic', mood: m ? 'happy' : 'neutral' }), 'bg-art'),
+        el('p', { className: 'bg-album-name' }, [el('strong', { text: m ? p.name : '؟؟؟' }), m ? ' · ' + p.role : '']),
+        el('p', { className: 'bg-album-count', text: m ? 'حليت معاه ' + m.right + ' من ' + m.cases + (m.cases === 1 ? ' حالة' : ' حالات') : 'لسه ما قابلتوش' })
+      ]);
+    })));
     G12.focus(heading);
   }
 

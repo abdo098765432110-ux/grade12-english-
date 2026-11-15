@@ -63,10 +63,14 @@ edit those, then run `python3 tools/bio_game/build.py` and `npm test`.
    ideas), the lab (8 ideas: FSH/LH, prolactin, oxytocin, oestrogen,
    progesterone, relaxin, adrenal sex hormones, sources — lab reports only,
    no female character), the auxin farm (6 ideas); 12 drawings.
-5. ⏳ Final exam, certificate, patient album, daily challenge.
+5. ✅ Extras on the entrance: the daily challenge (5 mixed cases, the same
+   all day, with a streak of days), the final exam (20 cases of levels 3–6
+   from every place; 85% → a printable certificate — the name is typed for
+   printing only and never saved), and the album of the people met.
 6. ⏳ Full check against the booklet, desktop + phone, publish, send the link.
 
 ## Next step
 
-Stage 5: the final exam (mixed cases from all places), a certificate, the
-patient album (people met, cases solved), and the daily challenge.
+Stage 6: full check (content against the booklet, desktop + phone, no
+console errors), then send the owner the direct link. Do not add the game to
+the site menus until the owner approves.

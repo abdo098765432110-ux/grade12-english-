@@ -460,6 +460,67 @@
 
 .bg-stars { color: #e3a008; letter-spacing: 1px; font-size: 1.05rem; }
 
+/* ---------- Daily challenge, final exam, album, certificate ---------- */
+
+.bg-extras {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+  gap: 1rem;
+  margin: 1.25rem 0;
+}
+.bg-extra {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 1rem 1.15rem;
+  border: 2px solid var(--sun-edge);
+  border-radius: var(--radius-lg);
+  background: var(--sun);
+  box-shadow: var(--shadow);
+}
+.bg-extra--exam { border-color: var(--lavender-edge); background: var(--lavender); }
+.bg-extra--album { border-color: var(--mint-edge); background: var(--mint); }
+.bg-extra h2 { margin: 0; font-size: 1.2rem; }
+.bg-extra p { margin: 0; flex: 1; }
+.bg-extra .btn { align-self: flex-start; }
+
+.bg-album {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 13rem), 1fr));
+  gap: 0.9rem;
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+.bg-album-card {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+.bg-album-card p { margin: 0.3rem 0.8rem; }
+.bg-album-card p:last-child { margin-bottom: 0.7rem; color: var(--color-muted); font-size: 0.92rem; }
+.bg-album-card.is-locked .bg-art { filter: grayscale(1) brightness(0.55) blur(2px); }
+
+.bg-cert-tools { max-width: 46rem; margin: 1.25rem auto 1rem; display: grid; gap: 0.5rem; }
+.bg-cert-tools input { font: inherit; padding: 0.55rem 0.8rem; border: 1px solid var(--color-border); border-radius: var(--radius); }
+.bg-cert {
+  max-width: 46rem;
+  margin: 0 auto 2rem;
+  padding: 1.5rem 1.75rem 1.75rem;
+  border: 6px double var(--sun-edge);
+  border-radius: var(--radius-xl);
+  background: linear-gradient(160deg, #fffdf4, var(--sun) 140%);
+  text-align: center;
+  box-shadow: var(--shadow);
+}
+.bg-cert p { margin: 0.35rem 0; }
+.bg-cert-art { max-width: 26rem; margin: 0 auto 0.75rem; }
+.bg-cert-title { margin: 0.25rem 0; font-size: 2rem; color: var(--sun-ink); }
+.bg-cert-name { font-size: 1.6rem; font-weight: 800; color: var(--sky-ink); border-bottom: 2px dashed var(--sun-edge); display: inline-block; min-width: 14rem; padding: 0 1rem 0.2rem; }
+.bg-cert-date, .bg-cert-sign { color: var(--color-muted); font-size: 0.95rem; }
+
 /* ---------- Phones ---------- */
 
 @media (max-width: 44rem) {
@@ -484,4 +545,8 @@
 
 @media print {
   .bg-top, .bg-exit, .bg-reset { display: none; }
+  /* printing the certificate: only the certificate */
+  body:has(.bg-cert) * { visibility: hidden; }
+  body:has(.bg-cert) .bg-cert, body:has(.bg-cert) .bg-cert * { visibility: visible; }
+  body:has(.bg-cert) .bg-cert { position: absolute; inset: 0 0 auto 0; margin: 0 auto; box-shadow: none; }
 }

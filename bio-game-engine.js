@@ -174,7 +174,7 @@
   /* ---------- Progress ---------- */
 
   function emptyState() {
-    return { v: 1, shift: 0, ideas: {}, cases: {}, cleared: {}, done: {}, answers: 0, right: 0 };
+    return { v: 1, shift: 0, ideas: {}, cases: {}, cleared: {}, done: {}, answers: 0, right: 0, daily: {}, exam: {} };
   }
 
   function storage(store) {
@@ -415,8 +415,111 @@
     return { right: right, starsBefore: before, starsAfter: idea.stars, clearedNow: clearedNow, idea: c.idea };
   }
 
+  /* ---------- The daily challenge, the final exam, the album ---------- */
+
+  var DAILY_SIZE = 5;
+  var EXAM_SIZE = 20;
+  var PASS = 85;   // percent for the certificate
+
+  function pad(n) { return (n < 10 ? '0' : '') + n; }
+
+  function dayOf(date) {
+    var d = date || new Date();
+    return d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate());
+  }
+
+  function seedOf(text) {
+    var h = 2166136261;
+    for (var i = 0; i < text.length; i++) { h ^= text.charCodeAt(i); h = Math.imul(h, 16777619); }
+    return h >>> 0;
+  }
+
+  /* Cases from several places, one per idea, taking turns between the places. */
+  function mixedShift(idx, state, cases, size, random, kind) {
+    var byTrack = {};
+    cases.forEach(function (c) { (byTrack[c.track] = byTrack[c.track] || []).push(c); });
+    var tracks = shuffle(Object.keys(byTrack), random);
+    tracks.forEach(function (t) { byTrack[t] = shuffle(byTrack[t], random); });
+    var picked = [];
+    var used = {};
+    var moved = true;
+    while (picked.length < size && moved) {
+      moved = false;
+      tracks.forEach(function (t) {
+        if (picked.length >= size) return;
+        var list = byTrack[t];
+        while (list.length && used[list[0].idea]) list.shift();
+        if (list.length) {
+          var c = list.shift();
+          used[c.idea] = true;
+          picked.push(c);
+          moved = true;
+        }
+      });
+    }
+    return { kind: kind, track: null, level: null, items: shuffle(picked, random).map(function (c) { return present(c, state, random); }) };
+  }
+
+  /* The same 5 cases all day: from the levels the student has reached in every place. */
+  function dailyShift(idx, state, day) {
+    var random = rng(seedOf('daily-' + (day || dayOf())));
+    var cases = idx.content.cases.filter(function (c) {
+      var level = currentLevel(idx, state, c.track);
+      return level === null || c.level <= level;
+    });
+    return mixedShift(idx, state, cases, DAILY_SIZE, random, 'daily');
+  }
+
+  /* 20 harder cases (levels 3 to 6) from every place of both chapters. */
+  function examShift(idx, state, seed) {
+    var random = rng(seed === undefined ? Date.now() : seed);
+    var cases = idx.content.cases.filter(function (c) { return c.level >= 3; });
+    return mixedShift(idx, state, cases, EXAM_SIZE, random, 'exam');
+  }
+
+  function finishDaily(state, day, right, total) {
+    day = day || dayOf();
+    var before = state.daily || {};
+    var yesterday = dayOf(new Date(new Date(day + 'T12:00:00').getTime() - 864e5));
+    var streak = before.day === day ? (before.streak || 1) : (before.day === yesterday ? (before.streak || 0) + 1 : 1);
+    state.daily = { day: day, right: right, total: total, streak: streak };
+    return state.daily;
+  }
+
+  function finishExam(state, right, total) {
+    var percent = total ? Math.round((right / total) * 100) : 0;
+    var before = state.exam || {};
+    state.exam = { last: percent, best: Math.max(before.best || 0, percent), passed: !!before.passed || percent >= PASS };
+    return { percent: percent, passed: percent >= PASS, best: state.exam.best };
+  }
+
+  /* The people the student has met (in cases already answered) and how many cases with each. */
+  function album(idx, state) {
+    var met = {};
+    Object.keys(state.cases).forEach(function (id) {
+      var c = idx.cases[id];
+      var r = state.cases[id];
+      if (!c || !r || !r.seen) return;
+      var story = c.stories[r.story] || c.stories[0];
+      if (!story || !story.who) return;
+      met[story.who] = met[story.who] || { cases: 0, right: 0 };
+      met[story.who].cases += 1;
+      if (r.right) met[story.who].right += 1;
+    });
+    return met;
+  }
+
   return {
     KEY: KEY,
+    DAILY_SIZE: DAILY_SIZE,
+    EXAM_SIZE: EXAM_SIZE,
+    PASS: PASS,
+    dayOf: dayOf,
+    dailyShift: dailyShift,
+    examShift: examShift,
+    finishDaily: finishDaily,
+    finishExam: finishExam,
+    album: album,
     SHIFT_SIZE: SHIFT_SIZE,
     MAX_STARS: MAX_STARS,
     LEVEL_NAMES: LEVEL_NAMES,

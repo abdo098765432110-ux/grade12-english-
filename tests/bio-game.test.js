@@ -223,7 +223,59 @@ test('the saved progress has numbers about ideas and cases only, nothing about t
   const state = E.emptyState();
   E.startShift(state);
   E.answer(idx, state, { caseId: 'a1', story: 0 }, true);
-  assert.deepEqual(Object.keys(state).sort(), ['answers', 'cases', 'cleared', 'done', 'ideas', 'right', 'shift', 'v']);
+  E.finishDaily(state, '2026-11-15', 4, 5);
+  E.finishExam(state, 17, 20);
+  assert.deepEqual(Object.keys(state).sort(), ['answers', 'cases', 'cleared', 'daily', 'done', 'exam', 'ideas', 'right', 'shift', 'v']);
+  assert.deepEqual(Object.keys(state.daily).sort(), ['day', 'right', 'streak', 'total']);
+  assert.deepEqual(Object.keys(state.exam).sort(), ['best', 'last', 'passed']);
+});
+
+test('the daily challenge: the same cases all day, from several places, one per idea; the streak counts days in a row', () => {
+  const idx = E.index(realContent());
+  const state = E.emptyState();
+  const a = E.dailyShift(idx, state, '2026-11-15').items.map((i) => i.caseId);
+  const b = E.dailyShift(idx, state, '2026-11-15').items.map((i) => i.caseId);
+  const c = E.dailyShift(idx, state, '2026-11-16').items.map((i) => i.caseId);
+  assert.deepEqual(a.slice().sort(), b.slice().sort());
+  assert.notDeepEqual(a.slice().sort(), c.slice().sort());
+  assert.equal(a.length, E.DAILY_SIZE);
+  assert.equal(new Set(a.map((id) => idx.cases[id].idea)).size, a.length);
+  assert.ok(new Set(a.map((id) => idx.cases[id].track)).size >= 2);
+  assert.equal(E.finishDaily(state, '2026-11-15', 3, 5).streak, 1);
+  assert.equal(E.finishDaily(state, '2026-11-15', 5, 5).streak, 1, 'again the same day');
+  assert.equal(E.finishDaily(state, '2026-11-16', 4, 5).streak, 2);
+  assert.equal(E.finishDaily(state, '2026-11-18', 4, 5).streak, 1, 'a day was missed');
+});
+
+test('the final exam: 20 cases of levels 3 to 6 from every place; 85% or more passes and is remembered', () => {
+  const idx = E.index(realContent());
+  const state = E.emptyState();
+  const exam = E.examShift(idx, state, 7);
+  assert.equal(exam.items.length, E.EXAM_SIZE);
+  assert.ok(exam.items.every((i) => idx.cases[i.caseId].level >= 3));
+  assert.equal(new Set(exam.items.map((i) => idx.cases[i.caseId].idea)).size, E.EXAM_SIZE);
+  assert.equal(new Set(exam.items.map((i) => idx.cases[i.caseId].track)).size, idx.content.tracks.length);
+  assert.deepEqual(E.finishExam(state, 16, 20), { percent: 80, passed: false, best: 80 });
+  assert.deepEqual(E.finishExam(state, 18, 20), { percent: 90, passed: true, best: 90 });
+  E.finishExam(state, 10, 20);
+  assert.equal(state.exam.best, 90);
+  assert.equal(state.exam.passed, true);
+});
+
+test('the album counts the people met in answered cases', () => {
+  const idx = E.index(testContent());
+  const state = E.emptyState();
+  E.startShift(state);
+  E.answer(idx, state, { caseId: 'a1', story: 1 }, true);
+  E.answer(idx, state, { caseId: 'b1', story: 1 }, false);
+  E.answer(idx, state, { caseId: 'a2', story: 0 }, true);
+  assert.deepEqual(E.album(idx, state), { ziad: { cases: 2, right: 1 }, murad: { cases: 1, right: 1 } });
+});
+
+test('no female character in the cast', () => {
+  const A = loadArt();
+  const roles = Object.keys(A.CAST).map((k) => A.CAST[k].name + ' ' + A.CAST[k].role);
+  roles.forEach((r) => assert.doesNotMatch(r, /(دكتورة|مدرسة|ممرضة|ست |بنت|طالبة|مزارعة|أم |أخت)/, r));
 });
 
 test('broken content is reported, not used', () => {
