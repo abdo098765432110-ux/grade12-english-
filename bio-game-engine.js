@@ -22,7 +22,7 @@
      - a wrong answer takes a star away and brings the idea back soon; the
        star can be won back later from another case;
      - a level is passed when every idea of the level was answered right at
-       that level.
+       that level; all levels are open, the student picks any of them.
 
    Progress is kept in this browser only (localStorage "g12-bio-game"):
    numbers about ideas and cases, nothing about the student.
@@ -304,12 +304,15 @@
     return { caseId: c.id, story: story, choices: choices };
   }
 
-  /* A shift: up to 5 cases from the current level (ideas not passed first,
-     the ones answered wrong before all others) and one case for review from
-     an earlier level when there is one. After the last level: review only. */
-  function newShift(idx, state, trackId, seed) {
+  /* A shift: up to 5 cases from one level (ideas not passed first, the ones
+     answered wrong before all others) and one case for review from an earlier
+     level when there is one. The student chooses the level freely ("chosen":
+     a level number, or 'review' for the ideas with the fewest stars); without
+     a choice it is the first level not passed yet, and review after the last. */
+  function newShift(idx, state, trackId, seed, chosen) {
     var random = rng(seed);
-    var level = currentLevel(idx, state, trackId);
+    var levels = idx.levels[trackId] || [];
+    var level = chosen === 'review' ? null : (levels.indexOf(chosen) > -1 ? chosen : currentLevel(idx, state, trackId));
     var all = idx.content.cases.filter(function (c) { return c.track === trackId; });
     var picked = [];
     var usedIdeas = {};

@@ -1580,6 +1580,9 @@ def biology_bank(browser, base):
            and response.body()[:5] == b"%PDF-" and len(reader.pages) <= 20 and a4,
            "%s %s, %d pages, A4 %s" % (response.status, response.headers.get("content-type"), len(reader.pages), a4))
     audit(page, "biology page with the revision booklet")
+    game = page.locator("#biology-game a.btn")
+    record("biology page: the game «الدكتور والمزارع» card links to bio-game.html",
+           page.locator("#biology-game").is_visible() and game.get_attribute("href") == "bio-game.html", str(game.get_attribute("href")))
     page.goto(base + "biology.html?chapter=chapter-1")
     page.wait_for_selector(".subject-cards .card")
     record("biology booklet: not shown on a chapter page", not page.locator("#biology-revision-booklet").is_visible())

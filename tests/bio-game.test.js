@@ -172,6 +172,19 @@ test('a level is passed when every idea of it was answered right at that level; 
   assert.equal(p.rank, E.RANKS.hospital[1]);
 });
 
+test('every level is open: the student can start at any level, or a review', () => {
+  const idx = E.index(testContent());
+  const state = E.emptyState();
+  E.startShift(state);
+  const shift = E.newShift(idx, state, 't', 4, 2);
+  assert.equal(shift.level, 2, 'level 2 chosen before level 1 is passed');
+  assert.ok(shift.items.some((item) => idx.cases[item.caseId].level === 2));
+  const review = E.newShift(idx, state, 't', 4, 'review');
+  assert.equal(review.level, null);
+  assert.ok(review.items.length > 0);
+  assert.equal(E.newShift(idx, state, 't', 4, 9).level, 1, 'a level that does not exist falls back to the first open one');
+});
+
 test('a wrong idea comes first in the next shift', () => {
   const idx = E.index(testContent());
   const state = E.emptyState();

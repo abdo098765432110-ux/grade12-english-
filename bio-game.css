@@ -153,7 +153,30 @@
   font-size: 0.78rem;
   color: var(--color-muted);
   text-align: center;
+  /* every level is a button the student can pick */
+  padding: 0.3rem 0.1rem;
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+  background: none;
+  font-family: inherit;
+  cursor: pointer;
 }
+.bg-path-step:hover { background: #f4f7fc; border-color: var(--color-border); }
+.bg-path-step:focus-visible { outline: 3px solid var(--sky-edge); outline-offset: 2px; }
+.bg-path-step.is-now { background: #fffbea; border-color: var(--sun-edge); }
+.bg-path-review .bg-path-dot { font-size: 0.95rem; }
+.bg-path-hint { margin: 0.35rem 0 0; font-size: 0.9rem; color: var(--color-muted); }
+
+.bg-level-info {
+  margin: 0.25rem 0 0.4rem;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid var(--sun-edge);
+  border-radius: var(--radius);
+  background: #fffbea;
+}
+.bg-level-info p { margin: 0.1rem 0; }
+.bg-level-title { font-weight: 800; color: var(--sun-ink); }
+.bg-level-count { font-size: 0.9rem; color: var(--color-muted); }
 
 .bg-path-dot {
   display: grid;
@@ -169,7 +192,6 @@
 .bg-path-step.is-done .bg-path-dot { background: #c9f0db; border-color: #6cc596; color: var(--color-success); }
 .bg-path-step.is-now .bg-path-dot { background: var(--sun); border-color: var(--sun-edge); color: var(--sun-ink); transform: scale(1.12); }
 .bg-path-step.is-now { color: var(--color-text); font-weight: 700; }
-.bg-path-step.is-locked { opacity: 0.6; }
 .bg-path-name { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }
 
 .bg-soon { padding: 1rem; border-radius: var(--radius); background: var(--color-info-bg); }

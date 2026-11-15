@@ -3,8 +3,9 @@
 This file says where the work on the Biology game stopped, so it can be
 continued later from the same point ("كمّل اللعبة").
 
-Page: `bio-game.html` (not linked from the site menus yet — only by its
-direct link, until the owner approves).
+Page: `bio-game.html`, linked from the first step of the Biology page
+(`biology.html`, the card «لعبة الدكتور والمزارع») — the owner approved
+publishing it on 15 Nov 2026.
 
 ## What the game is
 
@@ -15,7 +16,9 @@ direct link, until the owner approves).
   emergencies, follow-ups, patients asking "why") and the **farm** (plant
   problems, the farmer's decisions, "healthy plant" traps, the microscope,
   experiments, comparisons).
-- Levels 1–6 in every place: تعرّف، وظيفة، حالة، فرّق، لو حصل…، اربط.
+- Levels 1–6 in every place: تعرّف، وظيفة، حالة، فرّق، لو حصل…، اربط — all
+  open: the student picks any level (or «مراجعة») and sees a short description
+  of it (the owner's request, 15 Nov 2026).
 - Mastery: 3 stars per idea, at most one star per idea in a shift, never
   twice in a row from the same case; a wrong answer takes a star away and
   brings the idea back with another story. Mastery map (green / red).
@@ -67,23 +70,12 @@ edit those, then run `python3 tools/bio_game/build.py` and `npm test`.
    all day, with a streak of days), the final exam (20 cases of levels 3–6
    from every place; 85% → a printable certificate — the name is typed for
    printing only and never saved), and the album of the people met.
-6. ⏳ Full check against the booklet, desktop + phone, publish, send the link.
+6. ✅ Checks on desktop + phone, published and linked from the Biology page.
 
-## Where it stopped (15 Nov 2026, «وقف»)
+## Status
 
-Stage 6 was started:
-- done: `npm test` (113 pass) and the site checks pass; the game was played
-  in the browser on desktop and phone for every place (5 places) and for the
-  daily challenge, the exam, the certificate (print) and the album — no
-  console errors, no sideways scrolling;
-- not finished: the page-wide browser checks (`tests/e2e_test.py` sections
-  sources_page, dhikr, navigation, language_switch, arabic_interface,
-  no_review_labels, visitor_register, quizzes) were stopped after 40 checks
-  passed and none failed — run them again to the end;
-- then check the live page after the GitHub Pages deploy and send the owner
-  the direct link: https://abdo098765432110-ux.github.io/grade12-english-/bio-game.html
+All 6 stages are done. 15 Nov 2026: every level is open (the student picks
+any level, with a short description of each), and the game is published on
+the site, linked from the Biology page.
 
-## Next step
-
-Finish stage 6 (above). Do not add the game to the site menus until the
-owner approves.
+Ideas for later (only if the owner asks): more cases per idea, more drawings.

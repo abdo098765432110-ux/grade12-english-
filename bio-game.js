@@ -141,7 +141,7 @@
         el('li', { text: 'بعد كل إجابة هتشوف الشرح من الكتاب، والجزء مرسوم ومتوضح عليه.' }),
         el('li', { text: 'كل فكرة ليها 3 نجوم. النجمة بتيجي لما تجاوب صح على شكل جديد من الفكرة، ونجمة واحدة بس لكل فكرة في الوردية، فالنجمة التالتة دايمًا في وردية تانية.' }),
         el('li', { text: 'الإجابة الغلط بتشيل نجمة، والفكرة بترجعلك تاني بحكاية مختلفة لحد ما تتقنها.' }),
-        el('li', { text: 'الليفل بيخلص لما تجاوب صح على كل أفكاره، وساعتها رتبتك بتعلى والليفل اللي بعده يتفتح.' })
+        el('li', { text: 'كل الليفلات مفتوحة: اختار الليفل اللي تحبه (من 1 السهل لـ 6 الصعب) أو «مراجعة». الليفل بيخلص لما تجاوب صح على كل أفكاره، وكل ما تخلّص ليفلات رتبتك بتعلى.' })
       ])
     ]));
 
@@ -183,48 +183,94 @@
     ]);
   }
 
+  /* A simple description of every level, shown when the student picks it. */
+  var LEVEL_INFO = {
+    1: 'أسئلة سهلة: اسم الجزء أو المادة ومكانها وأول المعلومة. ابدأ منه لو أول مرة تذاكر الفكرة.',
+    2: 'الجزء ده بيعمل إيه ولازمته إيه؟ أسئلة على الوظايف.',
+    3: 'قدامك مريض أو زرعة بأعراض، وانت تشخّص من الكتاب.',
+    4: 'حاجتين شبه بعض وبيتلخبطوا: تعرف الفرق بينهم.',
+    5: 'لو حاجة اتشالت أو زادت أو قلّت: تتوقع اللي هيحصل وتعلّل.',
+    6: 'أسئلة بتجمع أكتر من فكرة، زي الأسئلة الصعبة في الامتحان.'
+  };
+  var picked = {};   // the level each place is set to (this visit only)
+
   function trackCard(t) {
     var place = PLACE[t.place];
     var pr = E.trackProgress(idx, state, t.id);
-    var path = el('ol', { className: 'bg-path', 'aria-label': 'الليفلات' });
+    var sel = picked[t.id] !== undefined ? picked[t.id] : (pr.done ? 'review' : pr.level);
+    var card;
+    function pick(level) {
+      picked[t.id] = level;
+      var fresh = trackCard(t);
+      card.parentNode.replaceChild(fresh, card);
+      var again = fresh.querySelector('[data-level="' + level + '"]');
+      if (again) again.focus();
+    }
+    var path = el('div', { className: 'bg-path', role: 'group', 'aria-label': 'اختار الليفل اللي تحبه' });
     pr.levels.forEach(function (level) {
       var done = E.levelCleared(idx, state, t.id, level);
-      var now = level === pr.level;
-      path.appendChild(el('li', { className: 'bg-path-step' + (done ? ' is-done' : '') + (now ? ' is-now' : '') + (!done && !now ? ' is-locked' : ''),
-        'aria-current': now ? 'step' : null }, [
+      var on = sel === level;
+      path.appendChild(el('button', { type: 'button', className: 'bg-path-step' + (done ? ' is-done' : '') + (on ? ' is-now' : ''),
+        'aria-pressed': String(on), 'data-level': String(level), title: 'الليفل ' + level + ': ' + E.LEVEL_NAMES[level] + ' — ' + E.LEVEL_HINTS[level],
+        onclick: function () { pick(level); } }, [
         el('span', { className: 'bg-path-dot', 'aria-hidden': 'true', text: done ? '✓' : String(level) }),
         el('span', { className: 'bg-path-name', text: E.LEVEL_NAMES[level] })
       ]));
     });
-    var status = pr.done
-      ? 'خلّصت كل الليفلات! الورديات دلوقتي مراجعة للأفكار اللي لسه ناقصها نجوم.'
-      : 'الليفل ' + pr.level + ' (' + E.LEVEL_NAMES[pr.level] + ': ' + E.LEVEL_HINTS[pr.level] + ') — خلّصت ' + pr.levelCleared + ' من ' + pr.levelIdeas + ' أفكار.';
+    var onReview = sel === 'review';
+    path.appendChild(el('button', { type: 'button', className: 'bg-path-step bg-path-review' + (onReview ? ' is-now' : ''),
+      'aria-pressed': String(onReview), 'data-level': 'review', title: 'مراجعة: الأفكار اللي نجومها أقل', onclick: function () { pick('review'); } }, [
+      el('span', { className: 'bg-path-dot', 'aria-hidden': 'true', text: '🔁' }),
+      el('span', { className: 'bg-path-name', text: 'مراجعة' })
+    ]));
+    var info;
+    if (onReview) {
+      info = el('div', { className: 'bg-level-info', role: 'status' }, [
+        el('p', { className: 'bg-level-title', text: '🔁 مراجعة' }),
+        el('p', { text: 'أفكار من كل الليفلات، واللي نجومها أقل بتيجي الأول. مناسبة قبل الامتحان.' })
+      ]);
+    } else {
+      var all = E.levelIdeas(idx, t.id, sel);
+      var cleared = all.filter(function (id) { return E.isCleared(state, t.id, sel, id); }).length;
+      info = el('div', { className: 'bg-level-info', role: 'status' }, [
+        el('p', { className: 'bg-level-title', text: 'الليفل ' + sel + ': ' + E.LEVEL_NAMES[sel] + (cleared === all.length && all.length ? ' ✓' : '') }),
+        el('p', { text: LEVEL_INFO[sel] || E.LEVEL_HINTS[sel] }),
+        el('p', { className: 'bg-level-count', text: 'جاوبت صح على ' + cleared + ' من ' + all.length + ' أفكار في الليفل ده.' })
+      ]);
+    }
     var host = t.host || place.host;
-    return el('article', { className: 'bg-place bg-place--' + t.place, 'data-track': t.id }, [
+    card = el('article', { className: 'bg-place bg-place--' + t.place, 'data-track': t.id }, [
       art(A.scene({ who: host, bg: t.bg || place.bg, mood: 'happy' }), 'bg-art bg-place-art'),
       el('div', { className: 'bg-place-body' }, [
         el('h2', null, [el('span', { 'aria-hidden': 'true', text: place.icon + ' ' }), t.name]),
         el('p', { className: 'bg-place-desc', text: t.description || '' }),
         el('p', { className: 'bg-rank' }, ['رتبتك: ', el('strong', { text: pr.rank })]),
+        el('p', { className: 'bg-path-hint', text: 'اختار أي ليفل تحبه (مش لازم بالترتيب):' }),
         path,
-        el('p', { className: 'bg-status', text: status }),
+        info,
         meter(pr.percent, 'إتقان ' + pr.percent + '%'),
         el('p', { className: 'bg-meter-text', text: 'الإتقان: ' + pr.percent + '% (' + pr.mastered + ' من ' + pr.ideas + ' فكرة بـ 3 نجوم)' }),
-        el('button', { type: 'button', className: 'btn bg-start', text: pr.done ? 'وردية مراجعة' : (state.answers ? 'ابدأ وردية جديدة' : 'ابدأ أول وردية'), onclick: function () { startShift(t.id); } })
+        el('button', { type: 'button', className: 'btn bg-start', text: onReview ? 'ابدأ وردية مراجعة' : 'ابدأ وردية الليفل ' + sel + ' (' + E.LEVEL_NAMES[sel] + ')', onclick: function () { startShift(t.id, sel); } })
       ])
     ]);
+    return card;
   }
 
   /* ---------- A shift ---------- */
 
-  function startShift(trackId) {
+  function clearedLevels(trackId) {
+    return (idx.levels[trackId] || []).filter(function (l) { return E.levelCleared(idx, state, trackId, l); });
+  }
+
+  function startShift(trackId, chosen) {
     E.startShift(state);
-    var made = E.newShift(idx, state, trackId);
+    var made = E.newShift(idx, state, trackId, undefined, chosen);
     if (!made.items.length) { showLobby(); return; }
-    shift = { mode: 'track', track: trackId, level: made.level, items: made.items, at: 0, results: [],
-      levelBefore: E.trackProgress(idx, state, trackId) };
+    shift = { mode: 'track', track: trackId, level: made.level, chosen: chosen, items: made.items, at: 0, results: [],
+      clearedBefore: clearedLevels(trackId) };
     save();
     showCase();
+    scrollTop();
   }
 
   function startMixed(kind) {
@@ -396,11 +442,12 @@
 
   function showSummary() {
     if (shift.mode !== 'track') { showMixedSummary(); return; }
+    var shift0 = shift;
     var t = idx.tracks[shift.track];
     var right = shift.results.filter(function (r) { return r && r.right; }).length;
     var gained = shift.results.filter(function (r) { return r && r.starsAfter > r.starsBefore; }).length;
-    var before = shift.levelBefore;
     var after = E.trackProgress(idx, state, shift.track);
+    var newly = clearedLevels(shift.track).filter(function (l) { return shift.clearedBefore.indexOf(l) === -1; });
     var weak = [];
     shift.results.forEach(function (r) { if (r && !r.right && weak.indexOf(r.idea) === -1) weak.push(r.idea); });
 
@@ -418,13 +465,15 @@
     root.appendChild(box);
     var body = box.querySelector('.bg-summary-body');
 
-    if (before.level !== null && after.passed > before.passed) {
+    if (newly.length) {
       body.appendChild(el('div', { className: 'bg-levelup', role: 'status' }, [
-        el('p', { className: 'bg-levelup-title', text: '🎉 خلّصت الليفل ' + before.level + ' (' + E.LEVEL_NAMES[before.level] + ')!' }),
-        el('p', { text: after.done ? 'وخلّصت كل ليفلات ' + t.name + '! رتبتك دلوقتي: ' + after.rank + '.' : 'رتبتك بقت: ' + after.rank + '، واتفتح الليفل ' + after.level + ' (' + E.LEVEL_NAMES[after.level] + ': ' + E.LEVEL_HINTS[after.level] + ').' })
+        el('p', { className: 'bg-levelup-title', text: '🎉 خلّصت ' + newly.map(function (l) { return 'الليفل ' + l + ' (' + E.LEVEL_NAMES[l] + ')'; }).join(' و') + '!' }),
+        el('p', { text: after.done ? 'وخلّصت كل ليفلات ' + t.name + '! رتبتك دلوقتي: ' + after.rank + '.' : 'رتبتك دلوقتي: ' + after.rank + '. اختار الليفل اللي تحبه من المدخل.' })
       ]));
-    } else if (after.level !== null) {
-      body.appendChild(el('p', { className: 'bg-status', text: 'الليفل ' + after.level + ' (' + E.LEVEL_NAMES[after.level] + '): خلّصت ' + after.levelCleared + ' من ' + after.levelIdeas + ' أفكار.' }));
+    } else if (shift.level) {
+      var lv = E.levelIdeas(idx, shift.track, shift.level);
+      var cl = lv.filter(function (id) { return E.isCleared(state, shift.track, shift.level, id); }).length;
+      body.appendChild(el('p', { className: 'bg-status', text: 'الليفل ' + shift.level + ' (' + E.LEVEL_NAMES[shift.level] + '): جاوبت صح على ' + cl + ' من ' + lv.length + ' أفكار.' }));
     }
     if (weak.length) {
       body.appendChild(el('div', { className: 'bg-weak' }, [
@@ -436,7 +485,7 @@
       ]));
     }
     body.appendChild(el('div', { className: 'actions' }, [
-      el('button', { type: 'button', className: 'btn', text: 'وردية جديدة', onclick: function () { startShift(t.id); } }),
+      el('button', { type: 'button', className: 'btn', text: 'وردية تانية في نفس الليفل', onclick: function () { startShift(t.id, shift0.chosen); } }),
       el('button', { type: 'button', className: 'btn btn--secondary', text: 'ارجع للمدخل', onclick: showLobby }),
       el('button', { type: 'button', className: 'btn btn--secondary', text: '🗺️ خريطة الإتقان', onclick: showMap })
     ]));
