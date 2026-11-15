@@ -704,4 +704,7 @@
     }
     return s + '</svg>';
   };
+
+  /* Shared with the other chapter files. */
+  A.tools = { open: open, label: label, caption: caption, boneGrad: boneGrad, bone: bone, FONT: FONT, INK: INK };
 })();

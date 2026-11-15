@@ -106,12 +106,11 @@
 .bg-place--farm { border-color: var(--mint-edge); }
 
 /* A card alone on a wide row: picture beside the text, not a huge picture on top. */
-.bg-places { container-type: inline-size; }
-@container (min-width: 46rem) {
-  .bg-place { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); }
-  .bg-place-art { align-self: stretch; display: flex; background: var(--sky); }
-  .bg-place--farm .bg-place-art { background: var(--mint); }
-  .bg-place-art svg { margin: auto 0; }
+@media (min-width: 50rem) {
+  .bg-place:only-child { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); }
+  .bg-place:only-child .bg-place-art { align-self: stretch; display: flex; background: var(--sky); }
+  .bg-place--farm:only-child .bg-place-art { background: var(--mint); }
+  .bg-place:only-child .bg-place-art svg { margin: auto 0; }
 }
 
 .bg-place-body { padding: 1rem 1.25rem 1.25rem; display: flex; flex-direction: column; gap: 0.35rem; flex: 1; }

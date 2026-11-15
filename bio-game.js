@@ -37,7 +37,9 @@
     trap: { name: 'النبات عيّان؟', bg: 'farm' },
     microscope: { name: 'الميكروسكوب', bg: 'lab' },
     experiment: { name: 'تجربة بإيدك', bg: 'lab' },
-    compare: { name: 'قارن', bg: 'farm' }
+    compare: { name: 'قارن', bg: 'farm' },
+    ask: { name: 'سؤال من الغيط', bg: 'farm' },
+    farmlesson: { name: 'درس المهندس', bg: 'farm' }
   };
 
   var idx = null;

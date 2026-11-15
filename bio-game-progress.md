@@ -39,7 +39,8 @@ direct link, until the owner approves).
 | `bio-game.css` | the game's look (site pastel colours) |
 | `bio-game-engine.js` | the rules: levels, stars, shifts, saving |
 | `bio-game-art.js` | the people (cast of 13 men) and backgrounds |
-| `bio-game-art-ch1.js` | Chapter 1 close-ups (leg, knee, X-rays, vertebra, skull, arm, leg bones, joints, cartilage, muscle, sarcomere, nerve–muscle junction, muscle types, three systems, skeleton, gut) |
+| `bio-game-art-ch1.js` | Chapter 1 hospital close-ups (leg, knee, X-rays, vertebra, skull, arm, leg bones, joints, cartilage, muscle, sarcomere, nerve–muscle junction, muscle types, three systems, skeleton, gut) |
+| `bio-game-art-ch1-farm.js` | Chapter 1 farm close-ups (stem cross-section, mimosa, pea tendril, narcissus bulb, the two pulls, tropisms, Elodea cell) |
 | `bio-game.js` | the screens: entrance, shift, case, summary, mastery map |
 | `bio-game-ch1.json` | Chapter 1 content |
 | `bio-game-ch2.json` | Chapter 2 content (empty for now — shows «قريبًا») |
@@ -54,11 +55,9 @@ edit those, then run `python3 tools/bio_game/build.py` and `npm test`.
 1. ✅ Engine (levels, stars, mastery map, saving) + page + screens.
 2. ✅ Chapter 1 — hospital: 30 ideas, 90 cases (every idea 3 cases or more,
    2–3 stories each, 4–5 wrong choices with "why"), levels 1–6.
-3. ⏳ Chapter 1 — farm: cuticle / suberin / cellulose / lignin; mimosa (touch
-   and sleep movements); tropisms; tendrils (5 steps, why they coil, no
-   support); contractile roots; tendrils vs roots; cytoplasmic streaming
-   (Elodea). New farm drawings needed: stem section, mimosa, pea tendril,
-   bulb roots, tropism, Elodea cell.
+3. ✅ Chapter 1 — farm: 15 ideas, 54 cases (cuticle / suberin / cellulose /
+   lignin, mimosa touch and sleep, tropisms, tendrils, contractile roots,
+   Elodea), levels 1–6, with 7 farm drawings.
 4. ⏳ Chapter 2 — hospital (pituitary, thyroid, parathyroid, adrenal,
    pancreas, testes, GI hormones), lab reports (incl. the female-hormone
    parts, no female character), farm (auxins, Boysen-Jensen), Starling,
@@ -68,5 +67,6 @@ edit those, then run `python3 tools/bio_game/build.py` and `npm test`.
 
 ## Next step
 
-Stage 3: write the Chapter 1 farm track (`ch1-farm`, host عبد الرحمن) and its
-drawings.
+Stage 4: Chapter 2 — write `tools/bio_game/ch2_hospital.py`, `ch2_lab.py`
+and `ch2_farm.py` (tracks for chapter 2), and `bio-game-art-ch2.js`
+(glands, hormone effects, lab reports).
