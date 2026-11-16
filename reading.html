@@ -26,7 +26,7 @@
       window.addEventListener('error', function (event) {
         var node = event.target;
         if (node && (node.tagName === 'LINK' || node.tagName === 'SCRIPT')) {
-          failed.push({ file: node.getAttribute('href') || node.getAttribute('src'), script: node.tagName === 'SCRIPT' });
+          failed.push({ file: (node.getAttribute('href') || node.getAttribute('src') || '').split('?')[0], script: node.tagName === 'SCRIPT' });
         }
       }, true);
       window.addEventListener('load', function () {
@@ -51,9 +51,11 @@
       });
     })();
   </script>
-  <link rel="stylesheet" href="style.css">
-  <script src="i18n-en.js"></script>
-  <script src="i18n-ar.js"></script>
+  <!-- ?v= makes browsers load the new version of a file after an update
+       (change the date when one of these files changes). -->
+  <link rel="stylesheet" href="style.css?v=20261116">
+  <script src="i18n-en.js?v=20261116"></script>
+  <script src="i18n-ar.js?v=20261116"></script>
   <script src="i18n.js"></script>
 </head>
 <body>
@@ -112,12 +114,12 @@
     </div>
   </footer>
 
-  <script src="content-schema.js"></script>
+  <script src="content-schema.js?v=20261116"></script>
   <script src="content-store.js"></script>
   <script src="common.js"></script>
   <script src="dhikr.js"></script>
   <script src="quiz-engine.js"></script>
-  <script src="quiz-ui.js"></script>
-  <script src="reading.js"></script>
+  <script src="quiz-ui.js?v=20261116"></script>
+  <script src="reading.js?v=20261116"></script>
 </body>
 </html>
