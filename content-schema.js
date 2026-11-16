@@ -511,6 +511,8 @@
     }
     checkId(passage, report, where);
     checkRequiredText(passage, 'title', report, where);
+    // optional: the teacher whose passage this is, shown above the passage title
+    checkOptionalText(passage, 'teacher', report, where);
     checkOptionalText(passage, 'level', report, where);
     checkOptionalText(passage, 'source', report, where);
     checkLinkId(passage, 'unitId', report, where);

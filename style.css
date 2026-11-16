@@ -1205,6 +1205,17 @@ html[dir="ltr"] .subject-page .question-section-title { text-align: left; }
 /* An Arabic explanation under its label. */
 .explanation-block p { margin: 0.25rem 0; }
 
+/* An English sentence quoted inside an Arabic explanation: its own line;
+   a short English quote stays in the line, in one piece. */
+.explanation-quote {
+  display: block;
+  text-align: left;
+  margin: 0.2rem 0;
+  font-style: italic;
+}
+
+.explanation-term { white-space: nowrap; }
+
 /* ---------- Buttons ---------- */
 .btn {
   display: inline-flex;
@@ -2380,6 +2391,25 @@ html[lang="ar"] .question-number { letter-spacing: 0; text-transform: none; }
   color: var(--color-muted);
   margin-top: 1rem;
 }
+
+/* The teacher's name above a passage title (on the passage page and its card). */
+.passage-teacher {
+  margin: 0 0 0.4rem;
+  text-align: start;
+}
+
+.passage-teacher-name {
+  display: inline-block;
+  padding: 0.15rem 0.75rem;
+  border-radius: 999px;
+  background: var(--color-lavender);
+  border: 1px solid #d6ccfa;
+  color: #4b3a8f;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.passage-teacher + h1 { margin-top: 0; }
 
 @media (min-width: 60rem) {
   .reading-layout {

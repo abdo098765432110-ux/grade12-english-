@@ -3,7 +3,10 @@
      reading.html?unit=<id>       the passages of one unit
      reading.html?passage=<id>    one passage with its questions
    Passage text keeps its paragraphs, line breaks and spacing exactly as
-   written, and questions are always shown in the order they are stored. */
+   written, and questions are always shown in the order they are stored.
+   A passage's teacher (passage.teacher) is shown above its title.
+   The answers are shown as the answer key ("Correct!", "Correct answer"),
+   with no review-status labels or "suggested answer" notes. */
 (function () {
   'use strict';
 
@@ -24,6 +27,7 @@
   }
 
   G12.showPage(['units', 'passages'], function (content) {
+    content.passages = content.passages.map(asAnswerKey);
     var id = G12.param('passage');
     if (id) renderPassage(content, id);
     else renderList(content, G12.param('unit'));
@@ -38,6 +42,36 @@
       ? t('Changing the language starts the questions on this page again, and your answers so far will be cleared. Change the language?')
       : null;
   });
+
+  /* The answers on this page are the answer key, so the passage and its
+     questions are shown as reviewed. Only this page's copy changes. */
+  function asAnswerKey(passage) {
+    var copy = Schema.clone(passage);
+    copy.reviewStatus = 'reviewed';
+    copy.questions = copy.questions.map(function (question) {
+      question.reviewStatus = 'reviewed';
+      return question;
+    });
+    return copy;
+  }
+
+  /* "ltr" or "rtl" from the first letter of a text (as dir="auto" decides). */
+  function directionOf(text) {
+    var first = String(text).match(/[A-Za-z\u0600-\u06FF]/);
+    if (!first) return null;
+    return /[\u0600-\u06FF]/.test(first[0]) ? 'rtl' : 'ltr';
+  }
+
+  /* The teacher's name, shown above a passage title (or nothing). The line
+     takes the title's direction, so the name sits right above the title's
+     first word in both the English and the Arabic interface. */
+  function teacherLine(passage) {
+    if (!hasText(passage.teacher)) return null;
+    return el('p', { className: 'passage-teacher', dir: directionOf(passage.title) }, [
+      el('span', { className: 'visually-hidden', text: t('Teacher:') + ' ' }),
+      el('span', { className: 'passage-teacher-name', dir: 'auto', text: passage.teacher.trim() })
+    ]);
+  }
 
   function passageLink(passage) {
     return PAGE + '?passage=' + encodeURIComponent(passage.id);
@@ -56,11 +90,11 @@
   function passageCards(passages, headingLevel) {
     return el('ul', { className: 'card-grid' }, passages.map(function (passage) {
       return el('li', { className: 'card' }, [
+        teacherLine(passage),
         el(headingLevel, { dir: 'auto' }, [el('a', { href: passageLink(passage), text: passage.title })]),
         el('ul', { className: 'passage-meta' }, metaItems(passage).map(function (text) {
           return el('li', { text: text });
         })),
-        G12.badges(passage),
         el('div', { className: 'card-actions' }, [
           el('a', { className: 'btn', href: passageLink(passage), text: t('Read passage'), 'aria-label': t('Read passage: {title}', { title: passage.title }) })
         ])
@@ -106,14 +140,10 @@
         ));
         return;
       }
-      var notice = G12.listReviewNotice(group.items);
-      if (notice) root.appendChild(notice);
       root.appendChild(passageCards(group.items, 'h3'));
       return;
     }
 
-    var allNotice = G12.listReviewNotice(content.passages);
-    if (allNotice) root.appendChild(allNotice);
     if (content.units.length === 0) {
       root.appendChild(passageCards(content.passages, 'h2'));
       return;
@@ -168,10 +198,9 @@
     if (unit) crumbs.push(el('li', null, [el('a', { href: G12.unitHref(PAGE, unit.id), dir: 'auto', text: unit.title })]));
     crumbs.push(el('li', null, [el('span', { 'aria-current': 'page', dir: 'auto', text: passage.title })]));
     root.appendChild(el('nav', { className: 'breadcrumb', 'aria-label': t('Breadcrumb') }, [el('ol', null, crumbs)]));
+    var teacher = teacherLine(passage);
+    if (teacher) root.appendChild(teacher);
     root.appendChild(el('h1', { dir: 'auto', text: passage.title }));
-    root.appendChild(G12.badges(passage, [unit ? unit.title : null]));
-    var notice = G12.reviewNotice(passage, 'passage');
-    if (notice) root.appendChild(notice);
     var skipped = G12.skippedNotice(content, ['units', 'passages']);
     if (skipped) root.appendChild(skipped);
 

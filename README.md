@@ -6,7 +6,12 @@ A free learning website for Egyptian Grade 12 students. The subject menu
 
 - **English** (the home page and the pages below): grammar lessons, grammar
   summaries, grammar practice with feedback and scoring, and reading
-  comprehension.
+  comprehension. Reading has the 26 passages of «حل 25 قطعة» by م. عبقري لغة
+  (his name above each passage title; the PDF uses number 10 twice, so they are
+  10 (a) and 10 (b)), every multiple-choice question solved with an explanation in
+  Arabic and the evidence from the passage. Source: `tools/reading_25/passages.py`
+  (the obvious typing fixes are listed at its top); `python3 tools/reading_25/build.py`
+  writes them into `reading-passages.json`.
 - **Physics** (physics-questions.json):
   - الفصل الأول → حل أسئلة الفصل الأول: interactive questions, with the correct
     answer and an explanation after each answer.
@@ -124,7 +129,7 @@ grade12-english/
 ├── grammar-questions.json
 ├── reading-passages.json
 ├── docs/                  Data format reference and the first-upload diagnosis
-├── tools/                 check-site.js, validate-content.js, verify_physics_ch1_quiz.py, physics_pdfs.py, question_pdfs.py, dhikr_font.py, arabic_unit2/, arabic_unit3/, bio_ch2_bank/, bio_revision_booklet/, chem_ch2_bank/, phys_ch2_bank/, fonts/ (for developers)
+├── tools/                 check-site.js, validate-content.js, verify_physics_ch1_quiz.py, physics_pdfs.py, question_pdfs.py, dhikr_font.py, arabic_unit2/, arabic_unit3/, bio_ch2_bank/, bio_revision_booklet/, chem_ch2_bank/, phys_ch2_bank/, reading_25/, fonts/ (for developers)
 ├── tests/                 Automated tests (for developers, not used by the site)
 ├── README.md
 └── PROJECT_STATUS.md
@@ -214,7 +219,8 @@ Notes:
   repository can change the published website.
 - The **“A teacher has reviewed this …”** tick decides how answers are shown.
   Until it is ticked, students see answers as *suggested answers*, never as
-  definitely correct, and scores are marked *provisional*.
+  definitely correct, and scores are marked *provisional*. (Reading
+  Comprehension and Vocabulary always show their answers as the answer key.)
 - Drafts live in the browser’s storage (usually about 5 MB). Clearing the
   browser’s site data deletes the draft, so download backups.
 

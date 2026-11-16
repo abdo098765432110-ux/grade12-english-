@@ -172,11 +172,19 @@ answer as right:
 |---|---|---|
 | `id`, `title`, `reviewStatus` | yes | |
 | `unitId` | no | The unit this passage belongs to. |
+| `teacher` | no | The teacher whose passage this is (for example «م. عبقري لغة»). Shown above the passage title, on its card and on its page. |
 | `paragraphs` | yes | At least one. Each paragraph’s line breaks and spacing are kept exactly. |
 | `showParagraphNumbers` | no | `true` (default) shows numbers beside paragraphs; `false` hides them. |
 | `level` | no | For example “Grade 12”. |
 | `source` | no | Credit for the text. Only publish texts you wrote or may use. |
 | `questions` | yes (may be empty) | Same format as grammar questions (without `unitId`/`topicId`). **Always shown in this order.** Question IDs must be unique within the passage. |
+
+The Reading Comprehension page shows the answers as the answer key (“Correct!”,
+“Correct answer”), like the Vocabulary page, with no review labels; the
+`reviewStatus` ticks are still kept and shown in the content manager.
+
+An explanation that starts in Arabic is shown right to left under its label;
+an English sentence it quotes as «…» (four words or more) gets its own line.
 
 ## Older files (version 1)
 

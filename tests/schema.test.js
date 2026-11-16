@@ -286,6 +286,39 @@ test('passage options: showParagraphNumbers must be true or false', () => {
   assert.match(errorsOf('passages', Object.assign({}, passage, { showParagraphNumbers: 'no' })).join(), /true or false/);
 });
 
+test('passage options: teacher is optional text', () => {
+  const passage = { id: 'p', title: 'P', paragraphs: ['x'], questions: [], reviewStatus: 'unreviewed' };
+  assert.deepEqual(errorsOf('passages', Object.assign({}, passage, { teacher: 'Placeholder teacher' })), []);
+  assert.match(errorsOf('passages', Object.assign({}, passage, { teacher: 7 })).join(), /teacher must be text/);
+});
+
+test('reading: «حل 25 قطعة» by م. عبقري لغة — 26 passages, every question valid and explained in Arabic', () => {
+  const data = require('../reading-passages.json');
+  const set = data.passages.filter((p) => p.id.startsWith('abqary-'));
+  assert.equal(set.length, 26);
+  // the PDF numbers them 1–25 and uses 10 twice
+  const numbers = Array.from({ length: 9 }, (_, i) => String(i + 1)).concat(['10 (a)', '10 (b)'], Array.from({ length: 15 }, (_, i) => String(i + 11)));
+  assert.deepEqual(set.map((p) => p.title), numbers.map((n) => 'Passage ' + n));
+  let count = 0;
+  const ids = new Set();
+  set.forEach((passage, i) => {
+    assert.deepEqual(Schema.validateItem('passages', passage, i).errors, [], passage.id);
+    assert.equal(passage.teacher, 'م. عبقري لغة', passage.id);
+    assert.ok(passage.paragraphs.length >= 1 && passage.questions.length >= 7, passage.id);
+    passage.questions.forEach((question) => {
+      count += 1;
+      assert.ok(!ids.has(question.id), question.id + ' is unique');
+      ids.add(question.id);
+      assert.equal(question.type, 'mcq', question.id);
+      assert.ok(question.options.includes(question.answer), question.id);
+      // explained in Arabic (starts with an Arabic word, so it is shown right to left)
+      const first = question.explanation.match(/[A-Za-z؀-ۿ]/)[0];
+      assert.match(first, /[؀-ۿ]/, question.id);
+    });
+  });
+  assert.equal(count, 197);
+});
+
 test('unitIdOf, groupByUnit and orderByUnit', () => {
   const units = [{ id: 'u1', title: 'U1' }, { id: 'u2', title: 'U2' }];
   const lessons = [lesson({ id: 'l1', unitId: 'u1' }), lesson({ id: 'l2' })];

@@ -1551,6 +1551,10 @@
       t('Used in the passage’s web address (reading.html?passage=your-id). Lowercase English letters, numbers and hyphens. Filled in from the title automatically.'),
       'passage');
     var links = unitTopicFields(passage, false);
+    var teacher = textField({
+      id: 'f-teacher', label: t('Teacher'), optional: true, value: passage && passage.teacher,
+      hint: t('The teacher whose passage this is. Shown above the passage title on the student pages.')
+    });
     var level = textField({ id: 'f-level', label: t('Level'), optional: true, value: passage && passage.level, hint: t('For example: Grade 12.') });
     var source = textField({
       id: 'f-source', label: t('Source or credit'), optional: true, value: passage && passage.source,
@@ -1580,7 +1584,7 @@
     updateCount();
     text.row.appendChild(count);
 
-    frame.form.appendChild(el('fieldset', { className: 'editor-block' }, [el('legend', { text: t('Passage details') })].concat(names.rows, links.rows, [level.row, source.row, reviewed.row])));
+    frame.form.appendChild(el('fieldset', { className: 'editor-block' }, [el('legend', { text: t('Passage details') })].concat(names.rows, links.rows, [teacher.row, level.row, source.row, reviewed.row])));
     frame.form.appendChild(el('fieldset', { className: 'editor-block' }, [el('legend', { text: t('Text') }), text.row, numbers.row]));
     frame.form.appendChild(formActions([el('button', { type: 'submit', className: 'btn', text: isNew ? t('Save passage') : t('Save changes') })], '#passages'));
 
@@ -1591,6 +1595,7 @@
       var paragraphs = Schema.splitParagraphs(text.control.value);
       if (!paragraphs.length) errors.push({ field: 'f-text', message: t('Write or paste the passage text.') });
       var item = Object.assign({ id: base.id }, links.read(errors), { title: base.title });
+      if (hasText(teacher.control.value)) item.teacher = teacher.control.value.trim();
       if (hasText(level.control.value)) item.level = level.control.value.trim();
       if (hasText(source.control.value)) item.source = source.control.value.trim();
       item.reviewStatus = reviewStatusOf(reviewed.control);

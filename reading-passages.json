@@ -1,4 +1,3122 @@
 {
   "schemaVersion": 2,
-  "passages": []
+  "passages": [
+    {
+      "id": "abqary-01",
+      "title": "Passage 1",
+      "teacher": "م. عبقري لغة",
+      "source": "م. عبقري لغة — ملزمة «حل 25 قطعة»",
+      "reviewStatus": "unreviewed",
+      "paragraphs": [
+        "Many experts believe there are too many people in the world. Unless there are big changes in the way people think about the number of children they should have, the world's population will double in 25 years. There will be more than 20 cities with a population greater than 20 million.",
+        "Some people who don't understand what \"over population\" means point to countries such as Australia and say, \"There is plenty of room there.\" Although most of Australia is unpopulated, and much of it is thinly populated, there are reasons for this. Firstly, much of the land is desert and waterless. Secondly, even the land that isn't desert isn't suitable for anything, not even growing grass. Another major problem we shall have to face as the world's population grows is a shortage of energy.",
+        "We are using up coal and oil. When they have been used up, we shall have to find something to take their place. It is true that we can make electricity from the heat of the sun. Perhaps the biggest problem we shall have when the world's population doubles will be pollution. The air we breathe is already badly polluted."
+      ],
+      "questions": [
+        {
+          "id": "abqary-01-q1",
+          "type": "mcq",
+          "prompt": "It is expected that the world's population will …… in 25 years.",
+          "options": [
+            "lessen",
+            "decline",
+            "double",
+            "decrease"
+          ],
+          "answer": "double",
+          "explanation": "الدليل: «the world's population will double in 25 years». يعني هيتضاعف = double. التلاتة التانيين معناهم يقل.",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-01-q2",
+          "type": "mcq",
+          "prompt": "Australia is relatively a/an …… continent.",
+          "options": [
+            "unpopulated",
+            "populated",
+            "populous",
+            "peopled"
+          ],
+          "answer": "unpopulated",
+          "explanation": "الدليل: «most of Australia is unpopulated». أغلبها مفيهوش سكان، فهي نسبيًا قارة unpopulated.",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-01-q3",
+          "type": "mcq",
+          "prompt": "The word \"waterless\" in the second paragraph means ……",
+          "options": [
+            "wet",
+            "damp",
+            "fertile",
+            "arid"
+          ],
+          "answer": "arid",
+          "explanation": "كلمة waterless معناها مفيهاش مية، يعني arid (جافة). أما wet وdamp فعكسها، وfertile يعني خصبة.",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-01-q4",
+          "type": "mcq",
+          "prompt": "The sun's heat can be used to produce ……",
+          "options": [
+            "energy",
+            "grass",
+            "wheat",
+            "crops"
+          ],
+          "answer": "energy",
+          "explanation": "الدليل: «we can make electricity from the heat of the sun». الكهربا طاقة، فالإجابة energy.",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-01-q5",
+          "type": "mcq",
+          "prompt": "In order to prevent the world's population from being doubled, there must be a change in ……",
+          "options": [
+            "the methods of agriculture",
+            "sources of energy they should have",
+            "people's thought about the number of children",
+            "the education of children"
+          ],
+          "answer": "people's thought about the number of children",
+          "explanation": "الدليل: «Unless there are big changes in the way people think about the number of children they should have». لازم طريقة تفكير الناس في عدد الأولاد تتغير.",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-01-q6",
+          "type": "mcq",
+          "prompt": "When coal and oil have been used up, we shall ……",
+          "options": [
+            "search for other sources of energy",
+            "use computers instead",
+            "wait for scientists to solve the problem",
+            "try to do without them"
+          ],
+          "answer": "search for other sources of energy",
+          "explanation": "الدليل: «we shall have to find something to take their place». يعني ندوّر على مصادر طاقة تانية.",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-01-q7",
+          "type": "mcq",
+          "prompt": "…… city / cities will have a population of over 20 million.",
+          "options": [
+            "Two",
+            "Twenty",
+            "Twenty-five",
+            "One"
+          ],
+          "answer": "Twenty",
+          "explanation": "الدليل: «There will be more than 20 cities with a population greater than 20 million». الرقم المذكور 20 (Twenty). 25 دي عدد السنين مش المدن.",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-01-q8",
+          "type": "mcq",
+          "prompt": "According to the passage, a great area of Australia is considered …… populated.",
+          "options": [
+            "highly",
+            "densely",
+            "rarely",
+            "extensively"
+          ],
+          "answer": "rarely",
+          "explanation": "الدليل: «much of it is thinly populated». thinly = قليل السكان = rarely populated. highly وdensely عكسها.",
+          "reviewStatus": "unreviewed"
+        }
+      ]
+    },
+    {
+      "id": "abqary-02",
+      "title": "Passage 2",
+      "teacher": "م. عبقري لغة",
+      "source": "م. عبقري لغة — ملزمة «حل 25 قطعة»",
+      "reviewStatus": "unreviewed",
+      "paragraphs": [
+        "Some doctors think that you should drink a glass of water each morning. You should drink this water first thing, before doing anything else. The temperature of the water should be similar to body temperature; neither too hot nor too cold. Why should you drink this water? Water helps your body in many ways. It helps clean out your kidneys. It prepares your stomach for digestion. Water can also help your intestines work better. After drinking water, the intestines can more easily take out nutrients from our food. Water also helps us go to the bathroom more easily. Scientists suggest that people take in 1,600 milliliters of water each day. But don't drink all of that water in one sitting. If you do, your kidneys will have to work much harder to eliminate it. It's better to drink some in the morning and some in the afternoon. Some people think it's better to drink between meals and not during meals. They think water dilutes the juices produced in our stomachs. This can interfere with normal digestion. Are you drinking enough water every day? Check the colour of your urine. If it is light yellow, you are probably drinking enough. If your urine is very dark yellow, you probably need to drink more water. A little more water each day could make you much healthier."
+      ],
+      "questions": [
+        {
+          "id": "abqary-02-q1",
+          "type": "mcq",
+          "prompt": "What could be the best title for this passage?",
+          "options": [
+            "\"Drink Water, Not Soft Drinks\"",
+            "\"Drink During Meals\"",
+            "\"Drink Between Meals\"",
+            "\"Drink Enough Water\""
+          ],
+          "answer": "\"Drink Enough Water\"",
+          "explanation": "القطعة كلها عن شرب المية بكمية كفاية وفوايدها، وبتسأل في الآخر «Are you drinking enough water every day?». الاختيارات التانية تفاصيل أو مش مذكورة.",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-02-q2",
+          "type": "mcq",
+          "prompt": "Why is it helpful to drink water in the morning?",
+          "options": [
+            "Your kidneys will work harder.",
+            "Your intestines will work well.",
+            "Your juices will be diluted.",
+            "Your urine will be pale yellow."
+          ],
+          "answer": "Your intestines will work well.",
+          "explanation": "الدليل: «Water can also help your intestines work better». أما «kidneys will work harder» فده ضرر لو شربت كله مرة واحدة.",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-02-q3",
+          "type": "mcq",
+          "prompt": "Which of the following is NOT a reason to drink water?",
+          "options": [
+            "So your intestines will work well.",
+            "To get more nutrients.",
+            "To clean out your kidneys.",
+            "To dilute your stomach juices."
+          ],
+          "answer": "To dilute your stomach juices.",
+          "explanation": "تخفيف عصارة المعدة مش فايدة؛ القطعة بتقول إنه ممكن «interfere with normal digestion». التلاتة التانيين فوايد مذكورة.",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-02-q4",
+          "type": "mcq",
+          "prompt": "Why is it better to drink between meals?",
+          "options": [
+            "So you eat enough food.",
+            "So you don't dilute stomach juices.",
+            "So your urine will not smell bad.",
+            "So you don't overwork your kidneys."
+          ],
+          "answer": "So you don't dilute stomach juices.",
+          "explanation": "الدليل: «They think water dilutes the juices produced in our stomachs». فبيشربوا بين الوجبات علشان المية ما تخففش العصارة.",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-02-q5",
+          "type": "mcq",
+          "prompt": "What does urine colour indicate?",
+          "options": [
+            "That you need to eat more food",
+            "That you need to drink more water",
+            "That you need to have enough sleep",
+            "That you need to drink more juice"
+          ],
+          "answer": "That you need to drink more water",
+          "explanation": "الدليل: «If your urine is very dark yellow, you probably need to drink more water».",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-02-q6",
+          "type": "mcq",
+          "prompt": "Why shouldn't you drink 1,600 milliliters in one sitting?",
+          "options": [
+            "It will harm your lungs.",
+            "It will harm your kidneys.",
+            "It will make you thirsty.",
+            "It will make you hungry."
+          ],
+          "answer": "It will harm your kidneys.",
+          "explanation": "الدليل: «your kidneys will have to work much harder to eliminate it». يعني هتتعب الكلى.",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-02-q7",
+          "type": "mcq",
+          "prompt": "The water you drink should be ……",
+          "options": [
+            "too cold",
+            "too hot",
+            "as warm as your body temperature",
+            "colder than your body temperature"
+          ],
+          "answer": "as warm as your body temperature",
+          "explanation": "الدليل: «The temperature of the water should be similar to body temperature; neither too hot nor too cold». (في الملف الاختيار c مكتوب «as good as your body temperature» والمقصود نفس درجة حرارة الجسم، والاختيار d كان مكتوب بشكل مش مفهوم فاتظبط.)",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-02-q8",
+          "type": "mcq",
+          "prompt": "The word \"it\" in \"If it is light yellow\" refers to ……",
+          "options": [
+            "your body",
+            "your urine",
+            "your health",
+            "your drinking water"
+          ],
+          "answer": "your urine",
+          "explanation": "الجملة اللي قبلها: «Check the colour of your urine. If it is light yellow…». يعني it = your urine. (في الملف مكتوب «underlined» من غير خط، فحددنا الكلمة.)",
+          "reviewStatus": "unreviewed"
+        }
+      ]
+    },
+    {
+      "id": "abqary-03",
+      "title": "Passage 3",
+      "teacher": "م. عبقري لغة",
+      "source": "م. عبقري لغة — ملزمة «حل 25 قطعة»",
+      "reviewStatus": "unreviewed",
+      "paragraphs": [
+        "Every time you're online, you are bombarded by pictures, articles, and links trying to tell their story. Unfortunately, not all of these stories are true. Sometimes they want you to click on another advertisement at their own site, other times they want to upset people for political reasons, and the result is … fake news. Read these tips, and don't get fooled!",
+        "Look at the website where the story comes from. Does it look real? Is the text well written? Are there a variety of other stories or is it just one story? Fake news websites often don't have many real stories about other topics. If you aren't sure, click on the 'About' page and look for a clear description of the organization.",
+        "Many fake news stories use images that are photoshopped or taken from an unrelated site. Sometimes, if you just look closely at an image, you can see if it has been changed. Or use a tool like Google Reverse Image search. It will show you if the same image has been used in other contexts.",
+        "Look to see if the story you are reading is on other news sites that you know and trust. If you do find it on many other sites, then it probably isn't fake. There are other techniques that fake news uses. These include using ALL CAPS and lots of ads that pop up when you click on a link. Also, think about how the story makes you feel. If you find a news story that you know is fake, the most important advice is: don't share it!"
+      ],
+      "questions": [
+        {
+          "id": "abqary-03-q1",
+          "type": "mcq",
+          "prompt": "The best title for the text is ……",
+          "options": [
+            "Experts show dangers of fake news",
+            "Experts share top tips for resisting fake news",
+            "How to create fake news: a guide",
+            "Tips on how to read the news online"
+          ],
+          "answer": "Experts share top tips for resisting fake news",
+          "explanation": "القطعة بتقول «Read these tips, and don't get fooled!» وبعدها نصايح علشان ما تتخدعش بالأخبار الكاذبة = tips for resisting fake news.",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-03-q2",
+          "type": "mcq",
+          "prompt": "Which reason is NOT given for an online fake news story?",
+          "options": [
+            "To convince people of a political view",
+            "To make people angry or sad",
+            "To plant a virus in your computer",
+            "To click on an advertisement"
+          ],
+          "answer": "To plant a virus in your computer",
+          "explanation": "الأسباب المذكورة: الإعلانات «click on another advertisement» وإزعاج الناس لأسباب سياسية «upset people for political reasons». الفيروسات مش مذكورة.",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-03-q3",
+          "type": "mcq",
+          "prompt": "Which of these may mean that a news site should not be trusted?",
+          "options": [
+            "The site's \"About\" page doesn't clearly describe the organization.",
+            "The text is well written.",
+            "The site has a variety of other stories.",
+            "The site has real stories about other topics."
+          ],
+          "answer": "The site's \"About\" page doesn't clearly describe the organization.",
+          "explanation": "الدليل: «click on the 'About' page and look for a clear description of the organization». لو مفيش وصف واضح يبقى الموقع مش مضمون. التلاتة التانيين علامات موقع حقيقي.",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-03-q4",
+          "type": "mcq",
+          "prompt": "The word \"it\" in \"you can see if it has been changed\" refers to ……",
+          "options": [
+            "the story",
+            "the website",
+            "the picture",
+            "the text"
+          ],
+          "answer": "the picture",
+          "explanation": "الجملة: «if you just look closely at an image, you can see if it has been changed». it = the image = the picture.",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-03-q5",
+          "type": "mcq",
+          "prompt": "Which of the following best summarizes the first paragraph?",
+          "options": [
+            "More ways that fake news uses.",
+            "Fake news uses changed photos.",
+            "Reasons for making fake news.",
+            "Fake websites."
+          ],
+          "answer": "Reasons for making fake news.",
+          "explanation": "الفقرة الأولى بتشرح ليه بيعملوا أخبار كاذبة: الإعلانات وأسباب سياسية. الصور المتعدلة في الفقرة التالتة، والطرق التانية في الأخيرة، والمواقع في التانية.",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-03-q6",
+          "type": "mcq",
+          "prompt": "If you find a news story that you know is fake, what is the most important advice?",
+          "options": [
+            "Report it to the police.",
+            "Make a note of it for a reference.",
+            "Tell your close friends about it.",
+            "Don't show it to other people online."
+          ],
+          "answer": "Don't show it to other people online.",
+          "explanation": "الدليل: «the most important advice is: don't share it!» يعني ما توريهاش لحد أونلاين. (في الملف السؤال ده كان مكتوب غلط «What is the purpose of the article?».)",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-03-q7",
+          "type": "mcq",
+          "prompt": "What is the purpose of the article?",
+          "options": [
+            "To complain",
+            "To inform",
+            "To entertain",
+            "To blame"
+          ],
+          "answer": "To inform",
+          "explanation": "المقال بيدّي معلومات ونصايح للقارئ = to inform. مفيهوش شكوى ولا تسلية ولا لوم.",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-03-q8",
+          "type": "mcq",
+          "prompt": "The word \"bombarded\" in this text means ……",
+          "options": [
+            "defended",
+            "prevented",
+            "bothered",
+            "covered"
+          ],
+          "answer": "bothered",
+          "explanation": "معنى bombarded by pictures إنك بتتهاجم بكمية كبيرة جدًا من الصور لحد ما تتضايق، فأقرب معنى bothered (اتضايق/اتزعج).",
+          "reviewStatus": "unreviewed"
+        }
+      ]
+    },
+    {
+      "id": "abqary-04",
+      "title": "Passage 4",
+      "teacher": "م. عبقري لغة",
+      "source": "م. عبقري لغة — ملزمة «حل 25 قطعة»",
+      "reviewStatus": "unreviewed",
+      "paragraphs": [
+        "People may be divided into two types: winners and losers. Because our families and friends have a great influence on us as we grow, we are born helpless and dependent on our environment. Winners are able to change their situation and become independent by being responsible for their own lives. They don't blame others for their mistakes. They do their own thinking, they listen to others, evaluate what they say, and then they make up their minds. Although they may fail at times, yet they keep self-confidence. Winners overcome their bad experiences. They have enthusiasm for life. They enjoy work, play, food and the world of nature. They freely enjoy themselves but they can postpone it if duty calls.",
+        "Losers, on the other hand, never learn to take responsibility for their own lives. There are many causes why people can become losers: disease, poor nutrition, cruelty, unhappy relationships and bad experiences. These can interfere with the normal progress towards becoming a winner. But whereas winners fight these situations, losers hang onto them, and use them as excuses. Losers usually feel anxious, unhappy and bored. They are afraid to try new things and often repeat their own mistakes again and again. When a student fails a mathematics test and then says, \"Oh, well, I've never been good at maths,\" it becomes his excuse for not trying to change this idea, and he remains a loser.",
+        "Losers spend their lives waiting for something wonderful to happen to save them from their problems with their lives but never try to change their world themselves. Now, you can decide what people will call you in the future: a loser or a winner."
+      ],
+      "questions": [
+        {
+          "id": "abqary-04-q1",
+          "type": "mcq",
+          "prompt": "What makes us winners or losers from our early life?",
+          "options": [
+            "our teachers",
+            "our environment",
+            "failure",
+            "our friends"
+          ],
+          "answer": "our environment",
+          "explanation": "الدليل: «we are born helpless and dependent on our environment». الأصحاب جزء من البيئة، لكن الإجابة الشاملة اللي في القطعة environment.",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-04-q2",
+          "type": "mcq",
+          "prompt": "Which one of the following doesn't describe winners?",
+          "options": [
+            "They are independent.",
+            "They don't blame others for their mistakes.",
+            "They only follow in others' footsteps.",
+            "They overcome their bad experiences."
+          ],
+          "answer": "They only follow in others' footsteps.",
+          "explanation": "الفايزين «do their own thinking… then they make up their minds»، يعني مش بيمشوا ورا غيرهم. التلاتة التانيين صفاتهم في القطعة.",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-04-q3",
+          "type": "mcq",
+          "prompt": "What do winners do if they fail at times?",
+          "options": [
+            "Keep their self-confidence.",
+            "Lose hope and go out of the race.",
+            "Never try again as it is one chance.",
+            "Ask others to help them."
+          ],
+          "answer": "Keep their self-confidence.",
+          "explanation": "الدليل: «Although they may fail at times, yet they keep self-confidence».",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-04-q4",
+          "type": "mcq",
+          "prompt": "What happens when losers find excuses and don't try to change?",
+          "options": [
+            "Other people help them.",
+            "They find luck and become winners.",
+            "They say that it's fate.",
+            "They remain losers."
+          ],
+          "answer": "They remain losers.",
+          "explanation": "الدليل: «it becomes his excuse for not trying to change this idea, and he remains a loser».",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-04-q5",
+          "type": "mcq",
+          "prompt": "Which one of the following doesn't describe losers?",
+          "options": [
+            "They are afraid to try new things.",
+            "They are never good at maths.",
+            "They repeat their mistakes again.",
+            "They wait for something good to happen."
+          ],
+          "answer": "They are never good at maths.",
+          "explanation": "جملة «never good at maths» قالها طالب واحد كمثال (عذر)، مش صفة لكل الخسرانين. التلاتة التانيين صفاتهم في القطعة.",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-04-q6",
+          "type": "mcq",
+          "prompt": "What does the word \"postpone\" mean?",
+          "options": [
+            "stop",
+            "email",
+            "put off",
+            "post"
+          ],
+          "answer": "put off",
+          "explanation": "كلمة postpone معناها يأجّل، يعني put off. «they can postpone it if duty calls» يعني يأجلوا المتعة لو فيه واجب.",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-04-q7",
+          "type": "mcq",
+          "prompt": "What do winners have for life?",
+          "options": [
+            "Enthusiasm",
+            "Anxiety",
+            "Boredom",
+            "Sadness"
+          ],
+          "answer": "Enthusiasm",
+          "explanation": "الدليل: «They have enthusiasm for life». القلق والملل صفات الخسرانين.",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-04-q8",
+          "type": "mcq",
+          "prompt": "What do losers usually feel?",
+          "options": [
+            "Happy",
+            "Anxious",
+            "Interested",
+            "Satisfied"
+          ],
+          "answer": "Anxious",
+          "explanation": "الدليل: «Losers usually feel anxious, unhappy and bored».",
+          "reviewStatus": "unreviewed"
+        }
+      ]
+    },
+    {
+      "id": "abqary-05",
+      "title": "Passage 5",
+      "teacher": "م. عبقري لغة",
+      "source": "م. عبقري لغة — ملزمة «حل 25 قطعة»",
+      "reviewStatus": "unreviewed",
+      "paragraphs": [
+        "This year I decided to do something to regain my reputation as a kind uncle. My nephew, Ziad, had never forgiven me for the dictionary I had bought him as a birthday present last year. His parents had no reason to be grateful to me either as, the year before, I had presented him with a pot of paste and some funny pictures. Instead of sticking them into a book, Ziad had covered every wall in the house with them. Hence, this year, I decided to let him choose for himself.",
+        "We went into a big toyshop but Ziad was highly critical of everything he saw. In vain did I show him toy after toy; he was not to be tempted. Then I saw his eyes light up: he had discovered something he really did approve of: a large tin drum. I was quite pleased until I thought what Ziad's mother would say when she saw it. Nobody would get any sleep for weeks! I led Ziad away quickly, saying that the drum was too expensive.",
+        "Ziad asked for permission to go off on his own and I took that chance to sit down and rest my aching feet. Fifteen minutes passed but there was still no sign of Ziad. I began to get worried and began to look for him. I asked a young lady if she had seen a little boy in a grey suit. She pointed out that there were so many little boys in grey suits in the store. I was just beginning to despair, when I saw a strange figure dressed in peculiar purple clothes. The figure was wearing a false beard and had a cave-man's axe in one hand, and a space gun in the other. It was, of course, Ziad, who informed me at once that he was the first cave-man to fly into space."
+      ],
+      "questions": [
+        {
+          "id": "abqary-05-q1",
+          "type": "mcq",
+          "prompt": "The main idea of this passage is how to be a …… uncle.",
+          "options": [
+            "hateful",
+            "loving",
+            "miserable",
+            "serious"
+          ],
+          "answer": "loving",
+          "explanation": "الدليل: «to regain my reputation as a kind uncle». kind قريبة من loving (خال/عم حنين بيحب ابن أخوه).",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-05-q2",
+          "type": "mcq",
+          "prompt": "The writer hesitated to buy Ziad the tin drum because it would …… his parents.",
+          "options": [
+            "please",
+            "recognise",
+            "annoy",
+            "blame"
+          ],
+          "answer": "annoy",
+          "explanation": "الدليل: «what Ziad's mother would say… Nobody would get any sleep for weeks!» الطبلة هتضايق الأهل = annoy.",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-05-q3",
+          "type": "mcq",
+          "prompt": "The word \"peculiar\" is an antonym for ……",
+          "options": [
+            "strange",
+            "odd",
+            "mysterious",
+            "familiar"
+          ],
+          "answer": "familiar",
+          "explanation": "كلمة peculiar معناها غريب، وعكسها (antonym) familiar يعني مألوف. أما strange وodd فمرادفات مش أضداد.",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-05-q4",
+          "type": "mcq",
+          "prompt": "The writer bought Ziad a pot of paste to ……",
+          "options": [
+            "cover the walls with pictures",
+            "stick the pictures in a book",
+            "stick the pictures on the cupboard",
+            "stick tickets on his books"
+          ],
+          "answer": "stick the pictures in a book",
+          "explanation": "الدليل: «Instead of sticking them into a book, Ziad had covered every wall…». الهدف كان يلزق الصور في كتاب، لكن زياد لزقها على الحيطان.",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-05-q5",
+          "type": "mcq",
+          "prompt": "The writer thought that …… of the choices Ziad had made would please his parents.",
+          "options": [
+            "the first",
+            "the second",
+            "the third",
+            "nothing"
+          ],
+          "answer": "nothing",
+          "explanation": "كل اختيارات زياد كانت هتضايق أهله: الحيطان اتملت صور، والطبلة هتمنعهم من النوم. يعني ولا حاجة = nothing.",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-05-q6",
+          "type": "mcq",
+          "prompt": "The lady in the shop couldn't tell the writer where Ziad was because ……",
+          "options": [
+            "he had taken off his grey suit",
+            "he had left the shop",
+            "many boys wore clothes similar to his",
+            "she did not see him"
+          ],
+          "answer": "many boys wore clothes similar to his",
+          "explanation": "الدليل: «She pointed out that there were so many little boys in grey suits in the store».",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-05-q7",
+          "type": "mcq",
+          "prompt": "The writer could hardly recognise Ziad because ……",
+          "options": [
+            "he was disguised",
+            "it was dark",
+            "he carried a space gun",
+            "he seemed much older"
+          ],
+          "answer": "he was disguised",
+          "explanation": "زياد كان لابس هدوم بنفسجي غريبة ودقن صناعية = disguised (متنكر). مسدس الفضاء جزء من التنكر بس مش السبب كله.",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-05-q8",
+          "type": "mcq",
+          "prompt": "The word \"them\" in \"Instead of sticking them into a book\" refers to ……",
+          "options": [
+            "Ziad's parents",
+            "the walls",
+            "the pictures",
+            "Ziad's parents and uncle"
+          ],
+          "answer": "the pictures",
+          "explanation": "الجملة اللي قبلها: «a pot of paste and some funny pictures». them = the pictures اللي كان المفروض تتلزق في كتاب.",
+          "reviewStatus": "unreviewed"
+        }
+      ]
+    },
+    {
+      "id": "abqary-06",
+      "title": "Passage 6",
+      "teacher": "م. عبقري لغة",
+      "source": "م. عبقري لغة — ملزمة «حل 25 قطعة»",
+      "reviewStatus": "unreviewed",
+      "paragraphs": [
+        "In this tour, we will see some of Egypt's most famous sites. Travelling up the Nile, you will see ancient temples and meet friendly local people. We will visit Cairo, the Pyramids of Giza, Aswan and Luxor. You don't need to book hotels because we will arrange all your accommodation. We will also go camping for a night in the desert, so you need to bring a sleeping bag. It can be cold at night!",
+        "You don't have to bring much money because all your food and transport is included in the price. However, you might want to buy some souvenirs from the bazaars that we will visit. You will need to bring cool clothes and good shoes (walking around ancient temples can be difficult). You must also have a passport. Please also check our website for up-to-date information. We know that you'll return with some amazing memories and a happy face!",
+        "Egypt is the birthplace of civilization. Egypt is a deep-rooted country. It is famous for eco-tourism and the green environment. So we should be eco-tourists and help the environment. The Nile is the longest river in the world, so we will enjoy a lot of wonderful landscapes and eye-catching places."
+      ],
+      "questions": [
+        {
+          "id": "abqary-06-q1",
+          "type": "mcq",
+          "prompt": "Who is this text written for?",
+          "options": [
+            "It is written for tourists who want to visit Egypt.",
+            "It is written for tourists who want to visit London.",
+            "It is written for tourists who want to visit the River Nile.",
+            "It is written for tourists who want to visit hotels."
+          ],
+          "answer": "It is written for tourists who want to visit Egypt.",
+          "explanation": "إعلان رحلة: «In this tour, we will see some of Egypt's most famous sites» (القاهرة، الأهرامات، أسوان، الأقصر).",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-06-q2",
+          "type": "mcq",
+          "prompt": "Why don't people need to take much money with them on this trip?",
+          "options": [
+            "Tourists mustn't buy any souvenirs from the bazaars that we will visit.",
+            "Because people are very poor.",
+            "Because the service is free.",
+            "Because food and transport are included in the price."
+          ],
+          "answer": "Because food and transport are included in the price.",
+          "explanation": "الدليل: «all your food and transport is included in the price». الخدمة مش مجانية؛ هي متدفعة في السعر.",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-06-q3",
+          "type": "mcq",
+          "prompt": "According to the passage, this trip is most suitable for ……",
+          "options": [
+            "very old people",
+            "very young children",
+            "young people",
+            "babies"
+          ],
+          "answer": "young people",
+          "explanation": "الرحلة فيها مشي في المعابد «can be difficult» وتخييم في الصحرا والبرد بالليل، فهي مناسبة للشباب.",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-06-q4",
+          "type": "mcq",
+          "prompt": "The best title for this passage can be ……",
+          "options": [
+            "The History of Egypt",
+            "A Trip to Egypt",
+            "Tourism in Egypt",
+            "The Nile in Egypt"
+          ],
+          "answer": "A Trip to Egypt",
+          "explanation": "القطعة بتوصف رحلة بعينها: الأماكن والإقامة والأكل والحاجات اللي تجيبها معاك = A Trip to Egypt. «Tourism in Egypt» عام زيادة.",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-06-q5",
+          "type": "mcq",
+          "prompt": "The word \"It\" in \"It can be cold at night!\" refers to ……",
+          "options": [
+            "the desert",
+            "a hotel",
+            "a sleeping bag",
+            "all the accommodation"
+          ],
+          "answer": "the desert",
+          "explanation": "الجملة اللي قبلها: «go camping for a night in the desert… It can be cold at night!» يعني الصحرا بالليل بتبقى برد.",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-06-q6",
+          "type": "mcq",
+          "prompt": "What do you think \"up-to-date\" means?",
+          "options": [
+            "the newest",
+            "very important",
+            "very interesting",
+            "very useful"
+          ],
+          "answer": "the newest",
+          "explanation": "معنى up-to-date information أحدث معلومات، يعني the newest.",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-06-q7",
+          "type": "mcq",
+          "prompt": "I think that the writer of the text is ……",
+          "options": [
+            "telling lies",
+            "telling a story",
+            "telling facts",
+            "telling a novel"
+          ],
+          "answer": "telling facts",
+          "explanation": "النص معلومات حقيقية عن الرحلة (الأماكن، المطلوب، الباسبور)، مش حكاية ولا رواية = telling facts.",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-06-q8",
+          "type": "mcq",
+          "prompt": "What does \"eco\" mean in \"It is famous for eco-tourism\"?",
+          "options": [
+            "Related to the environment",
+            "Related to civilization",
+            "Related to pollution",
+            "Related to accommodation"
+          ],
+          "answer": "Related to the environment",
+          "explanation": "البادئة eco- معناها له علاقة بالبيئة، والدليل بعدها: «the green environment… help the environment».",
+          "reviewStatus": "unreviewed"
+        }
+      ]
+    },
+    {
+      "id": "abqary-07",
+      "title": "Passage 7",
+      "teacher": "م. عبقري لغة",
+      "source": "م. عبقري لغة — ملزمة «حل 25 قطعة»",
+      "reviewStatus": "unreviewed",
+      "paragraphs": [
+        "Because our families and friends have a great influence on us as we grow up, we are born helpless and dependent on our environment. However, people may be divided into two types: winners and losers.",
+        "Winners are able to change their situations and become independent by being responsible for their own lives. They don't blame others for their mistakes. They do their own thinking, listen to others, evaluate what they say, and then make up their minds. Although they may fail at times, yet they keep self-confidence. Winners overcome their bad experiences. They enjoy work, play, food and the world of nature. They freely enjoy themselves but they can postpone it if duty calls.",
+        "Losers, on the other hand, never learn to take responsibility for their own lives. There are many causes why people can become losers: disease, poor nutrition, cruelty, unhappy relationships and bad experiences. These can interfere with the normal progress towards becoming a winner. But whereas winners fight these situations, losers hang on to them, and use them as excuses. Losers usually feel anxious, unhappy and bored. They are afraid to try new things and often repeat their own mistakes again and again. Losers spend their lives waiting for something wonderful to happen to save them from their problems with their lives but never try to change.",
+        "To sum up, always exert great efforts, be positive and optimistic, but don't be negative or pessimistic. Then, accept and be proud of what you achieve."
+      ],
+      "questions": [
+        {
+          "id": "abqary-07-q1",
+          "type": "mcq",
+          "prompt": "A suitable title of the passage can be ……",
+          "options": [
+            "Family's influence",
+            "Depending on the environment",
+            "How to win",
+            "Winners and losers"
+          ],
+          "answer": "Winners and losers",
+          "explanation": "القطعة كلها مقارنة بين نوعين من الناس: «people may be divided into two types: winners and losers».",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-07-q2",
+          "type": "mcq",
+          "prompt": "The best summary for the second paragraph is ……",
+          "options": [
+            "winners' efforts",
+            "winners' entertainment",
+            "winners' qualities",
+            "winners' experiences"
+          ],
+          "answer": "winners' qualities",
+          "explanation": "الفقرة التانية بتعدّ صفات الفايزين: مستقلين، مش بيلوموا غيرهم، واثقين في نفسهم… = qualities.",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-07-q3",
+          "type": "mcq",
+          "prompt": "The word \"them\" in \"losers hang on to them\" refers to ……",
+          "options": [
+            "bad situations",
+            "winners",
+            "progresses",
+            "relationships"
+          ],
+          "answer": "bad situations",
+          "explanation": "الجملة: «whereas winners fight these situations, losers hang on to them». them = these (bad) situations.",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-07-q4",
+          "type": "mcq",
+          "prompt": "The word \"exert\" can be replaced by ……",
+          "options": [
+            "do",
+            "invent",
+            "make",
+            "give"
+          ],
+          "answer": "make",
+          "explanation": "معنى exert great efforts يبذل مجهود كبير، يعني make great efforts. التعبير الصح في الإنجليزي make an effort مش do.",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-07-q5",
+          "type": "mcq",
+          "prompt": "The clause \"winners are able to change their situation\" refers to winners' ……",
+          "options": [
+            "encouragement",
+            "flexibility",
+            "optimism",
+            "dependence"
+          ],
+          "answer": "flexibility",
+          "explanation": "القدرة على تغيير الموقف = المرونة (flexibility). dependence عكس اللي في القطعة (independent).",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-07-q6",
+          "type": "mcq",
+          "prompt": "The writer …… losers for their failure.",
+          "options": [
+            "sympathizes with",
+            "blames",
+            "regrets",
+            "excuses"
+          ],
+          "answer": "blames",
+          "explanation": "الكاتب بيقول إنهم «never learn to take responsibility» و«use them as excuses»، يعني بيحمّلهم المسؤولية = blames.",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-07-q7",
+          "type": "mcq",
+          "prompt": "Winners ……",
+          "options": [
+            "can delay entertainment if necessary",
+            "are defeated by bad experiences",
+            "enjoy and leave duties behind",
+            "aren't optimistic"
+          ],
+          "answer": "can delay entertainment if necessary",
+          "explanation": "الدليل: «They freely enjoy themselves but they can postpone it if duty calls». postpone = delay.",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-07-q8",
+          "type": "mcq",
+          "prompt": "Losers are people who ……",
+          "options": [
+            "overcome their bad experiences",
+            "learn to take responsibility",
+            "try to change",
+            "blame others for their mistakes"
+          ],
+          "answer": "blame others for their mistakes",
+          "explanation": "الفايزين «don't blame others for their mistakes»، والخسرانين عكسهم وبيستخدموا الظروف «as excuses». التلاتة التانيين صفات الفايزين.",
+          "reviewStatus": "unreviewed"
+        }
+      ]
+    },
+    {
+      "id": "abqary-08",
+      "title": "Passage 8",
+      "teacher": "م. عبقري لغة",
+      "source": "م. عبقري لغة — ملزمة «حل 25 قطعة»",
+      "reviewStatus": "unreviewed",
+      "paragraphs": [
+        "Resources are things that we use. Natural resources come from Earth. Many of our natural resources are limited. This means that they will not last forever. Some resources are renewable. This means the resource can be replaced or grown. You can plant a new tree when you cut one down. Other resources are not renewable. This means that they cannot be replaced or grown. You can dig coal out of the ground. Once the coal is used, it is gone. Many of Earth's natural resources are limited, but people can help conserve those resources. When you try to conserve a natural resource, you use less of it, so it does not get used up so fast.",
+        "People can conserve fuel, like gasoline, by riding a bicycle or walking. This works well when the distance is short. We needn't drive everywhere. Water is a very important natural resource. We all need it to live. We can conserve water by making sure that our pipes and faucets do not leak. We can also conserve water by making smart choices. One choice is to use the dishwasher and washing machine only when they are full. Another choice is to turn off the water when you brush your teeth. We can all make a difference!"
+      ],
+      "questions": [
+        {
+          "id": "abqary-08-q1",
+          "type": "mcq",
+          "prompt": "Resources are things that we ……",
+          "options": [
+            "need",
+            "get",
+            "use",
+            "are available"
+          ],
+          "answer": "use",
+          "explanation": "أول جملة: «Resources are things that we use».",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-08-q2",
+          "type": "mcq",
+          "prompt": "Renewable resources ……",
+          "options": [
+            "may run out",
+            "can be replaced",
+            "can't be replaced",
+            "may not last"
+          ],
+          "answer": "can be replaced",
+          "explanation": "الدليل: «Some resources are renewable. This means the resource can be replaced or grown».",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-08-q3",
+          "type": "mcq",
+          "prompt": "We need water to ……",
+          "options": [
+            "save energy",
+            "renew resources",
+            "live",
+            "move"
+          ],
+          "answer": "live",
+          "explanation": "الدليل: «Water is a very important natural resource. We all need it to live».",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-08-q4",
+          "type": "mcq",
+          "prompt": "To save water, use the dishwasher when it is ……",
+          "options": [
+            "connected",
+            "clean",
+            "repaired",
+            "full"
+          ],
+          "answer": "full",
+          "explanation": "الدليل: «use the dishwasher and washing machine only when they are full».",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-08-q5",
+          "type": "mcq",
+          "prompt": "We ride bicycles so that we can ……",
+          "options": [
+            "play games",
+            "save water",
+            "save energy",
+            "make smart choices"
+          ],
+          "answer": "save energy",
+          "explanation": "الدليل: «People can conserve fuel, like gasoline, by riding a bicycle». توفير البنزين = توفير طاقة.",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-08-q6",
+          "type": "mcq",
+          "prompt": "The problem with most of our natural resources is that they will …… one day.",
+          "options": [
+            "move",
+            "change",
+            "last forever",
+            "run out"
+          ],
+          "answer": "run out",
+          "explanation": "الدليل: «Many of our natural resources are limited. This means that they will not last forever» = هتخلص = run out.",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-08-q7",
+          "type": "mcq",
+          "prompt": "The best title for this article could be ……",
+          "options": [
+            "Saving the Planet",
+            "Wasting Energy",
+            "Saving Resources",
+            "Using Gas"
+          ],
+          "answer": "Saving Resources",
+          "explanation": "القطعة عن الموارد الطبيعية وإزاي نحافظ عليها (conserve): البنزين والمية = Saving Resources.",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-08-q8",
+          "type": "mcq",
+          "prompt": "Individuals …… make a difference in saving energy.",
+          "options": [
+            "can",
+            "can't",
+            "won't",
+            "has to"
+          ],
+          "answer": "can",
+          "explanation": "آخر جملة: «We can all make a difference!»",
+          "reviewStatus": "unreviewed"
+        }
+      ]
+    },
+    {
+      "id": "abqary-09",
+      "title": "Passage 9",
+      "teacher": "م. عبقري لغة",
+      "source": "م. عبقري لغة — ملزمة «حل 25 قطعة»",
+      "reviewStatus": "unreviewed",
+      "paragraphs": [
+        "There's no doubt that the developments in the medical field have helped a lot of people live longer and happier lives. In the past, a lot of people suffered and even died because of diseases that are now easy to treat thanks to the revolution in the medical field. One hundred years ago, diabetes always killed. A victim of diabetes would often have a damaged body organ called the pancreas, but doctors didn't understand why.",
+        "In 1921, a young doctor called Frederick Banting had a theory that the pancreas released a substance that controlled the sugar in the blood. Professor John Macleod at the University of Toronto, Canada, gave him a laboratory, ten dogs, and a medical student called Charles Best as a research assistant. Banting and Best showed that an extract from the pancreas, which they named \"insulin\", could control blood sugar in dogs. Biochemist Bertram Collip then purified the insulin so that it could be used for humans.",
+        "The discovery of insulin was a landmark. Diabetic patients no longer died from the disease. Banting and Macleod received the Nobel Prize in Medicine in 1923, but they shared their prize money with Best and Collip."
+      ],
+      "questions": [
+        {
+          "id": "abqary-09-q1",
+          "type": "mcq",
+          "prompt": "The best title for this passage is ……",
+          "options": [
+            "Unknown Scientists",
+            "The Discovery of Insulin",
+            "Diabetes",
+            "The Nobel Prize"
+          ],
+          "answer": "The Discovery of Insulin",
+          "explanation": "القطعة بتحكي إزاي اتكشف الإنسولين خطوة خطوة، وبتقول «The discovery of insulin was a landmark». السكر وجايزة نوبل تفاصيل.",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-09-q2",
+          "type": "mcq",
+          "prompt": "Medicine ……",
+          "options": [
+            "will stop one day",
+            "won't develop any more",
+            "is developed every day",
+            "can't be developed"
+          ],
+          "answer": "is developed every day",
+          "explanation": "القطعة بتتكلم عن «the developments in the medical field» و«the revolution in the medical field»، يعني الطب بيتطور باستمرار.",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-09-q3",
+          "type": "mcq",
+          "prompt": "What role do you think Bertram Collip played?",
+          "options": [
+            "He discovered insulin.",
+            "He provided the laboratory.",
+            "He was a research assistant.",
+            "He made pure insulin for humans."
+          ],
+          "answer": "He made pure insulin for humans.",
+          "explanation": "الدليل: «Biochemist Bertram Collip then purified the insulin so that it could be used for humans». (الجملة دي كانت ناقصة في الملف فاتكملت.) المعمل من ماكلويد، والمساعد بست.",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-09-q4",
+          "type": "mcq",
+          "prompt": "The word \"a landmark\" can be replaced by a/an ……",
+          "options": [
+            "disadvantage",
+            "advantage",
+            "turning point",
+            "weakness point"
+          ],
+          "answer": "turning point",
+          "explanation": "كلمة a landmark هنا معناها حدث غيّر التاريخ، يعني turning point. والدليل بعدها: «Diabetic patients no longer died».",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-09-q5",
+          "type": "mcq",
+          "prompt": "According to the passage, diabetes affects the …… badly.",
+          "options": [
+            "lungs",
+            "pancreas",
+            "heart",
+            "stomach"
+          ],
+          "answer": "pancreas",
+          "explanation": "الدليل: «A victim of diabetes would often have a damaged body organ called the pancreas».",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-09-q6",
+          "type": "mcq",
+          "prompt": "Who was the first to realize that the pancreas releases insulin?",
+          "options": [
+            "John Macleod",
+            "Frederick Banting",
+            "Charles Best",
+            "Bertram Collip"
+          ],
+          "answer": "Frederick Banting",
+          "explanation": "الدليل: «a young doctor called Frederick Banting had a theory that the pancreas released a substance that controlled the sugar».",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-09-q7",
+          "type": "mcq",
+          "prompt": "The synonym of the word \"release\" is ……",
+          "options": [
+            "damage",
+            "produce",
+            "avoid",
+            "stop"
+          ],
+          "answer": "produce",
+          "explanation": "في القطعة: «the pancreas released a substance»، يعني البنكرياس أفرز (أنتج) مادة، فـ release هنا معناها produce.",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-09-q8",
+          "type": "mcq",
+          "prompt": "Who got the Nobel Prize money?",
+          "options": [
+            "One scientist",
+            "Two scientists",
+            "Three scientists",
+            "Four scientists"
+          ],
+          "answer": "Four scientists",
+          "explanation": "بانتنج وماكلويد خدوا الجايزة «but they shared their prize money with Best and Collip» = 4 علماء. ركّز: السؤال عن الفلوس مش الجايزة نفسها (الجايزة لاتنين).",
+          "reviewStatus": "unreviewed"
+        }
+      ]
+    },
+    {
+      "id": "abqary-10a",
+      "title": "Passage 10 (a)",
+      "teacher": "م. عبقري لغة",
+      "source": "م. عبقري لغة — ملزمة «حل 25 قطعة»",
+      "reviewStatus": "unreviewed",
+      "paragraphs": [
+        "The Chinese invented paper and they were also the first to use paper banknotes for money. Before paper notes were invented in the seventh century, wealthy Chinese traders had used metal coins. These had a hole in the middle so that traders could carry them on pieces of material. But these were very heavy to carry. As a result, traders left the money with someone they trusted. Instead, they carried a piece of paper which said how much money they had. The trader could use this paper note to promise anyone that they could pay for the goods that they wanted to buy.",
+        "People in Europe only started to use paper banknotes in the seventeenth century. In England, the king needed money to help fight a war with France. Banks encouraged people to leave money with them and gave handwritten notes saying how much money they had left. The notes said, \"I promise to pay the bearer the sum of…\" and you can still see the same words on English notes today. Bank workers continued to handwrite notes until 1853, when the first notes were printed.",
+        "The paper used for banknotes is usually made from a mixture of paper and cotton, and sometimes other materials. Although these other materials make the notes stronger than normal paper, most banknotes only last for about two years. For this reason, some countries tried using plastic notes in 1983. However, the first plastic notes in England were not very successful because the ink came off the notes onto people's hands! Five years later, in 1988, Australia successfully used plastic notes for the first time. Today, many countries use plastic notes, which are stronger than paper notes, last longer and are harder to copy."
+      ],
+      "questions": [
+        {
+          "id": "abqary-10a-q1",
+          "type": "mcq",
+          "prompt": "Why did Chinese traders first use notes instead of coins?",
+          "options": [
+            "Because the coins were too heavy to carry.",
+            "Because coins had holes in them.",
+            "Because traders could not trust everyone.",
+            "Because they preferred paper."
+          ],
+          "answer": "Because the coins were too heavy to carry.",
+          "explanation": "الدليل: «But these were very heavy to carry. As a result, traders left the money with someone they trusted. Instead, they carried a piece of paper».",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-10a-q2",
+          "type": "mcq",
+          "prompt": "Why did banks in England first want people to leave their money with them?",
+          "options": [
+            "The king needed money to fight a war.",
+            "People preferred notes to coins.",
+            "People wanted their money to be safe.",
+            "Banks opened for the first time."
+          ],
+          "answer": "The king needed money to fight a war.",
+          "explanation": "الدليل: «In England, the king needed money to help fight a war with France. Banks encouraged people to leave money with them». (الاختيار في الملف كان مكتوب غلط «to coins».)",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-10a-q3",
+          "type": "mcq",
+          "prompt": "Why were notes handwritten until 1853?",
+          "options": [
+            "It was cheaper this way.",
+            "It was faster this way.",
+            "There was no technology to print them before this time.",
+            "It was hard to copy the handwriting."
+          ],
+          "answer": "There was no technology to print them before this time.",
+          "explanation": "الدليل: «Bank workers continued to handwrite notes until 1853, when the first notes were printed». يعني قبل كده الطباعة ما كانتش موجودة للبنكنوت.",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-10a-q4",
+          "type": "mcq",
+          "prompt": "What is the main idea of the text?",
+          "options": [
+            "Why we use money",
+            "Why we use banks",
+            "The history of paper banknotes",
+            "The history of trade"
+          ],
+          "answer": "The history of paper banknotes",
+          "explanation": "القطعة ماشية بالترتيب: الصين في القرن السابع ← أوروبا في القرن السابع عشر ← الطباعة 1853 ← البلاستيك 1983 و1988 = تاريخ البنكنوت.",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-10a-q5",
+          "type": "mcq",
+          "prompt": "The word \"them\" in \"Banks encouraged people to leave money with them\" refers to ……",
+          "options": [
+            "the King's men",
+            "the men in France",
+            "the people who had the money",
+            "the banks"
+          ],
+          "answer": "the banks",
+          "explanation": "الناس سابوا فلوسهم مع البنوك: them = the banks.",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-10a-q6",
+          "type": "mcq",
+          "prompt": "What does the word \"bearer\" mean?",
+          "options": [
+            "someone who works in a bank",
+            "a Chinese trader",
+            "someone who carries something",
+            "someone who works for the King"
+          ],
+          "answer": "someone who carries something",
+          "explanation": "كلمة bearer معناها اللي شايل (حامل) الورقة، يعني someone who carries something. وجملة «I promise to pay the bearer» معناها: أتعهد أن أدفع لحامل هذا السند.",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-10a-q7",
+          "type": "mcq",
+          "prompt": "Where were paper banknotes first used?",
+          "options": [
+            "In China",
+            "In Europe",
+            "In England",
+            "In Australia"
+          ],
+          "answer": "In China",
+          "explanation": "الدليل: «they (the Chinese) were also the first to use paper banknotes for money».",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-10a-q8",
+          "type": "mcq",
+          "prompt": "When were paper banknotes first used?",
+          "options": [
+            "In the seventh century",
+            "In the seventeenth century",
+            "In 1988",
+            "In 1983"
+          ],
+          "answer": "In the seventh century",
+          "explanation": "الدليل: «Before paper notes were invented in the seventh century». القرن السابع عشر ده أوروبا، و1983 و1988 للبلاستيك.",
+          "reviewStatus": "unreviewed"
+        }
+      ]
+    },
+    {
+      "id": "abqary-10b",
+      "title": "Passage 10 (b)",
+      "teacher": "م. عبقري لغة",
+      "source": "م. عبقري لغة — ملزمة «حل 25 قطعة»",
+      "reviewStatus": "unreviewed",
+      "paragraphs": [
+        "The Nile crocodile is an African crocodile and the second largest extant reptile in the world, after the saltwater crocodile. It lives in different types of aquatic environments such as lakes, rivers and marshlands.",
+        "Although it is capable of living in saline environments, this species is rarely found in saltwater, but occasionally inhabits deltas. The Nile crocodile is an opportunistic predator and a very aggressive species of crocodile that is capable of taking almost any animal within its range. Nile crocodiles are generalists, taking a variety of prey. Their diet consists mostly of different species of fish, reptiles, birds and mammals. It has an extremely powerful bite that is unique amongst all animals and sharp conical teeth that sink into flesh, allowing for a grip that is almost impossible to loosen.",
+        "Adult Nile crocodiles have a dark bronze colouration above, with faded blackish spots and stripes across the back and a dingy off-yellow on the belly, although mud can often hide the crocodile's actual colour. Their flanks are yellowish-green in colour and have dark patches. Nile crocodiles have green eyes. As they mature, Nile crocodiles become darker.",
+        "Nile crocodiles are very social crocodiles. They share basking spots and large food sources such as schools of fish and big carcasses. They also lay eggs to reproduce, which are guarded by the female. They are one of the most dangerous species of crocodile and are responsible for hundreds of deaths of humans every year."
+      ],
+      "questions": [
+        {
+          "id": "abqary-10b-q1",
+          "type": "mcq",
+          "prompt": "What is known about Nile crocodiles?",
+          "options": [
+            "They never live in deltas.",
+            "They only live in deltas.",
+            "They no longer live in deltas.",
+            "They sometimes live in deltas."
+          ],
+          "answer": "They sometimes live in deltas.",
+          "explanation": "الدليل: «but occasionally inhabits deltas». occasionally = sometimes.",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-10b-q2",
+          "type": "mcq",
+          "prompt": "Why do Nile crocodiles share schools of fish?",
+          "options": [
+            "Because they are aggressive.",
+            "Because they are deadly.",
+            "Because they are social.",
+            "Because they are conical."
+          ],
+          "answer": "Because they are social.",
+          "explanation": "الدليل: «Nile crocodiles are very social crocodiles. They share basking spots and large food sources such as schools of fish».",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-10b-q3",
+          "type": "mcq",
+          "prompt": "When do Nile crocodiles become darker in colour?",
+          "options": [
+            "When they eat",
+            "When they mature",
+            "When they are hungry",
+            "When they are angry"
+          ],
+          "answer": "When they mature",
+          "explanation": "الدليل: «As they mature, Nile crocodiles become darker». mature = يكبر/يبلغ.",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-10b-q4",
+          "type": "mcq",
+          "prompt": "Where do you rarely see a Nile crocodile?",
+          "options": [
+            "In lakes",
+            "In rivers",
+            "In deltas",
+            "In saltwater"
+          ],
+          "answer": "In saltwater",
+          "explanation": "الدليل: «this species is rarely found in saltwater». البحيرات والأنهار من أماكن عيشته، والدلتا أحيانًا.",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-10b-q5",
+          "type": "mcq",
+          "prompt": "The word \"Their\" in \"Their diet consists mostly of…\" refers to ……",
+          "options": [
+            "foods",
+            "Nile crocodiles",
+            "prey",
+            "reptiles"
+          ],
+          "answer": "Nile crocodiles",
+          "explanation": "الجملة اللي قبلها: «Nile crocodiles are generalists… Their diet» = أكل تماسيح النيل.",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-10b-q6",
+          "type": "mcq",
+          "prompt": "What is meant by the word \"predator\"?",
+          "options": [
+            "An animal that eats plants.",
+            "An animal that lives in space.",
+            "An animal that lives on land.",
+            "An animal that eats other animals."
+          ],
+          "answer": "An animal that eats other animals.",
+          "explanation": "كلمة predator معناها حيوان مفترس بيصطاد ويأكل حيوانات تانية، والدليل: «capable of taking almost any animal».",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-10b-q7",
+          "type": "mcq",
+          "prompt": "…… hides the real colour of Nile crocodiles.",
+          "options": [
+            "Water",
+            "Mud",
+            "Sand",
+            "Spine"
+          ],
+          "answer": "Mud",
+          "explanation": "الدليل: «mud can often hide the crocodile's actual colour».",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-10b-q8",
+          "type": "mcq",
+          "prompt": "The teeth of Nile crocodiles sink into …… allowing for a grip that is almost impossible to loosen.",
+          "options": [
+            "flesh",
+            "flash",
+            "flask",
+            "fuss"
+          ],
+          "answer": "flesh",
+          "explanation": "الدليل: «sharp conical teeth that sink into flesh». flesh = لحم. باقي الكلمات شبهها في الشكل بس.",
+          "reviewStatus": "unreviewed"
+        }
+      ]
+    },
+    {
+      "id": "abqary-11",
+      "title": "Passage 11",
+      "teacher": "م. عبقري لغة",
+      "source": "م. عبقري لغة — ملزمة «حل 25 قطعة»",
+      "reviewStatus": "unreviewed",
+      "paragraphs": [
+        "Everyone likes to stay fit and healthy, but not everyone succeeds in doing that. Staying healthy is important to ensure a happy life. There are two main tips that people have to follow in order to stay healthy. One of the most helpful ways to stay healthy is to have healthy food and eat it at an appropriate time.",
+        "Healthy eating is the cornerstone in protecting our health from many conditions, such as diabetes, heart diseases, cancer and blood pressure. Junk foods should be avoided. Instead of having these fast and unhealthy foods, the diet should contain leafy vegetables, fresh vegetables, fruits, milk and fish. One's diet has a key impact on one's overall health.",
+        "Healthy food gives an individual strength and even improves their appearance. Healthy food is good for both an individual's body and skin. Exercising is a physical activity that enhances physical fitness and health. For instance, running and cycling are the important exercises that people should do to ensure keeping the body healthy and fit. Therefore, find some time, about 30 minutes per day, to do exercises. Being healthy is not hard to control: be active and be healthy."
+      ],
+      "questions": [
+        {
+          "id": "abqary-11-q1",
+          "type": "mcq",
+          "prompt": "The main idea of the passage is \"……\".",
+          "options": [
+            "How to exercise",
+            "How to eat healthy food",
+            "How to lead a healthy life",
+            "How to be active"
+          ],
+          "answer": "How to lead a healthy life",
+          "explanation": "القطعة فيها نصيحتين: الأكل الصحي والرياضة، والاتنين علشان «stay healthy» = حياة صحية. الاختيارات التانية جزء بس.",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-11-q2",
+          "type": "mcq",
+          "prompt": "The word \"tips\" in the passage means \"……\".",
+          "options": [
+            "advice",
+            "chance",
+            "game",
+            "opportunity"
+          ],
+          "answer": "advice",
+          "explanation": "كلمة tips معناها نصايح، يعني advice: «two main tips that people have to follow».",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-11-q3",
+          "type": "mcq",
+          "prompt": "It's important to eat healthy food at a/an …… time.",
+          "options": [
+            "bad",
+            "suitable",
+            "usual",
+            "unusual"
+          ],
+          "answer": "suitable",
+          "explanation": "الدليل: «eat it at an appropriate time». appropriate = suitable (مناسب).",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-11-q4",
+          "type": "mcq",
+          "prompt": "According to the passage, …… are the most important exercises for us.",
+          "options": [
+            "swimming and running",
+            "running and cycling",
+            "swimming and cycling",
+            "playing football and cycling"
+          ],
+          "answer": "running and cycling",
+          "explanation": "الدليل: «running and cycling are the important exercises».",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-11-q5",
+          "type": "mcq",
+          "prompt": "…… is enough time to do exercises.",
+          "options": [
+            "Half an hour",
+            "A quarter of an hour",
+            "One hour",
+            "Two hours"
+          ],
+          "answer": "Half an hour",
+          "explanation": "الدليل: «about 30 minutes per day». 30 دقيقة = نص ساعة.",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-11-q6",
+          "type": "mcq",
+          "prompt": "Healthy eating prevents many …… such as diabetes.",
+          "options": [
+            "vegetables",
+            "exercises",
+            "fast foods",
+            "diseases"
+          ],
+          "answer": "diseases",
+          "explanation": "الدليل: «many conditions, such as diabetes, heart diseases, cancer and blood pressure» = أمراض.",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-11-q7",
+          "type": "mcq",
+          "prompt": "Healthy food makes us ……",
+          "options": [
+            "stressed",
+            "weak",
+            "bad",
+            "strong"
+          ],
+          "answer": "strong",
+          "explanation": "الدليل: «Healthy food gives an individual strength».",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-11-q8",
+          "type": "mcq",
+          "prompt": "A good diet should contain ……",
+          "options": [
+            "fruits and vegetables",
+            "sweets",
+            "junk food and vegetables",
+            "pizza"
+          ],
+          "answer": "fruits and vegetables",
+          "explanation": "الدليل: «the diet should contain leafy vegetables, fresh vegetables, fruits, milk and fish». الأكل السريع لازم نتجنبه.",
+          "reviewStatus": "unreviewed"
+        }
+      ]
+    },
+    {
+      "id": "abqary-12",
+      "title": "Passage 12",
+      "teacher": "م. عبقري لغة",
+      "source": "م. عبقري لغة — ملزمة «حل 25 قطعة»",
+      "reviewStatus": "unreviewed",
+      "paragraphs": [
+        "While technology is steadily taking control over individual lives, the reading habit is fast vanishing into thin air. TV and the silver screen are filling the minds of modern youth, taking the majority of their free time. We have to think seriously about how the growing generations will find time to read. Video and television are responsible for the declining interest in reading among youth. They do nothing to build up reading skills. If children's time were devoted to reading, the population would be better educated.",
+        "Reading a story is an active partnership between a writer and a reader. Ideas are sketched and the mind of the reader creates the rest, but watching something is totally passive. The problem is that many children read very slowly. It is hardly surprising that such children declare that they find reading boring and prefer to watch television. Their difficulty is not reading the words – it is interpreting them. They need to be able to read fast enough to feed the mind's hunger for a story. Only by reading daily will a child become a strong and independent reader. Parents need to be convinced of the importance of preventing their children from wasting their time. Without their television, the child is likely to turn to books for entertainment."
+      ],
+      "questions": [
+        {
+          "id": "abqary-12-q1",
+          "type": "mcq",
+          "prompt": "The best title for the passage is \"……\".",
+          "options": [
+            "The Importance of Reading",
+            "Children's Preferences",
+            "The Benefits of Technology",
+            "Technology Pros"
+          ],
+          "answer": "The Importance of Reading",
+          "explanation": "الكاتب بيدافع عن القراية: بتعلّم وتخلي الطفل قارئ قوي، والتلفزيون سلبي. يعني أهمية القراءة.",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-12-q2",
+          "type": "mcq",
+          "prompt": "There is a fruitful partnership between a writer and a reader when ……",
+          "options": [
+            "a video is watched",
+            "a book story is read",
+            "an article is published",
+            "a short story is read"
+          ],
+          "answer": "a book story is read",
+          "explanation": "الدليل: «Reading a story is an active partnership between a writer and a reader»، مقارنة بالفيديو اللي «totally passive». القطعة ما قالتش «short».",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-12-q3",
+          "type": "mcq",
+          "prompt": "What is the reason behind the decline in the reading habit among youth?",
+          "options": [
+            "Lack of free time.",
+            "TV and video.",
+            "Doing sports.",
+            "Not going to school."
+          ],
+          "answer": "TV and video.",
+          "explanation": "الدليل: «Video and television are responsible for the declining interest in reading among youth».",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-12-q4",
+          "type": "mcq",
+          "prompt": "The synonym of the word \"independent\" is ……",
+          "options": [
+            "self-centered",
+            "self-determining",
+            "active",
+            "intelligent"
+          ],
+          "answer": "self-determining",
+          "explanation": "كلمة independent معناها مستقل بيعتمد على نفسه، يعني self-determining. أما self-centered فمعناها أناني، معنى تاني خالص.",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-12-q5",
+          "type": "mcq",
+          "prompt": "According to the writer's view, TV is …… means of entertainment.",
+          "options": [
+            "not an effective",
+            "not a cheap",
+            "an effective",
+            "an encouraging"
+          ],
+          "answer": "not an effective",
+          "explanation": "الكاتب شايف التلفزيون «totally passive» و«do nothing to build up reading skills»، يعني مش وسيلة مفيدة. (في الملف الاختيار c مكتوب «an affective».)",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-12-q6",
+          "type": "mcq",
+          "prompt": "The pronoun \"They\" in \"They do nothing to build up reading skills\" refers to ……",
+          "options": [
+            "the youth",
+            "reading skills",
+            "children",
+            "video and television"
+          ],
+          "answer": "video and television",
+          "explanation": "الجملة اللي قبلها: «Video and television are responsible… They do nothing to build up reading skills».",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-12-q7",
+          "type": "mcq",
+          "prompt": "Reading helps people to be ……",
+          "options": [
+            "well-paid",
+            "good writers",
+            "well-educated",
+            "good actors"
+          ],
+          "answer": "well-educated",
+          "explanation": "الدليل: «If children's time were devoted to reading, the population would be better educated».",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-12-q8",
+          "type": "mcq",
+          "prompt": "Children who read slowly ……",
+          "options": [
+            "like TV",
+            "are disabled",
+            "like reading",
+            "speak fast"
+          ],
+          "answer": "like TV",
+          "explanation": "الدليل: «such children declare that they find reading boring and prefer to watch television».",
+          "reviewStatus": "unreviewed"
+        }
+      ]
+    },
+    {
+      "id": "abqary-13",
+      "title": "Passage 13",
+      "teacher": "م. عبقري لغة",
+      "source": "م. عبقري لغة — ملزمة «حل 25 قطعة»",
+      "reviewStatus": "unreviewed",
+      "paragraphs": [
+        "The human body is like a machine that is moving and working all the time. All machines need fuel to give them energy. The fuel for the human body is food, and most of the energy comes from two substances in our food: carbohydrates and fats. Carbohydrates come from food like bread, potatoes and rice. Fats come from food like cheese, butter, oil and meat.",
+        "Energy in food is measured in calories. For example, an apple has about 40 calories, an egg has about 80, a fresh date has 15, and a tomato has around 12. Carbohydrates and fats have a lot of calories. For instance, a tin of soft drink, which contains a lot of sugar, has 145, a piece of bread has 165, and only one spoonful of cooking oil has 120 calories. You need about 40 calories a day for each kilo that you weigh. So, if you weigh 60 kilos, you will need about 2400 calories per day. If a person eats all the calories he or she needs in his or her meals, but in addition drinks only one tin of soft drink a day, he or she may gain five kilos per year.",
+        "Unfortunately, food which contains carbohydrates is usually cheaper than other food, and it is often convenient and attractive. All 'junk food' contains lots of carbohydrates and fats. If your diet contains a lot of junk food, you will probably get fat."
+      ],
+      "questions": [
+        {
+          "id": "abqary-13-q1",
+          "type": "mcq",
+          "prompt": "What is the best title for the passage?",
+          "options": [
+            "How to Become Healthy",
+            "How to Get Energy",
+            "Fats and Carbohydrates"
+          ],
+          "answer": "Fats and Carbohydrates",
+          "explanation": "الكربوهيدرات والدهون في كل فقرات القطعة: هما مصدر الطاقة، وفيهم سعرات كتير، والأكل السريع مليان بيهم فيتخن. «How to Get Energy» بيغطي أول فقرة بس.",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-13-q2",
+          "type": "mcq",
+          "prompt": "How many calories do tins of soft drink have?",
+          "options": [
+            "A small number",
+            "A few",
+            "None",
+            "Many"
+          ],
+          "answer": "Many",
+          "explanation": "الدليل: «a tin of soft drink, which contains a lot of sugar, has 145». ودي من الحاجات اللي «have a lot of calories».",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-13-q3",
+          "type": "mcq",
+          "prompt": "We find carbohydrates in ……",
+          "options": [
+            "bread, potatoes and rice",
+            "cheese, butter, oil and meat",
+            "oranges and mangoes",
+            "vegetables and fruits"
+          ],
+          "answer": "bread, potatoes and rice",
+          "explanation": "الدليل: «Carbohydrates come from food like bread, potatoes and rice». الجبنة والزبدة والزيت واللحمة = دهون. (الجملة دي كانت ناقصة في الملف فاتكملت.)",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-13-q4",
+          "type": "mcq",
+          "prompt": "\"All 'junk food' contains lots of carbohydrates and fats. If your diet contains a lot of junk food, you will probably get fat.\" This means that junk food is ……",
+          "options": [
+            "healthy",
+            "poisonous",
+            "unhealthy",
+            "necessary"
+          ],
+          "answer": "unhealthy",
+          "explanation": "أكل بيخلي الإنسان يتخن = مش صحي = unhealthy. poisonous (سام) مبالغة مش في القطعة.",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-13-q5",
+          "type": "mcq",
+          "prompt": "What do cheese, butter and oil contain?",
+          "options": [
+            "Fats",
+            "Carbohydrates",
+            "Salts",
+            "Vitamins"
+          ],
+          "answer": "Fats",
+          "explanation": "الدليل: «Fats come from food like cheese, butter, oil and meat».",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-13-q6",
+          "type": "mcq",
+          "prompt": "Where does energy for the human body come from?",
+          "options": [
+            "Junk food",
+            "Carbohydrates and fats",
+            "Protein and foods",
+            "Soft drinks"
+          ],
+          "answer": "Carbohydrates and fats",
+          "explanation": "الدليل: «most of the energy comes from two substances in our food: carbohydrates and fats».",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-13-q7",
+          "type": "mcq",
+          "prompt": "How many calories does a person who weighs 40 kilos need a day?",
+          "options": [
+            "2000 calories",
+            "165 calories",
+            "1600 calories",
+            "2400 calories"
+          ],
+          "answer": "1600 calories",
+          "explanation": "القاعدة: «about 40 calories a day for each kilo». 40 كيلو × 40 = 1600 سعر. (2400 دي للي وزنه 60 كيلو.)",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-13-q8",
+          "type": "mcq",
+          "prompt": "Which statement is true?",
+          "options": [
+            "Food which contains carbohydrates doesn't make us fat.",
+            "Food which contains carbohydrates has fewer calories.",
+            "Food which contains carbohydrates isn't expensive and is well liked.",
+            "Food which contains carbohydrates is the only food useful for the body."
+          ],
+          "answer": "Food which contains carbohydrates isn't expensive and is well liked.",
+          "explanation": "الدليل: «food which contains carbohydrates is usually cheaper than other food, and it is often convenient and attractive».",
+          "reviewStatus": "unreviewed"
+        }
+      ]
+    },
+    {
+      "id": "abqary-14",
+      "title": "Passage 14",
+      "teacher": "م. عبقري لغة",
+      "source": "م. عبقري لغة — ملزمة «حل 25 قطعة»",
+      "reviewStatus": "unreviewed",
+      "paragraphs": [
+        "\"A friend in need is a friend indeed.\" Has that wise saying been proved to you? Did any of your close friends ever stand beside you at the times of sorrow and distress or at the times of joy? That has become like a needle in a haystack in these times of struggling and climbing on the shoulders of others.",
+        "At the very beginning of one's life, a child makes friends with a lot of peers who may be a mixture of good and bad. Due to his young age, he can't perfectly judge or decide with whom to keep or lose friendship. By the time he becomes older, the number of friends decreases to a number that doesn't exceed the fingers of one hand. It all depends on to what extent they are faithful, selfless and honest to each other.",
+        "Friendship, which all mankind always searches for, as it is mainly a human instinct and man is social by nature, has become a rare value. Friends can help you celebrate good times, protect you from loneliness and give you a sense of belonging. The so-called \"friends\" on social media, who only contact you through comments or emojis to congratulate or condole instead of hurrying to stand right next to you when you are in tough conditions, are false friends. My advice is to choose your friends carefully."
+      ],
+      "questions": [
+        {
+          "id": "abqary-14-q1",
+          "type": "mcq",
+          "prompt": "\"Climbing on the shoulders of others\" – this expression describes ……",
+          "options": [
+            "true friends",
+            "selfish friends",
+            "friends on social media",
+            "brave friends"
+          ],
+          "answer": "selfish friends",
+          "explanation": "اللي «بيطلع على كتاف غيره» بيستغل الناس علشان مصلحته = أناني selfish، عكس الصديق الحقيقي اللي «selfless».",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-14-q2",
+          "type": "mcq",
+          "prompt": "The word \"decrease\" in the second paragraph is an antonym of ……",
+          "options": [
+            "expand",
+            "decline",
+            "contract",
+            "shrink"
+          ],
+          "answer": "expand",
+          "explanation": "كلمة decrease معناها يقل، وعكسها expand يعني يزيد ويتسع. أما decline وcontract وshrink فكلهم مرادفات (يقل/ينكمش).",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-14-q3",
+          "type": "mcq",
+          "prompt": "Man always needs friends because ……",
+          "options": [
+            "he has much free time",
+            "he needs to laugh at others",
+            "he is greedy by nature",
+            "this is how he was created"
+          ],
+          "answer": "this is how he was created",
+          "explanation": "الدليل: «it is mainly a human instinct and man is social by nature» = الإنسان اتخلق كده (غريزة).",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-14-q4",
+          "type": "mcq",
+          "prompt": "The writer thinks that true friendship has become ……",
+          "options": [
+            "common",
+            "widely spread",
+            "uncommon",
+            "hateful"
+          ],
+          "answer": "uncommon",
+          "explanation": "الدليل: «has become a rare value» و«a needle in a haystack». rare = uncommon.",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-14-q5",
+          "type": "mcq",
+          "prompt": "What do you think \"emojis\" are?",
+          "options": [
+            "Games for entertainment",
+            "Computer devices",
+            "Figures and symbols",
+            "Tools and equipment"
+          ],
+          "answer": "Figures and symbols",
+          "explanation": "الـ emojis هي الوشوش والرموز الصغيرة اللي بنبعتها في الكومنتات والرسايل، يعني figures and symbols.",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-14-q6",
+          "type": "mcq",
+          "prompt": "\"Close\" in the first paragraph has the same meaning as ……",
+          "options": [
+            "locked",
+            "best",
+            "hateful",
+            "opponent"
+          ],
+          "answer": "best",
+          "explanation": "معنى close friends أصحاب مقربين، يعني best friends. أما locked فده معنى close التاني (مقفول) ومش المقصود هنا.",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-14-q7",
+          "type": "mcq",
+          "prompt": "Friendship protects us from feelings of ……",
+          "options": [
+            "loneliness and discontent",
+            "relief and relaxation",
+            "fear and horror",
+            "calmness and excitement"
+          ],
+          "answer": "loneliness and discontent",
+          "explanation": "الدليل: «Friends can… protect you from loneliness and give you a sense of belonging». الصحاب بيبعدوا عننا الوحدة وعدم الرضا. (في الملف مكتوب «discount» بدل discontent.)",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-14-q8",
+          "type": "mcq",
+          "prompt": "The writer advised us to ……",
+          "options": [
+            "text our friends at times of sorrow",
+            "decrease the number of our friends",
+            "select our friends correctly",
+            "use social media correctly"
+          ],
+          "answer": "select our friends correctly",
+          "explanation": "آخر جملة: «My advice is to choose your friends carefully».",
+          "reviewStatus": "unreviewed"
+        }
+      ]
+    },
+    {
+      "id": "abqary-15",
+      "title": "Passage 15",
+      "teacher": "م. عبقري لغة",
+      "source": "م. عبقري لغة — ملزمة «حل 25 قطعة»",
+      "reviewStatus": "unreviewed",
+      "paragraphs": [
+        "Should we work all the time without having any rest or entertainment? The answer is that we cannot go on working without stopping, from time to time and at regular intervals, to have some rest and recreation. If we do so, we can make mistakes and the quality of our work might get worse.",
+        "An overworked person may end up losing the ability to think clearly and having no energy to go on working. Sleep is one of the ways in which nature renews our energy.",
+        "Sports and games are also essential for brain workers who stay in closed offices and do not have a good chance to exercise their muscles. Such activities as swimming and walking may do a lot of good to them. So, we should not waste our weekends. They should be made full use of and spent in the open. Having forgotten all about our work and the worries of life, we can then enjoy ourselves to the full and return the next day to work with our energy fully renewed. Change has a magic effect on a man's health and consequently on his performance."
+      ],
+      "questions": [
+        {
+          "id": "abqary-15-q1",
+          "type": "mcq",
+          "prompt": "The best summary of the passage is ……",
+          "options": [
+            "We don't have time for entertainment.",
+            "Work hard all the time.",
+            "Man should have time for entertainment.",
+            "Entertainment is a waste of time."
+          ],
+          "answer": "Man should have time for entertainment.",
+          "explanation": "الفكرة: «we cannot go on working without stopping… to have some rest and recreation» = لازم وقت للراحة والترفيه.",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-15-q2",
+          "type": "mcq",
+          "prompt": "Overworking results in ……",
+          "options": [
+            "creative thinking",
+            "more experience",
+            "loss of energy",
+            "more energy"
+          ],
+          "answer": "loss of energy",
+          "explanation": "الدليل: «An overworked person may end up… having no energy to go on working».",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-15-q3",
+          "type": "mcq",
+          "prompt": "The writer suggests that brain workers …… in the open.",
+          "options": [
+            "should waste their weekends",
+            "should spend their weekends",
+            "should give up their weekends",
+            "shouldn't spend their weekends"
+          ],
+          "answer": "should spend their weekends",
+          "explanation": "الدليل: «we should not waste our weekends. They should be made full use of and spent in the open».",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-15-q4",
+          "type": "mcq",
+          "prompt": "\"Change has a magic effect on man's health.\" The word \"magic\" in the sentence means ……",
+          "options": [
+            "bad",
+            "passive",
+            "negative",
+            "positive"
+          ],
+          "answer": "positive",
+          "explanation": "معنى magic effect هنا تأثير جميل وقوي ومفيد، يعني positive، لأنه بيجدد طاقتنا ويحسّن الأداء.",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-15-q5",
+          "type": "mcq",
+          "prompt": "The word \"intervals\" can have the meaning of ……",
+          "options": [
+            "periods",
+            "classes",
+            "starts",
+            "lessons"
+          ],
+          "answer": "periods",
+          "explanation": "معنى at regular intervals على فترات منتظمة، فكلمة interval معناها فترة، يعني period.",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-15-q6",
+          "type": "mcq",
+          "prompt": "Change has a great effect on man's ……",
+          "options": [
+            "chance",
+            "performance",
+            "apology",
+            "taste"
+          ],
+          "answer": "performance",
+          "explanation": "آخر جملة: «Change has a magic effect on a man's health and consequently on his performance».",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-15-q7",
+          "type": "mcq",
+          "prompt": "Sports and games are …… for brain workers.",
+          "options": [
+            "harmful",
+            "boring",
+            "essential",
+            "not important"
+          ],
+          "answer": "essential",
+          "explanation": "الدليل: «Sports and games are also essential for brain workers».",
+          "reviewStatus": "unreviewed"
+        }
+      ]
+    },
+    {
+      "id": "abqary-16",
+      "title": "Passage 16",
+      "teacher": "م. عبقري لغة",
+      "source": "م. عبقري لغة — ملزمة «حل 25 قطعة»",
+      "reviewStatus": "unreviewed",
+      "paragraphs": [
+        "Octopuses are extremely intelligent. They have even learnt a few tricks to get them out of sticky situations. For example, when they are afraid of a predator, as octopuses don't have teeth or sharp claws to defend themselves, they hide in the sand on the bottom of the ocean floor. The octopus is like a chameleon because it can change the colour of its skin to match the sand. Some octopuses like to stay in more shallow water where there are rocks and coral.",
+        "However, octopuses can squeeze themselves into small spaces between the rocks to get out of reach of predators. Another way an octopus can use to hide is by shooting ink. An octopus uses a part of its body called a siphon to shoot ink into the water. The ink forms a cloud that hides the octopus. It's like a magician doing a vanishing act. If an octopus is attacked, it can actually make itself look like a venomous sea snake. It will bury itself in the sand, keeping two arms visible. If an octopus is in trouble, it can break off one of its arms. The arm will then change colours and squirm around in the water to distract the predator while the octopus swims away to safety. Amazingly, the octopus's arm will grow back."
+      ],
+      "questions": [
+        {
+          "id": "abqary-16-q1",
+          "type": "mcq",
+          "prompt": "A …… is an animal that attacks and kills octopuses.",
+          "options": [
+            "prey",
+            "predator",
+            "chameleon",
+            "magician"
+          ],
+          "answer": "predator",
+          "explanation": "كلمة predator معناها الحيوان المفترس اللي بيهاجم. أما prey فمعناها الفريسة (يعني الأخطبوط نفسه هنا).",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-16-q2",
+          "type": "mcq",
+          "prompt": "When an octopus is in a sticky situation, it means it's ……",
+          "options": [
+            "easy",
+            "in danger",
+            "covered in sticks",
+            "unable to move"
+          ],
+          "answer": "in danger",
+          "explanation": "معنى sticky situation موقف صعب أو خطر، والدليل الأمثلة بعدها: «when they are afraid of a predator».",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-16-q3",
+          "type": "mcq",
+          "prompt": "The synonym of the word \"intelligent\" is ……",
+          "options": [
+            "smart",
+            "dangerous",
+            "venomous",
+            "visible"
+          ],
+          "answer": "smart",
+          "explanation": "كلمة intelligent معناها ذكي، يعني smart.",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-16-q4",
+          "type": "mcq",
+          "prompt": "The octopus and the chameleon are similar as both ……",
+          "options": [
+            "swim in the same way",
+            "eat the same food",
+            "catch small fish",
+            "can change their skin colour"
+          ],
+          "answer": "can change their skin colour",
+          "explanation": "الدليل: «The octopus is like a chameleon because it can change the colour of its skin».",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-16-q5",
+          "type": "mcq",
+          "prompt": "The best title for this passage is ……",
+          "options": [
+            "The Magician Octopuses",
+            "The Sea World and the Predator",
+            "The Seabed",
+            "The Sea Ink"
+          ],
+          "answer": "The Magician Octopuses",
+          "explanation": "القطعة عن حيل الأخطبوط الذكية للهروب، وبتشبهه بالساحر «like a magician doing a vanishing act». الحبر حيلة واحدة بس.",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-16-q6",
+          "type": "mcq",
+          "prompt": "The octopus can shoot ink into the water, which ……",
+          "options": [
+            "kills the attackers",
+            "helps it hide from the attackers",
+            "pollutes the water",
+            "attracts prey"
+          ],
+          "answer": "helps it hide from the attackers",
+          "explanation": "الدليل: «The ink forms a cloud that hides the octopus».",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-16-q7",
+          "type": "mcq",
+          "prompt": "Octopuses don't have teeth or sharp claws to defend themselves; ……",
+          "options": [
+            "so, they are eaten easily",
+            "however, they have other ways to keep enemies away",
+            "moreover, they are not brave",
+            "that's why they are about to become extinct"
+          ],
+          "answer": "however, they have other ways to keep enemies away",
+          "explanation": "القطعة كلها حيل تانية للدفاع: الاستخبى في الرمل، تغيير اللون، الحبر، تقليد الثعبان، فصل الدراع. يعني however عندهم طرق تانية.",
+          "reviewStatus": "unreviewed"
+        }
+      ]
+    },
+    {
+      "id": "abqary-17",
+      "title": "Passage 17",
+      "teacher": "م. عبقري لغة",
+      "source": "م. عبقري لغة — ملزمة «حل 25 قطعة»",
+      "reviewStatus": "unreviewed",
+      "paragraphs": [
+        "Trees are beautiful. They are the useful gifts of nature. They are great friends of man. They give us flowers, fruits, timber, bamboo and fuel. We can rest in the cool shade of a tree. We get wood from the trees to make furniture, doors and windows. Trees are also a great source of rainfall. Trees prevent soil erosion. They protect us from severe weather. Trees are part and parcel of earthly life. All life, directly or indirectly, owes its existence to them. Trees release oxygen, which we need for our life. They also absorb carbon dioxide gas. Many living species live in trees. Trees form natural habitats for many animals, birds and insects. Trees help make the land fertile. We get good crops from fertile land.",
+        "They are the source of fruits and flowers. They offer us cool shade during summer. During the rainy season, we take shelter under trees. Trees and plants are the source of many life-saving drugs. They prevent land erosion and guard us against pollution. Thus, trees keep up the ecological balance. Trees protect us from inclement wind, too. Seeds, nuts and fruits are food sources for humans and animals. Trees protect the biodiversity of the ecosystem. Tree resins are used in producing varnishes. Essential oils derived from trees are used in the medical and aroma industries. Thus, trees play an important role in our life. Cutting down trees disturbs the ecosystem. We should preserve trees and plants with great care."
+      ],
+      "questions": [
+        {
+          "id": "abqary-17-q1",
+          "type": "mcq",
+          "prompt": "All life …… its existence to trees.",
+          "options": [
+            "awes",
+            "lays",
+            "owes",
+            "owns"
+          ],
+          "answer": "owes",
+          "explanation": "الدليل: «All life… owes its existence to them». owe = مدين بـ. باقي الكلمات شبهها في الشكل.",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-17-q2",
+          "type": "mcq",
+          "prompt": "Doors, windows and …… are made of wood.",
+          "options": [
+            "silver",
+            "gold",
+            "furniture",
+            "cars"
+          ],
+          "answer": "furniture",
+          "explanation": "الدليل: «We get wood from the trees to make furniture, doors and windows».",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-17-q3",
+          "type": "mcq",
+          "prompt": "Cutting down trees …… the ecosystem.",
+          "options": [
+            "causes",
+            "disturbs",
+            "encourages",
+            "freshens"
+          ],
+          "answer": "disturbs",
+          "explanation": "الدليل: «Cutting down trees disturbs the ecosystem».",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-17-q4",
+          "type": "mcq",
+          "prompt": "Many birds, animals and …… take trees as natural habitats.",
+          "options": [
+            "seeds",
+            "plants",
+            "insects",
+            "humans"
+          ],
+          "answer": "insects",
+          "explanation": "الدليل: «Trees form natural habitats for many animals, birds and insects».",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-17-q5",
+          "type": "mcq",
+          "prompt": "One needs …… for one's life.",
+          "options": [
+            "oxygen",
+            "nitrogen",
+            "hydrogen",
+            "carbon dioxide"
+          ],
+          "answer": "oxygen",
+          "explanation": "الدليل: «Trees release oxygen, which we need for our life». ثاني أكسيد الكربون الشجر بيمتصه.",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-17-q6",
+          "type": "mcq",
+          "prompt": "Trees have …… benefits.",
+          "options": [
+            "a little",
+            "a lot",
+            "little",
+            "many"
+          ],
+          "answer": "many",
+          "explanation": "القطعة بتعدّ فوايد كتير جدًا. وقواعديًا benefits جمع معدود فنقول many benefits (أما a lot لازم بعدها of).",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-17-q7",
+          "type": "mcq",
+          "prompt": "We can rest in the cool …… of a tree.",
+          "options": [
+            "shade",
+            "shake",
+            "shame",
+            "share"
+          ],
+          "answer": "shade",
+          "explanation": "الدليل: «We can rest in the cool shade of a tree». shade = ضِل.",
+          "reviewStatus": "unreviewed"
+        }
+      ]
+    },
+    {
+      "id": "abqary-18",
+      "title": "Passage 18",
+      "teacher": "م. عبقري لغة",
+      "source": "م. عبقري لغة — ملزمة «حل 25 قطعة»",
+      "reviewStatus": "unreviewed",
+      "paragraphs": [
+        "Plants have been used for treating illnesses since primitive times. Paintings in the tombs of the pharaohs show that plants were being used by the Ancient Egyptians for medical purposes. Today, some modern drugs are still based on natural herbs. Aspirin, for example, is based on the bark of the willow tree.",
+        "Natural remedies are attracting increasing attention all over the world. The advantage of herbal medicine is that the whole of the plant can be used. The powerful substance in the plant cures the illness while the contents of the rest of the plant may help to prevent any harmful side effects. In this way, herbal medicines may be safer than chemical ones. Garlic is just one herb that has been used throughout the world as a cure for diseases, as it is used to treat hair diseases.",
+        "Similarly, henna, which is known to be good for the hair, can also be used in the treatment of cancer. If you pay a visit to a herbalist's shop in Cairo, you will be struck by the different colours and smells. There are jars full of tree barks, roots, powders, oils and spices. The customer enters the shop and explains his symptoms to the herbalist, who will take notes, study medical reports and check his reference books before writing out a prescription."
+      ],
+      "questions": [
+        {
+          "id": "abqary-18-q1",
+          "type": "mcq",
+          "prompt": "Natural remedies are attracting attention because they ……",
+          "options": [
+            "are used in Egypt",
+            "have no side effects",
+            "are exported from Egypt",
+            "can treat few diseases"
+          ],
+          "answer": "have no side effects",
+          "explanation": "الدليل: «the rest of the plant may help to prevent any harmful side effects… herbal medicines may be safer than chemical ones». يعني من غير آثار جانبية ضارة.",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-18-q2",
+          "type": "mcq",
+          "prompt": "Garlic is an example of ……",
+          "options": [
+            "natural remedies",
+            "side effects",
+            "chemical medicines",
+            "modern drugs"
+          ],
+          "answer": "natural remedies",
+          "explanation": "الدليل: «Garlic is just one herb that has been used… as a cure for diseases» = علاج طبيعي.",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-18-q3",
+          "type": "mcq",
+          "prompt": "…… is a physical condition that shows you may have a particular disease.",
+          "options": [
+            "A prescription",
+            "A symptom",
+            "A remedy",
+            "An ointment"
+          ],
+          "answer": "A symptom",
+          "explanation": "كلمة symptom معناها عَرَض المرض. أما prescription فهي الروشتة، وremedy العلاج، وointment مرهم.",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-18-q4",
+          "type": "mcq",
+          "prompt": "A herbalist writes out a prescription …… checking his reference books.",
+          "options": [
+            "while",
+            "during",
+            "after",
+            "before"
+          ],
+          "answer": "after",
+          "explanation": "الدليل: «check his reference books before writing out a prescription». يعني بيكتب الروشتة بعد ما يراجع الكتب = after.",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-18-q5",
+          "type": "mcq",
+          "prompt": "The word \"his\" in \"check his reference books\" refers to the ……",
+          "options": [
+            "herbalist",
+            "shop",
+            "customer",
+            "prescription"
+          ],
+          "answer": "herbalist",
+          "explanation": "الجملة: «the herbalist, who will take notes, study medical reports and check his reference books»، يعني الكتب دي كتب العطار نفسه.",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-18-q6",
+          "type": "mcq",
+          "prompt": "What is common between garlic and henna? They both ……",
+          "options": [
+            "take care of cancer",
+            "are used to treat the lungs",
+            "have toxic chemicals",
+            "take care of hair"
+          ],
+          "answer": "take care of hair",
+          "explanation": "التوم «used to treat hair diseases» والحنة «known to be good for the hair». السرطان اتذكر مع الحنة بس.",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-18-q7",
+          "type": "mcq",
+          "prompt": "We know that the pharaohs had much interest in plants through ……",
+          "options": [
+            "garlic",
+            "paintings",
+            "herbs",
+            "food"
+          ],
+          "answer": "paintings",
+          "explanation": "الدليل: «Paintings in the tombs of the pharaohs show that plants were being used… for medical purposes».",
+          "reviewStatus": "unreviewed"
+        }
+      ]
+    },
+    {
+      "id": "abqary-19",
+      "title": "Passage 19",
+      "teacher": "م. عبقري لغة",
+      "source": "م. عبقري لغة — ملزمة «حل 25 قطعة»",
+      "reviewStatus": "unreviewed",
+      "paragraphs": [
+        "While the world was getting into the new year's celebration, David was driving his cab through the crowded streets. After losing his wife to the COVID-19 pandemic four years ago, David spent most of his time working, driving his cab day and night as if nothing had happened. Inside, however, he was suffering.",
+        "He was lost in his thoughts when a man hailed him for a ride. He was well dressed and had a bunch of gifts in his hands. The destination was quite far. A few minutes later, the passenger started chatting with David. After a while, David asked Jack if he was new to the city or visiting someone here. \"I have been in Canada for two years. It feels great coming home after such a long time. The best thing is, they have no idea I'm coming,\" replied Jack, animatedly. \"Sounds like you have a big loving family,\" said David. \"A very big family, yes. I have missed them a lot,\" Jack replied. A lucky man, David wondered.",
+        "When they reached their destination, Jack got out of the car and invited David for a cup of coffee. Just as David got out of the cab, 8 children rushed outside laughing and screaming. It was an orphanage and Jack considered these children his. David was standing in disbelief. All of the children's faces were glowing with happiness. At that moment, David learned that happiness grows when shared. And after a long time, he was smiling again."
+      ],
+      "questions": [
+        {
+          "id": "abqary-19-q1",
+          "type": "mcq",
+          "prompt": "David works as a/an ……",
+          "options": [
+            "commuter",
+            "traveller",
+            "driver",
+            "porter"
+          ],
+          "answer": "driver",
+          "explanation": "الدليل: «David was driving his cab» = سواق تاكسي.",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-19-q2",
+          "type": "mcq",
+          "prompt": "Jack had …… children.",
+          "options": [
+            "four",
+            "five",
+            "eight",
+            "no"
+          ],
+          "answer": "eight",
+          "explanation": "الدليل: «8 children rushed outside… Jack considered these children his». هو بيعتبر أطفال الملجأ الـ 8 ولاده.",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-19-q3",
+          "type": "mcq",
+          "prompt": "David's wife died in ……",
+          "options": [
+            "2017",
+            "2018",
+            "2019",
+            "2020"
+          ],
+          "answer": "2020",
+          "explanation": "ماتت بكوفيد-19، والوباء بدأ أول 2020 (أول الوفيات في يناير 2020). فمن الاختيارات اللي ينفع 2020 بس.",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-19-q4",
+          "type": "mcq",
+          "prompt": "David …… Jack as he had a big loving family.",
+          "options": [
+            "considered",
+            "envied",
+            "wondered",
+            "enlarged"
+          ],
+          "answer": "envied",
+          "explanation": "الدليل: «A lucky man, David wondered». ديفيد اللي فقد مراته حس إن جاك محظوظ = حسده/غبطه = envied.",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-19-q5",
+          "type": "mcq",
+          "prompt": "According to the passage, \"glowing\" gives the same meaning as ……",
+          "options": [
+            "glooming",
+            "shading",
+            "darkening",
+            "shining"
+          ],
+          "answer": "shining",
+          "explanation": "معنى faces were glowing with happiness إن الوشوش منورة من الفرحة، يعني shining. التلاتة التانيين معناهم ضلمة.",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-19-q6",
+          "type": "mcq",
+          "prompt": "Jack was a …… man.",
+          "options": [
+            "miserable",
+            "hospitable",
+            "hateful",
+            "nasty"
+          ],
+          "answer": "hospitable",
+          "explanation": "جاك عزم ديفيد على قهوة وبيرعى أطفال ملجأ = كريم ومضياف = hospitable.",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-19-q7",
+          "type": "mcq",
+          "prompt": "David finally realized that …… comes from sharing others' cares.",
+          "options": [
+            "sadness",
+            "happiness",
+            "grief",
+            "regret"
+          ],
+          "answer": "happiness",
+          "explanation": "الدليل: «David learned that happiness grows when shared».",
+          "reviewStatus": "unreviewed"
+        }
+      ]
+    },
+    {
+      "id": "abqary-20",
+      "title": "Passage 20",
+      "teacher": "م. عبقري لغة",
+      "source": "م. عبقري لغة — ملزمة «حل 25 قطعة»",
+      "reviewStatus": "unreviewed",
+      "paragraphs": [
+        "Man's life has been subject to a lot of changes during the last hundred years, particularly in what is connected with his consuming habits. Sixty years ago, before the start of the consumer societies of today's world, people did not throw away so many of the things they used. They re-used bottles, jars, cardboard boxes and paper bags much more carefully than we do today. Nowadays, we are returning to the same good idea, which we now call \"recycling\".",
+        "We can re-think what we throw out. Why do we throw away so much food packaging, so many plastic supermarket bags, old newspapers, old books, bottles and cans? What are all these heaps of waste doing to our environment? Can't we use some of this refuse again? The answer is: yes, we can.",
+        "New recycling industries are starting to reuse some of our rubbish. For example, the island of Taiwan now buys waste paper from the USA and recycles it to make newspaper, and for use in offices and homes. Japan takes scrap metal from the USA and makes some new parts with it. Most European and American cities now have \"recycling centres\" for people's old bottles and newspapers. As a matter of fact, recycling is not only good for the environment, but it is good business, too."
+      ],
+      "questions": [
+        {
+          "id": "abqary-20-q1",
+          "type": "mcq",
+          "prompt": "The best title for this passage is ……",
+          "options": [
+            "The Pros and Cons of Recycling",
+            "An Old Habit People Need Nowadays",
+            "Recycling Harms the Environment",
+            "A Bad Habit We Miss"
+          ],
+          "answer": "An Old Habit People Need Nowadays",
+          "explanation": "الناس زمان كانوا بيعيدوا استخدام الحاجات، و«Nowadays, we are returning to the same good idea… recycling» = عادة قديمة محتاجينها دلوقتي. مفيش عيوب للتدوير في القطعة.",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-20-q2",
+          "type": "mcq",
+          "prompt": "Recycling our rubbish means ……",
+          "options": [
+            "throwing it away",
+            "keeping it",
+            "using it again",
+            "burning it"
+          ],
+          "answer": "using it again",
+          "explanation": "الدليل: «Can't we use some of this refuse again?… New recycling industries are starting to reuse some of our rubbish».",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-20-q3",
+          "type": "mcq",
+          "prompt": "The pronoun \"it\" in \"recycles it to make newspaper\" refers to ……",
+          "options": [
+            "paper",
+            "Taiwan",
+            "the USA",
+            "metal"
+          ],
+          "answer": "paper",
+          "explanation": "الجملة: «Taiwan now buys waste paper from the USA and recycles it»، يعني it هي الورق القديم (paper).",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-20-q4",
+          "type": "mcq",
+          "prompt": "What \"change\" does the writer refer to in the first paragraph?",
+          "options": [
+            "People throw many things away all the time.",
+            "People became more wasteful than before.",
+            "People began to recycle old things again.",
+            "People refuse any consuming habits."
+          ],
+          "answer": "People became more wasteful than before.",
+          "explanation": "التغيير في «consuming habits»: زمان «people did not throw away so many of the things»، ومع مجتمعات الاستهلاك بقوا يرموا أكتر = أكثر إسرافًا.",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-20-q5",
+          "type": "mcq",
+          "prompt": "Without recycling, people will ……",
+          "options": [
+            "suffer from more environmental problems",
+            "solve all the environmental issues",
+            "buy more newspapers",
+            "increase their good habits"
+          ],
+          "answer": "suffer from more environmental problems",
+          "explanation": "الكاتب بيسأل «What are all these heaps of waste doing to our environment?» وبيقول التدوير «good for the environment». من غيره مشاكل البيئة تزيد.",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-20-q6",
+          "type": "mcq",
+          "prompt": "The USA …… scrap metal to Japan.",
+          "options": [
+            "borrows",
+            "exports",
+            "imports",
+            "crushes"
+          ],
+          "answer": "exports",
+          "explanation": "الجملة «Japan takes scrap metal from the USA» يعني أمريكا بتصدّر (exports) واليابان بتستورد.",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-20-q7",
+          "type": "mcq",
+          "prompt": "Our grandparents were …… than we are today.",
+          "options": [
+            "less careful",
+            "more careless",
+            "more economical",
+            "less wise"
+          ],
+          "answer": "more economical",
+          "explanation": "الدليل: «They re-used bottles, jars… much more carefully than we do today» = أكثر توفيرًا = more economical.",
+          "reviewStatus": "unreviewed"
+        }
+      ]
+    },
+    {
+      "id": "abqary-21",
+      "title": "Passage 21",
+      "teacher": "م. عبقري لغة",
+      "source": "م. عبقري لغة — ملزمة «حل 25 قطعة»",
+      "reviewStatus": "unreviewed",
+      "paragraphs": [
+        "From far out in space, the Earth looks like a blue ball. Since water covers three-fourths of the Earth's surface, blue is the colour we see most. The continents look brown, like small islands floating in the huge, blue sea. The Earth is shaped like a sphere or a ball. It is 25,000 miles around! It would take more than a year to walk around the whole planet. A spaceship can fly around the widest part of the sphere in only 90 minutes.",
+        "Even though spaceships have travelled to the Moon, people cannot visit the Moon without special suits. The Moon has no air or water. Astronauts first landed on the Moon in 1969. After that, there were six more trips to the Moon. They brought back Moon rocks, which scientists are still studying.",
+        "The Sun is the closest star to Earth. A star is a hot ball of burning gas. The Sun looks very big because it is so close. But the Sun is just a medium-sized star. Billions of far-away stars are much bigger than our Sun. The burning gases from the Sun are so hot that they warm the Earth from 93 million miles away! Even though the Sun is always shining, the night here on Earth is dark. That's because the Earth rotates, or turns around, every 24 hours. During the day, the Earth faces the Sun. Then we see light. During the night, the Earth turns away from the Sun. Then it faces the darkness of space."
+      ],
+      "questions": [
+        {
+          "id": "abqary-21-q1",
+          "type": "mcq",
+          "prompt": "According to the passage, man went to the Moon …… times.",
+          "options": [
+            "six",
+            "seven",
+            "eight",
+            "nine"
+          ],
+          "answer": "seven",
+          "explanation": "القطعة: «first landed on the Moon in 1969. After that, there were six more trips» = 1 + 6 = 7. (معلومة: تاريخيًا رحلة أبولو 13 ما نزلتش على القمر، فالهبوط الفعلي 6 مرات، لكن الامتحان بيمشي على القطعة.)",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-21-q2",
+          "type": "mcq",
+          "prompt": "Our Earth is a ……",
+          "options": [
+            "star",
+            "sun",
+            "planet",
+            "plant"
+          ],
+          "answer": "planet",
+          "explanation": "الدليل: «It would take more than a year to walk around the whole planet». الأرض كوكب، والشمس هي النجم.",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-21-q3",
+          "type": "mcq",
+          "prompt": "The pronoun \"it\" in \"The Sun looks very big because it is so close\" refers to ……",
+          "options": [
+            "the Moon",
+            "space",
+            "the Sun",
+            "the Earth"
+          ],
+          "answer": "the Sun",
+          "explanation": "الشمس كبيرة في عينينا لأنها قريبة: it = the Sun.",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-21-q4",
+          "type": "mcq",
+          "prompt": "The antonym of the word \"closest\" is ……",
+          "options": [
+            "largest",
+            "biggest",
+            "farthest",
+            "nearest"
+          ],
+          "answer": "farthest",
+          "explanation": "كلمة closest معناها الأقرب، وعكسها farthest يعني الأبعد. أما nearest فمرادف مش عكس.",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-21-q5",
+          "type": "mcq",
+          "prompt": "…… are still studying Moon rocks.",
+          "options": [
+            "Scientists",
+            "Doctors",
+            "Astrologers",
+            "Botanists"
+          ],
+          "answer": "Scientists",
+          "explanation": "الدليل: «Moon rocks, which scientists are still studying». astrologers = المنجمين (مش علماء).",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-21-q6",
+          "type": "mcq",
+          "prompt": "From space, the Earth looks like ……",
+          "options": [
+            "a star",
+            "a blue ball",
+            "space",
+            "the Moon"
+          ],
+          "answer": "a blue ball",
+          "explanation": "أول جملة: «From far out in space, the Earth looks like a blue ball».",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-21-q7",
+          "type": "mcq",
+          "prompt": "The Sun is so close to the Earth that it looks ……",
+          "options": [
+            "huge",
+            "small",
+            "light",
+            "distant"
+          ],
+          "answer": "huge",
+          "explanation": "الدليل: «The Sun looks very big because it is so close» = huge.",
+          "reviewStatus": "unreviewed"
+        }
+      ]
+    },
+    {
+      "id": "abqary-22",
+      "title": "Passage 22",
+      "teacher": "م. عبقري لغة",
+      "source": "م. عبقري لغة — ملزمة «حل 25 قطعة»",
+      "reviewStatus": "unreviewed",
+      "paragraphs": [
+        "Many researchers, engineers and environmentalists are expressing deep concern about changes in the overall climate of the planet. Fossil fuels are continuously used to produce electricity. The burning of these fuels produces gases like carbon dioxide, methane and nitrous oxides, which lead to global warming. Desertification also leads to warmer temperatures. The hazard of global warming is continuously causing major damage to the earth's environment.",
+        "Most people are still unaware of global warming and don't consider it a big problem in the years to come. What most people don't understand is that global warming is currently happening and we are already experiencing some of its withering effects. It severely affects ecosystems and disturbs the ecological balance; therefore, some solutions must be devised.",
+        "Alternative energy sources – solar, wind, hydro, geothermal and biomass – need to be seriously pursued. Finding and using renewable sources is one of the methods to combat the ever-increasing global warming effectively, since the continuous rise in the temperature of the planet is really upsetting. Much of the heat is absorbed by the oceans, air and land, and this heats up the surface of the planet. Global warming is caused by anthropogenic activities."
+      ],
+      "questions": [
+        {
+          "id": "abqary-22-q1",
+          "type": "mcq",
+          "prompt": "Desertification means …… a wide area of trees.",
+          "options": [
+            "clearing",
+            "planting",
+            "irrigating",
+            "spraying"
+          ],
+          "answer": "clearing",
+          "explanation": "التصحر = إزالة الشجر من مساحة كبيرة لحد ما تبقى صحرا = clearing. والقطعة بتقول إنه «leads to warmer temperatures».",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-22-q2",
+          "type": "mcq",
+          "prompt": "The word \"its\" in \"some of its withering effects\" refers to ……",
+          "options": [
+            "desertification",
+            "global warming",
+            "carbon dioxide",
+            "the environment"
+          ],
+          "answer": "global warming",
+          "explanation": "الجملة: «global warming is currently happening and we are already experiencing some of its withering effects»، يعني آثار الاحتباس الحراري.",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-22-q3",
+          "type": "mcq",
+          "prompt": "Scientists recommend …… fossil fuels in an attempt to solve the problem.",
+          "options": [
+            "using",
+            "misusing",
+            "reducing",
+            "reusing"
+          ],
+          "answer": "reducing",
+          "explanation": "حرق الوقود الحفري سبب المشكلة، والحل «Alternative energy sources… renewable sources» يعني نقلل الوقود الحفري = reducing.",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-22-q4",
+          "type": "mcq",
+          "prompt": "Burning fossil fuels …… global warming.",
+          "options": [
+            "causes of",
+            "results of",
+            "leads to",
+            "results from"
+          ],
+          "answer": "leads to",
+          "explanation": "الدليل: «The burning of these fuels produces gases… which lead to global warming». (causes بعدها مفعول على طول من غير of.)",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-22-q5",
+          "type": "mcq",
+          "prompt": "The synonym of the word \"ecological\" is ……",
+          "options": [
+            "environmental",
+            "biological",
+            "chemical",
+            "material"
+          ],
+          "answer": "environmental",
+          "explanation": "معنى ecological balance التوازن البيئي، فكلمة ecological معناها environmental (له علاقة بالبيئة).",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-22-q6",
+          "type": "mcq",
+          "prompt": "According to the passage, we …… the destructive effects of global warming.",
+          "options": [
+            "will face",
+            "faced",
+            "have never faced",
+            "are already facing"
+          ],
+          "answer": "are already facing",
+          "explanation": "الدليل: «we are already experiencing some of its withering effects».",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-22-q7",
+          "type": "mcq",
+          "prompt": "The best title for this passage is \"……\".",
+          "options": [
+            "National Disasters",
+            "Global Disasters",
+            "Trees and Nature",
+            "Anthropogenic Activities"
+          ],
+          "answer": "Global Disasters",
+          "explanation": "القطعة عن الاحتباس الحراري (Global warming) اللي بيضر كوكب الأرض كله = كارثة عالمية. «National» محلية بس.",
+          "reviewStatus": "unreviewed"
+        }
+      ]
+    },
+    {
+      "id": "abqary-23",
+      "title": "Passage 23",
+      "teacher": "م. عبقري لغة",
+      "source": "م. عبقري لغة — ملزمة «حل 25 قطعة»",
+      "reviewStatus": "unreviewed",
+      "paragraphs": [
+        "\"Necessity is the mother of invention\" is a famous common proverb which means that our needs always motivate our minds to create new things in order to manage well in a world full of speedy changes. Man's needs have often directed him to discover the natural resources around him, and to make with his own hands the things he wants. Thus, he made tools to cultivate the land and get its crops. Those tools played an important part in establishing civilization.",
+        "Food, clothing and shelter are still considered to be man's basic needs. The progress of technology has enabled man to satisfy all these needs. It has helped him to take wide steps in developing agriculture, industry and public services. Thus, we are now enjoying the blessings of modern civilization.",
+        "When civilization developed and man lived in organized societies, he found himself in need of more than his necessities. Education is next to food in importance because it is the only way to acquire experience and the qualifications necessary to earn a living. Education changed our style of living and led to higher thinking levels. Man invaded space. He invented the computer. No wonder that man has great abilities which will enable him to create more inventions in the future."
+      ],
+      "questions": [
+        {
+          "id": "abqary-23-q1",
+          "type": "mcq",
+          "prompt": "The word \"acquire\" has a similar meaning to ……",
+          "options": [
+            "require",
+            "demand",
+            "obtain",
+            "contain"
+          ],
+          "answer": "obtain",
+          "explanation": "معنى acquire experience يكتسب خبرة، يعني obtain (يحصل على). أما require وdemand فمعناهم يطلب.",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-23-q2",
+          "type": "mcq",
+          "prompt": "According to the passage, education is of great importance because ……",
+          "options": [
+            "it gives us experience and a way of earning a living",
+            "it is prior to food in importance",
+            "it is a natural resource before us",
+            "the tools played a role in our civilization"
+          ],
+          "answer": "it gives us experience and a way of earning a living",
+          "explanation": "الدليل: «it is the only way to acquire experience and the qualifications necessary to earn a living». والتعليم «next to food» يعني بعد الأكل مش قبله.",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-23-q3",
+          "type": "mcq",
+          "prompt": "Man needed more than his necessities when he ……",
+          "options": [
+            "needed tools",
+            "lived in organized societies",
+            "discovered natural resources",
+            "made the things he wanted"
+          ],
+          "answer": "lived in organized societies",
+          "explanation": "الدليل: «When civilization developed and man lived in organized societies, he found himself in need of more than his necessities».",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-23-q4",
+          "type": "mcq",
+          "prompt": "\"He made tools to cultivate the land.\" Another word for \"cultivate\" is ……",
+          "options": [
+            "ignore",
+            "destroy",
+            "plant",
+            "abandon"
+          ],
+          "answer": "plant",
+          "explanation": "معنى cultivate the land يزرع الأرض، يعني plant. التلاتة التانيين عكس المعنى.",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-23-q5",
+          "type": "mcq",
+          "prompt": "According to the passage, the need for collecting the crops led man to ……",
+          "options": [
+            "plant huge areas of land",
+            "invent agricultural tools",
+            "buy machines",
+            "hire peasants to help him"
+          ],
+          "answer": "invent agricultural tools",
+          "explanation": "الدليل: «he made tools to cultivate the land and get its crops».",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-23-q6",
+          "type": "mcq",
+          "prompt": "In the last paragraph, invading space and inventing the computer are evidence that ……",
+          "options": [
+            "man spends a lot of money",
+            "man has extraordinary abilities",
+            "science is obtainable",
+            "space exploration is not impossible"
+          ],
+          "answer": "man has extraordinary abilities",
+          "explanation": "الدليل بعدها على طول: «No wonder that man has great abilities».",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-23-q7",
+          "type": "mcq",
+          "prompt": "The main idea of the passage is \"……\".",
+          "options": [
+            "Necessities can be postponed",
+            "Conditions create inventions",
+            "The needs are motivated by possibilities",
+            "The agriculture and civilization"
+          ],
+          "answer": "Conditions create inventions",
+          "explanation": "الفكرة كلها في المثل: «Necessity is the mother of invention»، يعني احتياجاتنا وظروفنا بتدفعنا نخترع، وده معنى Conditions create inventions. أما الزراعة والحضارة فمثال في القطعة مش الفكرة الأساسية.",
+          "reviewStatus": "unreviewed"
+        }
+      ]
+    },
+    {
+      "id": "abqary-24",
+      "title": "Passage 24",
+      "teacher": "م. عبقري لغة",
+      "source": "م. عبقري لغة — ملزمة «حل 25 قطعة»",
+      "reviewStatus": "unreviewed",
+      "paragraphs": [
+        "Walking in the street at night, I found a purse full of money and an identity card. I found a photo of a pretty young lady. I put it back in the purse and went directly to the police station. The sergeant made a note of my name and address.",
+        "Last Friday, I was invited to a party at my friend's house in Shoubra. A neighbour of my friend came to visit his wife. When I looked at her face, I found it familiar to me although we hadn't met before. After a short time, I remembered that she was the lady I had seen in the photo. I was able to describe the purse and the sum of money accurately. She was surprised and we went together to the police station to get the purse back. After getting out of the police station, she thanked me a lot. She told me that she had looked for her purse for a long time until she lost hope of finding it. I went home feeling happy as I was able to make this lady happy. It is good to feel satisfied with yourself."
+      ],
+      "questions": [
+        {
+          "id": "abqary-24-q1",
+          "type": "mcq",
+          "prompt": "The writer met the purse owner at ……",
+          "options": [
+            "the police station",
+            "the street",
+            "their first school",
+            "his friend's house"
+          ],
+          "answer": "his friend's house",
+          "explanation": "الدليل: «I was invited to a party at my friend's house in Shoubra. A neighbour of my friend came to visit his wife».",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-24-q2",
+          "type": "mcq",
+          "prompt": "The word …… in the passage is the antonym of the word \"exotic\".",
+          "options": [
+            "abnormal",
+            "familiar",
+            "purse",
+            "accurate"
+          ],
+          "answer": "familiar",
+          "explanation": "كلمة exotic معناها غريب أو أجنبي، وعكسها familiar يعني مألوف. والكلمة موجودة في القطعة: «I found it familiar to me».",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-24-q3",
+          "type": "mcq",
+          "prompt": "This passage is extracted from a ……",
+          "options": [
+            "comic",
+            "science book",
+            "religion book",
+            "story"
+          ],
+          "answer": "story",
+          "explanation": "حكاية بضمير المتكلم فيها أحداث وشخصيات = story.",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-24-q4",
+          "type": "mcq",
+          "prompt": "The moral lesson is ……",
+          "options": [
+            "feeling happy",
+            "walking in the street",
+            "finding a purse",
+            "making others happy"
+          ],
+          "answer": "making others happy",
+          "explanation": "الدليل: «I went home feeling happy as I was able to make this lady happy». المغزى: إسعاد الآخرين (والأمانة) بيرضيك عن نفسك.",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-24-q5",
+          "type": "mcq",
+          "prompt": "If the lady hadn't visited her friend's wife, she would ……",
+          "options": [
+            "not know about her purse",
+            "not forget about her purse",
+            "forget about the money",
+            "find her purse"
+          ],
+          "answer": "not know about her purse",
+          "explanation": "هي كانت فقدت الأمل «until she lost hope of finding it»، وعرفت مكانها بس لما قابلت الكاتب في الزيارة. من غيرها ما كانتش هتعرف حاجة عن شنطتها.",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-24-q6",
+          "type": "mcq",
+          "prompt": "If you find a sum of money, it's honest to ……",
+          "options": [
+            "give it to the police",
+            "give it to your friends",
+            "share it with others",
+            "share it with the police"
+          ],
+          "answer": "give it to the police",
+          "explanation": "زي الكاتب: «went directly to the police station». ده التصرف الأمين.",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-24-q7",
+          "type": "mcq",
+          "prompt": "The word \"satisfied\" means ……",
+          "options": [
+            "angry",
+            "happy",
+            "cross",
+            "nervous"
+          ],
+          "answer": "happy",
+          "explanation": "كلمة satisfied معناها راضي ومبسوط، يعني happy. أما angry وcross فمعناهم زعلان.",
+          "reviewStatus": "unreviewed"
+        }
+      ]
+    },
+    {
+      "id": "abqary-25",
+      "title": "Passage 25",
+      "teacher": "م. عبقري لغة",
+      "source": "م. عبقري لغة — ملزمة «حل 25 قطعة»",
+      "reviewStatus": "unreviewed",
+      "paragraphs": [
+        "Sports are full of wonderful moments, but perhaps nothing is as exciting as the finish of the marathon. It is the longest and hardest race of all. The name marathon came from a village in Greece. A famous battle was fought there in the year 490 BC. When the Greeks had beaten the Persians, a soldier ran the way from Marathon to Athens, more than 40 kilometres, to tell people the good news. When the modern Olympic Games started in 1890, the organizers knew the story. The marathon has been a race ever since.",
+        "In the ancient world, the Olympics were held every four years. They were an important part of life. In modern games we try to copy their ideas. The finest sportsmen in the world gather in one place – or at least, the finest amateurs do. An amateur is someone who does not earn any money from sports. It is often difficult to say who is an amateur and who is not.",
+        "It is true that some Olympic athletes do earn a large amount of money, like professional sportsmen. But most Olympic athletes are students, teachers or people with other jobs. They have to spend a lot of money on training. Their governments pay for their training, travel and pocket money because they want them to win."
+      ],
+      "questions": [
+        {
+          "id": "abqary-25-q1",
+          "type": "mcq",
+          "prompt": "The marathon is the …… race of all.",
+          "options": [
+            "longest",
+            "most modern",
+            "fastest",
+            "slowest"
+          ],
+          "answer": "longest",
+          "explanation": "الدليل: «It is the longest and hardest race of all».",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-25-q2",
+          "type": "mcq",
+          "prompt": "An amateur is someone who …… from sport.",
+          "options": [
+            "doesn't earn any money",
+            "earns much money",
+            "earns little money",
+            "earns no money"
+          ],
+          "answer": "doesn't earn any money",
+          "explanation": "الدليل بالنص: «An amateur is someone who does not earn any money from sports». (الاختيار d نفس المعنى، بس a هو كلام القطعة بالحرف، وده المطلوب.)",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-25-q3",
+          "type": "mcq",
+          "prompt": "The name marathon came from ……",
+          "options": [
+            "a story",
+            "a village in Greece",
+            "a race",
+            "a toy"
+          ],
+          "answer": "a village in Greece",
+          "explanation": "الدليل: «The name marathon came from a village in Greece».",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-25-q4",
+          "type": "mcq",
+          "prompt": "The …… Olympic Games were started in 1890.",
+          "options": [
+            "ancient",
+            "modern",
+            "old",
+            "traditional"
+          ],
+          "answer": "modern",
+          "explanation": "الدليل: «When the modern Olympic Games started in 1890».",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-25-q5",
+          "type": "mcq",
+          "prompt": "A lot of money is needed for Olympic athletes because ……",
+          "options": [
+            "the governments need teachers",
+            "Olympic athletes have to spend a lot of money on training",
+            "the Olympics were held every four years",
+            "the Olympic Games were started in 1890"
+          ],
+          "answer": "Olympic athletes have to spend a lot of money on training",
+          "explanation": "الدليل: «They have to spend a lot of money on training».",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-25-q6",
+          "type": "mcq",
+          "prompt": "The modern Olympic Games were started in ……",
+          "options": [
+            "1800",
+            "1980",
+            "490",
+            "1890"
+          ],
+          "answer": "1890",
+          "explanation": "على حسب القطعة: «started in 1890». (معلومة: تاريخيًا أول دورة أولمبية حديثة كانت في أثينا سنة 1896، بس الإجابة من القطعة 1890.)",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "id": "abqary-25-q7",
+          "type": "mcq",
+          "prompt": "The word \"amateur\" in the passage means ……",
+          "options": [
+            "not professional",
+            "modern",
+            "ancient",
+            "very old"
+          ],
+          "answer": "not professional",
+          "explanation": "كلمة amateur معناها هاوي مش محترف، بيلعب من غير فلوس، يعني not professional.",
+          "reviewStatus": "unreviewed"
+        }
+      ]
+    }
+  ]
 }

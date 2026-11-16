@@ -66,17 +66,67 @@
     });
   }
 
+  /* True when the first letter of the text is Arabic (an explanation written
+     in Arabic that quotes English words). */
+  function startsInArabic(text) {
+    var first = String(text).match(/[A-Za-z\u0600-\u06FF]/);
+    return Boolean(first) && ARABIC.test(first[0]);
+  }
+
+  /* An Arabic explanation of an English question quotes its evidence as
+     «…». A quote of four English words or more gets its own left-to-right
+     line, so the English sentence is not cut up inside the Arabic text; a
+     shorter one stays in the line but is never split over two lines. */
+  var QUOTE = /«[^«»]*»/g;
+  var AFTER_QUOTE = /^[.,،؛:]/;
+
+  function explanationNodes(text) {
+    var nodes = [];
+    var last = 0;
+    var match;
+    QUOTE.lastIndex = 0;
+    while ((match = QUOTE.exec(text))) {
+      var words = (match[0].match(/[A-Za-z]+/g) || []).length;
+      if (!words) continue;
+      var quote = match[0];
+      var end = match.index + quote.length;
+      if (words >= 4 && AFTER_QUOTE.test(text.slice(end))) {
+        quote += text.charAt(end);
+        end += 1;
+      }
+      if (match.index > last) nodes.push(text.slice(last, match.index));
+      nodes.push(el(words >= 4 ? 'span' : 'bdi', {
+        className: words >= 4 ? 'explanation-quote' : 'explanation-term',
+        dir: 'ltr',
+        lang: 'en',
+        text: quote
+      }));
+      last = end;
+    }
+    if (last < text.length) nodes.push(text.slice(last));
+    return nodes;
+  }
+
   function explanationParagraph(question, reviewed) {
     if (!G12.Schema.hasText(question.explanation)) return null;
+    var label = reviewed ? t('Explanation:') : t('Suggested explanation:');
     // An Arabic explanation gets its own right-to-left paragraph under the label.
     if (question.lang === 'ar') {
       return el('div', { className: 'explanation-block' }, [
-        el('p', null, [el('strong', { text: reviewed ? t('Explanation:') : t('Suggested explanation:') })]),
+        el('p', null, [el('strong', { text: label })]),
         el('p', { lang: 'ar', dir: 'rtl', className: 'explanation-text', text: question.explanation })
       ]);
     }
+    // So does an English question's explanation written in Arabic, with the
+    // English sentences it quotes on their own lines.
+    if (startsInArabic(question.explanation)) {
+      return el('div', { className: 'explanation-block' }, [
+        el('p', null, [el('strong', { text: label })]),
+        el('p', { lang: 'ar', dir: 'rtl', className: 'explanation-text' }, explanationNodes(question.explanation))
+      ]);
+    }
     return el('p', null, [
-      el('strong', { text: (reviewed ? t('Explanation:') : t('Suggested explanation:')) + ' ' }),
+      el('strong', { text: label + ' ' }),
       el('span', { dir: 'auto', className: 'explanation-text', text: question.explanation })
     ]);
   }

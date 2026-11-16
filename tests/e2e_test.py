@@ -496,7 +496,8 @@ def student_pages_in_preview(page, base):
     page.click("button:has-text('Submit answer')")
     page.click("button:has-text('Next question')")
     answer_current(page, "P")
-    page.click("button:has-text('Show suggested answer')")
+    # reading answers are shown as the answer key
+    page.click("button:has-text('Show correct answer')")
     page.click("button:has-text('See results')")
     expect(page.locator(".score-number")).to_have_text("0 / 1")
     expect(page.locator(".review-list li")).to_have_count(2)
@@ -988,8 +989,9 @@ def phase2_pages(browser, base):
     page.click("button:has-text('Check my answers')")
     page.click("button:has-text('Check anyway')")
     expect(page.locator(".worksheet-score .score-number")).to_have_text("1 / 2")
-    record("reading: matched, different and unanswered are reported separately",
-           "Matched: 1" in page.locator(".score-breakdown").inner_text() and "Different: 1" in page.locator(".score-breakdown").inner_text())
+    record("reading: correct, not correct and unanswered are reported separately (answers are the answer key)",
+           "Correct: 1" in page.locator(".score-breakdown").inner_text() and "Not correct: 1" in page.locator(".score-breakdown").inner_text(),
+           page.locator(".score-breakdown").inner_text())
     audit(page, "reading answer-all")
     page.screenshot(path=str(SHOTS / "16-reading-answer-all.png"), full_page=True)
     page.click(".mode-switch button:has-text('One at a time')")
@@ -3005,6 +3007,118 @@ def quizzes(browser, base):
     context.close()
 
 
+# ---------------------------------------------------------------- «حل 25 قطعة» reading passages
+
+TEACHER_25 = "م. عبقري لغة"
+
+
+def reading_25(browser, base):
+    text = (PROJECT / "reading-passages.json").read_text(encoding="utf-8")
+    passages = [p for p in json.loads(text)["passages"] if p["id"].startswith("abqary-")]
+
+    def with_passages(**options):
+        # the test server has empty data files: serve the real passages
+        context = browser.new_context(**options)
+        context.route("**/reading-passages.json", serve_json(text))
+        return context
+
+    context = with_passages(viewport={"width": 1280, "height": 900})
+    page = watch(context.new_page())
+
+    # The list: one card per passage, the teacher's name above each title, no review labels
+    page.goto(base + "reading.html")
+    settle(page)
+    record("reading 25: a card for each of the 26 passages", page.locator(".card").count() == 26, str(page.locator(".card").count()))
+    order = page.locator(".card").first.evaluate("c => Array.from(c.children).map(n => n.className || n.tagName)")
+    names = page.locator(".card .passage-teacher span[dir='auto']").all_inner_texts()
+    record("reading 25: the teacher's name is above the title on every card",
+           len(names) == 26 and all(name == TEACHER_25 for name in names) and order[:2] == ["passage-teacher", "H2"], str(order))
+    main_text = page.inner_text("main")
+    record("reading 25: no review labels or 'not reviewed' notes on the list",
+           page.locator(".badge--reviewed, .badge--unreviewed").count() == 0 and "reviewed" not in main_text.lower(), main_text[:200])
+    audit(page, "reading 25 list")
+    page.screenshot(path=str(SHOTS / "reading25-01-list.png"))
+
+    # Every passage: the teacher above its title, and the answer key gives full marks
+    for passage in passages:
+        page.goto(base + "reading.html?passage=" + passage["id"])
+        page.wait_for_selector(".worksheet-q")
+        above = page.evaluate("""() => {
+          const line = document.querySelector('.passage-teacher');
+          return line ? [line.nextElementSibling.tagName, line.querySelector("span[dir='auto']").textContent] : null;
+        }""")
+        for question in passage["questions"]:
+            index = question["options"].index(question["answer"])
+            page.locator("input[data-question='%s'][data-index='%d']" % (question["id"], index)).check()
+        page.click("button:has-text('Check my answers')")
+        total = len(passage["questions"])
+        score = page.locator(".worksheet-score .score-number").inner_text()
+        record("reading 25: %s — teacher above the title, %d questions, full marks with the answer key" % (passage["title"], total),
+               above == ["H1", TEACHER_25] and score == "%d / %d" % (total, total)
+               and page.locator(".badge--reviewed, .badge--unreviewed").count() == 0
+               and "suggested" not in page.inner_text("main").lower(),
+               "%s %s" % (above, score))
+    no_errors(page, "reading 25 passages")
+
+    # One at a time: a wrong choice is "not correct", the right one is "Correct!", the Arabic explanation reads right to left
+    passage = passages[0]
+    question = passage["questions"][0]
+    page.goto(base + "reading.html?passage=" + passage["id"])
+    page.wait_for_selector(".worksheet-q")
+    page.click(".mode-switch button:has-text('One at a time')")
+    wrong = next(option for option in question["options"] if option != question["answer"])
+    page.click(".options label:has-text('%s')" % wrong)
+    page.click("button:has-text('Submit answer')")
+    record("reading 25: a wrong answer is marked not correct, with the correct answer button",
+           page.locator("button:has-text('Show correct answer')").count() == 1, page.locator(".feedback").inner_text()[:200])
+    page.click("button:has-text('Try again')")
+    page.click(".options label:has-text('%s')" % question["answer"])
+    page.click("button:has-text('Submit answer')")
+    expect(page.locator(".feedback-title")).to_have_text("Correct!")
+    explanation = page.locator(".feedback .explanation-text")
+    record("reading 25: the Arabic explanation is its own right-to-left paragraph",
+           explanation.get_attribute("dir") == "rtl" and explanation.get_attribute("lang") == "ar"
+           and explanation.evaluate("e => e.textContent") == question["explanation"])
+    audit(page, "reading 25 one at a time")
+    page.screenshot(path=str(SHOTS / "reading25-02-feedback.png"), full_page=True)
+    no_errors(page, "reading 25 one at a time")
+    context.close()
+
+    # Phone width, Arabic interface: the teacher line is labelled for screen readers
+    context = with_passages(viewport={"width": 390, "height": 844})
+    page = watch(context.new_page())
+    use_arabic(page, base)
+    page.goto(base + "reading.html?passage=abqary-10b")
+    page.wait_for_selector(".worksheet-q")
+    record("reading 25: the teacher line has a hidden 'المدرس:' label in Arabic",
+           page.locator(".passage-teacher .visually-hidden").evaluate("e => e.textContent").strip() == "المدرس:")
+    edges = page.evaluate("""() => {
+      const name = document.querySelector('.passage-teacher-name').getBoundingClientRect();
+      const range = document.createRange();
+      range.selectNodeContents(document.querySelector('h1'));
+      return [Math.round(name.left), Math.round(range.getBoundingClientRect().left)];
+    }""")
+    record("reading 25: in the Arabic interface the teacher's name sits above the start of the English title",
+           abs(edges[0] - edges[1]) <= 2, str(edges))
+    audit(page, "reading 25 phone, Arabic")
+    page.screenshot(path=str(SHOTS / "reading25-03-phone.png"), full_page=False)
+    no_errors(page, "reading 25 phone")
+    context.close()
+
+    # The content manager keeps the teacher when a passage is saved
+    context = with_passages()
+    page = watch(context.new_page())
+    page.goto(base + "manage.html#passages/edit/abqary-01")
+    settle(page)
+    kept = page.input_value("#f-teacher") == TEACHER_25
+    page.click("button:has-text('Save changes')")
+    saved = draft(page)
+    teacher = saved and [p.get("teacher") for p in saved["passages"] if p["id"] == "abqary-01"]
+    record("manager: the passage's teacher is shown and kept on save", kept and teacher == [TEACHER_25], str(teacher))
+    no_errors(page, "manager teacher field")
+    context.close()
+
+
 def main():
     real_data = {name: (PROJECT / name).read_bytes() for name, _ in DATA_FILES}
     server, base = start_server()
@@ -3050,6 +3164,7 @@ def main():
         run_section("visitor register and founder dashboard", visitor_register, browser, base)
         run_section("dhikr card", dhikr, browser, base)
         run_section("quizzes", quizzes, browser, base)
+        run_section("«حل 25 قطعة» reading passages", reading_25, browser, base)
         browser.close()
     server.shutdown()
     contrast()
