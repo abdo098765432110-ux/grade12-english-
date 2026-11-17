@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="robots" content="noindex,nofollow">
+<title>مشغّل فيديوهات صناديق المعرفة</title>
+<style>
+html,body{margin:0;height:100%;background:#000;color:#ddd;overflow:hidden;font:15px/1.8 system-ui,-apple-system,"Segoe UI",Tahoma,sans-serif}
+iframe{position:fixed;inset:0;width:100%;height:100%;border:0;display:block}
+.note{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:16px}
+</style>
+</head>
+<body>
+<script>
+/*
+  مشغّل صغير لملف «صناديق المعرفة».
+  يوتيوب بيرفض يشتغل جوه ملف مفتوح من الجهاز (file://) وبيكتب «Error 153»،
+  لأن الملف ده مش بيقول ليوتيوب هو مين. الصفحة دي متشالة على النت، فالملف
+  بيفتحها جوه مكان الفيديو، وهي اللي بتشغّل يوتيوب جواها، والفيديو بيفضل
+  شغال جوه الملف نفسه.
+  الصفحة دي مش بتحفظ ولا بتبعت أي حاجة لأي حد: بتاخد رقم الفيديو وبس.
+*/
+(function () {
+  'use strict';
+  var YT = 'https://www.youtube-nocookie.com';
+  var P = new URLSearchParams((location.hash || '').replace(/^#/, '') || (location.search || '').replace(/^\?/, ''));
+  function pick(k, re) { var x = P.get(k); return x && re.test(x) ? x : ''; }
+  var id = pick('v', /^[A-Za-z0-9_-]{11}$/), list = pick('list', /^[A-Za-z0-9_-]{10,64}$/);
+  var up = window.parent !== window ? window.parent : null;
+  function tell(o) { if (!up) return; o.kbp = 1; try { up.postMessage(o, '*'); } catch (e) { } }
+
+  if (!id && !list) {
+    var n = document.createElement('div'); n.className = 'note';
+    n.textContent = 'ده مشغّل فيديوهات «صناديق المعرفة»، وبيشتغل من جوه الملف بس.';
+    document.body.appendChild(n); tell({ type: 'ready', empty: true }); return;
+  }
+
+  var q = new URLSearchParams({ autoplay: pick('autoplay', /^[01]$/) || '1', rel: '0', playsinline: '1', enablejsapi: '1', iv_load_policy: '3', origin: location.origin, widget_referrer: location.origin });
+  var s = pick('start', /^\d{1,6}$/); if (s) q.set('start', s);
+  if (pick('mute', /^1$/)) q.set('mute', '1');
+  if (pick('loop', /^1$/) && id) { q.set('loop', '1'); q.set('playlist', id); }
+  if (list) q.set('list', list);
+
+  var f = document.createElement('iframe');
+  f.title = 'YouTube';
+  f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen; clipboard-write; web-share';
+  f.allowFullscreen = true;
+  f.referrerPolicy = 'strict-origin-when-cross-origin';
+  f.src = YT + '/embed/' + (id || 'videoseries') + '?' + q;
+  document.body.appendChild(f);
+
+  // نطلب من يوتيوب يقولنا لو حصل حاجة (اشتغل، وقف، أو فيه مشكلة)
+  var heard = false, tries = 0, T = 0;
+  function listen() { try { f.contentWindow.postMessage(JSON.stringify({ event: 'listening', id: 1, channel: 'widget' }), YT); } catch (e) { } }
+  f.addEventListener('load', function () { clearInterval(T); tries = 0; heard = false; listen(); T = setInterval(function () { if (heard || ++tries > 40) return clearInterval(T); listen(); }, 250); });
+
+  var OK = /^(playVideo|pauseVideo|stopVideo|mute|unMute|seekTo|setVolume|nextVideo|previousVideo|playVideoAt|setPlaybackRate|setLoop|setShuffle)$/;
+  window.addEventListener('message', function (e) {
+    var d;
+    if (e.source === f.contentWindow) {
+      // من يوتيوب ← للملف (الحاجات المهمة بس)
+      heard = true;
+      try { d = typeof e.data === 'string' ? JSON.parse(e.data) : e.data; } catch (x) { return; }
+      if (!d || typeof d.event !== 'string' || d.event === 'infoDelivery' || d.event === 'apiInfoDelivery' || d.event === 'initialDelivery') return;
+      tell({ type: 'yt', ev: d.event, info: (typeof d.info === 'number' || typeof d.info === 'string') ? d.info : null });
+      return;
+    }
+    if (up && e.source === up) {
+      // من الملف ← ليوتيوب (أوامر التشغيل بس)
+      try { d = typeof e.data === 'string' ? JSON.parse(e.data) : e.data; } catch (x) { return; }
+      if (!d || d.event !== 'command' || !OK.test(String(d.func || ''))) return;
+      var args = Array.isArray(d.args) ? d.args.slice(0, 3).filter(function (a) { return typeof a === 'number' || typeof a === 'boolean'; }) : [];
+      try { f.contentWindow.postMessage(JSON.stringify({ event: 'command', func: d.func, args: args, id: 1, channel: 'widget' }), YT); } catch (x) { }
+    }
+  });
+  tell({ type: 'ready' });
+})();
+</script>
+</body>
+</html>
